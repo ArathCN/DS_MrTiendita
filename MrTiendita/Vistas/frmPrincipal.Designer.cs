@@ -71,9 +71,9 @@ namespace MrTiendita.Vistas
             this.MenuLateral.Controls.Add(this.pnl_Logo);
             this.MenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuLateral.Location = new System.Drawing.Point(0, 0);
-            this.MenuLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MenuLateral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MenuLateral.Name = "MenuLateral";
-            this.MenuLateral.Size = new System.Drawing.Size(177, 640);
+            this.MenuLateral.Size = new System.Drawing.Size(236, 788);
             this.MenuLateral.TabIndex = 0;
             // 
             // pnl_OpEncargado
@@ -84,10 +84,10 @@ namespace MrTiendita.Vistas
             this.pnl_OpEncargado.Controls.Add(this.btn_ECaja);
             this.pnl_OpEncargado.Controls.Add(this.btn_EEmpleados);
             this.pnl_OpEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_OpEncargado.Location = new System.Drawing.Point(0, 413);
-            this.pnl_OpEncargado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_OpEncargado.Location = new System.Drawing.Point(0, 507);
+            this.pnl_OpEncargado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_OpEncargado.Name = "pnl_OpEncargado";
-            this.pnl_OpEncargado.Size = new System.Drawing.Size(177, 314);
+            this.pnl_OpEncargado.Size = new System.Drawing.Size(236, 386);
             this.pnl_OpEncargado.TabIndex = 10;
             // 
             // btn_EAlmacen
@@ -112,14 +112,14 @@ namespace MrTiendita.Vistas
             this.btn_EAlmacen.IconVisible = true;
             this.btn_EAlmacen.IconZoom = 45D;
             this.btn_EAlmacen.IsTab = false;
-            this.btn_EAlmacen.Location = new System.Drawing.Point(8, 7);
-            this.btn_EAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_EAlmacen.Location = new System.Drawing.Point(11, 9);
+            this.btn_EAlmacen.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_EAlmacen.Name = "btn_EAlmacen";
             this.btn_EAlmacen.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_EAlmacen.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_EAlmacen.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_EAlmacen.selected = false;
-            this.btn_EAlmacen.Size = new System.Drawing.Size(157, 52);
+            this.btn_EAlmacen.Size = new System.Drawing.Size(209, 64);
             this.btn_EAlmacen.TabIndex = 5;
             this.btn_EAlmacen.Text = "             Almacén";
             this.btn_EAlmacen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,14 +149,14 @@ namespace MrTiendita.Vistas
             this.btn_EReportes.IconVisible = true;
             this.btn_EReportes.IconZoom = 45D;
             this.btn_EReportes.IsTab = false;
-            this.btn_EReportes.Location = new System.Drawing.Point(8, 254);
-            this.btn_EReportes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_EReportes.Location = new System.Drawing.Point(11, 313);
+            this.btn_EReportes.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_EReportes.Name = "btn_EReportes";
             this.btn_EReportes.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_EReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_EReportes.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_EReportes.selected = false;
-            this.btn_EReportes.Size = new System.Drawing.Size(157, 52);
+            this.btn_EReportes.Size = new System.Drawing.Size(209, 64);
             this.btn_EReportes.TabIndex = 9;
             this.btn_EReportes.Text = "             Reportes";
             this.btn_EReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,14 +186,14 @@ namespace MrTiendita.Vistas
             this.btn_EProveedores.IconVisible = true;
             this.btn_EProveedores.IconZoom = 45D;
             this.btn_EProveedores.IsTab = false;
-            this.btn_EProveedores.Location = new System.Drawing.Point(8, 69);
-            this.btn_EProveedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_EProveedores.Location = new System.Drawing.Point(11, 85);
+            this.btn_EProveedores.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_EProveedores.Name = "btn_EProveedores";
             this.btn_EProveedores.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_EProveedores.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_EProveedores.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_EProveedores.selected = false;
-            this.btn_EProveedores.Size = new System.Drawing.Size(157, 52);
+            this.btn_EProveedores.Size = new System.Drawing.Size(209, 64);
             this.btn_EProveedores.TabIndex = 6;
             this.btn_EProveedores.Text = "             Proveedores";
             this.btn_EProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -223,14 +223,14 @@ namespace MrTiendita.Vistas
             this.btn_ECaja.IconVisible = true;
             this.btn_ECaja.IconZoom = 45D;
             this.btn_ECaja.IsTab = false;
-            this.btn_ECaja.Location = new System.Drawing.Point(8, 192);
-            this.btn_ECaja.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_ECaja.Location = new System.Drawing.Point(11, 236);
+            this.btn_ECaja.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_ECaja.Name = "btn_ECaja";
             this.btn_ECaja.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_ECaja.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_ECaja.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_ECaja.selected = false;
-            this.btn_ECaja.Size = new System.Drawing.Size(157, 52);
+            this.btn_ECaja.Size = new System.Drawing.Size(209, 64);
             this.btn_ECaja.TabIndex = 8;
             this.btn_ECaja.Text = "             Caja";
             this.btn_ECaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -260,14 +260,14 @@ namespace MrTiendita.Vistas
             this.btn_EEmpleados.IconVisible = true;
             this.btn_EEmpleados.IconZoom = 45D;
             this.btn_EEmpleados.IsTab = false;
-            this.btn_EEmpleados.Location = new System.Drawing.Point(8, 131);
-            this.btn_EEmpleados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_EEmpleados.Location = new System.Drawing.Point(11, 161);
+            this.btn_EEmpleados.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_EEmpleados.Name = "btn_EEmpleados";
             this.btn_EEmpleados.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_EEmpleados.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_EEmpleados.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_EEmpleados.selected = false;
-            this.btn_EEmpleados.Size = new System.Drawing.Size(157, 52);
+            this.btn_EEmpleados.Size = new System.Drawing.Size(209, 64);
             this.btn_EEmpleados.TabIndex = 7;
             this.btn_EEmpleados.Text = "             Empleados";
             this.btn_EEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,10 +279,10 @@ namespace MrTiendita.Vistas
             // 
             this.pnl_Encargado.Controls.Add(this.btn_Encargado);
             this.pnl_Encargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Encargado.Location = new System.Drawing.Point(0, 355);
-            this.pnl_Encargado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Encargado.Location = new System.Drawing.Point(0, 436);
+            this.pnl_Encargado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Encargado.Name = "pnl_Encargado";
-            this.pnl_Encargado.Size = new System.Drawing.Size(177, 58);
+            this.pnl_Encargado.Size = new System.Drawing.Size(236, 71);
             this.pnl_Encargado.TabIndex = 0;
             // 
             // btn_Encargado
@@ -291,7 +291,7 @@ namespace MrTiendita.Vistas
             this.btn_Encargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_Encargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Encargado.BorderRadius = 7;
-            this.btn_Encargado.ButtonText = "         Encargado";
+            this.btn_Encargado.ButtonText = "             Encargado";
             this.btn_Encargado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Encargado.DisabledColor = System.Drawing.Color.Gray;
             this.btn_Encargado.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,19 +307,19 @@ namespace MrTiendita.Vistas
             this.btn_Encargado.IconVisible = true;
             this.btn_Encargado.IconZoom = 40D;
             this.btn_Encargado.IsTab = false;
-            this.btn_Encargado.Location = new System.Drawing.Point(10, 3);
-            this.btn_Encargado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_Encargado.Location = new System.Drawing.Point(13, 4);
+            this.btn_Encargado.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_Encargado.Name = "btn_Encargado";
             this.btn_Encargado.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_Encargado.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.btn_Encargado.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_Encargado.selected = false;
-            this.btn_Encargado.Size = new System.Drawing.Size(154, 52);
+            this.btn_Encargado.Size = new System.Drawing.Size(205, 64);
             this.btn_Encargado.TabIndex = 1;
-            this.btn_Encargado.Text = "         Encargado";
+            this.btn_Encargado.Text = "             Encargado";
             this.btn_Encargado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Encargado.Textcolor = System.Drawing.Color.Black;
-            this.btn_Encargado.TextFont = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Encargado.TextFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Encargado.Click += new System.EventHandler(this.btn_Encargado_Click);
             // 
             // pnl_OpCajero
@@ -328,10 +328,10 @@ namespace MrTiendita.Vistas
             this.pnl_OpCajero.Controls.Add(this.btn_CVentas);
             this.pnl_OpCajero.Controls.Add(this.btn_CAlmacen);
             this.pnl_OpCajero.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_OpCajero.Location = new System.Drawing.Point(0, 163);
-            this.pnl_OpCajero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_OpCajero.Location = new System.Drawing.Point(0, 200);
+            this.pnl_OpCajero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_OpCajero.Name = "pnl_OpCajero";
-            this.pnl_OpCajero.Size = new System.Drawing.Size(177, 192);
+            this.pnl_OpCajero.Size = new System.Drawing.Size(236, 236);
             this.pnl_OpCajero.TabIndex = 6;
             // 
             // btn_CCaja
@@ -356,14 +356,14 @@ namespace MrTiendita.Vistas
             this.btn_CCaja.IconVisible = true;
             this.btn_CCaja.IconZoom = 45D;
             this.btn_CCaja.IsTab = false;
-            this.btn_CCaja.Location = new System.Drawing.Point(10, 131);
-            this.btn_CCaja.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_CCaja.Location = new System.Drawing.Point(13, 161);
+            this.btn_CCaja.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_CCaja.Name = "btn_CCaja";
             this.btn_CCaja.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_CCaja.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_CCaja.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_CCaja.selected = false;
-            this.btn_CCaja.Size = new System.Drawing.Size(157, 52);
+            this.btn_CCaja.Size = new System.Drawing.Size(209, 64);
             this.btn_CCaja.TabIndex = 5;
             this.btn_CCaja.Text = "             Caja";
             this.btn_CCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -393,14 +393,14 @@ namespace MrTiendita.Vistas
             this.btn_CVentas.IconVisible = true;
             this.btn_CVentas.IconZoom = 45D;
             this.btn_CVentas.IsTab = false;
-            this.btn_CVentas.Location = new System.Drawing.Point(10, 7);
-            this.btn_CVentas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_CVentas.Location = new System.Drawing.Point(13, 9);
+            this.btn_CVentas.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_CVentas.Name = "btn_CVentas";
             this.btn_CVentas.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_CVentas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_CVentas.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_CVentas.selected = false;
-            this.btn_CVentas.Size = new System.Drawing.Size(157, 52);
+            this.btn_CVentas.Size = new System.Drawing.Size(209, 64);
             this.btn_CVentas.TabIndex = 3;
             this.btn_CVentas.Text = "             Ventas";
             this.btn_CVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -430,14 +430,14 @@ namespace MrTiendita.Vistas
             this.btn_CAlmacen.IconVisible = true;
             this.btn_CAlmacen.IconZoom = 45D;
             this.btn_CAlmacen.IsTab = false;
-            this.btn_CAlmacen.Location = new System.Drawing.Point(10, 69);
-            this.btn_CAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_CAlmacen.Location = new System.Drawing.Point(13, 85);
+            this.btn_CAlmacen.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_CAlmacen.Name = "btn_CAlmacen";
             this.btn_CAlmacen.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_CAlmacen.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_CAlmacen.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_CAlmacen.selected = false;
-            this.btn_CAlmacen.Size = new System.Drawing.Size(157, 52);
+            this.btn_CAlmacen.Size = new System.Drawing.Size(209, 64);
             this.btn_CAlmacen.TabIndex = 4;
             this.btn_CAlmacen.Text = "             Almacén";
             this.btn_CAlmacen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -449,10 +449,10 @@ namespace MrTiendita.Vistas
             // 
             this.pnl_Cajero.Controls.Add(this.btn_Cajero);
             this.pnl_Cajero.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Cajero.Location = new System.Drawing.Point(0, 105);
-            this.pnl_Cajero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Cajero.Location = new System.Drawing.Point(0, 129);
+            this.pnl_Cajero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Cajero.Name = "pnl_Cajero";
-            this.pnl_Cajero.Size = new System.Drawing.Size(177, 58);
+            this.pnl_Cajero.Size = new System.Drawing.Size(236, 71);
             this.pnl_Cajero.TabIndex = 6;
             // 
             // btn_Cajero
@@ -461,7 +461,7 @@ namespace MrTiendita.Vistas
             this.btn_Cajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_Cajero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Cajero.BorderRadius = 7;
-            this.btn_Cajero.ButtonText = "         Cajero";
+            this.btn_Cajero.ButtonText = "             Cajero";
             this.btn_Cajero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cajero.DisabledColor = System.Drawing.Color.Gray;
             this.btn_Cajero.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -477,19 +477,19 @@ namespace MrTiendita.Vistas
             this.btn_Cajero.IconVisible = true;
             this.btn_Cajero.IconZoom = 40D;
             this.btn_Cajero.IsTab = false;
-            this.btn_Cajero.Location = new System.Drawing.Point(10, 3);
-            this.btn_Cajero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_Cajero.Location = new System.Drawing.Point(13, 4);
+            this.btn_Cajero.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_Cajero.Name = "btn_Cajero";
             this.btn_Cajero.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btn_Cajero.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.btn_Cajero.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_Cajero.selected = false;
-            this.btn_Cajero.Size = new System.Drawing.Size(154, 52);
+            this.btn_Cajero.Size = new System.Drawing.Size(205, 64);
             this.btn_Cajero.TabIndex = 0;
-            this.btn_Cajero.Text = "         Cajero";
+            this.btn_Cajero.Text = "             Cajero";
             this.btn_Cajero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Cajero.Textcolor = System.Drawing.Color.Black;
-            this.btn_Cajero.TextFont = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cajero.TextFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cajero.Click += new System.EventHandler(this.btn_Cajero_Click);
             // 
             // pnl_Logo
@@ -497,18 +497,18 @@ namespace MrTiendita.Vistas
             this.pnl_Logo.Controls.Add(this.pBox_Logo);
             this.pnl_Logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Logo.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Logo.Name = "pnl_Logo";
-            this.pnl_Logo.Size = new System.Drawing.Size(177, 105);
+            this.pnl_Logo.Size = new System.Drawing.Size(236, 129);
             this.pnl_Logo.TabIndex = 3;
             // 
             // pBox_Logo
             // 
             this.pBox_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pBox_Logo.Image")));
-            this.pBox_Logo.Location = new System.Drawing.Point(70, 28);
-            this.pBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pBox_Logo.Location = new System.Drawing.Point(93, 34);
+            this.pBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pBox_Logo.Name = "pBox_Logo";
-            this.pBox_Logo.Size = new System.Drawing.Size(36, 39);
+            this.pBox_Logo.Size = new System.Drawing.Size(48, 48);
             this.pBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBox_Logo.TabIndex = 0;
             this.pBox_Logo.TabStop = false;
@@ -518,10 +518,10 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(832, 5);
-            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Cerrar.Location = new System.Drawing.Point(1109, 4);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Cerrar.Name = "btn_Cerrar";
-            this.btn_Cerrar.Size = new System.Drawing.Size(26, 26);
+            this.btn_Cerrar.Size = new System.Drawing.Size(35, 32);
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Cerrar.TabIndex = 0;
             this.btn_Cerrar.TabStop = false;
@@ -530,33 +530,33 @@ namespace MrTiendita.Vistas
             // Contenedor
             // 
             this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Contenedor.Location = new System.Drawing.Point(177, 36);
-            this.Contenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Contenedor.Location = new System.Drawing.Point(236, 36);
+            this.Contenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(863, 604);
+            this.Contenedor.Size = new System.Drawing.Size(1151, 752);
             this.Contenedor.TabIndex = 2;
             // 
             // Header
             // 
             this.Header.Controls.Add(this.btn_Cerrar);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Header.Location = new System.Drawing.Point(177, 0);
-            this.Header.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Header.Location = new System.Drawing.Point(236, 0);
+            this.Header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(863, 36);
+            this.Header.Size = new System.Drawing.Size(1151, 36);
             this.Header.TabIndex = 1;
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1040, 640);
+            this.ClientSize = new System.Drawing.Size(1387, 788);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.MenuLateral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

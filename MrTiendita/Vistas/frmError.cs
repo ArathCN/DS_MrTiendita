@@ -18,14 +18,9 @@ namespace MrTiendita.Vistas
             lbl_Mensaje.Text = mensaje;
         }
 
-        private void btn_Si_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
         private void btn_No_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

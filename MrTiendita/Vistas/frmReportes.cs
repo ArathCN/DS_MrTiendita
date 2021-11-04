@@ -35,6 +35,10 @@ namespace MrTiendita.Vistas
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             btn_entradasAlmacen.Textcolor = Color.FromArgb(30, 207, 245);
+            lbl_desde.ForeColor = Color.Black;
+            lbl_hasta.ForeColor = Color.Black;
+            dp_desde.BackColor = Color.FromArgb(186, 211, 17);
+            dp_hasta.BackColor = Color.FromArgb(186, 211, 17);
             AbrirFormulario(new frmREntradas());
         }
     }

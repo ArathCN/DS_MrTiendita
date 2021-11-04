@@ -30,37 +30,17 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_Titulo = new System.Windows.Forms.Label();
             this.btn_entradasAlmacen = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_ventas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Contenedor = new System.Windows.Forms.Panel();
-            this.bunifuDatepicker2 = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dp_hasta = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dp_desde = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_desde = new System.Windows.Forms.Label();
+            this.lbl_hasta = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl_Titulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 3);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lbl_Titulo
-            // 
-            this.lbl_Titulo.AutoSize = true;
-            this.lbl_Titulo.Font = new System.Drawing.Font("Roboto Medium", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Titulo.Location = new System.Drawing.Point(27, 27);
-            this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(119, 29);
-            this.lbl_Titulo.TabIndex = 5;
-            this.lbl_Titulo.Text = "Reportes";
             // 
             // btn_entradasAlmacen
             // 
@@ -94,7 +74,7 @@ namespace MrTiendita.Vistas
             this.btn_entradasAlmacen.TabIndex = 24;
             this.btn_entradasAlmacen.Text = "Entradas a almacén";
             this.btn_entradasAlmacen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_entradasAlmacen.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(191)))));
+            this.btn_entradasAlmacen.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(140)))));
             this.btn_entradasAlmacen.TextFont = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_entradasAlmacen.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
@@ -130,34 +110,34 @@ namespace MrTiendita.Vistas
             this.btn_ventas.TabIndex = 25;
             this.btn_ventas.Text = "Ventas";
             this.btn_ventas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_ventas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(191)))));
+            this.btn_ventas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(140)))));
             this.btn_ventas.TextFont = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // Contenedor
             // 
-            this.Contenedor.Location = new System.Drawing.Point(32, 215);
+            this.Contenedor.Location = new System.Drawing.Point(27, 215);
             this.Contenedor.Name = "Contenedor";
             this.Contenedor.Size = new System.Drawing.Size(1111, 634);
             this.Contenedor.TabIndex = 26;
             // 
-            // bunifuDatepicker2
+            // dp_hasta
             // 
-            this.bunifuDatepicker2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
-            this.bunifuDatepicker2.BorderRadius = 7;
-            this.bunifuDatepicker2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatepicker2.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker2.FormatCustom = null;
-            this.bunifuDatepicker2.Location = new System.Drawing.Point(548, 144);
-            this.bunifuDatepicker2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bunifuDatepicker2.Name = "bunifuDatepicker2";
-            this.bunifuDatepicker2.Size = new System.Drawing.Size(469, 38);
-            this.bunifuDatepicker2.TabIndex = 28;
-            this.bunifuDatepicker2.Value = new System.DateTime(2021, 10, 13, 15, 37, 5, 510);
+            this.dp_hasta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dp_hasta.BorderRadius = 7;
+            this.dp_hasta.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dp_hasta.ForeColor = System.Drawing.Color.White;
+            this.dp_hasta.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dp_hasta.FormatCustom = null;
+            this.dp_hasta.Location = new System.Drawing.Point(548, 144);
+            this.dp_hasta.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dp_hasta.Name = "dp_hasta";
+            this.dp_hasta.Size = new System.Drawing.Size(469, 38);
+            this.dp_hasta.TabIndex = 28;
+            this.dp_hasta.Value = new System.DateTime(2021, 10, 13, 15, 37, 5, 510);
             // 
             // dp_desde
             // 
-            this.dp_desde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
+            this.dp_desde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dp_desde.BorderRadius = 7;
             this.dp_desde.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dp_desde.ForeColor = System.Drawing.Color.White;
@@ -170,25 +150,48 @@ namespace MrTiendita.Vistas
             this.dp_desde.TabIndex = 29;
             this.dp_desde.Value = new System.DateTime(2021, 10, 13, 15, 37, 5, 510);
             // 
-            // label1
+            // lbl_desde
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Desde:";
+            this.lbl_desde.AutoSize = true;
+            this.lbl_desde.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbl_desde.Location = new System.Drawing.Point(35, 119);
+            this.lbl_desde.Name = "lbl_desde";
+            this.lbl_desde.Size = new System.Drawing.Size(61, 20);
+            this.lbl_desde.TabIndex = 30;
+            this.lbl_desde.Text = "Desde:";
             // 
-            // label2
+            // lbl_hasta
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(551, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 20);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Hasta:";
+            this.lbl_hasta.AutoSize = true;
+            this.lbl_hasta.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_hasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbl_hasta.Location = new System.Drawing.Point(551, 119);
+            this.lbl_hasta.Name = "lbl_hasta";
+            this.lbl_hasta.Size = new System.Drawing.Size(58, 20);
+            this.lbl_hasta.TabIndex = 31;
+            this.lbl_hasta.Text = "Hasta:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(32, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 36;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.lbl_Titulo.Location = new System.Drawing.Point(70, 19);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(112, 29);
+            this.lbl_Titulo.TabIndex = 35;
+            this.lbl_Titulo.Text = "Reportes";
             // 
             // frmReportes
             // 
@@ -196,15 +199,15 @@ namespace MrTiendita.Vistas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1168, 886);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bunifuDatepicker2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lbl_Titulo);
+            this.Controls.Add(this.lbl_hasta);
+            this.Controls.Add(this.lbl_desde);
+            this.Controls.Add(this.dp_hasta);
             this.Controls.Add(this.dp_desde);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.btn_ventas);
             this.Controls.Add(this.btn_entradasAlmacen);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbl_Titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReportes";
             this.Text = "frmReportes";
@@ -215,15 +218,14 @@ namespace MrTiendita.Vistas
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbl_Titulo;
         private Bunifu.Framework.UI.BunifuFlatButton btn_entradasAlmacen;
         private Bunifu.Framework.UI.BunifuFlatButton btn_ventas;
         private System.Windows.Forms.Panel Contenedor;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker2;
+        private Bunifu.Framework.UI.BunifuDatepicker dp_hasta;
         private Bunifu.Framework.UI.BunifuDatepicker dp_desde;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_desde;
+        private System.Windows.Forms.Label lbl_hasta;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_Titulo;
     }
 }
