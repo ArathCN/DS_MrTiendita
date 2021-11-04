@@ -10,17 +10,22 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmError : Form
+    public partial class frmAdvertencia : Form
     {
-        public frmError(string mensaje)
+        public frmAdvertencia(string mensaje)
         {
             InitializeComponent();
             lbl_Mensaje.Text = mensaje;
         }
 
-        private void btn_No_Click(object sender, EventArgs e)
+        private void btn_Si_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void btn_No_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

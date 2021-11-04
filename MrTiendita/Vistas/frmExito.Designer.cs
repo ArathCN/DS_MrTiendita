@@ -1,5 +1,5 @@
 ﻿
-namespace MrTiendita.Vistas
+namespace VistasMrTiendita
 {
     partial class frmExito
     {
@@ -12,14 +12,14 @@ namespace MrTiendita.Vistas
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing && (components != null))
+        //    {
+        //        components.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
         #region Windows Form Designer generated code
 
@@ -32,39 +32,17 @@ namespace MrTiendita.Vistas
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExito));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pbox_check = new System.Windows.Forms.PictureBox();
             this.lbl_Mensaje = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Aceptar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_check)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.panel1.Controls.Add(this.pbox_check);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 142);
-            this.panel1.TabIndex = 0;
-            // 
-            // pbox_check
-            // 
-            this.pbox_check.Image = ((System.Drawing.Image)(resources.GetObject("pbox_check.Image")));
-            this.pbox_check.Location = new System.Drawing.Point(132, 43);
-            this.pbox_check.Name = "pbox_check";
-            this.pbox_check.Size = new System.Drawing.Size(69, 64);
-            this.pbox_check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbox_check.TabIndex = 0;
-            this.pbox_check.TabStop = false;
             // 
             // lbl_Mensaje
             // 
@@ -125,23 +103,36 @@ namespace MrTiendita.Vistas
             this.btn_Aceptar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(113, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(102, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmExito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(335, 403);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Mensaje);
-            this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmExito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmExito";
             this.Load += new System.EventHandler(this.frmExito_Load);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,9 +141,8 @@ namespace MrTiendita.Vistas
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lbl_Mensaje;
-        private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Aceptar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbox_check;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

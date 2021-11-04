@@ -15,20 +15,22 @@ namespace MrTiendita.Vistas
         public frmREntradas()
         {
             InitializeComponent();
-            tablaEntradas.Rows.Add("1", "P23", "13/10/2021", "661440000953", "DR457GT8", "20", "20.50", "410");
+            tablaEntradas.Rows.Add("1", "Distribiudora Bimbo", "27/10/2021", "661440000953", "20", "20.50", "25.00","410.00");
+            tablaEntradas.Rows.Add("2", "Coca Cola", "27/10/2021", "661440000952", "35", "14.60", "17.00", "511.00");
             widthColumnas();
             tablaEntradas.AllowUserToAddRows = false;
+            tablaEntradas.CurrentCell = null;
         }
 
         public void widthColumnas()
         {
-            tablaEntradas.Columns[0].Width = 55;
-            tablaEntradas.Columns[1].Width = 55;
+            tablaEntradas.Columns[0].Width = 30;
+            tablaEntradas.Columns[1].Width = 150;
             tablaEntradas.Columns[2].Width = 100;
             tablaEntradas.Columns[3].Width = 155;
-            tablaEntradas.Columns[4].Width = 150;
-            tablaEntradas.Columns[5].Width = 115;
-            tablaEntradas.Columns[6].Width = 115;
+            tablaEntradas.Columns[4].Width = 100;
+            tablaEntradas.Columns[5].Width = 120;
+            tablaEntradas.Columns[6].Width = 85;
         }
     }
 }

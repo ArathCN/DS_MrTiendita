@@ -16,7 +16,7 @@ namespace MrTiendita.Vistas
         public frmProveedores()
         {
             InitializeComponent();
-            //tablaProveedores.Rows.Add("Distribuidoras Bimbo", "6625018945", "Efectivo");
+            tablaProveedores.Rows.Add("", "Distribuidora Bimbo", "6621828945");
             widthColumnas();
             tablaProveedores.AllowUserToAddRows = false;
             frmEProveedorController controlador = new frmEProveedorController(this);
@@ -24,9 +24,8 @@ namespace MrTiendita.Vistas
 
         public void widthColumnas()
         {
-            tablaProveedores.Columns[0].Width = 230;
-            tablaProveedores.Columns[1].Width = 135;
-            tablaProveedores.Columns[2].Width = 170;
+            tablaProveedores.Columns[1].Width = 290;
+            tablaProveedores.Columns[2].Width = 180;
             //tablaProductos.Columns[4].Width = 39;
             //tablaProductos.Columns[5].Width = 39;
         }
