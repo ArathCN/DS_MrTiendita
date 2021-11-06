@@ -16,32 +16,23 @@ namespace MrTiendita.Controladores
         private frmCAlmacen vista;
         private EntradaAlmacenDAO entradaAlmacenDAO;
         private ProductoDAO productoDAO;
-        private ProveedorDAO proveedorDAO;
 
         private Producto prodcutoParaEntrada = null;
-        private Proveedor proveedorParaEntrada = null;
         public frmCAlmacenController(frmCAlmacen vista)
         {
             this.vista = vista;
             this.entradaAlmacenDAO = new EntradaAlmacenDAO();
             this.productoDAO = new ProductoDAO();
-            this.proveedorDAO = new ProveedorDAO();
             this.vista.btn_registrarEntrada.Click += new EventHandler(btn_registrarEntrada_Click);
-            this.vista.btn_nuevaEntrada.Click += new EventHandler(btn_nuevaEntrada_Click);
             this.vista.Load += new EventHandler(vista_Load);
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
-            this.vista.tb_noProveedor.TextChanged += new EventHandler(tb_noProveedor_TextChanged);
             this.vista.tb_cantidad.TextChanged += new EventHandler(tb_cantidad_TextChanged);
         }
 
         public void vista_Load(object sender, EventArgs e)
         {
-            List<Producto> productos = this.productoDAO.readAll();
-            foreach (Producto xProducto in  productos)
-            {
-                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta);
-            }
+            this.MostrarProductos();
             //this.vista.tablaProductos.DataSource = 
         }
 
@@ -58,14 +49,16 @@ namespace MrTiendita.Controladores
 
         private void tb_codigo_TextChanged(object sender, EventArgs e)
         {
+            long codigoBarra;
+
             String _codigoBarra = this.vista.tb_codigo.Text;
             if (String.IsNullOrEmpty(_codigoBarra))
             {
                 this.vista.tb_codigo.BackColor = Color.Salmon;
                 return;
             }
-            int codigoBarra;
-            if (Int32.TryParse(_codigoBarra, out codigoBarra))
+            
+            if (Int64.TryParse(_codigoBarra, out codigoBarra))
             {
                 prodcutoParaEntrada = this.productoDAO.readById(codigoBarra);
                 if (prodcutoParaEntrada != null)
@@ -88,39 +81,6 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void tb_noProveedor_TextChanged(object sender, EventArgs e)
-        { 
-            String _idProveedor = this.vista.tb_noProveedor.Text;
-
-            if (String.IsNullOrEmpty(_idProveedor))
-            {
-                this.vista.tb_noProveedor.BackColor = Color.Salmon;
-                return;
-            }
-
-            int idProveedor;
-            if (Int32.TryParse(_idProveedor, out idProveedor))
-            {
-                proveedorParaEntrada = this.proveedorDAO.readById(idProveedor);
-                if (proveedorParaEntrada != null)
-                {
-                    this.vista.tb_noProveedor.BackColor = Color.White;
-                }
-                else
-                {
-                    this.proveedorParaEntrada = null;
-                    this.vista.tb_noProveedor.BackColor = Color.Salmon;
-                }
-            }
-            else
-            {
-                this.proveedorParaEntrada = null;
-                this.vista.tb_noProveedor.BackColor = Color.Salmon;
-                Form mensajeError = new frmError("El id del proveedor introducido es incorrecto.");
-                mensajeError.ShowDialog();
-            }
-        }
-
         private void tb_cantidad_TextChanged(object sender, EventArgs e)
         {
             String _cantidad = this.vista.tb_cantidad.Text;
@@ -129,8 +89,8 @@ namespace MrTiendita.Controladores
                 return;
             }
 
-            int cantidad;
-            if (Int32.TryParse(_cantidad, out cantidad))
+            double cantidad;
+            if (Double.TryParse(_cantidad, out cantidad))
             {
                 this.calcularImporte();
             }
@@ -139,9 +99,10 @@ namespace MrTiendita.Controladores
         public void btn_registrarEntrada_Click(object sender, EventArgs e)
         {
             //Combrobar que todos los campos estén llenos y que codigo y proveedor sean validos.
-            if (String.IsNullOrEmpty(this.vista.tb_codigo.Text) || String.IsNullOrEmpty(this.vista.tb_noFactura.Text)
-                || String.IsNullOrEmpty(this.vista.tb_noProveedor.Text) || String.IsNullOrEmpty(this.vista.tb_cantidad.Text)
-                || this.prodcutoParaEntrada == null || this.proveedorParaEntrada == null)
+            if (
+                String.IsNullOrEmpty(this.vista.tb_codigo.Text)
+                || String.IsNullOrEmpty(this.vista.tb_cantidad.Text)
+                || this.prodcutoParaEntrada == null)
             {
                 Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
@@ -150,36 +111,39 @@ namespace MrTiendita.Controladores
 
             EntradaAlmacen entrada = new EntradaAlmacen();
 
-            String _noFactura = this.vista.tb_noFactura.Text;
             String _cantidad = this.vista.tb_cantidad.Text;
+            String _codigoBarra = this.vista.tb_codigo.Text;
 
-            int noFactura;
-            int cantidad;
+            double cantidad;
+            long codigoBarra;
 
-            if (Int32.TryParse(_noFactura, out noFactura) && Int32.TryParse(_cantidad, out cantidad))
+            if (Double.TryParse(_cantidad, out cantidad) && Int64.TryParse(_codigoBarra, out codigoBarra))
             {
-                entrada.Id_proveedor = proveedorParaEntrada.Id_proveedor;
-                entrada.Codigo_barra = this.prodcutoParaEntrada.Codigo_barra;
-                entrada.No_factura = noFactura;
+                entrada.Codigo_barra = codigoBarra;
                 entrada.Cantidad = cantidad;
                 entrada.Fecha = DateTime.Now;
-
                 entrada.Importe = prodcutoParaEntrada.Precio_compra * cantidad;
+                this.prodcutoParaEntrada.Cantidad_actual = this.prodcutoParaEntrada.Cantidad_actual + cantidad;
 
-                bool res = this.entradaAlmacenDAO.create(entrada);
-                if (res != false)
+                var parteDecimal = cantidad - Math.Truncate(cantidad);
+                if (this.prodcutoParaEntrada.Medida == false && parteDecimal != 0)
                 {
-                    this.vista.pnl_nuevaEntradaInactiva.Visible = true;
-                    this.vista.pnl_nuevaEntradaActiva.Visible = false;
+                    Form mensajeError = new frmError("No se puede agregar decimales a un producto por unidad.");
+                    mensajeError.ShowDialog();
+                    return;
+                }
 
-                    this.vista.tb_busqueda2.Text = "";
+
+                bool res = this.entradaAlmacenDAO.create(entrada, this.prodcutoParaEntrada);
+                if (res)
+                {
                     this.vista.tb_codigo.Text = "";
-                    this.vista.tb_noProveedor.Text = "";
-                    this.vista.tb_noFactura.Text = "";
                     this.vista.tb_cantidad.Text = "";
+                    this.prodcutoParaEntrada = null;
 
                     Form mensajeExito = new frmExito("Se ha hecho la entrada con éxito.");
                     mensajeExito.ShowDialog();
+                    this.MostrarProductos();
                 }
                 else if (this.entradaAlmacenDAO.ErrorUltimaConsulta)
                 {
@@ -199,21 +163,24 @@ namespace MrTiendita.Controladores
             }
         }
 
-        public void btn_nuevaEntrada_Click(object sender, EventArgs e)
-        {
-            this.vista.pnl_nuevaEntradaActiva.Visible = true;
-            this.vista.pnl_nuevaEntradaInactiva.Visible = false;
-
-        }
 
         //////////////////////////////////////////
         ///Métodos auxiliares
         ///
+        protected void MostrarProductos()
+        {
+            this.vista.tablaProductos.Rows.Clear();
+            List<Producto> productos = this.productoDAO.readAll();
+            foreach (Producto xProducto in productos)
+            {
+                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta);
+            }
+        }
         protected bool calcularImporte()
         {
             String _cantidad = this.vista.tb_cantidad.Text;
-            int cantidad;
-            if (!String.IsNullOrEmpty(_cantidad) && Int32.TryParse(_cantidad, out cantidad) && this.prodcutoParaEntrada != null)
+            double cantidad;
+            if (!String.IsNullOrEmpty(_cantidad) && Double.TryParse(_cantidad, out cantidad) && this.prodcutoParaEntrada != null)
             {
                 this.vista.lbl_total.Text = "$" + (cantidad * this.prodcutoParaEntrada.Precio_compra);
             }

@@ -103,6 +103,42 @@
     <Compile Include="Vistas\frmError.designer.cs">
       <DependentUpon>frmError.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frmExito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmExito.Designer.cs">
+      <DependentUpon>frmExito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmProducto.Designer.cs">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmREntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmREntradas.Designer.cs">
+      <DependentUpon>frmREntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -129,6 +165,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmError.resx">
       <DependentUpon>frmError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmExito.resx">
+      <DependentUpon>frmExito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmProducto.resx">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmREntradas.resx">
+      <DependentUpon>frmREntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

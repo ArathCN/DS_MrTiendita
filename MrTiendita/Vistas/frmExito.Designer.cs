@@ -1,5 +1,5 @@
 ﻿
-namespace VistasMrTiendita
+namespace MrTiendita.Vistas
 {
     partial class frmExito
     {

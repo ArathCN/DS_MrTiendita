@@ -14,8 +14,8 @@ namespace MrTiendita.Modelos.DAO
         public bool create(Proveedor proveedor)
         {
             bool success = false;
-            String sql = "INSERT INTO Proveedor (nombre, telefono, metodo_pago) " +
-                "VALUES (@nom, @tel, @met);";
+            String sql = "INSERT INTO Proveedor (nombre, telefono) " +
+                "VALUES (@nom, @tel);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -24,12 +24,10 @@ namespace MrTiendita.Modelos.DAO
                 {
                     command.Parameters.Add("@nom", SqlDbType.VarChar);
                     command.Parameters.Add("@tel", SqlDbType.BigInt);
-                    command.Parameters.Add("@met", SqlDbType.VarChar);
                     
 
                     command.Parameters["@nom"].Value = proveedor.Nombre;
                     command.Parameters["@tel"].Value = proveedor.Telefono;
-                    command.Parameters["@met"].Value = proveedor.Metodo_pago;
 
 
                     int rowsAffected = command.ExecuteNonQuery();
@@ -43,7 +41,7 @@ namespace MrTiendita.Modelos.DAO
         public bool updateInfo(Proveedor proveedor, int id)
         {
             bool success = false;
-            String sql = "UPDATE Proveedor SET nombre = @nom, telefono = @tel, metodo_pago = @met WHERE id_proveedor = @id;";
+            String sql = "UPDATE Proveedor SET nombre = @nom, telefono = @tel WHERE id_proveedor = @id;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -52,12 +50,10 @@ namespace MrTiendita.Modelos.DAO
                 {
                     command.Parameters.Add("@nom", SqlDbType.VarChar);
                     command.Parameters.Add("@tel", SqlDbType.BigInt);
-                    command.Parameters.Add("@met", SqlDbType.VarChar);
                     command.Parameters.Add("@id", SqlDbType.Int);
 
                     command.Parameters["@nom"].Value = proveedor.Nombre;
                     command.Parameters["@tel"].Value = proveedor.Telefono;
-                    command.Parameters["@met"].Value = proveedor.Metodo_pago;
                     command.Parameters["@id"].Value = id;
 
 
@@ -83,7 +79,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3)));
+                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2)));
                         }
                     }
                 }
@@ -110,7 +106,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedor = new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3));
+                            proveedor = new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2));
                         }
                     }
                 }
@@ -137,7 +133,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3)));
+                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2)));
                         }
                     }
                 }

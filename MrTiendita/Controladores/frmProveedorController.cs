@@ -31,9 +31,7 @@ namespace MrTiendita.Controladores
             //Comprobar campos vacios...
             String _nombre = this.vista.tb_nombre.Text;
             String _telefono = this.vista.tb_telefono.Text;
-            String _metodo = this.vista.tb_metodo.Text;
-            if (String.IsNullOrEmpty(_nombre) || String.IsNullOrEmpty(_telefono)
-                || String.IsNullOrEmpty(_metodo))
+            if (String.IsNullOrEmpty(_nombre) || String.IsNullOrEmpty(_telefono))
             {
                 Form mensajeError = new frmError("Debe llenar todos los campos.");
                 mensajeError.ShowDialog();
@@ -48,7 +46,7 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
                 return;
             }
-            Proveedor proveedor = new Proveedor(-1, _nombre, telefono, _metodo);
+            Proveedor proveedor = new Proveedor(-1, _nombre, telefono);
 
             if (this.accion == "agregar")
             {

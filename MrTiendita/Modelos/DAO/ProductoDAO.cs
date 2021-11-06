@@ -14,8 +14,8 @@ namespace MrTiendita.Modelos.DAO
         public bool create(Producto producto)
         {
             bool success = false;
-            String sql = "INSERT INTO Producto (codigo_barra, descripcion, precio_venta, precio_compra, cantidad_actual) " +
-                "VALUES (@cb, @des, @pre, @precom, @ca);";
+            String sql = "INSERT INTO Producto (codigo_barra, descripcion, precio_venta, precio_compra, cantidad_actual, medida) " +
+                "VALUES (@cb, @des, @pre, @precom, @ca, @med);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -26,13 +26,15 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters.Add("@des", SqlDbType.VarChar);
                     command.Parameters.Add("@pre", SqlDbType.Decimal);
                     command.Parameters.Add("@precom", SqlDbType.Decimal);
-                    command.Parameters.Add("@ca", SqlDbType.Int);
+                    command.Parameters.Add("@ca", SqlDbType.Decimal);
+                    command.Parameters.Add("@med", SqlDbType.Bit);
 
                     command.Parameters["@cb"].Value = producto.Codigo_barra;
                     command.Parameters["@des"].Value = producto.Descripcion;
                     command.Parameters["@pre"].Value = producto.Precio_venta;
                     command.Parameters["@precom"].Value = producto.Precio_compra;
                     command.Parameters["@ca"].Value = producto.Cantidad_actual;
+                    command.Parameters["@med"].Value = producto.Medida;
 
 
                     int rowsAffected = command.ExecuteNonQuery();
@@ -79,34 +81,8 @@ namespace MrTiendita.Modelos.DAO
 
         public bool updateCantidad(Producto producto) //Update by id
         {
-            bool success = false;
-            String sql = "UPDATE Producto SET codigo_barra = @cb, descripcion = @des, precio_venta = @pre," +
-                " precio_compra = @precom WHERE codigo_barra = @cb;";
-
-            using (SqlConnection connection = new SqlConnection(this.stringConexion))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.Add("@des", SqlDbType.VarChar);
-                    command.Parameters.Add("@pre", SqlDbType.Decimal);
-                    command.Parameters.Add("@precom", SqlDbType.Decimal);
-                    command.Parameters.Add("@can", SqlDbType.Int);
-                    command.Parameters.Add("@cb", SqlDbType.BigInt);
-
-                    command.Parameters["@des"].Value = producto.Descripcion;
-                    command.Parameters["@pre"].Value = producto.Precio_venta;
-                    command.Parameters["@precom"].Value = producto.Precio_compra;
-                    command.Parameters["@can"].Value = producto.Cantidad_actual;
-                    command.Parameters["@cb"].Value = producto.Codigo_barra;
-
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected == 1) success = true;
-                }
-            }
-            return success;
+            
+            return false;
         }
 
         public List<Producto> readAll()
@@ -123,7 +99,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            productos.Add(new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), reader.GetInt32(4)));
+                            productos.Add(new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5)));
                         }
                     }
                 }
@@ -132,7 +108,7 @@ namespace MrTiendita.Modelos.DAO
             return productos;
         }
 
-        public Producto readById(int id)
+        public Producto readById(long id)
         {
             Producto producto = null;
 
@@ -150,7 +126,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            producto = new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), reader.GetInt32(4));
+                            producto = new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5));
                         }
                     }
                 }
@@ -177,7 +153,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            productos.Add(new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), reader.GetInt32(4)));
+                            productos.Add(new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5)));
                         }
                     }
                 }
@@ -186,7 +162,7 @@ namespace MrTiendita.Modelos.DAO
             return productos;
         }
 
-        public bool delete(int id)
+        public bool delete(long id)
         {
             bool success = false;
             String sql = "DELETE FROM Producto WHERE codigo_barra = @cb";

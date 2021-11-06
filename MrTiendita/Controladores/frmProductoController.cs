@@ -43,16 +43,16 @@ namespace MrTiendita.Controladores
             }
 
             //Comprobar datos numericos
-            int codigoBarra, cantidad;
-            double precioVenta, precioCompra;
-            if (!Int32.TryParse(_codigoBarra, out codigoBarra) || !Int32.TryParse(_cantidad, out cantidad)
+            long codigoBarra;
+            double precioVenta, precioCompra, cantidad;
+            if (!Int64.TryParse(_codigoBarra, out codigoBarra) || !Double.TryParse(_cantidad, out cantidad)
                 || !Double.TryParse(_precioVenta, out precioVenta) || !Double.TryParse(_precioCompra, out precioCompra))
             {
                 Form mensajeError = new frmError("De de llenar los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
-            Producto producto = new Producto(codigoBarra, _descripcion, precioVenta, precioCompra, cantidad);
+            Producto producto = new Producto(codigoBarra, _descripcion, precioVenta, precioCompra, cantidad, false);
 
             if (this.accion == "agregar")
             {

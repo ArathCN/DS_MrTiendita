@@ -11,36 +11,93 @@ namespace MrTiendita.Modelos.DAO
 {
     class EntradaAlmacenDAO:DbContext
     {
-        //Formato para fechas en SQL Server yyyy-mm-dd hh:mm:ss
-        public bool create(EntradaAlmacen entradaAlmacen)
+
+        public EntradaAlmacenDAO()
         {
+            this.errorUltimaConsulta = false;
+            this.mensajeError = null;
+        }
+
+        //Formato para fechas en SQL Server yyyy-mm-dd hh:mm:ss
+        public bool create(EntradaAlmacen entradaAlmacen, Producto producto)
+        {
+            this.LimpiarError();
+            StringBuilder errorMessages = new StringBuilder();
             bool success = false;
-            String sql = "INSERT INTO Entrada_Almacen (codigo_barra, id_proveedor, no_factura, fecha, cantidad, importe) " +
-                "VALUES (@cb, @idp, @nf, @fecha, @cant, @imp);";
+            int rowsAffected = 0;
+
+            String sql = "INSERT INTO Entrada_Almacen (codigo_barra, fecha, cantidad, importe) " +
+                "VALUES (@cb, @fecha, @cant, @imp);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlTransaction tran = connection.BeginTransaction("EntradaAlmacen" + DateTimeOffset.Now.ToUnixTimeSeconds()))
                 {
-                    command.Parameters.Add("@cb", SqlDbType.BigInt);
-                    command.Parameters.Add("@idp", SqlDbType.Int);
-                    command.Parameters.Add("@nf", SqlDbType.Int);
-                    command.Parameters.Add("@fecha", SqlDbType.DateTime);
-                    command.Parameters.Add("@cant", SqlDbType.Int);
-                    command.Parameters.Add("@imp", SqlDbType.Decimal);
+                    using (SqlCommand command = new SqlCommand(sql, connection, tran))
+                    {
+                        command.Parameters.Add("@cb", SqlDbType.BigInt);
+                        command.Parameters.Add("@fecha", SqlDbType.DateTime);
+                        command.Parameters.Add("@cant", SqlDbType.Decimal);
+                        command.Parameters.Add("@imp", SqlDbType.Decimal);
 
-                    command.Parameters["@cb"].Value = entradaAlmacen.Codigo_barra;
-                    command.Parameters["@idp"].Value = entradaAlmacen.Id_proveedor;
-                    command.Parameters["@nf"].Value = entradaAlmacen.No_factura;
-                    command.Parameters["@fecha"].Value = entradaAlmacen.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
-                    command.Parameters["@cant"].Value = entradaAlmacen.Cantidad;
-                    command.Parameters["@imp"].Value = entradaAlmacen.Importe;
+                        command.Parameters["@cb"].Value = entradaAlmacen.Codigo_barra;
+                        command.Parameters["@fecha"].Value = entradaAlmacen.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
+                        command.Parameters["@cant"].Value = entradaAlmacen.Cantidad;
+                        command.Parameters["@imp"].Value = entradaAlmacen.Importe;
+
+                        try
+                        {
+                            rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected == 1)
+                            {
+                                //hacer el update en prodcuto
+                                String sqlUpdate = "UPDATE Producto SET cantidad_actual = @ca WHERE codigo_barra = @cb;";
+                                using (SqlCommand commandUpdate = new SqlCommand(sqlUpdate, connection, tran))
+                                {
+                                    commandUpdate.Parameters.Add("@ca", SqlDbType.Decimal);
+                                    commandUpdate.Parameters.Add("@cb", SqlDbType.BigInt);
+
+                                    commandUpdate.Parameters["@ca"].Value = producto.Cantidad_actual;
+                                    commandUpdate.Parameters["@cb"].Value = producto.Codigo_barra;
 
 
-                    int rowsAffected = command.ExecuteNonQuery();
+                                    int rowsAffectedU = commandUpdate.ExecuteNonQuery();
 
-                    if (rowsAffected == 1) success = true;
+                                    if (rowsAffectedU == 1)
+                                    {
+                                        tran.Commit();
+                                        success = true;
+                                    }
+                                    else
+                                    {
+                                        tran.Rollback();
+                                        success = false;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                tran.Rollback();
+                                success = false;
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            for (int i = 0; i < ex.Errors.Count; i++)
+                            {
+                                errorMessages.Append("Index #" + i + "\n" +
+                                    "Message: " + ex.Errors[i].Message + "\n" +
+                                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                    "Source: " + ex.Errors[i].Source + "\n" +
+                                    "Procedure: " + ex.Errors[i].Procedure + "\n");
+                            }
+                            this.errorUltimaConsulta = true;
+                            this.mensajeError = errorMessages.ToString();
+                            tran.Rollback();
+                            success = false;
+                        }
+                    }
                 }
             }
             return success;
@@ -66,7 +123,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetInt32(5), decimal.ToDouble(reader.GetDecimal(6))));
+                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4))));
                         }
                     }
                 }
@@ -95,7 +152,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetInt32(5), decimal.ToDouble(reader.GetDecimal(6))));
+                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4))));
                         }
                     }
                 }

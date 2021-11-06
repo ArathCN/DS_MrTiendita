@@ -14,5 +14,12 @@ namespace MrTiendita.Modelos.DAO
 
         public bool ErrorUltimaConsulta { get => errorUltimaConsulta; set => errorUltimaConsulta = value; }
         public string MensajeError { get => mensajeError; set => mensajeError = value; }
+
+        public void LimpiarError()
+        {
+            this.errorUltimaConsulta = false;
+            this.mensajeError = "";
+        }
+
     }
 }

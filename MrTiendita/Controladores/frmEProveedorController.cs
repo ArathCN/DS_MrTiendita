@@ -37,7 +37,7 @@ namespace MrTiendita.Controladores
             this.vista.tablaProveedores.Rows.Clear();
             foreach (Proveedor xProveedor in proveedores)
             {
-                this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono, xProveedor.Metodo_pago);
+                this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
             }
         }
 
@@ -72,7 +72,7 @@ namespace MrTiendita.Controladores
             this.todosProveedores = proveedores;
             foreach (Proveedor xProveedor in proveedores)
             {
-                this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono, xProveedor.Metodo_pago);
+                this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
             }
         }
         private void eliminarProveedor(DataGridViewCellEventArgs e)

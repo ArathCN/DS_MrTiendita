@@ -38,3 +38,5 @@ C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\MrTi
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\MrTiendita.pdb
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.CopyComplete
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmProducto.resources
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmAdvertencia.resources
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCCaja.resources
