@@ -28,15 +28,5 @@ namespace MrTiendita.Vistas
             tablaMovimientos.Columns[1].Width = 140;
             tablaMovimientos.Columns[2].Width = 130;
         }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmCCaja_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

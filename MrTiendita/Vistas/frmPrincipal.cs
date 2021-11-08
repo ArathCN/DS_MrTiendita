@@ -53,15 +53,11 @@ namespace MrTiendita.Vistas
         {
             btn_CAlmacen.Normalcolor = Color.FromArgb(240, 240, 240);
             btn_CCaja.Normalcolor = Color.FromArgb(240, 240, 240);
+            btn_CVentas.Normalcolor = Color.FromArgb(240, 240, 240);
             btn_EAlmacen.Normalcolor = Color.FromArgb(240, 240, 240);
             btn_EReportes.Normalcolor = Color.FromArgb(240, 240, 240);
             btn_EProveedores.Normalcolor = Color.FromArgb(240, 240, 240);
             btn_EAlmacen.Normalcolor = Color.FromArgb(240, 240, 240);
-        }
-
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-  
         }
 
         private void btn_Cajero_Click(object sender, EventArgs e)
@@ -138,7 +134,9 @@ namespace MrTiendita.Vistas
 
         private void btn_CVentas_Click(object sender, EventArgs e)
         {
-
+            ColorGris();
+            btn_CVentas.Normalcolor = Color.FromArgb(218, 238, 86);
+            AbrirFormulario(new frmCVentas());
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

@@ -560,7 +560,6 @@ namespace MrTiendita.Vistas
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.MenuLateral.ResumeLayout(false);
             this.pnl_OpEncargado.ResumeLayout(false);
             this.pnl_Encargado.ResumeLayout(false);
