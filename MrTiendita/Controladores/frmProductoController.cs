@@ -16,6 +16,7 @@ namespace MrTiendita.Controladores
         private ProductoDAO productoDAO;
         private String accion;
         private long id;
+        private Producto producto;
         public frmProductoController(frmProducto vista, String accion, long id)
         {
             this.vista = vista;
@@ -23,7 +24,26 @@ namespace MrTiendita.Controladores
             this.id = id;
             this.productoDAO = new ProductoDAO();
             this.vista.btn_guardarProducto.Click += new EventHandler(btn_Cerrar_Click);
+            this.vista.Load += new EventHandler(vista_Load);
         }
+
+        private void vista_Load(object sender, EventArgs e)
+        {
+            if (this.accion == "editar")
+            {
+                Producto producto =  this.productoDAO.readById(this.id);
+
+                this.vista.tb_codigo.Text = producto.Codigo_barra.ToString();
+                this.vista.tb_descripcion.Text = producto.Descripcion;
+                this.vista.tb_cantidad.Text = producto.Cantidad_actual.ToString();
+                this.vista.tb_precioVenta.Text = producto.Precio_venta.ToString();
+                this.vista.tb_precioCompra.Text = producto.Precio_compra.ToString();
+                if (producto.Medida) this.vista.chbx_medida.Checked = true;
+
+                this.producto = producto;
+            }
+        }
+
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
             bool res = false;
@@ -52,8 +72,23 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
                 return;
             }
-            Producto producto = new Producto(codigoBarra, _descripcion, precioVenta, precioCompra, cantidad, false);
 
+            //comprobar el checkbox
+            bool medida = this.vista.chbx_medida.Checked;
+
+            //compribar si la cantidad y la medida coinciden
+            var parteDecimal = cantidad - Math.Truncate(cantidad);
+            if (!medida && parteDecimal != 0)
+            {
+                Form mensajeError = new frmError("La cantidad no puede ser decimal si la medida no es a granel.");
+                mensajeError.ShowDialog();
+                return;
+            }
+
+            //Obtener el producto de los campos...
+            Producto producto = new Producto(codigoBarra, _descripcion, precioVenta, precioCompra, cantidad, medida);
+
+            //Hacer la acción 
             if (this.accion == "agregar")
             {
                 res = this.agregar(producto);

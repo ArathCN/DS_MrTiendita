@@ -49,7 +49,7 @@ namespace MrTiendita.Modelos.DAO
         {
             bool success = false;
             String sql = "UPDATE Producto SET codigo_barra = @cbn, descripcion = @des, precio_venta = @pre," +
-                " precio_compra = @precom WHERE codigo_barra = @cb;";
+                " precio_compra = @precom, cantidad_actual = @ca, medida = @med WHERE codigo_barra = @cb;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -62,6 +62,8 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters.Add("@can", SqlDbType.Int);
                     command.Parameters.Add("@cb", SqlDbType.BigInt);
                     command.Parameters.Add("@cbn", SqlDbType.BigInt);
+                    command.Parameters.Add("@ca", SqlDbType.Decimal);
+                    command.Parameters.Add("@med", SqlDbType.Bit);
 
                     command.Parameters["@des"].Value = producto.Descripcion;
                     command.Parameters["@pre"].Value = producto.Precio_venta;
@@ -69,6 +71,8 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters["@can"].Value = producto.Cantidad_actual;
                     command.Parameters["@cbn"].Value = producto.Codigo_barra;
                     command.Parameters["@cb"].Value = id;
+                    command.Parameters["@ca"].Value = producto.Cantidad_actual;
+                    command.Parameters["@med"].Value = producto.Medida;
 
 
                     int rowsAffected = command.ExecuteNonQuery();
@@ -79,10 +83,63 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public bool updateCantidad(Producto producto) //Update by id
+        public bool updateCantidad(List<Producto> productos) //Update by id
         {
-            
-            return false;
+            this.LimpiarError();
+            bool success = true;
+            String sql = "UPDATE Producto SET cantidad_actual = cantidad_actual - @ca WHERE codigo_barra = @cb;";
+            StringBuilder errorMessages = new StringBuilder();
+            int rowsAffected = 0;
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlTransaction tran = connection.BeginTransaction("Venta" + DateTimeOffset.Now.ToUnixTimeSeconds()))
+                {
+                    for (int i = 0; i < productos.Count && success; i++)
+                    {
+                        using (SqlCommand command = new SqlCommand(sql, connection, tran))
+                        {
+                            command.Parameters.Add("@cb", SqlDbType.BigInt);
+                            command.Parameters.Add("@ca", SqlDbType.Decimal);
+
+                            command.Parameters["@cb"].Value = productos[i].Codigo_barra;
+                            command.Parameters["@ca"].Value = productos[i].Cantidad_actual;
+
+                            try
+                            {
+                                rowsAffected = command.ExecuteNonQuery();
+                            }
+                            catch (SqlException ex)
+                            {
+                                for (int j = 0; j < ex.Errors.Count; j++)
+                                {
+                                    errorMessages.Append("Index #" + j + "\n" +
+                                        "Message: " + ex.Errors[j].Message + "\n" +
+                                        "LineNumber: " + ex.Errors[j].LineNumber + "\n" +
+                                        "Source: " + ex.Errors[j].Source + "\n" +
+                                        "Procedure: " + ex.Errors[j].Procedure + "\n");
+                                }
+                                this.errorUltimaConsulta = true;
+                                this.mensajeError = errorMessages.ToString();
+                                tran.Rollback();
+                                success = false;
+                            }
+
+
+                            if (rowsAffected == 0 && success)
+                            {
+                                tran.Rollback();
+                                success = false;
+                            }
+
+                        }
+                    }
+                    if (success) tran.Commit();
+
+                }
+            }
+            return success;
         }
 
         public List<Producto> readAll()

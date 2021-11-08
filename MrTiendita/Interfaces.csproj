@@ -37,6 +37,7 @@
       <HintPath>D:\Descargas\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
@@ -50,7 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\CrearTicket.cs" />
     <Compile Include="Controladores\frmCAlmacenController.cs" />
+    <Compile Include="Controladores\frmCVentasController.cs" />
     <Compile Include="Controladores\frmEAlmacenController.cs" />
     <Compile Include="Controladores\frmEProveedorController.cs" />
     <Compile Include="Controladores\frmPrincipalController.cs" />
