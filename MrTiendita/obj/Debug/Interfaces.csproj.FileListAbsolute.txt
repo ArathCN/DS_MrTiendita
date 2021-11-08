@@ -40,3 +40,27 @@ C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\Inte
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmProducto.resources
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmAdvertencia.resources
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCCaja.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\MrTiendita.exe.config
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\MrTiendita.exe
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\MrTiendita.pdb
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.AssemblyReference.cache
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Properties.Resources.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmAdvertencia.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCAlmacen.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCCaja.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEAlmacen.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEditarProveedor.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmError.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmExito.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmPrincipal.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmProducto.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmProveedores.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmREntradas.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmReportes.resources
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.GenerateResource.cache
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.CopyComplete
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.exe
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.pdb
+C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCVentas.resources

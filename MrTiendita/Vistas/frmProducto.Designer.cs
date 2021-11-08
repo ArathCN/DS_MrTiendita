@@ -50,6 +50,9 @@ namespace MrTiendita.Vistas
             this.tb_precioVenta = new System.Windows.Forms.TextBox();
             this.tb_precioCompra = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -148,7 +151,7 @@ namespace MrTiendita.Vistas
             this.pictureBox5.Location = new System.Drawing.Point(17, 270);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(236, 41);
+            this.pictureBox5.Size = new System.Drawing.Size(149, 41);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
@@ -156,10 +159,10 @@ namespace MrTiendita.Vistas
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(293, 270);
+            this.pictureBox6.Location = new System.Drawing.Point(186, 270);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(223, 41);
+            this.pictureBox6.Size = new System.Drawing.Size(160, 41);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 11;
             this.pictureBox6.TabStop = false;
@@ -178,7 +181,7 @@ namespace MrTiendita.Vistas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(291, 247);
+            this.label5.Location = new System.Drawing.Point(184, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 20);
             this.label5.TabIndex = 13;
@@ -258,17 +261,17 @@ namespace MrTiendita.Vistas
             this.tb_precioVenta.Location = new System.Drawing.Point(32, 278);
             this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_precioVenta.Name = "tb_precioVenta";
-            this.tb_precioVenta.Size = new System.Drawing.Size(212, 21);
+            this.tb_precioVenta.Size = new System.Drawing.Size(125, 21);
             this.tb_precioVenta.TabIndex = 26;
             // 
             // tb_precioCompra
             // 
             this.tb_precioCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_precioCompra.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_precioCompra.Location = new System.Drawing.Point(308, 278);
+            this.tb_precioCompra.Location = new System.Drawing.Point(201, 278);
             this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_precioCompra.Name = "tb_precioCompra";
-            this.tb_precioCompra.Size = new System.Drawing.Size(195, 21);
+            this.tb_precioCompra.Size = new System.Drawing.Size(132, 21);
             this.tb_precioCompra.TabIndex = 27;
             // 
             // pictureBox3
@@ -282,6 +285,39 @@ namespace MrTiendita.Vistas
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(373, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 20);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Tipo de medida:";
+            // 
+            // bunifuCheckbox1
+            // 
+            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.bunifuCheckbox1.Checked = true;
+            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
+            this.bunifuCheckbox1.Location = new System.Drawing.Point(382, 279);
+            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
+            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
+            this.bunifuCheckbox1.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(416, 280);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 20);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Granel";
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,6 +326,9 @@ namespace MrTiendita.Vistas
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 434);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.bunifuCheckbox1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.tb_precioCompra);
             this.Controls.Add(this.tb_precioVenta);
             this.Controls.Add(this.tb_descripcion);
@@ -346,5 +385,8 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.TextBox tb_codigo;
         public System.Windows.Forms.TextBox tb_precioCompra;
         public System.Windows.Forms.TextBox tb_precioVenta;
+        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

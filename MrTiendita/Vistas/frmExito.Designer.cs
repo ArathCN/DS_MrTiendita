@@ -47,6 +47,7 @@ namespace MrTiendita.Vistas
             // lbl_Mensaje
             // 
             this.lbl_Mensaje.AutoEllipsis = true;
+            this.lbl_Mensaje.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Mensaje.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Mensaje.Location = new System.Drawing.Point(26, 160);
             this.lbl_Mensaje.Name = "lbl_Mensaje";
@@ -57,6 +58,7 @@ namespace MrTiendita.Vistas
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Roboto Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.label1.Location = new System.Drawing.Point(12, 219);

@@ -46,10 +46,11 @@ namespace MrTiendita.Vistas
             // lbl_Mensaje
             // 
             this.lbl_Mensaje.AutoEllipsis = true;
+            this.lbl_Mensaje.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Mensaje.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Mensaje.Location = new System.Drawing.Point(26, 160);
             this.lbl_Mensaje.Name = "lbl_Mensaje";
-            this.lbl_Mensaje.Size = new System.Drawing.Size(281, 60);
+            this.lbl_Mensaje.Size = new System.Drawing.Size(281, 137);
             this.lbl_Mensaje.TabIndex = 5;
             this.lbl_Mensaje.Text = "Mensaje";
             this.lbl_Mensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
