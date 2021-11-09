@@ -85,6 +85,12 @@
     <Compile Include="Vistas\frmCCaja.designer.cs">
       <DependentUpon>frmCCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frmCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmCobro.Designer.cs">
+      <DependentUpon>frmCobro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frmCVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmCCaja.resx">
       <DependentUpon>frmCCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmCobro.resx">
+      <DependentUpon>frmCobro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmCVentas.resx">
       <DependentUpon>frmCVentas.cs</DependentUpon>
