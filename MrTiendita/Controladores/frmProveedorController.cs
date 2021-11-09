@@ -23,6 +23,16 @@ namespace MrTiendita.Controladores
             this.accion = accion;
             this.proveedorDAO = new ProveedorDAO();
             this.vista.btn_guardarProveedor.Click += new EventHandler(btn_Cerrar_Click);
+            this.vista.Load += new EventHandler(vista_Load);
+        }
+        private void vista_Load(object sender, EventArgs e)
+        {
+            if (this.accion == "editar")
+            {
+                Proveedor proveedor = this.proveedorDAO.readById(this.id);
+                this.vista.tb_nombre.Text = proveedor.Nombre;
+                this.vista.tb_telefono.Text = proveedor.Telefono.ToString();
+            }
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
@@ -46,6 +56,7 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
                 return;
             }
+
             Proveedor proveedor = new Proveedor(-1, _nombre, telefono);
 
             if (this.accion == "agregar")

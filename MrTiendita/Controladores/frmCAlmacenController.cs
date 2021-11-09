@@ -28,6 +28,7 @@ namespace MrTiendita.Controladores
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
             this.vista.tb_cantidad.TextChanged += new EventHandler(tb_cantidad_TextChanged);
+            this.vista.btn_Limpiar.Click += new EventHandler(btn_Limpiar_Click);
         }
 
         public void vista_Load(object sender, EventArgs e)
@@ -96,6 +97,13 @@ namespace MrTiendita.Controladores
             }
         }
 
+        private void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            this.vista.tb_codigo.Text = "";
+            this.vista.tb_cantidad.Text = "";
+            this.vista.lbl_total.Text = "$0.00";
+        }
+
         public void btn_registrarEntrada_Click(object sender, EventArgs e)
         {
             //Combrobar que todos los campos estén llenos y que codigo y proveedor sean validos.
@@ -139,6 +147,7 @@ namespace MrTiendita.Controladores
                 {
                     this.vista.tb_codigo.Text = "";
                     this.vista.tb_cantidad.Text = "";
+                    this.vista.lbl_total.Text = "$0.00";
                     this.prodcutoParaEntrada = null;
 
                     Form mensajeExito = new frmExito("Se ha hecho la entrada con éxito.");
@@ -173,7 +182,7 @@ namespace MrTiendita.Controladores
             List<Producto> productos = this.productoDAO.readAll();
             foreach (Producto xProducto in productos)
             {
-                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta);
+                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
             }
         }
         protected bool calcularImporte()

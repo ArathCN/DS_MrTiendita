@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -19,18 +20,7 @@ namespace MrTiendita.Vistas
             widthColumnas();
             tablaVentas.AllowUserToAddRows = false;
             tablaVentas.CurrentCell = null;
-        }
-
-        private void check_granel_OnChange(object sender, EventArgs e)
-        {
-            if (check_granel.Checked == true)
-            {
-                lb_cantidad.Text = "Kilos:";
-            }
-            else
-            {
-                lb_cantidad.Text = "Cantidad:";
-            }
+            frmCVentasController controller = new frmCVentasController(this);
         }
 
         public void widthColumnas()

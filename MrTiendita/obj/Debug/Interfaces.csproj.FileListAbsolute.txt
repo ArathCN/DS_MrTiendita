@@ -64,3 +64,4 @@ C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\Interfaces.csp
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.exe
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.pdb
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCVentas.resources
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCVentas.resources

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -15,10 +16,11 @@ namespace MrTiendita.Vistas
         public frmCCaja()
         {
             InitializeComponent();
-            tablaMovimientos.Rows.Add("Ingreso de dinero", "27/10/2021", "$500.00", "$1567.00");
+            //tablaMovimientos.Rows.Add("Ingreso de dinero", "27/10/2021", "$500.00", "$1567.00");
             widthColumnas();
             tablaMovimientos.AllowUserToAddRows = false;
             tablaMovimientos.CurrentCell = null;
+            frmCCajaController controller = new frmCCajaController(this);
             
         }
 
