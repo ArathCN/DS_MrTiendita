@@ -117,6 +117,12 @@
     <Compile Include="Vistas\frmEditarProveedor.designer.cs">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frmEEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmEEmpleado.Designer.cs">
+      <DependentUpon>frmEEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frmError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmEEmpleado.resx">
+      <DependentUpon>frmEEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmError.resx">
       <DependentUpon>frmError.cs</DependentUpon>

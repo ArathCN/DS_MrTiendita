@@ -37,11 +37,11 @@ namespace MrTiendita.Vistas
             this.tb_efectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_efectivo = new System.Windows.Forms.Panel();
             this.btn_aceptar = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnl_efectivo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_Titulo
@@ -100,6 +100,7 @@ namespace MrTiendita.Vistas
             this.cb_metodoPago.selectedIndex = -1;
             this.cb_metodoPago.Size = new System.Drawing.Size(313, 37);
             this.cb_metodoPago.TabIndex = 42;
+            this.cb_metodoPago.onItemSelected += new System.EventHandler(this.cb_metodoPago_onItemSelected);
             // 
             // tb_efectivo
             // 
@@ -132,17 +133,18 @@ namespace MrTiendita.Vistas
             this.pictureBox2.TabIndex = 43;
             this.pictureBox2.TabStop = false;
             // 
-            // panel1
+            // pnl_efectivo
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.btn_aceptar);
-            this.panel1.Controls.Add(this.tb_efectivo);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 154);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 95);
-            this.panel1.TabIndex = 46;
+            this.pnl_efectivo.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_efectivo.Controls.Add(this.btn_aceptar);
+            this.pnl_efectivo.Controls.Add(this.tb_efectivo);
+            this.pnl_efectivo.Controls.Add(this.pictureBox2);
+            this.pnl_efectivo.Controls.Add(this.label1);
+            this.pnl_efectivo.Location = new System.Drawing.Point(3, 154);
+            this.pnl_efectivo.Name = "pnl_efectivo";
+            this.pnl_efectivo.Size = new System.Drawing.Size(343, 95);
+            this.pnl_efectivo.TabIndex = 46;
+            this.pnl_efectivo.Visible = false;
             // 
             // btn_aceptar
             // 
@@ -189,7 +191,7 @@ namespace MrTiendita.Vistas
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(358, 282);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_efectivo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cb_metodoPago);
             this.Controls.Add(this.btn_Cerrar);
@@ -197,11 +199,12 @@ namespace MrTiendita.Vistas
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCobro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCobro";
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnl_efectivo.ResumeLayout(false);
+            this.pnl_efectivo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,7 +219,7 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.TextBox tb_efectivo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_efectivo;
         public Bunifu.Framework.UI.BunifuFlatButton btn_aceptar;
     }
 }
