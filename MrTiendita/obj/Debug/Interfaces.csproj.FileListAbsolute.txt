@@ -67,3 +67,5 @@ C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vis
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCVentas.resources
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCobro.resources
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEEmpleado.resources
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCobro.resources
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEEmpleado.resources

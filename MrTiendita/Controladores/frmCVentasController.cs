@@ -27,7 +27,8 @@ namespace MrTiendita.Controladores
             this.totalVenta = 0;
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
-            this.vista.btn_finalizar.Click += new EventHandler(Venta);
+            this.vista.btn_finalizar.Click += new EventHandler(venta_metodo_pago);
+            this.vista.btn_cancelar.Click += new EventHandler(btn_cancelar_Click);
         }
 
         private void tb_codigo_TextChanged(object sender, EventArgs e)
@@ -113,7 +114,7 @@ namespace MrTiendita.Controladores
             bool siEncontrado = false;
 
             //si se ingresa un articulo que ya estaba en la lista sólo se le suma la cantidad a la fila.
-            this.productosVenta.Clear();
+            //this.productosVenta.Clear();
             foreach (DataGridViewRow articulo in this.vista.tablaVentas.Rows)
             {
                 if (long.Parse(articulo.Cells["codigo"].Value.ToString()) == codigo)
@@ -138,9 +139,18 @@ namespace MrTiendita.Controladores
             //actualizar el total
             this.totalVenta += subtotal;
             this.vista.lbl_total.Text = "$" + this.totalVenta;
+            this.vista.tb_codigo.Text = "";
+            this.vista.tb_cantidad.Text = "";
         }
 
-        private void Venta(object sender, EventArgs e)
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.vista.tablaVentas.Rows.Clear();
+            this.productosVenta.Clear();
+            this.totalVenta = 0;
+        }
+
+        private void venta_metodo_pago(object sender, EventArgs e)
         {
             //Comprobar si la lista está vacia
             int lista = this.vista.tablaVentas.Rows.Count;
@@ -155,113 +165,32 @@ namespace MrTiendita.Controladores
             this.productosVenta.Clear();
             foreach (DataGridViewRow articulo in this.vista.tablaVentas.Rows)
             {
-                this.productosVenta.Add(new Producto(long.Parse(articulo.Cells["codigo"].Value.ToString()),
-                    "", 0, 0,
+                Producto producto = new Producto();
+                producto.Codigo_barra = long.Parse(articulo.Cells["codigo"].Value.ToString());
+                producto.Descripcion = articulo.Cells["descripcion"].Value.ToString();
+                producto.Precio_venta = Convert.ToDouble(articulo.Cells["precio"].Value.ToString());
+                producto.Cantidad_actual = Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString());
+
+                this.productosVenta.Add(producto);
+
+                /*this.productosVenta.Add(new Producto(long.Parse(articulo.Cells["codigo"].Value.ToString()),
+                    articulo.Cells["descripcion"].Value.ToString(), Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString()), 0,
                     Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString())
-                    , false));
+                    , false));*/
             }
 
-            //se actualzia la cantidad en los productos del almacen
-            bool res = this.productoDAO.updateCantidad(this.productosVenta);
-            if (!res)
+
+            frmCobro cobro = new frmCobro(this.productosVenta, this.totalVenta);
+            cobro.ShowDialog();
+
+            if (cobro.DialogResult == DialogResult.OK)
             {
-                String mensaje = "Error: No se encontró el producto.";
-                if (this.productoDAO.ErrorUltimaConsulta)
-                {
-                    mensaje = this.productoDAO.MensajeError;
-                }
-                Form mensajeError = new frmError(mensaje);
-                mensajeError.ShowDialog();
-                return;
-
+                this.vista.tablaVentas.Rows.Clear();
+                this.productosVenta.Clear();
+                this.totalVenta = 0;
+                this.vista.lbl_total.Text = "$00.00";
             }
-
-            CrearTicket ticket = this.GenerarTicket();
-            //Console.WriteLine(ticket.Linea);
-            this.GuardarTicket(ticket);
-            //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-        }
-        private CrearTicket GenerarTicket()
-        {
-            //Creamos una instancia d ela clase CrearTicket
-            CrearTicket ticket = new CrearTicket();
-            //Ya podemos usar todos sus metodos
-            ticket.AbreCajon();//Para abrir el cajon de dinero.
-
-            //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-            //Datos de la cabecera del Ticket.
-            ticket.TextoCentro("NOMBRE DE LA EMPRESA");
-            //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-            ticket.TextoIzquierda("DIREC: Toluca #1380");
-            ticket.TextoIzquierda("TEL: 6623596075");
-            //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-            //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-            ticket.TextoIzquierda("");
-            //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-            ticket.lineasAsteriscos();
-
-            //Sub cabecera.
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ATENDIÓ: VENDEDOR");
-            //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-            //ticket.TextoIzquierda("");
-            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
-            ticket.TextoIzquierda("");
-            ticket.lineasAsteriscos();
-
-            //Articulos a vender.
-            ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-            ticket.lineasAsteriscos();
-            //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-            //foreach (DataGridViewRow fila in dgvLista.Rows)//dgvLista es el nombre del datagridview
-            //{
-            //ticket.AgregaArticulo(fila.Cells[2].Value.ToString(), int.Parse(fila.Cells[5].Value.ToString()),
-            //decimal.Parse(fila.Cells[4].Value.ToString()), decimal.Parse(fila.Cells[6].Value.ToString()));
-            //}
-            ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-            ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-            ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);
-            ticket.lineasIgual();
-
-            //Resumen de la venta. Sólo son ejemplos
-            //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-            //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-            ticket.AgregarTotales("         TOTAL.........$", 200);
-            ticket.TextoIzquierda("");
-            ticket.AgregarTotales("         EFECTIVO......$", 200);
-            ticket.AgregarTotales("         CAMBIO........$", 0);
-
-            //Texto final del Ticket.
-            ticket.TextoIzquierda("");
-            //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-            //ticket.TextoIzquierda("");
-            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-            ticket.CortaTicket();
-
-            return ticket;
-
         }
 
-        private void GuardarTicket(CrearTicket ticket)
-        {
-            DateTime hora = DateTime.Now;
-            String nombre = "Ticket_" + hora.ToString("yyyy-MM-dd_HH-mm-ss");
-            String rutaTickets = Properties.Settings.Default.RutaTickets;
-            String ruta = rutaTickets + "\\" + nombre + ".txt";
-            Console.WriteLine(ruta);
-            try
-            {
-                using (StreamWriter file = new StreamWriter(ruta))
-                {
-                    file.WriteLine(ticket.Linea);
-                }
-            }
-            catch (Exception e)
-            {
-                Form mensajeError = new frmError("Error: " + e.Message);
-                mensajeError.ShowDialog();
-            }
-        }
     }
 }

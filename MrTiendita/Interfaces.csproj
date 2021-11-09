@@ -54,6 +54,7 @@
     <Compile Include="Controladores\CrearTicket.cs" />
     <Compile Include="Controladores\frmCAlmacenController.cs" />
     <Compile Include="Controladores\frmCCajaController.cs" />
+    <Compile Include="Controladores\frmCobroController.cs" />
     <Compile Include="Controladores\frmCVentasController.cs" />
     <Compile Include="Controladores\frmEAlmacenController.cs" />
     <Compile Include="Controladores\frmEProveedorController.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Modelos\DAO\MovimientoDAO.cs" />
     <Compile Include="Modelos\DAO\ProductoDAO.cs" />
     <Compile Include="Modelos\DAO\ProveedorDAO.cs" />
+    <Compile Include="Modelos\DAO\VentaDAO.cs" />
     <Compile Include="Modelos\DTO\Caja.cs" />
     <Compile Include="Modelos\DTO\Empleado.cs" />
     <Compile Include="Modelos\DTO\EntradaAlmacen.cs" />

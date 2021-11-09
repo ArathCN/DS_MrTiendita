@@ -13,10 +13,16 @@ namespace MrTiendita.Modelos.DTO
         private int id_empleado;
         private String metodo_pago;
         private DateTime fecha;
-        private int cantidad;
-        private float importe;
+        private double cantidad;
+        private double importe;
+        private Producto producto;
 
-        public Venta(int id_venta, long codigo_barra, int id_empleado, string metodo_pago, DateTime fecha, int cantidad, float importe)
+        public Venta()
+        {
+
+        }
+
+        public Venta(int id_venta, long codigo_barra, int id_empleado, string metodo_pago, DateTime fecha, double cantidad, double importe)
         {
             this.id_venta = id_venta;
             this.codigo_barra = codigo_barra;
@@ -32,7 +38,8 @@ namespace MrTiendita.Modelos.DTO
         public int Id_empleado { get => this.id_empleado; set => this.id_empleado = value; }
         public string Metodo_pago { get => this.metodo_pago; set => this.metodo_pago = value; }
         public DateTime Fecha { get => this.fecha; set => this.fecha = value; }
-        public int Cantidad { get => this.cantidad; set => this.cantidad = value; }
-        public float Importe { get => this.importe; set => this.importe = value; }
+        public double Cantidad { get => this.cantidad; set => this.cantidad = value; }
+        public double Importe { get => this.importe; set => this.importe = value; }
+        public Producto Producto { get => producto; set => producto = value; }
     }
 }

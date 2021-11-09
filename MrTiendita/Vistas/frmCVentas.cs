@@ -29,11 +29,5 @@ namespace MrTiendita.Vistas
             tablaVentas.Columns[1].Width = 350;
             tablaVentas.Columns[2].Width = 140;
         }
-
-        private void btn_finalizar_Click(object sender, EventArgs e)
-        {
-            frmCobro frm = new frmCobro();
-            frm.ShowDialog();
-        }
     }
 }
