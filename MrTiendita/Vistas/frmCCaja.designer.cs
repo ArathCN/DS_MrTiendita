@@ -82,14 +82,14 @@ namespace MrTiendita.Vistas
             this.btn_aceptar.IconVisible = true;
             this.btn_aceptar.IconZoom = 90D;
             this.btn_aceptar.IsTab = false;
-            this.btn_aceptar.Location = new System.Drawing.Point(16, 256);
-            this.btn_aceptar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_aceptar.Location = new System.Drawing.Point(12, 208);
+            this.btn_aceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_aceptar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_aceptar.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_aceptar.selected = false;
-            this.btn_aceptar.Size = new System.Drawing.Size(121, 39);
+            this.btn_aceptar.Size = new System.Drawing.Size(91, 32);
             this.btn_aceptar.TabIndex = 14;
             this.btn_aceptar.Text = "Aceptar";
             this.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,18 +101,20 @@ namespace MrTiendita.Vistas
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label1.Location = new System.Drawing.Point(346, 103);
+            this.label1.Location = new System.Drawing.Point(260, 84);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 24);
+            this.label1.Size = new System.Drawing.Size(159, 19);
             this.label1.TabIndex = 18;
             this.label1.Text = "Últimos movimientos";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(350, 145);
+            this.pictureBox3.Location = new System.Drawing.Point(262, 118);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(781, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(586, 36);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 19;
             this.pictureBox3.TabStop = false;
@@ -143,8 +145,8 @@ namespace MrTiendita.Vistas
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle2;
             this.tablaMovimientos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.tablaMovimientos.Location = new System.Drawing.Point(350, 189);
-            this.tablaMovimientos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tablaMovimientos.Location = new System.Drawing.Point(262, 154);
+            this.tablaMovimientos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tablaMovimientos.Name = "tablaMovimientos";
             this.tablaMovimientos.ReadOnly = true;
             this.tablaMovimientos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -152,7 +154,7 @@ namespace MrTiendita.Vistas
             this.tablaMovimientos.RowHeadersWidth = 51;
             this.tablaMovimientos.RowTemplate.Height = 24;
             this.tablaMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.tablaMovimientos.Size = new System.Drawing.Size(781, 324);
+            this.tablaMovimientos.Size = new System.Drawing.Size(586, 263);
             this.tablaMovimientos.TabIndex = 20;
             // 
             // tipo_mov
@@ -189,9 +191,10 @@ namespace MrTiendita.Vistas
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(352, 156);
+            this.label2.Location = new System.Drawing.Point(264, 127);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 20);
+            this.label2.Size = new System.Drawing.Size(129, 17);
             this.label2.TabIndex = 21;
             this.label2.Text = "Tipo de movimiento";
             // 
@@ -201,9 +204,10 @@ namespace MrTiendita.Vistas
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label3.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(822, 156);
+            this.label3.Location = new System.Drawing.Point(616, 127);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 22;
             this.label3.Text = "Importe";
             // 
@@ -213,9 +217,10 @@ namespace MrTiendita.Vistas
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label4.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(990, 156);
+            this.label4.Location = new System.Drawing.Point(742, 127);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 20);
+            this.label4.Size = new System.Drawing.Size(86, 17);
             this.label4.TabIndex = 23;
             this.label4.Text = "Total en caja";
             // 
@@ -225,9 +230,10 @@ namespace MrTiendita.Vistas
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label5.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(633, 156);
+            this.label5.Location = new System.Drawing.Point(475, 127);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 24;
             this.label5.Text = "Fecha";
             // 
@@ -237,9 +243,10 @@ namespace MrTiendita.Vistas
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label6.Location = new System.Drawing.Point(12, 57);
+            this.label6.Location = new System.Drawing.Point(9, 46);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 20);
+            this.label6.Size = new System.Drawing.Size(132, 17);
             this.label6.TabIndex = 39;
             this.label6.Text = "Tipo de movimiento:";
             // 
@@ -247,28 +254,29 @@ namespace MrTiendita.Vistas
             // 
             this.cb_tipoMov.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cb_tipoMov.BorderRadius = 7;
+            this.cb_tipoMov.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_tipoMov.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_tipoMov.ForeColor = System.Drawing.Color.White;
             this.cb_tipoMov.Items = new string[] {
         "Entrada de dinero",
         "Salida de dinero"};
-            this.cb_tipoMov.Location = new System.Drawing.Point(16, 83);
-            this.cb_tipoMov.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.cb_tipoMov.Location = new System.Drawing.Point(12, 67);
+            this.cb_tipoMov.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cb_tipoMov.Name = "cb_tipoMov";
             this.cb_tipoMov.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.cb_tipoMov.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.cb_tipoMov.selectedIndex = -1;
-            this.cb_tipoMov.Size = new System.Drawing.Size(253, 37);
+            this.cb_tipoMov.Size = new System.Drawing.Size(190, 30);
             this.cb_tipoMov.TabIndex = 40;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 170);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(10, 138);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(257, 39);
+            this.pictureBox2.Size = new System.Drawing.Size(193, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 42;
             this.pictureBox2.TabStop = false;
@@ -279,9 +287,10 @@ namespace MrTiendita.Vistas
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label8.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
-            this.label8.Location = new System.Drawing.Point(24, 15);
+            this.label8.Location = new System.Drawing.Point(18, 12);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(193, 24);
+            this.label8.Size = new System.Drawing.Size(160, 19);
             this.label8.TabIndex = 45;
             this.label8.Text = "Nuevo movimiento";
             // 
@@ -291,9 +300,10 @@ namespace MrTiendita.Vistas
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label9.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label9.Location = new System.Drawing.Point(12, 148);
+            this.label9.Location = new System.Drawing.Point(9, 120);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 20);
+            this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 46;
             this.label9.Text = "Importe:";
             // 
@@ -301,18 +311,19 @@ namespace MrTiendita.Vistas
             // 
             this.tb_importe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_importe.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_importe.Location = new System.Drawing.Point(24, 177);
-            this.tb_importe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_importe.Location = new System.Drawing.Point(18, 144);
+            this.tb_importe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_importe.Name = "tb_importe";
-            this.tb_importe.Size = new System.Drawing.Size(229, 21);
+            this.tb_importe.Size = new System.Drawing.Size(172, 17);
             this.tb_importe.TabIndex = 47;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(32, 16);
+            this.pictureBox4.Location = new System.Drawing.Point(24, 13);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.Size = new System.Drawing.Size(24, 26);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 49;
             this.pictureBox4.TabStop = false;
@@ -322,9 +333,10 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.AutoSize = true;
             this.lbl_Titulo.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(70, 19);
+            this.lbl_Titulo.Location = new System.Drawing.Point(52, 15);
+            this.lbl_Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(61, 29);
+            this.lbl_Titulo.Size = new System.Drawing.Size(47, 23);
             this.lbl_Titulo.TabIndex = 48;
             this.lbl_Titulo.Text = "Caja";
             // 
@@ -339,17 +351,18 @@ namespace MrTiendita.Vistas
             this.panel2.Controls.Add(this.tb_importe);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(32, 99);
+            this.panel2.Location = new System.Drawing.Point(24, 80);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 410);
+            this.panel2.Size = new System.Drawing.Size(216, 333);
             this.panel2.TabIndex = 51;
             // 
             // frmCCaja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1204, 788);
+            this.ClientSize = new System.Drawing.Size(903, 640);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.label5);
@@ -361,6 +374,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCCaja";
@@ -389,13 +403,13 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn total_caja;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private Bunifu.Framework.UI.BunifuDropdown cb_tipoMov;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox tb_importe;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.Panel panel2;
+        public Bunifu.Framework.UI.BunifuDropdown cb_tipoMov;
+        public System.Windows.Forms.PictureBox pictureBox2;
     }
 }

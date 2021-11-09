@@ -53,18 +53,23 @@
   <ItemGroup>
     <Compile Include="Controladores\CrearTicket.cs" />
     <Compile Include="Controladores\frmCAlmacenController.cs" />
+    <Compile Include="Controladores\frmCCajaController.cs" />
     <Compile Include="Controladores\frmCVentasController.cs" />
     <Compile Include="Controladores\frmEAlmacenController.cs" />
     <Compile Include="Controladores\frmEProveedorController.cs" />
     <Compile Include="Controladores\frmPrincipalController.cs" />
     <Compile Include="Controladores\frmProductoController.cs" />
     <Compile Include="Controladores\frmProveedorController.cs" />
+    <Compile Include="Modelos\DAO\CajaDAO.cs" />
     <Compile Include="Modelos\DAO\DbContext.cs" />
     <Compile Include="Modelos\DAO\EntradaAlmacenDAO.cs" />
+    <Compile Include="Modelos\DAO\MovimientoDAO.cs" />
     <Compile Include="Modelos\DAO\ProductoDAO.cs" />
     <Compile Include="Modelos\DAO\ProveedorDAO.cs" />
+    <Compile Include="Modelos\DTO\Caja.cs" />
     <Compile Include="Modelos\DTO\Empleado.cs" />
     <Compile Include="Modelos\DTO\EntradaAlmacen.cs" />
+    <Compile Include="Modelos\DTO\Movimiento.cs" />
     <Compile Include="Modelos\DTO\Producto.cs" />
     <Compile Include="Modelos\DTO\Proveedor.cs" />
     <Compile Include="Modelos\DTO\Venta.cs" />
