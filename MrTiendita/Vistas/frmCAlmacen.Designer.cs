@@ -30,12 +30,17 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCAlmacen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pb_buscar = new System.Windows.Forms.PictureBox();
             this.lbl_buscar = new System.Windows.Forms.Label();
             this.pb_lupa = new System.Windows.Forms.PictureBox();
             this.tb_busqueda = new System.Windows.Forms.TextBox();
             this.tablaProductos = new System.Windows.Forms.DataGridView();
+            this.codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,11 +62,6 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pb_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_lupa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).BeginInit();
@@ -77,7 +77,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_buscar.Image = ((System.Drawing.Image)(resources.GetObject("pb_buscar.Image")));
             this.pb_buscar.Location = new System.Drawing.Point(24, 80);
-            this.pb_buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_buscar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_buscar.Name = "pb_buscar";
             this.pb_buscar.Size = new System.Drawing.Size(310, 32);
             this.pb_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,7 +100,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_lupa.Image = ((System.Drawing.Image)(resources.GetObject("pb_lupa.Image")));
             this.pb_lupa.Location = new System.Drawing.Point(31, 84);
-            this.pb_lupa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_lupa.Margin = new System.Windows.Forms.Padding(2);
             this.pb_lupa.Name = "pb_lupa";
             this.pb_lupa.Size = new System.Drawing.Size(19, 20);
             this.pb_lupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +112,7 @@ namespace MrTiendita.Vistas
             this.tb_busqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_busqueda.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_busqueda.Location = new System.Drawing.Point(56, 86);
-            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(2);
             this.tb_busqueda.Name = "tb_busqueda";
             this.tb_busqueda.Size = new System.Drawing.Size(268, 17);
             this.tb_busqueda.TabIndex = 5;
@@ -122,6 +122,8 @@ namespace MrTiendita.Vistas
             this.tablaProductos.AllowUserToAddRows = false;
             this.tablaProductos.AllowUserToDeleteRows = false;
             this.tablaProductos.AllowUserToOrderColumns = true;
+            this.tablaProductos.AllowUserToResizeColumns = false;
+            this.tablaProductos.AllowUserToResizeRows = false;
             this.tablaProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablaProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.tablaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -136,18 +138,18 @@ namespace MrTiendita.Vistas
             this.descripcion,
             this.precio_venta,
             this.precio_compra});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle1;
             this.tablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaProductos.Location = new System.Drawing.Point(24, 171);
-            this.tablaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaProductos.Margin = new System.Windows.Forms.Padding(2);
             this.tablaProductos.Name = "tablaProductos";
             this.tablaProductos.ReadOnly = true;
             this.tablaProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -158,11 +160,46 @@ namespace MrTiendita.Vistas
             this.tablaProductos.Size = new System.Drawing.Size(598, 387);
             this.tablaProductos.TabIndex = 6;
             // 
+            // codigo_barras
+            // 
+            this.codigo_barras.HeaderText = "Código de barras";
+            this.codigo_barras.MinimumWidth = 6;
+            this.codigo_barras.Name = "codigo_barras";
+            this.codigo_barras.ReadOnly = true;
+            // 
+            // cantidad_actual
+            // 
+            this.cantidad_actual.HeaderText = "Cantidad";
+            this.cantidad_actual.MinimumWidth = 6;
+            this.cantidad_actual.Name = "cantidad_actual";
+            this.cantidad_actual.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.HeaderText = "Precio venta";
+            this.precio_venta.MinimumWidth = 6;
+            this.precio_venta.Name = "precio_venta";
+            this.precio_venta.ReadOnly = true;
+            // 
+            // precio_compra
+            // 
+            this.precio_compra.HeaderText = "Precio compra";
+            this.precio_compra.MinimumWidth = 6;
+            this.precio_compra.Name = "precio_compra";
+            this.precio_compra.ReadOnly = true;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(24, 136);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(598, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -238,7 +275,7 @@ namespace MrTiendita.Vistas
             this.pnl_nuevaEntradaActiva.Controls.Add(this.label5);
             this.pnl_nuevaEntradaActiva.Controls.Add(this.label7);
             this.pnl_nuevaEntradaActiva.Location = new System.Drawing.Point(644, 136);
-            this.pnl_nuevaEntradaActiva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_nuevaEntradaActiva.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_nuevaEntradaActiva.Name = "pnl_nuevaEntradaActiva";
             this.pnl_nuevaEntradaActiva.Size = new System.Drawing.Size(205, 422);
             this.pnl_nuevaEntradaActiva.TabIndex = 33;
@@ -298,7 +335,7 @@ namespace MrTiendita.Vistas
             this.tb_cantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_cantidad.Location = new System.Drawing.Point(22, 148);
-            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2);
             this.tb_cantidad.Name = "tb_cantidad";
             this.tb_cantidad.Size = new System.Drawing.Size(164, 17);
             this.tb_cantidad.TabIndex = 43;
@@ -308,7 +345,8 @@ namespace MrTiendita.Vistas
             this.tb_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_codigo.Location = new System.Drawing.Point(22, 76);
-            this.tb_codigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_codigo.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_codigo.MaxLength = 13;
             this.tb_codigo.Name = "tb_codigo";
             this.tb_codigo.Size = new System.Drawing.Size(164, 17);
             this.tb_codigo.TabIndex = 41;
@@ -367,7 +405,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(14, 142);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(182, 32);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -378,7 +416,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(13, 194);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(183, 32);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -389,7 +427,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(14, 70);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(182, 32);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -451,7 +489,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(24, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -470,41 +508,6 @@ namespace MrTiendita.Vistas
             this.label6.Size = new System.Drawing.Size(85, 17);
             this.label6.TabIndex = 35;
             this.label6.Text = "Precio venta";
-            // 
-            // codigo_barras
-            // 
-            this.codigo_barras.HeaderText = "Código de barras";
-            this.codigo_barras.MinimumWidth = 6;
-            this.codigo_barras.Name = "codigo_barras";
-            this.codigo_barras.ReadOnly = true;
-            // 
-            // cantidad_actual
-            // 
-            this.cantidad_actual.HeaderText = "Cantidad";
-            this.cantidad_actual.MinimumWidth = 6;
-            this.cantidad_actual.Name = "cantidad_actual";
-            this.cantidad_actual.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.HeaderText = "Precio venta";
-            this.precio_venta.MinimumWidth = 6;
-            this.precio_venta.Name = "precio_venta";
-            this.precio_venta.ReadOnly = true;
-            // 
-            // precio_compra
-            // 
-            this.precio_compra.HeaderText = "Precio compra";
-            this.precio_compra.MinimumWidth = 6;
-            this.precio_compra.Name = "precio_compra";
-            this.precio_compra.ReadOnly = true;
             // 
             // frmCAlmacen
             // 
@@ -527,7 +530,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.pb_buscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCAlmacen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "            ";

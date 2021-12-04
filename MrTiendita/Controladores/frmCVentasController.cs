@@ -109,6 +109,14 @@ namespace MrTiendita.Controladores
                 return;
             }
 
+            //comprobar que no se quiera vender producto, o sea, numero positivo
+            if (cantidad <= 0)
+            {
+                Form mensajeError = new frmError("No se pueden vender productos negativos.");
+                mensajeError.ShowDialog();
+                return;
+            }
+
             //agregarlo a la tabla ----------- MEJOR PONERLO EN UN METODO PARA LLAMARLO TAMBIEN CUANDO SEA POR ESCANER
             double subtotal = cantidad * producto.Precio_venta;
             bool siEncontrado = false;

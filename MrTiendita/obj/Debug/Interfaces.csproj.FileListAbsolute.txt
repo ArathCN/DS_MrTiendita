@@ -69,3 +69,29 @@ C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vis
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEEmpleado.resources
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCobro.resources
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEEmpleado.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\bin\Debug\MrTiendita.exe.config
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\bin\Debug\MrTiendita.exe
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\bin\Debug\MrTiendita.pdb
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.AssemblyReference.cache
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.SuggestedBindingRedirects.cache
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Properties.Resources.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmAdvertencia.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCAlmacen.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCCaja.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCobro.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmCVentas.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEAlmacen.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEditarProveedor.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEEmpleado.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmError.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmExito.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmPrincipal.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmProducto.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmProveedores.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmREntradas.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmReportes.resources
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.GenerateResource.cache
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.CopyComplete
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.exe
+C:\Users\PASOS\Source\Repos\DS_MrTiendita\MrTiendita\obj\Debug\MrTiendita.pdb

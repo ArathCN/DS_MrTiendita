@@ -73,7 +73,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.Location = new System.Drawing.Point(376, 3);
-            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(19, 20);
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +98,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(13, 78);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(207, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,7 +133,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(12, 148);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(376, 33);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +156,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(13, 219);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(112, 33);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,7 +167,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(140, 219);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(120, 33);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -240,7 +240,8 @@ namespace MrTiendita.Vistas
             this.tb_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_codigo.Location = new System.Drawing.Point(24, 84);
-            this.tb_codigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_codigo.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_codigo.MaxLength = 13;
             this.tb_codigo.Name = "tb_codigo";
             this.tb_codigo.Size = new System.Drawing.Size(184, 17);
             this.tb_codigo.TabIndex = 23;
@@ -250,7 +251,7 @@ namespace MrTiendita.Vistas
             this.tb_cantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_cantidad.Location = new System.Drawing.Point(244, 84);
-            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2);
             this.tb_cantidad.Name = "tb_cantidad";
             this.tb_cantidad.Size = new System.Drawing.Size(134, 17);
             this.tb_cantidad.TabIndex = 24;
@@ -260,7 +261,7 @@ namespace MrTiendita.Vistas
             this.tb_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_descripcion.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_descripcion.Location = new System.Drawing.Point(24, 156);
-            this.tb_descripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_descripcion.Margin = new System.Windows.Forms.Padding(2);
             this.tb_descripcion.Name = "tb_descripcion";
             this.tb_descripcion.Size = new System.Drawing.Size(354, 17);
             this.tb_descripcion.TabIndex = 25;
@@ -270,7 +271,7 @@ namespace MrTiendita.Vistas
             this.tb_precioVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_precioVenta.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_precioVenta.Location = new System.Drawing.Point(24, 226);
-            this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(2);
             this.tb_precioVenta.Name = "tb_precioVenta";
             this.tb_precioVenta.Size = new System.Drawing.Size(94, 17);
             this.tb_precioVenta.TabIndex = 26;
@@ -280,7 +281,7 @@ namespace MrTiendita.Vistas
             this.tb_precioCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_precioCompra.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_precioCompra.Location = new System.Drawing.Point(151, 226);
-            this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(2);
             this.tb_precioCompra.Name = "tb_precioCompra";
             this.tb_precioCompra.Size = new System.Drawing.Size(99, 17);
             this.tb_precioCompra.TabIndex = 27;
@@ -289,7 +290,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(234, 78);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(154, 33);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -363,7 +364,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.btn_Cerrar);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarProducto";

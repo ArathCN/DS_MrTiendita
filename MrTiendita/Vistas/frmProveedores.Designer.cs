@@ -61,7 +61,7 @@ namespace MrTiendita.Vistas
             this.tb_busqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_busqueda.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_busqueda.Location = new System.Drawing.Point(56, 86);
-            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(2);
             this.tb_busqueda.Name = "tb_busqueda";
             this.tb_busqueda.Size = new System.Drawing.Size(268, 17);
             this.tb_busqueda.TabIndex = 24;
@@ -70,7 +70,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_lupa.Image = ((System.Drawing.Image)(resources.GetObject("pb_lupa.Image")));
             this.pb_lupa.Location = new System.Drawing.Point(31, 84);
-            this.pb_lupa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_lupa.Margin = new System.Windows.Forms.Padding(2);
             this.pb_lupa.Name = "pb_lupa";
             this.pb_lupa.Size = new System.Drawing.Size(19, 20);
             this.pb_lupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -92,7 +92,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_buscar.Image = ((System.Drawing.Image)(resources.GetObject("pb_buscar.Image")));
             this.pb_buscar.Location = new System.Drawing.Point(24, 80);
-            this.pb_buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_buscar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_buscar.Name = "pb_buscar";
             this.pb_buscar.Size = new System.Drawing.Size(310, 32);
             this.pb_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -155,7 +155,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(24, 136);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(739, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,6 +165,8 @@ namespace MrTiendita.Vistas
             // tablaProveedores
             // 
             this.tablaProveedores.AllowUserToOrderColumns = true;
+            this.tablaProveedores.AllowUserToResizeColumns = false;
+            this.tablaProveedores.AllowUserToResizeRows = false;
             this.tablaProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablaProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.tablaProveedores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -190,7 +192,7 @@ namespace MrTiendita.Vistas
             this.tablaProveedores.DefaultCellStyle = dataGridViewCellStyle1;
             this.tablaProveedores.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaProveedores.Location = new System.Drawing.Point(24, 171);
-            this.tablaProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.tablaProveedores.Name = "tablaProveedores";
             this.tablaProveedores.ReadOnly = true;
             this.tablaProveedores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -243,7 +245,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(24, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(26, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -319,7 +321,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.pb_buscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProveedores";
