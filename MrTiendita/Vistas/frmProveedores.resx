@@ -121,7 +121,7 @@
   <data name="pb_lupa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAV5JREFUSEvdlD8rRlEcgO8ko0mRgQ9h9zUMSj6BYmFhMkjKQkqxyGDwEdhMMrHp
+        EgAACxIB0t1+/AAAAV5JREFUSEvdlD8rRlEcgO8ko0mRgQ9h9zUMSj6BYmFhMkjKQkqxyGDwEdhMMrHp
         XQxKKDHzPOc69dJ77znnyuKpp84593f+/c45txrACC7hOb7gB77hJS7iJHZmFuOg2sMLvOpre8RlLGYN
         HcAJ1tGd9DOM8+ikxm1iNgsYV5xKgd+v0XhTmWQMHfgJc/M7ivZ5xXEb2nDbrmY11PKZQftth1oL3hYD
         u9wOz+u+LjZjkDntwhG6uJ8X4hsGeBW7sI/2nwq1BtzBTV0s5gSTO/AM3rE1qIFbfK6LzfioXMVKqOUz
@@ -133,7 +133,7 @@
   <data name="pb_buscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVUAAAAtCAYAAAAeCvg2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAB0dJREFUeF7tnc1uHFUQhWOCPROcURIRbCJlYdAIgTcsrIgsvc1TZd4geRTEkg2w
+        EgAACxIB0t1+/AAAB0dJREFUeF7tnc1uHFUQhWOCPROcURIRbCJlYdAIgTcsrIgsvc1TZd4geRTEkg2w
         Y8OzDIIHMHVuqm7Orb49091JxOZ80nHdW3/dcaJS/3icewc4MX02Qb28KbXImXqMUNRMreO8Y+slPbNy
         DPsP7c89sj/vw9fLz5qS0xMfZ6ryeR2q59ix4xyLZ+Xj944FO7bOuXnfy50i5Id68THl/CU9WFE7p0cv
         d0o9cuYcB4qaqXWcd2w9tycsdJzVavWtmd9Me9OdJEmS1NXP6/X6G7P94Xp3d4fA1rR//fr13X6/N5cQ
@@ -170,7 +170,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAogAAABACAYAAACZbYZKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAW5JREFUeF7t2LGNwlAQQEEi+8qgWwJ+H2eTQAeU5BJAvuDEk+jAs9JEuwU87Wmf
+        EgAACxIB0t1+/AAAAW5JREFUeF7t2LGNwlAQQEEi+8qgWwJ+H2eTQAeU5BJAvuDEk+jAs9JEuwU87Wmf
         n8vveR7Lcxq3bR7rCwCAY5nGct+b8D8OhSEAANNYt79InK/L49sBAABHdHuevi8AADii/YsoEAEACIEI
         AEAIRAAAQiACABACEQCAEIgAAIRABAAgBCIAACEQAQAIgQgAQAhEAABCIAIAEAIRAIAQiAAAhEAEACAE
         IgAAIRABAAiBCABACEQAAEIgAgAQAhEAgBCIAACEQAQAIAQiAAAhEAEACIEIAEAIRAAAQiACABACEQCA
@@ -194,7 +194,7 @@
   <data name="editar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAARBJREFUOE/NlDEOAUEYRrdA6QwKBZ1OJ0qRSNyAVjRu4AbO4BBaoVGLE5BIdKJX
+        EgAACxIB0t1+/AAAARBJREFUOE/NlDEOAUEYRrdA6QwKBZ1OJ0qRSNyAVjRu4AbO4BBaoVGLE5BIdKJX
         4Huzho3M7Czb+JKXnZmYN/+Y2Y1ypiFWYiumDOQJspPoiLrYiYmIKoJVbuL+QVu4gmwvjmLAgILnQmMj
         vinXVsYTiZXSZhFTSdYgOYiW6cWpCqRU12cgq9Bus2l679jKhqanZBHabQZlJCS0lSW3SZwykia0lfFM
         xisjPmFNfB4ASZURn3AuOLmx6cUJyohPyMTe85m8Z6ky4hLagyC0+Q3VpsnMHSQu4UicBa8koqXoCl9K
@@ -208,7 +208,7 @@
   <data name="eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAaFJREFUOE+dlD8rhlEYh8/GQnwA8QlEUQaDTGwWk4QyKItsFhmMSsqg/F0sSomJ
+        EgAACxIB0t1+/AAAAaFJREFUOE+dlD8rhlEYh8/GQnwA8QlEUQaDTGwWk4QyKItsFhmMSsqg/F0sSomJ
         EhaJQcpG+AJSlMHC7zr3c789z/uc6HXV1fs75zznPuf5c97wC03yTH5XuScZq5lJSYE5OZtJ/pAz8lfa
         Em7J56o+fJGbVX1upEtW39Z/7ZCRPnkrz7NciyeSuWyswL68sBjJX8BLqNySqOxE8OKOLRbZljwzYGVu
         wYsw6cBiaJeMdcdWCPdy3WKRBflmMe6ASZ2xZQV5HOCL9caWvXXmlvDPBNgZeSC20gW5pi7LU7LEsGSw
@@ -221,7 +221,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAA5dJREFUaEPtmUmoFEcch58LgsEtMYeAcTcquOByUAMaowdRyUElEcQNN5SguB0C
+        EgAACxIB0t1+/AAAA5dJREFUaEPtmUmoFEcch58LgsEtMYeAcTcquOByUAMaowdRyUElEcQNN5SguB0C
         CgpBiFFBBEkQRA8iHgQRzFk9qaCJBwXFxChGNOCGgkgk0e/r6ZJ+8+bNtPNmDf2DD/rf3VVdv9q6qrsl
         U6ZMmTLVW73hc5heA6ZCVbQAnsKbGvInDIGKqRfch1uwCpbXgI3wBC5AxfQFWEProqh22g2vc4eVkX1W
         I9ZULbUTfG7FlBnpoP53RgaloA+UVL2NpMVyFlW9jfjcUjyC21C0ZRpljKwAX5KFCC9rp+x21ShGjoLx

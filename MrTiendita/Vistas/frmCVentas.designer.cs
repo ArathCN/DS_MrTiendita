@@ -46,16 +46,16 @@ namespace MrTiendita.Vistas
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tablaVentas = new System.Windows.Forms.DataGridView();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lbl_totaltxt = new System.Windows.Forms.Label();
-            this.lbl_total = new System.Windows.Forms.Label();
-            this.btn_finalizar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_cancelar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.cantidad_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lbl_totaltxt = new System.Windows.Forms.Label();
+            this.lbl_total = new System.Windows.Forms.Label();
+            this.btn_finalizar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_cancelar = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -105,6 +105,7 @@ namespace MrTiendita.Vistas
             this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_cantidad.Location = new System.Drawing.Point(316, 86);
             this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_cantidad.MaxLength = 8;
             this.tb_cantidad.Name = "tb_cantidad";
             this.tb_cantidad.Size = new System.Drawing.Size(124, 17);
             this.tb_cantidad.TabIndex = 3;
@@ -176,6 +177,7 @@ namespace MrTiendita.Vistas
             this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_codigo.Location = new System.Drawing.Point(35, 85);
             this.tb_codigo.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_codigo.MaxLength = 13;
             this.tb_codigo.Name = "tb_codigo";
             this.tb_codigo.Size = new System.Drawing.Size(245, 17);
             this.tb_codigo.TabIndex = 2;
@@ -258,6 +260,8 @@ namespace MrTiendita.Vistas
             // 
             this.tablaVentas.AllowUserToAddRows = false;
             this.tablaVentas.AllowUserToDeleteRows = false;
+            this.tablaVentas.AllowUserToResizeColumns = false;
+            this.tablaVentas.AllowUserToResizeRows = false;
             this.tablaVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablaVentas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.tablaVentas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -293,6 +297,42 @@ namespace MrTiendita.Vistas
             this.tablaVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.tablaVentas.Size = new System.Drawing.Size(708, 275);
             this.tablaVentas.TabIndex = 72;
+            // 
+            // cantidad_actual
+            // 
+            this.cantidad_actual.HeaderText = "Cantidad";
+            this.cantidad_actual.MinimumWidth = 6;
+            this.cantidad_actual.Name = "cantidad_actual";
+            this.cantidad_actual.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.MinimumWidth = 6;
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.MinimumWidth = 6;
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Visible = false;
             // 
             // pictureBox3
             // 
@@ -404,42 +444,6 @@ namespace MrTiendita.Vistas
             this.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_cancelar.Textcolor = System.Drawing.Color.White;
             this.btn_cancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // cantidad_actual
-            // 
-            this.cantidad_actual.HeaderText = "Cantidad";
-            this.cantidad_actual.MinimumWidth = 6;
-            this.cantidad_actual.Name = "cantidad_actual";
-            this.cantidad_actual.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.MinimumWidth = 6;
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.MinimumWidth = 6;
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.MinimumWidth = 6;
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Visible = false;
             // 
             // frmCVentas
             // 

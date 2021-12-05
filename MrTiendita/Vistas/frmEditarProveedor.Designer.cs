@@ -50,9 +50,10 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.lbl_Titulo.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(13, 6);
+            this.lbl_Titulo.Location = new System.Drawing.Point(10, 5);
+            this.lbl_Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(61, 24);
+            this.lbl_Titulo.Size = new System.Drawing.Size(50, 19);
             this.lbl_Titulo.TabIndex = 6;
             this.lbl_Titulo.Text = "Titulo";
             // 
@@ -62,10 +63,10 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(502, 4);
-            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Cerrar.Location = new System.Drawing.Point(376, 3);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Cerrar.Name = "btn_Cerrar";
-            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Cerrar.Size = new System.Drawing.Size(19, 20);
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Cerrar.TabIndex = 5;
             this.btn_Cerrar.TabStop = false;
@@ -75,39 +76,41 @@ namespace MrTiendita.Vistas
             // 
             this.tb_telefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_telefono.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_telefono.Location = new System.Drawing.Point(323, 103);
-            this.tb_telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_telefono.Location = new System.Drawing.Point(242, 84);
+            this.tb_telefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_telefono.MaxLength = 10;
             this.tb_telefono.Name = "tb_telefono";
-            this.tb_telefono.Size = new System.Drawing.Size(179, 21);
+            this.tb_telefono.Size = new System.Drawing.Size(134, 17);
             this.tb_telefono.TabIndex = 33;
             // 
             // tb_nombre
             // 
             this.tb_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_nombre.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_nombre.Location = new System.Drawing.Point(32, 103);
-            this.tb_nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_nombre.Location = new System.Drawing.Point(24, 84);
+            this.tb_nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_nombre.Name = "tb_nombre";
-            this.tb_nombre.Size = new System.Drawing.Size(245, 21);
+            this.tb_nombre.Size = new System.Drawing.Size(184, 17);
             this.tb_nombre.TabIndex = 32;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 73);
+            this.label2.Location = new System.Drawing.Point(236, 59);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 29;
             this.label2.Text = "Teléfono:";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(309, 96);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(232, 78);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(205, 41);
+            this.pictureBox3.Size = new System.Drawing.Size(154, 33);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 28;
             this.pictureBox3.TabStop = false;
@@ -116,19 +119,20 @@ namespace MrTiendita.Vistas
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 73);
+            this.label1.Location = new System.Drawing.Point(10, 59);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nombre:";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 96);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(13, 78);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(276, 41);
+            this.pictureBox2.Size = new System.Drawing.Size(207, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
@@ -156,14 +160,14 @@ namespace MrTiendita.Vistas
             this.btn_guardarProveedor.IconVisible = true;
             this.btn_guardarProveedor.IconZoom = 40D;
             this.btn_guardarProveedor.IsTab = false;
-            this.btn_guardarProveedor.Location = new System.Drawing.Point(17, 191);
-            this.btn_guardarProveedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_guardarProveedor.Location = new System.Drawing.Point(13, 155);
+            this.btn_guardarProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_guardarProveedor.Name = "btn_guardarProveedor";
             this.btn_guardarProveedor.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_guardarProveedor.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_guardarProveedor.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_guardarProveedor.selected = false;
-            this.btn_guardarProveedor.Size = new System.Drawing.Size(497, 39);
+            this.btn_guardarProveedor.Size = new System.Drawing.Size(373, 32);
             this.btn_guardarProveedor.TabIndex = 35;
             this.btn_guardarProveedor.Text = "Guardar";
             this.btn_guardarProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,12 +176,12 @@ namespace MrTiendita.Vistas
             // 
             // frmEditarProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(539, 262);
+            this.ClientSize = new System.Drawing.Size(404, 213);
             this.Controls.Add(this.btn_guardarProveedor);
             this.Controls.Add(this.tb_telefono);
             this.Controls.Add(this.tb_nombre);
@@ -189,7 +193,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.btn_Cerrar);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEditarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarProveedor";

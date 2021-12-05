@@ -62,6 +62,28 @@ namespace MrTiendita.Controladores
                 return;
             }
 
+            //Comprobar que el campo de cantidad no sea negativo.
+            if(Convert.ToDecimal(_cantidad) <= 0)
+            {
+                Form mensajeError = new frmError("No se pueden insertar productos en negativo.");
+                mensajeError.ShowDialog();
+                return;
+            }
+            //Comprobar que el campo de precio de compra no sea negativo.
+            if (Convert.ToDecimal(_precioVenta) <= 0)
+            {
+                Form mensajeError = new frmError("No se puede insertar un precio de venta en negativo.");
+                mensajeError.ShowDialog();
+                return;
+            }
+            //Comprobar que el campo de  precio de venta no sea negativo.
+            if (Convert.ToDecimal(_precioCompra) <= 0)
+            {
+                Form mensajeError = new frmError("No se puede insertar un precio de compra en negativo.");
+                mensajeError.ShowDialog();
+                return;
+            }
+
             //Comprobar datos numericos
             long codigoBarra;
             double precioVenta, precioCompra, cantidad;
