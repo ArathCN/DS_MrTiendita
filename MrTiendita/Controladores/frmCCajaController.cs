@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MrTiendita.Constantes;
 using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using MrTiendita.Vistas;
@@ -67,16 +68,16 @@ namespace MrTiendita.Controladores
 
             if (_tipo == 0)
             {
-                tipo = "Entrada";
+                tipo = TipoMovimiento.ENTRADA;
                 dinero = double.Parse(caja.Valor) + importe;
             }
             if (_tipo == 1)
             {
-                tipo = "Salida";
+                tipo = TipoMovimiento.SALIDA;
                 dinero = double.Parse(caja.Valor) - importe;
             }
             
-            Movimiento movimiento = new Movimiento(-1, tipo, "Directo", DateTime.Now, importe, dinero);
+            Movimiento movimiento = new Movimiento(-1, tipo, DateTime.Now, importe, dinero);
 
             res = this.movimientoDAO.create(movimiento);
             if (!res)

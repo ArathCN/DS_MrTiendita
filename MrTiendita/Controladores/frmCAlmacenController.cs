@@ -27,7 +27,6 @@ namespace MrTiendita.Controladores
             this.vista.Load += new EventHandler(vista_Load);
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
-            this.vista.tb_cantidad.TextChanged += new EventHandler(tb_cantidad_TextChanged);
             this.vista.btn_Limpiar.Click += new EventHandler(btn_Limpiar_Click);
         }
 
@@ -65,7 +64,6 @@ namespace MrTiendita.Controladores
                 if (prodcutoParaEntrada != null)
                 {
                     this.vista.tb_codigo.BackColor = Color.White;
-                    this.calcularImporte();
                 }
                 else
                 {
@@ -79,21 +77,6 @@ namespace MrTiendita.Controladores
                 this.prodcutoParaEntrada = null;
                 Form mensajeError = new frmError("El Codigo de barras introducido es incorrecto.");
                 mensajeError.ShowDialog();
-            }
-        }
-
-        private void tb_cantidad_TextChanged(object sender, EventArgs e)
-        {
-            String _cantidad = this.vista.tb_cantidad.Text;
-            if (String.IsNullOrEmpty(_cantidad))
-            {
-                return;
-            }
-
-            double cantidad;
-            if (Double.TryParse(_cantidad, out cantidad))
-            {
-                this.calcularImporte();
             }
         }
 
@@ -131,6 +114,7 @@ namespace MrTiendita.Controladores
                 entrada.Cantidad = cantidad;
                 entrada.Fecha = DateTime.Now;
                 entrada.Importe = prodcutoParaEntrada.Precio_compra * cantidad;
+                entrada.Id_proveedor = 2; //MIENTRAS SE MODIFICAN LAS VISTAS
                 this.prodcutoParaEntrada.Cantidad_actual = this.prodcutoParaEntrada.Cantidad_actual + cantidad;
 
                 var parteDecimal = cantidad - Math.Truncate(cantidad);
@@ -184,16 +168,6 @@ namespace MrTiendita.Controladores
             {
                 this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
             }
-        }
-        protected bool calcularImporte()
-        {
-            String _cantidad = this.vista.tb_cantidad.Text;
-            double cantidad;
-            if (!String.IsNullOrEmpty(_cantidad) && Double.TryParse(_cantidad, out cantidad) && this.prodcutoParaEntrada != null)
-            {
-                this.vista.lbl_total.Text = "$" + (cantidad * this.prodcutoParaEntrada.Precio_compra);
-            }
-            return false;
         }
     }
 }

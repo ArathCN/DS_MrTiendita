@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constantes\TipoMovimiento.cs" />
     <Compile Include="Controladores\CrearTicket.cs" />
     <Compile Include="Controladores\frmCAlmacenController.cs" />
     <Compile Include="Controladores\frmCCajaController.cs" />

@@ -26,8 +26,8 @@ namespace MrTiendita.Modelos.DAO
             bool success = false;
             int rowsAffected = 0;
 
-            String sql = "INSERT INTO Entrada_Almacen (codigo_barra, fecha, cantidad, importe) " +
-                "VALUES (@cb, @fecha, @cant, @imp);";
+            String sql = "INSERT INTO Entrada_Almacen (codigo_barra, fecha, cantidad, importe, id_proveedor) " +
+                "VALUES (@cb, @fecha, @cant, @imp, @idp);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -40,11 +40,13 @@ namespace MrTiendita.Modelos.DAO
                         command.Parameters.Add("@fecha", SqlDbType.DateTime);
                         command.Parameters.Add("@cant", SqlDbType.Decimal);
                         command.Parameters.Add("@imp", SqlDbType.Decimal);
+                        command.Parameters.Add("@idp", SqlDbType.Int);
 
                         command.Parameters["@cb"].Value = entradaAlmacen.Codigo_barra;
                         command.Parameters["@fecha"].Value = entradaAlmacen.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
                         command.Parameters["@cant"].Value = entradaAlmacen.Cantidad;
                         command.Parameters["@imp"].Value = entradaAlmacen.Importe;
+                        command.Parameters["@idp"].Value = entradaAlmacen.Id_proveedor;
 
                         try
                         {
@@ -123,7 +125,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4))));
+                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetInt32(5)));
                         }
                     }
                 }
@@ -152,7 +154,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4))));
+                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetInt32(5)));
                         }
                     }
                 }

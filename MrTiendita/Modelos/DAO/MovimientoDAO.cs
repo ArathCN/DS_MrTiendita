@@ -20,8 +20,8 @@ namespace MrTiendita.Modelos.DAO
         public bool create(Movimiento movimiento)
         {
             bool success = false;
-            String sql = "INSERT INTO Movimientos (tipo, concepto, fecha, importe, caja) " +
-                "VALUES (@tipo, @con, @fec, @imp, @caj);";
+            String sql = "INSERT INTO Movimientos (tipo, fecha, importe, caja) " +
+                "VALUES (@tipo, @fec, @imp, @caj);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -29,14 +29,12 @@ namespace MrTiendita.Modelos.DAO
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.Add("@tipo", SqlDbType.VarChar);
-                    command.Parameters.Add("@con", SqlDbType.VarChar);
                     command.Parameters.Add("@fec", SqlDbType.DateTime);
                     command.Parameters.Add("@imp", SqlDbType.Decimal);
                     command.Parameters.Add("@caj", SqlDbType.Decimal);
 
 
                     command.Parameters["@tipo"].Value = movimiento.Tipo;
-                    command.Parameters["@con"].Value = movimiento.Concepto;
                     command.Parameters["@fec"].Value = movimiento.Fecha;
                     command.Parameters["@imp"].Value = movimiento.Importe;
                     command.Parameters["@caj"].Value = movimiento.Caja;
@@ -64,7 +62,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            movimientos.Add(new Movimiento(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDateTime(3), decimal.ToDouble(reader.GetDecimal(4)), decimal.ToDouble(reader.GetDecimal(5))));
+                            movimientos.Add(new Movimiento(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4))));
                         }
                     }
                 }

@@ -9,6 +9,7 @@ using MrTiendita.Modelos.DTO;
 using CrearTicketVenta;
 using System.Windows.Forms;
 using System.IO;
+using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {
@@ -104,7 +105,7 @@ namespace MrTiendita.Controladores
                 return;
             }
 
-            Movimiento movimiento = new Movimiento(-1, "Entrada", "Venta", DateTime.Now, this.totalVenta, double.Parse(caja.Valor) + this.totalVenta);
+            Movimiento movimiento = new Movimiento(-1, TipoMovimiento.VENTA, DateTime.Now, this.totalVenta, double.Parse(caja.Valor) + this.totalVenta);
             res = this.movimientoDAO.create(movimiento);
             if (!res)
             {
