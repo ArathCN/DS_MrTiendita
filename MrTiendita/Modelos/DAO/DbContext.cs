@@ -9,8 +9,8 @@ namespace MrTiendita.Modelos.DAO
     public class DbContext
     {
         //protected String stringConexion = "Data Source=HP-PAVILION-R5;Initial Catalog=MrTiendita;Integrated Security=True";
-        protected String stringConexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=MrTiendita;Integrated Security=True";
-        //protected String stringConexion = "Data Source=LAPTOP-3SLQTV7O;Initial Catalog=MrTiendita;Integrated Security=True";
+        //protected String stringConexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=MrTiendita;Integrated Security=True";
+        protected String stringConexion = "Data Source=LAPTOP-3SLQTV7O;Initial Catalog=MRTIENDITA;Integrated Security=True";
         protected bool errorUltimaConsulta;
         protected String mensajeError;
 

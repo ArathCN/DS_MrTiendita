@@ -66,9 +66,9 @@ namespace MrTiendita.Vistas
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Roboto Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.label1.Location = new System.Drawing.Point(12, 216);
+            this.label1.Location = new System.Drawing.Point(12, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 82);
+            this.label1.Size = new System.Drawing.Size(306, 67);
             this.label1.TabIndex = 7;
             this.label1.Text = "¿Está seguro que quiere realizar esta acción?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

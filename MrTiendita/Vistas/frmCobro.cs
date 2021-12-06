@@ -24,13 +24,5 @@ namespace MrTiendita.Vistas
         {
             this.Close();
         }
-
-        private void cb_metodoPago_onItemSelected(object sender, EventArgs e)
-        {
-            if (cb_metodoPago.selectedIndex == 0)
-            {
-                pnl_efectivo.Visible = true;
-            }
-        }
     }
 }

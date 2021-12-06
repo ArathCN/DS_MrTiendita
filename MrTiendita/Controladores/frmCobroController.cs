@@ -42,9 +42,23 @@ namespace MrTiendita.Controladores
 
         private void cb_metodoPago_onItemSelected(object sender, EventArgs e)
         {
+
             if (this.vista.cb_metodoPago.selectedIndex == 0)
             {
-                this.vista.pnl_efectivo.Visible = true;
+                this.vista.label1.Visible = true;
+                this.vista.label2.Visible = true;
+                this.vista.label3.Visible = true;
+                this.vista.tb_efectivo.Visible = true;
+                this.vista.pictureBox2.Visible = true;
+                this.vista.btn_aceptarEfectivo.Visible = true;
+            }
+            else if (this.vista.cb_metodoPago.selectedIndex == 1)
+            {
+                this.vista.label1.Visible = false;
+                this.vista.label2.Visible = false;
+                this.vista.label3.Visible = false;
+                this.vista.tb_efectivo.Visible = false;
+                this.vista.pictureBox2.Visible = false;
             }
         }
 

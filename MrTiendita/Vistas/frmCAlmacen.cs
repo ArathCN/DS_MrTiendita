@@ -28,8 +28,8 @@ namespace MrTiendita.Vistas
         {
             tablaProductos.Columns[0].Width = 120;
             tablaProductos.Columns[1].Width = 73;
-            tablaProductos.Columns[2].Width = 213;
-            tablaProductos.Columns[3].Width = 105;
+            tablaProductos.Columns[2].Width = 240;
+            tablaProductos.Columns[3].Width = 85;
         }
     }
 }

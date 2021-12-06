@@ -518,7 +518,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(1109, 4);
+            this.btn_Cerrar.Location = new System.Drawing.Point(1150, 4);
             this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(35, 32);
@@ -533,7 +533,7 @@ namespace MrTiendita.Vistas
             this.Contenedor.Location = new System.Drawing.Point(236, 36);
             this.Contenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1151, 752);
+            this.Contenedor.Size = new System.Drawing.Size(1192, 752);
             this.Contenedor.TabIndex = 2;
             // 
             // Header
@@ -543,7 +543,7 @@ namespace MrTiendita.Vistas
             this.Header.Location = new System.Drawing.Point(236, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1151, 36);
+            this.Header.Size = new System.Drawing.Size(1192, 36);
             this.Header.TabIndex = 1;
             // 
             // frmPrincipal
@@ -551,7 +551,7 @@ namespace MrTiendita.Vistas
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1387, 788);
+            this.ClientSize = new System.Drawing.Size(1428, 788);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.MenuLateral);

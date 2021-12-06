@@ -16,18 +16,20 @@ namespace MrTiendita.Vistas
         public frmCVentas()
         {
             InitializeComponent();
-            //tablaVentas.Rows.Add("2", "Azúcar Zulka baja en calorías", "30.50", "61.00");
             widthColumnas();
             tablaVentas.AllowUserToAddRows = false;
             tablaVentas.CurrentCell = null;
             frmCVentasController controller = new frmCVentasController(this);
+
         }
 
         public void widthColumnas()
         {
-            tablaVentas.Columns[0].Width = 100;
-            tablaVentas.Columns[1].Width = 350;
-            tablaVentas.Columns[2].Width = 140;
+            tablaVentas.Columns[0].Width = 30;//Sumar
+            tablaVentas.Columns[1].Width = 30;//Cantidad
+            tablaVentas.Columns[2].Width = 30;//Restar
+            tablaVentas.Columns[3].Width = 365;//Descripcion
+            tablaVentas.Columns[4].Width = 140;//Precio
         }
     }
 }

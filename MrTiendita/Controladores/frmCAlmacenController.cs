@@ -84,7 +84,6 @@ namespace MrTiendita.Controladores
         {
             this.vista.tb_codigo.Text = "";
             this.vista.tb_cantidad.Text = "";
-            this.vista.lbl_total.Text = "$0.00";
         }
 
         public void btn_registrarEntrada_Click(object sender, EventArgs e)
@@ -131,7 +130,6 @@ namespace MrTiendita.Controladores
                 {
                     this.vista.tb_codigo.Text = "";
                     this.vista.tb_cantidad.Text = "";
-                    this.vista.lbl_total.Text = "$0.00";
                     this.prodcutoParaEntrada = null;
 
                     Form mensajeExito = new frmExito("Se ha hecho la entrada con éxito.");
