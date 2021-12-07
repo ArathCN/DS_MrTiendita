@@ -11,5 +11,6 @@ namespace MrTiendita.Constantes
         public static String ENTRADA = "Entrada";
         public static String VENTA = "Venta";
         public static String SALIDA = "Salida";
+        public static String TODO = "Todo";
     }
 }

@@ -36,7 +36,7 @@ namespace MrTiendita.Controladores
             this.vista.tablaProductos.Rows.Clear();
             foreach (Producto xProducto in productos)
             {
-                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta);
+                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
             }
         }
 

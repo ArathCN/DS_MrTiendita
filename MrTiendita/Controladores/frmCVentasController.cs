@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using CrearTicketVenta;
 using System.IO;
+using MrTiendita.Componentes;
+using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {
@@ -15,10 +17,12 @@ namespace MrTiendita.Controladores
     {
         private frmCVentas vista;
         private ProductoDAO productoDAO;
+
         private Producto producto;
         private double totalVenta;
-        private int cantidad;
         private List<Producto> productosVenta; //solo contiene productos con codigo y cantidad, lo demas vacio
+
+        private Dictionary<String, long> listaProductos;
 
         public frmCVentasController(frmCVentas vista)
         {
@@ -26,21 +30,48 @@ namespace MrTiendita.Controladores
             this.productoDAO = new ProductoDAO();
             this.productosVenta = new List<Producto>();
             this.totalVenta = 0;
-            this.cantidad = 0;
-            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
+            this.vista.Load += new EventHandler(vista_load);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
+            this.vista.cb_productos.onItemSelected += new EventHandler(cb_productos_onItemSelected);
+            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
             this.vista.btn_finalizar.Click += new EventHandler(venta_metodo_pago);
             this.vista.btn_cancelar.Click += new EventHandler(btn_cancelar_Click);
             this.vista.tablaVentas.CellContentClick += new DataGridViewCellEventHandler(tablaVentas_CellContentClick);
         }
 
+        private void vista_load(object sender, EventArgs e)
+        {
+            this.listaProductos = new Dictionary<string, long>();
+            List<Producto> productos = this.productoDAO.readAll();
+            List<String> nombreProductos = new List<string>();
+            foreach (Producto producto in productos)
+            {
+                this.listaProductos.Add(producto.Descripcion, producto.Codigo_barra);
+                nombreProductos.Add(producto.Descripcion);
+            }
+            this.vista.cb_productos.Items = nombreProductos.ToArray();
+        }
+
+        private void cb_productos_onItemSelected(object sender, EventArgs e)
+        {
+            String nombreProducto = this.vista.cb_productos.selectedValue;
+            long idProducto = this.listaProductos[nombreProducto];
+
+            this.vista.tb_codigo.Text = idProducto.ToString();
+        }
+
         private void tablaVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Producto xProducto = new Producto();
+            xProducto.Codigo_barra = Int64.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["codigo"].Value.ToString());
+            xProducto.Precio_venta = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["precio"].Value.ToString());
+            xProducto.Cantidad_actual = int.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString());
+
             if (this.vista.tablaVentas.Rows[e.RowIndex].Cells["restar"].Selected)
             {
-                cantidad = int.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString());
-                cantidad--;
-                if (cantidad == 0)
+                
+                xProducto.Cantidad_actual--;
+                if (xProducto.Cantidad_actual == 0)
                 {
                     //eliminar el registro
                     DialogResult resultado = new DialogResult();
@@ -51,16 +82,30 @@ namespace MrTiendita.Controladores
                 }
                 else
                 {
-                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = cantidad.ToString();
+                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = xProducto.Cantidad_actual;
+                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value = xProducto.Cantidad_actual * xProducto.Precio_venta;
                 }
+
+                this.totalVenta -= xProducto.Precio_venta;
             }
             else if (this.vista.tablaVentas.Rows[e.RowIndex].Cells["sumar"].Selected)
             {
                 //Falta comprobar que la cantidad no pase de la disponible en inventario
-                cantidad = int.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString());
-                cantidad++;
-                this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = cantidad.ToString();
+                Producto producto = this.productoDAO.readById(xProducto.Codigo_barra);
+                xProducto.Cantidad_actual++;
+                if (xProducto.Cantidad_actual > producto.Cantidad_actual)
+                {
+                    Form mensajeError = new frmError("No hay cantidad suficiente de este producto.");
+                    mensajeError.ShowDialog();
+                    return;
+                }
+
+                this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = xProducto.Cantidad_actual;
+                this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value = xProducto.Cantidad_actual * xProducto.Precio_venta;
+                this.totalVenta += xProducto.Precio_venta;
             }
+
+            this.vista.lbl_total.Text = "$" + this.totalVenta.ToString();
         }
 
         private void tb_codigo_TextChanged(object sender, EventArgs e)
@@ -99,30 +144,19 @@ namespace MrTiendita.Controladores
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            String _codigo = this.vista.tb_codigo.Text;
-            long codigo;
             String _cantidad = this.vista.tb_cantidad.Text;
             double cantidad;
             bool medida;
 
-            //comprobar que no estén vacios
-            if (String.IsNullOrEmpty(_codigo) || String.IsNullOrEmpty(_cantidad))
+            //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
+            if (this.producto == null ||
+                !ValidacionDatos.Numero(_cantidad, out cantidad,
+                new Dictionary<int, double>() {{ValidacionDatosOpciones.MAYOR_A, 0}}))
             {
-                Form mensajeError = new frmError("Debe de llenar todos los campos.");
+                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
-
-            //comprobar que el codigo sea un numero long y la cantidad un decimal
-            if (!Double.TryParse(_cantidad, out cantidad) || !Int64.TryParse(_codigo, out codigo))
-            {
-                Form mensajeError = new frmError("Uno o más datos son incorrectos, asegúrese que sean números.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
-            //obtener el producto por el codigo
-            Producto producto = this.productoDAO.readById(codigo);
 
             //comprobar si la medida del producto coincide con la cantidad a vender
             var parteDecimal = cantidad - Math.Truncate(cantidad);
@@ -141,14 +175,6 @@ namespace MrTiendita.Controladores
                 return;
             }
 
-            //comprobar que no se quiera vender producto, o sea, numero positivo
-            if (cantidad <= 0)
-            {
-                Form mensajeError = new frmError("No se pueden vender productos negativos.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
             //agregarlo a la tabla ----------- MEJOR PONERLO EN UN METODO PARA LLAMARLO TAMBIEN CUANDO SEA POR ESCANER
             double subtotal = cantidad * producto.Precio_venta;
             bool siEncontrado = false;
@@ -157,7 +183,7 @@ namespace MrTiendita.Controladores
             //this.productosVenta.Clear();
             foreach (DataGridViewRow articulo in this.vista.tablaVentas.Rows)
             {
-                if (long.Parse(articulo.Cells["codigo"].Value.ToString()) == codigo)
+                if (long.Parse(articulo.Cells["codigo"].Value.ToString()) == this.producto.Codigo_barra)
                 {
                     articulo.Cells["cantidad_actual"].Value = Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString()) + cantidad;
                     articulo.Cells["subtotal"].Value = Convert.ToDouble(articulo.Cells["subtotal"].Value.ToString()) + subtotal;
@@ -171,15 +197,26 @@ namespace MrTiendita.Controladores
 
             if (!siEncontrado)
             {
+                //se agre un nuevo producto a la tabla
+                this.vista.tablaVentas.Rows.Add();
+                int indexNuevoProducto = this.vista.tablaVentas.RowCount -1;
+                Console.WriteLine(indexNuevoProducto);
+                this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["cantidad_Actual"].Value = cantidad;
+                this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["descripcion"].Value = producto.Descripcion;
+                this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["precio"].Value = producto.Precio_venta;
+                this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["subtotal"].Value = subtotal;
+                this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["codigo"].Value = producto.Codigo_barra;
                 //this.vista.tablaVentas.Rows.Add(cantidad, producto.Descripcion, producto.Precio_venta, subtotal, producto.Codigo_barra);
                 //this.productosVenta.Add(new Producto(codigo, "", 0, 0, cantidad, false));
+
+
                 //Producto xProducto = new Producto(codigo, "", 0, 0, cantidad, false);
-                this.vista.tablaVentas.Rows.Add();
-                this.vista.tablaVentas.Rows[0].Cells["cantidad_actual"].Value = cantidad;
-                this.vista.tablaVentas.Rows[0].Cells["descripcion"].Value = producto.Descripcion;
-                this.vista.tablaVentas.Rows[0].Cells["precio"].Value = producto.Precio_venta;
-                this.vista.tablaVentas.Rows[0].Cells["subtotal"].Value = subtotal;
-                this.vista.tablaVentas.Rows[0].Cells["codigo"].Value = producto.Codigo_barra;
+                //this.vista.tablaVentas.Rows.Add();
+                //this.vista.tablaVentas.Rows[0].Cells["cantidad_actual"].Value = cantidad;
+                //this.vista.tablaVentas.Rows[0].Cells["descripcion"].Value = producto.Descripcion;
+                //this.vista.tablaVentas.Rows[0].Cells["precio"].Value = producto.Precio_venta;
+                //this.vista.tablaVentas.Rows[0].Cells["subtotal"].Value = subtotal;
+                //this.vista.tablaVentas.Rows[0].Cells["codigo"].Value = producto.Codigo_barra;
             }
 
             //actualizar el total
@@ -187,6 +224,7 @@ namespace MrTiendita.Controladores
             this.vista.lbl_total.Text = "$" + this.totalVenta;
             this.vista.tb_codigo.Text = "";
             this.vista.tb_cantidad.Text = "";
+            this.vista.cb_productos.selectedIndex = -1;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)

@@ -10,6 +10,8 @@ using CrearTicketVenta;
 using System.Windows.Forms;
 using System.IO;
 using MrTiendita.Constantes;
+using MrTiendita.Componentes;
+using System.Drawing;
 
 namespace MrTiendita.Controladores
 {
@@ -24,6 +26,7 @@ namespace MrTiendita.Controladores
         private VentaDAO ventaDAO;
         private double totalVenta;
         private double efectivo;
+        private bool metodoEfectivo = true; 
 
         public frmCobroController(frmCobro vista, List<Producto> productos, double total)
         {
@@ -37,63 +40,57 @@ namespace MrTiendita.Controladores
             this.totalVenta = total;
             this.efectivo = 0;
             this.vista.cb_metodoPago.onItemSelected += new EventHandler(cb_metodoPago_onItemSelected);
+            this.vista.tb_efectivo.TextChanged += new EventHandler(tb_efectivo_textChanged);
             this.vista.btn_aceptarEfectivo.Click += new EventHandler(btn_aceptar_Click);
         }
 
         private void cb_metodoPago_onItemSelected(object sender, EventArgs e)
         {
-
+            this.vista.btn_aceptarEfectivo.Visible = true;
             if (this.vista.cb_metodoPago.selectedIndex == 0)
             {
                 this.vista.label1.Visible = true;
                 this.vista.label2.Visible = true;
-                this.vista.label3.Visible = true;
+                this.vista.lbl_cambio.Visible = true;
                 this.vista.tb_efectivo.Visible = true;
                 this.vista.pictureBox2.Visible = true;
-                this.vista.btn_aceptarEfectivo.Visible = true;
+                this.metodoEfectivo = true;
             }
             else if (this.vista.cb_metodoPago.selectedIndex == 1)
             {
                 this.vista.label1.Visible = false;
                 this.vista.label2.Visible = false;
-                this.vista.label3.Visible = false;
+                this.vista.lbl_cambio.Visible = false;
                 this.vista.tb_efectivo.Visible = false;
                 this.vista.pictureBox2.Visible = false;
+                this.metodoEfectivo = false;
             }
+        }
+
+        private void tb_efectivo_textChanged(object sender, EventArgs e)
+        {
+            String _efectivo = this.vista.tb_efectivo.Text;
+
+            //el boton de aceptar se mantiene inactivo hasta que pase todas las pruebas el campo efectivo
+            this.vista.btn_aceptarEfectivo.Enabled = false;
+            this.vista.lbl_cambio.Text = "--.--";
+
+            if (!ValidacionDatos.Numero(_efectivo, out this.efectivo, new Dictionary<int, Double>() {
+                { ValidacionDatosOpciones.MAYOR_A, this.totalVenta}}))
+            {
+                this.vista.tb_efectivo.BackColor = Color.Salmon;
+                return;
+            }
+            
+
+            this.vista.btn_aceptarEfectivo.Enabled = true;
+            this.vista.tb_efectivo.BackColor = Color.White;
+            this.vista.lbl_cambio.Text = "$" + (this.efectivo - this.totalVenta);
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            String _efectivo = this.vista.tb_efectivo.Text;
-            //double efectivo;
-
-            //si es vacio
-            if (String.IsNullOrEmpty(_efectivo))
-            {
-                frmError mensajeError = new frmError("Debe de llenar todos los campos.");
-                mensajeError.ShowDialog();
-                this.vista.DialogResult = DialogResult.Abort;
-                return;
-            }
-
-            //si es numero
-            if (!Double.TryParse(_efectivo, out this.efectivo))
-            {
-                frmError mensajeError = new frmError("Uno o más datos son incorrectos, asegurase que sean números.");
-                mensajeError.ShowDialog();
-                this.vista.DialogResult = DialogResult.Abort;
-                return;
-            }
-
-            //es mayor o igual al monto total
-            if (this.efectivo < this.totalVenta)
-            {
-                frmError mensajeError = new frmError("El efectivo es menor al monto toal de la venta.");
-                mensajeError.ShowDialog();
-                this.vista.DialogResult = DialogResult.Abort;
-                return;
-            }
-
+            
             //se actualzia la cantidad en los productos del almacen
             bool res = this.productoDAO.updateCantidad(this.productosVenta);
             if (!res)
@@ -110,20 +107,11 @@ namespace MrTiendita.Controladores
 
             }
 
+            //Obtener el valor de la caja
             Caja caja = this.cajaDAO.readByName("Total");
             if (caja == null)
             {
                 frmError error = new frmError("No se pudo obtener la información sobre la caja.");
-                error.ShowDialog();
-                this.vista.DialogResult = DialogResult.Abort;
-                return;
-            }
-
-            Movimiento movimiento = new Movimiento(-1, TipoMovimiento.VENTA, DateTime.Now, this.totalVenta, double.Parse(caja.Valor) + this.totalVenta);
-            res = this.movimientoDAO.create(movimiento);
-            if (!res)
-            {
-                frmError error = new frmError("Hubo un error al registrar el movimiento.");
                 error.ShowDialog();
                 this.vista.DialogResult = DialogResult.Abort;
                 return;
@@ -139,13 +127,29 @@ namespace MrTiendita.Controladores
                 return;
             }
 
-            res = this.cajaDAO.updateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
-            if (!res)
+            //Si el met. es efectivo se crea una entrada de dinero y se actualiza la caja
+            if (this.metodoEfectivo)
             {
-                frmError error = new frmError("Hubo un error al actualizar el total de la caja.");
-                error.ShowDialog();
-                this.vista.DialogResult = DialogResult.Abort;
-                return;
+                //Registrar la entrada de dinero, sólo es es efectivo
+                Movimiento movimiento = new Movimiento(-1, TipoMovimiento.VENTA, DateTime.Now, this.totalVenta, double.Parse(caja.Valor) + this.totalVenta, TipoMovimiento.VENTA);
+                res = this.movimientoDAO.create(movimiento);
+                if (!res)
+                {
+                    frmError error = new frmError("Hubo un error al registrar el movimiento.");
+                    error.ShowDialog();
+                    this.vista.DialogResult = DialogResult.Abort;
+                    return;
+                }
+
+                //Actualizar el dinero en la caja, sólo si es efectivo
+                res = this.cajaDAO.updateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
+                if (!res)
+                {
+                    frmError error = new frmError("Hubo un error al actualizar el total de la caja.");
+                    error.ShowDialog();
+                    this.vista.DialogResult = DialogResult.Abort;
+                    return;
+                }
             }
 
             CrearTicket ticket = this.GenerarTicket();

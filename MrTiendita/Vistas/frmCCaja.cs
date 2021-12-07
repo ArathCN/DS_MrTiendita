@@ -31,22 +31,5 @@ namespace MrTiendita.Vistas
             tablaMovimientos.Columns[2].Width = 174;
         }
 
-        private void cb_tipoMov2_onItemSelected(object sender, EventArgs e)
-        {
-            lbl_totaltxt.Visible = true;
-            lbl_total.Visible = true;
-            if (cb_tipoMov2.selectedIndex == 0)
-            {
-                lbl_totaltxt.Text = "Total de dinero por entradas:";
-            }
-            if (cb_tipoMov2.selectedIndex == 1)
-            {
-                lbl_totaltxt.Text = "Total de dinero por salidas:";
-            }
-            if (cb_tipoMov2.selectedIndex == 2)
-            {
-                lbl_totaltxt.Text = "Total de dinero por ventas:";
-            }
-        }
     }
 }

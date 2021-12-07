@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Componentes\ValidacionDatos.cs" />
     <Compile Include="Constantes\TipoMovimiento.cs" />
-    <Compile Include="Controladores\CrearTicket.cs" />
+    <Compile Include="Constantes\ValidacionDatosOpciones.cs" />
+    <Compile Include="Componentes\CrearTicket.cs" />
     <Compile Include="Controladores\frmCAlmacenController.cs" />
     <Compile Include="Controladores\frmCCajaController.cs" />
     <Compile Include="Controladores\frmCobroController.cs" />

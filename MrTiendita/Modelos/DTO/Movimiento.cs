@@ -13,19 +13,21 @@ namespace MrTiendita.Modelos.DTO
         private DateTime fecha;
         private double importe;
         private double caja;
+        private String concepto;
 
         public Movimiento()
         {
 
         }
 
-        public Movimiento(int id, String tipo, DateTime fecha, double importe, double caja)
+        public Movimiento(int id, String tipo, DateTime fecha, double importe, double caja, String concepto)
         {
             this.id_movimiento = id;
             this.tipo = tipo;
             this.fecha = fecha;
             this.importe = importe;
             this.caja = caja;
+            this.Concepto = concepto;
         }
 
         public int Id_movimiento { get => id_movimiento; set => id_movimiento = value; }
@@ -33,5 +35,6 @@ namespace MrTiendita.Modelos.DTO
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public double Importe { get => importe; set => importe = value; }
         public double Caja { get => caja; set => caja = value; }
+        public string Concepto { get => concepto; set => concepto = value; }
     }
 }
