@@ -181,9 +181,12 @@ namespace MrTiendita.Modelos.DAO
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            producto = new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5));
+                            while (reader.Read())
+                            {
+                                producto = new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5));
+                            }
                         }
                     }
                 }

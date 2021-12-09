@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using MrTiendita.Vistas;
+using MrTiendita.Componentes;
+using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {
@@ -41,18 +43,19 @@ namespace MrTiendita.Controladores
             //Comprobar campos vacios...
             String _nombre = this.vista.tb_nombre.Text;
             String _telefono = this.vista.tb_telefono.Text;
-            if (String.IsNullOrEmpty(_nombre) || String.IsNullOrEmpty(_telefono))
-            {
-                Form mensajeError = new frmError("Debe llenar todos los campos.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
-            //Comprobar datos numericos
             long telefono;
-            if (!long.TryParse(_telefono, out telefono))
+
+            //Comprobar que el nombre tenga inimo 10 caracteres
+            //Comprobar que el telefeno tenga minimo 10 caracteres y que sea mayor a 0 (no negativo)
+            if (!ValidacionDatos.Cadena(_nombre, new Dictionary<int, int>()
+            { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10} }) ||
+            !ValidacionDatos.Numero(_telefono, out telefono, new Dictionary<int, long>()
+            { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10},
+                {ValidacionDatosOpciones.MAYOR_A, 0}
+            })
+            )
             {
-                Form mensajeError = new frmError("De de llenar los campos correctamente.");
+                Form mensajeError = new frmError(ValidacionDatos.mensajes);
                 mensajeError.ShowDialog();
                 return;
             }

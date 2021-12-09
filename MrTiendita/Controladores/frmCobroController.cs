@@ -76,7 +76,8 @@ namespace MrTiendita.Controladores
             this.vista.lbl_cambio.Text = "--.--";
 
             if (!ValidacionDatos.Numero(_efectivo, out this.efectivo, new Dictionary<int, Double>() {
-                { ValidacionDatosOpciones.MAYOR_A, this.totalVenta}}))
+                { ValidacionDatosOpciones.MAYOR_A, this.totalVenta},
+                { ValidacionDatosOpciones.NUM_DECIMALES, 2} }))
             {
                 this.vista.tb_efectivo.BackColor = Color.Salmon;
                 return;

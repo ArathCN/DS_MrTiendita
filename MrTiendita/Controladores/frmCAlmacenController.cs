@@ -103,9 +103,18 @@ namespace MrTiendita.Controladores
             //Combrobar que el codigo haya sido correcto y que la cantidad es numerica, no nula y mayor a 0
             if (this.vista.cb_Proveedor.selectedIndex == -1 ||
                 this.prodcutoParaEntrada == null ||
-                !ValidacionDatos.Numero(_cantidad, out cantidad, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0} }))
+                !ValidacionDatos.Numero(_cantidad, out cantidad, new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 100},
+                    {ValidacionDatosOpciones.NUM_DECIMALES, 3} }))
             {
-                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
+                String mensaje = "Asegurese de haber escrito un código de barras válido y haber seleccionado un proveedor.";
+                if (ValidacionDatos.error)
+                {
+                    this.vista.tb_cantidad.BackColor = Color.Salmon;
+                    mensaje = ValidacionDatos.mensajes;
+                }
+                Form mensajeError = new frmError(mensaje);
                 mensajeError.ShowDialog();
                 return;
             }

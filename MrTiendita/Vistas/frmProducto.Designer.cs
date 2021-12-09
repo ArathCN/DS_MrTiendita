@@ -252,6 +252,7 @@ namespace MrTiendita.Vistas
             this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_cantidad.Location = new System.Drawing.Point(244, 84);
             this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_cantidad.MaxLength = 7;
             this.tb_cantidad.Name = "tb_cantidad";
             this.tb_cantidad.Size = new System.Drawing.Size(134, 17);
             this.tb_cantidad.TabIndex = 24;
@@ -262,6 +263,7 @@ namespace MrTiendita.Vistas
             this.tb_descripcion.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_descripcion.Location = new System.Drawing.Point(24, 156);
             this.tb_descripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_descripcion.MaxLength = 120;
             this.tb_descripcion.Name = "tb_descripcion";
             this.tb_descripcion.Size = new System.Drawing.Size(354, 17);
             this.tb_descripcion.TabIndex = 25;
@@ -272,6 +274,7 @@ namespace MrTiendita.Vistas
             this.tb_precioVenta.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_precioVenta.Location = new System.Drawing.Point(24, 226);
             this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_precioVenta.MaxLength = 7;
             this.tb_precioVenta.Name = "tb_precioVenta";
             this.tb_precioVenta.Size = new System.Drawing.Size(94, 17);
             this.tb_precioVenta.TabIndex = 26;
@@ -282,6 +285,7 @@ namespace MrTiendita.Vistas
             this.tb_precioCompra.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_precioCompra.Location = new System.Drawing.Point(151, 226);
             this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_precioCompra.MaxLength = 7;
             this.tb_precioCompra.Name = "tb_precioCompra";
             this.tb_precioCompra.Size = new System.Drawing.Size(99, 17);
             this.tb_precioCompra.TabIndex = 27;

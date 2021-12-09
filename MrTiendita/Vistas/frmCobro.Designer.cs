@@ -109,6 +109,7 @@ namespace MrTiendita.Vistas
             this.tb_efectivo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_efectivo.Location = new System.Drawing.Point(26, 141);
             this.tb_efectivo.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_efectivo.MaxLength = 8;
             this.tb_efectivo.Name = "tb_efectivo";
             this.tb_efectivo.Size = new System.Drawing.Size(102, 17);
             this.tb_efectivo.TabIndex = 45;

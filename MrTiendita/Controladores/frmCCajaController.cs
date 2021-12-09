@@ -85,21 +85,36 @@ namespace MrTiendita.Controladores
 
             //Comprobar que el tipo de mov se haya seleccionado, concepto no sea nulo y que importe sea numero no nulo mayor a 0.
             if (this.vista.cb_tipoMov.selectedIndex == -1 ||
-                !ValidacionDatos.NoVacio(concepto) ||
-                !ValidacionDatos.Numero(_importe, out importe, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0} }))
+                !ValidacionDatos.Cadena(concepto, new Dictionary<int, int>()
+                { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10} }) ||
+                !ValidacionDatos.Numero(_importe, out importe, new Dictionary<int, double>()
+                { {ValidacionDatosOpciones.MAYOR_A, 0},
+                { ValidacionDatosOpciones.MENOR_IGUAL_A, 10000} }))
             {
-                frmError error = new frmError("Se deben de llenar todos los campos correctamente");
+                String mensaje = "Se deben de llenar todos los campos correctamente";
+                if (ValidacionDatos.error)
+                {
+                    mensaje = ValidacionDatos.mensajes;
+                }
+                frmError error = new frmError(mensaje);
                 error.ShowDialog();
                 return;
             }
 
             //Si es una entrada se suma la caja, si es una salida se resta
+            //Si es salida comprobar que no se queira sacar más de lo que hay en la caja
             if (_tipo == 0)
             {
                 tipo = TipoMovimiento.ENTRADA;
                 dinero = double.Parse(this.valorCaja.Valor) + importe;
             }else if (_tipo == 1)
             {
+                if (importe > double.Parse(this.valorCaja.Valor))
+                {
+                    frmError error = new frmError("No hay dinero suficiente en la caja");
+                    error.ShowDialog();
+                    return;
+                }
                 tipo = TipoMovimiento.SALIDA;
                 dinero = double.Parse(this.valorCaja.Valor) - importe;
             }

@@ -65,7 +65,7 @@ namespace MrTiendita.Controladores
             Producto xProducto = new Producto();
             xProducto.Codigo_barra = Int64.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["codigo"].Value.ToString());
             xProducto.Precio_venta = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["precio"].Value.ToString());
-            xProducto.Cantidad_actual = int.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString());
+            xProducto.Cantidad_actual = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString());
 
             if (this.vista.tablaVentas.Rows[e.RowIndex].Cells["restar"].Selected)
             {
@@ -151,7 +151,9 @@ namespace MrTiendita.Controladores
             //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
             if (this.producto == null ||
                 !ValidacionDatos.Numero(_cantidad, out cantidad,
-                new Dictionary<int, double>() {{ValidacionDatosOpciones.MAYOR_A, 0}}))
+                new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.NUM_DECIMALES, 3} }))
             {
                 Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
@@ -177,6 +179,7 @@ namespace MrTiendita.Controladores
 
             //agregarlo a la tabla ----------- MEJOR PONERLO EN UN METODO PARA LLAMARLO TAMBIEN CUANDO SEA POR ESCANER
             double subtotal = cantidad * producto.Precio_venta;
+            subtotal = Math.Round(subtotal, 2);
             bool siEncontrado = false;
 
             //si se ingresa un articulo que ya estaba en la lista sólo se le suma la cantidad a la fila.

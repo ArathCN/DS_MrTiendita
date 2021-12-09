@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using MrTiendita.Vistas;
+using MrTiendita.Componentes;
+using MrTiendita.Constantes;
 using System.Windows.Forms;
 
 namespace MrTiendita.Controladores
@@ -53,44 +55,19 @@ namespace MrTiendita.Controladores
             String _descripcion = this.vista.tb_descripcion.Text;
             String _precioVenta = this.vista.tb_precioVenta.Text;
             String _precioCompra = this.vista.tb_precioCompra.Text;
-            if (String.IsNullOrEmpty(_codigoBarra) || String.IsNullOrEmpty(_cantidad)
-                || String.IsNullOrEmpty(_descripcion) || String.IsNullOrEmpty(_precioVenta)
-                || String.IsNullOrEmpty(_precioCompra))
-            {
-                Form mensajeError = new frmError("Debe llenar todos los campos.");
-                mensajeError.ShowDialog();
-                return;
-            }
 
-            //Comprobar que el campo de cantidad no sea negativo.
-            if(Convert.ToDecimal(_cantidad) <= 0)
-            {
-                Form mensajeError = new frmError("No se pueden insertar productos en negativo.");
-                mensajeError.ShowDialog();
-                return;
-            }
-            //Comprobar que el campo de precio de compra no sea negativo.
-            if (Convert.ToDecimal(_precioVenta) <= 0)
-            {
-                Form mensajeError = new frmError("No se puede insertar un precio de venta en negativo.");
-                mensajeError.ShowDialog();
-                return;
-            }
-            //Comprobar que el campo de  precio de venta no sea negativo.
-            if (Convert.ToDecimal(_precioCompra) <= 0)
-            {
-                Form mensajeError = new frmError("No se puede insertar un precio de compra en negativo.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
-            //Comprobar datos numericos
             long codigoBarra;
-            double precioVenta, precioCompra, cantidad;
-            if (!Int64.TryParse(_codigoBarra, out codigoBarra) || !Double.TryParse(_cantidad, out cantidad)
-                || !Double.TryParse(_precioVenta, out precioVenta) || !Double.TryParse(_precioCompra, out precioCompra))
+            double cantidad, precioVenta, precioCompra;
+
+            if (
+                !ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 13} })||
+                !ValidacionDatos.Numero(_cantidad, out cantidad, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0}, {ValidacionDatosOpciones.MENOR_IGUAL_A, 100} })||
+                !ValidacionDatos.Cadena(_descripcion, new Dictionary<int, int>() { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10} })||
+                !ValidacionDatos.Numero(_precioVenta, out precioVenta, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0} })||
+                !ValidacionDatos.Numero(_precioCompra, out precioCompra, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0 } })
+                )
             {
-                Form mensajeError = new frmError("De de llenar los campos correctamente.");
+                Form mensajeError = new frmError(ValidacionDatos.mensajes);
                 mensajeError.ShowDialog();
                 return;
             }
@@ -103,6 +80,14 @@ namespace MrTiendita.Controladores
             if (!medida && parteDecimal != 0)
             {
                 Form mensajeError = new frmError("La cantidad no puede ser decimal si la medida no es a granel.");
+                mensajeError.ShowDialog();
+                return;
+            }
+
+            //Si se agregará un producto o altualizará el codigo de barras comprobar que éste no exista en la BD
+            if (this.id != codigoBarra && this.productoDAO.readById(codigoBarra) != null)
+            {
+                Form mensajeError = new frmError("El codigo de barras ya está en uso");
                 mensajeError.ShowDialog();
                 return;
             }

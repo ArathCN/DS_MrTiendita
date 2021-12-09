@@ -64,7 +64,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.Location = new System.Drawing.Point(376, 3);
-            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(19, 20);
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -77,7 +77,7 @@ namespace MrTiendita.Vistas
             this.tb_telefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_telefono.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_telefono.Location = new System.Drawing.Point(242, 84);
-            this.tb_telefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_telefono.Margin = new System.Windows.Forms.Padding(2);
             this.tb_telefono.MaxLength = 10;
             this.tb_telefono.Name = "tb_telefono";
             this.tb_telefono.Size = new System.Drawing.Size(134, 17);
@@ -88,7 +88,8 @@ namespace MrTiendita.Vistas
             this.tb_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_nombre.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_nombre.Location = new System.Drawing.Point(24, 84);
-            this.tb_nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_nombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_nombre.MaxLength = 60;
             this.tb_nombre.Name = "tb_nombre";
             this.tb_nombre.Size = new System.Drawing.Size(184, 17);
             this.tb_nombre.TabIndex = 32;
@@ -108,7 +109,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(232, 78);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(154, 33);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,7 +131,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(13, 78);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(207, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -193,7 +194,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.btn_Cerrar);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmEditarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarProveedor";
