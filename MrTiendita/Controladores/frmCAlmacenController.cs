@@ -34,14 +34,18 @@ namespace MrTiendita.Controladores
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
             this.vista.btn_Limpiar.Click += new EventHandler(btn_Limpiar_Click);
-            this.vista.cb_Proveedor.onItemSelected += new EventHandler(cb_Proveedor_onItemSelected);
+            this.vista.cb_Proveedor.SelectedValueChanged += new EventHandler(cb_Proveedor_SelectedValueChanged);
         }
 
         public void vista_Load(object sender, EventArgs e)
         {
             this.MostrarProductos();
             this.CargarProveedores();
-            //this.vista.tablaProductos.DataSource = 
+        }
+
+        private void cb_Proveedor_SelectedValueChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void tb_busqueda_TextChanged(object sender, EventArgs e)
@@ -59,11 +63,13 @@ namespace MrTiendita.Controladores
         {
             long codigoBarra;
             String _codigoBarra = this.vista.tb_codigo.Text;
+            this.vista.lbl_ErrorCodigo.Visible = false;
 
             //Comprueba que sea un numero long, no nulo y mayor a 0;
-            if (!ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { {ValidacionDatosOpciones.MAYOR_A, 0} }))
+            if (!ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { { ValidacionDatosOpciones.MAYOR_A, 0 } }))
             {
-                this.vista.tb_codigo.BackColor = Color.Salmon;
+                this.vista.lbl_ErrorCodigo.Text = "El formato es incorrecto";
+                this.vista.lbl_ErrorCodigo.Visible = true;
                 this.prodcutoParaEntrada = null;
                 return;
             }
@@ -72,18 +78,19 @@ namespace MrTiendita.Controladores
             this.prodcutoParaEntrada = this.productoDAO.readById(codigoBarra);
             if (prodcutoParaEntrada != null)
             {
-                this.vista.tb_codigo.BackColor = Color.White;
+                this.vista.lbl_ErrorCodigo.Visible = false;
             }
             else
             {
-                this.vista.tb_codigo.BackColor = Color.Salmon;
+                this.vista.lbl_ErrorCodigo.Text = "El código de barras no existe";
+                this.vista.lbl_ErrorCodigo.Visible = true;
                 this.prodcutoParaEntrada = null;
             }
         }
 
-        private void cb_Proveedor_onItemSelected(object sender, EventArgs e)
+        private void cb_Proveedor_SelectedItem(object sender, EventArgs e)
         {
-            String nombre = this.vista.cb_Proveedor.selectedValue;
+            String nombre = this.vista.cb_Proveedor.SelectedValue.ToString();
             int id = this.listaProveedores[nombre];
         }
 
@@ -101,7 +108,7 @@ namespace MrTiendita.Controladores
             double cantidad;
 
             //Combrobar que el codigo haya sido correcto y que la cantidad es numerica, no nula y mayor a 0
-            if (this.vista.cb_Proveedor.selectedIndex == -1 ||
+            if (this.vista.cb_Proveedor.SelectedIndex == -1 ||
                 this.prodcutoParaEntrada == null ||
                 !ValidacionDatos.Numero(_cantidad, out cantidad, new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
@@ -118,7 +125,7 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
                 return;
             }
-            nombreProveedor = this.vista.cb_Proveedor.selectedValue;
+            nombreProveedor = this.vista.cb_Proveedor.SelectedValue.ToString() ;
 
             //comprobar que cantidad coincida con la medida del producto
             var parteDecimal = cantidad - Math.Truncate(cantidad);
@@ -147,7 +154,7 @@ namespace MrTiendita.Controladores
             {
                 this.vista.tb_codigo.Text = "";
                 this.vista.tb_cantidad.Text = "";
-                this.vista.cb_Proveedor.selectedIndex = -1;
+                this.vista.cb_Proveedor.SelectedIndex = -1;
                 this.prodcutoParaEntrada = null;
 
                 Form mensajeExito = new frmExito("Se ha hecho la entrada con éxito.");
@@ -165,7 +172,6 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
             }
         }
-
 
         //////////////////////////////////////////
         ///Métodos auxiliares
@@ -190,7 +196,11 @@ namespace MrTiendita.Controladores
                 this.listaProveedores.Add(proveedor.Nombre, proveedor.Id_proveedor);
                 nombreProveedores.Add(proveedor.Nombre);
             }
-            this.vista.cb_Proveedor.Items = nombreProveedores.ToArray();
+
+            foreach (string proveedor in nombreProveedores)
+            {
+                this.vista.cb_Proveedor.Items.Add(proveedor);
+            }                               
         }
     }
 }

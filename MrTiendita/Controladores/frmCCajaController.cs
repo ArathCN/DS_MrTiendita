@@ -27,7 +27,7 @@ namespace MrTiendita.Controladores
             this.cajaDAO = new CajaDAO();
             this.vista.Load += new EventHandler(vista_Load);
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
-            this.vista.cb_tipoMov2.onItemSelected += new EventHandler(cb_tipoMov2_onItemSelected);
+            this.vista.cb_tipoMov2.SelectedIndexChanged += new EventHandler(cb_tipoMov2_SelectedIndexChanged);
         }
 
         public void vista_Load(object sender, EventArgs e)
@@ -37,24 +37,29 @@ namespace MrTiendita.Controladores
 
         }
 
-        private void cb_tipoMov2_onItemSelected(object sender, EventArgs e)
+        private void cb_tipoMov2_SelectedIndexChanged(object sender, EventArgs e)
         {
             String tipo = "";
             double total = 0;
-            
-            if (this.vista.cb_tipoMov2.selectedIndex == 0)
+
+            if (this.vista.cb_tipoMov2.SelectedIndex == 0)
             {
-                this.vista.lbl_totaltxt.Text = "Total de dinero por entradas:";
+                this.vista.lbl_totaltxt.Text = "Total de efectivo:";
+                tipo = TipoMovimiento.TODO;
+            }
+            if (this.vista.cb_tipoMov2.SelectedIndex == 1)
+            {
+                this.vista.lbl_totaltxt.Text = "Total de efectivo por entradas:";
                 tipo = TipoMovimiento.ENTRADA;
             }
-            if (this.vista.cb_tipoMov2.selectedIndex == 1)
+            if (this.vista.cb_tipoMov2.SelectedIndex == 2)
             {
-                this.vista.lbl_totaltxt.Text = "Total de dinero por salidas:";
+                this.vista.lbl_totaltxt.Text = "Total de efectivo por salidas:";
                 tipo = TipoMovimiento.SALIDA;
             }
-            if (this.vista.cb_tipoMov2.selectedIndex == 2)
+            if (this.vista.cb_tipoMov2.SelectedIndex == 3)
             {
-                this.vista.lbl_totaltxt.Text = "Total de dinero por ventas:";
+                this.vista.lbl_totaltxt.Text = "Total de efectivo por ventas:";
                 tipo = TipoMovimiento.VENTA;
             }
 
@@ -78,13 +83,13 @@ namespace MrTiendita.Controladores
             String _importe = this.vista.tb_importe.Text;
             String concepto = this.vista.tb_concepto.Text;
             double importe;
-            int _tipo = this.vista.cb_tipoMov.selectedIndex; //0 -> entrada   1->salida
+            int _tipo = this.vista.cb_tipoMov.SelectedIndex; //0 -> entrada   1->salida
             String tipo = "";
             double dinero = 0;
             bool res = false;
 
             //Comprobar que el tipo de mov se haya seleccionado, concepto no sea nulo y que importe sea numero no nulo mayor a 0.
-            if (this.vista.cb_tipoMov.selectedIndex == -1 ||
+            if (this.vista.cb_tipoMov.SelectedIndex == -1 ||
                 !ValidacionDatos.Cadena(concepto, new Dictionary<int, int>()
                 { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10} }) ||
                 !ValidacionDatos.Numero(_importe, out importe, new Dictionary<int, double>()
@@ -143,7 +148,7 @@ namespace MrTiendita.Controladores
             this.mostrarMovimientos();
             this.obtenerValorCaja();
 
-            this.vista.cb_tipoMov.selectedIndex = -1;
+            this.vista.cb_tipoMov.SelectedIndex = -1;
             this.vista.tb_importe.Text = "";
             this.vista.tb_concepto.Text = "";
         }

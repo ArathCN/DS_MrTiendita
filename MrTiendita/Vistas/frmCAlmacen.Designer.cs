@@ -29,12 +29,9 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCAlmacen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pb_buscar = new System.Windows.Forms.PictureBox();
             this.lbl_buscar = new System.Windows.Forms.Label();
-            this.pb_lupa = new System.Windows.Forms.PictureBox();
-            this.tb_busqueda = new System.Windows.Forms.TextBox();
             this.tablaProductos = new System.Windows.Forms.DataGridView();
             this.codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,75 +43,42 @@ namespace MrTiendita.Vistas
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pnl_nuevaEntradaActiva = new System.Windows.Forms.Panel();
-            this.cb_Proveedor = new Bunifu.Framework.UI.BunifuDropdown();
             this.label8 = new System.Windows.Forms.Label();
-            this.btn_Limpiar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.tb_cantidad = new System.Windows.Forms.TextBox();
-            this.tb_codigo = new System.Windows.Forms.TextBox();
-            this.btn_registrarEntrada = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lb_cantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_buscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_lupa)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btn_Limpiar = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_registrarEntrada = new Guna.UI2.WinForms.Guna2Button();
+            this.cb_Proveedor = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lbl_ErrorCantidad = new System.Windows.Forms.Label();
+            this.lbl_ErrorCodigo = new System.Windows.Forms.Label();
+            this.tb_cantidad = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_codigo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_busqueda = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pnl_nuevaEntradaActiva.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gunaShadowPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pb_buscar
-            // 
-            this.pb_buscar.Image = ((System.Drawing.Image)(resources.GetObject("pb_buscar.Image")));
-            this.pb_buscar.Location = new System.Drawing.Point(24, 80);
-            this.pb_buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pb_buscar.Name = "pb_buscar";
-            this.pb_buscar.Size = new System.Drawing.Size(310, 32);
-            this.pb_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_buscar.TabIndex = 2;
-            this.pb_buscar.TabStop = false;
             // 
             // lbl_buscar
             // 
             this.lbl_buscar.AutoSize = true;
             this.lbl_buscar.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.lbl_buscar.Location = new System.Drawing.Point(21, 61);
-            this.lbl_buscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_buscar.Location = new System.Drawing.Point(28, 75);
             this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(115, 17);
-            this.lbl_buscar.TabIndex = 3;
+            this.lbl_buscar.Size = new System.Drawing.Size(140, 20);
+            this.lbl_buscar.TabIndex = 0;
             this.lbl_buscar.Text = "Buscar producto:";
-            // 
-            // pb_lupa
-            // 
-            this.pb_lupa.Image = ((System.Drawing.Image)(resources.GetObject("pb_lupa.Image")));
-            this.pb_lupa.Location = new System.Drawing.Point(31, 84);
-            this.pb_lupa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pb_lupa.Name = "pb_lupa";
-            this.pb_lupa.Size = new System.Drawing.Size(19, 20);
-            this.pb_lupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_lupa.TabIndex = 4;
-            this.pb_lupa.TabStop = false;
-            // 
-            // tb_busqueda
-            // 
-            this.tb_busqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_busqueda.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_busqueda.Location = new System.Drawing.Point(56, 86);
-            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_busqueda.MaxLength = 100;
-            this.tb_busqueda.Name = "tb_busqueda";
-            this.tb_busqueda.Size = new System.Drawing.Size(268, 17);
-            this.tb_busqueda.TabIndex = 5;
             // 
             // tablaProductos
             // 
@@ -137,18 +101,18 @@ namespace MrTiendita.Vistas
             this.descripcion,
             this.precio_venta,
             this.precio_compra});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle1;
             this.tablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.tablaProductos.Location = new System.Drawing.Point(24, 171);
-            this.tablaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaProductos.Location = new System.Drawing.Point(32, 210);
+            this.tablaProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablaProductos.Name = "tablaProductos";
             this.tablaProductos.ReadOnly = true;
             this.tablaProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -156,8 +120,9 @@ namespace MrTiendita.Vistas
             this.tablaProductos.RowHeadersWidth = 51;
             this.tablaProductos.RowTemplate.Height = 24;
             this.tablaProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.tablaProductos.Size = new System.Drawing.Size(600, 387);
-            this.tablaProductos.TabIndex = 6;
+            this.tablaProductos.Size = new System.Drawing.Size(800, 476);
+            this.tablaProductos.TabIndex = 0;
+            this.tablaProductos.TabStop = false;
             // 
             // codigo_barras
             // 
@@ -197,10 +162,10 @@ namespace MrTiendita.Vistas
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(24, 136);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(32, 167);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(600, 36);
+            this.pictureBox2.Size = new System.Drawing.Size(800, 44);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -211,11 +176,10 @@ namespace MrTiendita.Vistas
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(26, 146);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(35, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
-            this.label1.TabIndex = 8;
+            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
             // label2
@@ -224,11 +188,10 @@ namespace MrTiendita.Vistas
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(140, 146);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(187, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 9;
+            this.label2.Size = new System.Drawing.Size(77, 20);
+            this.label2.TabIndex = 0;
             this.label2.Text = "Cantidad";
             // 
             // label3
@@ -237,11 +200,10 @@ namespace MrTiendita.Vistas
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label3.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(217, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(289, 180);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 17);
-            this.label3.TabIndex = 10;
+            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.TabIndex = 0;
             this.label3.Text = "Descripción";
             // 
             // label4
@@ -250,50 +212,11 @@ namespace MrTiendita.Vistas
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label4.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(542, 146);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(723, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 17);
-            this.label4.TabIndex = 11;
+            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.TabIndex = 0;
             this.label4.Text = "Compra";
-            // 
-            // pnl_nuevaEntradaActiva
-            // 
-            this.pnl_nuevaEntradaActiva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnl_nuevaEntradaActiva.BackgroundImage")));
-            this.pnl_nuevaEntradaActiva.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.cb_Proveedor);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.label8);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.btn_Limpiar);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.tb_cantidad);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.tb_codigo);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.btn_registrarEntrada);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.pictureBox6);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.pictureBox4);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.lb_cantidad);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.label5);
-            this.pnl_nuevaEntradaActiva.Controls.Add(this.label7);
-            this.pnl_nuevaEntradaActiva.Location = new System.Drawing.Point(644, 136);
-            this.pnl_nuevaEntradaActiva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pnl_nuevaEntradaActiva.Name = "pnl_nuevaEntradaActiva";
-            this.pnl_nuevaEntradaActiva.Size = new System.Drawing.Size(213, 422);
-            this.pnl_nuevaEntradaActiva.TabIndex = 33;
-            // 
-            // cb_Proveedor
-            // 
-            this.cb_Proveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cb_Proveedor.BorderRadius = 7;
-            this.cb_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_Proveedor.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Proveedor.ForeColor = System.Drawing.Color.White;
-            this.cb_Proveedor.Items = new string[0];
-            this.cb_Proveedor.Location = new System.Drawing.Point(14, 221);
-            this.cb_Proveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_Proveedor.Name = "cb_Proveedor";
-            this.cb_Proveedor.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.cb_Proveedor.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.cb_Proveedor.selectedIndex = -1;
-            this.cb_Proveedor.Size = new System.Drawing.Size(182, 30);
-            this.cb_Proveedor.TabIndex = 41;
             // 
             // label8
             // 
@@ -301,130 +224,11 @@ namespace MrTiendita.Vistas
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label8.Location = new System.Drawing.Point(11, 200);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(12, 251);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 17);
-            this.label8.TabIndex = 44;
+            this.label8.Size = new System.Drawing.Size(92, 20);
+            this.label8.TabIndex = 0;
             this.label8.Text = "Proveedor:";
-            // 
-            // btn_Limpiar
-            // 
-            this.btn_Limpiar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(224)))));
-            this.btn_Limpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.btn_Limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Limpiar.BorderRadius = 7;
-            this.btn_Limpiar.ButtonText = "Limpiar";
-            this.btn_Limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Limpiar.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_Limpiar.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Limpiar.ForeColor = System.Drawing.Color.White;
-            this.btn_Limpiar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_Limpiar.Iconimage = null;
-            this.btn_Limpiar.Iconimage_right = null;
-            this.btn_Limpiar.Iconimage_right_Selected = null;
-            this.btn_Limpiar.Iconimage_Selected = null;
-            this.btn_Limpiar.IconMarginLeft = 0;
-            this.btn_Limpiar.IconMarginRight = 0;
-            this.btn_Limpiar.IconRightVisible = true;
-            this.btn_Limpiar.IconRightZoom = 0D;
-            this.btn_Limpiar.IconVisible = true;
-            this.btn_Limpiar.IconZoom = 90D;
-            this.btn_Limpiar.IsTab = false;
-            this.btn_Limpiar.Location = new System.Drawing.Point(110, 288);
-            this.btn_Limpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_Limpiar.Name = "btn_Limpiar";
-            this.btn_Limpiar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.btn_Limpiar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(224)))));
-            this.btn_Limpiar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_Limpiar.selected = false;
-            this.btn_Limpiar.Size = new System.Drawing.Size(86, 32);
-            this.btn_Limpiar.TabIndex = 38;
-            this.btn_Limpiar.Text = "Limpiar";
-            this.btn_Limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_Limpiar.Textcolor = System.Drawing.Color.White;
-            this.btn_Limpiar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // tb_cantidad
-            // 
-            this.tb_cantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_cantidad.Location = new System.Drawing.Point(22, 148);
-            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_cantidad.MaxLength = 7;
-            this.tb_cantidad.Name = "tb_cantidad";
-            this.tb_cantidad.Size = new System.Drawing.Size(164, 17);
-            this.tb_cantidad.TabIndex = 43;
-            // 
-            // tb_codigo
-            // 
-            this.tb_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_codigo.Location = new System.Drawing.Point(22, 76);
-            this.tb_codigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_codigo.MaxLength = 13;
-            this.tb_codigo.Name = "tb_codigo";
-            this.tb_codigo.Size = new System.Drawing.Size(164, 17);
-            this.tb_codigo.TabIndex = 41;
-            // 
-            // btn_registrarEntrada
-            // 
-            this.btn_registrarEntrada.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(224)))));
-            this.btn_registrarEntrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_registrarEntrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_registrarEntrada.BorderRadius = 7;
-            this.btn_registrarEntrada.ButtonText = "Registrar";
-            this.btn_registrarEntrada.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_registrarEntrada.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_registrarEntrada.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_registrarEntrada.ForeColor = System.Drawing.Color.White;
-            this.btn_registrarEntrada.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_registrarEntrada.Iconimage = null;
-            this.btn_registrarEntrada.Iconimage_right = null;
-            this.btn_registrarEntrada.Iconimage_right_Selected = null;
-            this.btn_registrarEntrada.Iconimage_Selected = null;
-            this.btn_registrarEntrada.IconMarginLeft = 0;
-            this.btn_registrarEntrada.IconMarginRight = 0;
-            this.btn_registrarEntrada.IconRightVisible = true;
-            this.btn_registrarEntrada.IconRightZoom = 0D;
-            this.btn_registrarEntrada.IconVisible = true;
-            this.btn_registrarEntrada.IconZoom = 90D;
-            this.btn_registrarEntrada.IsTab = false;
-            this.btn_registrarEntrada.Location = new System.Drawing.Point(13, 288);
-            this.btn_registrarEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_registrarEntrada.Name = "btn_registrarEntrada";
-            this.btn_registrarEntrada.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_registrarEntrada.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_registrarEntrada.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_registrarEntrada.selected = false;
-            this.btn_registrarEntrada.Size = new System.Drawing.Size(86, 32);
-            this.btn_registrarEntrada.TabIndex = 36;
-            this.btn_registrarEntrada.Text = "Registrar";
-            this.btn_registrarEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_registrarEntrada.Textcolor = System.Drawing.Color.White;
-            this.btn_registrarEntrada.TextFont = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(14, 142);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(182, 32);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 39;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(14, 70);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(182, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 39;
-            this.pictureBox4.TabStop = false;
             // 
             // lb_cantidad
             // 
@@ -432,58 +236,42 @@ namespace MrTiendita.Vistas
             this.lb_cantidad.BackColor = System.Drawing.Color.Transparent;
             this.lb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.lb_cantidad.Location = new System.Drawing.Point(10, 124);
-            this.lb_cantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_cantidad.Location = new System.Drawing.Point(12, 155);
             this.lb_cantidad.Name = "lb_cantidad";
-            this.lb_cantidad.Size = new System.Drawing.Size(68, 17);
-            this.lb_cantidad.TabIndex = 36;
+            this.lb_cantidad.Size = new System.Drawing.Size(81, 20);
+            this.lb_cantidad.TabIndex = 0;
             this.lb_cantidad.Text = "Cantidad:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
-            this.label5.Location = new System.Drawing.Point(11, 11);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(10, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 19);
-            this.label5.TabIndex = 34;
+            this.label5.Size = new System.Drawing.Size(141, 24);
+            this.label5.TabIndex = 0;
             this.label5.Text = "Nueva entrada";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label7.Location = new System.Drawing.Point(10, 52);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 17);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "Código de barras:";
             // 
             // lbl_Titulo
             // 
             this.lbl_Titulo.AutoSize = true;
             this.lbl_Titulo.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(52, 15);
-            this.lbl_Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Titulo.Location = new System.Drawing.Point(69, 18);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(85, 23);
+            this.lbl_Titulo.Size = new System.Drawing.Size(108, 29);
             this.lbl_Titulo.TabIndex = 0;
             this.lbl_Titulo.Text = "Almacén";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(32, 16);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 26);
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
@@ -494,71 +282,295 @@ namespace MrTiendita.Vistas
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(458, 146);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(611, 180);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 17);
-            this.label6.TabIndex = 35;
+            this.label6.Size = new System.Drawing.Size(53, 20);
+            this.label6.TabIndex = 0;
             this.label6.Text = "Venta";
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1169, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(35, 788);
+            this.panel1.TabIndex = 0;
+            // 
+            // gunaShadowPanel1
+            // 
+            this.gunaShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaShadowPanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.gunaShadowPanel1.Controls.Add(this.btn_Limpiar);
+            this.gunaShadowPanel1.Controls.Add(this.btn_registrarEntrada);
+            this.gunaShadowPanel1.Controls.Add(this.cb_Proveedor);
+            this.gunaShadowPanel1.Controls.Add(this.lbl_ErrorCantidad);
+            this.gunaShadowPanel1.Controls.Add(this.lbl_ErrorCodigo);
+            this.gunaShadowPanel1.Controls.Add(this.tb_cantidad);
+            this.gunaShadowPanel1.Controls.Add(this.label8);
+            this.gunaShadowPanel1.Controls.Add(this.label9);
+            this.gunaShadowPanel1.Controls.Add(this.tb_codigo);
+            this.gunaShadowPanel1.Controls.Add(this.label5);
+            this.gunaShadowPanel1.Controls.Add(this.lb_cantidad);
+            this.gunaShadowPanel1.Location = new System.Drawing.Point(861, 167);
+            this.gunaShadowPanel1.Name = "gunaShadowPanel1";
+            this.gunaShadowPanel1.Radius = 4;
+            this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
+            this.gunaShadowPanel1.ShadowDepth = 80;
+            this.gunaShadowPanel1.ShadowStyle = Guna.UI.WinForms.ShadowMode.ForwardDiagonal;
+            this.gunaShadowPanel1.Size = new System.Drawing.Size(309, 519);
+            this.gunaShadowPanel1.TabIndex = 2;
+            // 
+            // btn_Limpiar
+            // 
+            this.btn_Limpiar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.btn_Limpiar.BorderRadius = 5;
+            this.btn_Limpiar.BorderThickness = 1;
+            this.btn_Limpiar.CheckedState.Parent = this.btn_Limpiar;
+            this.btn_Limpiar.CustomImages.Parent = this.btn_Limpiar;
+            this.btn_Limpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.btn_Limpiar.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Limpiar.ForeColor = System.Drawing.Color.White;
+            this.btn_Limpiar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(26)))), ((int)(((byte)(19)))));
+            this.btn_Limpiar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(40)))), ((int)(((byte)(29)))));
+            this.btn_Limpiar.HoverState.Parent = this.btn_Limpiar;
+            this.btn_Limpiar.Location = new System.Drawing.Point(153, 361);
+            this.btn_Limpiar.Name = "btn_Limpiar";
+            this.btn_Limpiar.ShadowDecoration.Parent = this.btn_Limpiar;
+            this.btn_Limpiar.Size = new System.Drawing.Size(131, 39);
+            this.btn_Limpiar.TabIndex = 5;
+            this.btn_Limpiar.Text = "Limpiar";
+            // 
+            // btn_registrarEntrada
+            // 
+            this.btn_registrarEntrada.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.btn_registrarEntrada.BorderRadius = 5;
+            this.btn_registrarEntrada.BorderThickness = 1;
+            this.btn_registrarEntrada.CheckedState.Parent = this.btn_registrarEntrada;
+            this.btn_registrarEntrada.CustomImages.Parent = this.btn_registrarEntrada;
+            this.btn_registrarEntrada.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.btn_registrarEntrada.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_registrarEntrada.ForeColor = System.Drawing.Color.White;
+            this.btn_registrarEntrada.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
+            this.btn_registrarEntrada.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
+            this.btn_registrarEntrada.HoverState.Parent = this.btn_registrarEntrada;
+            this.btn_registrarEntrada.Location = new System.Drawing.Point(16, 361);
+            this.btn_registrarEntrada.Name = "btn_registrarEntrada";
+            this.btn_registrarEntrada.ShadowDecoration.Parent = this.btn_registrarEntrada;
+            this.btn_registrarEntrada.Size = new System.Drawing.Size(131, 39);
+            this.btn_registrarEntrada.TabIndex = 4;
+            this.btn_registrarEntrada.Text = "Registrar";
+            // 
+            // cb_Proveedor
+            // 
+            this.cb_Proveedor.BackColor = System.Drawing.Color.Transparent;
+            this.cb_Proveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.cb_Proveedor.BorderRadius = 5;
+            this.cb_Proveedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_Proveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Proveedor.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.cb_Proveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.cb_Proveedor.FocusedState.Parent = this.cb_Proveedor;
+            this.cb_Proveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_Proveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.cb_Proveedor.FormattingEnabled = true;
+            this.cb_Proveedor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.cb_Proveedor.HoverState.Parent = this.cb_Proveedor;
+            this.cb_Proveedor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_Proveedor.ItemHeight = 30;
+            this.cb_Proveedor.ItemsAppearance.Parent = this.cb_Proveedor;
+            this.cb_Proveedor.Location = new System.Drawing.Point(16, 274);
+            this.cb_Proveedor.Name = "cb_Proveedor";
+            this.cb_Proveedor.ShadowDecoration.Parent = this.cb_Proveedor;
+            this.cb_Proveedor.Size = new System.Drawing.Size(266, 36);
+            this.cb_Proveedor.TabIndex = 3;
+            // 
+            // lbl_ErrorCantidad
+            // 
+            this.lbl_ErrorCantidad.AutoSize = true;
+            this.lbl_ErrorCantidad.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorCantidad.Location = new System.Drawing.Point(23, 222);
+            this.lbl_ErrorCantidad.Name = "lbl_ErrorCantidad";
+            this.lbl_ErrorCantidad.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorCantidad.TabIndex = 0;
+            this.lbl_ErrorCantidad.Text = "* Error";
+            this.lbl_ErrorCantidad.Visible = false;
+            // 
+            // lbl_ErrorCodigo
+            // 
+            this.lbl_ErrorCodigo.AutoSize = true;
+            this.lbl_ErrorCodigo.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorCodigo.Location = new System.Drawing.Point(23, 125);
+            this.lbl_ErrorCodigo.Name = "lbl_ErrorCodigo";
+            this.lbl_ErrorCodigo.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorCodigo.TabIndex = 0;
+            this.lbl_ErrorCodigo.Text = "* Error";
+            this.lbl_ErrorCodigo.Visible = false;
+            // 
+            // tb_cantidad
+            // 
+            this.tb_cantidad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_cantidad.BorderRadius = 5;
+            this.tb_cantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_cantidad.DefaultText = "";
+            this.tb_cantidad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_cantidad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_cantidad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_cantidad.DisabledState.Parent = this.tb_cantidad;
+            this.tb_cantidad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_cantidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_cantidad.FocusedState.Parent = this.tb_cantidad;
+            this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_cantidad.HoverState.Parent = this.tb_cantidad;
+            this.tb_cantidad.Location = new System.Drawing.Point(16, 181);
+            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_cantidad.Name = "tb_cantidad";
+            this.tb_cantidad.PasswordChar = '\0';
+            this.tb_cantidad.PlaceholderText = "";
+            this.tb_cantidad.SelectedText = "";
+            this.tb_cantidad.ShadowDecoration.Parent = this.tb_cantidad;
+            this.tb_cantidad.Size = new System.Drawing.Size(268, 39);
+            this.tb_cantidad.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.label9.Location = new System.Drawing.Point(12, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(144, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Código de barras:";
+            // 
+            // tb_codigo
+            // 
+            this.tb_codigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_codigo.BorderRadius = 5;
+            this.tb_codigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_codigo.DefaultText = "";
+            this.tb_codigo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_codigo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_codigo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_codigo.DisabledState.Parent = this.tb_codigo;
+            this.tb_codigo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_codigo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_codigo.FocusedState.Parent = this.tb_codigo;
+            this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_codigo.HoverState.Parent = this.tb_codigo;
+            this.tb_codigo.Location = new System.Drawing.Point(16, 84);
+            this.tb_codigo.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_codigo.Name = "tb_codigo";
+            this.tb_codigo.PasswordChar = '\0';
+            this.tb_codigo.PlaceholderText = "";
+            this.tb_codigo.SelectedText = "";
+            this.tb_codigo.ShadowDecoration.Parent = this.tb_codigo;
+            this.tb_codigo.Size = new System.Drawing.Size(266, 39);
+            this.tb_codigo.TabIndex = 1;
+            // 
+            // tb_busqueda
+            // 
+            this.tb_busqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tb_busqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_busqueda.BorderRadius = 5;
+            this.tb_busqueda.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_busqueda.DefaultText = "";
+            this.tb_busqueda.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_busqueda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_busqueda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_busqueda.DisabledState.Parent = this.tb_busqueda;
+            this.tb_busqueda.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_busqueda.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_busqueda.FocusedState.Parent = this.tb_busqueda;
+            this.tb_busqueda.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_busqueda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_busqueda.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_busqueda.HoverState.Parent = this.tb_busqueda;
+            this.tb_busqueda.Location = new System.Drawing.Point(32, 101);
+            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_busqueda.Name = "tb_busqueda";
+            this.tb_busqueda.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.tb_busqueda.PasswordChar = '\0';
+            this.tb_busqueda.PlaceholderText = "";
+            this.tb_busqueda.SelectedText = "";
+            this.tb_busqueda.ShadowDecoration.Parent = this.tb_busqueda;
+            this.tb_busqueda.Size = new System.Drawing.Size(430, 39);
+            this.tb_busqueda.TabIndex = 1;
+            this.tb_busqueda.TextOffset = new System.Drawing.Point(25, 0);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(39, 108);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 53;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.label7.Location = new System.Drawing.Point(965, 721);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "label7";
             // 
             // frmCAlmacen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(903, 640);
+            this.ClientSize = new System.Drawing.Size(1204, 788);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.gunaShadowPanel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_Titulo);
-            this.Controls.Add(this.pnl_nuevaEntradaActiva);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tablaProductos);
-            this.Controls.Add(this.tb_busqueda);
-            this.Controls.Add(this.pb_lupa);
             this.Controls.Add(this.lbl_buscar);
-            this.Controls.Add(this.pb_buscar);
+            this.Controls.Add(this.tb_busqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCAlmacen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "            ";
-            ((System.ComponentModel.ISupportInitialize)(this.pb_buscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_lupa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.pnl_nuevaEntradaActiva.ResumeLayout(false);
-            this.pnl_nuevaEntradaActiva.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gunaShadowPanel1.ResumeLayout(false);
+            this.gunaShadowPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pb_buscar;
         private System.Windows.Forms.Label lbl_buscar;
-        private System.Windows.Forms.PictureBox pb_lupa;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Panel pnl_nuevaEntradaActiva;
-        public System.Windows.Forms.TextBox tb_cantidad;
-        public System.Windows.Forms.TextBox tb_codigo;
-        public Bunifu.Framework.UI.BunifuFlatButton btn_registrarEntrada;
         public System.Windows.Forms.DataGridView tablaProductos;
-        public System.Windows.Forms.TextBox tb_busqueda;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label lb_cantidad;
@@ -568,8 +580,19 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_venta;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_compra;
-        public Bunifu.Framework.UI.BunifuFlatButton btn_Limpiar;
         private System.Windows.Forms.Label label8;
-        public Bunifu.Framework.UI.BunifuDropdown cb_Proveedor;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI.WinForms.GunaShadowPanel gunaShadowPanel1;
+        public System.Windows.Forms.Label lbl_ErrorCantidad;
+        public System.Windows.Forms.Label lbl_ErrorCodigo;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.PictureBox pictureBox3;
+        public Guna.UI2.WinForms.Guna2Button btn_Limpiar;
+        public Guna.UI2.WinForms.Guna2Button btn_registrarEntrada;
+        public Guna.UI2.WinForms.Guna2ComboBox cb_Proveedor;
+        public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
+        public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
+        public Guna.UI2.WinForms.Guna2TextBox tb_busqueda;
+        private System.Windows.Forms.Label label7;
     }
 }

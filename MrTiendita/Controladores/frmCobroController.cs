@@ -39,30 +39,30 @@ namespace MrTiendita.Controladores
             this.productosVenta = productos;
             this.totalVenta = total;
             this.efectivo = 0;
-            this.vista.cb_metodoPago.onItemSelected += new EventHandler(cb_metodoPago_onItemSelected);
+            this.vista.cb_metodoPago.SelectedIndexChanged += new EventHandler(cb_metodoPago_SelectedIndexChanged);
             this.vista.tb_efectivo.TextChanged += new EventHandler(tb_efectivo_textChanged);
-            this.vista.btn_aceptarEfectivo.Click += new EventHandler(btn_aceptar_Click);
+            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
         }
 
-        private void cb_metodoPago_onItemSelected(object sender, EventArgs e)
+        private void cb_metodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.vista.btn_aceptarEfectivo.Visible = true;
-            if (this.vista.cb_metodoPago.selectedIndex == 0)
+            this.vista.btn_aceptar.Visible = true;
+            if (this.vista.cb_metodoPago.SelectedIndex == 0)
             {
                 this.vista.label1.Visible = true;
                 this.vista.label2.Visible = true;
                 this.vista.lbl_cambio.Visible = true;
                 this.vista.tb_efectivo.Visible = true;
-                this.vista.pictureBox2.Visible = true;
+                //this.vista.pictureBox2.Visible = true;
                 this.metodoEfectivo = true;
             }
-            else if (this.vista.cb_metodoPago.selectedIndex == 1)
+            else if (this.vista.cb_metodoPago.SelectedIndex == 1)
             {
                 this.vista.label1.Visible = false;
                 this.vista.label2.Visible = false;
                 this.vista.lbl_cambio.Visible = false;
                 this.vista.tb_efectivo.Visible = false;
-                this.vista.pictureBox2.Visible = false;
+                //this.vista.pictureBox2.Visible = false;
                 this.metodoEfectivo = false;
             }
         }
@@ -72,7 +72,7 @@ namespace MrTiendita.Controladores
             String _efectivo = this.vista.tb_efectivo.Text;
 
             //el boton de aceptar se mantiene inactivo hasta que pase todas las pruebas el campo efectivo
-            this.vista.btn_aceptarEfectivo.Enabled = false;
+            this.vista.btn_aceptar.Enabled = false;
             this.vista.lbl_cambio.Text = "--.--";
 
             if (!ValidacionDatos.Numero(_efectivo, out this.efectivo, new Dictionary<int, Double>() {
@@ -84,7 +84,7 @@ namespace MrTiendita.Controladores
             }
             
 
-            this.vista.btn_aceptarEfectivo.Enabled = true;
+            this.vista.btn_aceptar.Enabled = true;
             this.vista.tb_efectivo.BackColor = Color.White;
             this.vista.lbl_cambio.Text = "$" + (this.efectivo - this.totalVenta);
         }

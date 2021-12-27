@@ -31,24 +31,21 @@ namespace MrTiendita.Vistas
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmError));
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lbl_Mensaje = new System.Windows.Forms.Label();
             this.btn_No = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 5;
-            this.bunifuElipse1.TargetControl = this;
             // 
             // lbl_Mensaje
             // 
             this.lbl_Mensaje.AutoEllipsis = true;
             this.lbl_Mensaje.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Mensaje.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Mensaje.Location = new System.Drawing.Point(26, 160);
+            this.lbl_Mensaje.Location = new System.Drawing.Point(27, 171);
             this.lbl_Mensaje.Name = "lbl_Mensaje";
             this.lbl_Mensaje.Size = new System.Drawing.Size(281, 137);
             this.lbl_Mensaje.TabIndex = 5;
@@ -94,7 +91,7 @@ namespace MrTiendita.Vistas
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(114, 26);
             this.pictureBox1.Name = "pictureBox1";
@@ -103,17 +100,30 @@ namespace MrTiendita.Vistas
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(335, 160);
+            this.panel1.TabIndex = 11;
+            // 
+            // borde
+            // 
+            this.borde.BorderRadius = 10;
+            this.borde.TargetControl = this;
+            // 
             // frmError
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(335, 403);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_No);
             this.Controls.Add(this.lbl_Mensaje);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmError";
@@ -125,10 +135,11 @@ namespace MrTiendita.Vistas
         }
 
         #endregion
-
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lbl_Mensaje;
         private Bunifu.Framework.UI.BunifuFlatButton btn_No;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Elipse borde;
+        private Guna.UI2.WinForms.Guna2ShadowForm sombra;
     }
 }

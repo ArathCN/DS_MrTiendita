@@ -16,8 +16,6 @@ namespace MrTiendita.Vistas
         public frmCAlmacen()
         {
             InitializeComponent();
-
-            //tablaProductos.Rows.Add("661440000953", "10", "Azúcar Zulka baja en calorías", "30.50", "29.00");
             widthColumnas();
             tablaProductos.AllowUserToAddRows = false;
             tablaProductos.CurrentCell = null;

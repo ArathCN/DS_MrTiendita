@@ -15,6 +15,7 @@ namespace MrTiendita.Vistas
         public frmExito(string mensaje)
         {
             InitializeComponent();
+            sombra.SetShadowForm(this);
             lbl_Mensaje.Text = mensaje;
         }
 

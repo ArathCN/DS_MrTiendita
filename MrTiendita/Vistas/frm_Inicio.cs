@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmError : Form
+    public partial class frm_Inicio : Form
     {
-        public frmError(string mensaje)
+        public frm_Inicio()
         {
             InitializeComponent();
-            sombra.SetShadowForm(this);
-            lbl_Mensaje.Text = mensaje;
-        }
-
-        private void btn_No_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
         }
     }
 }

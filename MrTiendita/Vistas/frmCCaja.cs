@@ -30,6 +30,5 @@ namespace MrTiendita.Vistas
             tablaMovimientos.Columns[1].Width = 256;
             tablaMovimientos.Columns[2].Width = 174;
         }
-
     }
 }

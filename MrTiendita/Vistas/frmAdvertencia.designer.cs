@@ -29,18 +29,22 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdvertencia));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Mensaje = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Si = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_No = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(119, 27);
             this.pictureBox1.Name = "pictureBox1";
@@ -147,12 +151,24 @@ namespace MrTiendita.Vistas
             this.btn_No.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_No.Click += new System.EventHandler(this.btn_No_Click);
             // 
+            // borde
+            // 
+            this.borde.BorderRadius = 10;
+            this.borde.TargetControl = this;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(335, 160);
+            this.panel1.TabIndex = 10;
+            // 
             // frmAdvertencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(335, 403);
             this.Controls.Add(this.btn_No);
@@ -160,6 +176,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Mensaje);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAdvertencia";
@@ -177,5 +194,8 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Si;
         private Bunifu.Framework.UI.BunifuFlatButton btn_No;
+        private Guna.UI2.WinForms.Guna2Elipse borde;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2ShadowForm sombra;
     }
 }

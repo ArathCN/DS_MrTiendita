@@ -41,40 +41,40 @@ namespace MrTiendita.Vistas
             {
                 //hideSubMenu();
                 subMenu.Visible = true;
-                btn_Cajero.Normalcolor = Color.FromArgb(240, 240, 240);
-                btn_Encargado.Normalcolor = Color.FromArgb(240, 240, 240);
+                btn_Cajero.FillColor = Color.FromArgb(240, 240, 240);
+                btn_Encargado.FillColor = Color.FromArgb(240, 240, 240);
             }
             else
                 subMenu.Visible = false;
-                
+
         }
 
         private void ColorGris()
         {
-            btn_CAlmacen.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_CCaja.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_CVentas.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_EAlmacen.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_EReportes.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_EProveedores.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_EEmpleados.Normalcolor = Color.FromArgb(240, 240, 240);
-            btn_ECaja.Normalcolor = Color.FromArgb(240, 240, 240);
+            btn_CAlmacen.FillColor = Color.FromArgb(240, 240, 240);
+            btn_CCaja.FillColor = Color.FromArgb(240, 240, 240);
+            btn_CVentas.FillColor = Color.FromArgb(240, 240, 240);
+            btn_EAlmacen.FillColor = Color.FromArgb(240, 240, 240);
+            btn_EReportes.FillColor = Color.FromArgb(240, 240, 240);
+            btn_EProveedores.FillColor = Color.FromArgb(240, 240, 240);
+            btn_EEmpleados.FillColor = Color.FromArgb(240, 240, 240);
+            btn_ECaja.FillColor = Color.FromArgb(240, 240, 240);
         }
 
         private void btn_Cajero_Click(object sender, EventArgs e)
         {
             hideSubMenu();
             showSubMenu(pnl_OpCajero);
-            btn_Cajero.Normalcolor = Color.FromArgb(4, 208, 217);
+            btn_Cajero.FillColor = Color.FromArgb(4, 208, 217);
         }
 
         private void btn_Encargado_Click(object sender, EventArgs e)
         {
             hideSubMenu();
             showSubMenu(pnl_OpEncargado);
-            btn_Encargado.Normalcolor = Color.FromArgb(4, 208, 217);
+            btn_Encargado.FillColor = Color.FromArgb(4, 208, 217);
         }
-        
+
         private void AbrirFormulario(Form FormHijo)
         {
             if (formActivado != null)
@@ -91,56 +91,56 @@ namespace MrTiendita.Vistas
         private void btn_EReportes_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_EReportes.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_EReportes.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmReportes());
         }
 
         private void btn_CAlmacen_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_CAlmacen.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_CAlmacen.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmCAlmacen());
         }
 
         private void btn_CCaja_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_CCaja.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_CCaja.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmCCaja());
         }
 
         private void btn_EAlmacen_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_EAlmacen.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_EAlmacen.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmEAlmacen());
         }
 
         private void btn_EProveedores_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_EProveedores.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_EProveedores.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmProveedores());
         }
 
         private void btn_EEmpleados_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_EEmpleados.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_EEmpleados.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmEEmpleado());
         }
 
         private void btn_ECaja_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_ECaja.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_ECaja.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmCCaja());
         }
 
         private void btn_CVentas_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_CVentas.Normalcolor = Color.FromArgb(218, 238, 86);
+            btn_CVentas.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmCVentas());
         }
 
@@ -154,7 +154,7 @@ namespace MrTiendita.Vistas
             {
                 Application.Exit();
             }
-           
+
         }
     }
 }
