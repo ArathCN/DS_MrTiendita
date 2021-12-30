@@ -32,7 +32,7 @@ namespace MrTiendita.Controladores
             this.totalVenta = 0;
             this.vista.Load += new EventHandler(vista_load);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
-            this.vista.cb_productos.onItemSelected += new EventHandler(cb_productos_onItemSelected);
+            this.vista.cb_productos.SelectedValueChanged += new EventHandler(cb_productos_SelectedValueChanged);
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
             this.vista.btn_finalizar.Click += new EventHandler(venta_metodo_pago);
             this.vista.btn_cancelar.Click += new EventHandler(btn_cancelar_Click);
@@ -49,15 +49,21 @@ namespace MrTiendita.Controladores
                 this.listaProductos.Add(producto.Descripcion, producto.Codigo_barra);
                 nombreProductos.Add(producto.Descripcion);
             }
-            this.vista.cb_productos.Items = nombreProductos.ToArray();
+
+            foreach (string producto in nombreProductos)
+            {
+                this.vista.cb_productos.Items.Add(producto);
+            }
         }
 
-        private void cb_productos_onItemSelected(object sender, EventArgs e)
+        private void cb_productos_SelectedValueChanged(object sender, EventArgs e)
         {
-            String nombreProducto = this.vista.cb_productos.selectedValue;
-            long idProducto = this.listaProductos[nombreProducto];
-
-            this.vista.tb_codigo.Text = idProducto.ToString();
+            if (this.vista.cb_productos.SelectedIndex != -1)
+            {
+                String nombreProducto = this.vista.cb_productos.SelectedItem.ToString();
+                long idProducto = this.listaProductos[nombreProducto];
+                this.vista.tb_codigo.Text = idProducto.ToString();
+            }
         }
 
         private void tablaVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -227,7 +233,7 @@ namespace MrTiendita.Controladores
             this.vista.lbl_total.Text = "$" + this.totalVenta;
             this.vista.tb_codigo.Text = "";
             this.vista.tb_cantidad.Text = "";
-            this.vista.cb_productos.selectedIndex = -1;
+            this.vista.cb_productos.SelectedIndex = -1;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -278,6 +284,5 @@ namespace MrTiendita.Controladores
                 this.vista.lbl_total.Text = "$00.00";
             }
         }
-
     }
 }

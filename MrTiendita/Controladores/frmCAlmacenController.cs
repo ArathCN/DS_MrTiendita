@@ -34,7 +34,7 @@ namespace MrTiendita.Controladores
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
             this.vista.btn_Limpiar.Click += new EventHandler(btn_Limpiar_Click);
-            this.vista.cb_Proveedor.SelectedValueChanged += new EventHandler(cb_Proveedor_SelectedValueChanged);
+            //this.vista.cb_Proveedor.SelectedValueChanged += new EventHandler(cb_Proveedor_SelectedValueChanged);
         }
 
         public void vista_Load(object sender, EventArgs e)
@@ -88,11 +88,11 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void cb_Proveedor_SelectedItem(object sender, EventArgs e)
-        {
-            String nombre = this.vista.cb_Proveedor.SelectedValue.ToString();
-            int id = this.listaProveedores[nombre];
-        }
+        //private void cb_Proveedor_SelectedItem(object sender, EventArgs e)
+        //{
+        //    String nombre = this.vista.cb_Proveedor.SelectedValue.ToString();
+        //    int id = this.listaProveedores[nombre];
+        //}
 
         private void btn_Limpiar_Click(object sender, EventArgs e)
         {

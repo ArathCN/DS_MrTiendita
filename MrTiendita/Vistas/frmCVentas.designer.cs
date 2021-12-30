@@ -30,16 +30,12 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.lbl_buscar = new System.Windows.Forms.Label();
-            this.tb_cantidad = new System.Windows.Forms.TextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lb_cantidad = new System.Windows.Forms.Label();
             this.btn_aceptar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.tb_codigo = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,11 +54,11 @@ namespace MrTiendita.Vistas
             this.lbl_total = new System.Windows.Forms.Label();
             this.btn_finalizar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_cancelar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.cb_productos = new Bunifu.Framework.UI.BunifuDropdown();
             this.label5 = new System.Windows.Forms.Label();
+            this.cb_productos = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tb_cantidad = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_codigo = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -100,28 +96,6 @@ namespace MrTiendita.Vistas
             this.lbl_buscar.Size = new System.Drawing.Size(144, 20);
             this.lbl_buscar.TabIndex = 53;
             this.lbl_buscar.Text = "Código de barras:";
-            // 
-            // tb_cantidad
-            // 
-            this.tb_cantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_cantidad.Location = new System.Drawing.Point(383, 105);
-            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_cantidad.MaxLength = 8;
-            this.tb_cantidad.Name = "tb_cantidad";
-            this.tb_cantidad.Size = new System.Drawing.Size(143, 21);
-            this.tb_cantidad.TabIndex = 3;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(372, 98);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(165, 39);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 57;
-            this.pictureBox6.TabStop = false;
             // 
             // lb_cantidad
             // 
@@ -165,34 +139,12 @@ namespace MrTiendita.Vistas
             this.btn_aceptar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.btn_aceptar.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_aceptar.selected = false;
-            this.btn_aceptar.Size = new System.Drawing.Size(125, 39);
+            this.btn_aceptar.Size = new System.Drawing.Size(125, 45);
             this.btn_aceptar.TabIndex = 4;
             this.btn_aceptar.Text = "Aceptar";
             this.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_aceptar.Textcolor = System.Drawing.Color.White;
             this.btn_aceptar.TextFont = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // tb_codigo
-            // 
-            this.tb_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_codigo.Location = new System.Drawing.Point(40, 105);
-            this.tb_codigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_codigo.MaxLength = 13;
-            this.tb_codigo.Name = "tb_codigo";
-            this.tb_codigo.Size = new System.Drawing.Size(309, 21);
-            this.tb_codigo.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(29, 98);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(331, 39);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 64;
-            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -275,15 +227,15 @@ namespace MrTiendita.Vistas
             this.precio,
             this.subtotal,
             this.codigo});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaVentas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaVentas.DefaultCellStyle = dataGridViewCellStyle13;
             this.tablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaVentas.Location = new System.Drawing.Point(32, 210);
             this.tablaVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -450,23 +402,6 @@ namespace MrTiendita.Vistas
             this.btn_cancelar.Textcolor = System.Drawing.Color.White;
             this.btn_cancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // cb_productos
-            // 
-            this.cb_productos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cb_productos.BorderRadius = 7;
-            this.cb_productos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_productos.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_productos.ForeColor = System.Drawing.Color.White;
-            this.cb_productos.Items = new string[0];
-            this.cb_productos.Location = new System.Drawing.Point(549, 98);
-            this.cb_productos.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.cb_productos.Name = "cb_productos";
-            this.cb_productos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.cb_productos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.cb_productos.selectedIndex = -1;
-            this.cb_productos.Size = new System.Drawing.Size(290, 39);
-            this.cb_productos.TabIndex = 76;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -479,14 +414,94 @@ namespace MrTiendita.Vistas
             this.label5.TabIndex = 77;
             this.label5.Text = "Buscar un producto:";
             // 
+            // cb_productos
+            // 
+            this.cb_productos.BackColor = System.Drawing.Color.Transparent;
+            this.cb_productos.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.cb_productos.BorderRadius = 5;
+            this.cb_productos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_productos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_productos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.cb_productos.FocusedColor = System.Drawing.Color.Empty;
+            this.cb_productos.FocusedState.Parent = this.cb_productos;
+            this.cb_productos.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_productos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.cb_productos.FormattingEnabled = true;
+            this.cb_productos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.cb_productos.HoverState.Parent = this.cb_productos;
+            this.cb_productos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_productos.ItemHeight = 30;
+            this.cb_productos.ItemsAppearance.Parent = this.cb_productos;
+            this.cb_productos.Location = new System.Drawing.Point(549, 99);
+            this.cb_productos.Name = "cb_productos";
+            this.cb_productos.ShadowDecoration.Parent = this.cb_productos;
+            this.cb_productos.Size = new System.Drawing.Size(290, 36);
+            this.cb_productos.TabIndex = 84;
+            // 
+            // tb_cantidad
+            // 
+            this.tb_cantidad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_cantidad.BorderRadius = 5;
+            this.tb_cantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_cantidad.DefaultText = "";
+            this.tb_cantidad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_cantidad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_cantidad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_cantidad.DisabledState.Parent = this.tb_cantidad;
+            this.tb_cantidad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_cantidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_cantidad.FocusedState.Parent = this.tb_cantidad;
+            this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_cantidad.HoverState.Parent = this.tb_cantidad;
+            this.tb_cantidad.Location = new System.Drawing.Point(372, 99);
+            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_cantidad.Name = "tb_cantidad";
+            this.tb_cantidad.PasswordChar = '\0';
+            this.tb_cantidad.PlaceholderText = "";
+            this.tb_cantidad.SelectedText = "";
+            this.tb_cantidad.ShadowDecoration.Parent = this.tb_cantidad;
+            this.tb_cantidad.Size = new System.Drawing.Size(165, 44);
+            this.tb_cantidad.TabIndex = 85;
+            // 
+            // tb_codigo
+            // 
+            this.tb_codigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_codigo.BorderRadius = 5;
+            this.tb_codigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_codigo.DefaultText = "";
+            this.tb_codigo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_codigo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_codigo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_codigo.DisabledState.Parent = this.tb_codigo;
+            this.tb_codigo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_codigo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_codigo.FocusedState.Parent = this.tb_codigo;
+            this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_codigo.HoverState.Parent = this.tb_codigo;
+            this.tb_codigo.Location = new System.Drawing.Point(32, 99);
+            this.tb_codigo.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_codigo.Name = "tb_codigo";
+            this.tb_codigo.PasswordChar = '\0';
+            this.tb_codigo.PlaceholderText = "";
+            this.tb_codigo.SelectedText = "";
+            this.tb_codigo.ShadowDecoration.Parent = this.tb_codigo;
+            this.tb_codigo.Size = new System.Drawing.Size(331, 44);
+            this.tb_codigo.TabIndex = 86;
+            // 
             // frmCVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1187, 741);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tb_codigo);
+            this.Controls.Add(this.tb_cantidad);
             this.Controls.Add(this.cb_productos);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_finalizar);
             this.Controls.Add(this.lbl_total);
@@ -498,11 +513,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.tb_codigo);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_aceptar);
-            this.Controls.Add(this.tb_cantidad);
-            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.lb_cantidad);
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.pictureBox4);
@@ -512,8 +523,6 @@ namespace MrTiendita.Vistas
             this.Name = "frmCVentas";
             this.Text = "frmCVentas";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -527,12 +536,8 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.Label lbl_buscar;
-        public System.Windows.Forms.TextBox tb_cantidad;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lb_cantidad;
         public Bunifu.Framework.UI.BunifuFlatButton btn_aceptar;
-        public System.Windows.Forms.TextBox tb_codigo;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -544,7 +549,6 @@ namespace MrTiendita.Vistas
         public Bunifu.Framework.UI.BunifuFlatButton btn_finalizar;
         public System.Windows.Forms.Label lbl_total;
         public Bunifu.Framework.UI.BunifuFlatButton btn_cancelar;
-        public Bunifu.Framework.UI.BunifuDropdown cb_productos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewImageColumn restar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_actual;
@@ -553,5 +557,8 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        public Guna.UI2.WinForms.Guna2ComboBox cb_productos;
+        public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
+        public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
     }
 }

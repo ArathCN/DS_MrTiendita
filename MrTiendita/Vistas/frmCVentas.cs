@@ -21,6 +21,7 @@ namespace MrTiendita.Vistas
             tablaVentas.CurrentCell = null;
             frmCVentasController controller = new frmCVentasController(this);
 
+
         }
 
         public void widthColumnas()

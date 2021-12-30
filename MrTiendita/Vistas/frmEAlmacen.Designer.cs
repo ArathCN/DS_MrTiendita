@@ -44,10 +44,7 @@ namespace MrTiendita.Vistas
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tb_busqueda = new System.Windows.Forms.TextBox();
-            this.pb_lupa = new System.Windows.Forms.PictureBox();
             this.lbl_buscar = new System.Windows.Forms.Label();
-            this.pb_buscar = new System.Windows.Forms.PictureBox();
             this.btn_nuevoProducto = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,11 +52,12 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.tb_busqueda = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_lupa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tablaProductos
@@ -215,27 +213,6 @@ namespace MrTiendita.Vistas
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // tb_busqueda
-            // 
-            this.tb_busqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_busqueda.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_busqueda.Location = new System.Drawing.Point(75, 104);
-            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_busqueda.Name = "tb_busqueda";
-            this.tb_busqueda.Size = new System.Drawing.Size(357, 21);
-            this.tb_busqueda.TabIndex = 20;
-            // 
-            // pb_lupa
-            // 
-            this.pb_lupa.Image = ((System.Drawing.Image)(resources.GetObject("pb_lupa.Image")));
-            this.pb_lupa.Location = new System.Drawing.Point(40, 102);
-            this.pb_lupa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pb_lupa.Name = "pb_lupa";
-            this.pb_lupa.Size = new System.Drawing.Size(25, 25);
-            this.pb_lupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_lupa.TabIndex = 19;
-            this.pb_lupa.TabStop = false;
-            // 
             // lbl_buscar
             // 
             this.lbl_buscar.AutoSize = true;
@@ -245,17 +222,6 @@ namespace MrTiendita.Vistas
             this.lbl_buscar.Size = new System.Drawing.Size(140, 20);
             this.lbl_buscar.TabIndex = 18;
             this.lbl_buscar.Text = "Buscar producto:";
-            // 
-            // pb_buscar
-            // 
-            this.pb_buscar.Image = ((System.Drawing.Image)(resources.GetObject("pb_buscar.Image")));
-            this.pb_buscar.Location = new System.Drawing.Point(32, 97);
-            this.pb_buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pb_buscar.Name = "pb_buscar";
-            this.pb_buscar.Size = new System.Drawing.Size(413, 39);
-            this.pb_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_buscar.TabIndex = 17;
-            this.pb_buscar.TabStop = false;
             // 
             // btn_nuevoProducto
             // 
@@ -280,7 +246,7 @@ namespace MrTiendita.Vistas
             this.btn_nuevoProducto.IconVisible = true;
             this.btn_nuevoProducto.IconZoom = 90D;
             this.btn_nuevoProducto.IsTab = false;
-            this.btn_nuevoProducto.Location = new System.Drawing.Point(467, 97);
+            this.btn_nuevoProducto.Location = new System.Drawing.Point(473, 97);
             this.btn_nuevoProducto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_nuevoProducto.Name = "btn_nuevoProducto";
             this.btn_nuevoProducto.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
@@ -361,12 +327,55 @@ namespace MrTiendita.Vistas
             this.panel1.Size = new System.Drawing.Size(35, 788);
             this.panel1.TabIndex = 38;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(39, 104);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 55;
+            this.pictureBox3.TabStop = false;
+            // 
+            // tb_busqueda
+            // 
+            this.tb_busqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tb_busqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_busqueda.BorderRadius = 5;
+            this.tb_busqueda.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_busqueda.DefaultText = "";
+            this.tb_busqueda.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_busqueda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_busqueda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_busqueda.DisabledState.Parent = this.tb_busqueda;
+            this.tb_busqueda.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_busqueda.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_busqueda.FocusedState.Parent = this.tb_busqueda;
+            this.tb_busqueda.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_busqueda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_busqueda.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_busqueda.HoverState.Parent = this.tb_busqueda;
+            this.tb_busqueda.Location = new System.Drawing.Point(32, 97);
+            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_busqueda.Name = "tb_busqueda";
+            this.tb_busqueda.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.tb_busqueda.PasswordChar = '\0';
+            this.tb_busqueda.PlaceholderText = "";
+            this.tb_busqueda.SelectedText = "";
+            this.tb_busqueda.ShadowDecoration.Parent = this.tb_busqueda;
+            this.tb_busqueda.Size = new System.Drawing.Size(430, 39);
+            this.tb_busqueda.TabIndex = 54;
+            this.tb_busqueda.TextOffset = new System.Drawing.Point(25, 0);
+            // 
             // frmEAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1204, 788);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.tb_busqueda);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
@@ -374,10 +383,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_nuevoProducto);
-            this.Controls.Add(this.tb_busqueda);
-            this.Controls.Add(this.pb_lupa);
             this.Controls.Add(this.lbl_buscar);
-            this.Controls.Add(this.pb_buscar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -391,9 +397,8 @@ namespace MrTiendita.Vistas
             this.Text = "frmEAlmacen";
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_lupa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,14 +410,11 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pb_lupa;
         private System.Windows.Forms.Label lbl_buscar;
-        private System.Windows.Forms.PictureBox pb_buscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.DataGridView tablaProductos;
         public Bunifu.Framework.UI.BunifuFlatButton btn_nuevoProducto;
-        public System.Windows.Forms.TextBox tb_busqueda;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.Label label7;
@@ -424,5 +426,7 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_compra;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn eliminar;
+        public System.Windows.Forms.PictureBox pictureBox3;
+        public Guna.UI2.WinForms.Guna2TextBox tb_busqueda;
     }
 }

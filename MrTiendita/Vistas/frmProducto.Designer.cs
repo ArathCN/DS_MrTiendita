@@ -34,31 +34,21 @@ namespace MrTiendita.Vistas
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_guardarProducto = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.tb_codigo = new System.Windows.Forms.TextBox();
-            this.tb_cantidad = new System.Windows.Forms.TextBox();
-            this.tb_descripcion = new System.Windows.Forms.TextBox();
-            this.tb_precioVenta = new System.Windows.Forms.TextBox();
-            this.tb_precioCompra = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.chbx_medida = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label7 = new System.Windows.Forms.Label();
+            this.tb_codigo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_cantidad = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_precioVenta = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -93,17 +83,6 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.TabIndex = 3;
             this.lbl_Titulo.Text = "Titulo";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 96);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(276, 41);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -126,17 +105,6 @@ namespace MrTiendita.Vistas
             this.label2.TabIndex = 7;
             this.label2.Text = "Cantidad:";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(16, 182);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(501, 41);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 8;
-            this.pictureBox4.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -147,28 +115,6 @@ namespace MrTiendita.Vistas
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "Descripción:";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(17, 270);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(149, 41);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 10;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(187, 270);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(160, 41);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 11;
-            this.pictureBox6.TabStop = false;
             // 
             // label4
             // 
@@ -229,72 +175,6 @@ namespace MrTiendita.Vistas
             this.btn_guardarProducto.Textcolor = System.Drawing.Color.White;
             this.btn_guardarProducto.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // tb_codigo
-            // 
-            this.tb_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_codigo.Location = new System.Drawing.Point(32, 103);
-            this.tb_codigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_codigo.MaxLength = 13;
-            this.tb_codigo.Name = "tb_codigo";
-            this.tb_codigo.Size = new System.Drawing.Size(245, 21);
-            this.tb_codigo.TabIndex = 23;
-            // 
-            // tb_cantidad
-            // 
-            this.tb_cantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_cantidad.Location = new System.Drawing.Point(325, 103);
-            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_cantidad.MaxLength = 7;
-            this.tb_cantidad.Name = "tb_cantidad";
-            this.tb_cantidad.Size = new System.Drawing.Size(179, 21);
-            this.tb_cantidad.TabIndex = 24;
-            // 
-            // tb_descripcion
-            // 
-            this.tb_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_descripcion.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_descripcion.Location = new System.Drawing.Point(32, 192);
-            this.tb_descripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_descripcion.MaxLength = 120;
-            this.tb_descripcion.Name = "tb_descripcion";
-            this.tb_descripcion.Size = new System.Drawing.Size(472, 21);
-            this.tb_descripcion.TabIndex = 25;
-            // 
-            // tb_precioVenta
-            // 
-            this.tb_precioVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_precioVenta.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_precioVenta.Location = new System.Drawing.Point(32, 278);
-            this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_precioVenta.MaxLength = 7;
-            this.tb_precioVenta.Name = "tb_precioVenta";
-            this.tb_precioVenta.Size = new System.Drawing.Size(125, 21);
-            this.tb_precioVenta.TabIndex = 26;
-            // 
-            // tb_precioCompra
-            // 
-            this.tb_precioCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_precioCompra.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_precioCompra.Location = new System.Drawing.Point(201, 278);
-            this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_precioCompra.MaxLength = 7;
-            this.tb_precioCompra.Name = "tb_precioCompra";
-            this.tb_precioCompra.Size = new System.Drawing.Size(132, 21);
-            this.tb_precioCompra.TabIndex = 27;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(312, 96);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(205, 41);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -314,7 +194,7 @@ namespace MrTiendita.Vistas
             this.chbx_medida.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.chbx_medida.ForeColor = System.Drawing.Color.White;
             this.chbx_medida.Location = new System.Drawing.Point(381, 279);
-            this.chbx_medida.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chbx_medida.Margin = new System.Windows.Forms.Padding(5);
             this.chbx_medida.Name = "chbx_medida";
             this.chbx_medida.Size = new System.Drawing.Size(20, 20);
             this.chbx_medida.TabIndex = 29;
@@ -330,6 +210,141 @@ namespace MrTiendita.Vistas
             this.label7.TabIndex = 30;
             this.label7.Text = "Granel";
             // 
+            // tb_codigo
+            // 
+            this.tb_codigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_codigo.BorderRadius = 5;
+            this.tb_codigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_codigo.DefaultText = "";
+            this.tb_codigo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_codigo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_codigo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_codigo.DisabledState.Parent = this.tb_codigo;
+            this.tb_codigo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_codigo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_codigo.FocusedState.Parent = this.tb_codigo;
+            this.tb_codigo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_codigo.HoverState.Parent = this.tb_codigo;
+            this.tb_codigo.Location = new System.Drawing.Point(17, 96);
+            this.tb_codigo.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_codigo.Name = "tb_codigo";
+            this.tb_codigo.PasswordChar = '\0';
+            this.tb_codigo.PlaceholderText = "";
+            this.tb_codigo.SelectedText = "";
+            this.tb_codigo.ShadowDecoration.Parent = this.tb_codigo;
+            this.tb_codigo.Size = new System.Drawing.Size(276, 39);
+            this.tb_codigo.TabIndex = 31;
+            // 
+            // tb_cantidad
+            // 
+            this.tb_cantidad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_cantidad.BorderRadius = 5;
+            this.tb_cantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_cantidad.DefaultText = "";
+            this.tb_cantidad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_cantidad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_cantidad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_cantidad.DisabledState.Parent = this.tb_cantidad;
+            this.tb_cantidad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_cantidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_cantidad.FocusedState.Parent = this.tb_cantidad;
+            this.tb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_cantidad.HoverState.Parent = this.tb_cantidad;
+            this.tb_cantidad.Location = new System.Drawing.Point(319, 96);
+            this.tb_cantidad.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_cantidad.Name = "tb_cantidad";
+            this.tb_cantidad.PasswordChar = '\0';
+            this.tb_cantidad.PlaceholderText = "";
+            this.tb_cantidad.SelectedText = "";
+            this.tb_cantidad.ShadowDecoration.Parent = this.tb_cantidad;
+            this.tb_cantidad.Size = new System.Drawing.Size(198, 39);
+            this.tb_cantidad.TabIndex = 32;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.guna2TextBox1.BorderRadius = 5;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Location = new System.Drawing.Point(17, 185);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Size = new System.Drawing.Size(500, 39);
+            this.guna2TextBox1.TabIndex = 33;
+            // 
+            // tb_precioVenta
+            // 
+            this.tb_precioVenta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_precioVenta.BorderRadius = 5;
+            this.tb_precioVenta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_precioVenta.DefaultText = "";
+            this.tb_precioVenta.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_precioVenta.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_precioVenta.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_precioVenta.DisabledState.Parent = this.tb_precioVenta;
+            this.tb_precioVenta.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_precioVenta.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_precioVenta.FocusedState.Parent = this.tb_precioVenta;
+            this.tb_precioVenta.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_precioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_precioVenta.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_precioVenta.HoverState.Parent = this.tb_precioVenta;
+            this.tb_precioVenta.Location = new System.Drawing.Point(17, 270);
+            this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_precioVenta.Name = "tb_precioVenta";
+            this.tb_precioVenta.PasswordChar = '\0';
+            this.tb_precioVenta.PlaceholderText = "";
+            this.tb_precioVenta.SelectedText = "";
+            this.tb_precioVenta.ShadowDecoration.Parent = this.tb_precioVenta;
+            this.tb_precioVenta.Size = new System.Drawing.Size(149, 39);
+            this.tb_precioVenta.TabIndex = 34;
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.guna2TextBox2.BorderRadius = 5;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.Location = new System.Drawing.Point(188, 270);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.Size = new System.Drawing.Size(149, 39);
+            this.guna2TextBox2.TabIndex = 35;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -338,25 +353,20 @@ namespace MrTiendita.Vistas
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 434);
+            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.tb_precioVenta);
+            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.tb_cantidad);
+            this.Controls.Add(this.tb_codigo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.chbx_medida);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tb_precioCompra);
-            this.Controls.Add(this.tb_precioVenta);
-            this.Controls.Add(this.tb_descripcion);
-            this.Controls.Add(this.tb_cantidad);
-            this.Controls.Add(this.tb_codigo);
             this.Controls.Add(this.btn_guardarProducto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.btn_Cerrar);
             this.DoubleBuffered = true;
@@ -366,11 +376,6 @@ namespace MrTiendita.Vistas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarProducto";
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,24 +386,19 @@ namespace MrTiendita.Vistas
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.PictureBox btn_Cerrar;
         private System.Windows.Forms.Label lbl_Titulo;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox3;
         public Bunifu.Framework.UI.BunifuFlatButton btn_guardarProducto;
-        public System.Windows.Forms.TextBox tb_descripcion;
-        public System.Windows.Forms.TextBox tb_cantidad;
-        public System.Windows.Forms.TextBox tb_codigo;
-        public System.Windows.Forms.TextBox tb_precioCompra;
-        public System.Windows.Forms.TextBox tb_precioVenta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         public Bunifu.Framework.UI.BunifuCheckbox chbx_medida;
+        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        public Guna.UI2.WinForms.Guna2TextBox tb_precioVenta;
+        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
+        public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
     }
 }
