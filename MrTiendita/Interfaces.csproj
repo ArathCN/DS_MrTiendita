@@ -68,6 +68,7 @@
     <Compile Include="Controladores\frmCVentasController.cs" />
     <Compile Include="Controladores\frmEAlmacenController.cs" />
     <Compile Include="Controladores\frmEProveedorController.cs" />
+    <Compile Include="Controladores\frmInicioController.cs" />
     <Compile Include="Controladores\frmPrincipalController.cs" />
     <Compile Include="Controladores\frmProductoController.cs" />
     <Compile Include="Controladores\frmProveedorController.cs" />
@@ -177,11 +178,17 @@
     <Compile Include="Vistas\frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frm_Inicio.cs">
+    <Compile Include="Vistas\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frm_Inicio.Designer.cs">
-      <DependentUpon>frm_Inicio.cs</DependentUpon>
+    <Compile Include="Vistas\frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmRVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmRVentas.Designer.cs">
+      <DependentUpon>frmRVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -237,8 +244,11 @@
     <EmbeddedResource Include="Vistas\frmReportes.resx">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frm_Inicio.resx">
-      <DependentUpon>frm_Inicio.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmRVentas.resx">
+      <DependentUpon>frmRVentas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -123,4 +123,5 @@ C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\Interfaces.cspro
 C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\Interfaces.csproj.CopyComplete
 C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\MrTiendita.exe
 C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\MrTiendita.pdb
-C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frm_Inicio.resources
+C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmInicio.resources
+C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmRVentas.resources

@@ -17,7 +17,7 @@ namespace MrTiendita
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Inicio());
+            Application.Run(new frmPrincipal());
         }
     }
 }

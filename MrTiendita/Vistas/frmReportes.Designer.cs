@@ -112,6 +112,7 @@ namespace MrTiendita.Vistas
             this.btn_ventas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_ventas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(140)))));
             this.btn_ventas.TextFont = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // Contenedor
             // 

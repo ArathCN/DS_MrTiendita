@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frm_Inicio : Form
+    public partial class frmInicio : Form
     {
-        public frm_Inicio()
+        public frmInicio()
         {
             InitializeComponent();
         }
