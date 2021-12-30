@@ -29,7 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCAlmacen));
             this.lbl_buscar = new System.Windows.Forms.Label();
             this.tablaProductos = new System.Windows.Forms.DataGridView();
@@ -50,7 +50,6 @@ namespace MrTiendita.Vistas
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
             this.btn_Limpiar = new Guna.UI2.WinForms.Guna2Button();
             this.btn_registrarEntrada = new Guna.UI2.WinForms.Guna2Button();
             this.cb_Proveedor = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -62,11 +61,12 @@ namespace MrTiendita.Vistas
             this.tb_busqueda = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gunaShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_buscar
@@ -101,15 +101,15 @@ namespace MrTiendita.Vistas
             this.descripcion,
             this.precio_venta,
             this.precio_compra});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle3;
             this.tablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaProductos.Location = new System.Drawing.Point(32, 210);
             this.tablaProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -224,7 +224,7 @@ namespace MrTiendita.Vistas
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label8.Location = new System.Drawing.Point(12, 251);
+            this.label8.Location = new System.Drawing.Point(17, 262);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 20);
             this.label8.TabIndex = 0;
@@ -236,7 +236,7 @@ namespace MrTiendita.Vistas
             this.lb_cantidad.BackColor = System.Drawing.Color.Transparent;
             this.lb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.lb_cantidad.Location = new System.Drawing.Point(12, 155);
+            this.lb_cantidad.Location = new System.Drawing.Point(17, 166);
             this.lb_cantidad.Name = "lb_cantidad";
             this.lb_cantidad.Size = new System.Drawing.Size(81, 20);
             this.lb_cantidad.TabIndex = 0;
@@ -248,7 +248,7 @@ namespace MrTiendita.Vistas
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
-            this.label5.Location = new System.Drawing.Point(10, 13);
+            this.label5.Location = new System.Drawing.Point(15, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 24);
             this.label5.TabIndex = 0;
@@ -296,30 +296,6 @@ namespace MrTiendita.Vistas
             this.panel1.Size = new System.Drawing.Size(35, 788);
             this.panel1.TabIndex = 0;
             // 
-            // gunaShadowPanel1
-            // 
-            this.gunaShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaShadowPanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaShadowPanel1.Controls.Add(this.btn_Limpiar);
-            this.gunaShadowPanel1.Controls.Add(this.btn_registrarEntrada);
-            this.gunaShadowPanel1.Controls.Add(this.cb_Proveedor);
-            this.gunaShadowPanel1.Controls.Add(this.lbl_ErrorCantidad);
-            this.gunaShadowPanel1.Controls.Add(this.lbl_ErrorCodigo);
-            this.gunaShadowPanel1.Controls.Add(this.tb_cantidad);
-            this.gunaShadowPanel1.Controls.Add(this.label8);
-            this.gunaShadowPanel1.Controls.Add(this.label9);
-            this.gunaShadowPanel1.Controls.Add(this.tb_codigo);
-            this.gunaShadowPanel1.Controls.Add(this.label5);
-            this.gunaShadowPanel1.Controls.Add(this.lb_cantidad);
-            this.gunaShadowPanel1.Location = new System.Drawing.Point(861, 167);
-            this.gunaShadowPanel1.Name = "gunaShadowPanel1";
-            this.gunaShadowPanel1.Radius = 4;
-            this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel1.ShadowDepth = 80;
-            this.gunaShadowPanel1.ShadowStyle = Guna.UI.WinForms.ShadowMode.ForwardDiagonal;
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(309, 519);
-            this.gunaShadowPanel1.TabIndex = 2;
-            // 
             // btn_Limpiar
             // 
             this.btn_Limpiar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
@@ -333,7 +309,7 @@ namespace MrTiendita.Vistas
             this.btn_Limpiar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(26)))), ((int)(((byte)(19)))));
             this.btn_Limpiar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(40)))), ((int)(((byte)(29)))));
             this.btn_Limpiar.HoverState.Parent = this.btn_Limpiar;
-            this.btn_Limpiar.Location = new System.Drawing.Point(153, 361);
+            this.btn_Limpiar.Location = new System.Drawing.Point(158, 372);
             this.btn_Limpiar.Name = "btn_Limpiar";
             this.btn_Limpiar.ShadowDecoration.Parent = this.btn_Limpiar;
             this.btn_Limpiar.Size = new System.Drawing.Size(131, 39);
@@ -353,7 +329,7 @@ namespace MrTiendita.Vistas
             this.btn_registrarEntrada.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
             this.btn_registrarEntrada.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
             this.btn_registrarEntrada.HoverState.Parent = this.btn_registrarEntrada;
-            this.btn_registrarEntrada.Location = new System.Drawing.Point(16, 361);
+            this.btn_registrarEntrada.Location = new System.Drawing.Point(21, 372);
             this.btn_registrarEntrada.Name = "btn_registrarEntrada";
             this.btn_registrarEntrada.ShadowDecoration.Parent = this.btn_registrarEntrada;
             this.btn_registrarEntrada.Size = new System.Drawing.Size(131, 39);
@@ -378,7 +354,7 @@ namespace MrTiendita.Vistas
             this.cb_Proveedor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_Proveedor.ItemHeight = 30;
             this.cb_Proveedor.ItemsAppearance.Parent = this.cb_Proveedor;
-            this.cb_Proveedor.Location = new System.Drawing.Point(16, 274);
+            this.cb_Proveedor.Location = new System.Drawing.Point(21, 285);
             this.cb_Proveedor.Name = "cb_Proveedor";
             this.cb_Proveedor.ShadowDecoration.Parent = this.cb_Proveedor;
             this.cb_Proveedor.Size = new System.Drawing.Size(266, 36);
@@ -389,7 +365,7 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorCantidad.AutoSize = true;
             this.lbl_ErrorCantidad.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorCantidad.Location = new System.Drawing.Point(23, 222);
+            this.lbl_ErrorCantidad.Location = new System.Drawing.Point(28, 233);
             this.lbl_ErrorCantidad.Name = "lbl_ErrorCantidad";
             this.lbl_ErrorCantidad.Size = new System.Drawing.Size(48, 17);
             this.lbl_ErrorCantidad.TabIndex = 0;
@@ -401,7 +377,7 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorCodigo.AutoSize = true;
             this.lbl_ErrorCodigo.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorCodigo.Location = new System.Drawing.Point(23, 125);
+            this.lbl_ErrorCodigo.Location = new System.Drawing.Point(28, 136);
             this.lbl_ErrorCodigo.Name = "lbl_ErrorCodigo";
             this.lbl_ErrorCodigo.Size = new System.Drawing.Size(48, 17);
             this.lbl_ErrorCodigo.TabIndex = 0;
@@ -425,7 +401,7 @@ namespace MrTiendita.Vistas
             this.tb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_cantidad.HoverState.Parent = this.tb_cantidad;
-            this.tb_cantidad.Location = new System.Drawing.Point(16, 181);
+            this.tb_cantidad.Location = new System.Drawing.Point(21, 192);
             this.tb_cantidad.Margin = new System.Windows.Forms.Padding(6);
             this.tb_cantidad.Name = "tb_cantidad";
             this.tb_cantidad.PasswordChar = '\0';
@@ -441,7 +417,7 @@ namespace MrTiendita.Vistas
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label9.Location = new System.Drawing.Point(12, 58);
+            this.label9.Location = new System.Drawing.Point(17, 69);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(144, 20);
             this.label9.TabIndex = 0;
@@ -464,7 +440,7 @@ namespace MrTiendita.Vistas
             this.tb_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_codigo.HoverState.Parent = this.tb_codigo;
-            this.tb_codigo.Location = new System.Drawing.Point(16, 84);
+            this.tb_codigo.Location = new System.Drawing.Point(21, 95);
             this.tb_codigo.Margin = new System.Windows.Forms.Padding(6);
             this.tb_codigo.Name = "tb_codigo";
             this.tb_codigo.PasswordChar = '\0';
@@ -525,15 +501,36 @@ namespace MrTiendita.Vistas
             this.label7.TabIndex = 54;
             this.label7.Text = "label7";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.btn_Limpiar);
+            this.panel2.Controls.Add(this.cb_Proveedor);
+            this.panel2.Controls.Add(this.btn_registrarEntrada);
+            this.panel2.Controls.Add(this.lb_cantidad);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lbl_ErrorCantidad);
+            this.panel2.Controls.Add(this.tb_codigo);
+            this.panel2.Controls.Add(this.lbl_ErrorCodigo);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.tb_cantidad);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Location = new System.Drawing.Point(861, 167);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(309, 519);
+            this.panel2.TabIndex = 55;
+            // 
             // frmCAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1204, 788);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.gunaShadowPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
@@ -554,9 +551,9 @@ namespace MrTiendita.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.tablaProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.gunaShadowPanel1.ResumeLayout(false);
-            this.gunaShadowPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,7 +579,6 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_compra;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaShadowPanel gunaShadowPanel1;
         public System.Windows.Forms.Label lbl_ErrorCantidad;
         public System.Windows.Forms.Label lbl_ErrorCodigo;
         public System.Windows.Forms.Label label9;
@@ -594,5 +590,6 @@ namespace MrTiendita.Vistas
         public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
         public Guna.UI2.WinForms.Guna2TextBox tb_busqueda;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel2;
     }
 }

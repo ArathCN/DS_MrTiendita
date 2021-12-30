@@ -45,9 +45,9 @@ namespace MrTiendita.Vistas
             this.label7 = new System.Windows.Forms.Label();
             this.tb_codigo = new Guna.UI2.WinForms.Guna2TextBox();
             this.tb_cantidad = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_descripcion = new Guna.UI2.WinForms.Guna2TextBox();
             this.tb_precioVenta = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_precioCompra = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,32 +264,32 @@ namespace MrTiendita.Vistas
             this.tb_cantidad.Size = new System.Drawing.Size(198, 39);
             this.tb_cantidad.TabIndex = 32;
             // 
-            // guna2TextBox1
+            // tb_descripcion
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(17, 185);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(500, 39);
-            this.guna2TextBox1.TabIndex = 33;
+            this.tb_descripcion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_descripcion.BorderRadius = 5;
+            this.tb_descripcion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_descripcion.DefaultText = "";
+            this.tb_descripcion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_descripcion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_descripcion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_descripcion.DisabledState.Parent = this.tb_descripcion;
+            this.tb_descripcion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_descripcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_descripcion.FocusedState.Parent = this.tb_descripcion;
+            this.tb_descripcion.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_descripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_descripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_descripcion.HoverState.Parent = this.tb_descripcion;
+            this.tb_descripcion.Location = new System.Drawing.Point(17, 185);
+            this.tb_descripcion.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_descripcion.Name = "tb_descripcion";
+            this.tb_descripcion.PasswordChar = '\0';
+            this.tb_descripcion.PlaceholderText = "";
+            this.tb_descripcion.SelectedText = "";
+            this.tb_descripcion.ShadowDecoration.Parent = this.tb_descripcion;
+            this.tb_descripcion.Size = new System.Drawing.Size(500, 39);
+            this.tb_descripcion.TabIndex = 33;
             // 
             // tb_precioVenta
             // 
@@ -318,32 +318,32 @@ namespace MrTiendita.Vistas
             this.tb_precioVenta.Size = new System.Drawing.Size(149, 39);
             this.tb_precioVenta.TabIndex = 34;
             // 
-            // guna2TextBox2
+            // tb_precioCompra
             // 
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.guna2TextBox2.BorderRadius = 5;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(188, 270);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(149, 39);
-            this.guna2TextBox2.TabIndex = 35;
+            this.tb_precioCompra.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.tb_precioCompra.BorderRadius = 5;
+            this.tb_precioCompra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_precioCompra.DefaultText = "";
+            this.tb_precioCompra.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_precioCompra.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_precioCompra.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_precioCompra.DisabledState.Parent = this.tb_precioCompra;
+            this.tb_precioCompra.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_precioCompra.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_precioCompra.FocusedState.Parent = this.tb_precioCompra;
+            this.tb_precioCompra.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_precioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.tb_precioCompra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.tb_precioCompra.HoverState.Parent = this.tb_precioCompra;
+            this.tb_precioCompra.Location = new System.Drawing.Point(188, 270);
+            this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_precioCompra.Name = "tb_precioCompra";
+            this.tb_precioCompra.PasswordChar = '\0';
+            this.tb_precioCompra.PlaceholderText = "";
+            this.tb_precioCompra.SelectedText = "";
+            this.tb_precioCompra.ShadowDecoration.Parent = this.tb_precioCompra;
+            this.tb_precioCompra.Size = new System.Drawing.Size(149, 39);
+            this.tb_precioCompra.TabIndex = 35;
             // 
             // frmProducto
             // 
@@ -353,9 +353,9 @@ namespace MrTiendita.Vistas
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 434);
-            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.tb_precioCompra);
             this.Controls.Add(this.tb_precioVenta);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.tb_descripcion);
             this.Controls.Add(this.tb_cantidad);
             this.Controls.Add(this.tb_codigo);
             this.Controls.Add(this.label7);
@@ -395,9 +395,9 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         public Bunifu.Framework.UI.BunifuCheckbox chbx_medida;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        public Guna.UI2.WinForms.Guna2TextBox tb_precioCompra;
         public Guna.UI2.WinForms.Guna2TextBox tb_precioVenta;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        public Guna.UI2.WinForms.Guna2TextBox tb_descripcion;
         public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
         public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
     }

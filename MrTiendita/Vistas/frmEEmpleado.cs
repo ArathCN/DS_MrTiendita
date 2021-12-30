@@ -19,6 +19,8 @@ namespace MrTiendita.Vistas
             tablaEmpleados.Rows.Add("1212", "Ricardo Alan", "Pasos", "Teposte", "6622906919", "$5500", "Cajero", "Ricardo1234!");
             tablaEmpleados.Rows.Add("1213", "Sebastian Arath", "Cañedo", "Núñez", "6623596075", "$6000", "Encargado", "Sebastian1234!");
             widthColumnas();
+            tablaEmpleados.AllowUserToAddRows = false;
+            tablaEmpleados.CurrentCell = null;
         }
 
         public void widthColumnas()
