@@ -44,13 +44,20 @@ namespace MrTiendita.Patrones
             private frmPrincipal vista;
             public void Encargado(frmPrincipal frmPrincipal)
             {
-
+                this.vista = frmPrincipal;
+                this.vista.Show();
+                this.vista.pnl_Cajero.Visible = false;
+                this.vista.pnl_OpCajero.Visible = false;
+                this.vista.pnl_Encargado.Visible = false;
+                this.vista.pnl_OpEncargado.Visible = true;
             }
 
             public void Cajero(frmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;
                 this.vista.Show();
+                this.vista.pnl_Cajero.Visible = false;
+                this.vista.pnl_OpCajero.Visible = true;
                 this.vista.pnl_Encargado.Visible = false;
                 this.vista.pnl_OpEncargado.Visible = false;
             }

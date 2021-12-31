@@ -11,26 +11,26 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmEditarProveedor : Form
+    public partial class frmEditarEmpleado : Form
     {
-        public frmEditarProveedor(string accion, int id)
+        public frmEditarEmpleado(string accion, int id)
         {
             InitializeComponent();
             sombra.SetShadowForm(this);
             if (accion == "agregar")
             {
-                lbl_Titulo.Text = "Agregar proveedor";
+                lbl_Titulo.Text = "Agregar empleado";
             }
             else
             {
-                lbl_Titulo.Text = "Actualizar proveedor";
+                lbl_Titulo.Text = "Actualizar empleado";
             }
-            frmProveedorController controlador = new frmProveedorController(this, accion, id);
+            //frmProveedorController controlador = new frmProveedorController(this, accion, id);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
         }
     }
 }

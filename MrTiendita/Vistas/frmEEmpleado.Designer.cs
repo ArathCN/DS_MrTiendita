@@ -36,7 +36,7 @@ namespace MrTiendita.Vistas
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_buscar = new System.Windows.Forms.Label();
             this.tb_busqueda = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_registrarEntrada = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_nuevoEmpleado = new Guna.UI2.WinForms.Guna2Button();
             this.tablaEmpleados = new System.Windows.Forms.DataGridView();
             this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -139,25 +139,25 @@ namespace MrTiendita.Vistas
             this.tb_busqueda.TabIndex = 55;
             this.tb_busqueda.TextOffset = new System.Drawing.Point(25, 0);
             // 
-            // btn_registrarEntrada
+            // btn_nuevoEmpleado
             // 
-            this.btn_registrarEntrada.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_registrarEntrada.BorderRadius = 5;
-            this.btn_registrarEntrada.BorderThickness = 1;
-            this.btn_registrarEntrada.CheckedState.Parent = this.btn_registrarEntrada;
-            this.btn_registrarEntrada.CustomImages.Parent = this.btn_registrarEntrada;
-            this.btn_registrarEntrada.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_registrarEntrada.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_registrarEntrada.ForeColor = System.Drawing.Color.White;
-            this.btn_registrarEntrada.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
-            this.btn_registrarEntrada.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
-            this.btn_registrarEntrada.HoverState.Parent = this.btn_registrarEntrada;
-            this.btn_registrarEntrada.Location = new System.Drawing.Point(473, 97);
-            this.btn_registrarEntrada.Name = "btn_registrarEntrada";
-            this.btn_registrarEntrada.ShadowDecoration.Parent = this.btn_registrarEntrada;
-            this.btn_registrarEntrada.Size = new System.Drawing.Size(173, 39);
-            this.btn_registrarEntrada.TabIndex = 57;
-            this.btn_registrarEntrada.Text = "Agregar empleado";
+            this.btn_nuevoEmpleado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.btn_nuevoEmpleado.BorderRadius = 5;
+            this.btn_nuevoEmpleado.BorderThickness = 1;
+            this.btn_nuevoEmpleado.CheckedState.Parent = this.btn_nuevoEmpleado;
+            this.btn_nuevoEmpleado.CustomImages.Parent = this.btn_nuevoEmpleado;
+            this.btn_nuevoEmpleado.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.btn_nuevoEmpleado.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevoEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btn_nuevoEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
+            this.btn_nuevoEmpleado.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
+            this.btn_nuevoEmpleado.HoverState.Parent = this.btn_nuevoEmpleado;
+            this.btn_nuevoEmpleado.Location = new System.Drawing.Point(473, 97);
+            this.btn_nuevoEmpleado.Name = "btn_nuevoEmpleado";
+            this.btn_nuevoEmpleado.ShadowDecoration.Parent = this.btn_nuevoEmpleado;
+            this.btn_nuevoEmpleado.Size = new System.Drawing.Size(187, 39);
+            this.btn_nuevoEmpleado.TabIndex = 57;
+            this.btn_nuevoEmpleado.Text = "Agregar empleado";
             // 
             // tablaEmpleados
             // 
@@ -423,7 +423,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tablaEmpleados);
-            this.Controls.Add(this.btn_registrarEntrada);
+            this.Controls.Add(this.btn_nuevoEmpleado);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.tb_busqueda);
@@ -449,7 +449,7 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbl_buscar;
         public Guna.UI2.WinForms.Guna2TextBox tb_busqueda;
-        public Guna.UI2.WinForms.Guna2Button btn_registrarEntrada;
+        public Guna.UI2.WinForms.Guna2Button btn_nuevoEmpleado;
         public System.Windows.Forms.DataGridView tablaEmpleados;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

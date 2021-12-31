@@ -67,6 +67,8 @@
     <Compile Include="Controladores\frmCobroController.cs" />
     <Compile Include="Controladores\frmCVentasController.cs" />
     <Compile Include="Controladores\frmEAlmacenController.cs" />
+    <Compile Include="Controladores\frmEEmpleadosController.cs" />
+    <Compile Include="Controladores\frmEmpleadoController.cs" />
     <Compile Include="Controladores\frmEProveedorController.cs" />
     <Compile Include="Controladores\frmInicioController.cs" />
     <Compile Include="Controladores\frmPrincipalController.cs" />
@@ -125,6 +127,12 @@
     </Compile>
     <Compile Include="Vistas\frmEAlmacen.designer.cs">
       <DependentUpon>frmEAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmEditarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmEditarEmpleado.Designer.cs">
+      <DependentUpon>frmEditarEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\frmEditarProveedor.cs">
       <SubType>Form</SubType>
@@ -218,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmEAlmacen.resx">
       <DependentUpon>frmEAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmEditarEmpleado.resx">
+      <DependentUpon>frmEditarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>

@@ -59,6 +59,7 @@ namespace MrTiendita.Vistas
             btn_EProveedores.FillColor = Color.FromArgb(240, 240, 240);
             btn_EEmpleados.FillColor = Color.FromArgb(240, 240, 240);
             btn_ECaja.FillColor = Color.FromArgb(240, 240, 240);
+            btn_EVentas.FillColor = Color.FromArgb(240, 240, 240);
         }
 
         private void btn_Cajero_Click(object sender, EventArgs e)
@@ -144,6 +145,13 @@ namespace MrTiendita.Vistas
             AbrirFormulario(new frmCVentas());
         }
 
+        private void btn_EVentas_Click(object sender, EventArgs e)
+        {
+            ColorGris();
+            btn_EVentas.FillColor = Color.FromArgb(218, 238, 86);
+            AbrirFormulario(new frmCVentas());
+        }
+
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
             DialogResult resultado = new DialogResult();
@@ -156,5 +164,7 @@ namespace MrTiendita.Vistas
             }
 
         }
+
+        
     }
 }

@@ -55,6 +55,7 @@ namespace MrTiendita.Vistas
             this.borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Contenedor = new System.Windows.Forms.Panel();
+            this.btn_EVentas = new Guna.UI2.WinForms.Guna2Button();
             this.pnl_MenuLateral.SuspendLayout();
             this.pnl_OpEncargado.SuspendLayout();
             this.pnl_Encargado.SuspendLayout();
@@ -82,6 +83,7 @@ namespace MrTiendita.Vistas
             // 
             // pnl_OpEncargado
             // 
+            this.pnl_OpEncargado.Controls.Add(this.btn_EVentas);
             this.pnl_OpEncargado.Controls.Add(this.btn_EReportes);
             this.pnl_OpEncargado.Controls.Add(this.btn_ECaja);
             this.pnl_OpEncargado.Controls.Add(this.btn_EEmpleados);
@@ -90,7 +92,7 @@ namespace MrTiendita.Vistas
             this.pnl_OpEncargado.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_OpEncargado.Location = new System.Drawing.Point(0, 440);
             this.pnl_OpEncargado.Name = "pnl_OpEncargado";
-            this.pnl_OpEncargado.Size = new System.Drawing.Size(236, 293);
+            this.pnl_OpEncargado.Size = new System.Drawing.Size(236, 345);
             this.pnl_OpEncargado.TabIndex = 6;
             // 
             // btn_EReportes
@@ -483,6 +485,34 @@ namespace MrTiendita.Vistas
             this.Contenedor.Size = new System.Drawing.Size(1172, 711);
             this.Contenedor.TabIndex = 4;
             // 
+            // btn_EVentas
+            // 
+            this.btn_EVentas.BorderRadius = 6;
+            this.btn_EVentas.CheckedState.Parent = this.btn_EVentas;
+            this.btn_EVentas.CustomImages.Parent = this.btn_EVentas;
+            this.btn_EVentas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btn_EVentas.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(43)))), ((int)(((byte)(51)))));
+            this.btn_EVentas.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(86)))));
+            this.btn_EVentas.HoverState.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EVentas.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(249)))), ((int)(((byte)(187)))));
+            this.btn_EVentas.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.HoverState.Image")));
+            this.btn_EVentas.HoverState.Parent = this.btn_EVentas;
+            this.btn_EVentas.Image = ((System.Drawing.Image)(resources.GetObject("btn_EVentas.Image")));
+            this.btn_EVentas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_EVentas.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_EVentas.ImageSize = new System.Drawing.Size(18, 18);
+            this.btn_EVentas.Location = new System.Drawing.Point(13, 296);
+            this.btn_EVentas.Name = "btn_EVentas";
+            this.btn_EVentas.PressedColor = System.Drawing.Color.BlanchedAlmond;
+            this.btn_EVentas.ShadowDecoration.Parent = this.btn_EVentas;
+            this.btn_EVentas.Size = new System.Drawing.Size(211, 48);
+            this.btn_EVentas.TabIndex = 7;
+            this.btn_EVentas.Text = "Ventas";
+            this.btn_EVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_EVentas.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_EVentas.Click += new System.EventHandler(this.btn_EVentas_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -517,17 +547,7 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Panel pnl_Header;
         private System.Windows.Forms.Panel pnl_Foot;
         private Guna.UI2.WinForms.Guna2ImageButton btn_Inicio;
-        private Guna.UI2.WinForms.Guna2Button btn_Cajero;
         private Guna.UI2.WinForms.Guna2Elipse borde;
-        private Guna.UI2.WinForms.Guna2Button btn_CCaja;
-        private Guna.UI2.WinForms.Guna2Button btn_CAlmacen;
-        private Guna.UI2.WinForms.Guna2Button btn_CVentas;
-        private Guna.UI2.WinForms.Guna2Button btn_Encargado;
-        private Guna.UI2.WinForms.Guna2Button btn_EReportes;
-        private Guna.UI2.WinForms.Guna2Button btn_ECaja;
-        private Guna.UI2.WinForms.Guna2Button btn_EEmpleados;
-        private Guna.UI2.WinForms.Guna2Button btn_EProveedores;
-        private Guna.UI2.WinForms.Guna2Button btn_EAlmacen;
         private Guna.UI2.WinForms.Guna2ImageButton btn_Cerrar;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.Panel Contenedor;
@@ -535,5 +555,16 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Panel pnl_OpCajero;
         public System.Windows.Forms.Panel pnl_OpEncargado;
         public System.Windows.Forms.Panel pnl_Encargado;
+        public Guna.UI2.WinForms.Guna2Button btn_Cajero;
+        public Guna.UI2.WinForms.Guna2Button btn_CCaja;
+        public Guna.UI2.WinForms.Guna2Button btn_CAlmacen;
+        public Guna.UI2.WinForms.Guna2Button btn_CVentas;
+        public Guna.UI2.WinForms.Guna2Button btn_Encargado;
+        public Guna.UI2.WinForms.Guna2Button btn_EReportes;
+        public Guna.UI2.WinForms.Guna2Button btn_ECaja;
+        public Guna.UI2.WinForms.Guna2Button btn_EEmpleados;
+        public Guna.UI2.WinForms.Guna2Button btn_EProveedores;
+        public Guna.UI2.WinForms.Guna2Button btn_EAlmacen;
+        public Guna.UI2.WinForms.Guna2Button btn_EVentas;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -15,12 +16,13 @@ namespace MrTiendita.Vistas
         public frmEEmpleado()
         {
             InitializeComponent();
-            tablaEmpleados.Rows.Add("1211", "Ana Sofía", "De Haro", "De La Cruz", "6221828945", "$5500", "Cajero", "AnaSofia27.");
-            tablaEmpleados.Rows.Add("1212", "Ricardo Alan", "Pasos", "Teposte", "6622906919", "$5500", "Cajero", "Ricardo1234!");
-            tablaEmpleados.Rows.Add("1213", "Sebastian Arath", "Cañedo", "Núñez", "6623596075", "$6000", "Encargado", "Sebastian1234!");
+            //tablaEmpleados.Rows.Add("1211", "Ana Sofía", "De Haro", "De La Cruz", "6221828945", "$5500", "Cajero", "AnaSofia27.");
+            //tablaEmpleados.Rows.Add("1212", "Ricardo Alan", "Pasos", "Teposte", "6622906919", "$5500", "Cajero", "Ricardo1234!");
+            //tablaEmpleados.Rows.Add("1213", "Sebastian Arath", "Cañedo", "Núñez", "6623596075", "$6000", "Encargado", "Sebastian1234!");
             widthColumnas();
             tablaEmpleados.AllowUserToAddRows = false;
             tablaEmpleados.CurrentCell = null;
+            frmEEmpleadosController controlador = new frmEEmpleadosController(this);
         }
 
         public void widthColumnas()

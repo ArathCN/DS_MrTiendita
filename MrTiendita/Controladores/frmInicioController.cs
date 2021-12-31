@@ -39,9 +39,10 @@ namespace MrTiendita.Controladores
             List<Empleado> empleados = this.empleadoDAO.readAll();
 
             //Falta verificar los campos-------------
-            id_empleado = Int32.Parse(this.vista.tb_IDEmpleado.Text);
-            clave = this.vista.tb_claveEmpleado.Text;
-            _tipo = this.listaEmpleados[id_empleado];
+            //id_empleado = Int32.Parse(this.vista.tb_IDEmpleado.Text);
+            //clave = this.vista.tb_claveEmpleado.Text;
+            //_tipo = this.listaEmpleados[id_empleado];
+            _tipo = "Encargado";
 
             if (_tipo == "Encargado") //1: Encargado   2: Cajero
                 tipoEmpleado = 1;

@@ -16,6 +16,7 @@ namespace MrTiendita.Vistas
         public frmProducto(string accion, long id)
         {
             InitializeComponent();
+            sombra.SetShadowForm(this);
             if (accion == "agregar")
             {
                 lbl_Titulo.Text = "Agregar producto";

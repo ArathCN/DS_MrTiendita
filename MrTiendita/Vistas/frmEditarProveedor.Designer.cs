@@ -29,6 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarProveedor));
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
@@ -37,6 +38,11 @@ namespace MrTiendita.Vistas
             this.btn_guardarProveedor = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tb_nombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.tb_telefono = new Guna.UI2.WinForms.Guna2TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,14 +184,40 @@ namespace MrTiendita.Vistas
             this.tb_telefono.Size = new System.Drawing.Size(195, 39);
             this.tb_telefono.TabIndex = 37;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(539, 35);
+            this.panel1.TabIndex = 38;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(514, 35);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(25, 227);
+            this.panel2.TabIndex = 39;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.panel1;
+            // 
             // frmEditarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 262);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_telefono);
             this.Controls.Add(this.tb_nombre);
             this.Controls.Add(this.btn_guardarProveedor);
@@ -193,6 +225,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.btn_Cerrar);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -214,5 +247,10 @@ namespace MrTiendita.Vistas
         public Bunifu.Framework.UI.BunifuFlatButton btn_guardarProveedor;
         public Guna.UI2.WinForms.Guna2TextBox tb_nombre;
         public Guna.UI2.WinForms.Guna2TextBox tb_telefono;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2ShadowForm sombra;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

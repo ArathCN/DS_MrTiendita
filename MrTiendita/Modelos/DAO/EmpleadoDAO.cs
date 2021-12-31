@@ -113,6 +113,59 @@ namespace MrTiendita.Modelos.DAO
 
             return empleados;
         }
+        public Empleado readById(int id)
+        {
+            Empleado empleado = null;
+
+            String sql = "SELECT * FROM Empleado WHERE id_empleado = @id;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@id", SqlDbType.Int);
+                    command.Parameters["@id"].Value = id;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            empleado = new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7));
+                        }
+                    }
+                }
+            }
+
+            return empleado;
+        }
+
+        public List<Empleado> readByName(String idOrName)
+        {
+            List<Empleado> empleados = new List<Empleado>();
+            idOrName = "%" + idOrName + "%";
+            String sql = "SELECT * FROM Empleado WHERE nombre LIKE @condicion2;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@condicion2", SqlDbType.VarChar);
+                    command.Parameters["@condicion2"].Value = idOrName;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7)));
+                        }
+                    }
+                }
+            }
+
+            return empleados;
+        }
 
         public bool delete(long id)
         {

@@ -48,7 +48,12 @@ namespace MrTiendita.Vistas
             this.tb_descripcion = new Guna.UI2.WinForms.Guna2TextBox();
             this.tb_precioVenta = new Guna.UI2.WinForms.Guna2TextBox();
             this.tb_precioCompra = new Guna.UI2.WinForms.Guna2TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -345,12 +350,37 @@ namespace MrTiendita.Vistas
             this.tb_precioCompra.Size = new System.Drawing.Size(149, 39);
             this.tb_precioCompra.TabIndex = 35;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(539, 35);
+            this.panel1.TabIndex = 40;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
+            this.label8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.label8.Location = new System.Drawing.Point(13, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 24);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "Titulo";
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.panel1;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 434);
             this.Controls.Add(this.tb_precioCompra);
@@ -369,6 +399,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.btn_Cerrar);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -376,6 +407,8 @@ namespace MrTiendita.Vistas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarProducto";
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,5 +433,9 @@ namespace MrTiendita.Vistas
         public Guna.UI2.WinForms.Guna2TextBox tb_descripcion;
         public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
         public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2ShadowForm sombra;
     }
 }
