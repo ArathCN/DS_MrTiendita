@@ -34,7 +34,6 @@ namespace MrTiendita.Controladores
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
             this.vista.btn_Limpiar.Click += new EventHandler(btn_Limpiar_Click);
-            //this.vista.cb_Proveedor.SelectedValueChanged += new EventHandler(cb_Proveedor_SelectedValueChanged);
         }
 
         public void vista_Load(object sender, EventArgs e)

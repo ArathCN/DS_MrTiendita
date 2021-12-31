@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -15,6 +16,7 @@ namespace MrTiendita.Vistas
         public frmInicio()
         {
             InitializeComponent();
+            frmInicioController controlador = new frmInicioController(this);
         }
     }
 }

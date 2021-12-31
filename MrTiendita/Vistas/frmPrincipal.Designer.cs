@@ -518,14 +518,10 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Panel pnl_Foot;
         private Guna.UI2.WinForms.Guna2ImageButton btn_Inicio;
         private Guna.UI2.WinForms.Guna2Button btn_Cajero;
-        private System.Windows.Forms.Panel pnl_Cajero;
         private Guna.UI2.WinForms.Guna2Elipse borde;
-        private System.Windows.Forms.Panel pnl_OpCajero;
         private Guna.UI2.WinForms.Guna2Button btn_CCaja;
         private Guna.UI2.WinForms.Guna2Button btn_CAlmacen;
         private Guna.UI2.WinForms.Guna2Button btn_CVentas;
-        private System.Windows.Forms.Panel pnl_OpEncargado;
-        private System.Windows.Forms.Panel pnl_Encargado;
         private Guna.UI2.WinForms.Guna2Button btn_Encargado;
         private Guna.UI2.WinForms.Guna2Button btn_EReportes;
         private Guna.UI2.WinForms.Guna2Button btn_ECaja;
@@ -535,5 +531,9 @@ namespace MrTiendita.Vistas
         private Guna.UI2.WinForms.Guna2ImageButton btn_Cerrar;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.Panel Contenedor;
+        public System.Windows.Forms.Panel pnl_Cajero;
+        public System.Windows.Forms.Panel pnl_OpCajero;
+        public System.Windows.Forms.Panel pnl_OpEncargado;
+        public System.Windows.Forms.Panel pnl_Encargado;
     }
 }

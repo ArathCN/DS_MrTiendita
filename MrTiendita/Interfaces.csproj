@@ -74,6 +74,7 @@
     <Compile Include="Controladores\frmProveedorController.cs" />
     <Compile Include="Modelos\DAO\CajaDAO.cs" />
     <Compile Include="Modelos\DAO\DbContext.cs" />
+    <Compile Include="Modelos\DAO\EmpleadoDAO.cs" />
     <Compile Include="Modelos\DAO\EntradaAlmacenDAO.cs" />
     <Compile Include="Modelos\DAO\MovimientoDAO.cs" />
     <Compile Include="Modelos\DAO\ProductoDAO.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Modelos\DTO\Producto.cs" />
     <Compile Include="Modelos\DTO\Proveedor.cs" />
     <Compile Include="Modelos\DTO\Venta.cs" />
+    <Compile Include="Patrones\InicioSesion_Proxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\frmAdvertencia.cs">
