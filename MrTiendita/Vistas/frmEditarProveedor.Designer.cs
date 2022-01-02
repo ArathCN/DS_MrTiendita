@@ -43,6 +43,8 @@ namespace MrTiendita.Vistas
             this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.lbl_ErrorNombre = new System.Windows.Forms.Label();
+            this.lbl_ErrorTel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,6 +212,30 @@ namespace MrTiendita.Vistas
             // 
             this.guna2DragControl1.TargetControl = this.panel1;
             // 
+            // lbl_ErrorNombre
+            // 
+            this.lbl_ErrorNombre.AutoSize = true;
+            this.lbl_ErrorNombre.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorNombre.Location = new System.Drawing.Point(17, 144);
+            this.lbl_ErrorNombre.Name = "lbl_ErrorNombre";
+            this.lbl_ErrorNombre.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorNombre.TabIndex = 62;
+            this.lbl_ErrorNombre.Text = "* Error";
+            this.lbl_ErrorNombre.Visible = false;
+            // 
+            // lbl_ErrorTel
+            // 
+            this.lbl_ErrorTel.AutoSize = true;
+            this.lbl_ErrorTel.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorTel.Location = new System.Drawing.Point(319, 144);
+            this.lbl_ErrorTel.Name = "lbl_ErrorTel";
+            this.lbl_ErrorTel.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorTel.TabIndex = 63;
+            this.lbl_ErrorTel.Text = "* Error";
+            this.lbl_ErrorTel.Visible = false;
+            // 
             // frmEditarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -217,6 +243,8 @@ namespace MrTiendita.Vistas
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 262);
+            this.Controls.Add(this.lbl_ErrorTel);
+            this.Controls.Add(this.lbl_ErrorNombre);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_telefono);
             this.Controls.Add(this.tb_nombre);
@@ -252,5 +280,7 @@ namespace MrTiendita.Vistas
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        public System.Windows.Forms.Label lbl_ErrorTel;
+        public System.Windows.Forms.Label lbl_ErrorNombre;
     }
 }

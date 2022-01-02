@@ -52,6 +52,11 @@ namespace MrTiendita.Vistas
             this.label8 = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.lbl_ErrorCodigo = new System.Windows.Forms.Label();
+            this.lbl_ErrorCantidad = new System.Windows.Forms.Label();
+            this.lbl_ErrorDesc = new System.Windows.Forms.Label();
+            this.lbl_ErrorPv = new System.Windows.Forms.Label();
+            this.lbl_ErrorPc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -115,7 +120,7 @@ namespace MrTiendita.Vistas
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 159);
+            this.label3.Location = new System.Drawing.Point(14, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 9;
@@ -126,7 +131,7 @@ namespace MrTiendita.Vistas
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 247);
+            this.label4.Location = new System.Drawing.Point(17, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 20);
             this.label4.TabIndex = 12;
@@ -137,7 +142,7 @@ namespace MrTiendita.Vistas
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(184, 247);
+            this.label5.Location = new System.Drawing.Point(188, 264);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 20);
             this.label5.TabIndex = 13;
@@ -166,7 +171,7 @@ namespace MrTiendita.Vistas
             this.btn_guardarProducto.IconVisible = true;
             this.btn_guardarProducto.IconZoom = 40D;
             this.btn_guardarProducto.IsTab = false;
-            this.btn_guardarProducto.Location = new System.Drawing.Point(13, 350);
+            this.btn_guardarProducto.Location = new System.Drawing.Point(14, 367);
             this.btn_guardarProducto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_guardarProducto.Name = "btn_guardarProducto";
             this.btn_guardarProducto.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
@@ -185,7 +190,7 @@ namespace MrTiendita.Vistas
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(373, 247);
+            this.label6.Location = new System.Drawing.Point(377, 264);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 20);
             this.label6.TabIndex = 28;
@@ -198,7 +203,7 @@ namespace MrTiendita.Vistas
             this.chbx_medida.Checked = false;
             this.chbx_medida.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
             this.chbx_medida.ForeColor = System.Drawing.Color.White;
-            this.chbx_medida.Location = new System.Drawing.Point(381, 279);
+            this.chbx_medida.Location = new System.Drawing.Point(381, 298);
             this.chbx_medida.Margin = new System.Windows.Forms.Padding(5);
             this.chbx_medida.Name = "chbx_medida";
             this.chbx_medida.Size = new System.Drawing.Size(20, 20);
@@ -209,7 +214,7 @@ namespace MrTiendita.Vistas
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(416, 281);
+            this.label7.Location = new System.Drawing.Point(409, 298);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 20);
             this.label7.TabIndex = 30;
@@ -286,7 +291,7 @@ namespace MrTiendita.Vistas
             this.tb_descripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_descripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_descripcion.HoverState.Parent = this.tb_descripcion;
-            this.tb_descripcion.Location = new System.Drawing.Point(17, 185);
+            this.tb_descripcion.Location = new System.Drawing.Point(18, 194);
             this.tb_descripcion.Margin = new System.Windows.Forms.Padding(6);
             this.tb_descripcion.Name = "tb_descripcion";
             this.tb_descripcion.PasswordChar = '\0';
@@ -313,7 +318,7 @@ namespace MrTiendita.Vistas
             this.tb_precioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_precioVenta.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_precioVenta.HoverState.Parent = this.tb_precioVenta;
-            this.tb_precioVenta.Location = new System.Drawing.Point(17, 270);
+            this.tb_precioVenta.Location = new System.Drawing.Point(21, 287);
             this.tb_precioVenta.Margin = new System.Windows.Forms.Padding(6);
             this.tb_precioVenta.Name = "tb_precioVenta";
             this.tb_precioVenta.PasswordChar = '\0';
@@ -340,7 +345,7 @@ namespace MrTiendita.Vistas
             this.tb_precioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_precioCompra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_precioCompra.HoverState.Parent = this.tb_precioCompra;
-            this.tb_precioCompra.Location = new System.Drawing.Point(188, 270);
+            this.tb_precioCompra.Location = new System.Drawing.Point(192, 287);
             this.tb_precioCompra.Margin = new System.Windows.Forms.Padding(6);
             this.tb_precioCompra.Name = "tb_precioCompra";
             this.tb_precioCompra.PasswordChar = '\0';
@@ -376,6 +381,66 @@ namespace MrTiendita.Vistas
             // 
             this.guna2DragControl1.TargetControl = this.panel1;
             // 
+            // lbl_ErrorCodigo
+            // 
+            this.lbl_ErrorCodigo.AutoSize = true;
+            this.lbl_ErrorCodigo.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorCodigo.Location = new System.Drawing.Point(14, 141);
+            this.lbl_ErrorCodigo.Name = "lbl_ErrorCodigo";
+            this.lbl_ErrorCodigo.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorCodigo.TabIndex = 64;
+            this.lbl_ErrorCodigo.Text = "* Error";
+            this.lbl_ErrorCodigo.Visible = false;
+            // 
+            // lbl_ErrorCantidad
+            // 
+            this.lbl_ErrorCantidad.AutoSize = true;
+            this.lbl_ErrorCantidad.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorCantidad.Location = new System.Drawing.Point(316, 141);
+            this.lbl_ErrorCantidad.Name = "lbl_ErrorCantidad";
+            this.lbl_ErrorCantidad.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorCantidad.TabIndex = 65;
+            this.lbl_ErrorCantidad.Text = "* Error";
+            this.lbl_ErrorCantidad.Visible = false;
+            // 
+            // lbl_ErrorDesc
+            // 
+            this.lbl_ErrorDesc.AutoSize = true;
+            this.lbl_ErrorDesc.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorDesc.Location = new System.Drawing.Point(15, 239);
+            this.lbl_ErrorDesc.Name = "lbl_ErrorDesc";
+            this.lbl_ErrorDesc.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorDesc.TabIndex = 66;
+            this.lbl_ErrorDesc.Text = "* Error";
+            this.lbl_ErrorDesc.Visible = false;
+            // 
+            // lbl_ErrorPv
+            // 
+            this.lbl_ErrorPv.AutoSize = true;
+            this.lbl_ErrorPv.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorPv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorPv.Location = new System.Drawing.Point(18, 332);
+            this.lbl_ErrorPv.Name = "lbl_ErrorPv";
+            this.lbl_ErrorPv.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorPv.TabIndex = 67;
+            this.lbl_ErrorPv.Text = "* Error";
+            this.lbl_ErrorPv.Visible = false;
+            // 
+            // lbl_ErrorPc
+            // 
+            this.lbl_ErrorPc.AutoSize = true;
+            this.lbl_ErrorPc.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorPc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorPc.Location = new System.Drawing.Point(189, 332);
+            this.lbl_ErrorPc.Name = "lbl_ErrorPc";
+            this.lbl_ErrorPc.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorPc.TabIndex = 68;
+            this.lbl_ErrorPc.Text = "* Error";
+            this.lbl_ErrorPc.Visible = false;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -383,6 +448,11 @@ namespace MrTiendita.Vistas
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(539, 434);
+            this.Controls.Add(this.lbl_ErrorPc);
+            this.Controls.Add(this.lbl_ErrorPv);
+            this.Controls.Add(this.lbl_ErrorDesc);
+            this.Controls.Add(this.lbl_ErrorCantidad);
+            this.Controls.Add(this.lbl_ErrorCodigo);
             this.Controls.Add(this.tb_precioCompra);
             this.Controls.Add(this.tb_precioVenta);
             this.Controls.Add(this.tb_descripcion);
@@ -437,5 +507,10 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
+        public System.Windows.Forms.Label lbl_ErrorPc;
+        public System.Windows.Forms.Label lbl_ErrorPv;
+        public System.Windows.Forms.Label lbl_ErrorDesc;
+        public System.Windows.Forms.Label lbl_ErrorCantidad;
+        public System.Windows.Forms.Label lbl_ErrorCodigo;
     }
 }

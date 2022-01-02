@@ -58,6 +58,13 @@ namespace MrTiendita.Vistas
             this.label10 = new System.Windows.Forms.Label();
             this.btn_guardarEmpleado = new Bunifu.Framework.UI.BunifuFlatButton();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.lbl_ErrorID = new System.Windows.Forms.Label();
+            this.lbl_ErrorNombre = new System.Windows.Forms.Label();
+            this.lbl_ErroAp = new System.Windows.Forms.Label();
+            this.lbl_ErrorTel = new System.Windows.Forms.Label();
+            this.lbl_ErrorAm = new System.Windows.Forms.Label();
+            this.lbl_ErrorSue = new System.Windows.Forms.Label();
+            this.lbl_ErrorClave = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
@@ -481,6 +488,90 @@ namespace MrTiendita.Vistas
             // 
             this.guna2DragControl1.TargetControl = this.panel1;
             // 
+            // lbl_ErrorID
+            // 
+            this.lbl_ErrorID.AutoSize = true;
+            this.lbl_ErrorID.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorID.Location = new System.Drawing.Point(17, 134);
+            this.lbl_ErrorID.Name = "lbl_ErrorID";
+            this.lbl_ErrorID.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorID.TabIndex = 61;
+            this.lbl_ErrorID.Text = "* Error";
+            this.lbl_ErrorID.Visible = false;
+            // 
+            // lbl_ErrorNombre
+            // 
+            this.lbl_ErrorNombre.AutoSize = true;
+            this.lbl_ErrorNombre.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorNombre.Location = new System.Drawing.Point(17, 233);
+            this.lbl_ErrorNombre.Name = "lbl_ErrorNombre";
+            this.lbl_ErrorNombre.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorNombre.TabIndex = 62;
+            this.lbl_ErrorNombre.Text = "* Error";
+            this.lbl_ErrorNombre.Visible = false;
+            // 
+            // lbl_ErroAp
+            // 
+            this.lbl_ErroAp.AutoSize = true;
+            this.lbl_ErroAp.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErroAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErroAp.Location = new System.Drawing.Point(195, 233);
+            this.lbl_ErroAp.Name = "lbl_ErroAp";
+            this.lbl_ErroAp.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErroAp.TabIndex = 63;
+            this.lbl_ErroAp.Text = "* Error";
+            this.lbl_ErroAp.Visible = false;
+            // 
+            // lbl_ErrorTel
+            // 
+            this.lbl_ErrorTel.AutoSize = true;
+            this.lbl_ErrorTel.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorTel.Location = new System.Drawing.Point(19, 329);
+            this.lbl_ErrorTel.Name = "lbl_ErrorTel";
+            this.lbl_ErrorTel.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorTel.TabIndex = 64;
+            this.lbl_ErrorTel.Text = "* Error";
+            this.lbl_ErrorTel.Visible = false;
+            // 
+            // lbl_ErrorAm
+            // 
+            this.lbl_ErrorAm.AutoSize = true;
+            this.lbl_ErrorAm.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorAm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorAm.Location = new System.Drawing.Point(404, 233);
+            this.lbl_ErrorAm.Name = "lbl_ErrorAm";
+            this.lbl_ErrorAm.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorAm.TabIndex = 65;
+            this.lbl_ErrorAm.Text = "* Error";
+            this.lbl_ErrorAm.Visible = false;
+            // 
+            // lbl_ErrorSue
+            // 
+            this.lbl_ErrorSue.AutoSize = true;
+            this.lbl_ErrorSue.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorSue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorSue.Location = new System.Drawing.Point(195, 329);
+            this.lbl_ErrorSue.Name = "lbl_ErrorSue";
+            this.lbl_ErrorSue.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorSue.TabIndex = 66;
+            this.lbl_ErrorSue.Text = "* Error";
+            this.lbl_ErrorSue.Visible = false;
+            // 
+            // lbl_ErrorClave
+            // 
+            this.lbl_ErrorClave.AutoSize = true;
+            this.lbl_ErrorClave.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorClave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorClave.Location = new System.Drawing.Point(374, 329);
+            this.lbl_ErrorClave.Name = "lbl_ErrorClave";
+            this.lbl_ErrorClave.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorClave.TabIndex = 67;
+            this.lbl_ErrorClave.Text = "* Error";
+            this.lbl_ErrorClave.Visible = false;
+            // 
             // frmEditarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -488,6 +579,13 @@ namespace MrTiendita.Vistas
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(629, 430);
+            this.Controls.Add(this.lbl_ErrorClave);
+            this.Controls.Add(this.lbl_ErrorSue);
+            this.Controls.Add(this.lbl_ErrorAm);
+            this.Controls.Add(this.lbl_ErrorTel);
+            this.Controls.Add(this.lbl_ErroAp);
+            this.Controls.Add(this.lbl_ErrorNombre);
+            this.Controls.Add(this.lbl_ErrorID);
             this.Controls.Add(this.btn_guardarEmpleado);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tb_clave);
@@ -552,5 +650,12 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Label lbl_cajero;
         public System.Windows.Forms.Label lbl_encargado;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        public System.Windows.Forms.Label lbl_ErrorClave;
+        public System.Windows.Forms.Label lbl_ErrorSue;
+        public System.Windows.Forms.Label lbl_ErrorAm;
+        public System.Windows.Forms.Label lbl_ErrorTel;
+        public System.Windows.Forms.Label lbl_ErroAp;
+        public System.Windows.Forms.Label lbl_ErrorNombre;
+        public System.Windows.Forms.Label lbl_ErrorID;
     }
 }

@@ -77,6 +77,7 @@ namespace MrTiendita.Controladores
             {
                 cierre = false;
                 e.Cancel = true;
+                this.vista.Hide();
             }
                 
         }
