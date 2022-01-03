@@ -78,7 +78,7 @@ namespace MrTiendita.Controladores
 
         private void eliminarEmpleado(DataGridViewCellEventArgs e)
         {
-            Form mensaje = new frmError("El proveedor se eliminará");
+            Form mensaje = new frmError("El empleado se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)

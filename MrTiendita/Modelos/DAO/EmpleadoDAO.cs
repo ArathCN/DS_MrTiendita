@@ -13,16 +13,16 @@ namespace MrTiendita.Modelos.DAO
     {
         public bool create(Empleado empleado)
         {
+            this.LimpiarError();
             bool success = false;
-            String sql = "INSERT INTO Empleado (id_empleado, nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave) " +
-                "VALUES (@id, @nom, @am, @ap, @tel, @sue, @tip, @cla);";
+            String sql = "INSERT INTO Empleado (nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave, usuario) " +
+                "VALUES (@nom, @am, @ap, @tel, @sue, @tip, @cla, @usu);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.Add("@id", SqlDbType.Int);
                     command.Parameters.Add("@nom", SqlDbType.VarChar);
                     command.Parameters.Add("@am", SqlDbType.VarChar);
                     command.Parameters.Add("@ap", SqlDbType.VarChar);
@@ -30,8 +30,8 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters.Add("@sue", SqlDbType.Decimal);
                     command.Parameters.Add("@tip", SqlDbType.VarChar);
                     command.Parameters.Add("@cla", SqlDbType.VarChar);
+                    command.Parameters.Add("@usu", SqlDbType.VarChar);
 
-                    command.Parameters["@id"].Value = empleado.Id_empleado;
                     command.Parameters["@nom"].Value = empleado.Nombre;
                     command.Parameters["@am"].Value = empleado.A_paterno;
                     command.Parameters["@ap"].Value = empleado.A_materno;
@@ -39,9 +39,20 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters["@sue"].Value = empleado.Sueldo;
                     command.Parameters["@tip"].Value = empleado.Tipo_empleado;
                     command.Parameters["@cla"].Value = empleado.Clave;
+                    command.Parameters["@usu"].Value = empleado.Usuario;
+                    
+                    int rowsAffected = 0;
 
-
-                    int rowsAffected = command.ExecuteNonQuery();
+                    try
+                    {
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        this.MensajeError = e.Message;
+                        this.errorUltimaConsulta = true;
+                    }
+                    
 
                     if (rowsAffected == 1) success = true;
                 }
@@ -54,8 +65,8 @@ namespace MrTiendita.Modelos.DAO
             //String sql = "INSERT INTO Empleado (id_empleado, nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave) " +
             //    "VALUES (@id, @nom, @am, @ap, @tel, @sue, @tip, @cla);";
             bool success = false;
-            String sql = "UPDATE Producto SET nombre = @nom, ap_paterno = @ap, ap_materno = @am," +
-                " telefono = @tel, sueldo = @sue, tipo_empleado = @tip, clave = @cla WHERE id_empleado = @id;";
+            String sql = "UPDATE Empleado SET nombre = @nom, ap_paterno = @ap, ap_materno = @am," +
+                " telefono = @tel, sueldo = @sue, tipo_empleado = @tip, usuario = @usu WHERE id_empleado = @id;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -63,24 +74,22 @@ namespace MrTiendita.Modelos.DAO
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.Add("@id", SqlDbType.Int);
-                    command.Parameters.Add("@idn", SqlDbType.Int);
                     command.Parameters.Add("@nom", SqlDbType.VarChar);
-                    command.Parameters.Add("@am", SqlDbType.VarChar);
                     command.Parameters.Add("@ap", SqlDbType.VarChar);
+                    command.Parameters.Add("@am", SqlDbType.VarChar);
                     command.Parameters.Add("@tel", SqlDbType.BigInt);
                     command.Parameters.Add("@sue", SqlDbType.Decimal);
                     command.Parameters.Add("@tip", SqlDbType.VarChar);
-                    command.Parameters.Add("@cla", SqlDbType.VarChar);
+                    command.Parameters.Add("@usu", SqlDbType.VarChar);
 
                     command.Parameters["@id"].Value = id;
-                    command.Parameters["@idn"].Value = empleado.Id_empleado;
                     command.Parameters["@nom"].Value = empleado.Nombre;
                     command.Parameters["@am"].Value = empleado.A_paterno;
                     command.Parameters["@ap"].Value = empleado.A_materno;
                     command.Parameters["@tel"].Value = empleado.Telefono;
                     command.Parameters["@sue"].Value = empleado.Sueldo;
                     command.Parameters["@tip"].Value = empleado.Tipo_empleado;
-                    command.Parameters["@cla"].Value = empleado.Clave;
+                    command.Parameters["@usu"].Value = empleado.Usuario;
 
 
                     int rowsAffected = command.ExecuteNonQuery();
@@ -105,7 +114,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7)));
+                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8)));
                         }
                     }
                 }
@@ -131,7 +140,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleado = new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7));
+                            empleado = new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8));
                         }
                     }
                 }
@@ -144,7 +153,7 @@ namespace MrTiendita.Modelos.DAO
         {
             List<Empleado> empleados = new List<Empleado>();
             idOrName = "%" + idOrName + "%";
-            String sql = "SELECT * FROM Empleado WHERE nombre LIKE @condicion2;";
+            String sql = "SELECT * FROM Empleado WHERE usuario LIKE @condicion2;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -158,7 +167,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7)));
+                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8)));
                         }
                     }
                 }
@@ -167,10 +176,10 @@ namespace MrTiendita.Modelos.DAO
             return empleados;
         }
 
-        public bool delete(long id)
+        public bool delete(int id)
         {
             bool success = false;
-            String sql = "DELETE FROM Producto WHERE id_empleado = @id";
+            String sql = "DELETE FROM Empleado WHERE id_empleado = @id";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -187,6 +196,33 @@ namespace MrTiendita.Modelos.DAO
                 }
             }
             return success;
+        }
+
+        public Empleado readByUsuario(string usuario)
+        {
+            Empleado empleado = null;
+
+            String sql = "SELECT * FROM Empleado WHERE usuario = @usu COLLATE Modern_Spanish_CS_AS;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@usu", SqlDbType.VarChar);
+                    command.Parameters["@usu"].Value = usuario;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            empleado = new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8));
+                        }
+                    }
+                }
+            }
+
+            return empleado;
         }
     }
 }

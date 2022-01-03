@@ -19,5 +19,7 @@ namespace MrTiendita.Constantes
 
         //para cadenas
         public static int NUM_MINIMO_CARACTERES = 8;
+        public static int NUM_MAXIMO_CARACTERES = 9;
+        public static int PATRON = 10;
     }
 }

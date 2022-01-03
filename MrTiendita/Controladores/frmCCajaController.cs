@@ -8,7 +8,6 @@ using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using MrTiendita.Vistas;
 using MrTiendita.Componentes;
-using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {

@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
     public partial class frmREntradas : Form
     {
+        public frmREntradasController controller;
         public frmREntradas()
         {
             InitializeComponent();
-            tablaEntradas.Rows.Add("1", "Distribiudora Bimbo", "27/10/2021", "661440000953", "20", "20.50", "25.00","410.00");
-            tablaEntradas.Rows.Add("2", "Coca Cola", "27/10/2021", "661440000952", "35", "14.60", "17.00", "511.00");
+            //tablaEntradas.Rows.Add("1", "Distribiudora Bimbo", "27/10/2021", "661440000953", "20", "20.50", "25.00","410.00");
+            //tablaEntradas.Rows.Add("2", "Coca Cola", "27/10/2021", "661440000952", "35", "14.60", "17.00", "511.00");
             widthColumnas();
             tablaEntradas.AllowUserToAddRows = false;
             tablaEntradas.CurrentCell = null;
+            controller = new frmREntradasController(this);
         }
 
         public void widthColumnas()

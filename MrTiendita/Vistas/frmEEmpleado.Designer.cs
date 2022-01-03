@@ -68,10 +68,10 @@ namespace MrTiendita.Vistas
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(24, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -81,9 +81,10 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.AutoSize = true;
             this.lbl_Titulo.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(69, 18);
+            this.lbl_Titulo.Location = new System.Drawing.Point(52, 15);
+            this.lbl_Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(134, 29);
+            this.lbl_Titulo.Size = new System.Drawing.Size(105, 23);
             this.lbl_Titulo.TabIndex = 37;
             this.lbl_Titulo.Text = "Empleados";
             // 
@@ -91,9 +92,10 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(39, 104);
+            this.pictureBox3.Location = new System.Drawing.Point(29, 84);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 56;
             this.pictureBox3.TabStop = false;
@@ -103,9 +105,10 @@ namespace MrTiendita.Vistas
             this.lbl_buscar.AutoSize = true;
             this.lbl_buscar.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.lbl_buscar.Location = new System.Drawing.Point(28, 75);
+            this.lbl_buscar.Location = new System.Drawing.Point(21, 61);
+            this.lbl_buscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(140, 20);
+            this.lbl_buscar.Size = new System.Drawing.Size(115, 17);
             this.lbl_buscar.TabIndex = 54;
             this.lbl_buscar.Text = "Buscar producto:";
             // 
@@ -127,15 +130,15 @@ namespace MrTiendita.Vistas
             this.tb_busqueda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_busqueda.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_busqueda.HoverState.Parent = this.tb_busqueda;
-            this.tb_busqueda.Location = new System.Drawing.Point(32, 97);
-            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_busqueda.Location = new System.Drawing.Point(24, 79);
+            this.tb_busqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_busqueda.Name = "tb_busqueda";
-            this.tb_busqueda.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.tb_busqueda.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
             this.tb_busqueda.PasswordChar = '\0';
             this.tb_busqueda.PlaceholderText = "";
             this.tb_busqueda.SelectedText = "";
             this.tb_busqueda.ShadowDecoration.Parent = this.tb_busqueda;
-            this.tb_busqueda.Size = new System.Drawing.Size(430, 39);
+            this.tb_busqueda.Size = new System.Drawing.Size(322, 32);
             this.tb_busqueda.TabIndex = 55;
             this.tb_busqueda.TextOffset = new System.Drawing.Point(25, 0);
             // 
@@ -152,10 +155,11 @@ namespace MrTiendita.Vistas
             this.btn_nuevoEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
             this.btn_nuevoEmpleado.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
             this.btn_nuevoEmpleado.HoverState.Parent = this.btn_nuevoEmpleado;
-            this.btn_nuevoEmpleado.Location = new System.Drawing.Point(473, 97);
+            this.btn_nuevoEmpleado.Location = new System.Drawing.Point(355, 79);
+            this.btn_nuevoEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_nuevoEmpleado.Name = "btn_nuevoEmpleado";
             this.btn_nuevoEmpleado.ShadowDecoration.Parent = this.btn_nuevoEmpleado;
-            this.btn_nuevoEmpleado.Size = new System.Drawing.Size(187, 39);
+            this.btn_nuevoEmpleado.Size = new System.Drawing.Size(140, 32);
             this.btn_nuevoEmpleado.TabIndex = 57;
             this.btn_nuevoEmpleado.Text = "Agregar empleado";
             // 
@@ -193,8 +197,8 @@ namespace MrTiendita.Vistas
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tablaEmpleados.DefaultCellStyle = dataGridViewCellStyle1;
             this.tablaEmpleados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.tablaEmpleados.Location = new System.Drawing.Point(32, 210);
-            this.tablaEmpleados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tablaEmpleados.Location = new System.Drawing.Point(24, 171);
+            this.tablaEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tablaEmpleados.Name = "tablaEmpleados";
             this.tablaEmpleados.ReadOnly = true;
             this.tablaEmpleados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -202,7 +206,7 @@ namespace MrTiendita.Vistas
             this.tablaEmpleados.RowHeadersWidth = 51;
             this.tablaEmpleados.RowTemplate.Height = 24;
             this.tablaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.tablaEmpleados.Size = new System.Drawing.Size(1110, 476);
+            this.tablaEmpleados.Size = new System.Drawing.Size(832, 387);
             this.tablaEmpleados.TabIndex = 58;
             // 
             // id_empleado
@@ -283,9 +287,10 @@ namespace MrTiendita.Vistas
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label7.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(647, 179);
+            this.label7.Location = new System.Drawing.Point(485, 145);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.Size = new System.Drawing.Size(50, 17);
             this.label7.TabIndex = 66;
             this.label7.Text = "Sueldo";
             // 
@@ -295,9 +300,10 @@ namespace MrTiendita.Vistas
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(1068, 179);
+            this.label6.Location = new System.Drawing.Point(801, 145);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 20);
+            this.label6.Size = new System.Drawing.Size(48, 17);
             this.label6.TabIndex = 65;
             this.label6.Text = "Borrar";
             // 
@@ -307,9 +313,10 @@ namespace MrTiendita.Vistas
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label5.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(988, 179);
+            this.label5.Location = new System.Drawing.Point(741, 145);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.Size = new System.Drawing.Size(45, 17);
             this.label5.TabIndex = 64;
             this.label5.Text = "Editar";
             // 
@@ -319,9 +326,10 @@ namespace MrTiendita.Vistas
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label4.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(521, 179);
+            this.label4.Location = new System.Drawing.Point(391, 145);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.Size = new System.Drawing.Size(61, 17);
             this.label4.TabIndex = 63;
             this.label4.Text = "Teléfono";
             // 
@@ -331,9 +339,10 @@ namespace MrTiendita.Vistas
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label3.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(280, 179);
+            this.label3.Location = new System.Drawing.Point(210, 145);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 62;
             this.label3.Text = "Apellidos";
             // 
@@ -343,9 +352,10 @@ namespace MrTiendita.Vistas
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(120, 179);
+            this.label2.Location = new System.Drawing.Point(90, 145);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 61;
             this.label2.Text = "Nombre";
             // 
@@ -355,19 +365,20 @@ namespace MrTiendita.Vistas
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(39, 179);
+            this.label1.Location = new System.Drawing.Point(29, 145);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 20);
+            this.label1.Size = new System.Drawing.Size(21, 17);
             this.label1.TabIndex = 60;
             this.label1.Text = "ID";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(32, 167);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(24, 136);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1110, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(832, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 59;
             this.pictureBox2.TabStop = false;
@@ -378,9 +389,10 @@ namespace MrTiendita.Vistas
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label8.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(735, 179);
+            this.label8.Location = new System.Drawing.Point(551, 145);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.Size = new System.Drawing.Size(35, 17);
             this.label8.TabIndex = 67;
             this.label8.Text = "Tipo";
             // 
@@ -390,9 +402,10 @@ namespace MrTiendita.Vistas
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
             this.label9.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(846, 179);
+            this.label9.Location = new System.Drawing.Point(634, 145);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 20);
+            this.label9.Size = new System.Drawing.Size(81, 17);
             this.label9.TabIndex = 68;
             this.label9.Text = "Contraseña";
             // 
@@ -400,17 +413,18 @@ namespace MrTiendita.Vistas
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1152, 0);
+            this.panel1.Location = new System.Drawing.Point(864, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(35, 741);
+            this.panel1.Size = new System.Drawing.Size(26, 602);
             this.panel1.TabIndex = 69;
             // 
             // frmEEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1187, 741);
+            this.ClientSize = new System.Drawing.Size(890, 602);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -430,9 +444,9 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_Titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEEmpleado";
             this.Text = "frmEEmpleado";
-            this.Load += new System.EventHandler(this.frmEEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleados)).EndInit();

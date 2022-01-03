@@ -18,7 +18,6 @@ namespace MrTiendita.Controladores
         private frmInicio vista;
         private frmPrincipal principal;
         private EmpleadoDAO empleadoDAO;
-        private Dictionary<int, string> listaEmpleados;
         public bool cierre = false;
 
         public frmInicioController(frmInicio vista)
@@ -29,28 +28,47 @@ namespace MrTiendita.Controladores
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
             this.vista.btn_Cerrar.Click += new EventHandler(btn_Cerrar_Click);
             this.vista.FormClosing += new FormClosingEventHandler(frmInicio_FormClosing);
-            CargarEmpleados();
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            string clave, _tipo;
+            string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text, tipo;
             int id_empleado, tipoEmpleado;
-            List<Empleado> empleados = this.empleadoDAO.readAll();
 
-            //Falta verificar los campos-------------
-            //id_empleado = Int32.Parse(this.vista.tb_IDEmpleado.Text);
-            //clave = this.vista.tb_claveEmpleado.Text;
-            //_tipo = this.listaEmpleados[id_empleado];
-            _tipo = "Encargado";
 
-            if (_tipo == "Encargado") //1: Encargado   2: Cajero
-                tipoEmpleado = 1;
-            else
-                tipoEmpleado = 2;
+            Dictionary<int, int> opcionesUsuario = new Dictionary<int, int>() {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
+            };
+            Dictionary<int, int> opcionesClave = new Dictionary<int, int>() {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 8},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
+            };
 
+            if (!ValidacionDatos.Cadena(usuario, opcionesUsuario) || !ValidacionDatos.Cadena(clave, opcionesClave, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
+            {
+                Form mensajeError = new frmError(ValidacionDatos.mensajes);
+                mensajeError.ShowDialog();
+                return;
+            }
+
+            //Validar si los datos son correctos
+            Empleado empleado = this.empleadoDAO.readByUsuario(usuario);
+            if (empleado == null || !BCrypt.Net.BCrypt.EnhancedVerify(clave, empleado.Clave, BCrypt.Net.HashType.SHA512))
+            {
+                Form mensajeError = new frmError("No hay un empleado con el usuario y contraseña especificados.");
+                mensajeError.ShowDialog();
+                return;
+            }
+
+            //como son correctos se crea el empelado en cache
+            EmpleadoCache.GetEmpleado(empleado);
+            //EmpleadoCache.SetEmpleado(empleado);
+
+
+            //abre las opciones segun el tipo de empleado
             InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
-            conexion.Peticion(tipoEmpleado, principal);
+            conexion.Peticion(empleado.Tipo_empleado, principal);
             cierre = true;
             this.vista.Close();
         }
@@ -82,15 +100,6 @@ namespace MrTiendita.Controladores
                 
         }
 
-        protected void CargarEmpleados()
-        {
-            this.listaEmpleados = new Dictionary<int, string>();
-            List<Empleado> empleados = this.empleadoDAO.readAll();
-            foreach (Empleado empleado in empleados)
-            {
-                this.listaEmpleados.Add(empleado.Id_empleado, empleado.Tipo_empleado);
-            }
-        }
     }
     
 }

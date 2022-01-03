@@ -36,10 +36,5 @@ namespace MrTiendita.Vistas
             tablaEmpleados.Columns[6].Width = 85;
             tablaEmpleados.Columns[7].Width = 95;
         }
-
-        private void frmEEmpleado_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

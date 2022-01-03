@@ -15,6 +15,8 @@ namespace MrTiendita.Modelos.DTO
         private double importe;
         private int id_proveedor;
 
+        private Producto producto;
+
         public EntradaAlmacen()
         {
         }
@@ -35,5 +37,6 @@ namespace MrTiendita.Modelos.DTO
         public double Cantidad { get => this.cantidad; set => this.cantidad = value; }
         public double Importe { get => this.importe; set => this.importe = value; }
         public int Id_proveedor { get => id_proveedor; set => id_proveedor = value; }
+        public Producto Producto { get => producto; set => producto = value; }
     }
 }

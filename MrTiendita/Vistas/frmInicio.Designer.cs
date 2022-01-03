@@ -62,8 +62,9 @@ namespace MrTiendita.Vistas
             this.panel1.Controls.Add(this.guna2PictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 558);
+            this.panel1.Size = new System.Drawing.Size(205, 453);
             this.panel1.TabIndex = 0;
             // 
             // lbl_nombre
@@ -71,19 +72,21 @@ namespace MrTiendita.Vistas
             this.lbl_nombre.AutoSize = true;
             this.lbl_nombre.Font = new System.Drawing.Font("Roboto", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.lbl_nombre.Location = new System.Drawing.Point(60, 282);
+            this.lbl_nombre.Location = new System.Drawing.Point(45, 229);
+            this.lbl_nombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_nombre.Name = "lbl_nombre";
-            this.lbl_nombre.Size = new System.Drawing.Size(152, 34);
+            this.lbl_nombre.Size = new System.Drawing.Size(120, 27);
             this.lbl_nombre.TabIndex = 1;
             this.lbl_nombre.Text = "MrTiendita";
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(83, 174);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(62, 141);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(106, 96);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(80, 78);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -100,10 +103,11 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.HoverState.Parent = this.btn_Cerrar;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.ImageSize = new System.Drawing.Size(24, 24);
-            this.btn_Cerrar.Location = new System.Drawing.Point(803, 4);
+            this.btn_Cerrar.Location = new System.Drawing.Point(602, 3);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.PressedState.Parent = this.btn_Cerrar;
-            this.btn_Cerrar.Size = new System.Drawing.Size(39, 36);
+            this.btn_Cerrar.Size = new System.Drawing.Size(29, 29);
             this.btn_Cerrar.TabIndex = 5;
             // 
             // label1
@@ -111,9 +115,10 @@ namespace MrTiendita.Vistas
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.label1.Location = new System.Drawing.Point(501, 81);
+            this.label1.Location = new System.Drawing.Point(376, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 24);
+            this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "¿Quién eres?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -123,9 +128,10 @@ namespace MrTiendita.Vistas
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(501, 41);
+            this.label2.Location = new System.Drawing.Point(376, 33);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 24);
+            this.label2.Size = new System.Drawing.Size(99, 19);
             this.label2.TabIndex = 6;
             this.label2.Text = "Inicia sesión";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -147,14 +153,14 @@ namespace MrTiendita.Vistas
             this.tb_IDEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_IDEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_IDEmpleado.HoverState.Parent = this.tb_IDEmpleado;
-            this.tb_IDEmpleado.Location = new System.Drawing.Point(430, 183);
-            this.tb_IDEmpleado.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_IDEmpleado.Location = new System.Drawing.Point(322, 149);
+            this.tb_IDEmpleado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_IDEmpleado.Name = "tb_IDEmpleado";
             this.tb_IDEmpleado.PasswordChar = '\0';
             this.tb_IDEmpleado.PlaceholderText = "";
             this.tb_IDEmpleado.SelectedText = "";
             this.tb_IDEmpleado.ShadowDecoration.Parent = this.tb_IDEmpleado;
-            this.tb_IDEmpleado.Size = new System.Drawing.Size(266, 39);
+            this.tb_IDEmpleado.Size = new System.Drawing.Size(200, 32);
             this.tb_IDEmpleado.TabIndex = 11;
             // 
             // tb_claveEmpleado
@@ -174,14 +180,14 @@ namespace MrTiendita.Vistas
             this.tb_claveEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_claveEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_claveEmpleado.HoverState.Parent = this.tb_claveEmpleado;
-            this.tb_claveEmpleado.Location = new System.Drawing.Point(430, 282);
-            this.tb_claveEmpleado.Margin = new System.Windows.Forms.Padding(6);
+            this.tb_claveEmpleado.Location = new System.Drawing.Point(322, 229);
+            this.tb_claveEmpleado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_claveEmpleado.Name = "tb_claveEmpleado";
             this.tb_claveEmpleado.PasswordChar = '\0';
             this.tb_claveEmpleado.PlaceholderText = "";
             this.tb_claveEmpleado.SelectedText = "";
             this.tb_claveEmpleado.ShadowDecoration.Parent = this.tb_claveEmpleado;
-            this.tb_claveEmpleado.Size = new System.Drawing.Size(266, 39);
+            this.tb_claveEmpleado.Size = new System.Drawing.Size(200, 32);
             this.tb_claveEmpleado.TabIndex = 12;
             // 
             // label9
@@ -190,11 +196,12 @@ namespace MrTiendita.Vistas
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label9.Location = new System.Drawing.Point(430, 157);
+            this.label9.Location = new System.Drawing.Point(322, 128);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 20);
+            this.label9.Size = new System.Drawing.Size(59, 17);
             this.label9.TabIndex = 13;
-            this.label9.Text = "ID de empleado:";
+            this.label9.Text = "Usuario:";
             // 
             // lb_cantidad
             // 
@@ -202,9 +209,10 @@ namespace MrTiendita.Vistas
             this.lb_cantidad.BackColor = System.Drawing.Color.Transparent;
             this.lb_cantidad.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_cantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.lb_cantidad.Location = new System.Drawing.Point(430, 256);
+            this.lb_cantidad.Location = new System.Drawing.Point(322, 208);
+            this.lb_cantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_cantidad.Name = "lb_cantidad";
-            this.lb_cantidad.Size = new System.Drawing.Size(100, 20);
+            this.lb_cantidad.Size = new System.Drawing.Size(84, 17);
             this.lb_cantidad.TabIndex = 14;
             this.lb_cantidad.Text = "Contraseña:";
             // 
@@ -221,10 +229,11 @@ namespace MrTiendita.Vistas
             this.btn_aceptar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
             this.btn_aceptar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
             this.btn_aceptar.HoverState.Parent = this.btn_aceptar;
-            this.btn_aceptar.Location = new System.Drawing.Point(498, 391);
+            this.btn_aceptar.Location = new System.Drawing.Point(374, 318);
+            this.btn_aceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.ShadowDecoration.Parent = this.btn_aceptar;
-            this.btn_aceptar.Size = new System.Drawing.Size(131, 39);
+            this.btn_aceptar.Size = new System.Drawing.Size(98, 32);
             this.btn_aceptar.TabIndex = 15;
             this.btn_aceptar.Text = "Aceptar";
             // 
@@ -233,9 +242,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorClave.AutoSize = true;
             this.lbl_ErrorClave.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorClave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorClave.Location = new System.Drawing.Point(430, 327);
+            this.lbl_ErrorClave.Location = new System.Drawing.Point(322, 266);
+            this.lbl_ErrorClave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorClave.Name = "lbl_ErrorClave";
-            this.lbl_ErrorClave.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorClave.Size = new System.Drawing.Size(39, 13);
             this.lbl_ErrorClave.TabIndex = 16;
             this.lbl_ErrorClave.Text = "* Error";
             this.lbl_ErrorClave.Visible = false;
@@ -245,19 +255,20 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorID.AutoSize = true;
             this.lbl_ErrorID.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorID.Location = new System.Drawing.Point(430, 228);
+            this.lbl_ErrorID.Location = new System.Drawing.Point(322, 185);
+            this.lbl_ErrorID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorID.Name = "lbl_ErrorID";
-            this.lbl_ErrorID.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorID.Size = new System.Drawing.Size(39, 13);
             this.lbl_ErrorID.TabIndex = 17;
             this.lbl_ErrorID.Text = "* Error";
             this.lbl_ErrorID.Visible = false;
             // 
             // frmInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(849, 558);
+            this.ClientSize = new System.Drawing.Size(637, 453);
             this.Controls.Add(this.lbl_ErrorClave);
             this.Controls.Add(this.lbl_ErrorID);
             this.Controls.Add(this.btn_aceptar);
@@ -270,6 +281,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.btn_Cerrar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Inicio";

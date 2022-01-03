@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MrTiendita.Controladores;
 using MrTiendita.Vistas;
 using System.Windows.Forms;
+using MrTiendita.Constantes;
 
 namespace MrTiendita.Patrones
 {
@@ -14,7 +15,7 @@ namespace MrTiendita.Patrones
 
         public interface ITipoEmpleado
         {
-            void Peticion(int pOpcion, frmPrincipal frmPrincipal);
+            void Peticion(string pOpcion, frmPrincipal frmPrincipal);
         }
 
         public class Sesion : ITipoEmpleado
@@ -22,15 +23,15 @@ namespace MrTiendita.Patrones
             private TipoEmpleado tipoEmpleado;
             private frmPrincipal principal;
 
-            public void Peticion(int pOpcion, frmPrincipal frmPrincipal)
+            public void Peticion(string pOpcion, frmPrincipal frmPrincipal)
             {
                 this.principal = frmPrincipal;
-                if (pOpcion == 1) //Encargado
+                if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado
                 {
                     tipoEmpleado = new TipoEmpleado();
                     tipoEmpleado.Encargado(frmPrincipal);
                 }
-                else if (pOpcion == 2) //Cajero
+                else if (pOpcion == TipoEmpleadoC.CAJERO) //Cajero
                 {
                     tipoEmpleado = new TipoEmpleado();
                     tipoEmpleado.Cajero(frmPrincipal);

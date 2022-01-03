@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MrTiendita.Constantes;
 
@@ -33,7 +34,7 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        public static bool Cadena(String dato, Dictionary<int, int> opciones)
+        public static bool Cadena(String dato, Dictionary<int, int> opciones, String patron = "")
         {
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
@@ -41,7 +42,27 @@ namespace MrTiendita.Componentes
             {
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
+                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " + opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES))
+            {
+                if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "Número de caracteres maximo superado:" + opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
+            if (patron != "")
+            {
+                if(!Regex.Match(dato, patron, RegexOptions.IgnoreCase).Success)
+                {
+                    ValidacionDatos.mensajes = "La cadena";
                     ValidacionDatos.error = true;
                     return false;
                 }
@@ -219,6 +240,78 @@ namespace MrTiendita.Componentes
             dato_double = double_dato;
             return true;
         }
-    
+
+        public static bool Numero(String dato, out int dato_int)
+        {
+
+            int int_dato;
+
+            dato_int = -1;
+
+            if (!ValidacionDatos.NoVacio(dato)) return false;
+
+            if (!Int32.TryParse(dato, out int_dato))
+            {
+                ValidacionDatos.mensajes = "Dato no numerico.";
+                ValidacionDatos.error = true;
+                return false;
+            }
+
+            ValidacionDatos.error = false;
+            ValidacionDatos.mensajes = "";
+            dato_int = int_dato;
+            return true;
+        }
+
+        public static bool Numero(String dato, out int dato_int, Dictionary<int, int> opciones)
+        {
+            int int_dato;
+
+            dato_int = -1;
+
+            if (!ValidacionDatos.NoVacio(dato)) return false;
+
+            if (!Int32.TryParse(dato, out int_dato))
+            {
+                ValidacionDatos.mensajes = "Dato no numerico.";
+                ValidacionDatos.error = true;
+                return false;
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
+            {
+                if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_A))
+            {
+                if (int_dato < opciones[ValidacionDatosOpciones.MAYOR_A])
+                {
+                    ValidacionDatos.mensajes = "Dato no mayor al número minimo especificado.";
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_A))
+            {
+                if (int_dato > opciones[ValidacionDatosOpciones.MENOR_A])
+                {
+                    ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
+            ValidacionDatos.error = false;
+            ValidacionDatos.mensajes = "";
+            dato_int = int_dato;
+            return true;
+        }
     }
 }

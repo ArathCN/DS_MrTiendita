@@ -129,3 +129,13 @@ C:\Users\sofii\Desktop\Trabajos\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vista
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmEditarEmpleado.resources
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmInicio.resources
 C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\obj\Debug\MrTiendita.Vistas.frmRVentas.resources
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Buffers.dll
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Memory.dll
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Buffers.xml
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Memory.xml
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

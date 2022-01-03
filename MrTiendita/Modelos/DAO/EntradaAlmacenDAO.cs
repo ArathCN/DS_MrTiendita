@@ -137,7 +137,9 @@ namespace MrTiendita.Modelos.DAO
         public List<EntradaAlmacen> readBetweenDates(DateTime inicio, DateTime final)
         {
             List<EntradaAlmacen> entradasAlmacen = new List<EntradaAlmacen>();
-            String sql = "SELECT * FROM Entrada_almacen WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";
+            String sql = "SELECT * FROM Entrada_almacen AS E " +
+                "INNER JOIN Producto AS P ON E.codigo_barra = P.codigo_barra" +
+                " WHERE E.fecha >= @fechaInicio AND E.fecha <= @fechaFin;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -154,7 +156,10 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetInt32(5)));
+                            EntradaAlmacen entrada = new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetInt32(5));
+                            Producto producto = new Producto(reader.GetInt64(6), reader.GetString(7), decimal.ToDouble(reader.GetDecimal(8)), decimal.ToDouble(reader.GetDecimal(9)), decimal.ToDouble(reader.GetDecimal(10)), reader.GetBoolean(11));
+                            entrada.Producto = producto;
+                            entradasAlmacen.Add(entrada);
                         }
                     }
                 }

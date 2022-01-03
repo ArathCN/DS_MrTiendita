@@ -33,7 +33,7 @@ namespace MrTiendita.Controladores
             this.productoDAO = new ProductoDAO();
             this.movimientoDAO = new MovimientoDAO();
             this.cajaDAO = new CajaDAO();
-            this.empleado = new Empleado(9, "Sebastian", "", "", 0, 0, "", "");
+            this.empleado = EmpleadoCache.GetEmpleado();
             this.ventaDAO = new VentaDAO();
             this.vista = vista;
             this.productosVenta = productos;

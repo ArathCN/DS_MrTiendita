@@ -76,9 +76,10 @@ namespace MrTiendita.Vistas
             this.pnl_MenuLateral.Controls.Add(this.pnl_Logo);
             this.pnl_MenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_MenuLateral.Location = new System.Drawing.Point(0, 0);
+            this.pnl_MenuLateral.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_MenuLateral.Name = "pnl_MenuLateral";
             this.pnl_MenuLateral.Radius = 20;
-            this.pnl_MenuLateral.Size = new System.Drawing.Size(236, 800);
+            this.pnl_MenuLateral.Size = new System.Drawing.Size(142, 788);
             this.pnl_MenuLateral.TabIndex = 0;
             // 
             // pnl_OpEncargado
@@ -90,9 +91,10 @@ namespace MrTiendita.Vistas
             this.pnl_OpEncargado.Controls.Add(this.btn_EProveedores);
             this.pnl_OpEncargado.Controls.Add(this.btn_EAlmacen);
             this.pnl_OpEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_OpEncargado.Location = new System.Drawing.Point(0, 440);
+            this.pnl_OpEncargado.Location = new System.Drawing.Point(0, 359);
+            this.pnl_OpEncargado.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_OpEncargado.Name = "pnl_OpEncargado";
-            this.pnl_OpEncargado.Size = new System.Drawing.Size(236, 345);
+            this.pnl_OpEncargado.Size = new System.Drawing.Size(142, 280);
             this.pnl_OpEncargado.TabIndex = 6;
             // 
             // btn_EVentas
@@ -112,11 +114,12 @@ namespace MrTiendita.Vistas
             this.btn_EVentas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EVentas.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_EVentas.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_EVentas.Location = new System.Drawing.Point(13, 296);
+            this.btn_EVentas.Location = new System.Drawing.Point(10, 240);
+            this.btn_EVentas.Margin = new System.Windows.Forms.Padding(2);
             this.btn_EVentas.Name = "btn_EVentas";
             this.btn_EVentas.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_EVentas.ShadowDecoration.Parent = this.btn_EVentas;
-            this.btn_EVentas.Size = new System.Drawing.Size(211, 48);
+            this.btn_EVentas.Size = new System.Drawing.Size(158, 39);
             this.btn_EVentas.TabIndex = 7;
             this.btn_EVentas.Text = "Ventas";
             this.btn_EVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -140,11 +143,12 @@ namespace MrTiendita.Vistas
             this.btn_EReportes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EReportes.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_EReportes.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_EReportes.Location = new System.Drawing.Point(13, 238);
+            this.btn_EReportes.Location = new System.Drawing.Point(10, 193);
+            this.btn_EReportes.Margin = new System.Windows.Forms.Padding(2);
             this.btn_EReportes.Name = "btn_EReportes";
             this.btn_EReportes.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_EReportes.ShadowDecoration.Parent = this.btn_EReportes;
-            this.btn_EReportes.Size = new System.Drawing.Size(211, 48);
+            this.btn_EReportes.Size = new System.Drawing.Size(158, 39);
             this.btn_EReportes.TabIndex = 11;
             this.btn_EReportes.Text = "Reportes";
             this.btn_EReportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -168,11 +172,12 @@ namespace MrTiendita.Vistas
             this.btn_ECaja.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_ECaja.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_ECaja.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_ECaja.Location = new System.Drawing.Point(12, 180);
+            this.btn_ECaja.Location = new System.Drawing.Point(9, 146);
+            this.btn_ECaja.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ECaja.Name = "btn_ECaja";
             this.btn_ECaja.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_ECaja.ShadowDecoration.Parent = this.btn_ECaja;
-            this.btn_ECaja.Size = new System.Drawing.Size(211, 48);
+            this.btn_ECaja.Size = new System.Drawing.Size(158, 39);
             this.btn_ECaja.TabIndex = 10;
             this.btn_ECaja.Text = "Caja";
             this.btn_ECaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -196,11 +201,12 @@ namespace MrTiendita.Vistas
             this.btn_EEmpleados.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EEmpleados.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_EEmpleados.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_EEmpleados.Location = new System.Drawing.Point(13, 122);
+            this.btn_EEmpleados.Location = new System.Drawing.Point(10, 99);
+            this.btn_EEmpleados.Margin = new System.Windows.Forms.Padding(2);
             this.btn_EEmpleados.Name = "btn_EEmpleados";
             this.btn_EEmpleados.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_EEmpleados.ShadowDecoration.Parent = this.btn_EEmpleados;
-            this.btn_EEmpleados.Size = new System.Drawing.Size(211, 48);
+            this.btn_EEmpleados.Size = new System.Drawing.Size(158, 39);
             this.btn_EEmpleados.TabIndex = 9;
             this.btn_EEmpleados.Text = "Empleados";
             this.btn_EEmpleados.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -224,11 +230,12 @@ namespace MrTiendita.Vistas
             this.btn_EProveedores.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EProveedores.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_EProveedores.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_EProveedores.Location = new System.Drawing.Point(12, 64);
+            this.btn_EProveedores.Location = new System.Drawing.Point(9, 52);
+            this.btn_EProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.btn_EProveedores.Name = "btn_EProveedores";
             this.btn_EProveedores.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_EProveedores.ShadowDecoration.Parent = this.btn_EProveedores;
-            this.btn_EProveedores.Size = new System.Drawing.Size(211, 48);
+            this.btn_EProveedores.Size = new System.Drawing.Size(158, 39);
             this.btn_EProveedores.TabIndex = 8;
             this.btn_EProveedores.Text = "Proveedores";
             this.btn_EProveedores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -252,11 +259,12 @@ namespace MrTiendita.Vistas
             this.btn_EAlmacen.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EAlmacen.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_EAlmacen.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_EAlmacen.Location = new System.Drawing.Point(13, 6);
+            this.btn_EAlmacen.Location = new System.Drawing.Point(10, 5);
+            this.btn_EAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_EAlmacen.Name = "btn_EAlmacen";
             this.btn_EAlmacen.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_EAlmacen.ShadowDecoration.Parent = this.btn_EAlmacen;
-            this.btn_EAlmacen.Size = new System.Drawing.Size(211, 48);
+            this.btn_EAlmacen.Size = new System.Drawing.Size(158, 39);
             this.btn_EAlmacen.TabIndex = 7;
             this.btn_EAlmacen.Text = "Almacén";
             this.btn_EAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -267,9 +275,10 @@ namespace MrTiendita.Vistas
             // 
             this.pnl_Encargado.Controls.Add(this.btn_Encargado);
             this.pnl_Encargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Encargado.Location = new System.Drawing.Point(0, 384);
+            this.pnl_Encargado.Location = new System.Drawing.Point(0, 313);
+            this.pnl_Encargado.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Encargado.Name = "pnl_Encargado";
-            this.pnl_Encargado.Size = new System.Drawing.Size(236, 56);
+            this.pnl_Encargado.Size = new System.Drawing.Size(142, 46);
             this.pnl_Encargado.TabIndex = 5;
             // 
             // btn_Encargado
@@ -289,11 +298,12 @@ namespace MrTiendita.Vistas
             this.btn_Encargado.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Encargado.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_Encargado.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_Encargado.Location = new System.Drawing.Point(13, 0);
+            this.btn_Encargado.Location = new System.Drawing.Point(10, 0);
+            this.btn_Encargado.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Encargado.Name = "btn_Encargado";
             this.btn_Encargado.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_Encargado.ShadowDecoration.Parent = this.btn_Encargado;
-            this.btn_Encargado.Size = new System.Drawing.Size(211, 56);
+            this.btn_Encargado.Size = new System.Drawing.Size(158, 46);
             this.btn_Encargado.TabIndex = 4;
             this.btn_Encargado.Text = "Encargado";
             this.btn_Encargado.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -306,9 +316,10 @@ namespace MrTiendita.Vistas
             this.pnl_OpCajero.Controls.Add(this.btn_CAlmacen);
             this.pnl_OpCajero.Controls.Add(this.btn_CVentas);
             this.pnl_OpCajero.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_OpCajero.Location = new System.Drawing.Point(0, 207);
+            this.pnl_OpCajero.Location = new System.Drawing.Point(0, 169);
+            this.pnl_OpCajero.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_OpCajero.Name = "pnl_OpCajero";
-            this.pnl_OpCajero.Size = new System.Drawing.Size(236, 177);
+            this.pnl_OpCajero.Size = new System.Drawing.Size(142, 144);
             this.pnl_OpCajero.TabIndex = 4;
             // 
             // btn_CCaja
@@ -328,11 +339,12 @@ namespace MrTiendita.Vistas
             this.btn_CCaja.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CCaja.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_CCaja.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_CCaja.Location = new System.Drawing.Point(12, 121);
+            this.btn_CCaja.Location = new System.Drawing.Point(9, 98);
+            this.btn_CCaja.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CCaja.Name = "btn_CCaja";
             this.btn_CCaja.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_CCaja.ShadowDecoration.Parent = this.btn_CCaja;
-            this.btn_CCaja.Size = new System.Drawing.Size(211, 48);
+            this.btn_CCaja.Size = new System.Drawing.Size(158, 39);
             this.btn_CCaja.TabIndex = 6;
             this.btn_CCaja.Text = "Caja";
             this.btn_CCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -356,11 +368,12 @@ namespace MrTiendita.Vistas
             this.btn_CAlmacen.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CAlmacen.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_CAlmacen.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_CAlmacen.Location = new System.Drawing.Point(13, 64);
+            this.btn_CAlmacen.Location = new System.Drawing.Point(10, 52);
+            this.btn_CAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CAlmacen.Name = "btn_CAlmacen";
             this.btn_CAlmacen.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_CAlmacen.ShadowDecoration.Parent = this.btn_CAlmacen;
-            this.btn_CAlmacen.Size = new System.Drawing.Size(211, 48);
+            this.btn_CAlmacen.Size = new System.Drawing.Size(158, 39);
             this.btn_CAlmacen.TabIndex = 5;
             this.btn_CAlmacen.Text = "Almacén";
             this.btn_CAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -384,11 +397,12 @@ namespace MrTiendita.Vistas
             this.btn_CVentas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CVentas.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_CVentas.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_CVentas.Location = new System.Drawing.Point(13, 7);
+            this.btn_CVentas.Location = new System.Drawing.Point(10, 6);
+            this.btn_CVentas.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CVentas.Name = "btn_CVentas";
             this.btn_CVentas.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_CVentas.ShadowDecoration.Parent = this.btn_CVentas;
-            this.btn_CVentas.Size = new System.Drawing.Size(211, 48);
+            this.btn_CVentas.Size = new System.Drawing.Size(158, 39);
             this.btn_CVentas.TabIndex = 4;
             this.btn_CVentas.Text = "Ventas";
             this.btn_CVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -399,9 +413,10 @@ namespace MrTiendita.Vistas
             // 
             this.pnl_Cajero.Controls.Add(this.btn_Cajero);
             this.pnl_Cajero.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Cajero.Location = new System.Drawing.Point(0, 151);
+            this.pnl_Cajero.Location = new System.Drawing.Point(0, 123);
+            this.pnl_Cajero.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Cajero.Name = "pnl_Cajero";
-            this.pnl_Cajero.Size = new System.Drawing.Size(236, 56);
+            this.pnl_Cajero.Size = new System.Drawing.Size(142, 46);
             this.pnl_Cajero.TabIndex = 3;
             // 
             // btn_Cajero
@@ -421,11 +436,12 @@ namespace MrTiendita.Vistas
             this.btn_Cajero.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Cajero.ImageOffset = new System.Drawing.Point(15, 0);
             this.btn_Cajero.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_Cajero.Location = new System.Drawing.Point(13, 0);
+            this.btn_Cajero.Location = new System.Drawing.Point(10, 0);
+            this.btn_Cajero.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cajero.Name = "btn_Cajero";
             this.btn_Cajero.PressedColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_Cajero.ShadowDecoration.Parent = this.btn_Cajero;
-            this.btn_Cajero.Size = new System.Drawing.Size(211, 56);
+            this.btn_Cajero.Size = new System.Drawing.Size(158, 46);
             this.btn_Cajero.TabIndex = 3;
             this.btn_Cajero.Text = "Cajero";
             this.btn_Cajero.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -437,8 +453,9 @@ namespace MrTiendita.Vistas
             this.pnl_Logo.Controls.Add(this.btn_Inicio);
             this.pnl_Logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Logo.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Logo.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Logo.Name = "pnl_Logo";
-            this.pnl_Logo.Size = new System.Drawing.Size(236, 151);
+            this.pnl_Logo.Size = new System.Drawing.Size(142, 123);
             this.pnl_Logo.TabIndex = 2;
             // 
             // btn_Inicio
@@ -450,27 +467,30 @@ namespace MrTiendita.Vistas
             this.btn_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inicio.Image")));
             this.btn_Inicio.ImageSize = new System.Drawing.Size(48, 48);
             this.btn_Inicio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_Inicio.Location = new System.Drawing.Point(79, 37);
+            this.btn_Inicio.Location = new System.Drawing.Point(59, 30);
+            this.btn_Inicio.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Inicio.Name = "btn_Inicio";
             this.btn_Inicio.PressedState.Parent = this.btn_Inicio;
-            this.btn_Inicio.Size = new System.Drawing.Size(80, 80);
+            this.btn_Inicio.Size = new System.Drawing.Size(60, 65);
             this.btn_Inicio.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1430, 0);
+            this.panel1.Location = new System.Drawing.Point(1285, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(20, 800);
+            this.panel1.Size = new System.Drawing.Size(15, 788);
             this.panel1.TabIndex = 1;
             // 
             // pnl_Header
             // 
             this.pnl_Header.Controls.Add(this.btn_Cerrar);
             this.pnl_Header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Header.Location = new System.Drawing.Point(236, 0);
+            this.pnl_Header.Location = new System.Drawing.Point(142, 0);
+            this.pnl_Header.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Header.Name = "pnl_Header";
-            this.pnl_Header.Size = new System.Drawing.Size(1194, 41);
+            this.pnl_Header.Size = new System.Drawing.Size(1143, 33);
             this.pnl_Header.TabIndex = 2;
             // 
             // btn_Cerrar
@@ -481,19 +501,21 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.HoverState.Parent = this.btn_Cerrar;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.ImageSize = new System.Drawing.Size(24, 24);
-            this.btn_Cerrar.Location = new System.Drawing.Point(1155, 5);
+            this.btn_Cerrar.Location = new System.Drawing.Point(1110, 4);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.PressedState.Parent = this.btn_Cerrar;
-            this.btn_Cerrar.Size = new System.Drawing.Size(39, 36);
+            this.btn_Cerrar.Size = new System.Drawing.Size(29, 29);
             this.btn_Cerrar.TabIndex = 4;
             this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
             // pnl_Foot
             // 
             this.pnl_Foot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_Foot.Location = new System.Drawing.Point(236, 784);
+            this.pnl_Foot.Location = new System.Drawing.Point(142, 775);
+            this.pnl_Foot.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Foot.Name = "pnl_Foot";
-            this.pnl_Foot.Size = new System.Drawing.Size(1194, 16);
+            this.pnl_Foot.Size = new System.Drawing.Size(1143, 13);
             this.pnl_Foot.TabIndex = 3;
             // 
             // borde
@@ -508,23 +530,25 @@ namespace MrTiendita.Vistas
             // Contenedor
             // 
             this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Contenedor.Location = new System.Drawing.Point(236, 41);
+            this.Contenedor.Location = new System.Drawing.Point(142, 33);
+            this.Contenedor.Margin = new System.Windows.Forms.Padding(2);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1194, 743);
+            this.Contenedor.Size = new System.Drawing.Size(1143, 742);
             this.Contenedor.TabIndex = 4;
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1450, 800);
+            this.ClientSize = new System.Drawing.Size(1300, 788);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.pnl_Foot);
             this.Controls.Add(this.pnl_Header);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnl_MenuLateral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal2";

@@ -25,7 +25,7 @@ namespace MrTiendita.Vistas
             {
                 lbl_Titulo.Text = "Actualizar empleado";
             }
-            //frmProveedorController controlador = new frmProveedorController(this, accion, id);
+            frmEmpleadoController controlador = new frmEmpleadoController(this, accion, id);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
