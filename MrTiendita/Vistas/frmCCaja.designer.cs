@@ -47,6 +47,7 @@ namespace MrTiendita.Vistas
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_aceptar = new Guna.UI2.WinForms.Guna2Button();
             this.tb_concepto = new Guna.UI2.WinForms.Guna2TextBox();
             this.cb_tipoMov = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tb_importe = new Guna.UI2.WinForms.Guna2TextBox();
@@ -61,7 +62,6 @@ namespace MrTiendita.Vistas
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cb_tipoMov2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btn_aceptar = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaMovimientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -97,6 +97,7 @@ namespace MrTiendita.Vistas
             // tablaMovimientos
             // 
             this.tablaMovimientos.AllowUserToOrderColumns = true;
+            this.tablaMovimientos.AllowUserToResizeColumns = false;
             this.tablaMovimientos.AllowUserToResizeRows = false;
             this.tablaMovimientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablaMovimientos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -251,7 +252,7 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.lbl_Titulo.Location = new System.Drawing.Point(69, 18);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(61, 29);
+            this.lbl_Titulo.Size = new System.Drawing.Size(57, 28);
             this.lbl_Titulo.TabIndex = 48;
             this.lbl_Titulo.Text = "Caja";
             // 
@@ -273,6 +274,26 @@ namespace MrTiendita.Vistas
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(241, 501);
             this.panel2.TabIndex = 51;
+            // 
+            // btn_aceptar
+            // 
+            this.btn_aceptar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.btn_aceptar.BorderRadius = 5;
+            this.btn_aceptar.BorderThickness = 1;
+            this.btn_aceptar.CheckedState.Parent = this.btn_aceptar;
+            this.btn_aceptar.CustomImages.Parent = this.btn_aceptar;
+            this.btn_aceptar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.btn_aceptar.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_aceptar.ForeColor = System.Drawing.Color.White;
+            this.btn_aceptar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
+            this.btn_aceptar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
+            this.btn_aceptar.HoverState.Parent = this.btn_aceptar;
+            this.btn_aceptar.Location = new System.Drawing.Point(16, 350);
+            this.btn_aceptar.Name = "btn_aceptar";
+            this.btn_aceptar.ShadowDecoration.Parent = this.btn_aceptar;
+            this.btn_aceptar.Size = new System.Drawing.Size(121, 39);
+            this.btn_aceptar.TabIndex = 86;
+            this.btn_aceptar.Text = "Aceptar";
             // 
             // tb_concepto
             // 
@@ -509,26 +530,6 @@ namespace MrTiendita.Vistas
             this.cb_tipoMov2.ShadowDecoration.Parent = this.cb_tipoMov2;
             this.cb_tipoMov2.Size = new System.Drawing.Size(274, 36);
             this.cb_tipoMov2.TabIndex = 82;
-            // 
-            // btn_aceptar
-            // 
-            this.btn_aceptar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_aceptar.BorderRadius = 5;
-            this.btn_aceptar.BorderThickness = 1;
-            this.btn_aceptar.CheckedState.Parent = this.btn_aceptar;
-            this.btn_aceptar.CustomImages.Parent = this.btn_aceptar;
-            this.btn_aceptar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_aceptar.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_aceptar.ForeColor = System.Drawing.Color.White;
-            this.btn_aceptar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
-            this.btn_aceptar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
-            this.btn_aceptar.HoverState.Parent = this.btn_aceptar;
-            this.btn_aceptar.Location = new System.Drawing.Point(16, 350);
-            this.btn_aceptar.Name = "btn_aceptar";
-            this.btn_aceptar.ShadowDecoration.Parent = this.btn_aceptar;
-            this.btn_aceptar.Size = new System.Drawing.Size(121, 39);
-            this.btn_aceptar.TabIndex = 86;
-            this.btn_aceptar.Text = "Aceptar";
             // 
             // frmCCaja
             // 

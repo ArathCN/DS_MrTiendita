@@ -82,7 +82,7 @@ namespace MrTiendita.Controladores
                 //Eliminar la fila seleccionada
                 //para el ejemplo borrare la unica que hay
                 String _id = this.vista.tablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
-                int id = Int32.Parse(_id);
+                long id = Int64.Parse(_id);
                 bool res = this.productoDAO.delete(id);
                 if (res)
                 {

@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.lbl_buscar = new System.Windows.Forms.Label();
@@ -82,7 +82,7 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.lbl_Titulo.Location = new System.Drawing.Point(69, 18);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(87, 29);
+            this.lbl_Titulo.Size = new System.Drawing.Size(84, 28);
             this.lbl_Titulo.TabIndex = 50;
             this.lbl_Titulo.Text = "Ventas";
             // 
@@ -227,19 +227,20 @@ namespace MrTiendita.Vistas
             this.precio,
             this.subtotal,
             this.codigo});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaVentas.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaVentas.DefaultCellStyle = dataGridViewCellStyle1;
             this.tablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaVentas.Location = new System.Drawing.Point(32, 210);
             this.tablaVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablaVentas.Name = "tablaVentas";
+            this.tablaVentas.ReadOnly = true;
             this.tablaVentas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tablaVentas.RowHeadersVisible = false;
             this.tablaVentas.RowHeadersWidth = 51;
@@ -254,12 +255,14 @@ namespace MrTiendita.Vistas
             this.restar.Image = ((System.Drawing.Image)(resources.GetObject("restar.Image")));
             this.restar.MinimumWidth = 6;
             this.restar.Name = "restar";
+            this.restar.ReadOnly = true;
             // 
             // cantidad_actual
             // 
             this.cantidad_actual.HeaderText = "Cantidad";
             this.cantidad_actual.MinimumWidth = 6;
             this.cantidad_actual.Name = "cantidad_actual";
+            this.cantidad_actual.ReadOnly = true;
             // 
             // sumar
             // 
@@ -267,30 +270,35 @@ namespace MrTiendita.Vistas
             this.sumar.Image = ((System.Drawing.Image)(resources.GetObject("sumar.Image")));
             this.sumar.MinimumWidth = 6;
             this.sumar.Name = "sumar";
+            this.sumar.ReadOnly = true;
             // 
             // descripcion
             // 
             this.descripcion.HeaderText = "Descripción";
             this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
             // 
             // precio
             // 
             this.precio.HeaderText = "Precio";
             this.precio.MinimumWidth = 6;
             this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
             // 
             // subtotal
             // 
             this.subtotal.HeaderText = "Subtotal";
             this.subtotal.MinimumWidth = 6;
             this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
             // 
             // codigo
             // 
             this.codigo.HeaderText = "Codigo";
             this.codigo.MinimumWidth = 6;
             this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
             this.codigo.Visible = false;
             // 
             // pictureBox3
@@ -550,6 +558,9 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Label lbl_total;
         public Bunifu.Framework.UI.BunifuFlatButton btn_cancelar;
         private System.Windows.Forms.Label label5;
+        public Guna.UI2.WinForms.Guna2ComboBox cb_productos;
+        public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
+        public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
         private System.Windows.Forms.DataGridViewImageColumn restar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_actual;
         private System.Windows.Forms.DataGridViewImageColumn sumar;
@@ -557,8 +568,5 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        public Guna.UI2.WinForms.Guna2ComboBox cb_productos;
-        public Guna.UI2.WinForms.Guna2TextBox tb_cantidad;
-        public Guna.UI2.WinForms.Guna2TextBox tb_codigo;
     }
 }
