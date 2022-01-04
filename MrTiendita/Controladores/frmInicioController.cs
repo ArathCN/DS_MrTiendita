@@ -88,7 +88,8 @@ namespace MrTiendita.Controladores
 
         private void btn_CerrarSesion_Click(object sender, EventArgs e)
         {
-            this.principal.Hide();
+            this.principal.bandera = false;
+            this.principal.Close();
             conexion.Cierre(this.vista);
         }
 

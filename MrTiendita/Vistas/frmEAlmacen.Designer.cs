@@ -92,7 +92,7 @@ namespace MrTiendita.Vistas
             this.tablaProductos.DefaultCellStyle = dataGridViewCellStyle1;
             this.tablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaProductos.Location = new System.Drawing.Point(24, 171);
-            this.tablaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaProductos.Margin = new System.Windows.Forms.Padding(2);
             this.tablaProductos.Name = "tablaProductos";
             this.tablaProductos.ReadOnly = true;
             this.tablaProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -210,7 +210,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(24, 136);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(824, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -258,7 +258,7 @@ namespace MrTiendita.Vistas
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(24, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +294,7 @@ namespace MrTiendita.Vistas
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(877, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(26, 640);
             this.panel1.TabIndex = 38;
@@ -304,7 +304,7 @@ namespace MrTiendita.Vistas
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(29, 84);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -331,6 +331,7 @@ namespace MrTiendita.Vistas
             this.tb_busqueda.HoverState.Parent = this.tb_busqueda;
             this.tb_busqueda.Location = new System.Drawing.Point(24, 79);
             this.tb_busqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_busqueda.MaxLength = 100;
             this.tb_busqueda.Name = "tb_busqueda";
             this.tb_busqueda.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
             this.tb_busqueda.PasswordChar = '\0';
@@ -355,7 +356,7 @@ namespace MrTiendita.Vistas
             this.btn_nuevoProducto.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
             this.btn_nuevoProducto.HoverState.Parent = this.btn_nuevoProducto;
             this.btn_nuevoProducto.Location = new System.Drawing.Point(355, 79);
-            this.btn_nuevoProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_nuevoProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btn_nuevoProducto.Name = "btn_nuevoProducto";
             this.btn_nuevoProducto.ShadowDecoration.Parent = this.btn_nuevoProducto;
             this.btn_nuevoProducto.Size = new System.Drawing.Size(130, 32);
@@ -385,7 +386,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tablaProductos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmEAlmacen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEAlmacen";

@@ -15,7 +15,8 @@ namespace MrTiendita.Vistas
     public partial class frmPrincipal : Form
     {
         private Form formActivado = null;
-        private bool bandera = false;
+
+        public bool bandera = false;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -164,12 +165,6 @@ namespace MrTiendita.Vistas
                 Application.Exit();
             }
 
-        }
-
-        private void btn_CerrarSesion_Click(object sender, EventArgs e)
-        {
-            bandera = false;
-            this.Close();
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)

@@ -27,6 +27,10 @@ namespace MrTiendita.Modelos.DTO
 
         public static void SetEmpleado(Empleado empleado)
         {
+            if (empleado == null) {
+                EmpleadoCache.empleado = null;
+                return;
+            }
             EmpleadoCache.empleado.Id_empleado = empleado.Id_empleado;
             EmpleadoCache.empleado.Clave = empleado.Clave;
             EmpleadoCache.empleado.Nombre = empleado.Nombre;
@@ -38,5 +42,6 @@ namespace MrTiendita.Modelos.DTO
             EmpleadoCache.empleado.Usuario = empleado.Usuario;
 
         }
+
     }
 }
