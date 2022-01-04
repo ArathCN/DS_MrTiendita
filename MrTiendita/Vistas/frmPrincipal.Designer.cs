@@ -32,6 +32,8 @@ namespace MrTiendita.Vistas
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.pnl_MenuLateral = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pnl_CerrarSesion = new System.Windows.Forms.Panel();
+            this.btn_CerrarSesion = new Guna.UI2.WinForms.Guna2Button();
             this.pnl_OpEncargado = new System.Windows.Forms.Panel();
             this.btn_EReportes = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ECaja = new Guna.UI2.WinForms.Guna2Button();
@@ -54,16 +56,14 @@ namespace MrTiendita.Vistas
             this.borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Contenedor = new System.Windows.Forms.Panel();
-            this.pnl_CerrarSesion = new System.Windows.Forms.Panel();
-            this.btn_CerrarSesion = new Guna.UI2.WinForms.Guna2Button();
             this.pnl_MenuLateral.SuspendLayout();
+            this.pnl_CerrarSesion.SuspendLayout();
             this.pnl_OpEncargado.SuspendLayout();
             this.pnl_Encargado.SuspendLayout();
             this.pnl_OpCajero.SuspendLayout();
             this.pnl_Cajero.SuspendLayout();
             this.pnl_Logo.SuspendLayout();
             this.pnl_Header.SuspendLayout();
-            this.pnl_CerrarSesion.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_MenuLateral
@@ -83,6 +83,43 @@ namespace MrTiendita.Vistas
             this.pnl_MenuLateral.Radius = 20;
             this.pnl_MenuLateral.Size = new System.Drawing.Size(240, 788);
             this.pnl_MenuLateral.TabIndex = 0;
+            // 
+            // pnl_CerrarSesion
+            // 
+            this.pnl_CerrarSesion.Controls.Add(this.btn_CerrarSesion);
+            this.pnl_CerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnl_CerrarSesion.Location = new System.Drawing.Point(0, 715);
+            this.pnl_CerrarSesion.Name = "pnl_CerrarSesion";
+            this.pnl_CerrarSesion.Size = new System.Drawing.Size(240, 73);
+            this.pnl_CerrarSesion.TabIndex = 0;
+            // 
+            // btn_CerrarSesion
+            // 
+            this.btn_CerrarSesion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.btn_CerrarSesion.BorderRadius = 6;
+            this.btn_CerrarSesion.BorderThickness = 2;
+            this.btn_CerrarSesion.CheckedState.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.CustomImages.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btn_CerrarSesion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.btn_CerrarSesion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.btn_CerrarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
+            this.btn_CerrarSesion.HoverState.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CerrarSesion.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(249)))), ((int)(((byte)(187)))));
+            this.btn_CerrarSesion.HoverState.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_CerrarSesion.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_CerrarSesion.ImageSize = new System.Drawing.Size(18, 18);
+            this.btn_CerrarSesion.Location = new System.Drawing.Point(13, 7);
+            this.btn_CerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_CerrarSesion.Name = "btn_CerrarSesion";
+            this.btn_CerrarSesion.PressedColor = System.Drawing.Color.BlanchedAlmond;
+            this.btn_CerrarSesion.ShadowDecoration.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.Size = new System.Drawing.Size(211, 48);
+            this.btn_CerrarSesion.TabIndex = 12;
+            this.btn_CerrarSesion.Text = "Cerrar sesión";
+            this.btn_CerrarSesion.Click += new System.EventHandler(this.btn_CerrarSesion_Click);
             // 
             // pnl_OpEncargado
             // 
@@ -422,6 +459,7 @@ namespace MrTiendita.Vistas
             // 
             // pnl_Logo
             // 
+            this.pnl_Logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pnl_Logo.Controls.Add(this.btn_Inicio);
             this.pnl_Logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Logo.Location = new System.Drawing.Point(0, 0);
@@ -499,43 +537,6 @@ namespace MrTiendita.Vistas
             this.Contenedor.Size = new System.Drawing.Size(1188, 731);
             this.Contenedor.TabIndex = 4;
             // 
-            // pnl_CerrarSesion
-            // 
-            this.pnl_CerrarSesion.Controls.Add(this.btn_CerrarSesion);
-            this.pnl_CerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_CerrarSesion.Location = new System.Drawing.Point(0, 715);
-            this.pnl_CerrarSesion.Name = "pnl_CerrarSesion";
-            this.pnl_CerrarSesion.Size = new System.Drawing.Size(240, 73);
-            this.pnl_CerrarSesion.TabIndex = 0;
-            // 
-            // btn_CerrarSesion
-            // 
-            this.btn_CerrarSesion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
-            this.btn_CerrarSesion.BorderRadius = 6;
-            this.btn_CerrarSesion.BorderThickness = 2;
-            this.btn_CerrarSesion.CheckedState.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.CustomImages.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btn_CerrarSesion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
-            this.btn_CerrarSesion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
-            this.btn_CerrarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
-            this.btn_CerrarSesion.HoverState.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CerrarSesion.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(249)))), ((int)(((byte)(187)))));
-            this.btn_CerrarSesion.HoverState.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_CerrarSesion.ImageOffset = new System.Drawing.Point(15, 0);
-            this.btn_CerrarSesion.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_CerrarSesion.Location = new System.Drawing.Point(13, 7);
-            this.btn_CerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_CerrarSesion.Name = "btn_CerrarSesion";
-            this.btn_CerrarSesion.PressedColor = System.Drawing.Color.BlanchedAlmond;
-            this.btn_CerrarSesion.ShadowDecoration.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.Size = new System.Drawing.Size(211, 48);
-            this.btn_CerrarSesion.TabIndex = 12;
-            this.btn_CerrarSesion.Text = "Cerrar sesión";
-            this.btn_CerrarSesion.Click += new System.EventHandler(this.btn_CerrarSesion_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -553,13 +554,13 @@ namespace MrTiendita.Vistas
             this.Text = "frmPrincipal2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.pnl_MenuLateral.ResumeLayout(false);
+            this.pnl_CerrarSesion.ResumeLayout(false);
             this.pnl_OpEncargado.ResumeLayout(false);
             this.pnl_Encargado.ResumeLayout(false);
             this.pnl_OpCajero.ResumeLayout(false);
             this.pnl_Cajero.ResumeLayout(false);
             this.pnl_Logo.ResumeLayout(false);
             this.pnl_Header.ResumeLayout(false);
-            this.pnl_CerrarSesion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

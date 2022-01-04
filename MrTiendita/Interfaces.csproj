@@ -110,6 +110,8 @@
     <Compile Include="Modelos\DTO\Producto.cs" />
     <Compile Include="Modelos\DTO\Proveedor.cs" />
     <Compile Include="Modelos\DTO\Venta.cs" />
+    <Compile Include="Patrones\Acciones.cs" />
+    <Compile Include="Patrones\Acciones_Facade.cs" />
     <Compile Include="Patrones\InicioSesion_Proxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

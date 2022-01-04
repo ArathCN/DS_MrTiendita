@@ -9,6 +9,7 @@ using MrTiendita.Vistas;
 using MrTiendita.Componentes;
 using MrTiendita.Constantes;
 using System.Windows.Forms;
+using Acciones;
 
 namespace MrTiendita.Controladores
 {
@@ -19,6 +20,9 @@ namespace MrTiendita.Controladores
         private String accion;
         private long id;
         private Producto producto;
+        //CFachada fachada = new CFachada();
+        private Acciones_Facade facade = new Acciones_Facade();
+
         public frmProductoController(frmProducto vista, String accion, long id)
         {
             this.vista = vista;
@@ -98,11 +102,13 @@ namespace MrTiendita.Controladores
             //Hacer la acción 
             if (this.accion == "agregar")
             {
-                res = this.agregar(producto);
+                //res = this.agregar(producto);
+                res = facade.Agregar(producto);
             }
             else
             {
-                res = this.actualizar(producto);
+                //res = this.actualizar(producto);
+                res = facade.Modificar(producto);
             }
 
             if(res) this.vista.Close();
