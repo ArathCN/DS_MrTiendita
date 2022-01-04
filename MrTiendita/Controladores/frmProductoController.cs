@@ -20,8 +20,7 @@ namespace MrTiendita.Controladores
         private String accion;
         private long id;
         private Producto producto;
-        //CFachada fachada = new CFachada();
-        private Acciones_Facade facade = new Acciones_Facade();
+        private Productos_Facade facade = new Productos_Facade();
 
         public frmProductoController(frmProducto vista, String accion, long id)
         {
@@ -102,54 +101,14 @@ namespace MrTiendita.Controladores
             //Hacer la acción 
             if (this.accion == "agregar")
             {
-                //res = this.agregar(producto);
                 res = facade.Agregar(producto);
             }
             else
             {
-                //res = this.actualizar(producto);
-                res = facade.Modificar(producto);
+                res = facade.Modificar(producto, this.id);
             }
 
             if(res) this.vista.Close();
-        }
-
-        ///////////
-        ///Metodos auxiliares
-        ///
-
-        private bool agregar(Producto producto)
-        {
-            bool res = this.productoDAO.create(producto);
-            if (res)
-            {
-                Form mensajeExito = new frmExito("Se ha hecho el producto con éxito.");
-                mensajeExito.ShowDialog();
-            }
-            else
-            {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
-                mensajeError.ShowDialog();
-            }
-
-            return res;
-        }
-
-        private bool actualizar(Producto producto)
-        {
-            bool res = this.productoDAO.updateInfo(producto, this.id);
-            if (res)
-            {
-                Form mensajeExito = new frmExito("Se ha actualizado el producto con éxito.");
-                mensajeExito.ShowDialog();
-            }
-            else
-            {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
-                mensajeError.ShowDialog();
-            }
-
-            return res;
         }
     }
 }

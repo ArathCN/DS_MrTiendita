@@ -12,6 +12,11 @@ namespace MrTiendita.Modelos.DTO
         private String nombre;
         private long telefono;
 
+        public Proveedor()
+        {
+
+        }
+
         public Proveedor(int id_proveedor, string nombre, long telefono)
         {
             this.id_proveedor = id_proveedor;

@@ -7,6 +7,7 @@ using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using System.Windows.Forms;
 using MrTiendita.Vistas;
+using Acciones;
 
 namespace MrTiendita.Controladores
 {
@@ -14,6 +15,7 @@ namespace MrTiendita.Controladores
     {
         private frmEAlmacen vista;
         private ProductoDAO productoDAO;
+        private Productos_Facade facade = new Productos_Facade();
 
         public frmEAlmacenController(frmEAlmacen vista){
             this.vista = vista;
@@ -26,7 +28,7 @@ namespace MrTiendita.Controladores
 
         private void vista_load(object sender, EventArgs e)
         {
-            this.mostrarTodos();
+            facade.Consultar(this.vista);
         }
 
         private void tb_busqueda_TextChanged(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace MrTiendita.Controladores
         {
             if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["eliminar"].Selected)
             {
-                this.eliminarProducto(e);
+                facade.Eliminar(this.vista, e);
             }
             else if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["editar"].Selected)
             {
@@ -56,46 +58,7 @@ namespace MrTiendita.Controladores
         {
             frmProducto editar = new frmProducto("agregar", -1);
             editar.ShowDialog();
-            this.mostrarTodos();
-        }
-
-        ///////////////////////////////
-        ///Métodos auxiliares
-        ///
-        private void mostrarTodos()
-        {
-            this.vista.tablaProductos.Rows.Clear();
-            List<Producto> productos = this.productoDAO.readAll();
-            foreach (Producto xProducto in productos)
-            {
-                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
-            }
-        }
-
-        private void eliminarProducto(DataGridViewCellEventArgs e)
-        {
-            Form mensaje = new frmError("El producto se eliminará");
-            DialogResult resultado = mensaje.ShowDialog();
-
-            if (resultado == DialogResult.OK)
-            {
-                //Eliminar la fila seleccionada
-                //para el ejemplo borrare la unica que hay
-                String _id = this.vista.tablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
-                long id = Int64.Parse(_id);
-                bool res = this.productoDAO.delete(id);
-                if (res)
-                {
-                    this.vista.tablaProductos.Rows.Remove(this.vista.tablaProductos.Rows[e.RowIndex]);
-                    Form mensajeExito = new frmError("El producto fue eliminado");
-                    this.mostrarTodos();
-                }
-                else
-                {
-                    Form mensajeError = new frmError("Error al eliminar el producto.");
-                    mensajeError.ShowDialog();
-                }
-            }
+            facade.Consultar(this.vista);
         }
 
         private void actualizarProducto(DataGridViewCellEventArgs e)
@@ -104,7 +67,7 @@ namespace MrTiendita.Controladores
             long id = long.Parse(_id);
             frmProducto editar = new frmProducto("editar", id);
             editar.ShowDialog();
-            this.mostrarTodos();
+            facade.Consultar(this.vista);
         }
     }
 }

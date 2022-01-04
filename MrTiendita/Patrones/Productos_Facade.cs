@@ -12,17 +12,16 @@ using System.Windows.Forms;
 
 namespace Acciones
 {
-    class Acciones_Facade
+    class Productos_Facade
     {
         private Productos productos = new Productos();
-
         public bool Agregar(Producto producto)
         {
             return productos.Agregar(producto);
         }
-        public bool Modificar(Producto producto)
+        public bool Modificar(Producto producto, long id)
         {
-            return productos.Actualizar(producto);
+            return productos.Actualizar(producto, id);
         }
         public void Eliminar(frmEAlmacen vista, DataGridViewCellEventArgs e)
         {

@@ -53,6 +53,10 @@ namespace MrTiendita.Patrones
             {
                 this.vista = frmPrincipal;
                 this.vista.Show();
+                this.vista.pnl_Cajero.Visible = true;
+                this.vista.pnl_OpCajero.Visible = false;
+                this.vista.pnl_Encargado.Visible = true;
+                this.vista.pnl_OpEncargado.Visible = false;
             }
 
             public void Cajero(frmPrincipal frmPrincipal)
