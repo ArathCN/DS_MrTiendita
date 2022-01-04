@@ -32,9 +32,8 @@ namespace MrTiendita.Vistas
             tablaEmpleados.Columns[2].Width = 90;
             tablaEmpleados.Columns[3].Width = 90;
             tablaEmpleados.Columns[4].Width = 95;
-            tablaEmpleados.Columns[5].Width = 65;
-            tablaEmpleados.Columns[6].Width = 85;
-            tablaEmpleados.Columns[7].Width = 95;
+            tablaEmpleados.Columns[5].Width = 85;
+            tablaEmpleados.Columns[6].Width = 95;
         }
     }
 }

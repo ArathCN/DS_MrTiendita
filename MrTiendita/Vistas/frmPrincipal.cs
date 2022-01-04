@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MrTiendita.Controladores;
+using MrTiendita.Patrones;
 
 namespace MrTiendita.Vistas
 {
     public partial class frmPrincipal : Form
     {
         private Form formActivado = null;
+        private bool bandera = false;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -59,7 +61,6 @@ namespace MrTiendita.Vistas
             btn_EProveedores.FillColor = Color.FromArgb(240, 240, 240);
             btn_EEmpleados.FillColor = Color.FromArgb(240, 240, 240);
             btn_ECaja.FillColor = Color.FromArgb(240, 240, 240);
-            btn_EVentas.FillColor = Color.FromArgb(240, 240, 240);
         }
 
         private void btn_Cajero_Click(object sender, EventArgs e)
@@ -148,7 +149,6 @@ namespace MrTiendita.Vistas
         private void btn_EVentas_Click(object sender, EventArgs e)
         {
             ColorGris();
-            btn_EVentas.FillColor = Color.FromArgb(218, 238, 86);
             AbrirFormulario(new frmCVentas());
         }
 
@@ -160,11 +160,25 @@ namespace MrTiendita.Vistas
 
             if (resultado == DialogResult.OK)
             {
+                bandera = true;
                 Application.Exit();
             }
 
         }
 
-        
+        private void btn_CerrarSesion_Click(object sender, EventArgs e)
+        {
+            bandera = true;
+            this.Close();
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bandera == false)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
+        }
     }
 }

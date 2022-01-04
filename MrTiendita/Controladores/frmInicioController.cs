@@ -19,6 +19,7 @@ namespace MrTiendita.Controladores
         private frmPrincipal principal;
         private EmpleadoDAO empleadoDAO;
         public bool cierre = false;
+        InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
 
         public frmInicioController(frmInicio vista)
         {
@@ -28,13 +29,13 @@ namespace MrTiendita.Controladores
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
             this.vista.btn_Cerrar.Click += new EventHandler(btn_Cerrar_Click);
             this.vista.FormClosing += new FormClosingEventHandler(frmInicio_FormClosing);
+            this.principal.btn_CerrarSesion.Click += new EventHandler(btn_CerrarSesion_Click);
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text, tipo;
-            int id_empleado, tipoEmpleado;
-
+            string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text;
+            
 
             Dictionary<int, int> opcionesUsuario = new Dictionary<int, int>() {
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
@@ -67,7 +68,6 @@ namespace MrTiendita.Controladores
 
 
             //abre las opciones segun el tipo de empleado
-            InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
             conexion.Peticion(empleado.Tipo_empleado, principal);
             cierre = true;
             this.vista.Close();
@@ -81,8 +81,15 @@ namespace MrTiendita.Controladores
 
             if (resultado == DialogResult.OK)
             {
+                cierre = false;
                 Application.Exit();
             }
+        }
+
+        private void btn_CerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.principal.Hide();
+            conexion.Cierre(this.vista);
         }
 
         private void frmInicio_FormClosing(object sender, FormClosingEventArgs e)

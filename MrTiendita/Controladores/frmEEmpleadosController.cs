@@ -53,7 +53,7 @@ namespace MrTiendita.Controladores
             this.vista.tablaEmpleados.Rows.Clear();
             foreach (Empleado xEmpleado in empleados)
             {
-                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Id_empleado, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado, xEmpleado.Clave);
+                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Id_empleado, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado);
             }
         }
 
@@ -72,7 +72,7 @@ namespace MrTiendita.Controladores
             this.todosEmpleados = empleados;
             foreach (Empleado xEmpleado in empleados)
             {
-                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Id_empleado, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado, xEmpleado.Clave);
+                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Id_empleado, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado);
             }
         }
 
