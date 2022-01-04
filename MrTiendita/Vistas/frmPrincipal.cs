@@ -168,7 +168,7 @@ namespace MrTiendita.Vistas
 
         private void btn_CerrarSesion_Click(object sender, EventArgs e)
         {
-            bandera = true;
+            bandera = false;
             this.Close();
         }
 
@@ -177,6 +177,7 @@ namespace MrTiendita.Vistas
             if (bandera == false)
             {
                 e.Cancel = true;
+                bandera = true;
                 this.Hide();
             }
         }
