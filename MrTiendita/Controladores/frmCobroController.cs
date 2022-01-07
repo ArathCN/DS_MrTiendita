@@ -42,12 +42,6 @@ namespace MrTiendita.Controladores
             this.vista.cb_metodoPago.SelectedIndexChanged += new EventHandler(cb_metodoPago_SelectedIndexChanged);
             this.vista.tb_efectivo.TextChanged += new EventHandler(tb_efectivo_textChanged);
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
-            this.vista.Load += new EventHandler(vista_Load);
-        }
-
-        public void vista_Load(object sender, EventArgs e)
-        {
-            this.vista.tb_efectivo.MaxLength = 10;
         }
 
         private void cb_metodoPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,19 +70,24 @@ namespace MrTiendita.Controladores
         private void tb_efectivo_textChanged(object sender, EventArgs e)
         {
             String _efectivo = this.vista.tb_efectivo.Text;
+            double dato2;
+            String mensajeError = "De ser un número mayor a " + this.totalVenta + " con máximo dos decimales.";
+            Dictionary<int, double> opciones2 = new Dictionary<int, double>()
+            {
+                {ValidacionDatosOpciones.MAYOR_A, this.totalVenta},
+                {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            };
 
             //el boton de aceptar se mantiene inactivo hasta que pase todas las pruebas el campo efectivo
             this.vista.btn_aceptar.Enabled = false;
             this.vista.lbl_cambio.Text = "--.--";
+            
 
-            if (!ValidacionDatos.Numero(_efectivo, out this.efectivo, new Dictionary<int, Double>() {
-                { ValidacionDatosOpciones.MAYOR_A, this.totalVenta},
-                { ValidacionDatosOpciones.NUM_DECIMALES, 2} }))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorEfectivo, mensajeError, _efectivo, out this.efectivo, opciones2))
             {
                 this.vista.tb_efectivo.BackColor = Color.Salmon;
                 return;
             }
-            
 
             this.vista.btn_aceptar.Enabled = true;
             this.vista.tb_efectivo.BackColor = Color.White;

@@ -49,7 +49,9 @@ namespace MrTiendita.Modelos.DAO
                     }
                     catch (SqlException e)
                     {
-                        this.MensajeError = e.Message;
+                        String msg = e.Message;
+                        if (e.Number == 2627) msg = "Nombre de usuario en uso.";
+                        this.MensajeError = msg;
                         this.errorUltimaConsulta = true;
                     }
                     
@@ -91,8 +93,19 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters["@tip"].Value = empleado.Tipo_empleado;
                     command.Parameters["@usu"].Value = empleado.Usuario;
 
+                    int rowsAffected = 0;
 
-                    int rowsAffected = command.ExecuteNonQuery();
+                    try
+                    {
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        String msg = e.Message;
+                        if (e.Number == 2627) msg = "Nombre de usuario en uso.";
+                        this.MensajeError = msg;
+                        this.errorUltimaConsulta = true;
+                    }
 
                     if (rowsAffected == 1) success = true;
                 }

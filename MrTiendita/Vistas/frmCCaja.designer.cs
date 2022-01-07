@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCCaja));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tablaMovimientos = new System.Windows.Forms.DataGridView();
@@ -47,6 +47,8 @@ namespace MrTiendita.Vistas
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_ErrorDesc = new System.Windows.Forms.Label();
+            this.lbl_ErrorImporte = new System.Windows.Forms.Label();
             this.btn_aceptar = new Guna.UI2.WinForms.Guna2Button();
             this.tb_concepto = new Guna.UI2.WinForms.Guna2TextBox();
             this.cb_tipoMov = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -113,15 +115,15 @@ namespace MrTiendita.Vistas
             this.Descripcion,
             this.fecha,
             this.importe});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(245)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle2;
             this.tablaMovimientos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.tablaMovimientos.Location = new System.Drawing.Point(231, 223);
             this.tablaMovimientos.Margin = new System.Windows.Forms.Padding(2);
@@ -269,6 +271,8 @@ namespace MrTiendita.Vistas
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.lbl_ErrorDesc);
+            this.panel2.Controls.Add(this.lbl_ErrorImporte);
             this.panel2.Controls.Add(this.btn_aceptar);
             this.panel2.Controls.Add(this.tb_concepto);
             this.panel2.Controls.Add(this.cb_tipoMov);
@@ -283,6 +287,31 @@ namespace MrTiendita.Vistas
             this.panel2.Size = new System.Drawing.Size(181, 407);
             this.panel2.TabIndex = 51;
             // 
+            // lbl_ErrorDesc
+            // 
+            this.lbl_ErrorDesc.AutoSize = true;
+            this.lbl_ErrorDesc.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorDesc.Location = new System.Drawing.Point(14, 282);
+            this.lbl_ErrorDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_ErrorDesc.Name = "lbl_ErrorDesc";
+            this.lbl_ErrorDesc.Size = new System.Drawing.Size(39, 13);
+            this.lbl_ErrorDesc.TabIndex = 87;
+            this.lbl_ErrorDesc.Text = "* Error";
+            this.lbl_ErrorDesc.Visible = false;
+            // 
+            // lbl_ErrorImporte
+            // 
+            this.lbl_ErrorImporte.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorImporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorImporte.Location = new System.Drawing.Point(14, 178);
+            this.lbl_ErrorImporte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_ErrorImporte.Name = "lbl_ErrorImporte";
+            this.lbl_ErrorImporte.Size = new System.Drawing.Size(158, 39);
+            this.lbl_ErrorImporte.TabIndex = 83;
+            this.lbl_ErrorImporte.Text = "De ser un número entre 1 y 10,000 con máximo dos decimales.";
+            this.lbl_ErrorImporte.Visible = false;
+            // 
             // btn_aceptar
             // 
             this.btn_aceptar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
@@ -296,7 +325,7 @@ namespace MrTiendita.Vistas
             this.btn_aceptar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
             this.btn_aceptar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
             this.btn_aceptar.HoverState.Parent = this.btn_aceptar;
-            this.btn_aceptar.Location = new System.Drawing.Point(12, 284);
+            this.btn_aceptar.Location = new System.Drawing.Point(12, 317);
             this.btn_aceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.ShadowDecoration.Parent = this.btn_aceptar;
@@ -321,9 +350,8 @@ namespace MrTiendita.Vistas
             this.tb_concepto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_concepto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_concepto.HoverState.Parent = this.tb_concepto;
-            this.tb_concepto.Location = new System.Drawing.Point(12, 215);
+            this.tb_concepto.Location = new System.Drawing.Point(12, 245);
             this.tb_concepto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_concepto.MaxLength = 200;
             this.tb_concepto.Name = "tb_concepto";
             this.tb_concepto.PasswordChar = '\0';
             this.tb_concepto.PlaceholderText = "";
@@ -380,7 +408,6 @@ namespace MrTiendita.Vistas
             this.tb_importe.HoverState.Parent = this.tb_importe;
             this.tb_importe.Location = new System.Drawing.Point(12, 141);
             this.tb_importe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_importe.MaxLength = 7;
             this.tb_importe.Name = "tb_importe";
             this.tb_importe.PasswordChar = '\0';
             this.tb_importe.PlaceholderText = "";
@@ -395,7 +422,7 @@ namespace MrTiendita.Vistas
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label10.Location = new System.Drawing.Point(9, 194);
+            this.label10.Location = new System.Drawing.Point(9, 224);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 17);
@@ -625,5 +652,7 @@ namespace MrTiendita.Vistas
         public Guna.UI2.WinForms.Guna2TextBox tb_concepto;
         public Guna.UI2.WinForms.Guna2TextBox tb_importe;
         public Guna.UI2.WinForms.Guna2Button btn_aceptar;
+        public System.Windows.Forms.Label lbl_ErrorImporte;
+        public System.Windows.Forms.Label lbl_ErrorDesc;
     }
 }

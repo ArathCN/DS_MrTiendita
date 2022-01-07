@@ -39,6 +39,7 @@ namespace MrTiendita.Vistas
             this.cb_metodoPago = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tb_efectivo = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_aceptar = new Guna.UI2.WinForms.Guna2Button();
+            this.lbl_ErrorEfectivo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@ namespace MrTiendita.Vistas
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label6.Location = new System.Drawing.Point(10, 51);
+            this.label6.Location = new System.Drawing.Point(10, 44);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 17);
@@ -87,7 +88,7 @@ namespace MrTiendita.Vistas
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 116);
+            this.label1.Location = new System.Drawing.Point(13, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
@@ -99,7 +100,7 @@ namespace MrTiendita.Vistas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 187);
+            this.label2.Location = new System.Drawing.Point(13, 193);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 17);
@@ -111,7 +112,7 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_cambio.AutoSize = true;
             this.lbl_cambio.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cambio.Location = new System.Drawing.Point(100, 187);
+            this.lbl_cambio.Location = new System.Drawing.Point(100, 193);
             this.lbl_cambio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_cambio.Name = "lbl_cambio";
             this.lbl_cambio.Size = new System.Drawing.Size(28, 17);
@@ -140,7 +141,7 @@ namespace MrTiendita.Vistas
             "Efectivo",
             "Tarjeta"});
             this.cb_metodoPago.ItemsAppearance.Parent = this.cb_metodoPago;
-            this.cb_metodoPago.Location = new System.Drawing.Point(13, 70);
+            this.cb_metodoPago.Location = new System.Drawing.Point(13, 63);
             this.cb_metodoPago.Margin = new System.Windows.Forms.Padding(2);
             this.cb_metodoPago.Name = "cb_metodoPago";
             this.cb_metodoPago.ShadowDecoration.Parent = this.cb_metodoPago;
@@ -164,9 +165,8 @@ namespace MrTiendita.Vistas
             this.tb_efectivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_efectivo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_efectivo.HoverState.Parent = this.tb_efectivo;
-            this.tb_efectivo.Location = new System.Drawing.Point(13, 136);
+            this.tb_efectivo.Location = new System.Drawing.Point(13, 127);
             this.tb_efectivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_efectivo.MaxLength = 7;
             this.tb_efectivo.Name = "tb_efectivo";
             this.tb_efectivo.PasswordChar = '\0';
             this.tb_efectivo.PlaceholderText = "";
@@ -188,13 +188,25 @@ namespace MrTiendita.Vistas
             this.btn_aceptar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(148)))), ((int)(((byte)(14)))));
             this.btn_aceptar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(223)))), ((int)(((byte)(22)))));
             this.btn_aceptar.HoverState.Parent = this.btn_aceptar;
-            this.btn_aceptar.Location = new System.Drawing.Point(157, 136);
+            this.btn_aceptar.Location = new System.Drawing.Point(157, 127);
             this.btn_aceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.ShadowDecoration.Parent = this.btn_aceptar;
             this.btn_aceptar.Size = new System.Drawing.Size(91, 32);
             this.btn_aceptar.TabIndex = 85;
             this.btn_aceptar.Text = "Aceptar";
+            // 
+            // lbl_ErrorEfectivo
+            // 
+            this.lbl_ErrorEfectivo.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorEfectivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorEfectivo.Location = new System.Drawing.Point(13, 164);
+            this.lbl_ErrorEfectivo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_ErrorEfectivo.Name = "lbl_ErrorEfectivo";
+            this.lbl_ErrorEfectivo.Size = new System.Drawing.Size(235, 26);
+            this.lbl_ErrorEfectivo.TabIndex = 86;
+            this.lbl_ErrorEfectivo.Text = "* Error";
+            this.lbl_ErrorEfectivo.Visible = false;
             // 
             // frmCobro
             // 
@@ -204,6 +216,7 @@ namespace MrTiendita.Vistas
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(268, 229);
+            this.Controls.Add(this.lbl_ErrorEfectivo);
             this.Controls.Add(this.btn_aceptar);
             this.Controls.Add(this.tb_efectivo);
             this.Controls.Add(this.cb_metodoPago);
@@ -236,5 +249,6 @@ namespace MrTiendita.Vistas
         public Guna.UI2.WinForms.Guna2ComboBox cb_metodoPago;
         public Guna.UI2.WinForms.Guna2TextBox tb_efectivo;
         public Guna.UI2.WinForms.Guna2Button btn_aceptar;
+        public System.Windows.Forms.Label lbl_ErrorEfectivo;
     }
 }

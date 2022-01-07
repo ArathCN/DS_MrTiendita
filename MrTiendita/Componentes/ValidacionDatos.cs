@@ -34,27 +34,29 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        public static bool Cadena(String dato, Dictionary<int, int> opciones, String patron = "")
+        public static bool Cadena(String dato, Dictionary<int, int> opciones = null, String patron = "")
         {
             if (!ValidacionDatos.NoVacio(dato)) return false;
-
-            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
+            if (opciones != null)
             {
-                if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
+                if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " + opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
-                    ValidacionDatos.error = true;
-                    return false;
+                    if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
+                    {
+                        ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " + opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
+                        ValidacionDatos.error = true;
+                        return false;
+                    }
                 }
-            }
 
-            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES))
-            {
-                if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
+                if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES))
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres maximo superado:" + opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
-                    ValidacionDatos.error = true;
-                    return false;
+                    if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
+                    {
+                        ValidacionDatos.mensajes = "Número de caracteres maximo superado:" + opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
+                        ValidacionDatos.error = true;
+                        return false;
+                    }
                 }
             }
 
@@ -107,6 +109,16 @@ namespace MrTiendita.Componentes
                 return false;
             }
 
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_CARACTERES))
+            {
+                if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " + opciones[ValidacionDatosOpciones.NUM_CARACTERES];
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
             {
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
@@ -119,7 +131,7 @@ namespace MrTiendita.Componentes
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_A))
             {
-                if (long_dato < opciones[ValidacionDatosOpciones.MAYOR_A])
+                if (long_dato <= opciones[ValidacionDatosOpciones.MAYOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato no mayor al número minimo especificado.";
                     ValidacionDatos.error = true;
@@ -127,11 +139,31 @@ namespace MrTiendita.Componentes
                 }
             }
 
+            if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_IGUAL_A))
+            {
+                if (long_dato < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
+                {
+                    ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_A))
             {
-                if (long_dato > opciones[ValidacionDatosOpciones.MENOR_A])
+                if (long_dato >= opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
+                    ValidacionDatos.error = true;
+                    return false;
+                }
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_IGUAL_A))
+            {
+                if (long_dato > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
+                {
+                    ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
                     ValidacionDatos.error = true;
                     return false;
                 }
@@ -233,6 +265,26 @@ namespace MrTiendita.Componentes
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES))
             {
                 double_dato = Math.Round(double_dato, (int) opciones[ValidacionDatosOpciones.NUM_DECIMALES]);
+            }
+            
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND))
+            {
+                int op = (int)opciones[ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND];
+                String reg = "^[0-9]*(?:\\.[0-9]{1," + op + "})?$";
+                /*double ParteDecimal = double_dato - Math.Round(Math.Truncate(double_dato), op);
+                Console.WriteLine(ParteDecimal.ToString());
+                if (ParteDecimal.ToString().Length > op + 2)
+                {
+                    ValidacionDatos.mensajes = "El número debe tener maximo " + op + " decimales.";
+                    ValidacionDatos.error = true;
+                    return false;
+                }*/
+                if (!Regex.Match(dato, reg).Success)
+                {
+                    ValidacionDatos.mensajes = "El número debe tener maximo " + op + " decimales.";
+                    ValidacionDatos.error = true;
+                    return false;
+                }
             }
 
             ValidacionDatos.error = false;

@@ -26,12 +26,31 @@ namespace MrTiendita.Controladores
             this.proveedorDAO = new ProveedorDAO();
             this.vista.btn_guardarProveedor.Click += new EventHandler(btn_Cerrar_Click);
             this.vista.Load += new EventHandler(vista_Load);
+
+            this.vista.tb_telefono.TextChanged += delegate (object sender, EventArgs e)
+            {
+                long dato2;
+                String mensajeError = "De ser un número de 10 dígitos.";
+                Dictionary<int, long> opciones2 = new Dictionary<int, long>()
+                {
+                    {ValidacionDatosOpciones.NUM_CARACTERES, 10}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, mensajeError, this.vista.tb_telefono.Text, out dato2, opciones2);
+            };
+
+            this.vista.tb_nombre.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 60 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, mensajeError, this.vista.tb_nombre.Text, opciones2);
+            };
         }
         private void vista_Load(object sender, EventArgs e)
         {
-            this.vista.tb_nombre.MaxLength = 60;
-            this.vista.tb_telefono.MaxLength = 10;
-
             if (this.accion == "editar")
             {
                 Proveedor proveedor = this.proveedorDAO.readById(this.id);
@@ -47,18 +66,22 @@ namespace MrTiendita.Controladores
             String _nombre = this.vista.tb_nombre.Text;
             String _telefono = this.vista.tb_telefono.Text;
             long telefono;
+            Dictionary<int, long> opTel = new Dictionary<int, long>()
+            {
+                {ValidacionDatosOpciones.NUM_CARACTERES, 10}
+            };
+            Dictionary<int, int> opNom = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+            };
 
             //Comprobar que el nombre tenga inimo 10 caracteres
             //Comprobar que el telefeno tenga minimo 10 caracteres y que sea mayor a 0 (no negativo)
-            if (!ValidacionDatos.Cadena(_nombre, new Dictionary<int, int>()
-            { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10} }) ||
-            !ValidacionDatos.Numero(_telefono, out telefono, new Dictionary<int, long>()
-            { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10},
-                {ValidacionDatosOpciones.MAYOR_A, 0}
-            })
-            )
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, "", _telefono, out telefono, opTel) ||
+            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, "", _nombre, opNom))
             {
-                Form mensajeError = new frmError(ValidacionDatos.mensajes);
+                Form mensajeError = new frmError("Llene todos los datos datos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }

@@ -30,16 +30,70 @@ namespace MrTiendita.Controladores
             this.productoDAO = new ProductoDAO();
             this.vista.btn_guardarProducto.Click += new EventHandler(btn_Cerrar_Click);
             this.vista.Load += new EventHandler(vista_Load);
+
+            this.vista.tb_codigo.TextChanged += delegate (object sender, EventArgs e)
+            {
+                long dato2;
+                String mensajeError = "Debe ser un número de 13 dígitos.";
+                Dictionary<int, long> opciones2 = new Dictionary<int, long>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.NUM_CARACTERES, 13}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out dato2, opciones2);
+            };
+
+            this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double dato2;
+                String mensajeError = "De ser un número entre 0 y 10000 con máximo dos decimales.";
+                Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 10000},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out dato2, opciones2);
+            };
+
+            this.vista.tb_descripcion.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 120 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 120}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeError, this.vista.tb_descripcion.Text, opciones2);
+            };
+
+            this.vista.tb_precioCompra.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double dato2;
+                String mensajeError = "De ser un número entre 0 y 10000 con máximo dos decimales.";
+                Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 10000},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, mensajeError, this.vista.tb_precioCompra.Text, out dato2, opciones2);
+            };
+
+            this.vista.tb_precioVenta.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double dato2;
+                String mensajeError = "De ser un número entre 0 y 10000 con máximo dos decimales.";
+                Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 10000},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, mensajeError, this.vista.tb_precioVenta.Text, out dato2, opciones2);
+            };
+
+
         }
 
         private void vista_Load(object sender, EventArgs e)
         {
-            this.vista.tb_cantidad.MaxLength = 10;
-            this.vista.tb_codigo.MaxLength = 13;
-            this.vista.tb_descripcion.MaxLength = 120;
-            this.vista.tb_precioCompra.MaxLength = 13;
-            this.vista.tb_precioVenta.MaxLength = 13;
-
             if (this.accion == "editar")
             {
                 Producto producto =  this.productoDAO.readById(this.id);
@@ -68,15 +122,39 @@ namespace MrTiendita.Controladores
             long codigoBarra;
             double cantidad, precioVenta, precioCompra;
 
+            String mensajeCodigo = "Debe ser un número de 13 dígitos.";
+            Dictionary<int, long> opCodigo = new Dictionary<int, long>() {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.NUM_CARACTERES, 13}
+            };
+            String msgCantidad = "De ser un número entre 0 y 10000 con máximo dos decimales.";
+            Dictionary<int, double> opCantidad = new Dictionary<int, double>() {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.MENOR_A, 10000},
+                {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            };
+            String msgDesc = "Texto de entre 5 a 120 caracteres.";
+            Dictionary<int, int> opDesc = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 120}
+            };
+            String msgPc = "De ser un número entre 0 y 10000 con máximo dos decimales.";
+            Dictionary<int, double> opPc = new Dictionary<int, double>() {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.MENOR_A, 10000},
+                {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            };
+
             if (
-                !ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 13} })||
-                !ValidacionDatos.Numero(_cantidad, out cantidad, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0}, {ValidacionDatosOpciones.MENOR_IGUAL_A, 100} })||
-                !ValidacionDatos.Cadena(_descripcion, new Dictionary<int, int>() { {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10} })||
-                !ValidacionDatos.Numero(_precioVenta, out precioVenta, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0} })||
-                !ValidacionDatos.Numero(_precioCompra, out precioCompra, new Dictionary<int, double>() { {ValidacionDatosOpciones.MAYOR_A, 0 } })
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeCodigo, _codigoBarra, out codigoBarra, opCodigo) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, msgCantidad, _cantidad, out cantidad, opCantidad) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, msgDesc, _descripcion, opDesc) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, msgPc, _precioCompra, out precioCompra, opPc) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgPc, _precioVenta, out precioVenta, opPc)
                 )
             {
-                Form mensajeError = new frmError(ValidacionDatos.mensajes);
+                Form mensajeError = new frmError("Llene todos los datos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }

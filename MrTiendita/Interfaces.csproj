@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Componentes\ValidacionDatos.cs" />
+    <Compile Include="Componentes\ValidacionFormulario.cs" />
     <Compile Include="Constantes\TipoEmpleadoC.cs" />
     <Compile Include="Constantes\TipoMovimiento.cs" />
     <Compile Include="Constantes\ValidacionDatosOpciones.cs" />

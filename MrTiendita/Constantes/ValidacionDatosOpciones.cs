@@ -14,12 +14,14 @@ namespace MrTiendita.Constantes
         public static int MAYOR_A = 3;
         public static int MENOR_A = 4;
         public static int NUM_DECIMALES = 5;
+        public static int NUM_DECIMALES_NO_ROUND = 11;
         public static int MAYOR_IGUAL_A = 6;
         public static int MENOR_IGUAL_A = 7;
 
         //para cadenas
         public static int NUM_MINIMO_CARACTERES = 8;
         public static int NUM_MAXIMO_CARACTERES = 9;
+        public static int NUM_CARACTERES = 12;
         public static int PATRON = 10;
     }
 }

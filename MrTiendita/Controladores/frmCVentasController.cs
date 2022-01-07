@@ -37,12 +37,22 @@ namespace MrTiendita.Controladores
             this.vista.btn_finalizar.Click += new EventHandler(venta_metodo_pago);
             this.vista.btn_cancelar.Click += new EventHandler(btn_cancelar_Click);
             this.vista.tablaVentas.CellContentClick += new DataGridViewCellEventHandler(tablaVentas_CellContentClick);
+
+            this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double dato2;
+                String mensajeError = "De ser un número entre 1 y 1000 con máximo dos decimales.";
+                Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 1001},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out dato2, opciones2);
+            };
         }
 
         private void vista_load(object sender, EventArgs e)
         {
-            this.vista.tb_cantidad.MaxLength = 10;
-            this.vista.tb_codigo.MaxLength = 13;
             this.listaProductos = new Dictionary<string, long>();
             List<Producto> productos = this.productoDAO.readAll();
             List<String> nombreProductos = new List<string>();
@@ -119,48 +129,50 @@ namespace MrTiendita.Controladores
         private void tb_codigo_TextChanged(object sender, EventArgs e)
         {
             long codigoBarra;
-            String _codigoBarra = this.vista.tb_codigo.Text;
+            String mensajeError = "Debe ser un número de 13 dígitos mayor a 0 sin decimales.";
+            Dictionary<int, long> opciones2 = new Dictionary<int, long>()
+            {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.NUM_CARACTERES, 13}
+            };
 
-            //si está vacio
-            if (String.IsNullOrEmpty(_codigoBarra))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, opciones2))
             {
                 this.producto = null;
+                this.vista.tb_codigo.BackColor = Color.Salmon;
                 return;
             }
-
-            //si no es un codigo valido
-            if (!Int64.TryParse(_codigoBarra, out codigoBarra))
-            {
-                this.producto = null;
-                return;
-            }
-
-
+            
+            //Se busca el producto...
             this.producto = this.productoDAO.readById(codigoBarra);
             if (this.producto != null)
             {
                 this.vista.tb_codigo.BackColor = Color.White;
+                this.vista.lbl_ErrorCodigo.Visible = false;
             }
             else
             {
                 this.vista.tb_codigo.BackColor = Color.Salmon;
-                this.producto = null;
+                this.vista.lbl_ErrorCodigo.Text = "No se encuentra ningun producto con el código de barras especificado.";
+                this.vista.lbl_ErrorCodigo.Visible = true;
             }
-            MessageBox.Show($"{this.vista.tb_codigo.MaxLength}");
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             String _cantidad = this.vista.tb_cantidad.Text;
             double cantidad;
-            bool medida;
+            String mensajeErrorCantidad = "De ser un número entre 1 y 1000 con máximo dos decimales.";
+            Dictionary<int, double> opciones = new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 1001},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+            
 
             //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
             if (this.producto == null ||
-                !ValidacionDatos.Numero(_cantidad, out cantidad,
-                new Dictionary<int, double>() {
-                    {ValidacionDatosOpciones.MAYOR_A, 0},
-                    {ValidacionDatosOpciones.NUM_DECIMALES, 3} }))
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, _cantidad, out cantidad, opciones))
             {
                 Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();

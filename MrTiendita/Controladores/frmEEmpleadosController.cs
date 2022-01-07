@@ -44,7 +44,6 @@ namespace MrTiendita.Controladores
         private void vista_Load(object sender, EventArgs e)
         {
             this.mostrarTodos();
-            this.vista.tb_busqueda.MaxLength = 100;
         }
 
         private void tb_busqueda_TextChanged(object sender, EventArgs e)
@@ -73,7 +72,7 @@ namespace MrTiendita.Controladores
             this.todosEmpleados = empleados;
             foreach (Empleado xEmpleado in empleados)
             {
-                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Id_empleado, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado);
+                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Usuario, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado, xEmpleado.Id_empleado);
             }
         }
 
@@ -85,8 +84,7 @@ namespace MrTiendita.Controladores
             if (resultado == DialogResult.OK)
             {
                 //Eliminar la fila seleccionada
-                //para el ejemplo borrare la unica que hay
-                String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
                 int id = Int32.Parse(_id);
                 bool res = this.empleadoDAO.delete(id);
                 if (res)
@@ -105,7 +103,7 @@ namespace MrTiendita.Controladores
 
         private void actualizarEmpleado(DataGridViewCellEventArgs e)
         {
-            String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString();
+            String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
             int id = Int32.Parse(_id);
             frmEditarEmpleado editar = new frmEditarEmpleado("editar", id);
             editar.ShowDialog();

@@ -29,22 +29,96 @@ namespace MrTiendita.Controladores
             this.empleadoDAO = new EmpleadoDAO();
             this.vista.btn_guardarEmpleado.Click += new EventHandler(btn_Cerrar_Click);
             this.vista.Load += new EventHandler(vista_Load);
+
+            this.vista.tb_idEmpleado.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 50 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeError, this.vista.tb_idEmpleado.Text, opciones2);
+            };
+
+            this.vista.tb_nombre.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 100 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, mensajeError, this.vista.tb_nombre.Text, opciones2);
+            };
+
+            this.vista.tb_apPaterno.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 60 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorAp, mensajeError, this.vista.tb_apPaterno.Text, opciones2);
+            };
+
+            this.vista.tb_apMaterno.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 60 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorAm, mensajeError, this.vista.tb_apMaterno.Text, opciones2);
+            };
+
+            this.vista.tb_telefono.TextChanged += delegate (object sender, EventArgs e)
+            {
+                long dato2;
+                String mensajeError = "De ser un número de 10 dígitos.";
+                Dictionary<int, long> opciones2 = new Dictionary<int, long>()
+                {
+                    {ValidacionDatosOpciones.NUM_CARACTERES, 10}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, mensajeError, this.vista.tb_telefono.Text, out dato2, opciones2);
+            };
+
+            this.vista.tb_sueldo.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double dato2;
+                String mensajeError = "De ser un número entre 1 y 10,000 con máximo dos decimales.";
+                Dictionary<int, double> opciones2 = new Dictionary<int, double>()
+                {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_IGUAL_A, 10000},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorSue, mensajeError, this.vista.tb_sueldo.Text, out dato2, opciones2);
+            };
+
+            this.vista.tb_clave.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_clave.Text, opciones2, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
+            };
         }
 
         private void vista_Load(object sender, EventArgs e)
         {
-            this.vista.tb_nombre.MaxLength = 100;
-            this.vista.tb_apPaterno.MaxLength = 60;
-            this.vista.tb_apMaterno.MaxLength = 60;
-            this.vista.tb_telefono.MaxLength = 10;
-            this.vista.tb_sueldo.MaxLength = 13;
-            this.vista.tb_idEmpleado.MaxLength = 100;
             this.vista.tb_clave.MaxLength = 20;
             this.vista.tb_clave.Enabled = true;
             if (this.accion == "editar")
             {
                 this.vista.tb_clave.MaxLength = 60;
                 this.vista.tb_clave.Enabled = false;
+                this.vista.lbl_ErrorClave.Visible = false;
 
                 Empleado empleado = this.empleadoDAO.readById(this.id);
 
@@ -65,6 +139,7 @@ namespace MrTiendita.Controladores
                     this.vista.rb_cajero.Checked = true;
                 }
                 this.vista.tb_clave.Text = empleado.Clave;
+                this.vista.lbl_ErrorClave.Visible = false;
 
                 this.empleado = empleado;
             }
@@ -93,45 +168,67 @@ namespace MrTiendita.Controladores
 
 
             //Falta validar los datos
-            Dictionary<int, int> opcionesUsuario = new Dictionary<int, int>() {
+            Dictionary<int, int> opUsuario = new Dictionary<int, int>()
+            {
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
             };
-            Dictionary<int, int> opcionesClave = new Dictionary<int, int>() {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 8},
+            Dictionary<int, int> opNom = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+            };
+            Dictionary<int, int> opAp = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+            };
+            Dictionary<int, int> opAm = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+            };
+            Dictionary<int, long> opTel = new Dictionary<int, long>()
+            {
+                {ValidacionDatosOpciones.NUM_CARACTERES, 10}
+            };
+            Dictionary<int, double> opSueldo = new Dictionary<int, double>()
+            {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.MENOR_IGUAL_A, 10000},
+                {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            };
+            Dictionary<int, int> opClave = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
             };
-            Dictionary<int, int> opcionesCadena = new Dictionary<int, int>() {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 4}
-            };
-            Dictionary<int, long> opcionesLong = new Dictionary<int, long>()
+            String pat = "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$";
+
+            //Si es editar cambio las opciones de la clave para que no de problemas con la encriptacion
+            if (this.accion == "editar")
             {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 10},
-                {ValidacionDatosOpciones.MAYOR_A, 0}
-            };
-            Dictionary<int, double> opcionesSueldo = new Dictionary<int, double>()
-            {
-                {ValidacionDatosOpciones.NUM_DECIMALES, 2},
-                {ValidacionDatosOpciones.MAYOR_A, 0}
-            };
+                opClave[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES] = 255;
+                pat = null;
+            }
 
             if (
-                !ValidacionDatos.Cadena(_usuario, opcionesUsuario) ||
-                !ValidacionDatos.Cadena(_nombre, opcionesCadena) ||
-                !ValidacionDatos.Cadena(_apPaterno, opcionesCadena) ||
-                !ValidacionDatos.Cadena(_apMaterno, opcionesCadena) ||
-                !ValidacionDatos.Numero(_telefono, out telefono) ||
-                !ValidacionDatos.Numero(_sueldo, out sueldo, opcionesSueldo) ||
-                !ValidacionDatos.Cadena(_clave, opcionesCadena, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$")
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorID, "", _usuario, opUsuario) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, "", _nombre, opNom) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorAp, "", _apPaterno, opAp) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorAm, "", _apMaterno, opAm) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, "", _telefono, out telefono, opTel) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorSue, "", _sueldo, out sueldo, opSueldo) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, "", _clave, opClave, patron: pat)
                 )
             {
-                Form mensajeError = new frmError(ValidacionDatos.mensajes);
+                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
 
             //Crear el empleado
-            Empleado empleado = new Empleado(-1, _nombre, _apPaterno, _apPaterno, telefono, sueldo, _tipoEmpleado, _clave, _usuario);
+            Empleado empleado = new Empleado(-1, _nombre, _apPaterno, _apMaterno, telefono, sueldo, _tipoEmpleado, _clave, _usuario);
 
             if (this.accion == "agregar")
             {
@@ -178,7 +275,7 @@ namespace MrTiendita.Controladores
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
+                Form mensajeError = new frmError("Ha ocurrido un error -> " + this.empleadoDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 

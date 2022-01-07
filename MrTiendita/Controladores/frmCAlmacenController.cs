@@ -34,20 +34,24 @@ namespace MrTiendita.Controladores
             this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
             this.vista.btn_Limpiar.Click += new EventHandler(btn_Limpiar_Click);
+
+            this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double dato2;
+                String mensajeError = "De ser un número entre 0 y 100 con máximo dos decimales.";
+                Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                    {ValidacionDatosOpciones.MAYOR_A, 0},
+                    {ValidacionDatosOpciones.MENOR_A, 100},
+                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out dato2, opciones2);
+            };
         }
 
         public void vista_Load(object sender, EventArgs e)
         {
             this.MostrarProductos();
             this.CargarProveedores();
-            this.vista.tb_busqueda.MaxLength = 100;
-            this.vista.tb_cantidad.MaxLength = 10;
-            this.vista.tb_codigo.MaxLength = 13;
-        }
-
-        private void cb_Proveedor_SelectedValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void tb_busqueda_TextChanged(object sender, EventArgs e)
@@ -68,7 +72,7 @@ namespace MrTiendita.Controladores
             this.vista.lbl_ErrorCodigo.Visible = false;
 
             //Comprueba que sea un numero long, no nulo y mayor a 0;
-            if (!ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { { ValidacionDatosOpciones.MAYOR_A, 0 } }))
+            if (!ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { { ValidacionDatosOpciones.MAYOR_A, 0 }, {ValidacionDatosOpciones.NUM_CARACTERES, 13} }))
             {
                 this.vista.lbl_ErrorCodigo.Text = "Solo se aceptan números";
                 this.vista.lbl_ErrorCodigo.Visible = true;
@@ -90,12 +94,6 @@ namespace MrTiendita.Controladores
             }
         }
 
-        //private void cb_Proveedor_SelectedItem(object sender, EventArgs e)
-        //{
-        //    String nombre = this.vista.cb_Proveedor.SelectedValue.ToString();
-        //    int id = this.listaProveedores[nombre];
-        //}
-
         private void btn_Limpiar_Click(object sender, EventArgs e)
         {
             this.vista.tb_codigo.Text = "";
@@ -108,22 +106,19 @@ namespace MrTiendita.Controladores
             String _cantidad = this.vista.tb_cantidad.Text;
             String nombreProveedor;
             double cantidad;
+            String mensaje = "De ser un número entre 0 y 100 con máximo dos decimales.";
+            Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.MENOR_A, 100},
+                {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            };
 
             //Combrobar que el codigo haya sido correcto y que la cantidad es numerica, no nula y mayor a 0
             if (this.vista.cb_Proveedor.SelectedIndex == -1 ||
                 this.prodcutoParaEntrada == null ||
-                !ValidacionDatos.Numero(_cantidad, out cantidad, new Dictionary<int, double>() {
-                    {ValidacionDatosOpciones.MAYOR_A, 0},
-                    {ValidacionDatosOpciones.MENOR_A, 100},
-                    {ValidacionDatosOpciones.NUM_DECIMALES, 3} }))
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensaje, this.vista.tb_cantidad.Text, out cantidad, opciones2))
             {
-                String mensaje = "Asegurese de haber escrito un código de barras válido y haber seleccionado un proveedor.";
-                if (ValidacionDatos.error)
-                {
-                    this.vista.tb_cantidad.BackColor = Color.Salmon;
-                    mensaje = ValidacionDatos.mensajes;
-                }
-                Form mensajeError = new frmError(mensaje);
+                Form mensajeError = new frmError("Asegurese de haber llenado todos los datos y que estén escritos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }

@@ -30,25 +30,50 @@ namespace MrTiendita.Controladores
             this.vista.btn_Cerrar.Click += new EventHandler(btn_Cerrar_Click);
             this.vista.FormClosing += new FormClosingEventHandler(frmInicio_FormClosing);
             this.principal.btn_CerrarSesion.Click += new EventHandler(btn_CerrarSesion_Click);
+
+            this.vista.tb_IDEmpleado.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 50 caracteres.";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeError, this.vista.tb_IDEmpleado.Text, opciones2);
+            };
+
+            this.vista.tb_claveEmpleado.TextChanged += delegate (object sender, EventArgs e)
+            {
+                String mensajeError = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
+                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                {
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
+                };
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_claveEmpleado.Text, opciones2, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
+            };
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text;
-            
+            String mensajeErrorUsuario = "Texto de entre 5 a 50 caracteres.";
+            String mensajeErrorClave = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
+
 
             Dictionary<int, int> opcionesUsuario = new Dictionary<int, int>() {
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
             };
             Dictionary<int, int> opcionesClave = new Dictionary<int, int>() {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 8},
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
             };
 
-            if (!ValidacionDatos.Cadena(usuario, opcionesUsuario) || !ValidacionDatos.Cadena(clave, opcionesClave, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeErrorUsuario, usuario, opcionesUsuario) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeErrorClave, clave, opcionesClave, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
             {
-                Form mensajeError = new frmError(ValidacionDatos.mensajes);
+                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
