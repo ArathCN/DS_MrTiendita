@@ -32,5 +32,32 @@ namespace MrTiendita.Vistas
             tablaVentas.Columns[3].Width = 365;//Descripcion
             tablaVentas.Columns[4].Width = 140;//Precio
         }
+
+        private void frmCVentas_Load(object sender, EventArgs e)
+        {
+            tb_cantidad.MaxLength = 10;
+            tb_codigo.MaxLength = 13;
+            
+        }
+
+        private void tb_codigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_cantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_aceptar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

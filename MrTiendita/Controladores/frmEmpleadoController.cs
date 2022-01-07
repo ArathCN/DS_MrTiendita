@@ -33,6 +33,12 @@ namespace MrTiendita.Controladores
 
         private void vista_Load(object sender, EventArgs e)
         {
+            this.vista.tb_nombre.MaxLength = 100;
+            this.vista.tb_apPaterno.MaxLength = 60;
+            this.vista.tb_apMaterno.MaxLength = 60;
+            this.vista.tb_telefono.MaxLength = 10;
+            this.vista.tb_sueldo.MaxLength = 13;
+            this.vista.tb_idEmpleado.MaxLength = 100;
             this.vista.tb_clave.MaxLength = 20;
             this.vista.tb_clave.Enabled = true;
             if (this.accion == "editar")

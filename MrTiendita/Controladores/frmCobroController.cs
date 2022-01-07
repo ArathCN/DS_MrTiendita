@@ -42,6 +42,12 @@ namespace MrTiendita.Controladores
             this.vista.cb_metodoPago.SelectedIndexChanged += new EventHandler(cb_metodoPago_SelectedIndexChanged);
             this.vista.tb_efectivo.TextChanged += new EventHandler(tb_efectivo_textChanged);
             this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
+            this.vista.Load += new EventHandler(vista_Load);
+        }
+
+        public void vista_Load(object sender, EventArgs e)
+        {
+            this.vista.tb_efectivo.MaxLength = 10;
         }
 
         private void cb_metodoPago_SelectedIndexChanged(object sender, EventArgs e)

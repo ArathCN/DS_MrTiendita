@@ -29,6 +29,9 @@ namespace MrTiendita.Controladores
         }
         private void vista_Load(object sender, EventArgs e)
         {
+            this.vista.tb_nombre.MaxLength = 60;
+            this.vista.tb_telefono.MaxLength = 10;
+
             if (this.accion == "editar")
             {
                 Proveedor proveedor = this.proveedorDAO.readById(this.id);

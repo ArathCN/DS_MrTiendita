@@ -40,6 +40,9 @@ namespace MrTiendita.Controladores
         {
             this.MostrarProductos();
             this.CargarProveedores();
+            this.vista.tb_busqueda.MaxLength = 100;
+            this.vista.tb_cantidad.MaxLength = 10;
+            this.vista.tb_codigo.MaxLength = 13;
         }
 
         private void cb_Proveedor_SelectedValueChanged(object sender, EventArgs e)
@@ -67,7 +70,7 @@ namespace MrTiendita.Controladores
             //Comprueba que sea un numero long, no nulo y mayor a 0;
             if (!ValidacionDatos.Numero(_codigoBarra, out codigoBarra, new Dictionary<int, long>() { { ValidacionDatosOpciones.MAYOR_A, 0 } }))
             {
-                this.vista.lbl_ErrorCodigo.Text = "El formato es incorrecto";
+                this.vista.lbl_ErrorCodigo.Text = "Solo se aceptan números";
                 this.vista.lbl_ErrorCodigo.Visible = true;
                 this.prodcutoParaEntrada = null;
                 return;
@@ -124,7 +127,8 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
                 return;
             }
-            nombreProveedor = this.vista.cb_Proveedor.SelectedValue.ToString() ;
+
+            nombreProveedor = this.vista.cb_Proveedor.SelectedItem.ToString();
 
             //comprobar que cantidad coincida con la medida del producto
             var parteDecimal = cantidad - Math.Truncate(cantidad);
@@ -159,6 +163,8 @@ namespace MrTiendita.Controladores
                 Form mensajeExito = new frmExito("Se ha hecho la entrada con éxito.");
                 mensajeExito.ShowDialog();
                 this.MostrarProductos();
+                this.vista.lbl_ErrorCantidad.Visible = false;
+                this.vista.lbl_ErrorCodigo.Visible = false;
             }
             else if (this.entradaAlmacenDAO.ErrorUltimaConsulta)
             {

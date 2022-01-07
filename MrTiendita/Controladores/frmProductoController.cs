@@ -34,6 +34,12 @@ namespace MrTiendita.Controladores
 
         private void vista_Load(object sender, EventArgs e)
         {
+            this.vista.tb_cantidad.MaxLength = 10;
+            this.vista.tb_codigo.MaxLength = 13;
+            this.vista.tb_descripcion.MaxLength = 120;
+            this.vista.tb_precioCompra.MaxLength = 13;
+            this.vista.tb_precioVenta.MaxLength = 13;
+
             if (this.accion == "editar")
             {
                 Producto producto =  this.productoDAO.readById(this.id);

@@ -41,6 +41,8 @@ namespace MrTiendita.Controladores
 
         private void vista_load(object sender, EventArgs e)
         {
+            this.vista.tb_cantidad.MaxLength = 10;
+            this.vista.tb_codigo.MaxLength = 13;
             this.listaProductos = new Dictionary<string, long>();
             List<Producto> productos = this.productoDAO.readAll();
             List<String> nombreProductos = new List<string>();
@@ -122,7 +124,6 @@ namespace MrTiendita.Controladores
             //si está vacio
             if (String.IsNullOrEmpty(_codigoBarra))
             {
-                this.vista.tb_codigo.BackColor = Color.Salmon;
                 this.producto = null;
                 return;
             }
@@ -130,7 +131,6 @@ namespace MrTiendita.Controladores
             //si no es un codigo valido
             if (!Int64.TryParse(_codigoBarra, out codigoBarra))
             {
-                this.vista.tb_codigo.BackColor = Color.Salmon;
                 this.producto = null;
                 return;
             }
@@ -146,6 +146,7 @@ namespace MrTiendita.Controladores
                 this.vista.tb_codigo.BackColor = Color.Salmon;
                 this.producto = null;
             }
+            MessageBox.Show($"{this.vista.tb_codigo.MaxLength}");
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)

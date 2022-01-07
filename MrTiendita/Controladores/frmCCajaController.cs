@@ -33,7 +33,8 @@ namespace MrTiendita.Controladores
         {
             this.mostrarMovimientos();
             this.obtenerValorCaja();
-
+            this.vista.tb_concepto.MaxLength = 100;
+            this.vista.tb_importe.MaxLength = 10;
         }
 
         private void cb_tipoMov2_SelectedIndexChanged(object sender, EventArgs e)

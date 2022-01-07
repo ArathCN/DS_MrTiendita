@@ -44,6 +44,7 @@ namespace MrTiendita.Controladores
         private void vista_Load(object sender, EventArgs e)
         {
             this.mostrarTodos();
+            this.vista.tb_busqueda.MaxLength = 100;
         }
 
         private void tb_busqueda_TextChanged(object sender, EventArgs e)
