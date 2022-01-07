@@ -38,7 +38,8 @@ namespace MrTiendita.Controladores
             this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
             {
                 double dato2;
-                String mensajeError = "De ser un número entre 0 y 100 con máximo dos decimales.";
+                //String mensajeError = "De ser un número entre 0 y 100 con máximo dos decimales.";
+                String mensajeError = "Debe de ser un número de 0-100 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 100},
@@ -106,7 +107,7 @@ namespace MrTiendita.Controladores
             String _cantidad = this.vista.tb_cantidad.Text;
             String nombreProveedor;
             double cantidad;
-            String mensaje = "De ser un número entre 0 y 100 con máximo dos decimales.";
+            String mensaje = "Debe de ser un número de 0-100 con máximo dos decimales.";
             Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
                 {ValidacionDatosOpciones.MAYOR_A, 0},
                 {ValidacionDatosOpciones.MENOR_A, 100},

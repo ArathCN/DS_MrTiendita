@@ -31,7 +31,9 @@ namespace MrTiendita.Controladores
             this.vista.tb_importe.TextChanged += delegate (object sender, EventArgs e)
             {
                 double dato2;
-                String mensajeError = "De ser un número entre 1 y 10,000 con máximo dos decimales.";
+                // Debe de ser un número de 0 - 100 con 2 decimales
+                //String mensajeError = "De ser un número entre 1 y 10,000 con máximo dos decimales.";
+                String mensajeError = "De ser un número de 1-10,000 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>()
                 { 
                     {ValidacionDatosOpciones.MAYOR_A, 0},
@@ -43,7 +45,7 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_concepto.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Texto de 5 a 100 caracteres.";
+                String mensajeError = "Al menos 5 caracteres";
                 Dictionary<int, int> opciones = new Dictionary<int, int>()
                 {
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
@@ -106,8 +108,8 @@ namespace MrTiendita.Controladores
             String concepto = this.vista.tb_concepto.Text;
             int _tipo = this.vista.cb_tipoMov.SelectedIndex; //0 -> entrada   1->salida
             String tipo = "";
-            String mensajeErrorImporte = "De ser un número entre 1 y 10,000 con máximo dos decimales.";
-            String mensajeErrorDesc = "Texto de 5 a 100 caracteres.";
+            String mensajeErrorImporte = "De ser un número de 1-10,000 con máximo dos decimales.";
+            String mensajeErrorDesc = "Al menos 5 caracteres.";
             double importe, dinero = 0;
             bool res = false;
 

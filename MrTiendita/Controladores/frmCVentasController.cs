@@ -41,7 +41,7 @@ namespace MrTiendita.Controladores
             this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
             {
                 double dato2;
-                String mensajeError = "De ser un número entre 1 y 1000 con máximo dos decimales.";
+                String mensajeError = "Inserta un número de 1-1000 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 1001},
@@ -129,7 +129,7 @@ namespace MrTiendita.Controladores
         private void tb_codigo_TextChanged(object sender, EventArgs e)
         {
             long codigoBarra;
-            String mensajeError = "Debe ser un número de 13 dígitos mayor a 0 sin decimales.";
+            String mensajeError = "Debe ser un número de 13 dígitos.";
             Dictionary<int, long> opciones2 = new Dictionary<int, long>()
             {
                 {ValidacionDatosOpciones.MAYOR_A, 0},
@@ -139,7 +139,6 @@ namespace MrTiendita.Controladores
             if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, opciones2))
             {
                 this.producto = null;
-                this.vista.tb_codigo.BackColor = Color.Salmon;
                 return;
             }
             
@@ -147,13 +146,11 @@ namespace MrTiendita.Controladores
             this.producto = this.productoDAO.readById(codigoBarra);
             if (this.producto != null)
             {
-                this.vista.tb_codigo.BackColor = Color.White;
                 this.vista.lbl_ErrorCodigo.Visible = false;
             }
             else
             {
-                this.vista.tb_codigo.BackColor = Color.Salmon;
-                this.vista.lbl_ErrorCodigo.Text = "No se encuentra ningun producto con el código de barras especificado.";
+                this.vista.lbl_ErrorCodigo.Text = "No hay un producto con ese código de barras.";
                 this.vista.lbl_ErrorCodigo.Visible = true;
             }
         }
@@ -162,7 +159,7 @@ namespace MrTiendita.Controladores
         {
             String _cantidad = this.vista.tb_cantidad.Text;
             double cantidad;
-            String mensajeErrorCantidad = "De ser un número entre 1 y 1000 con máximo dos decimales.";
+            String mensajeErrorCantidad = "Debe ser un número de 1-1000 con máximo dos decimales.";
             Dictionary<int, double> opciones = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 1001},

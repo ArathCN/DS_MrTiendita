@@ -27,13 +27,13 @@ namespace MrTiendita.Vistas
 
         public void widthColumnas()
         {
-            tablaEmpleados.Columns[0].Width = 65;
-            tablaEmpleados.Columns[1].Width = 120;
-            tablaEmpleados.Columns[2].Width = 90;
-            tablaEmpleados.Columns[3].Width = 90;
+            tablaEmpleados.Columns[0].Width = 100;
+            tablaEmpleados.Columns[1].Width = 100;
+            tablaEmpleados.Columns[2].Width = 110;
+            tablaEmpleados.Columns[3].Width = 110;
             tablaEmpleados.Columns[4].Width = 95;
-            tablaEmpleados.Columns[5].Width = 85;
-            tablaEmpleados.Columns[6].Width = 95;
+            tablaEmpleados.Columns[5].Width = 80;
+            tablaEmpleados.Columns[6].Width = 85;
         }
     }
 }
