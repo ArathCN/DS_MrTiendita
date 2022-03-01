@@ -13,13 +13,15 @@ namespace CrearTicketVenta
     {
         //Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket
         StringBuilder linea = new StringBuilder();
+
         //Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket.
-        int maxCar = 40, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
+        private readonly int maxCar = 40;
+        private int cortar;
 
         public StringBuilder Linea { get => linea; set => linea = value; }
 
         //Creamos el primer metodo, este dibujara lineas guion.
-        public string lineasGuio()
+        public string LineasGuion()
         {
             string lineasGuion = "";
             for (int i = 0; i < maxCar; i++)
@@ -30,7 +32,7 @@ namespace CrearTicketVenta
         }
 
         //Metodo para dibujar una linea con asteriscos
-        public string lineasAsteriscos()
+        public string LineasAsteriscos()
         {
             string lineasAsterisco = "";
             for (int i = 0; i < maxCar; i++)
@@ -41,7 +43,7 @@ namespace CrearTicketVenta
         }
 
         //Realizamos el mismo procedimiento para dibujar una lineas con el signo igual
-        public string lineasIgual()
+        public string LineasIgual()
         {
             string lineasIgual = "";
             for (int i = 0; i < maxCar; i++)
@@ -230,7 +232,7 @@ namespace CrearTicketVenta
             if (cant.ToString().Length <= 5 && precio.ToString().Length <= 7 && importe.ToString().Length <= 8)
             {
                 string elemento = "", espacios = "";
-                bool bandera = false;//Indicara si es la primera linea que se escribe cuando bajemos a la segunda si el nombre del articulo no entra en la primera linea
+                bool primeraLinea = false;//Indicara si es la primera linea que se escribe cuando bajemos a la segunda si el nombre del articulo no entra en la primera linea
                 int nroEspacios = 0;
 
                 //Si el nombre o descripcion del articulo es mayor a 20, bajar a la siguiente linea
@@ -269,11 +271,11 @@ namespace CrearTicketVenta
                     //Por cada 20 caracteres se agregara una linea siguiente
                     for (int longitudTexto = articulo.Length; longitudTexto > 20; longitudTexto -= 20)
                     {
-                        if (bandera == false)//si es false o la primera linea en recorrerer, continuar...
+                        if (primeraLinea == false)//si es false o la primera linea en recorrerer, continuar...
                         {
                             //agregamos los primeros 20 caracteres del nombre del articulos, mas lo que ya tiene la variable elemento
                             Linea.AppendLine(articulo.Substring(caracterActual, 20) + elemento);
-                            bandera = true;//cambiamos su valor a verdadero
+                            primeraLinea = true;//cambiamos su valor a verdadero
                         }
                         else
                             Linea.AppendLine(articulo.Substring(caracterActual, 20));//Solo agrega el nombre del articulo
@@ -325,7 +327,7 @@ namespace CrearTicketVenta
             else
             {
                 Linea.AppendLine("Los valores ingresados para esta fila");
-                Linea.AppendLine("superan las columnas soportdas por éste.");
+                Linea.AppendLine("superan las columnas soportadas por este.");
                 throw new Exception("Los valores ingresados para algunas filas del ticket\nsuperan las columnas soportdas por éste.");
             }
         }

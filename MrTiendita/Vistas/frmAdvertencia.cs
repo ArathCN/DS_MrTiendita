@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmAdvertencia : Form
+    public partial class FrmAdvertencia : Form
     {
-        public frmAdvertencia(string mensaje)
+        public FrmAdvertencia(string mensaje)
         {
             InitializeComponent();
-            sombra.SetShadowForm(this);
+            sha_Sombra.SetShadowForm(this);
             lbl_Mensaje.Text = mensaje;
         }
 
-        private void btn_Si_Click(object sender, EventArgs e)
+        private void Btn_Si_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
 
-        private void btn_No_Click(object sender, EventArgs e)
+        private void Btn_No_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }

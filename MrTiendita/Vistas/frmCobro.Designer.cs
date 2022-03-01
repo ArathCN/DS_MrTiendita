@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmCobro
+    partial class FrmCobro
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCobro));
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();

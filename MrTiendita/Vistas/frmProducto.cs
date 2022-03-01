@@ -11,9 +11,9 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmProducto : Form
+    public partial class FrmProducto : Form
     {
-        public frmProducto(string accion, long id)
+        public FrmProducto(string accion, long id)
         {
             InitializeComponent();
             sombra.SetShadowForm(this);
@@ -25,7 +25,7 @@ namespace MrTiendita.Vistas
             {
                 lbl_Titulo.Text = "Actualizar producto";
             }
-            frmProductoController controlador = new frmProductoController(this, accion, id);
+            FrmProductoController controlador = new FrmProductoController(this, accion, id);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

@@ -11,15 +11,15 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmCVentas : Form
+    public partial class FrmCVentas : Form
     {
-        public frmCVentas()
+        public FrmCVentas()
         {
             InitializeComponent();
             widthColumnas();
             tablaVentas.AllowUserToAddRows = false;
             tablaVentas.CurrentCell = null;
-            frmCVentasController controller = new frmCVentasController(this);
+            FrmCVentasController controller = new FrmCVentasController(this);
 
 
         }

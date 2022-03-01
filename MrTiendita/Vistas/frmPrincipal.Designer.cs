@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmPrincipal
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.pnl_MenuLateral = new Guna.UI.WinForms.GunaElipsePanel();
             this.pnl_CerrarSesion = new System.Windows.Forms.Panel();
             this.btn_CerrarSesion = new Guna.UI2.WinForms.Guna2Button();
@@ -162,7 +162,7 @@ namespace MrTiendita.Vistas
             this.btn_EReportes.Text = "Reportes";
             this.btn_EReportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EReportes.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_EReportes.Click += new System.EventHandler(this.btn_EReportes_Click);
+            this.btn_EReportes.Click += new System.EventHandler(this.Btn_EReportes_Click);
             // 
             // btn_ECaja
             // 
@@ -191,7 +191,7 @@ namespace MrTiendita.Vistas
             this.btn_ECaja.Text = "Caja";
             this.btn_ECaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_ECaja.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_ECaja.Click += new System.EventHandler(this.btn_ECaja_Click);
+            this.btn_ECaja.Click += new System.EventHandler(this.Btn_ECaja_Click);
             // 
             // btn_EEmpleados
             // 
@@ -220,7 +220,7 @@ namespace MrTiendita.Vistas
             this.btn_EEmpleados.Text = "Empleados";
             this.btn_EEmpleados.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EEmpleados.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_EEmpleados.Click += new System.EventHandler(this.btn_EEmpleados_Click);
+            this.btn_EEmpleados.Click += new System.EventHandler(this.Btn_EEmpleados_Click);
             // 
             // btn_EProveedores
             // 
@@ -249,7 +249,7 @@ namespace MrTiendita.Vistas
             this.btn_EProveedores.Text = "Proveedores";
             this.btn_EProveedores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EProveedores.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_EProveedores.Click += new System.EventHandler(this.btn_EProveedores_Click);
+            this.btn_EProveedores.Click += new System.EventHandler(this.Btn_EProveedores_Click);
             // 
             // btn_EAlmacen
             // 
@@ -278,7 +278,7 @@ namespace MrTiendita.Vistas
             this.btn_EAlmacen.Text = "Almacén";
             this.btn_EAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_EAlmacen.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_EAlmacen.Click += new System.EventHandler(this.btn_EAlmacen_Click);
+            this.btn_EAlmacen.Click += new System.EventHandler(this.Btn_EAlmacen_Click);
             // 
             // pnl_Encargado
             // 
@@ -317,7 +317,7 @@ namespace MrTiendita.Vistas
             this.btn_Encargado.Text = "Encargado";
             this.btn_Encargado.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Encargado.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_Encargado.Click += new System.EventHandler(this.btn_Encargado_Click);
+            this.btn_Encargado.Click += new System.EventHandler(this.Btn_Encargado_Click);
             // 
             // pnl_OpCajero
             // 
@@ -358,7 +358,7 @@ namespace MrTiendita.Vistas
             this.btn_CCaja.Text = "Caja";
             this.btn_CCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CCaja.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_CCaja.Click += new System.EventHandler(this.btn_CCaja_Click);
+            this.btn_CCaja.Click += new System.EventHandler(this.Btn_CCaja_Click);
             // 
             // btn_CAlmacen
             // 
@@ -387,7 +387,7 @@ namespace MrTiendita.Vistas
             this.btn_CAlmacen.Text = "Almacén";
             this.btn_CAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CAlmacen.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_CAlmacen.Click += new System.EventHandler(this.btn_CAlmacen_Click);
+            this.btn_CAlmacen.Click += new System.EventHandler(this.Btn_CAlmacen_Click);
             // 
             // btn_CVentas
             // 
@@ -416,7 +416,7 @@ namespace MrTiendita.Vistas
             this.btn_CVentas.Text = "Ventas";
             this.btn_CVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CVentas.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_CVentas.Click += new System.EventHandler(this.btn_CVentas_Click);
+            this.btn_CVentas.Click += new System.EventHandler(this.Btn_CVentas_Click);
             // 
             // pnl_Cajero
             // 
@@ -455,7 +455,7 @@ namespace MrTiendita.Vistas
             this.btn_Cajero.Text = "Cajero";
             this.btn_Cajero.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Cajero.TextOffset = new System.Drawing.Point(25, 0);
-            this.btn_Cajero.Click += new System.EventHandler(this.btn_Cajero_Click);
+            this.btn_Cajero.Click += new System.EventHandler(this.Btn_Cajero_Click);
             // 
             // pnl_Logo
             // 
@@ -508,7 +508,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.PressedState.Parent = this.btn_Cerrar;
             this.btn_Cerrar.Size = new System.Drawing.Size(39, 36);
             this.btn_Cerrar.TabIndex = 4;
-            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
+            this.btn_Cerrar.Click += new System.EventHandler(this.Btn_Cerrar_Click);
             // 
             // pnl_Foot
             // 
@@ -552,7 +552,7 @@ namespace MrTiendita.Vistas
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal2";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.pnl_MenuLateral.ResumeLayout(false);
             this.pnl_CerrarSesion.ResumeLayout(false);
             this.pnl_OpEncargado.ResumeLayout(false);

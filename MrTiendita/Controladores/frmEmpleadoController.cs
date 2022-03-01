@@ -13,15 +13,15 @@ using BCrypt.Net;
 
 namespace MrTiendita.Controladores
 {
-    class frmEmpleadoController
+    class FrmEmpleadoController
     {
-        private frmEditarEmpleado vista;
+        private FrmEditarEmpleado vista;
         private String accion;
         private int id;
         private EmpleadoDAO empleadoDAO;
         private Empleado empleado;
 
-        public frmEmpleadoController(frmEditarEmpleado vista, String accion, int id)
+        public FrmEmpleadoController(FrmEditarEmpleado vista, String accion, int id)
         {
             this.vista = vista;
             this.id = id;
@@ -222,7 +222,7 @@ namespace MrTiendita.Controladores
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, "", _clave, opClave, patron: pat)
                 )
             {
-                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
+                Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -253,12 +253,12 @@ namespace MrTiendita.Controladores
             bool res = this.empleadoDAO.Create(empleado);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha creado el empleado con éxito.");
+                Form mensajeExito = new FrmExito("Se ha creado el empleado con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error -> " + this.empleadoDAO.MensajeError);
+                Form mensajeError = new FrmError("Ha ocurrido un error -> " + this.empleadoDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 
@@ -270,12 +270,12 @@ namespace MrTiendita.Controladores
             bool res = this.empleadoDAO.updateInfo(empleado, this.id);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha actualizado el empleado con éxito.");
+                Form mensajeExito = new FrmExito("Se ha actualizado el empleado con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error -> " + this.empleadoDAO.MensajeError);
+                Form mensajeError = new FrmError("Ha ocurrido un error -> " + this.empleadoDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 

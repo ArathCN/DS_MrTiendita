@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmError
+    partial class FrmError
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmError));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmError));
             this.lbl_Mensaje = new System.Windows.Forms.Label();
             this.btn_No = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();

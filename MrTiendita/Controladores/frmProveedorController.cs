@@ -12,13 +12,13 @@ using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {
-    public class frmProveedorController
+    public class FrmProveedorController
     {
-        private frmEditarProveedor vista;
+        private FrmEditarProveedor vista;
         private String accion;
         private int id;
         private ProveedorDAO proveedorDAO;
-        public frmProveedorController(frmEditarProveedor vista, String accion, int id)
+        public FrmProveedorController(FrmEditarProveedor vista, String accion, int id)
         {
             this.vista = vista;
             this.id = id;
@@ -81,7 +81,7 @@ namespace MrTiendita.Controladores
             if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, "", _telefono, out telefono, opTel) ||
             !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, "", _nombre, opNom))
             {
-                Form mensajeError = new frmError("Llene todos los datos datos correctamente.");
+                Form mensajeError = new FrmError("Llene todos los datos datos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -108,12 +108,12 @@ namespace MrTiendita.Controladores
             bool res = this.proveedorDAO.create(proveedor);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha hecho el proveedor con éxito.");
+                Form mensajeExito = new FrmExito("Se ha hecho el proveedor con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError("Ha ocurrido un error.");
                 mensajeError.ShowDialog();
             }
 
@@ -125,12 +125,12 @@ namespace MrTiendita.Controladores
             bool res = this.proveedorDAO.updateInfo(proveedor, this.id);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha actualizado el proveedor con éxito.");
+                Form mensajeExito = new FrmExito("Se ha actualizado el proveedor con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError("Ha ocurrido un error.");
                 mensajeError.ShowDialog();
             }
 

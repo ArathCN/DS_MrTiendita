@@ -11,10 +11,10 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmREntradas : Form
+    public partial class FrmREntradas : Form
     {
-        public frmREntradasController controller;
-        public frmREntradas()
+        public FrmREntradasController controller;
+        public FrmREntradas()
         {
             InitializeComponent();
             //tablaEntradas.Rows.Add("1", "Distribiudora Bimbo", "27/10/2021", "661440000953", "20", "20.50", "25.00","410.00");
@@ -22,7 +22,7 @@ namespace MrTiendita.Vistas
             widthColumnas();
             tablaEntradas.AllowUserToAddRows = false;
             tablaEntradas.CurrentCell = null;
-            controller = new frmREntradasController(this);
+            controller = new FrmREntradasController(this);
         }
 
         public void widthColumnas()

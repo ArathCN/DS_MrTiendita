@@ -9,83 +9,83 @@ namespace MrTiendita.Componentes
 {
     static public class ValidacionFormulario
     {
-        static public bool Validar(Label lbl, String mensaje, String dato, out double dato_double, Dictionary<int, double> opciones = null)
+        static public bool Validar(Label etiqueta, String mensaje, String dato, out double dato_double, Dictionary<int, double> opciones = null)
         {
-            bool res = false;
+            bool EsValido = false;
             if (opciones != null)
                 if (!ValidacionDatos.Numero(dato, out dato_double, opciones)) {
-                    lbl.Text = mensaje;
-                    lbl.Visible = true;
+                    etiqueta.Text = mensaje;
+                    etiqueta.Visible = true;
                 }
                 else
                 {
-                    lbl.Text = "";
-                    lbl.Visible = false;
-                    res = true;
+                    etiqueta.Text = "";
+                    etiqueta.Visible = false;
+                    EsValido = true;
                 }
             else
                 if (!ValidacionDatos.Numero(dato, out dato_double))
                 {
-                    lbl.Text = mensaje;
-                    lbl.Visible = true;
+                    etiqueta.Text = mensaje;
+                    etiqueta.Visible = true;
                 }
                 else {
-                    lbl.Text = "";
-                    lbl.Visible = false;
-                    res = true;
+                    etiqueta.Text = "";
+                    etiqueta.Visible = false;
+                    EsValido = true;
                 } 
 
-            return res;
+            return EsValido;
         }
 
-        static public bool Validar(Label lbl, String mensaje, String dato, out long dato_double, Dictionary<int, long> opciones = null)
+        static public bool Validar(Label etiqueta, String mensaje, String dato, out long dato_double, Dictionary<int, long> opciones = null)
         {
-            bool res = false;
+            bool EsValido = false;
             if (opciones != null)
                 if (!ValidacionDatos.Numero(dato, out dato_double, opciones))
                 {
-                    lbl.Text = mensaje;
-                    lbl.Visible = true;
+                    etiqueta.Text = mensaje;
+                    etiqueta.Visible = true;
                 }
                 else
                 {
-                    lbl.Text = "";
-                    lbl.Visible = false;
-                    res = true;
+                    etiqueta.Text = "";
+                    etiqueta.Visible = false;
+                    EsValido = true;
                 }
             else
                 if (!ValidacionDatos.Numero(dato, out dato_double))
             {
-                lbl.Text = mensaje;
-                lbl.Visible = true;
+                etiqueta.Text = mensaje;
+                etiqueta.Visible = true;
             }
             else
             {
-                lbl.Text = "";
-                lbl.Visible = false;
-                res = true;
+                etiqueta.Text = "";
+                etiqueta.Visible = false;
+                EsValido = true;
             }
 
-            return res;
+            return EsValido;
         }
 
-        static public bool Validar(Label lbl, String mensaje, String dato, Dictionary<int, int> opciones = null, String patron = null)
+        static public bool Validar(Label etiqueta, String mensaje, String dato, Dictionary<int, int> opciones = null, String patron = null)
         {
-            bool res = false;
+            bool EsValido = false;
             if (patron == null) patron = "";
             if (!ValidacionDatos.Cadena(dato, opciones, patron))
             {
-                lbl.Text = mensaje;
-                lbl.Visible = true;
+                etiqueta.Text = mensaje;
+                etiqueta.Visible = true;
             }
             else
             {
-                lbl.Text = "";
-                lbl.Visible = false;
-                res = true;
+                etiqueta.Text = "";
+                etiqueta.Visible = false;
+                EsValido = true;
             }
 
-            return res;
+            return EsValido;
         }
     }
 }

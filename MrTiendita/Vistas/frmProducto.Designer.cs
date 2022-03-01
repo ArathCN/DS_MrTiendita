@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmProducto
+    partial class FrmProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();

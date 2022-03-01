@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmAdvertencia
+    partial class FrmAdvertencia
     {
         /// <summary>
         /// Required designer variable.
@@ -30,28 +30,28 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdvertencia));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdvertencia));
+            this.pb_Icono = new System.Windows.Forms.PictureBox();
             this.lbl_Mensaje = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Confirmacion = new System.Windows.Forms.Label();
             this.btn_Si = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_No = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.eli_Borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.pan_Superior = new System.Windows.Forms.Panel();
+            this.sha_Sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Icono)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pb_Icono
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(119, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pb_Icono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
+            this.pb_Icono.Image = ((System.Drawing.Image)(resources.GetObject("pb_Icono.Image")));
+            this.pb_Icono.Location = new System.Drawing.Point(119, 27);
+            this.pb_Icono.Name = "pb_Icono";
+            this.pb_Icono.Size = new System.Drawing.Size(102, 90);
+            this.pb_Icono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Icono.TabIndex = 0;
+            this.pb_Icono.TabStop = false;
             // 
             // lbl_Mensaje
             // 
@@ -65,17 +65,17 @@ namespace MrTiendita.Vistas
             this.lbl_Mensaje.Text = "Mensaje";
             this.lbl_Mensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lbl_Confirmacion
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Roboto Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.label1.Location = new System.Drawing.Point(12, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 67);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "¿Está seguro que quiere realizar esta acción?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Confirmacion.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Confirmacion.Font = new System.Drawing.Font("Roboto Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Confirmacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.lbl_Confirmacion.Location = new System.Drawing.Point(12, 231);
+            this.lbl_Confirmacion.Name = "lbl_Confirmacion";
+            this.lbl_Confirmacion.Size = new System.Drawing.Size(306, 67);
+            this.lbl_Confirmacion.TabIndex = 7;
+            this.lbl_Confirmacion.Text = "¿Está seguro que quiere realizar esta acción?";
+            this.lbl_Confirmacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_Si
             // 
@@ -112,7 +112,7 @@ namespace MrTiendita.Vistas
             this.btn_Si.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_Si.Textcolor = System.Drawing.Color.White;
             this.btn_Si.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Si.Click += new System.EventHandler(this.btn_Si_Click);
+            this.btn_Si.Click += new System.EventHandler(this.Btn_Si_Click);
             // 
             // btn_No
             // 
@@ -149,20 +149,20 @@ namespace MrTiendita.Vistas
             this.btn_No.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_No.Textcolor = System.Drawing.Color.White;
             this.btn_No.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_No.Click += new System.EventHandler(this.btn_No_Click);
+            this.btn_No.Click += new System.EventHandler(this.Btn_No_Click);
             // 
-            // borde
+            // eli_Borde
             // 
-            this.borde.BorderRadius = 10;
-            this.borde.TargetControl = this;
+            this.eli_Borde.BorderRadius = 10;
+            this.eli_Borde.TargetControl = this;
             // 
-            // panel1
+            // pan_Superior
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 160);
-            this.panel1.TabIndex = 10;
+            this.pan_Superior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
+            this.pan_Superior.Location = new System.Drawing.Point(0, 0);
+            this.pan_Superior.Name = "pan_Superior";
+            this.pan_Superior.Size = new System.Drawing.Size(335, 160);
+            this.pan_Superior.TabIndex = 10;
             // 
             // frmAdvertencia
             // 
@@ -173,29 +173,29 @@ namespace MrTiendita.Vistas
             this.ClientSize = new System.Drawing.Size(335, 403);
             this.Controls.Add(this.btn_No);
             this.Controls.Add(this.btn_Si);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_Confirmacion);
             this.Controls.Add(this.lbl_Mensaje);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pb_Icono);
+            this.Controls.Add(this.pan_Superior);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAdvertencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdvertencia";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Icono)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_Icono;
         private System.Windows.Forms.Label lbl_Mensaje;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_Confirmacion;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Si;
         private Bunifu.Framework.UI.BunifuFlatButton btn_No;
-        private Guna.UI2.WinForms.Guna2Elipse borde;
-        private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2ShadowForm sombra;
+        private Guna.UI2.WinForms.Guna2Elipse eli_Borde;
+        private System.Windows.Forms.Panel pan_Superior;
+        private Guna.UI2.WinForms.Guna2ShadowForm sha_Sombra;
     }
 }

@@ -10,12 +10,12 @@ namespace MrTiendita.Componentes
 {
     public static class ValidacionDatos
     {
-        public static bool error = false;
+        public static bool EsValido = false;
         public static String mensajes = "";
 
         public static bool NoVacio(String dato)
         {
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             if (!String.IsNullOrEmpty(dato)) return true;
             else
@@ -42,7 +42,7 @@ namespace MrTiendita.Componentes
                     if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                     {
                         ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " + opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
-                        ValidacionDatos.error = true;
+                        ValidacionDatos.EsValido = true;
                         return false;
                     }
                 }
@@ -52,7 +52,7 @@ namespace MrTiendita.Componentes
                     if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
                     {
                         ValidacionDatos.mensajes = "Número de caracteres maximo superado:" + opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
-                        ValidacionDatos.error = true;
+                        ValidacionDatos.EsValido = true;
                         return false;
                     }
                 }
@@ -63,7 +63,7 @@ namespace MrTiendita.Componentes
                 if(!Regex.Match(dato, patron, RegexOptions.IgnoreCase).Success)
                 {
                     ValidacionDatos.mensajes = "La cadena";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -82,11 +82,11 @@ namespace MrTiendita.Componentes
             if (!Int64.TryParse(dato, out long_dato))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.error = true;
+                ValidacionDatos.EsValido = true;
                 return false;
             }
 
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             dato_long = long_dato;
             return true;
@@ -103,7 +103,7 @@ namespace MrTiendita.Componentes
             if (!Int64.TryParse(dato, out long_dato))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.error = true;
+                ValidacionDatos.EsValido = true;
                 return false;
             }
 
@@ -112,7 +112,7 @@ namespace MrTiendita.Componentes
                 if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " + opciones[ValidacionDatosOpciones.NUM_CARACTERES];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -122,7 +122,7 @@ namespace MrTiendita.Componentes
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -132,7 +132,7 @@ namespace MrTiendita.Componentes
                 if (long_dato <= opciones[ValidacionDatosOpciones.MAYOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato no mayor al número minimo especificado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -142,7 +142,7 @@ namespace MrTiendita.Componentes
                 if (long_dato < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -152,7 +152,7 @@ namespace MrTiendita.Componentes
                 if (long_dato >= opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -162,12 +162,12 @@ namespace MrTiendita.Componentes
                 if (long_dato > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
 
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             dato_long = long_dato;
             return true;
@@ -185,11 +185,11 @@ namespace MrTiendita.Componentes
             if (!Double.TryParse(dato, out double_dato))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.error = true;
+                ValidacionDatos.EsValido = true;
                 return false;
             }
 
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             dato_double = double_dato;
             return true;
@@ -207,7 +207,7 @@ namespace MrTiendita.Componentes
             if (!Double.TryParse(dato, out double_dato))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.error = true;
+                ValidacionDatos.EsValido = true;
                 return false;
             }
 
@@ -216,7 +216,7 @@ namespace MrTiendita.Componentes
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -225,7 +225,7 @@ namespace MrTiendita.Componentes
             {
                 if (double_dato <= opciones[ValidacionDatosOpciones.MAYOR_A]) {
                     ValidacionDatos.mensajes = "El número debe ser mayor a " + opciones[ValidacionDatosOpciones.MAYOR_A];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -235,7 +235,7 @@ namespace MrTiendita.Componentes
                 if (double_dato < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -245,7 +245,7 @@ namespace MrTiendita.Componentes
                 if (double_dato >= opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser menor que " + opciones[ValidacionDatosOpciones.MENOR_A];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -255,7 +255,7 @@ namespace MrTiendita.Componentes
                 if (double_dato > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -269,23 +269,16 @@ namespace MrTiendita.Componentes
             {
                 int op = (int)opciones[ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND];
                 String reg = "^[0-9]*(?:\\.[0-9]{1," + op + "})?$";
-                /*double ParteDecimal = double_dato - Math.Round(Math.Truncate(double_dato), op);
-                Console.WriteLine(ParteDecimal.ToString());
-                if (ParteDecimal.ToString().Length > op + 2)
-                {
-                    ValidacionDatos.mensajes = "El número debe tener maximo " + op + " decimales.";
-                    ValidacionDatos.error = true;
-                    return false;
-                }*/
+                
                 if (!Regex.Match(dato, reg).Success)
                 {
                     ValidacionDatos.mensajes = "El número debe tener maximo " + op + " decimales.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
 
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             dato_double = double_dato;
             return true;
@@ -303,11 +296,11 @@ namespace MrTiendita.Componentes
             if (!Int32.TryParse(dato, out int_dato))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.error = true;
+                ValidacionDatos.EsValido = true;
                 return false;
             }
 
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             dato_int = int_dato;
             return true;
@@ -324,7 +317,7 @@ namespace MrTiendita.Componentes
             if (!Int32.TryParse(dato, out int_dato))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.error = true;
+                ValidacionDatos.EsValido = true;
                 return false;
             }
 
@@ -333,7 +326,7 @@ namespace MrTiendita.Componentes
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -343,7 +336,7 @@ namespace MrTiendita.Componentes
                 if (int_dato < opciones[ValidacionDatosOpciones.MAYOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato no mayor al número minimo especificado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
@@ -353,12 +346,12 @@ namespace MrTiendita.Componentes
                 if (int_dato > opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
-                    ValidacionDatos.error = true;
+                    ValidacionDatos.EsValido = true;
                     return false;
                 }
             }
 
-            ValidacionDatos.error = false;
+            ValidacionDatos.EsValido = false;
             ValidacionDatos.mensajes = "";
             dato_int = int_dato;
             return true;

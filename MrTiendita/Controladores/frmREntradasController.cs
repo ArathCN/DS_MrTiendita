@@ -9,13 +9,13 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Controladores
 {
-    public class frmREntradasController
+    public class FrmREntradasController
     {
-        private frmREntradas vista;
+        private FrmREntradas vista;
         private DateTime desde;
         private DateTime hasta;
         private EntradaAlmacenDAO entradaAlmacenDAO;
-        public frmREntradasController(frmREntradas vista)
+        public FrmREntradasController(FrmREntradas vista)
         {
             this.vista = vista;
             this.entradaAlmacenDAO = new EntradaAlmacenDAO();

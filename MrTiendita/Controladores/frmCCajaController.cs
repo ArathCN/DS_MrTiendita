@@ -11,28 +11,26 @@ using MrTiendita.Componentes;
 
 namespace MrTiendita.Controladores
 {
-    class frmCCajaController
+    class FrmCCajaController
     {
-        private frmCCaja vista;
+        private FrmCCaja vista;
         private MovimientoDAO movimientoDAO;
         private CajaDAO cajaDAO;
 
         private Caja valorCaja;
 
-        public frmCCajaController(frmCCaja vista)
+        public FrmCCajaController(FrmCCaja vista)
         {
             this.vista = vista;
             this.movimientoDAO = new MovimientoDAO();
             this.cajaDAO = new CajaDAO();
-            this.vista.Load += new EventHandler(vista_Load);
-            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
-            this.vista.cb_tipoMov2.SelectedIndexChanged += new EventHandler(cb_tipoMov2_SelectedIndexChanged);
+            this.vista.Load += new EventHandler(Vista_Load);
+            this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
+            this.vista.cb_tipoMov2.SelectedIndexChanged += new EventHandler(Cb_tipoMov2_SelectedIndexChanged);
 
             this.vista.tb_importe.TextChanged += delegate (object sender, EventArgs e)
             {
                 double dato2;
-                // Debe de ser un número de 0 - 100 con 2 decimales
-                //String mensajeError = "De ser un número entre 1 y 10,000 con máximo dos decimales.";
                 String mensajeError = "De ser un número de 1-10,000 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>()
                 { 
@@ -55,13 +53,13 @@ namespace MrTiendita.Controladores
             };
         }
 
-        public void vista_Load(object sender, EventArgs e)
+        public void Vista_Load(object sender, EventArgs e)
         {
-            this.mostrarMovimientos();
-            this.obtenerValorCaja();
+            this.MostrarMovimientos();
+            this.ObtenerValorCaja();
         }
 
-        private void cb_tipoMov2_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cb_tipoMov2_SelectedIndexChanged(object sender, EventArgs e)
         {
             String tipo = "";
             double total = 0;
@@ -102,11 +100,11 @@ namespace MrTiendita.Controladores
             this.vista.lbl_total.Visible = true;
         }
 
-        public void btn_aceptar_Click(object sender, EventArgs e)
+        public void Btn_aceptar_Click(object sender, EventArgs e)
         {
-            String _importe = this.vista.tb_importe.Text;
+            String importeCadena = this.vista.tb_importe.Text;
             String concepto = this.vista.tb_concepto.Text;
-            int _tipo = this.vista.cb_tipoMov.SelectedIndex; //0 -> entrada   1->salida
+            int tipoIndice = this.vista.cb_tipoMov.SelectedIndex; //0 -> entrada   1->salida
             String tipo = "";
             String mensajeErrorImporte = "De ser un número de 1-10,000 con máximo dos decimales.";
             String mensajeErrorDesc = "Al menos 5 caracteres.";
@@ -127,25 +125,25 @@ namespace MrTiendita.Controladores
 
             //Comprobar que el tipo de mov se haya seleccionado, concepto no sea nulo y que importe sea numero no nulo mayor a 0.
             if (this.vista.cb_tipoMov.SelectedIndex == -1 ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeErrorDesc, this.vista.tb_concepto.Text, opcionesDesc) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorImporte, mensajeErrorImporte, this.vista.tb_importe.Text, out importe, opcionesImporte))
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeErrorDesc, concepto, opcionesDesc) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorImporte, mensajeErrorImporte, importeCadena, out importe, opcionesImporte))
             {
-                frmError error = new frmError("Se deben de llenar todos los campos correctamente");
+                FrmError error = new FrmError("Se deben de llenar todos los campos correctamente");
                 error.ShowDialog();
                 return;
             }
 
             //Si es una entrada se suma la caja, si es una salida se resta
             //Si es salida comprobar que no se queira sacar más de lo que hay en la caja
-            if (_tipo == 0)
+            if (tipoIndice == 0)
             {
                 tipo = TipoMovimiento.ENTRADA;
                 dinero = double.Parse(this.valorCaja.Valor) + importe;
-            }else if (_tipo == 1)
+            }else if (tipoIndice == 1)
             {
                 if (importe > double.Parse(this.valorCaja.Valor))
                 {
-                    frmError error = new frmError("No hay dinero suficiente en la caja");
+                    FrmError error = new FrmError("No hay dinero suficiente en la caja");
                     error.ShowDialog();
                     return;
                 }
@@ -159,7 +157,7 @@ namespace MrTiendita.Controladores
             res = this.movimientoDAO.create(movimiento);
             if (!res)
             {
-                frmError error = new frmError("Hubo un error al registrar el movimiento.");
+                FrmError error = new FrmError("Hubo un error al registrar el movimiento.");
                 error.ShowDialog();
                 return;
             }
@@ -167,26 +165,24 @@ namespace MrTiendita.Controladores
             res = this.cajaDAO.UpdateValue("Total", this.valorCaja.Valor);
             if (!res)
             {
-                frmError error = new frmError("Hubo un error al actualizar el total de la caja.");
+                FrmError error = new FrmError("Hubo un error al actualizar el total de la caja.");
                 error.ShowDialog();
                 return;
             }
 
-            frmExito mensajeExito = new frmExito("Se registrado el movimiento con éxito.");
+            FrmExito mensajeExito = new FrmExito("Se registrado el movimiento con éxito.");
             mensajeExito.ShowDialog();
-            this.mostrarMovimientos();
-            this.obtenerValorCaja();
+            this.MostrarMovimientos();
+            this.ObtenerValorCaja();
 
             this.vista.cb_tipoMov.SelectedIndex = -1;
             this.vista.tb_importe.Text = "";
             this.vista.tb_concepto.Text = "";
         }
 
-        //////////////////////////////
         ///Auxiliares
-        //////////////////////////////
 
-        private void mostrarMovimientos()
+        private void MostrarMovimientos()
         {
             this.vista.tablaMovimientos.Rows.Clear();
             List<Movimiento> movimientos = this.movimientoDAO.readAll();
@@ -196,13 +192,13 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void obtenerValorCaja()
+        private void ObtenerValorCaja()
         {
             //Obtener el valor de la caja
             this.valorCaja = this.cajaDAO.ReadByName("Total");
             if (this.valorCaja == null)
             {
-                frmError error = new frmError("No se pudo obtener la información sobre la caja.");
+                FrmError error = new FrmError("No se pudo obtener la información sobre la caja.");
                 error.ShowDialog();
                 return;
             }

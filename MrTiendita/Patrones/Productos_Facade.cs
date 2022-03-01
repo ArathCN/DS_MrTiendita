@@ -23,11 +23,11 @@ namespace Acciones
         {
             return productos.Actualizar(producto, id);
         }
-        public void Eliminar(frmEAlmacen vista, DataGridViewCellEventArgs e)
+        public void Eliminar(FrmEAlmacen vista, DataGridViewCellEventArgs e)
         {
             productos.Eliminar(vista, e);
         }
-        public void Consultar(frmEAlmacen vista)
+        public void Consultar(FrmEAlmacen vista)
         {
             productos.Consultar(vista);
         }

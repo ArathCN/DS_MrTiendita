@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmCAlmacen
+    partial class FrmCAlmacen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCAlmacen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCAlmacen));
             this.lbl_buscar = new System.Windows.Forms.Label();
             this.tablaProductos = new System.Windows.Forms.DataGridView();
             this.codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();

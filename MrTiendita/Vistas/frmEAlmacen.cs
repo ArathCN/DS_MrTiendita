@@ -11,16 +11,16 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmEAlmacen : Form
+    public partial class FrmEAlmacen : Form
     {
-        public frmEAlmacen()
+        public FrmEAlmacen()
         {
             InitializeComponent();
             //tablaProductos.Rows.Add("661440000953", "10", "Azúcar Zulka baja en calorías", "30.50", "29.00");
             widthColumnas();
             tablaProductos.AllowUserToAddRows = false;
             tablaProductos.CurrentCell = null;
-            frmEAlmacenController controlador = new frmEAlmacenController(this);
+            FrmEAlmacenController controlador = new FrmEAlmacenController(this);
         }
 
         public void widthColumnas()

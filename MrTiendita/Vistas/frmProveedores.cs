@@ -11,15 +11,15 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmProveedores : Form
+    public partial class FrmProveedores : Form
     {
-        public frmProveedores()
+        public FrmProveedores()
         {
             InitializeComponent();
             tablaProveedores.Rows.Add("", "Distribuidora Bimbo", "6621828945");
             widthColumnas();
             tablaProveedores.AllowUserToAddRows = false;
-            frmEProveedorController controlador = new frmEProveedorController(this);
+            FrmEProveedorController controlador = new FrmEProveedorController(this);
         }
 
         public void widthColumnas()

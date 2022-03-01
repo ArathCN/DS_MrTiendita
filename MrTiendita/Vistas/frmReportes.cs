@@ -11,12 +11,12 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmReportes : Form
+    public partial class FrmReportes : Form
     {
-        public frmReportes()
+        public FrmReportes()
         {
             InitializeComponent();
-            frmReportesController controller = new frmReportesController(this);
+            FrmReportesController controller = new FrmReportesController(this);
         }
     }
 }

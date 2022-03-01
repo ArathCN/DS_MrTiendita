@@ -11,9 +11,9 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmEEmpleado : Form
+    public partial class FrmEEmpleado : Form
     {
-        public frmEEmpleado()
+        public FrmEEmpleado()
         {
             InitializeComponent();
             //tablaEmpleados.Rows.Add("1211", "Ana Sofía", "De Haro", "De La Cruz", "6221828945", "$5500", "Cajero", "AnaSofia27.");
@@ -22,7 +22,7 @@ namespace MrTiendita.Vistas
             widthColumnas();
             tablaEmpleados.AllowUserToAddRows = false;
             tablaEmpleados.CurrentCell = null;
-            frmEEmpleadosController controlador = new frmEEmpleadosController(this);
+            FrmEEmpleadosController controlador = new FrmEEmpleadosController(this);
         }
 
         public void widthColumnas()

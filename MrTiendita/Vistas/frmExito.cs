@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmExito : Form
+    public partial class FrmExito : Form
     {
-        public frmExito(string mensaje)
+        public FrmExito(string mensaje)
         {
             InitializeComponent();
             sombra.SetShadowForm(this);
@@ -26,7 +26,7 @@ namespace MrTiendita.Vistas
 
         public static void confirmacionForm(string mensaje)
         {
-            frmExito frm = new frmExito(mensaje);
+            FrmExito frm = new FrmExito(mensaje);
             frm.ShowDialog();
         }
 

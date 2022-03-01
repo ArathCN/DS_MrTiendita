@@ -11,9 +11,9 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmEditarEmpleado : Form
+    public partial class FrmEditarEmpleado : Form
     {
-        public frmEditarEmpleado(string accion, int id)
+        public FrmEditarEmpleado(string accion, int id)
         {
             InitializeComponent();
             sombra.SetShadowForm(this);
@@ -25,7 +25,7 @@ namespace MrTiendita.Vistas
             {
                 lbl_Titulo.Text = "Actualizar empleado";
             }
-            frmEmpleadoController controlador = new frmEmpleadoController(this, accion, id);
+            FrmEmpleadoController controlador = new FrmEmpleadoController(this, accion, id);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

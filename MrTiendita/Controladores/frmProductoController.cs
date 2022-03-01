@@ -13,23 +13,23 @@ using Acciones;
 
 namespace MrTiendita.Controladores
 {
-    public class frmProductoController
+    public class FrmProductoController
     {
-        private frmProducto vista;
-        private ProductoDAO productoDAO;
-        private String accion;
-        private long id;
+        private readonly FrmProducto vista;
+        private readonly ProductoDAO productoDAO;
+        private readonly String accion;
+        private readonly long id;
         private Producto producto;
-        private Productos_Facade facade = new Productos_Facade();
+        private readonly Productos_Facade facade = new Productos_Facade();
 
-        public frmProductoController(frmProducto vista, String accion, long id)
+        public FrmProductoController(FrmProducto vista, String accion, long id)
         {
             this.vista = vista;
             this.accion = accion;
             this.id = id;
             this.productoDAO = new ProductoDAO();
-            this.vista.btn_guardarProducto.Click += new EventHandler(btn_Cerrar_Click);
-            this.vista.Load += new EventHandler(vista_Load);
+            this.vista.btn_guardarProducto.Click += new EventHandler(Btn_Cerrar_Click);
+            this.vista.Load += new EventHandler(Vista_Load);
 
             this.vista.tb_codigo.TextChanged += delegate (object sender, EventArgs e)
             {
@@ -92,7 +92,7 @@ namespace MrTiendita.Controladores
 
         }
 
-        private void vista_Load(object sender, EventArgs e)
+        private void Vista_Load(object sender, EventArgs e)
         {
             if (this.accion == "editar")
             {
@@ -109,15 +109,15 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void btn_Cerrar_Click(object sender, EventArgs e)
+        private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
-            bool res = false;
+            bool IsCompleted;
             //Comprobar campos vacios...
-            String _codigoBarra = this.vista.tb_codigo.Text;
-            String _cantidad = this.vista.tb_cantidad.Text;
-            String _descripcion = this.vista.tb_descripcion.Text;
-            String _precioVenta = this.vista.tb_precioVenta.Text;
-            String _precioCompra = this.vista.tb_precioCompra.Text;
+            String codigoBarraCad = this.vista.tb_codigo.Text;
+            String cantidadCad = this.vista.tb_cantidad.Text;
+            String descripcionCad = this.vista.tb_descripcion.Text;
+            String precioVentaCad = this.vista.tb_precioVenta.Text;
+            String precioCompraCad = this.vista.tb_precioCompra.Text;
 
             long codigoBarra;
             double cantidad, precioVenta, precioCompra;
@@ -147,14 +147,14 @@ namespace MrTiendita.Controladores
             };
 
             if (
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeCodigo, _codigoBarra, out codigoBarra, opCodigo) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, msgCantidad, _cantidad, out cantidad, opCantidad) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, msgDesc, _descripcion, opDesc) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, msgPc, _precioCompra, out precioCompra, opPc) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgPc, _precioVenta, out precioVenta, opPc)
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeCodigo, codigoBarraCad, out codigoBarra, opCodigo) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, msgCantidad, cantidadCad, out cantidad, opCantidad) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, msgDesc, descripcionCad, opDesc) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, msgPc, precioCompraCad, out precioCompra, opPc) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgPc, precioVentaCad, out precioVenta, opPc)
                 )
             {
-                Form mensajeError = new frmError("Llene todos los datos correctamente.");
+                Form mensajeError = new FrmError("Llene todos los datos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -166,7 +166,7 @@ namespace MrTiendita.Controladores
             var parteDecimal = cantidad - Math.Truncate(cantidad);
             if (!medida && parteDecimal != 0)
             {
-                Form mensajeError = new frmError("La cantidad no puede ser decimal si la medida no es a granel.");
+                Form mensajeError = new FrmError("La cantidad no puede ser decimal si la medida no es a granel.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -174,25 +174,25 @@ namespace MrTiendita.Controladores
             //Si se agregará un producto o altualizará el codigo de barras comprobar que éste no exista en la BD
             if (this.id != codigoBarra && this.productoDAO.readById(codigoBarra) != null)
             {
-                Form mensajeError = new frmError("El codigo de barras ya está en uso");
+                Form mensajeError = new FrmError("El codigo de barras ya está en uso");
                 mensajeError.ShowDialog();
                 return;
             }
 
             //Obtener el producto de los campos...
-            Producto producto = new Producto(codigoBarra, _descripcion, precioVenta, precioCompra, cantidad, medida);
+            Producto producto = new Producto(codigoBarra, descripcionCad, precioVenta, precioCompra, cantidad, medida);
 
             //Hacer la acción 
             if (this.accion == "agregar")
             {
-                res = facade.Agregar(producto);
+                IsCompleted = facade.Agregar(producto);
             }
             else
             {
-                res = facade.Modificar(producto, this.id);
+                IsCompleted = facade.Modificar(producto, this.id);
             }
 
-            if(res) this.vista.Close();
+            if(IsCompleted) this.vista.Close();
         }
     }
 }

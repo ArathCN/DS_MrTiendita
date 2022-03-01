@@ -80,21 +80,21 @@
     <Compile Include="Constantes\TipoMovimiento.cs" />
     <Compile Include="Constantes\ValidacionDatosOpciones.cs" />
     <Compile Include="Componentes\CrearTicket.cs" />
-    <Compile Include="Controladores\frmCAlmacenController.cs" />
-    <Compile Include="Controladores\frmCCajaController.cs" />
-    <Compile Include="Controladores\frmCobroController.cs" />
-    <Compile Include="Controladores\frmCVentasController.cs" />
-    <Compile Include="Controladores\frmEAlmacenController.cs" />
-    <Compile Include="Controladores\frmEEmpleadosController.cs" />
-    <Compile Include="Controladores\frmEmpleadoController.cs" />
-    <Compile Include="Controladores\frmEProveedorController.cs" />
-    <Compile Include="Controladores\frmInicioController.cs" />
-    <Compile Include="Controladores\frmPrincipalController.cs" />
-    <Compile Include="Controladores\frmProductoController.cs" />
-    <Compile Include="Controladores\frmProveedorController.cs" />
-    <Compile Include="Controladores\frmREntradasController.cs" />
-    <Compile Include="Controladores\frmReportesController.cs" />
-    <Compile Include="Controladores\frmRVentasController.cs" />
+    <Compile Include="Controladores\FrmCAlmacenController.cs" />
+    <Compile Include="Controladores\FrmCCajaController.cs" />
+    <Compile Include="Controladores\FrmCobroController.cs" />
+    <Compile Include="Controladores\FrmCVentasController.cs" />
+    <Compile Include="Controladores\FrmEAlmacenController.cs" />
+    <Compile Include="Controladores\FrmEEmpleadosController.cs" />
+    <Compile Include="Controladores\FrmEmpleadoController.cs" />
+    <Compile Include="Controladores\FrmEProveedorController.cs" />
+    <Compile Include="Controladores\FrmInicioController.cs" />
+    <Compile Include="Controladores\FrmPrincipalController.cs" />
+    <Compile Include="Controladores\FrmProductoController.cs" />
+    <Compile Include="Controladores\FrmProveedorController.cs" />
+    <Compile Include="Controladores\FrmREntradasController.cs" />
+    <Compile Include="Controladores\FrmReportesController.cs" />
+    <Compile Include="Controladores\FrmRVentasController.cs" />
     <Compile Include="Modelos\DAO\CajaDAO.cs" />
     <Compile Include="Modelos\DAO\DbContext.cs" />
     <Compile Include="Modelos\DAO\EmpleadoDAO.cs" />
@@ -116,113 +116,113 @@
     <Compile Include="Patrones\InicioSesion_Proxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vistas\frmAdvertencia.cs">
+    <Compile Include="Vistas\FrmAdvertencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmAdvertencia.designer.cs">
-      <DependentUpon>frmAdvertencia.cs</DependentUpon>
+    <Compile Include="Vistas\FrmAdvertencia.designer.cs">
+      <DependentUpon>FrmAdvertencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmCAlmacen.cs">
+    <Compile Include="Vistas\FrmCAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmCAlmacen.designer.cs">
-      <DependentUpon>frmCAlmacen.cs</DependentUpon>
+    <Compile Include="Vistas\FrmCAlmacen.designer.cs">
+      <DependentUpon>FrmCAlmacen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmCCaja.cs">
+    <Compile Include="Vistas\FrmCCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmCCaja.designer.cs">
-      <DependentUpon>frmCCaja.cs</DependentUpon>
+    <Compile Include="Vistas\FrmCCaja.designer.cs">
+      <DependentUpon>FrmCCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmCobro.cs">
+    <Compile Include="Vistas\FrmCobro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmCobro.Designer.cs">
-      <DependentUpon>frmCobro.cs</DependentUpon>
+    <Compile Include="Vistas\FrmCobro.Designer.cs">
+      <DependentUpon>FrmCobro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmCVentas.cs">
+    <Compile Include="Vistas\FrmCVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmCVentas.designer.cs">
-      <DependentUpon>frmCVentas.cs</DependentUpon>
+    <Compile Include="Vistas\FrmCVentas.designer.cs">
+      <DependentUpon>FrmCVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmEAlmacen.cs">
+    <Compile Include="Vistas\FrmEAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmEAlmacen.designer.cs">
-      <DependentUpon>frmEAlmacen.cs</DependentUpon>
+    <Compile Include="Vistas\FrmEAlmacen.designer.cs">
+      <DependentUpon>FrmEAlmacen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmEditarEmpleado.cs">
+    <Compile Include="Vistas\FrmEditarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmEditarEmpleado.Designer.cs">
-      <DependentUpon>frmEditarEmpleado.cs</DependentUpon>
+    <Compile Include="Vistas\FrmEditarEmpleado.Designer.cs">
+      <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmEditarProveedor.cs">
+    <Compile Include="Vistas\FrmEditarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmEditarProveedor.designer.cs">
-      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    <Compile Include="Vistas\FrmEditarProveedor.designer.cs">
+      <DependentUpon>FrmEditarProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmEEmpleado.cs">
+    <Compile Include="Vistas\FrmEEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmEEmpleado.Designer.cs">
-      <DependentUpon>frmEEmpleado.cs</DependentUpon>
+    <Compile Include="Vistas\FrmEEmpleado.Designer.cs">
+      <DependentUpon>FrmEEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmError.cs">
+    <Compile Include="Vistas\FrmError.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmError.designer.cs">
-      <DependentUpon>frmError.cs</DependentUpon>
+    <Compile Include="Vistas\FrmError.designer.cs">
+      <DependentUpon>FrmError.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmExito.cs">
+    <Compile Include="Vistas\FrmExito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmExito.Designer.cs">
-      <DependentUpon>frmExito.cs</DependentUpon>
+    <Compile Include="Vistas\FrmExito.Designer.cs">
+      <DependentUpon>FrmExito.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmPrincipal.cs">
+    <Compile Include="Vistas\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="Vistas\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmProducto.cs">
+    <Compile Include="Vistas\FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmProducto.Designer.cs">
-      <DependentUpon>frmProducto.cs</DependentUpon>
+    <Compile Include="Vistas\FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmProveedores.cs">
+    <Compile Include="Vistas\FrmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmProveedores.Designer.cs">
-      <DependentUpon>frmProveedores.cs</DependentUpon>
+    <Compile Include="Vistas\FrmProveedores.Designer.cs">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmREntradas.cs">
+    <Compile Include="Vistas\FrmREntradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmREntradas.Designer.cs">
-      <DependentUpon>frmREntradas.cs</DependentUpon>
+    <Compile Include="Vistas\FrmREntradas.Designer.cs">
+      <DependentUpon>FrmREntradas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmReportes.cs">
+    <Compile Include="Vistas\FrmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmReportes.Designer.cs">
-      <DependentUpon>frmReportes.cs</DependentUpon>
+    <Compile Include="Vistas\FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmInicio.cs">
+    <Compile Include="Vistas\FrmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmInicio.Designer.cs">
-      <DependentUpon>frmInicio.cs</DependentUpon>
+    <Compile Include="Vistas\FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmRVentas.cs">
+    <Compile Include="Vistas\FrmRVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\frmRVentas.Designer.cs">
-      <DependentUpon>frmRVentas.cs</DependentUpon>
+    <Compile Include="Vistas\FrmRVentas.Designer.cs">
+      <DependentUpon>FrmRVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -233,60 +233,63 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vistas\frmAdvertencia.resx">
-      <DependentUpon>frmAdvertencia.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmAdvertencia.resx">
+      <DependentUpon>FrmAdvertencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmCAlmacen.resx">
-      <DependentUpon>frmCAlmacen.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmCAlmacen.resx">
+      <DependentUpon>FrmCAlmacen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmCCaja.resx">
-      <DependentUpon>frmCCaja.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmCCaja.resx">
+      <DependentUpon>FrmCCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmCobro.resx">
-      <DependentUpon>frmCobro.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmCobro.resx">
+      <DependentUpon>FrmCobro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmCVentas.resx">
-      <DependentUpon>frmCVentas.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmCVentas.resx">
+      <DependentUpon>FrmCVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmEAlmacen.resx">
-      <DependentUpon>frmEAlmacen.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmEAlmacen.resx">
+      <DependentUpon>FrmEAlmacen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmEditarEmpleado.resx">
-      <DependentUpon>frmEditarEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmEditarEmpleado.resx">
+      <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmEditarProveedor.resx">
-      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmEditarProveedor.resx">
+      <DependentUpon>FrmEditarProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmEEmpleado.resx">
-      <DependentUpon>frmEEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmEEmpleado.resx">
+      <DependentUpon>FrmEEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmError.resx">
-      <DependentUpon>frmError.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmError.resx">
+      <DependentUpon>FrmError.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmExito.resx">
-      <DependentUpon>frmExito.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmExito.resx">
+      <DependentUpon>FrmExito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmProducto.resx">
-      <DependentUpon>frmProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmProveedores.resx">
-      <DependentUpon>frmProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmProveedores.resx">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmREntradas.resx">
-      <DependentUpon>frmREntradas.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmREntradas.resx">
+      <DependentUpon>FrmREntradas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmReportes.resx">
-      <DependentUpon>frmReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmInicio.resx">
-      <DependentUpon>frmInicio.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmRVentas.resx">
-      <DependentUpon>frmRVentas.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmRVentas.resx">
+      <DependentUpon>FrmRVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

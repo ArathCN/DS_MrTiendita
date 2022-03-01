@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmReportes
+    partial class FrmReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
             this.btn_entradasAlmacen = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_ventas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Contenedor = new System.Windows.Forms.Panel();

@@ -22,12 +22,12 @@ namespace Acciones
             bool res = productoDAO.create(producto);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha hecho el producto con éxito.");
+                Form mensajeExito = new FrmExito("Se ha hecho el producto con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError("Ha ocurrido un error.");
                 mensajeError.ShowDialog();
             }
 
@@ -39,21 +39,21 @@ namespace Acciones
             bool res = productoDAO.updateInfo(producto, id);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha actualizado el producto con éxito.");
+                Form mensajeExito = new FrmExito("Se ha actualizado el producto con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError("Ha ocurrido un error.");
                 mensajeError.ShowDialog();
             }
 
             return res;
         }
 
-        public void Eliminar(frmEAlmacen vista, DataGridViewCellEventArgs e)
+        public void Eliminar(FrmEAlmacen vista, DataGridViewCellEventArgs e)
         {
-            Form mensaje = new frmError("El producto se eliminará");
+            Form mensaje = new FrmError("El producto se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -64,18 +64,18 @@ namespace Acciones
                 if (res)
                 {
                     vista.tablaProductos.Rows.Remove(vista.tablaProductos.Rows[e.RowIndex]);
-                    Form mensajeExito = new frmError("El producto fue eliminado");
+                    Form mensajeExito = new FrmError("El producto fue eliminado");
                     Consultar(vista);
                 }
                 else
                 {
-                    Form mensajeError = new frmError("Error al eliminar el producto.");
+                    Form mensajeError = new FrmError("Error al eliminar el producto.");
                     mensajeError.ShowDialog();
                 }
             }
         }
 
-        public void Consultar(frmEAlmacen vista)
+        public void Consultar(FrmEAlmacen vista)
         {
             vista.tablaProductos.Rows.Clear();
             List<Producto> productos = productoDAO.readAll();
@@ -97,12 +97,12 @@ namespace Acciones
             bool res = this.empleadoDAO.Create(empleado);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha creado el empleado con éxito.");
+                Form mensajeExito = new FrmExito("Se ha creado el empleado con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error -> " + empleadoDAO.MensajeError);
+                Form mensajeError = new FrmError("Ha ocurrido un error -> " + empleadoDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 
@@ -114,21 +114,21 @@ namespace Acciones
             bool res = empleadoDAO.updateInfo(empleado, id);
             if (res)
             {
-                Form mensajeExito = new frmExito("Se ha actualizado el empleado con éxito.");
+                Form mensajeExito = new FrmExito("Se ha actualizado el empleado con éxito.");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new frmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError("Ha ocurrido un error.");
                 mensajeError.ShowDialog();
             }
 
             return res;
         }
 
-        public void Eliminar(frmEEmpleado vista, DataGridViewCellEventArgs e)
+        public void Eliminar(FrmEEmpleado vista, DataGridViewCellEventArgs e)
         {
-            Form mensaje = new frmError("El empleado se eliminará");
+            Form mensaje = new FrmError("El empleado se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -141,18 +141,18 @@ namespace Acciones
                 if (res)
                 {
                     vista.tablaEmpleados.Rows.Remove(vista.tablaEmpleados.Rows[e.RowIndex]);
-                    Form mensajeExito = new frmError("El empleado fue eliminado");
+                    Form mensajeExito = new FrmError("El empleado fue eliminado");
                     Consultar(vista);
                 }
                 else
                 {
-                    Form mensajeError = new frmError("Error al eliminar el empleado");
+                    Form mensajeError = new FrmError("Error al eliminar el empleado");
                     mensajeError.ShowDialog();
                 }
             }
         }
 
-        public void Consultar(frmEEmpleado vista)
+        public void Consultar(FrmEEmpleado vista)
         {
             List<Empleado> todosEmpleados;
             vista.tablaEmpleados.Rows.Clear();

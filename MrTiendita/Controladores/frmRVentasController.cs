@@ -9,14 +9,14 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Controladores
 {
-    public class frmRVentasController
+    public class FrmRVentasController
     {
-        private frmRVentas vista;
+        private FrmRVentas vista;
         private DateTime desde;
         private DateTime hasta;
         private VentaDAO ventaDAO;
 
-        public frmRVentasController(frmRVentas vista)
+        public FrmRVentasController(FrmRVentas vista)
         {
             this.vista = vista;
             this.ventaDAO = new VentaDAO();

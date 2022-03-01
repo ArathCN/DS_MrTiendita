@@ -15,9 +15,9 @@ using System.Drawing;
 
 namespace MrTiendita.Controladores
 {
-    class frmCobroController
+    class FrmCobroController
     {
-        private frmCobro vista;
+        private FrmCobro vista;
         private List<Producto> productosVenta;
         private ProductoDAO productoDAO;
         private MovimientoDAO movimientoDAO;
@@ -28,7 +28,7 @@ namespace MrTiendita.Controladores
         private double efectivo;
         private bool metodoEfectivo = true; 
 
-        public frmCobroController(frmCobro vista, List<Producto> productos, double total)
+        public FrmCobroController(FrmCobro vista, List<Producto> productos, double total)
         {
             this.productoDAO = new ProductoDAO();
             this.movimientoDAO = new MovimientoDAO();
@@ -39,12 +39,12 @@ namespace MrTiendita.Controladores
             this.productosVenta = productos;
             this.totalVenta = total;
             this.efectivo = 0;
-            this.vista.cb_metodoPago.SelectedIndexChanged += new EventHandler(cb_metodoPago_SelectedIndexChanged);
-            this.vista.tb_efectivo.TextChanged += new EventHandler(tb_efectivo_textChanged);
-            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
+            this.vista.cb_metodoPago.SelectedIndexChanged += new EventHandler(Cb_metodoPago_SelectedIndexChanged);
+            this.vista.tb_efectivo.TextChanged += new EventHandler(Tb_efectivo_textChanged);
+            this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
         }
 
-        private void cb_metodoPago_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cb_metodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.vista.btn_aceptar.Visible = true;
             if (this.vista.cb_metodoPago.SelectedIndex == 0)
@@ -67,10 +67,9 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void tb_efectivo_textChanged(object sender, EventArgs e)
+        private void Tb_efectivo_textChanged(object sender, EventArgs e)
         {
             String _efectivo = this.vista.tb_efectivo.Text;
-            double dato2;
             String mensajeError = "De ser un número mayor a " + this.totalVenta + " con máximo dos decimales.";
             Dictionary<int, double> opciones2 = new Dictionary<int, double>()
             {
@@ -94,7 +93,7 @@ namespace MrTiendita.Controladores
             this.vista.lbl_cambio.Text = "$" + (this.efectivo - this.totalVenta);
         }
 
-        private void btn_aceptar_Click(object sender, EventArgs e)
+        private void Btn_aceptar_Click(object sender, EventArgs e)
         {
             
             //se actualzia la cantidad en los productos del almacen
@@ -106,7 +105,7 @@ namespace MrTiendita.Controladores
                 {
                     mensaje = this.productoDAO.MensajeError;
                 }
-                frmError mensajeError = new frmError(mensaje);
+                FrmError mensajeError = new FrmError(mensaje);
                 mensajeError.ShowDialog();
                 this.vista.DialogResult = DialogResult.Abort;
                 return;
@@ -117,7 +116,7 @@ namespace MrTiendita.Controladores
             Caja caja = this.cajaDAO.ReadByName("Total");
             if (caja == null)
             {
-                frmError error = new frmError("No se pudo obtener la información sobre la caja.");
+                FrmError error = new FrmError("No se pudo obtener la información sobre la caja.");
                 error.ShowDialog();
                 this.vista.DialogResult = DialogResult.Abort;
                 return;
@@ -127,7 +126,7 @@ namespace MrTiendita.Controladores
             res = this.GenerarVenta();
             if (!res)
             {
-                frmError error = new frmError("Hubo un error al registrar las ventas.");
+                FrmError error = new FrmError("Hubo un error al registrar las ventas.");
                 error.ShowDialog();
                 this.vista.DialogResult = DialogResult.Abort;
                 return;
@@ -141,7 +140,7 @@ namespace MrTiendita.Controladores
                 res = this.movimientoDAO.create(movimiento);
                 if (!res)
                 {
-                    frmError error = new frmError("Hubo un error al registrar el movimiento.");
+                    FrmError error = new FrmError("Hubo un error al registrar el movimiento.");
                     error.ShowDialog();
                     this.vista.DialogResult = DialogResult.Abort;
                     return;
@@ -151,7 +150,7 @@ namespace MrTiendita.Controladores
                 res = this.cajaDAO.UpdateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
                 if (!res)
                 {
-                    frmError error = new frmError("Hubo un error al actualizar el total de la caja.");
+                    FrmError error = new FrmError("Hubo un error al actualizar el total de la caja.");
                     error.ShowDialog();
                     this.vista.DialogResult = DialogResult.Abort;
                     return;
@@ -162,7 +161,7 @@ namespace MrTiendita.Controladores
             this.GuardarTicket(ticket);
             //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
 
-            frmExito mensajeExito = new frmExito("Se registrado la venta con éxito.");
+            FrmExito mensajeExito = new FrmExito("Se registrado la venta con éxito.");
             mensajeExito.ShowDialog();
             //this.vista.tablaVentas.Rows.Clear();
             this.vista.DialogResult = DialogResult.OK;
@@ -198,67 +197,29 @@ namespace MrTiendita.Controladores
         {
             //Creamos una instancia d ela clase CrearTicket
             CrearTicket ticket = new CrearTicket();
-            //Ya podemos usar todos sus metodos
             ticket.AbreCajon();//Para abrir el cajon de dinero.
-
-            //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-            //Datos de la cabecera del Ticket.
             ticket.TextoCentro("EL RINCÓN");
-            //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-            //ticket.TextoIzquierda("DIREC: Toluca #1380");
-            //ticket.TextoIzquierda("TEL: 6623596075");
-            //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-            //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
             ticket.TextoIzquierda("");
-            //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-            //ticket.lineasAsteriscos();
-
-            //Sub cabecera.
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("ATENDIÓ: " + this.empleado.Nombre);
-            //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-            //ticket.TextoIzquierda("");
             ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
             ticket.TextoIzquierda("");
-            ticket.lineasAsteriscos();
-
-            //Articulos a vender.
-            ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-            ticket.lineasAsteriscos();
-            //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-            //foreach (DataGridViewRow fila in dgvLista.Rows)//dgvLista es el nombre del datagridview
-            //{
-            //ticket.AgregaArticulo(fila.Cells[2].Value.ToString(), int.Parse(fila.Cells[5].Value.ToString()),
-            //decimal.Parse(fila.Cells[4].Value.ToString()), decimal.Parse(fila.Cells[6].Value.ToString()));
-            //}
+            ticket.LineasAsteriscos();
+            ticket.EncabezadoVenta();
+            ticket.LineasAsteriscos();
             foreach (Producto item in this.productosVenta)
             {
-               //var importe item.Precio_venta * item.Cantidad_actual;
                 ticket.AgregaArticulo(item.Descripcion, item.Cantidad_actual, item.Precio_venta, item.Precio_venta * item.Cantidad_actual);
             }
-            //ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-            //ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-            //ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);
-            ticket.lineasIgual();
-
-            //Resumen de la venta. Sólo son ejemplos
-            //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-            //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
+            ticket.LineasIgual();
             ticket.AgregarTotales("         TOTAL.........$", this.totalVenta);
             ticket.TextoIzquierda("");
             ticket.AgregarTotales("         EFECTIVO......$", this.efectivo);
             ticket.AgregarTotales("         CAMBIO........$", this.efectivo - this.totalVenta);
-
-            //Texto final del Ticket.
             ticket.TextoIzquierda("");
-            //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-            //ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.CortaTicket();
-
             return ticket;
-
         }
 
         private void GuardarTicket(CrearTicket ticket)
@@ -277,7 +238,7 @@ namespace MrTiendita.Controladores
             }
             catch (Exception e)
             {
-                Form mensajeError = new frmError("Error: " + e.Message);
+                Form mensajeError = new FrmError("Error: " + e.Message);
                 mensajeError.ShowDialog();
             }
         }

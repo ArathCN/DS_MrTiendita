@@ -11,11 +11,11 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmRVentas : Form
+    public partial class FrmRVentas : Form
     {
-        public frmRVentasController controller;
+        public FrmRVentasController controller;
 
-        public frmRVentas()
+        public FrmRVentas()
         {
             InitializeComponent();
             //tablaVentas.Rows.Add("1", "661440000953", "1211", "Efectivo", "2021-11-08 23:15:01", "2.00", "103.00");
@@ -23,7 +23,7 @@ namespace MrTiendita.Vistas
             widthColumnas();
             tablaVentas.AllowUserToAddRows = false;
             tablaVentas.CurrentCell = null;
-            controller = new frmRVentasController(this);
+            controller = new FrmRVentasController(this);
         }
 
         public void widthColumnas()

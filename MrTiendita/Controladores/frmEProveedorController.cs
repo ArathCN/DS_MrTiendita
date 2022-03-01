@@ -10,30 +10,30 @@ using MrTiendita.Vistas;
 
 namespace MrTiendita.Controladores
 {
-    public class frmEProveedorController
+    public class FrmEProveedorController
     {
-        frmProveedores vista;
+        FrmProveedores vista;
         ProveedorDAO proveedorDAO;
         List<Proveedor> todosProveedores;
-        public frmEProveedorController(frmProveedores vista)
+        public FrmEProveedorController(FrmProveedores vista)
         {
             this.vista = vista;
             this.proveedorDAO = new ProveedorDAO();
-            this.vista.tablaProveedores.CellContentClick += new DataGridViewCellEventHandler(tablaProveedores_CellContentClick);
-            this.vista.Load += new EventHandler(vista_load);
-            this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
-            this.vista.btn_nuevoProveedor.Click += new EventHandler(btn_nuevoProveedor_Click);
+            this.vista.tablaProveedores.CellContentClick += new DataGridViewCellEventHandler(TablaProveedores_CellContentClick);
+            this.vista.Load += new EventHandler(Vista_load);
+            this.vista.tb_busqueda.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
+            this.vista.btn_nuevoProveedor.Click += new EventHandler(Btn_nuevoProveedor_Click);
         }
 
-        private void vista_load(object sender, EventArgs e)
+        private void Vista_load(object sender, EventArgs e)
         {
-            this.mostrarTodos();
+            this.MostrarTodos();
         }
 
-        private void tb_busqueda_TextChanged(object sender, EventArgs e)
+        private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
-            String condicion = this.vista.tb_busqueda.Text;
-            List<Proveedor> proveedores = this.proveedorDAO.readByName(condicion);
+            String cadenaBusqueda = this.vista.tb_busqueda.Text;
+            List<Proveedor> proveedores = this.proveedorDAO.readByName(cadenaBusqueda);
             this.vista.tablaProveedores.Rows.Clear();
             foreach (Proveedor xProveedor in proveedores)
             {
@@ -41,31 +41,29 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void tablaProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void TablaProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.tablaProveedores.Rows[e.RowIndex].Cells["eliminar"].Selected)
             {
-                this.eliminarProveedor(e);
+                this.EliminarProveedor(e);
             }
             else if (this.vista.tablaProveedores.Rows[e.RowIndex].Cells["editar"].Selected)
             {
-                this.actualizarProveedor(e);
+                this.ActualizarProveedor(e);
             }
 
-            this.mostrarTodos();
+            this.MostrarTodos();
         }
 
-        private void btn_nuevoProveedor_Click(object sender, EventArgs e)
+        private void Btn_nuevoProveedor_Click(object sender, EventArgs e)
         {
-            frmEditarProveedor editar = new frmEditarProveedor("agregar", -1);
+            FrmEditarProveedor editar = new FrmEditarProveedor("agregar", -1);
             editar.ShowDialog();
-            this.mostrarTodos();
+            this.MostrarTodos();
         }
 
-        ///////////////////////////////
         ///Métodos auxiliares
-        ///
-        private void mostrarTodos()
+        private void MostrarTodos()
         {
             this.vista.tablaProveedores.Rows.Clear();
             List<Proveedor> proveedores = this.proveedorDAO.readAll();
@@ -75,37 +73,38 @@ namespace MrTiendita.Controladores
                 this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
             }
         }
-        private void eliminarProveedor(DataGridViewCellEventArgs e)
+
+        private void EliminarProveedor(DataGridViewCellEventArgs e)
         {
-            Form mensaje = new frmError("El proveedor se eliminará");
+            Form mensaje = new FrmError("El proveedor se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
                 //Eliminar la fila seleccionada
-                //para el ejemplo borrare la unica que hay
                 String _id = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
                 int id = Int32.Parse(_id);
-                bool res = this.proveedorDAO.delete(id);
-                if (res)
+                bool IsDeleted = this.proveedorDAO.delete(id);
+                if (IsDeleted)
                 {
                     this.vista.tablaProveedores.Rows.Remove(this.vista.tablaProveedores.Rows[e.RowIndex]);
-                    Form mensajeExito = new frmError("El proveedor fue eliminado");
-                    this.mostrarTodos();
+                    Form mensajeExito = new FrmError("El proveedor fue eliminado");
+                    mensajeExito.ShowDialog();
+                    this.MostrarTodos();
                 }
                 else
                 {
-                    Form mensajeError = new frmError("Error al eliminar el proveedor.");
+                    Form mensajeError = new FrmError("Error al eliminar el proveedor.");
                     mensajeError.ShowDialog();
                 }
             }
         }
 
-        private void actualizarProveedor(DataGridViewCellEventArgs e)
+        private void ActualizarProveedor(DataGridViewCellEventArgs e)
         {
-            String _id = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
-            int id = Int32.Parse(_id);
-            frmEditarProveedor editar = new frmEditarProveedor("editar", id);
+            String idCadena = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
+            int id = Int32.Parse(idCadena);
+            FrmEditarProveedor editar = new FrmEditarProveedor("editar", id);
             editar.ShowDialog();
         }
     }

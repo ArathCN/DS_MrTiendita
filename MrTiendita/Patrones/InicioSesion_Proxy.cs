@@ -15,15 +15,15 @@ namespace MrTiendita.Patrones
 
         public interface ITipoEmpleado
         {
-            void Peticion(string pOpcion, frmPrincipal frmPrincipal);
-            void Cierre(frmInicio inicio);
+            void Peticion(string pOpcion, FrmPrincipal frmPrincipal);
+            void Cierre(FrmInicio inicio);
         }
 
         public class Sesion : ITipoEmpleado
         {
             private TipoEmpleado tipoEmpleado;
 
-            public void Peticion(string pOpcion, frmPrincipal frmPrincipal)
+            public void Peticion(string pOpcion, FrmPrincipal frmPrincipal)
             {
                 if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado
                 {
@@ -37,7 +37,7 @@ namespace MrTiendita.Patrones
                 }
             }
 
-            public void Cierre(frmInicio inicio)
+            public void Cierre(FrmInicio inicio)
             {
                 inicio.tb_IDEmpleado.Clear();
                 inicio.tb_claveEmpleado.Clear();
@@ -48,8 +48,8 @@ namespace MrTiendita.Patrones
         //Clases que va a usar el proxy dependiendo del tipo de empleado
         private class TipoEmpleado
         {
-            private frmPrincipal vista;
-            public void Encargado(frmPrincipal frmPrincipal)
+            private FrmPrincipal vista;
+            public void Encargado(FrmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;
                 this.vista.Show();
@@ -59,7 +59,7 @@ namespace MrTiendita.Patrones
                 this.vista.pnl_OpEncargado.Visible = false;
             }
 
-            public void Cajero(frmPrincipal frmPrincipal)
+            public void Cajero(FrmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;
                 this.vista.Show();

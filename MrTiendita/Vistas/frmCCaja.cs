@@ -11,16 +11,16 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmCCaja : Form
+    public partial class FrmCCaja : Form
     {
-        public frmCCaja()
+        public FrmCCaja()
         {
             InitializeComponent();
             //tablaMovimientos.Rows.Add("Entrada", "Pago a proveedor Sabritas","27/10/2021 20:12:56 PM", "$500.00");
             widthColumnas();
             tablaMovimientos.AllowUserToAddRows = false;
             tablaMovimientos.CurrentCell = null;
-            frmCCajaController controller = new frmCCajaController(this);
+            FrmCCajaController controller = new FrmCCajaController(this);
 
         }
 

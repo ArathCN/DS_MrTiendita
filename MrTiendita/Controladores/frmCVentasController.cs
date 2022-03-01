@@ -13,9 +13,9 @@ using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {
-    class frmCVentasController
+    class FrmCVentasController
     {
-        private frmCVentas vista;
+        private FrmCVentas vista;
         private ProductoDAO productoDAO;
 
         private Producto producto;
@@ -24,7 +24,7 @@ namespace MrTiendita.Controladores
 
         private Dictionary<String, long> listaProductos;
 
-        public frmCVentasController(frmCVentas vista)
+        public FrmCVentasController(FrmCVentas vista)
         {
             this.vista = vista;
             this.productoDAO = new ProductoDAO();
@@ -93,7 +93,7 @@ namespace MrTiendita.Controladores
                 {
                     //eliminar el registro
                     DialogResult resultado = new DialogResult();
-                    Form advertencia = new frmAdvertencia("El producto será eliminado de la venta");
+                    Form advertencia = new FrmAdvertencia("El producto será eliminado de la venta");
                     resultado = advertencia.ShowDialog();
                     if (resultado == DialogResult.OK)
                         this.vista.tablaVentas.Rows.RemoveAt(this.vista.tablaVentas.CurrentRow.Index);
@@ -113,7 +113,7 @@ namespace MrTiendita.Controladores
                 xProducto.Cantidad_actual++;
                 if (xProducto.Cantidad_actual > producto.Cantidad_actual)
                 {
-                    Form mensajeError = new frmError("No hay cantidad suficiente de este producto.");
+                    Form mensajeError = new FrmError("No hay cantidad suficiente de este producto.");
                     mensajeError.ShowDialog();
                     return;
                 }
@@ -171,7 +171,7 @@ namespace MrTiendita.Controladores
             if (this.producto == null ||
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, _cantidad, out cantidad, opciones))
             {
-                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
+                Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -180,7 +180,7 @@ namespace MrTiendita.Controladores
             var parteDecimal = cantidad - Math.Truncate(cantidad);
             if (producto.Medida == false && parteDecimal != 0)
             {
-                Form mensajeError = new frmError("No se puede vender en decimales este producto.");
+                Form mensajeError = new FrmError("No se puede vender en decimales este producto.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -188,7 +188,7 @@ namespace MrTiendita.Controladores
             //comprobar que no se quiera vender más de lo que hay
             if (cantidad > producto.Cantidad_actual)
             {
-                Form mensajeError = new frmError("No hay suficiente cantidad de este producto.");
+                Form mensajeError = new FrmError("No hay suficiente cantidad de este producto.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -259,7 +259,7 @@ namespace MrTiendita.Controladores
             int lista = this.vista.tablaVentas.Rows.Count;
             if (lista == 0)
             {
-                Form mensajeError = new frmError("No se a registrado ningún articulo para la venta.");
+                Form mensajeError = new FrmError("No se a registrado ningún articulo para la venta.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -283,7 +283,7 @@ namespace MrTiendita.Controladores
             }
 
 
-            frmCobro cobro = new frmCobro(this.productosVenta, this.totalVenta);
+            FrmCobro cobro = new FrmCobro(this.productosVenta, this.totalVenta);
             cobro.ShowDialog();
 
             if (cobro.DialogResult == DialogResult.OK)

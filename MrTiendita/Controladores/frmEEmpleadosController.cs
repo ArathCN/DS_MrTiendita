@@ -10,13 +10,13 @@ using MrTiendita.Vistas;
 
 namespace MrTiendita.Controladores
 {
-    class frmEEmpleadosController
+    class FrmEEmpleadosController
     {
-        frmEEmpleado vista;
+        FrmEEmpleado vista;
         EmpleadoDAO empleadoDAO;
         List<Empleado> todosEmpleados;
 
-        public frmEEmpleadosController(frmEEmpleado vista)
+        public FrmEEmpleadosController(FrmEEmpleado vista)
         {
             this.vista = vista;
             this.empleadoDAO = new EmpleadoDAO();
@@ -59,7 +59,7 @@ namespace MrTiendita.Controladores
 
         private void btn_nuevoEmpleado_Click(object sender, EventArgs e)
         {
-            frmEditarEmpleado editar = new frmEditarEmpleado("agregar", -1);
+            FrmEditarEmpleado editar = new FrmEditarEmpleado("agregar", -1);
             editar.ShowDialog();
             this.mostrarTodos();
         }
@@ -78,7 +78,7 @@ namespace MrTiendita.Controladores
 
         private void eliminarEmpleado(DataGridViewCellEventArgs e)
         {
-            Form mensaje = new frmError("El empleado se eliminará");
+            Form mensaje = new FrmError("El empleado se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -90,12 +90,12 @@ namespace MrTiendita.Controladores
                 if (res)
                 {
                     this.vista.tablaEmpleados.Rows.Remove(this.vista.tablaEmpleados.Rows[e.RowIndex]);
-                    Form mensajeExito = new frmError("El empleado fue eliminado");
+                    Form mensajeExito = new FrmError("El empleado fue eliminado");
                     this.mostrarTodos();
                 }
                 else
                 {
-                    Form mensajeError = new frmError("Error al eliminar el empleado");
+                    Form mensajeError = new FrmError("Error al eliminar el empleado");
                     mensajeError.ShowDialog();
                 }
             }
@@ -105,7 +105,7 @@ namespace MrTiendita.Controladores
         {
             String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
             int id = Int32.Parse(_id);
-            frmEditarEmpleado editar = new frmEditarEmpleado("editar", id);
+            FrmEditarEmpleado editar = new FrmEditarEmpleado("editar", id);
             editar.ShowDialog();
         }
 

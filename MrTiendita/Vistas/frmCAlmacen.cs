@@ -11,18 +11,18 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmCAlmacen : Form
+    public partial class FrmCAlmacen : Form
     {
-        public frmCAlmacen()
+        public FrmCAlmacen()
         {
             InitializeComponent();
-            widthColumnas();
+            WidthColumnas();
             tablaProductos.AllowUserToAddRows = false;
             tablaProductos.CurrentCell = null;
-            frmCAlmacenController controlador = new frmCAlmacenController(this);
+            FrmCAlmacenController controlador = new FrmCAlmacenController(this);
         }
 
-        public void widthColumnas()
+        public void WidthColumnas()
         {
             tablaProductos.Columns[0].Width = 120;
             tablaProductos.Columns[1].Width = 73;

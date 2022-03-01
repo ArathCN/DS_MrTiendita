@@ -1,7 +1,7 @@
 ﻿
 namespace MrTiendita.Vistas
 {
-    partial class frmREntradas
+    partial class FrmREntradas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmREntradas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmREntradas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tablaEntradas = new System.Windows.Forms.DataGridView();

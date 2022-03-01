@@ -12,12 +12,12 @@ using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmCobro : Form
+    public partial class FrmCobro : Form
     {
-        public frmCobro(List<Producto> productos, double total)
+        public FrmCobro(List<Producto> productos, double total)
         {
             InitializeComponent();
-            frmCobroController controller = new frmCobroController(this, productos, total);
+            FrmCobroController controller = new FrmCobroController(this, productos, total);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

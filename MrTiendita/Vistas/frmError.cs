@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Vistas
 {
-    public partial class frmError : Form
+    public partial class FrmError : Form
     {
-        public frmError(string mensaje)
+        public FrmError(string mensaje)
         {
             InitializeComponent();
             sombra.SetShadowForm(this);

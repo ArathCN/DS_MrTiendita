@@ -9,10 +9,10 @@ using MrTiendita.Vistas;
 
 namespace MrTiendita.Controladores
 {
-    public class frmPrincipalController
+    public class FrmPrincipalController
     {
-        private frmPrincipal vista;
-        public frmPrincipalController(frmPrincipal vista)
+        private FrmPrincipal vista;
+        public FrmPrincipalController(FrmPrincipal vista)
         {
             this.vista = vista;
         }

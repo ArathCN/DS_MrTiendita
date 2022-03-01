@@ -13,23 +13,23 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Controladores
 {
-    class frmInicioController
+    class FrmInicioController
     {
-        private frmInicio vista;
-        private frmPrincipal principal;
-        private EmpleadoDAO empleadoDAO;
+        private readonly FrmInicio vista;
+        private readonly FrmPrincipal principal;
+        private readonly EmpleadoDAO empleadoDAO;
         public bool cierre = false;
-        InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
+        readonly InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
 
-        public frmInicioController(frmInicio vista)
+        public FrmInicioController(FrmInicio vista)
         {
             this.vista = vista;
-            this.principal = new frmPrincipal();
+            this.principal = new FrmPrincipal();
             this.empleadoDAO = new EmpleadoDAO();
-            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
-            this.vista.btn_Cerrar.Click += new EventHandler(btn_Cerrar_Click);
-            this.vista.FormClosing += new FormClosingEventHandler(frmInicio_FormClosing);
-            this.principal.btn_CerrarSesion.Click += new EventHandler(btn_CerrarSesion_Click);
+            this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
+            this.vista.btn_Cerrar.Click += new EventHandler(Btn_Cerrar_Click);
+            this.vista.FormClosing += new FormClosingEventHandler(FrmInicio_FormClosing);
+            this.principal.btn_CerrarSesion.Click += new EventHandler(Btn_CerrarSesion_Click);
 
             this.vista.tb_IDEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
@@ -54,7 +54,7 @@ namespace MrTiendita.Controladores
             };
         }
 
-        private void btn_aceptar_Click(object sender, EventArgs e)
+        private void Btn_aceptar_Click(object sender, EventArgs e)
         {
             string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text;
             String mensajeErrorUsuario = "Texto de entre 5 a 50 caracteres.";
@@ -73,7 +73,7 @@ namespace MrTiendita.Controladores
             if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeErrorUsuario, usuario, opcionesUsuario) ||
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeErrorClave, clave, opcionesClave, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
             {
-                Form mensajeError = new frmError("Debe de llenar todos los campos correctamente.");
+                Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -82,7 +82,7 @@ namespace MrTiendita.Controladores
             Empleado empleado = this.empleadoDAO.readByUsuario(usuario);
             if (empleado == null || !BCrypt.Net.BCrypt.EnhancedVerify(clave, empleado.Clave, BCrypt.Net.HashType.SHA512))
             {
-                Form mensajeError = new frmError("No hay un empleado con el usuario y contraseña especificados.");
+                Form mensajeError = new FrmError("No hay un empleado con el usuario y contraseña especificados.");
                 mensajeError.ShowDialog();
                 return;
             }
@@ -98,10 +98,10 @@ namespace MrTiendita.Controladores
             this.vista.Close();
         }
 
-        private void btn_Cerrar_Click(object sender, EventArgs e)
+        private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = new DialogResult();
-            Form mensaje = new frmAdvertencia("Saldrá del sistema");
+            DialogResult resultado;
+            Form mensaje = new FrmAdvertencia("Saldrá del sistema");
             resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -111,19 +111,17 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void btn_CerrarSesion_Click(object sender, EventArgs e)
+        private void Btn_CerrarSesion_Click(object sender, EventArgs e)
         {
             this.principal.bandera = false;
             this.principal.Close();
             conexion.Cierre(this.vista);
         }
 
-        private void frmInicio_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmInicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (cierre == false)
-            {
                 Application.Exit();
-            }
             else if (cierre == true)
             {
                 cierre = false;

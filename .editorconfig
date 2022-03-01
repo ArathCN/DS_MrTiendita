@@ -1,0 +1,13 @@
+﻿[*.cs]
+
+# IDE0018: Declaración de variables alineada
+csharp_style_inlined_variable_declaration = false
+
+# IDE0059: Asignación innecesaria de un valor
+csharp_style_unused_value_assignment_preference = discard_variable
+
+# IDE0059: Asignación innecesaria de un valor
+dotnet_diagnostic.IDE0059.severity = silent
+
+# IDE0044: Agregar modificador de solo lectura
+dotnet_style_readonly_field = false
