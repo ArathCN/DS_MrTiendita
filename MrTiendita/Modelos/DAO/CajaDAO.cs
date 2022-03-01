@@ -17,7 +17,7 @@ namespace MrTiendita.Modelos.DAO
             this.mensajeError = null;
         }
 
-        public Caja readByName(String nombre)
+        public Caja ReadByName(String nombre)
         {
             Caja caja = null;
 
@@ -44,10 +44,10 @@ namespace MrTiendita.Modelos.DAO
             return caja;
         }
 
-        public bool updateValue(String atributo, String valor)
+        public bool UpdateValue(String atributo, String valor)
         {
 
-            bool success = false;
+            bool resultado = false;
             String sql = "UPDATE Caja SET valor = @val WHERE atributo = @att";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -64,10 +64,10 @@ namespace MrTiendita.Modelos.DAO
 
                     int rowsAffected = command.ExecuteNonQuery();
 
-                    if (rowsAffected == 1) success = true;
+                    if (rowsAffected == 1) resultado = true;
                 }
             }
-            return success;
+            return resultado;
         }
     }
 }

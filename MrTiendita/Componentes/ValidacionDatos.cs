@@ -10,8 +10,6 @@ namespace MrTiendita.Componentes
 {
     public static class ValidacionDatos
     {
-
-
         public static bool error = false;
         public static String mensajes = "";
 

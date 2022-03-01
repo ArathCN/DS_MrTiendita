@@ -114,7 +114,7 @@ namespace MrTiendita.Controladores
             }
 
             //Obtener el valor de la caja
-            Caja caja = this.cajaDAO.readByName("Total");
+            Caja caja = this.cajaDAO.ReadByName("Total");
             if (caja == null)
             {
                 frmError error = new frmError("No se pudo obtener la información sobre la caja.");
@@ -148,7 +148,7 @@ namespace MrTiendita.Controladores
                 }
 
                 //Actualizar el dinero en la caja, sólo si es efectivo
-                res = this.cajaDAO.updateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
+                res = this.cajaDAO.UpdateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
                 if (!res)
                 {
                     frmError error = new frmError("Hubo un error al actualizar el total de la caja.");

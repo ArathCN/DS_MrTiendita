@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//Agregamos las librerias que utilizaremos.
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Runtime.InteropServices;

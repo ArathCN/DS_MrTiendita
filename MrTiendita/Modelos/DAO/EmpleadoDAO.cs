@@ -11,19 +11,19 @@ namespace MrTiendita.Modelos.DAO
 {
     class EmpleadoDAO:DbContext
     {
-        public bool create(Empleado empleado)
+        public bool Create(Empleado empleado)
         {
             this.LimpiarError();
             bool success = false;
             String sql = "INSERT INTO Empleado (nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave, usuario) " +
-                "VALUES (@nom, @am, @ap, @tel, @sue, @tip, @cla, @usu);";
+                "VALUES (@nombre, @am, @ap, @tel, @sue, @tip, @cla, @usu);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.Add("@nom", SqlDbType.VarChar);
+                    command.Parameters.Add("@nombre", SqlDbType.VarChar);
                     command.Parameters.Add("@am", SqlDbType.VarChar);
                     command.Parameters.Add("@ap", SqlDbType.VarChar);
                     command.Parameters.Add("@tel", SqlDbType.BigInt);
@@ -32,7 +32,7 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters.Add("@cla", SqlDbType.VarChar);
                     command.Parameters.Add("@usu", SqlDbType.VarChar);
 
-                    command.Parameters["@nom"].Value = empleado.Nombre;
+                    command.Parameters["@nombre"].Value = empleado.Nombre;
                     command.Parameters["@am"].Value = empleado.A_paterno;
                     command.Parameters["@ap"].Value = empleado.A_materno;
                     command.Parameters["@tel"].Value = empleado.Telefono;
@@ -65,9 +65,9 @@ namespace MrTiendita.Modelos.DAO
         public bool updateInfo(Empleado empleado, long id) //Update by id
         {
             //String sql = "INSERT INTO Empleado (id_empleado, nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave) " +
-            //    "VALUES (@id, @nom, @am, @ap, @tel, @sue, @tip, @cla);";
+            //    "VALUES (@id, @nombre, @am, @ap, @tel, @sue, @tip, @cla);";
             bool success = false;
-            String sql = "UPDATE Empleado SET nombre = @nom, ap_paterno = @ap, ap_materno = @am," +
+            String sql = "UPDATE Empleado SET nombre = @nombre, ap_paterno = @ap, ap_materno = @am," +
                 " telefono = @tel, sueldo = @sue, tipo_empleado = @tip, usuario = @usu WHERE id_empleado = @id;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -76,7 +76,7 @@ namespace MrTiendita.Modelos.DAO
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.Add("@id", SqlDbType.Int);
-                    command.Parameters.Add("@nom", SqlDbType.VarChar);
+                    command.Parameters.Add("@nombre", SqlDbType.VarChar);
                     command.Parameters.Add("@ap", SqlDbType.VarChar);
                     command.Parameters.Add("@am", SqlDbType.VarChar);
                     command.Parameters.Add("@tel", SqlDbType.BigInt);
@@ -85,7 +85,7 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters.Add("@usu", SqlDbType.VarChar);
 
                     command.Parameters["@id"].Value = id;
-                    command.Parameters["@nom"].Value = empleado.Nombre;
+                    command.Parameters["@nombre"].Value = empleado.Nombre;
                     command.Parameters["@am"].Value = empleado.A_paterno;
                     command.Parameters["@ap"].Value = empleado.A_materno;
                     command.Parameters["@tel"].Value = empleado.Telefono;

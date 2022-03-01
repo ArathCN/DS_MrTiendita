@@ -250,7 +250,7 @@ namespace MrTiendita.Controladores
             //encriptar la contraseña
             empleado.Clave = BCrypt.Net.BCrypt.EnhancedHashPassword(empleado.Clave, HashType.SHA512, workFactor: 10);
 
-            bool res = this.empleadoDAO.create(empleado);
+            bool res = this.empleadoDAO.Create(empleado);
             if (res)
             {
                 Form mensajeExito = new frmExito("Se ha creado el empleado con éxito.");

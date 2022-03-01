@@ -164,7 +164,7 @@ namespace MrTiendita.Controladores
                 return;
             }
 
-            res = this.cajaDAO.updateValue("Total", this.valorCaja.Valor);
+            res = this.cajaDAO.UpdateValue("Total", this.valorCaja.Valor);
             if (!res)
             {
                 frmError error = new frmError("Hubo un error al actualizar el total de la caja.");
@@ -199,7 +199,7 @@ namespace MrTiendita.Controladores
         private void obtenerValorCaja()
         {
             //Obtener el valor de la caja
-            this.valorCaja = this.cajaDAO.readByName("Total");
+            this.valorCaja = this.cajaDAO.ReadByName("Total");
             if (this.valorCaja == null)
             {
                 frmError error = new frmError("No se pudo obtener la información sobre la caja.");
