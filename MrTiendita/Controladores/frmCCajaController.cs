@@ -89,7 +89,8 @@ namespace MrTiendita.Controladores
             this.vista.tablaMovimientos.Rows.Clear();
             foreach (Movimiento movimiento in movimientos)
             {
-                this.vista.tablaMovimientos.Rows.Add(movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
+                this.vista.tablaMovimientos.Rows.Add(
+                    movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
                 total += movimiento.Importe;
             }
 
@@ -188,7 +189,8 @@ namespace MrTiendita.Controladores
             List<Movimiento> movimientos = this.movimientoDAO.ReadAll();
             foreach (Movimiento movimiento in movimientos)
             {
-                this.vista.tablaMovimientos.Rows.Add(movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
+                this.vista.tablaMovimientos.Rows.Add(
+                    movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
             }
         }
 

@@ -14,7 +14,8 @@ namespace MrTiendita.Modelos.DAO
         public bool Create(Producto producto)
         {
             bool success = false;
-            String sql = "INSERT INTO Producto (codigo_barra, descripcion, precio_venta, precio_compra, cantidad_actual, medida) " +
+            String sql =
+                "INSERT INTO Producto (codigo_barra, descripcion, precio_venta, precio_compra, cantidad_actual, medida) " +
                 "VALUES (@cb, @des, @pre, @precom, @ca, @med);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -156,7 +157,15 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            productos.Add(new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5)));
+                            productos.Add(
+                                new Producto(
+                                    reader.GetInt64(0),
+                                    reader.GetString(1),decimal.ToDouble(reader.GetDecimal(2)),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    decimal.ToDouble(reader.GetDecimal(4)),
+                                    reader.GetBoolean(5)
+                                )
+                            );
                         }
                     }
                 }
@@ -185,7 +194,14 @@ namespace MrTiendita.Modelos.DAO
                         {
                             while (reader.Read())
                             {
-                                producto = new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5));
+                                producto = new Producto(
+                                    reader.GetInt64(0),
+                                    reader.GetString(1),
+                                    decimal.ToDouble(reader.GetDecimal(2)),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    decimal.ToDouble(reader.GetDecimal(4)),
+                                    reader.GetBoolean(5)
+                                );
                             }
                         }
                     }
@@ -213,7 +229,16 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            productos.Add(new Producto(reader.GetInt64(0), reader.GetString(1), decimal.ToDouble(reader.GetDecimal(2)), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetBoolean(5)));
+                            productos.Add(
+                                new Producto(
+                                    reader.GetInt64(0),
+                                    reader.GetString(1),
+                                    decimal.ToDouble(reader.GetDecimal(2)),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    decimal.ToDouble(reader.GetDecimal(4)),
+                                    reader.GetBoolean(5)
+                                )
+                            );
                         }
                     }
                 }

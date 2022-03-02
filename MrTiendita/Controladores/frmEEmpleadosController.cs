@@ -20,13 +20,13 @@ namespace MrTiendita.Controladores
         {
             this.vista = vista;
             this.empleadoDAO = new EmpleadoDAO();
-            this.vista.tablaEmpleados.CellContentClick += new DataGridViewCellEventHandler(TablaEmpleados_CellContentClick);
+            this.vista.tablaEmpleados.CellContentClick += new DataGridViewCellEventHandler(Table_TablaEmpleados_CellContentClick);
             this.vista.Load += new EventHandler(Vista_Load);
             this.vista.tb_busqueda.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
             this.vista.btn_nuevoEmpleado.Click += new EventHandler(Btn_nuevoEmpleado_Click);
         }
 
-        private void TablaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Table_TablaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.tablaEmpleados.Rows[e.RowIndex].Cells["eliminar"].Selected)
                 this.EliminarEmpleado(e);
@@ -48,7 +48,14 @@ namespace MrTiendita.Controladores
             this.vista.tablaEmpleados.Rows.Clear();
             foreach (Empleado xEmpleado in empleados)
             {
-                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Id_empleado, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado);
+                this.vista.tablaEmpleados.Rows.Add(
+                    xEmpleado.Id_empleado,
+                    xEmpleado.Nombre,
+                    xEmpleado.A_paterno,
+                    xEmpleado.A_materno,
+                    xEmpleado.Telefono,
+                    xEmpleado.Sueldo,
+                    xEmpleado.Tipo_empleado);
             }
         }
 
@@ -67,7 +74,15 @@ namespace MrTiendita.Controladores
             this.todosEmpleados = empleados;
             foreach (Empleado xEmpleado in empleados)
             {
-                this.vista.tablaEmpleados.Rows.Add(xEmpleado.Usuario, xEmpleado.Nombre, xEmpleado.A_paterno, xEmpleado.A_materno, xEmpleado.Telefono, xEmpleado.Sueldo, xEmpleado.Tipo_empleado, xEmpleado.Id_empleado);
+                this.vista.tablaEmpleados.Rows.Add(
+                    xEmpleado.Usuario,
+                    xEmpleado.Nombre,
+                    xEmpleado.A_paterno,
+                    xEmpleado.A_materno,
+                    xEmpleado.Telefono,
+                    xEmpleado.Sueldo,
+                    xEmpleado.Tipo_empleado,
+                    xEmpleado.Id_empleado);
             }
         }
 

@@ -35,7 +35,8 @@ namespace MrTiendita.Controladores
                 {
                     {ValidacionDatosOpciones.NUM_CARACTERES, 10}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, mensajeError, this.vista.tb_telefono.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorTel, mensajeError, this.vista.tb_telefono.Text, out dato2, opciones2);
             };
 
             this.vista.tb_nombre.TextChanged += delegate (object sender, EventArgs e)

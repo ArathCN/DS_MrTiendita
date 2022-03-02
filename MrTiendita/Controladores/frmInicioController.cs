@@ -39,7 +39,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeError, this.vista.tb_IDEmpleado.Text, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorID, mensajeError, this.vista.tb_IDEmpleado.Text, longitudCadenas);
             };
 
             this.vista.tb_claveEmpleado.TextChanged += delegate (object sender, EventArgs e)
@@ -50,7 +51,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_claveEmpleado.Text, longitudCadenas, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_claveEmpleado.Text, longitudCadenas, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
             };
         }
 
@@ -71,7 +73,12 @@ namespace MrTiendita.Controladores
             };
 
             if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeErrorUsuario, usuario, opcionesUsuario) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeErrorClave, clave, opcionesClave, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
+                !ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorClave,
+                    mensajeErrorClave,
+                    clave,
+                    opcionesClave,
+                    patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
             {
                 Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();

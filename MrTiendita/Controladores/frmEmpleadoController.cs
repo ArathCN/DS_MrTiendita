@@ -38,7 +38,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeError, this.vista.tb_idEmpleado.Text, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorID, mensajeError, this.vista.tb_idEmpleado.Text, longitudCadenas);
             };
 
             this.vista.tb_nombre.TextChanged += delegate (object sender, EventArgs e)
@@ -49,7 +50,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, mensajeError, this.vista.tb_nombre.Text, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorNombre, mensajeError, this.vista.tb_nombre.Text, longitudCadenas);
             };
 
             this.vista.tb_apPaterno.TextChanged += delegate (object sender, EventArgs e)
@@ -60,7 +62,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorAp, mensajeError, this.vista.tb_apPaterno.Text, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorAp, mensajeError, this.vista.tb_apPaterno.Text, longitudCadenas);
             };
 
             this.vista.tb_apMaterno.TextChanged += delegate (object sender, EventArgs e)
@@ -71,7 +74,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorAm, mensajeError, this.vista.tb_apMaterno.Text, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorAm, mensajeError, this.vista.tb_apMaterno.Text, longitudCadenas);
             };
 
             this.vista.tb_telefono.TextChanged += delegate (object sender, EventArgs e)
@@ -82,7 +86,8 @@ namespace MrTiendita.Controladores
                 {
                     {ValidacionDatosOpciones.NUM_CARACTERES, 10}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, mensajeError, this.vista.tb_telefono.Text, out datoEvaluar, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorTel, mensajeError, this.vista.tb_telefono.Text, out datoEvaluar, longitudCadenas);
             };
 
             this.vista.tb_sueldo.TextChanged += delegate (object sender, EventArgs e)
@@ -95,7 +100,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MENOR_IGUAL_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorSue, mensajeError, this.vista.tb_sueldo.Text, out datoEvaluar, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorSue, mensajeError, this.vista.tb_sueldo.Text, out datoEvaluar, longitudCadenas);
             };
 
             this.vista.tb_clave.TextChanged += delegate (object sender, EventArgs e)
@@ -106,7 +112,12 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_clave.Text, longitudCadenas, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorClave,
+                    mensajeError,
+                    this.vista.tb_clave.Text,
+                    longitudCadenas,
+                    patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
             };
         }
 
@@ -222,7 +233,8 @@ namespace MrTiendita.Controladores
             }
 
             //Crear el empleado
-            Empleado empleado = new Empleado(-1, nombreCad, apPaternoCad, apMaternoCad, telefono, sueldo, tipoEmpleadoCad, claveCad, usuarioCad);
+            Empleado empleado = new Empleado(
+                -1, nombreCad, apPaternoCad, apMaternoCad, telefono, sueldo, tipoEmpleadoCad, claveCad, usuarioCad);
 
             if (this.accion == "agregar")
                 esValido = this.Agregar(empleado);

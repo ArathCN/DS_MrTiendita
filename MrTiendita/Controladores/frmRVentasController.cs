@@ -31,7 +31,14 @@ namespace MrTiendita.Controladores
             this.vista.tablaVentas.Rows.Clear();
             foreach (Venta venta in ventas)
             {
-                this.vista.tablaVentas.Rows.Add("--", venta.Codigo_barra, venta.Id_empleado, venta.Metodo_pago, venta.Fecha, venta.Cantidad, venta.Importe);
+                this.vista.tablaVentas.Rows.Add(
+                    "--",
+                    venta.Codigo_barra,
+                    venta.Id_empleado,
+                    venta.Metodo_pago,
+                    venta.Fecha,
+                    venta.Cantidad,
+                    venta.Importe);
             }
         }
     }

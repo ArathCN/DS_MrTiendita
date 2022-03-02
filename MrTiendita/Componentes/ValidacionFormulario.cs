@@ -9,7 +9,12 @@ namespace MrTiendita.Componentes
 {
     static public class ValidacionFormulario
     {
-        static public bool Validar(Label etiqueta, String mensaje, String dato, out double datoSalida, Dictionary<int, double> opciones = null)
+        static public bool Validar(
+            Label etiqueta,
+            String mensaje,
+            String dato,
+            out double datoSalida,
+            Dictionary<int, double> opciones = null)
         {
             bool EsValido = false;
             if (opciones != null)
@@ -38,7 +43,12 @@ namespace MrTiendita.Componentes
             return EsValido;
         }
 
-        static public bool Validar(Label etiqueta, String mensaje, String dato, out long datoSalida, Dictionary<int, long> opciones = null)
+        static public bool Validar(
+            Label etiqueta,
+            String mensaje,
+            String dato,
+            out long datoSalida,
+            Dictionary<int, long> opciones = null)
         {
             bool EsValido = false;
             if (opciones != null)
@@ -69,7 +79,12 @@ namespace MrTiendita.Componentes
             return EsValido;
         }
 
-        static public bool Validar(Label etiqueta, String mensaje, String dato, Dictionary<int, int> opciones = null, String patron = null)
+        static public bool Validar(
+            Label etiqueta,
+            String mensaje,
+            String dato,
+            Dictionary<int, int> opciones = null,
+            String patron = null)
         {
             bool EsValido = false;
             if (patron == null) patron = "";

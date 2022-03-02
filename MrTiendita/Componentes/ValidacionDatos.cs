@@ -41,7 +41,8 @@ namespace MrTiendita.Componentes
                 {
                     if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                     {
-                        ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " + opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
+                        ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " +
+                            opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
                         ValidacionDatos.esValido = true;
                         return false;
                     }
@@ -51,7 +52,8 @@ namespace MrTiendita.Componentes
                 {
                     if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
                     {
-                        ValidacionDatos.mensajes = "Número de caracteres maximo superado:" + opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
+                        ValidacionDatos.mensajes = "Número de caracteres maximo superado:" +
+                            opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
                         ValidacionDatos.esValido = true;
                         return false;
                     }
@@ -111,7 +113,8 @@ namespace MrTiendita.Componentes
             {
                 if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
                 {
-                    ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " + opciones[ValidacionDatosOpciones.NUM_CARACTERES];
+                    ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " +
+                        opciones[ValidacionDatosOpciones.NUM_CARACTERES];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -141,7 +144,8 @@ namespace MrTiendita.Componentes
             {
                 if (datoEnNumero < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
                 {
-                    ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
+                    ValidacionDatos.mensajes = "El número debe ser mayor o igual a " +
+                        opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -161,7 +165,8 @@ namespace MrTiendita.Componentes
             {
                 if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
                 {
-                    ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
+                    ValidacionDatos.mensajes = "El número debe ser menor o igual que " +
+                        opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -234,7 +239,8 @@ namespace MrTiendita.Componentes
             {
                 if (datoEnNumero < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
                 {
-                    ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
+                    ValidacionDatos.mensajes = "El número debe ser mayor o igual a " +
+                        opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -254,7 +260,8 @@ namespace MrTiendita.Componentes
             {
                 if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
                 {
-                    ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
+                    ValidacionDatos.mensajes = "El número debe ser menor o igual que " +
+                        opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -262,7 +269,7 @@ namespace MrTiendita.Componentes
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES))
             {
-                datoEnNumero = Math.Round(double_dato, (int) opciones[ValidacionDatosOpciones.NUM_DECIMALES]);
+                datoEnNumero = Math.Round(datoEnNumero, (int) opciones[ValidacionDatosOpciones.NUM_DECIMALES]);
             }
             
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND))

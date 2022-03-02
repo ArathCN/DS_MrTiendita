@@ -36,7 +36,15 @@ namespace MrTiendita.Controladores
             this.vista.tablaEntradas.Rows.Clear();
             foreach (EntradaAlmacen entrada in entradas)
             {
-                this.vista.tablaEntradas.Rows.Add("--", entrada.Producto.Descripcion, entrada.Fecha, entrada.Codigo_barra, entrada.Cantidad, entrada.Producto.Precio_compra, entrada.Producto.Precio_venta, entrada.Importe);
+                this.vista.tablaEntradas.Rows.Add(
+                    "--",
+                    entrada.Producto.Descripcion,
+                    entrada.Fecha,
+                    entrada.Codigo_barra,
+                    entrada.Cantidad,
+                    entrada.Producto.Precio_compra,
+                    entrada.Producto.Precio_venta,
+                    entrada.Importe);
             }
         }
     }

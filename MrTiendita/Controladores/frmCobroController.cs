@@ -134,7 +134,12 @@ namespace MrTiendita.Controladores
             if (this.metodoEfectivo)
             {
                 //Registrar la entrada de dinero, sólo si es en efectivo
-                Movimiento movimiento = new Movimiento(-1, TipoMovimiento.VENTA, DateTime.Now, this.totalVenta, double.Parse(caja.Valor) + this.totalVenta, TipoMovimiento.VENTA);
+                Movimiento movimiento = new Movimiento(
+                    -1, TipoMovimiento.VENTA,
+                    DateTime.Now,
+                    this.totalVenta,
+                    double.Parse(caja.Valor) + this.totalVenta,
+                    TipoMovimiento.VENTA);
                 esActualizado = this.movimientoDAO.Create(movimiento);
                 if (!esActualizado)
                 {
@@ -203,7 +208,8 @@ namespace MrTiendita.Controladores
             ticket.LineasAsteriscos();
             foreach (Producto item in this.productosVenta)
             {
-                ticket.AgregaArticulo(item.Descripcion, item.Cantidad_actual, item.Precio_venta, item.Precio_venta * item.Cantidad_actual);
+                ticket.AgregaArticulo(
+                    item.Descripcion, item.Cantidad_actual, item.Precio_venta, item.Precio_venta * item.Cantidad_actual);
             }
             ticket.LineasIgual();
             ticket.AgregarTotales("         TOTAL.........$", this.totalVenta);

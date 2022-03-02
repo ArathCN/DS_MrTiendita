@@ -15,7 +15,8 @@ namespace MrTiendita.Modelos.DAO
         {
             this.LimpiarError();
             bool success = false;
-            String sql = "INSERT INTO Empleado (nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave, usuario) " +
+            String sql =
+                "INSERT INTO Empleado (nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave, usuario) " +
                 "VALUES (@nombre, @am, @ap, @tel, @sue, @tip, @cla, @usu);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -64,8 +65,6 @@ namespace MrTiendita.Modelos.DAO
 
         public bool UpdateInfo(Empleado empleado, long id) //Update by id
         {
-            //String sql = "INSERT INTO Empleado (id_empleado, nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave) " +
-            //    "VALUES (@id, @nombre, @am, @ap, @tel, @sue, @tip, @cla);";
             bool success = false;
             String sql = "UPDATE Empleado SET nombre = @nombre, ap_paterno = @ap, ap_materno = @am," +
                 " telefono = @tel, sueldo = @sue, tipo_empleado = @tip, usuario = @usu WHERE id_empleado = @id;";
@@ -127,7 +126,17 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8)));
+                            empleados.Add(
+                                new Empleado(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetString(3),
+                                    reader.GetInt64(4),
+                                    decimal.ToDouble(reader.GetDecimal(5)),
+                                    reader.GetString(6), reader.GetString(7),
+                                    reader.GetString(8))
+                                );
                         }
                     }
                 }
@@ -154,7 +163,17 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleado = new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8));
+                            empleado = new Empleado(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3),
+                                reader.GetInt64(4),
+                                decimal.ToDouble(reader.GetDecimal(5)),
+                                reader.GetString(6),
+                                reader.GetString(7),
+                                reader.GetString(8)
+                            );
                         }
                     }
                 }
@@ -181,7 +200,19 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleados.Add(new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8)));
+                            empleados.Add(
+                                new Empleado(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetString(3),
+                                    reader.GetInt64(4),
+                                    decimal.ToDouble(reader.GetDecimal(5)),
+                                    reader.GetString(6),
+                                    reader.GetString(7),
+                                    reader.GetString(8)
+                                )
+                            );
                         }
                     }
                 }
@@ -230,7 +261,17 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            empleado = new Empleado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt64(4), decimal.ToDouble(reader.GetDecimal(5)), reader.GetString(6), reader.GetString(7), reader.GetString(8));
+                            empleado = new Empleado(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3),
+                                reader.GetInt64(4),
+                                decimal.ToDouble(reader.GetDecimal(5)),
+                                reader.GetString(6),
+                                reader.GetString(7),
+                                reader.GetString(8)
+                            );
                         }
                     }
                 }

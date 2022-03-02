@@ -39,7 +39,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.NUM_CARACTERES, 13}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigo, opciones2);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigo, opciones2);
             };
 
             this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
@@ -51,7 +52,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MENOR_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out cantidad, opciones2);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out cantidad, opciones2);
             };
 
             this.vista.tb_descripcion.TextChanged += delegate (object sender, EventArgs e)
@@ -62,7 +64,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 120}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeError, this.vista.tb_descripcion.Text, opciones2);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorDesc, mensajeError, this.vista.tb_descripcion.Text, opciones2);
             };
 
             this.vista.tb_precioCompra.TextChanged += delegate (object sender, EventArgs e)
@@ -74,7 +77,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MENOR_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, mensajeError, this.vista.tb_precioCompra.Text, out precioCompra, opciones2);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorPc, mensajeError, this.vista.tb_precioCompra.Text, out precioCompra, opciones2);
             };
 
             this.vista.tb_precioVenta.TextChanged += delegate (object sender, EventArgs e)
@@ -86,7 +90,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MENOR_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, mensajeError, this.vista.tb_precioVenta.Text, out precioVenta, opciones2);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorPv, mensajeError, this.vista.tb_precioVenta.Text, out precioVenta, opciones2);
             };
 
 

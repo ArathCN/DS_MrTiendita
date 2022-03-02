@@ -82,9 +82,12 @@ namespace MrTiendita.Controladores
         {
             Producto xProducto = new Producto
             {
-                Codigo_barra = Int64.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["codigo"].Value.ToString()),
-                Precio_venta = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["precio"].Value.ToString()),
-                Cantidad_actual = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString())
+                Codigo_barra = Int64.Parse(
+                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["codigo"].Value.ToString()),
+                Precio_venta = Convert.ToDouble(
+                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["precio"].Value.ToString()),
+                Cantidad_actual = Convert.ToDouble(
+                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString())
             };
 
             if (this.vista.tablaVentas.Rows[e.RowIndex].Cells["restar"].Selected)
@@ -102,7 +105,8 @@ namespace MrTiendita.Controladores
                 else
                 {
                     this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = xProducto.Cantidad_actual;
-                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value = xProducto.Cantidad_actual * xProducto.Precio_venta;
+                    this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value =
+                        xProducto.Cantidad_actual * xProducto.Precio_venta;
                 }
 
                 this.totalVenta -= xProducto.Precio_venta;
@@ -119,7 +123,8 @@ namespace MrTiendita.Controladores
                 }
 
                 this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = xProducto.Cantidad_actual;
-                this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value = xProducto.Cantidad_actual * xProducto.Precio_venta;
+                this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value = 
+                    xProducto.Cantidad_actual * xProducto.Precio_venta;
                 this.totalVenta += xProducto.Precio_venta;
             }
 
@@ -136,7 +141,8 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.NUM_CARACTERES, 13}
             };
 
-            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, longitudCadenas))
+            if (!ValidacionFormulario.Validar(
+                this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, longitudCadenas))
             {
                 this.producto = null;
                 return;
@@ -168,7 +174,8 @@ namespace MrTiendita.Controladores
             
             //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
             if (this.producto == null ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, cantidadCadena, out cantidad, opciones))
+                !ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, cantidadCadena, out cantidad, opciones))
             {
                 Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
@@ -202,8 +209,10 @@ namespace MrTiendita.Controladores
             {
                 if (long.Parse(articulo.Cells["codigo"].Value.ToString()) == this.producto.Codigo_barra)
                 {
-                    articulo.Cells["cantidad_actual"].Value = Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString()) + cantidad;
-                    articulo.Cells["subtotal"].Value = Convert.ToDouble(articulo.Cells["subtotal"].Value.ToString()) + subtotal;
+                    articulo.Cells["cantidad_actual"].Value =
+                        Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString()) + cantidad;
+                    articulo.Cells["subtotal"].Value =
+                        Convert.ToDouble(articulo.Cells["subtotal"].Value.ToString()) + subtotal;
                     siEncontrado = true;
                 }
             }

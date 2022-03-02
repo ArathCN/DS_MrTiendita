@@ -76,7 +76,17 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            ventas.Add(new Venta(reader.GetInt32(0), reader.GetInt64(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4), decimal.ToDouble(reader.GetDecimal(5)), decimal.ToDouble(reader.GetDecimal(6))));
+                            ventas.Add(
+                                new Venta(
+                                    reader.GetInt32(0),
+                                    reader.GetInt64(1),
+                                    reader.GetInt32(2),
+                                    reader.GetString(3),
+                                    reader.GetDateTime(4),
+                                    decimal.ToDouble(reader.GetDecimal(5)),
+                                    decimal.ToDouble(reader.GetDecimal(6))
+                                )
+                            );
                         }
                     }
                 }

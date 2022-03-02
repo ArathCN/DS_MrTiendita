@@ -64,7 +64,16 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            movimientos.Add(new Movimiento(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetString(5)));
+                            movimientos.Add(
+                                new Movimiento(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetDateTime(2),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    decimal.ToDouble(reader.GetDecimal(4)),
+                                    reader.GetString(5)
+                                )
+                            );
                         }
                     }
                 }
@@ -91,7 +100,16 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            movimientos.Add(new Movimiento(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetString(5)));
+                            movimientos.Add(
+                                new Movimiento(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetDateTime(2),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    decimal.ToDouble(reader.GetDecimal(4)),
+                                    reader.GetString(5)
+                                )
+                            );
                         }
                     }
                 }

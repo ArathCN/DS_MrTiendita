@@ -32,7 +32,10 @@ namespace MrTiendita.Modelos.DAO
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
-                using (SqlTransaction tran = connection.BeginTransaction("EntradaAlmacen" + DateTimeOffset.Now.ToUnixTimeSeconds()))
+                using (SqlTransaction tran = connection.BeginTransaction(
+                    "EntradaAlmacen" + DateTimeOffset.Now.ToUnixTimeSeconds()
+                    )
+                )
                 {
                     using (SqlCommand command = new SqlCommand(sql, connection, tran))
                     {
@@ -125,7 +128,16 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            entradasAlmacen.Add(new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetInt32(5)));
+                            entradasAlmacen.Add(
+                                new EntradaAlmacen(
+                                    reader.GetInt32(0),
+                                    reader.GetInt64(1),
+                                    reader.GetDateTime(2),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    decimal.ToDouble(reader.GetDecimal(4)),
+                                    reader.GetInt32(5)
+                                )
+                            );
                         }
                     }
                 }
@@ -156,8 +168,22 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            EntradaAlmacen entrada = new EntradaAlmacen(reader.GetInt32(0), reader.GetInt64(1), reader.GetDateTime(2), decimal.ToDouble(reader.GetDecimal(3)), decimal.ToDouble(reader.GetDecimal(4)), reader.GetInt32(5));
-                            Producto producto = new Producto(reader.GetInt64(6), reader.GetString(7), decimal.ToDouble(reader.GetDecimal(8)), decimal.ToDouble(reader.GetDecimal(9)), decimal.ToDouble(reader.GetDecimal(10)), reader.GetBoolean(11));
+                            EntradaAlmacen entrada = new EntradaAlmacen(
+                                reader.GetInt32(0),
+                                reader.GetInt64(1),
+                                reader.GetDateTime(2),
+                                decimal.ToDouble(reader.GetDecimal(3)),
+                                decimal.ToDouble(reader.GetDecimal(4)),
+                                reader.GetInt32(5)
+                            );
+                            Producto producto = new Producto(
+                                reader.GetInt64(6),
+                                reader.GetString(7),
+                                decimal.ToDouble(reader.GetDecimal(8)),
+                                decimal.ToDouble(reader.GetDecimal(9)),
+                                decimal.ToDouble(reader.GetDecimal(10)),
+                                reader.GetBoolean(11)
+                            );
                             entrada.Producto = producto;
                             entradasAlmacen.Add(entrada);
                         }

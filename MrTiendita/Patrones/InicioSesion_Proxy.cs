@@ -25,7 +25,7 @@ namespace MrTiendita.Patrones
 
             public void Peticion(string pOpcion, FrmPrincipal frmPrincipal)
             {
-                if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado
+                if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado == "Cajero"
                 {
                     tipoEmpleado = new TipoEmpleado();
                     tipoEmpleado.Encargado(frmPrincipal);

@@ -44,7 +44,8 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MENOR_A, 100},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out datoEvaluar, longitudCadenas);
+                ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out datoEvaluar, longitudCadenas);
             };
         }
 
@@ -126,7 +127,9 @@ namespace MrTiendita.Controladores
             //Combrobar que el codigo haya sido correcto y que la cantidad es numerica, no nula y mayor a 0
             if (this.vista.cb_Proveedor.SelectedIndex == -1 ||
                 productoParaEntrada == null ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensaje, cantidadCadena, out cantidad, longitudCadenas))
+                !ValidacionFormulario.Validar(
+                    this.vista.lbl_ErrorCantidad, mensaje, cantidadCadena, out cantidad, longitudCadenas)
+                )
             {
                 Form mensajeError = new FrmError("Asegurese de haber llenado todos los datos y que estén escritos correctamente.");
                 mensajeError.ShowDialog();
@@ -192,7 +195,12 @@ namespace MrTiendita.Controladores
             List<Producto> productos = this.productoDAO.ReadAll();
             foreach (Producto xProducto in productos)
             {
-                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
+                this.vista.tablaProductos.Rows.Add(
+                    xProducto.Codigo_barra,
+                    xProducto.Cantidad_actual,
+                    xProducto.Descripcion,
+                    xProducto.Precio_venta,
+                    xProducto.Precio_compra);
             }
         }
 
