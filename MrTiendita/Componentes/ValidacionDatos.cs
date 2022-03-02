@@ -10,12 +10,12 @@ namespace MrTiendita.Componentes
 {
     public static class ValidacionDatos
     {
-        public static bool EsValido = false;
+        public static bool esValido = false;
         public static String mensajes = "";
 
         public static bool NoVacio(String dato)
         {
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
             if (!String.IsNullOrEmpty(dato)) return true;
             else
@@ -42,7 +42,7 @@ namespace MrTiendita.Componentes
                     if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                     {
                         ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " + opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
-                        ValidacionDatos.EsValido = true;
+                        ValidacionDatos.esValido = true;
                         return false;
                     }
                 }
@@ -52,7 +52,7 @@ namespace MrTiendita.Componentes
                     if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
                     {
                         ValidacionDatos.mensajes = "Número de caracteres maximo superado:" + opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
-                        ValidacionDatos.EsValido = true;
+                        ValidacionDatos.esValido = true;
                         return false;
                     }
                 }
@@ -63,7 +63,7 @@ namespace MrTiendita.Componentes
                 if(!Regex.Match(dato, patron, RegexOptions.IgnoreCase).Success)
                 {
                     ValidacionDatos.mensajes = "La cadena";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
@@ -71,39 +71,39 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        public static bool Numero(String dato, out long dato_long)
+        public static bool Numero(String dato, out long datoSalida)
         {
-            long long_dato;
+            long datoEnNumero;
 
-            dato_long = -1;
+            datoSalida = -1;
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Int64.TryParse(dato, out long_dato))
+            if (!Int64.TryParse(dato, out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.EsValido = true;
+                ValidacionDatos.esValido = true;
                 return false;
             }
 
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
-            dato_long = long_dato;
+            datoSalida = datoEnNumero;
             return true;
         }
 
-        public static bool Numero(String dato, out long dato_long, Dictionary<int, long> opciones)
+        public static bool Numero(String dato, out long datoSalida, Dictionary<int, long> opciones)
         {
-            long long_dato;
+            long datoEnNumero;
 
-            dato_long = -1;
+            datoSalida = -1;
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Int64.TryParse(dato, out long_dato))
+            if (!Int64.TryParse(dato, out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.EsValido = true;
+                ValidacionDatos.esValido = true;
                 return false;
             }
 
@@ -112,7 +112,7 @@ namespace MrTiendita.Componentes
                 if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " + opciones[ValidacionDatosOpciones.NUM_CARACTERES];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
@@ -122,92 +122,92 @@ namespace MrTiendita.Componentes
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_A))
             {
-                if (long_dato <= opciones[ValidacionDatosOpciones.MAYOR_A])
+                if (datoEnNumero <= opciones[ValidacionDatosOpciones.MAYOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato no mayor al número minimo especificado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_IGUAL_A))
             {
-                if (long_dato < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
+                if (datoEnNumero < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_A))
             {
-                if (long_dato >= opciones[ValidacionDatosOpciones.MENOR_A])
+                if (datoEnNumero >= opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_IGUAL_A))
             {
-                if (long_dato > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
+                if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
-            dato_long = long_dato;
+            datoSalida = datoEnNumero;
             return true;
         }
 
-        public static bool Numero(String dato, out double dato_double)
+        public static bool Numero(String dato, out double datoSalida)
         {
 
-            double double_dato;
+            double datoEnNumero;
 
-            dato_double = -1;
+            datoSalida = -1;
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Double.TryParse(dato, out double_dato))
+            if (!Double.TryParse(dato, out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.EsValido = true;
+                ValidacionDatos.esValido = true;
                 return false;
             }
 
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
-            dato_double = double_dato;
+            datoSalida = datoEnNumero;
             return true;
         }
 
-        public static bool Numero(String dato, out double dato_double, Dictionary<int, Double> opciones)
+        public static bool Numero(String dato, out double datoSalida, Dictionary<int, Double> opciones)
         {
 
-            double double_dato;
+            double datoEnNumero;
 
-            dato_double = -1;
+            datoSalida = -1;
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Double.TryParse(dato, out double_dato))
+            if (!Double.TryParse(dato, out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.EsValido = true;
+                ValidacionDatos.esValido = true;
                 return false;
             }
 
@@ -216,108 +216,108 @@ namespace MrTiendita.Componentes
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_A))
             {
-                if (double_dato <= opciones[ValidacionDatosOpciones.MAYOR_A]) {
+                if (datoEnNumero <= opciones[ValidacionDatosOpciones.MAYOR_A]) {
                     ValidacionDatos.mensajes = "El número debe ser mayor a " + opciones[ValidacionDatosOpciones.MAYOR_A];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_IGUAL_A))
             {
-                if (double_dato < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
+                if (datoEnNumero < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser mayor o igual a " + opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_A))
             {
-                if (double_dato >= opciones[ValidacionDatosOpciones.MENOR_A])
+                if (datoEnNumero >= opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser menor que " + opciones[ValidacionDatosOpciones.MENOR_A];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_IGUAL_A))
             {
-                if (double_dato > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
+                if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
                 {
                     ValidacionDatos.mensajes = "El número debe ser menor o igual que " + opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES))
             {
-                double_dato = Math.Round(double_dato, (int) opciones[ValidacionDatosOpciones.NUM_DECIMALES]);
+                datoEnNumero = Math.Round(double_dato, (int) opciones[ValidacionDatosOpciones.NUM_DECIMALES]);
             }
             
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND))
             {
-                int op = (int)opciones[ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND];
-                String reg = "^[0-9]*(?:\\.[0-9]{1," + op + "})?$";
+                int numeroDecimales = (int)opciones[ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND];
+                String expRegNumeroDecimales = "^[0-9]*(?:\\.[0-9]{1," + numeroDecimales + "})?$";
                 
-                if (!Regex.Match(dato, reg).Success)
+                if (!Regex.Match(dato, expRegNumeroDecimales).Success)
                 {
-                    ValidacionDatos.mensajes = "El número debe tener maximo " + op + " decimales.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.mensajes = "El número debe tener maximo " + numeroDecimales + " decimales.";
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
-            dato_double = double_dato;
+            datoSalida = datoEnNumero;
             return true;
         }
 
-        public static bool Numero(String dato, out int dato_int)
+        public static bool Numero(String dato, out int datoSalida)
         {
 
-            int int_dato;
+            int datoEnNumero;
 
-            dato_int = -1;
+            datoSalida = -1;
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Int32.TryParse(dato, out int_dato))
+            if (!Int32.TryParse(dato, out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.EsValido = true;
+                ValidacionDatos.esValido = true;
                 return false;
             }
 
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
-            dato_int = int_dato;
+            datoSalida = datoEnNumero;
             return true;
         }
 
-        public static bool Numero(String dato, out int dato_int, Dictionary<int, int> opciones)
+        public static bool Numero(String dato, out int datoSalida, Dictionary<int, int> opciones)
         {
-            int int_dato;
+            int datoEnNumero;
 
-            dato_int = -1;
+            datoSalida = -1;
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Int32.TryParse(dato, out int_dato))
+            if (!Int32.TryParse(dato, out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
-                ValidacionDatos.EsValido = true;
+                ValidacionDatos.esValido = true;
                 return false;
             }
 
@@ -326,34 +326,34 @@ namespace MrTiendita.Componentes
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
                     ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_A))
             {
-                if (int_dato < opciones[ValidacionDatosOpciones.MAYOR_A])
+                if (datoEnNumero < opciones[ValidacionDatosOpciones.MAYOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato no mayor al número minimo especificado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_A))
             {
-                if (int_dato > opciones[ValidacionDatosOpciones.MENOR_A])
+                if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
-                    ValidacionDatos.EsValido = true;
+                    ValidacionDatos.esValido = true;
                     return false;
                 }
             }
 
-            ValidacionDatos.EsValido = false;
+            ValidacionDatos.esValido = false;
             ValidacionDatos.mensajes = "";
-            dato_int = int_dato;
+            datoSalida = datoEnNumero;
             return true;
         }
     }

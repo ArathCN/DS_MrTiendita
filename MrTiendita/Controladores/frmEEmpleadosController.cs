@@ -20,36 +20,31 @@ namespace MrTiendita.Controladores
         {
             this.vista = vista;
             this.empleadoDAO = new EmpleadoDAO();
-
-            this.vista.tablaEmpleados.CellContentClick += new DataGridViewCellEventHandler(tablaEmpleados_CellContentClick);
-            this.vista.Load += new EventHandler(vista_Load);
-            this.vista.tb_busqueda.TextChanged += new EventHandler(tb_busqueda_TextChanged);
-            this.vista.btn_nuevoEmpleado.Click += new EventHandler(btn_nuevoEmpleado_Click);
+            this.vista.tablaEmpleados.CellContentClick += new DataGridViewCellEventHandler(TablaEmpleados_CellContentClick);
+            this.vista.Load += new EventHandler(Vista_Load);
+            this.vista.tb_busqueda.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
+            this.vista.btn_nuevoEmpleado.Click += new EventHandler(Btn_nuevoEmpleado_Click);
         }
 
-        private void tablaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void TablaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.tablaEmpleados.Rows[e.RowIndex].Cells["eliminar"].Selected)
-            {
-                this.eliminarEmpleado(e);
-            }
+                this.EliminarEmpleado(e);
             else if (this.vista.tablaEmpleados.Rows[e.RowIndex].Cells["editar"].Selected)
-            {
-                this.actualizarEmpleado(e);
-            }
+                this.ActualizarEmpleado(e);
 
-            this.mostrarTodos();
+            this.MostrarTodos();
         }
 
-        private void vista_Load(object sender, EventArgs e)
+        private void Vista_Load(object sender, EventArgs e)
         {
-            this.mostrarTodos();
+            this.MostrarTodos();
         }
 
-        private void tb_busqueda_TextChanged(object sender, EventArgs e)
+        private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
-            String condicion = this.vista.tb_busqueda.Text;
-            List<Empleado> empleados = this.empleadoDAO.readByName(condicion);
+            String cadenaBusqueda = this.vista.tb_busqueda.Text;
+            List<Empleado> empleados = this.empleadoDAO.ReadByName(cadenaBusqueda);
             this.vista.tablaEmpleados.Rows.Clear();
             foreach (Empleado xEmpleado in empleados)
             {
@@ -57,18 +52,18 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void btn_nuevoEmpleado_Click(object sender, EventArgs e)
+        private void Btn_nuevoEmpleado_Click(object sender, EventArgs e)
         {
             FrmEditarEmpleado editar = new FrmEditarEmpleado("agregar", -1);
             editar.ShowDialog();
-            this.mostrarTodos();
+            this.MostrarTodos();
         }
 
         //Métodos auxiliares
-        private void mostrarTodos()
+        private void MostrarTodos()
         {
             this.vista.tablaEmpleados.Rows.Clear();
-            List<Empleado> empleados = this.empleadoDAO.readAll();
+            List<Empleado> empleados = this.empleadoDAO.ReadAll();
             this.todosEmpleados = empleados;
             foreach (Empleado xEmpleado in empleados)
             {
@@ -76,7 +71,7 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void eliminarEmpleado(DataGridViewCellEventArgs e)
+        private void EliminarEmpleado(DataGridViewCellEventArgs e)
         {
             Form mensaje = new FrmError("El empleado se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
@@ -84,14 +79,15 @@ namespace MrTiendita.Controladores
             if (resultado == DialogResult.OK)
             {
                 //Eliminar la fila seleccionada
-                String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
-                int id = Int32.Parse(_id);
-                bool res = this.empleadoDAO.delete(id);
-                if (res)
+                String idCadena = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
+                int id = Int32.Parse(idCadena);
+                bool esEliminado = this.empleadoDAO.Delete(id);
+
+                if (esEliminado)
                 {
                     this.vista.tablaEmpleados.Rows.Remove(this.vista.tablaEmpleados.Rows[e.RowIndex]);
                     Form mensajeExito = new FrmError("El empleado fue eliminado");
-                    this.mostrarTodos();
+                    this.MostrarTodos();
                 }
                 else
                 {
@@ -101,10 +97,10 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void actualizarEmpleado(DataGridViewCellEventArgs e)
+        private void ActualizarEmpleado(DataGridViewCellEventArgs e)
         {
-            String _id = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
-            int id = Int32.Parse(_id);
+            String idCadena = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
+            int id = Int32.Parse(idCadena);
             FrmEditarEmpleado editar = new FrmEditarEmpleado("editar", id);
             editar.ShowDialog();
         }

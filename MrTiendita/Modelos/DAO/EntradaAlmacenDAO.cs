@@ -19,7 +19,7 @@ namespace MrTiendita.Modelos.DAO
         }
 
         //Formato para fechas en SQL Server yyyy-mm-dd hh:mm:ss
-        public bool create(EntradaAlmacen entradaAlmacen, Producto producto)
+        public bool Create(EntradaAlmacen entradaAlmacen, Producto producto)
         {
             this.LimpiarError();
             StringBuilder errorMessages = new StringBuilder();
@@ -111,7 +111,7 @@ namespace MrTiendita.Modelos.DAO
             return false;
         }*/
 
-        public List<EntradaAlmacen> readAll()
+        public List<EntradaAlmacen> ReadAll()
         {
             List<EntradaAlmacen> entradasAlmacen = new List<EntradaAlmacen>();
             String sql = "SELECT * FROM Entrada_almacen;";
@@ -134,7 +134,7 @@ namespace MrTiendita.Modelos.DAO
             return entradasAlmacen;
         }
 
-        public List<EntradaAlmacen> readBetweenDates(DateTime inicio, DateTime final)
+        public List<EntradaAlmacen> ReadBetweenDates(DateTime inicio, DateTime final)
         {
             List<EntradaAlmacen> entradasAlmacen = new List<EntradaAlmacen>();
             String sql = "SELECT * FROM Entrada_almacen AS E " +

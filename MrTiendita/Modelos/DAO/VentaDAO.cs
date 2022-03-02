@@ -17,7 +17,7 @@ namespace MrTiendita.Modelos.DAO
             this.mensajeError = null;
         }
 
-        public bool create(Venta venta)
+        public bool Create(Venta venta)
         {
             bool success = false;
             String sql = "INSERT INTO Venta (codigo_barra, id_empleado, metodo_pago, fecha, cantidad, importe) " +
@@ -51,12 +51,12 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public List<Venta> readAll()
+        public List<Venta> ReadAll()
         {
             return null;
         }
 
-        public List<Venta> readBetweenDates(DateTime inicio, DateTime final)
+        public List<Venta> ReadBetweenDates(DateTime inicio, DateTime final)
         {
             List<Venta> ventas = new List<Venta>();
             String sql = "SELECT * FROM Venta WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";

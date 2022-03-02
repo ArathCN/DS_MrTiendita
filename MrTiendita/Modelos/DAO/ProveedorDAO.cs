@@ -11,7 +11,7 @@ namespace MrTiendita.Modelos.DAO
 {
     public class ProveedorDAO:DbContext
     {
-        public bool create(Proveedor proveedor)
+        public bool Create(Proveedor proveedor)
         {
             bool success = false;
             String sql = "INSERT INTO Proveedor (nombre, telefono) " +
@@ -38,7 +38,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public bool updateInfo(Proveedor proveedor, int id)
+        public bool UpdateInfo(Proveedor proveedor, int id)
         {
             bool success = false;
             String sql = "UPDATE Proveedor SET nombre = @nom, telefono = @tel WHERE id_proveedor = @id;";
@@ -65,7 +65,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public List<Proveedor> readAll()
+        public List<Proveedor> ReadAll()
         {
             List<Proveedor> proveedores = new List<Proveedor>();
             String sql = "SELECT * FROM Proveedor;";
@@ -88,7 +88,7 @@ namespace MrTiendita.Modelos.DAO
             return proveedores;
         }
 
-        public Proveedor readById(int id)
+        public Proveedor ReadById(int id)
         {
             Proveedor proveedor = null;
 
@@ -115,7 +115,7 @@ namespace MrTiendita.Modelos.DAO
             return proveedor;
         }
 
-        public List<Proveedor> readByName(String idOrName)
+        public List<Proveedor> ReadByName(String idOrName)
         {
             List<Proveedor> proveedores = new List<Proveedor>();
             idOrName = "%" + idOrName + "%";
@@ -142,7 +142,7 @@ namespace MrTiendita.Modelos.DAO
             return proveedores;
         }
 
-        public bool delete(int id)
+        public bool Delete(int id)
         {
             bool success = false;
             String sql = "DELETE FROM Proveedor WHERE id_proveedor = @id";

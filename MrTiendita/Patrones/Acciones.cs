@@ -19,7 +19,7 @@ namespace Acciones
 
         public bool Agregar(Producto producto)
         {
-            bool res = productoDAO.create(producto);
+            bool res = productoDAO.Create(producto);
             if (res)
             {
                 Form mensajeExito = new FrmExito("Se ha hecho el producto con éxito.");
@@ -36,7 +36,7 @@ namespace Acciones
 
         public bool Actualizar(Producto producto, long id)
         {
-            bool res = productoDAO.updateInfo(producto, id);
+            bool res = productoDAO.UpdateInfo(producto, id);
             if (res)
             {
                 Form mensajeExito = new FrmExito("Se ha actualizado el producto con éxito.");
@@ -60,7 +60,7 @@ namespace Acciones
             {
                 String _id = vista.tablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
                 long id = Int64.Parse(_id);
-                bool res = productoDAO.delete(id);
+                bool res = productoDAO.Delete(id);
                 if (res)
                 {
                     vista.tablaProductos.Rows.Remove(vista.tablaProductos.Rows[e.RowIndex]);
@@ -78,7 +78,7 @@ namespace Acciones
         public void Consultar(FrmEAlmacen vista)
         {
             vista.tablaProductos.Rows.Clear();
-            List<Producto> productos = productoDAO.readAll();
+            List<Producto> productos = productoDAO.ReadAll();
             foreach (Producto xProducto in productos)
             {
                 vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
@@ -111,7 +111,7 @@ namespace Acciones
 
         public bool Actualizar(Empleado empleado, long id)
         {
-            bool res = empleadoDAO.updateInfo(empleado, id);
+            bool res = empleadoDAO.UpdateInfo(empleado, id);
             if (res)
             {
                 Form mensajeExito = new FrmExito("Se ha actualizado el empleado con éxito.");
@@ -137,7 +137,7 @@ namespace Acciones
                 //para el ejemplo borrare la unica que hay
                 String _id = vista.tablaEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString();
                 int id = Int32.Parse(_id);
-                bool res = empleadoDAO.delete(id);
+                bool res = empleadoDAO.Delete(id);
                 if (res)
                 {
                     vista.tablaEmpleados.Rows.Remove(vista.tablaEmpleados.Rows[e.RowIndex]);
@@ -156,7 +156,7 @@ namespace Acciones
         {
             List<Empleado> todosEmpleados;
             vista.tablaEmpleados.Rows.Clear();
-            List<Empleado> empleados = empleadoDAO.readAll();
+            List<Empleado> empleados = empleadoDAO.ReadAll();
             todosEmpleados = empleados;
             foreach (Empleado xEmpleado in empleados)
             {

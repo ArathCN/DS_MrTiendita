@@ -18,7 +18,7 @@ namespace MrTiendita.Controladores
         private readonly FrmInicio vista;
         private readonly FrmPrincipal principal;
         private readonly EmpleadoDAO empleadoDAO;
-        public bool cierre = false;
+        public bool esCerradoInicio = false;
         readonly InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
 
         public FrmInicioController(FrmInicio vista)
@@ -34,23 +34,23 @@ namespace MrTiendita.Controladores
             this.vista.tb_IDEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
                 String mensajeError = "Texto de entre 5 a 50 caracteres.";
-                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
                 {
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeError, this.vista.tb_IDEmpleado.Text, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeError, this.vista.tb_IDEmpleado.Text, longitudCadenas);
             };
 
             this.vista.tb_claveEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
                 String mensajeError = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
-                Dictionary<int, int> opciones2 = new Dictionary<int, int>()
+                Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
                 {
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_claveEmpleado.Text, opciones2, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_claveEmpleado.Text, longitudCadenas, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
             };
         }
 
@@ -79,7 +79,7 @@ namespace MrTiendita.Controladores
             }
 
             //Validar si los datos son correctos
-            Empleado empleado = this.empleadoDAO.readByUsuario(usuario);
+            Empleado empleado = this.empleadoDAO.ReadByUsuario(usuario);
             if (empleado == null || !BCrypt.Net.BCrypt.EnhancedVerify(clave, empleado.Clave, BCrypt.Net.HashType.SHA512))
             {
                 Form mensajeError = new FrmError("No hay un empleado con el usuario y contraseña especificados.");
@@ -89,12 +89,10 @@ namespace MrTiendita.Controladores
 
             //como son correctos se crea el empelado en cache
             EmpleadoCache.GetEmpleado(empleado);
-            //EmpleadoCache.SetEmpleado(empleado);
-
 
             //abre las opciones segun el tipo de empleado
             conexion.Peticion(empleado.Tipo_empleado, principal);
-            cierre = true;
+            esCerradoInicio = true;
             this.vista.Close();
         }
 
@@ -106,25 +104,25 @@ namespace MrTiendita.Controladores
 
             if (resultado == DialogResult.OK)
             {
-                cierre = false;
+                esCerradoInicio = false;
                 Application.Exit();
             }
         }
 
         private void Btn_CerrarSesion_Click(object sender, EventArgs e)
         {
-            this.principal.bandera = false;
+            this.principal.esCerrado = false;
             this.principal.Close();
             conexion.Cierre(this.vista);
         }
 
         private void FrmInicio_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (cierre == false)
+            if (esCerradoInicio == false)
                 Application.Exit();
-            else if (cierre == true)
+            else if (esCerradoInicio == true)
             {
-                cierre = false;
+                esCerradoInicio = false;
                 e.Cancel = true;
                 this.vista.Hide();
             }

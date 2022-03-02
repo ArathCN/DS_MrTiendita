@@ -15,7 +15,7 @@ namespace MrTiendita.Controladores
     {
         private FrmEAlmacen vista;
         private ProductoDAO productoDAO;
-        private Productos_Facade facade = new Productos_Facade();
+        private Productos_Facade Productos = new Productos_Facade();
 
         public FrmEAlmacenController(FrmEAlmacen vista){
             this.vista = vista;
@@ -28,17 +28,22 @@ namespace MrTiendita.Controladores
 
         private void Vista_load(object sender, EventArgs e)
         {
-            facade.Consultar(this.vista);
+            Productos.Consultar(this.vista);
         }
 
         private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
             String cadenaBusqueda = this.vista.tb_busqueda.Text;
-            List<Producto> productos = this.productoDAO.readByName(cadenaBusqueda);
+            List<Producto> productos = this.productoDAO.ReadByName(cadenaBusqueda);
             this.vista.tablaProductos.Rows.Clear();
             foreach (Producto xProducto in productos)
             {
-                this.vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
+                this.vista.tablaProductos.Rows.Add(
+                    xProducto.Codigo_barra,
+                    xProducto.Cantidad_actual,
+                    xProducto.Descripcion,
+                    xProducto.Precio_venta,
+                    xProducto.Precio_compra);
             }
         }
 
@@ -46,7 +51,7 @@ namespace MrTiendita.Controladores
         {
             if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["eliminar"].Selected)
             {
-                facade.Eliminar(this.vista, e);
+                Productos.Eliminar(this.vista, e);
             }
             else if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["editar"].Selected)
             {
@@ -58,7 +63,7 @@ namespace MrTiendita.Controladores
         {
             FrmProducto editar = new FrmProducto("agregar", -1);
             editar.ShowDialog();
-            facade.Consultar(this.vista);
+            Productos.Consultar(this.vista);
         }
 
         private void ActualizarProducto(DataGridViewCellEventArgs e)
@@ -67,7 +72,7 @@ namespace MrTiendita.Controladores
             long id = long.Parse(idCadena);
             FrmProducto editar = new FrmProducto("editar", id);
             editar.ShowDialog();
-            facade.Consultar(this.vista);
+            Productos.Consultar(this.vista);
         }
     }
 }

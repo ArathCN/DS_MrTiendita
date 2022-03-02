@@ -30,31 +30,31 @@ namespace MrTiendita.Controladores
             this.productoDAO = new ProductoDAO();
             this.productosVenta = new List<Producto>();
             this.totalVenta = 0;
-            this.vista.Load += new EventHandler(vista_load);
-            this.vista.tb_codigo.TextChanged += new EventHandler(tb_codigo_TextChanged);
-            this.vista.cb_productos.SelectedValueChanged += new EventHandler(cb_productos_SelectedValueChanged);
-            this.vista.btn_aceptar.Click += new EventHandler(btn_aceptar_Click);
-            this.vista.btn_finalizar.Click += new EventHandler(venta_metodo_pago);
-            this.vista.btn_cancelar.Click += new EventHandler(btn_cancelar_Click);
-            this.vista.tablaVentas.CellContentClick += new DataGridViewCellEventHandler(tablaVentas_CellContentClick);
+            this.vista.Load += new EventHandler(Vista_load);
+            this.vista.tb_codigo.TextChanged += new EventHandler(Tb_codigo_TextChanged);
+            this.vista.cb_productos.SelectedValueChanged += new EventHandler(Cb_productos_SelectedValueChanged);
+            this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
+            this.vista.btn_finalizar.Click += new EventHandler(Venta_metodo_pago);
+            this.vista.btn_cancelar.Click += new EventHandler(Btn_cancelar_Click);
+            this.vista.tablaVentas.CellContentClick += new DataGridViewCellEventHandler(TablaVentas_CellContentClick);
 
             this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
             {
-                double dato2;
+                double datoEvaluar;
                 String mensajeError = "Inserta un número de 1-1000 con máximo dos decimales.";
-                Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
+                Dictionary<int, double> longitudCadenas = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 1001},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out datoEvaluar, longitudCadenas);
             };
         }
 
-        private void vista_load(object sender, EventArgs e)
+        private void Vista_load(object sender, EventArgs e)
         {
             this.listaProductos = new Dictionary<string, long>();
-            List<Producto> productos = this.productoDAO.readAll();
+            List<Producto> productos = this.productoDAO.ReadAll();
             List<String> nombreProductos = new List<string>();
             foreach (Producto producto in productos)
             {
@@ -68,7 +68,7 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void cb_productos_SelectedValueChanged(object sender, EventArgs e)
+        private void Cb_productos_SelectedValueChanged(object sender, EventArgs e)
         {
             if (this.vista.cb_productos.SelectedIndex != -1)
             {
@@ -78,16 +78,17 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void tablaVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void TablaVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Producto xProducto = new Producto();
-            xProducto.Codigo_barra = Int64.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["codigo"].Value.ToString());
-            xProducto.Precio_venta = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["precio"].Value.ToString());
-            xProducto.Cantidad_actual = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString());
+            Producto xProducto = new Producto
+            {
+                Codigo_barra = Int64.Parse(this.vista.tablaVentas.Rows[e.RowIndex].Cells["codigo"].Value.ToString()),
+                Precio_venta = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["precio"].Value.ToString()),
+                Cantidad_actual = Convert.ToDouble(this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value.ToString())
+            };
 
             if (this.vista.tablaVentas.Rows[e.RowIndex].Cells["restar"].Selected)
             {
-                
                 xProducto.Cantidad_actual--;
                 if (xProducto.Cantidad_actual == 0)
                 {
@@ -108,8 +109,7 @@ namespace MrTiendita.Controladores
             }
             else if (this.vista.tablaVentas.Rows[e.RowIndex].Cells["sumar"].Selected)
             {
-                //Falta comprobar que la cantidad no pase de la disponible en inventario
-                Producto producto = this.productoDAO.readById(xProducto.Codigo_barra);
+                Producto producto = this.productoDAO.ReadById(xProducto.Codigo_barra);
                 xProducto.Cantidad_actual++;
                 if (xProducto.Cantidad_actual > producto.Cantidad_actual)
                 {
@@ -126,24 +126,24 @@ namespace MrTiendita.Controladores
             this.vista.lbl_total.Text = "$" + this.totalVenta.ToString();
         }
 
-        private void tb_codigo_TextChanged(object sender, EventArgs e)
+        private void Tb_codigo_TextChanged(object sender, EventArgs e)
         {
             long codigoBarra;
             String mensajeError = "Debe ser un número de 13 dígitos.";
-            Dictionary<int, long> opciones2 = new Dictionary<int, long>()
+            Dictionary<int, long> longitudCadenas = new Dictionary<int, long>()
             {
                 {ValidacionDatosOpciones.MAYOR_A, 0},
                 {ValidacionDatosOpciones.NUM_CARACTERES, 13}
             };
 
-            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, opciones2))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, longitudCadenas))
             {
                 this.producto = null;
                 return;
             }
             
             //Se busca el producto...
-            this.producto = this.productoDAO.readById(codigoBarra);
+            this.producto = this.productoDAO.ReadById(codigoBarra);
             if (this.producto != null)
             {
                 this.vista.lbl_ErrorCodigo.Visible = false;
@@ -155,21 +155,20 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void btn_aceptar_Click(object sender, EventArgs e)
+        private void Btn_aceptar_Click(object sender, EventArgs e)
         {
-            String _cantidad = this.vista.tb_cantidad.Text;
+            String cantidadCadena = this.vista.tb_cantidad.Text;
             double cantidad;
             String mensajeErrorCantidad = "Debe ser un número de 1-1000 con máximo dos decimales.";
             Dictionary<int, double> opciones = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 1001},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
-                };
+            };
             
-
             //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
             if (this.producto == null ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, _cantidad, out cantidad, opciones))
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, cantidadCadena, out cantidad, opciones))
             {
                 Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
                 mensajeError.ShowDialog();
@@ -199,7 +198,6 @@ namespace MrTiendita.Controladores
             bool siEncontrado = false;
 
             //si se ingresa un articulo que ya estaba en la lista sólo se le suma la cantidad a la fila.
-            //this.productosVenta.Clear();
             foreach (DataGridViewRow articulo in this.vista.tablaVentas.Rows)
             {
                 if (long.Parse(articulo.Cells["codigo"].Value.ToString()) == this.producto.Codigo_barra)
@@ -208,15 +206,11 @@ namespace MrTiendita.Controladores
                     articulo.Cells["subtotal"].Value = Convert.ToDouble(articulo.Cells["subtotal"].Value.ToString()) + subtotal;
                     siEncontrado = true;
                 }
-                /*this.productosVenta.Add(new Producto(long.Parse(articulo.Cells["codigo"].Value.ToString()),
-                    "", 0, 0,
-                    Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString())
-                    , false));*/
             }
 
             if (!siEncontrado)
             {
-                //se agre un nuevo producto a la tabla
+                //se agrega un nuevo producto a la tabla
                 this.vista.tablaVentas.Rows.Add();
                 int indexNuevoProducto = this.vista.tablaVentas.RowCount -1;
                 Console.WriteLine(indexNuevoProducto);
@@ -225,17 +219,6 @@ namespace MrTiendita.Controladores
                 this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["precio"].Value = producto.Precio_venta;
                 this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["subtotal"].Value = subtotal;
                 this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["codigo"].Value = producto.Codigo_barra;
-                //this.vista.tablaVentas.Rows.Add(cantidad, producto.Descripcion, producto.Precio_venta, subtotal, producto.Codigo_barra);
-                //this.productosVenta.Add(new Producto(codigo, "", 0, 0, cantidad, false));
-
-
-                //Producto xProducto = new Producto(codigo, "", 0, 0, cantidad, false);
-                //this.vista.tablaVentas.Rows.Add();
-                //this.vista.tablaVentas.Rows[0].Cells["cantidad_actual"].Value = cantidad;
-                //this.vista.tablaVentas.Rows[0].Cells["descripcion"].Value = producto.Descripcion;
-                //this.vista.tablaVentas.Rows[0].Cells["precio"].Value = producto.Precio_venta;
-                //this.vista.tablaVentas.Rows[0].Cells["subtotal"].Value = subtotal;
-                //this.vista.tablaVentas.Rows[0].Cells["codigo"].Value = producto.Codigo_barra;
             }
 
             //actualizar el total
@@ -246,18 +229,18 @@ namespace MrTiendita.Controladores
             this.vista.cb_productos.SelectedIndex = -1;
         }
 
-        private void btn_cancelar_Click(object sender, EventArgs e)
+        private void Btn_cancelar_Click(object sender, EventArgs e)
         {
             this.vista.tablaVentas.Rows.Clear();
             this.productosVenta.Clear();
             this.totalVenta = 0;
         }
 
-        private void venta_metodo_pago(object sender, EventArgs e)
+        private void Venta_metodo_pago(object sender, EventArgs e)
         {
             //Comprobar si la lista está vacia
-            int lista = this.vista.tablaVentas.Rows.Count;
-            if (lista == 0)
+            int listaVentas = this.vista.tablaVentas.Rows.Count;
+            if (listaVentas == 0)
             {
                 Form mensajeError = new FrmError("No se a registrado ningún articulo para la venta.");
                 mensajeError.ShowDialog();
@@ -268,20 +251,16 @@ namespace MrTiendita.Controladores
             this.productosVenta.Clear();
             foreach (DataGridViewRow articulo in this.vista.tablaVentas.Rows)
             {
-                Producto producto = new Producto();
-                producto.Codigo_barra = long.Parse(articulo.Cells["codigo"].Value.ToString());
-                producto.Descripcion = articulo.Cells["descripcion"].Value.ToString();
-                producto.Precio_venta = Convert.ToDouble(articulo.Cells["precio"].Value.ToString());
-                producto.Cantidad_actual = Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString());
+                Producto producto = new Producto
+                {
+                    Codigo_barra = long.Parse(articulo.Cells["codigo"].Value.ToString()),
+                    Descripcion = articulo.Cells["descripcion"].Value.ToString(),
+                    Precio_venta = Convert.ToDouble(articulo.Cells["precio"].Value.ToString()),
+                    Cantidad_actual = Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString())
+                };
 
                 this.productosVenta.Add(producto);
-
-                /*this.productosVenta.Add(new Producto(long.Parse(articulo.Cells["codigo"].Value.ToString()),
-                    articulo.Cells["descripcion"].Value.ToString(), Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString()), 0,
-                    Convert.ToDouble(articulo.Cells["cantidad_actual"].Value.ToString())
-                    , false));*/
             }
-
 
             FrmCobro cobro = new FrmCobro(this.productosVenta, this.totalVenta);
             cobro.ShowDialog();

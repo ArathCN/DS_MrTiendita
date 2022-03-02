@@ -34,12 +34,10 @@ namespace MrTiendita.Controladores
         {
             this.vista.dp_desde.Value = DateTime.Now;
             this.vista.dp_hasta.Value = DateTime.Now;
-            //this.AbrirFormulario(this.fromEntradas);
         }
 
         private void Btn_ventas_Click(object sender, EventArgs e)
         {
-            //100; 118; 140
             this.vista.btn_entradasAlmacen.Textcolor = Color.FromArgb(100, 118, 140);
             this.vista.btn_ventas.Textcolor = Color.FromArgb(30, 207, 245);
             this.vista.lbl_desde.ForeColor = Color.Black;
@@ -47,7 +45,6 @@ namespace MrTiendita.Controladores
             this.vista.dp_desde.BackColor = Color.FromArgb(186, 211, 17);
             this.vista.dp_hasta.BackColor = Color.FromArgb(186, 211, 17);
             AbrirFormulario(this.fromVentas);
-            //this.fromEntradas = new frmREntradas();
         }
 
         private void Btn_entradasAlmacen_Click(object sender, EventArgs e)
@@ -59,7 +56,6 @@ namespace MrTiendita.Controladores
             this.vista.dp_desde.BackColor = Color.FromArgb(186, 211, 17);
             this.vista.dp_hasta.BackColor = Color.FromArgb(186, 211, 17);
             AbrirFormulario(this.fromEntradas);
-            //this.fromVentas = new frmRVentas();
         }
 
         private void AbrirFormulario(Form FormHijo)
@@ -80,8 +76,8 @@ namespace MrTiendita.Controladores
             //yyyy - mm - dd hh: mm: ss
             DateTime fechaHasta = this.vista.dp_hasta.Value;
             DateTime fechaDesde = this.vista.dp_desde.Value;
-            this.fromEntradas.controller.act(fechaDesde, fechaHasta);
-            this.fromVentas.controller.act(fechaDesde, fechaHasta);
+            this.fromEntradas.controller.ActualizarEntradas(fechaDesde, fechaHasta);
+            this.fromVentas.controller.ActualizarVentas(fechaDesde, fechaHasta);
         }
 
         private void Dp_hasta_onValueChanged(object sender, EventArgs e)
@@ -89,8 +85,8 @@ namespace MrTiendita.Controladores
             //yyyy - mm - dd hh: mm: ss
             DateTime fechaHasta = this.vista.dp_hasta.Value;
             DateTime fechaDesde = this.vista.dp_desde.Value;
-            this.fromEntradas.controller.act(fechaDesde, fechaHasta);
-            this.fromVentas.controller.act(fechaDesde, fechaHasta);
+            this.fromEntradas.controller.ActualizarEntradas(fechaDesde, fechaHasta);
+            this.fromVentas.controller.ActualizarVentas(fechaDesde, fechaHasta);
         }
     }
 }

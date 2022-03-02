@@ -62,7 +62,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public bool updateInfo(Empleado empleado, long id) //Update by id
+        public bool UpdateInfo(Empleado empleado, long id) //Update by id
         {
             //String sql = "INSERT INTO Empleado (id_empleado, nombre, ap_materno, ap_paterno, telefono, sueldo, tipo_empleado, clave) " +
             //    "VALUES (@id, @nombre, @am, @ap, @tel, @sue, @tip, @cla);";
@@ -113,7 +113,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public List<Empleado> readAll()
+        public List<Empleado> ReadAll()
         {
             List<Empleado> empleados = new List<Empleado>();
             String sql = "SELECT * FROM Empleado;";
@@ -135,7 +135,8 @@ namespace MrTiendita.Modelos.DAO
 
             return empleados;
         }
-        public Empleado readById(int id)
+        
+        public Empleado ReadById(int id)
         {
             Empleado empleado = null;
 
@@ -162,7 +163,7 @@ namespace MrTiendita.Modelos.DAO
             return empleado;
         }
 
-        public List<Empleado> readByName(String idOrName)
+        public List<Empleado> ReadByName(String idOrName)
         {
             List<Empleado> empleados = new List<Empleado>();
             idOrName = "%" + idOrName + "%";
@@ -189,7 +190,7 @@ namespace MrTiendita.Modelos.DAO
             return empleados;
         }
 
-        public bool delete(int id)
+        public bool Delete(int id)
         {
             bool success = false;
             String sql = "DELETE FROM Empleado WHERE id_empleado = @id";
@@ -211,7 +212,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public Empleado readByUsuario(string usuario)
+        public Empleado ReadByUsuario(string usuario)
         {
             Empleado empleado = null;
 

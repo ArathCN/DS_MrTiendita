@@ -33,7 +33,7 @@ namespace MrTiendita.Controladores
         private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
             String cadenaBusqueda = this.vista.tb_busqueda.Text;
-            List<Proveedor> proveedores = this.proveedorDAO.readByName(cadenaBusqueda);
+            List<Proveedor> proveedores = this.proveedorDAO.ReadByName(cadenaBusqueda);
             this.vista.tablaProveedores.Rows.Clear();
             foreach (Proveedor xProveedor in proveedores)
             {
@@ -44,14 +44,9 @@ namespace MrTiendita.Controladores
         private void TablaProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.tablaProveedores.Rows[e.RowIndex].Cells["eliminar"].Selected)
-            {
                 this.EliminarProveedor(e);
-            }
             else if (this.vista.tablaProveedores.Rows[e.RowIndex].Cells["editar"].Selected)
-            {
                 this.ActualizarProveedor(e);
-            }
-
             this.MostrarTodos();
         }
 
@@ -66,7 +61,7 @@ namespace MrTiendita.Controladores
         private void MostrarTodos()
         {
             this.vista.tablaProveedores.Rows.Clear();
-            List<Proveedor> proveedores = this.proveedorDAO.readAll();
+            List<Proveedor> proveedores = this.proveedorDAO.ReadAll();
             this.todosProveedores = proveedores;
             foreach (Proveedor xProveedor in proveedores)
             {
@@ -82,10 +77,10 @@ namespace MrTiendita.Controladores
             if (resultado == DialogResult.OK)
             {
                 //Eliminar la fila seleccionada
-                String _id = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
-                int id = Int32.Parse(_id);
-                bool IsDeleted = this.proveedorDAO.delete(id);
-                if (IsDeleted)
+                String idCadena = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int id = Int32.Parse(idCadena);
+                bool esEliminado = this.proveedorDAO.Delete(id);
+                if (esEliminado)
                 {
                     this.vista.tablaProveedores.Rows.Remove(this.vista.tablaProveedores.Rows[e.RowIndex]);
                     Form mensajeExito = new FrmError("El proveedor fue eliminado");

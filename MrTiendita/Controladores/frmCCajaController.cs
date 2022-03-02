@@ -30,26 +30,26 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_importe.TextChanged += delegate (object sender, EventArgs e)
             {
-                double dato2;
-                String mensajeError = "De ser un número de 1-10,000 con máximo dos decimales.";
-                Dictionary<int, double> opciones2 = new Dictionary<int, double>()
+                double datoEvaluar;
+                String mensajeError = "Debe ser un número de 1-10,000 con máximo dos decimales.";
+                Dictionary<int, double> longitudCadenas = new Dictionary<int, double>()
                 { 
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_IGUAL_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorImporte, mensajeError, this.vista.tb_importe.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorImporte, mensajeError, this.vista.tb_importe.Text, out datoEvaluar, longitudCadenas);
             };
 
             this.vista.tb_concepto.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Al menos 5 caracteres";
-                Dictionary<int, int> opciones = new Dictionary<int, int>()
+                String mensajeError = "Escriba al menos 5 caracteres";
+                Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
                 {
                     {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeError, this.vista.tb_concepto.Text, opciones);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeError, this.vista.tb_concepto.Text, longitudCadenas);
             };
         }
 
@@ -85,7 +85,7 @@ namespace MrTiendita.Controladores
                 tipo = TipoMovimiento.VENTA;
             }
 
-            List<Movimiento> movimientos = this.movimientoDAO.readByType(tipo);
+            List<Movimiento> movimientos = this.movimientoDAO.ReadByType(tipo);
             this.vista.tablaMovimientos.Rows.Clear();
             foreach (Movimiento movimiento in movimientos)
             {
@@ -95,7 +95,7 @@ namespace MrTiendita.Controladores
 
             this.vista.lbl_total.Text = "$" + total.ToString();
 
-            //hacer visibles las etiquetas para el total
+            //Hacer visibles las etiquetas para el total
             this.vista.lbl_totaltxt.Visible = true;
             this.vista.lbl_total.Visible = true;
         }
@@ -106,10 +106,10 @@ namespace MrTiendita.Controladores
             String concepto = this.vista.tb_concepto.Text;
             int tipoIndice = this.vista.cb_tipoMov.SelectedIndex; //0 -> entrada   1->salida
             String tipo = "";
-            String mensajeErrorImporte = "De ser un número de 1-10,000 con máximo dos decimales.";
-            String mensajeErrorDesc = "Al menos 5 caracteres.";
+            String mensajeErrorImporte = "Debe ser un número de 1-10,000 con máximo dos decimales.";
+            String mensajeErrorDescripcion = "Escriba al menos 5 caracteres.";
             double importe, dinero = 0;
-            bool res = false;
+            bool esValido = false;
 
             Dictionary<int, double> opcionesImporte = new Dictionary<int, double>()
             {
@@ -117,15 +117,15 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.MENOR_IGUAL_A, 10000},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
             };
-            Dictionary<int, int> opcionesDesc = new Dictionary<int, int>()
+            Dictionary<int, int> opcionesDescripcion = new Dictionary<int, int>()
             {
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
             };
 
-            //Comprobar que el tipo de mov se haya seleccionado, concepto no sea nulo y que importe sea numero no nulo mayor a 0.
+            //Comprobar que el tipo de movimiento se haya seleccionado, concepto no sea nulo y que importe sea numero no nulo mayor a 0.
             if (this.vista.cb_tipoMov.SelectedIndex == -1 ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeErrorDesc, concepto, opcionesDesc) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, mensajeErrorDescripcion, concepto, opcionesDescripcion) ||
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorImporte, mensajeErrorImporte, importeCadena, out importe, opcionesImporte))
             {
                 FrmError error = new FrmError("Se deben de llenar todos los campos correctamente");
@@ -134,12 +134,13 @@ namespace MrTiendita.Controladores
             }
 
             //Si es una entrada se suma la caja, si es una salida se resta
-            //Si es salida comprobar que no se queira sacar más de lo que hay en la caja
+            //Si es salida comprobar que no se quiera sacar más de lo que hay en la caja
             if (tipoIndice == 0)
             {
                 tipo = TipoMovimiento.ENTRADA;
                 dinero = double.Parse(this.valorCaja.Valor) + importe;
-            }else if (tipoIndice == 1)
+            } 
+            else if (tipoIndice == 1)
             {
                 if (importe > double.Parse(this.valorCaja.Valor))
                 {
@@ -154,16 +155,16 @@ namespace MrTiendita.Controladores
 
             Movimiento movimiento = new Movimiento(-1, tipo, DateTime.Now, importe, dinero, concepto);
 
-            res = this.movimientoDAO.create(movimiento);
-            if (!res)
+            esValido = this.movimientoDAO.Create(movimiento);
+            if (!esValido)
             {
                 FrmError error = new FrmError("Hubo un error al registrar el movimiento.");
                 error.ShowDialog();
                 return;
             }
 
-            res = this.cajaDAO.UpdateValue("Total", this.valorCaja.Valor);
-            if (!res)
+            esValido = this.cajaDAO.UpdateValue("Total", this.valorCaja.Valor);
+            if (!esValido)
             {
                 FrmError error = new FrmError("Hubo un error al actualizar el total de la caja.");
                 error.ShowDialog();
@@ -180,12 +181,11 @@ namespace MrTiendita.Controladores
             this.vista.tb_concepto.Text = "";
         }
 
-        ///Auxiliares
-
+        ///Métodos auxiliares
         private void MostrarMovimientos()
         {
             this.vista.tablaMovimientos.Rows.Clear();
-            List<Movimiento> movimientos = this.movimientoDAO.readAll();
+            List<Movimiento> movimientos = this.movimientoDAO.ReadAll();
             foreach (Movimiento movimiento in movimientos)
             {
                 this.vista.tablaMovimientos.Rows.Add(movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);

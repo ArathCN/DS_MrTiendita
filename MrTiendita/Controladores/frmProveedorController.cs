@@ -24,8 +24,8 @@ namespace MrTiendita.Controladores
             this.id = id;
             this.accion = accion;
             this.proveedorDAO = new ProveedorDAO();
-            this.vista.btn_guardarProveedor.Click += new EventHandler(btn_Cerrar_Click);
-            this.vista.Load += new EventHandler(vista_Load);
+            this.vista.btn_guardarProveedor.Click += new EventHandler(Btn_Cerrar_Click);
+            this.vista.Load += new EventHandler(Vista_Load);
 
             this.vista.tb_telefono.TextChanged += delegate (object sender, EventArgs e)
             {
@@ -49,17 +49,17 @@ namespace MrTiendita.Controladores
                 ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, mensajeError, this.vista.tb_nombre.Text, opciones2);
             };
         }
-        private void vista_Load(object sender, EventArgs e)
+        private void Vista_Load(object sender, EventArgs e)
         {
             if (this.accion == "editar")
             {
-                Proveedor proveedor = this.proveedorDAO.readById(this.id);
+                Proveedor proveedor = this.proveedorDAO.ReadById(this.id);
                 this.vista.tb_nombre.Text = proveedor.Nombre;
                 this.vista.tb_telefono.Text = proveedor.Telefono.ToString();
             }
         }
 
-        private void btn_Cerrar_Click(object sender, EventArgs e)
+        private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
             bool res = false;
             //Comprobar campos vacios...
@@ -88,24 +88,22 @@ namespace MrTiendita.Controladores
 
             Proveedor proveedor = new Proveedor(-1, _nombre, telefono);
 
-            if (this.accion == "agregar")
+            if (this.accion == "Agregar")
             {
-                res = this.agregar(proveedor);
+                res = this.Agregar(proveedor);
             }
             else
             {
-                res = this.actualizar(proveedor);
+                res = this.Actualizar(proveedor);
             }
 
             if (res) this.vista.Close();
         }
 
-        ///////////
         ///Metodos auxiliares
-        ///
-        private bool agregar(Proveedor proveedor)
+        private bool Agregar(Proveedor proveedor)
         {
-            bool res = this.proveedorDAO.create(proveedor);
+            bool res = this.proveedorDAO.Create(proveedor);
             if (res)
             {
                 Form mensajeExito = new FrmExito("Se ha hecho el proveedor con éxito.");
@@ -120,9 +118,9 @@ namespace MrTiendita.Controladores
             return res;
         }
 
-        private bool actualizar(Proveedor proveedor)
+        private bool Actualizar(Proveedor proveedor)
         {
-            bool res = this.proveedorDAO.updateInfo(proveedor, this.id);
+            bool res = this.proveedorDAO.UpdateInfo(proveedor, this.id);
             if (res)
             {
                 Form mensajeExito = new FrmExito("Se ha actualizado el proveedor con éxito.");

@@ -9,11 +9,11 @@ namespace MrTiendita.Componentes
 {
     static public class ValidacionFormulario
     {
-        static public bool Validar(Label etiqueta, String mensaje, String dato, out double dato_double, Dictionary<int, double> opciones = null)
+        static public bool Validar(Label etiqueta, String mensaje, String dato, out double datoSalida, Dictionary<int, double> opciones = null)
         {
             bool EsValido = false;
             if (opciones != null)
-                if (!ValidacionDatos.Numero(dato, out dato_double, opciones)) {
+                if (!ValidacionDatos.Numero(dato, out datoSalida, opciones)) {
                     etiqueta.Text = mensaje;
                     etiqueta.Visible = true;
                 }
@@ -24,7 +24,7 @@ namespace MrTiendita.Componentes
                     EsValido = true;
                 }
             else
-                if (!ValidacionDatos.Numero(dato, out dato_double))
+                if (!ValidacionDatos.Numero(dato, out datoSalida))
                 {
                     etiqueta.Text = mensaje;
                     etiqueta.Visible = true;
@@ -38,11 +38,11 @@ namespace MrTiendita.Componentes
             return EsValido;
         }
 
-        static public bool Validar(Label etiqueta, String mensaje, String dato, out long dato_double, Dictionary<int, long> opciones = null)
+        static public bool Validar(Label etiqueta, String mensaje, String dato, out long datoSalida, Dictionary<int, long> opciones = null)
         {
             bool EsValido = false;
             if (opciones != null)
-                if (!ValidacionDatos.Numero(dato, out dato_double, opciones))
+                if (!ValidacionDatos.Numero(dato, out datoSalida, opciones))
                 {
                     etiqueta.Text = mensaje;
                     etiqueta.Visible = true;
@@ -54,7 +54,7 @@ namespace MrTiendita.Componentes
                     EsValido = true;
                 }
             else
-                if (!ValidacionDatos.Numero(dato, out dato_double))
+                if (!ValidacionDatos.Numero(dato, out datoSalida))
             {
                 etiqueta.Text = mensaje;
                 etiqueta.Visible = true;

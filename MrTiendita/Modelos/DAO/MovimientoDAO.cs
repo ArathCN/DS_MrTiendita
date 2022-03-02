@@ -17,7 +17,7 @@ namespace MrTiendita.Modelos.DAO
             this.mensajeError = null;
         }
 
-        public bool create(Movimiento movimiento)
+        public bool Create(Movimiento movimiento)
         {
             bool success = false;
             String sql = "INSERT INTO Movimientos (tipo, fecha, importe, caja, concepto) " +
@@ -50,7 +50,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public List<Movimiento> readAll()
+        public List<Movimiento> ReadAll()
         {
             List<Movimiento> movimientos = new List<Movimiento>();
             String sql = "SELECT * FROM Movimientos;";
@@ -73,7 +73,7 @@ namespace MrTiendita.Modelos.DAO
             return movimientos;
         }
 
-        public List<Movimiento> readByType(String tipo)
+        public List<Movimiento> ReadByType(String tipo)
         {
             List<Movimiento> movimientos = new List<Movimiento>();
             String sql = "SELECT * FROM Movimientos WHERE tipo = @tip;";

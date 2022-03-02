@@ -16,7 +16,7 @@ namespace MrTiendita.Vistas
     {
         private Form formActivado = null;
 
-        public bool bandera = false;
+        public bool esCerrado = false;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -161,7 +161,7 @@ namespace MrTiendita.Vistas
 
             if (resultado == DialogResult.OK)
             {
-                bandera = true;
+                esCerrado = true;
                 Application.Exit();
             }
 
@@ -169,10 +169,10 @@ namespace MrTiendita.Vistas
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (bandera == false)
+            if (esCerrado == false)
             {
                 e.Cancel = true;
-                bandera = true;
+                esCerrado = true;
                 this.Hide();
             }
         }

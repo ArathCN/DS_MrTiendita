@@ -11,7 +11,7 @@ namespace MrTiendita.Modelos.DAO
 {
     class ProductoDAO:DbContext
     {
-        public bool create(Producto producto)
+        public bool Create(Producto producto)
         {
             bool success = false;
             String sql = "INSERT INTO Producto (codigo_barra, descripcion, precio_venta, precio_compra, cantidad_actual, medida) " +
@@ -45,7 +45,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public bool updateInfo(Producto producto, long id) //Update by id
+        public bool UpdateInfo(Producto producto, long id) //Update by id
         {
             bool success = false;
             String sql = "UPDATE Producto SET codigo_barra = @cbn, descripcion = @des, precio_venta = @pre," +
@@ -83,7 +83,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public bool updateCantidad(List<Producto> productos) //Update by id
+        public bool UpdateCantidad(List<Producto> productos) //Update by id
         {
             this.LimpiarError();
             bool success = true;
@@ -142,7 +142,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public List<Producto> readAll()
+        public List<Producto> ReadAll()
         {
             List<Producto> productos = new List<Producto>();
             String sql = "SELECT * FROM Producto;";
@@ -165,7 +165,7 @@ namespace MrTiendita.Modelos.DAO
             return productos;
         }
 
-        public Producto readById(long id)
+        public Producto ReadById(long id)
         {
             Producto producto = null;
 
@@ -195,7 +195,7 @@ namespace MrTiendita.Modelos.DAO
             return producto;
         }
 
-        public List<Producto> readByName(String idOrName)
+        public List<Producto> ReadByName(String idOrName)
         {
             List<Producto> productos = new List<Producto>();
             idOrName = "%" + idOrName + "%";
@@ -222,7 +222,7 @@ namespace MrTiendita.Modelos.DAO
             return productos;
         }
 
-        public bool delete(long id)
+        public bool Delete(long id)
         {
             bool success = false;
             String sql = "DELETE FROM Producto WHERE codigo_barra = @cb";

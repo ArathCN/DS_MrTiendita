@@ -20,7 +20,7 @@ namespace MrTiendita.Controladores
         private readonly String accion;
         private readonly long id;
         private Producto producto;
-        private readonly Productos_Facade facade = new Productos_Facade();
+        private readonly Productos_Facade Productos = new Productos_Facade();
 
         public FrmProductoController(FrmProducto vista, String accion, long id)
         {
@@ -33,25 +33,25 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_codigo.TextChanged += delegate (object sender, EventArgs e)
             {
-                long dato2;
+                long codigo;
                 String mensajeError = "Debe ser un número de 13 dígitos.";
                 Dictionary<int, long> opciones2 = new Dictionary<int, long>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.NUM_CARACTERES, 13}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigo, opciones2);
             };
 
             this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
             {
-                double dato2;
+                double cantidad;
                 String mensajeError = "De ser un número entre 0 y 10000 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out cantidad, opciones2);
             };
 
             this.vista.tb_descripcion.TextChanged += delegate (object sender, EventArgs e)
@@ -67,26 +67,26 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_precioCompra.TextChanged += delegate (object sender, EventArgs e)
             {
-                double dato2;
+                double precioCompra;
                 String mensajeError = "De ser un número entre 0 y 10000 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, mensajeError, this.vista.tb_precioCompra.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, mensajeError, this.vista.tb_precioCompra.Text, out precioCompra, opciones2);
             };
 
             this.vista.tb_precioVenta.TextChanged += delegate (object sender, EventArgs e)
             {
-                double dato2;
+                double precioVenta;
                 String mensajeError = "De ser un número entre 0 y 10000 con máximo dos decimales.";
                 Dictionary<int, double> opciones2 = new Dictionary<int, double>() {
                     {ValidacionDatosOpciones.MAYOR_A, 0},
                     {ValidacionDatosOpciones.MENOR_A, 10000},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
                 };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, mensajeError, this.vista.tb_precioVenta.Text, out dato2, opciones2);
+                ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, mensajeError, this.vista.tb_precioVenta.Text, out precioVenta, opciones2);
             };
 
 
@@ -96,7 +96,7 @@ namespace MrTiendita.Controladores
         {
             if (this.accion == "editar")
             {
-                Producto producto =  this.productoDAO.readById(this.id);
+                Producto producto =  this.productoDAO.ReadById(this.id);
 
                 this.vista.tb_codigo.Text = producto.Codigo_barra.ToString();
                 this.vista.tb_descripcion.Text = producto.Descripcion;
@@ -172,7 +172,7 @@ namespace MrTiendita.Controladores
             }
 
             //Si se agregará un producto o altualizará el codigo de barras comprobar que éste no exista en la BD
-            if (this.id != codigoBarra && this.productoDAO.readById(codigoBarra) != null)
+            if (this.id != codigoBarra && this.productoDAO.ReadById(codigoBarra) != null) //aqui
             {
                 Form mensajeError = new FrmError("El codigo de barras ya está en uso");
                 mensajeError.ShowDialog();
@@ -184,15 +184,11 @@ namespace MrTiendita.Controladores
 
             //Hacer la acción 
             if (this.accion == "agregar")
-            {
-                IsCompleted = facade.Agregar(producto);
-            }
+                IsCompleted = Productos.Agregar(producto);
             else
-            {
-                IsCompleted = facade.Modificar(producto, this.id);
-            }
+                IsCompleted = Productos.Modificar(producto, this.id);
 
             if(IsCompleted) this.vista.Close();
-        }
+        } 
     }
 }

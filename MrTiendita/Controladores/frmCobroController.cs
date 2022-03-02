@@ -53,7 +53,6 @@ namespace MrTiendita.Controladores
                 this.vista.label2.Visible = true;
                 this.vista.lbl_cambio.Visible = true;
                 this.vista.tb_efectivo.Visible = true;
-                //this.vista.pictureBox2.Visible = true;
                 this.metodoEfectivo = true;
             }
             else if (this.vista.cb_metodoPago.SelectedIndex == 1)
@@ -62,16 +61,15 @@ namespace MrTiendita.Controladores
                 this.vista.label2.Visible = false;
                 this.vista.lbl_cambio.Visible = false;
                 this.vista.tb_efectivo.Visible = false;
-                //this.vista.pictureBox2.Visible = false;
                 this.metodoEfectivo = false;
             }
         }
 
         private void Tb_efectivo_textChanged(object sender, EventArgs e)
         {
-            String _efectivo = this.vista.tb_efectivo.Text;
+            String efectivoCadena = this.vista.tb_efectivo.Text;
             String mensajeError = "De ser un número mayor a " + this.totalVenta + " con máximo dos decimales.";
-            Dictionary<int, double> opciones2 = new Dictionary<int, double>()
+            Dictionary<int, double> longitudCadenas = new Dictionary<int, double>()
             {
                 {ValidacionDatosOpciones.MAYOR_A, this.totalVenta},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
@@ -82,14 +80,17 @@ namespace MrTiendita.Controladores
             this.vista.lbl_cambio.Text = "--.--";
             
 
-            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorEfectivo, mensajeError, _efectivo, out this.efectivo, opciones2))
+            if (!ValidacionFormulario.Validar(
+                this.vista.lbl_ErrorEfectivo,
+                mensajeError,
+                efectivoCadena,
+                out this.efectivo,
+                longitudCadenas))
             {
-                this.vista.tb_efectivo.BackColor = Color.Salmon;
                 return;
             }
 
             this.vista.btn_aceptar.Enabled = true;
-            this.vista.tb_efectivo.BackColor = Color.White;
             this.vista.lbl_cambio.Text = "$" + (this.efectivo - this.totalVenta);
         }
 
@@ -97,19 +98,16 @@ namespace MrTiendita.Controladores
         {
             
             //se actualzia la cantidad en los productos del almacen
-            bool res = this.productoDAO.updateCantidad(this.productosVenta);
-            if (!res)
+            bool esActualizado = this.productoDAO.UpdateCantidad(this.productosVenta);
+            if (!esActualizado)
             {
                 String mensaje = "Error: No se encontró el producto.";
                 if (this.productoDAO.ErrorUltimaConsulta)
-                {
                     mensaje = this.productoDAO.MensajeError;
-                }
                 FrmError mensajeError = new FrmError(mensaje);
                 mensajeError.ShowDialog();
                 this.vista.DialogResult = DialogResult.Abort;
                 return;
-
             }
 
             //Obtener el valor de la caja
@@ -123,8 +121,8 @@ namespace MrTiendita.Controladores
             }
 
             //Generar venta
-            res = this.GenerarVenta();
-            if (!res)
+            esActualizado = this.GenerarVenta();
+            if (!esActualizado)
             {
                 FrmError error = new FrmError("Hubo un error al registrar las ventas.");
                 error.ShowDialog();
@@ -132,13 +130,13 @@ namespace MrTiendita.Controladores
                 return;
             }
 
-            //Si el met. es efectivo se crea una entrada de dinero y se actualiza la caja
+            //Si el metodo es efectivo se crea una entrada de dinero y se actualiza la caja
             if (this.metodoEfectivo)
             {
-                //Registrar la entrada de dinero, sólo es es efectivo
+                //Registrar la entrada de dinero, sólo si es en efectivo
                 Movimiento movimiento = new Movimiento(-1, TipoMovimiento.VENTA, DateTime.Now, this.totalVenta, double.Parse(caja.Valor) + this.totalVenta, TipoMovimiento.VENTA);
-                res = this.movimientoDAO.create(movimiento);
-                if (!res)
+                esActualizado = this.movimientoDAO.Create(movimiento);
+                if (!esActualizado)
                 {
                     FrmError error = new FrmError("Hubo un error al registrar el movimiento.");
                     error.ShowDialog();
@@ -147,8 +145,8 @@ namespace MrTiendita.Controladores
                 }
 
                 //Actualizar el dinero en la caja, sólo si es efectivo
-                res = this.cajaDAO.UpdateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
-                if (!res)
+                esActualizado = this.cajaDAO.UpdateValue("Total", (double.Parse(caja.Valor) + this.totalVenta).ToString());
+                if (!esActualizado)
                 {
                     FrmError error = new FrmError("Hubo un error al actualizar el total de la caja.");
                     error.ShowDialog();
@@ -159,21 +157,18 @@ namespace MrTiendita.Controladores
 
             CrearTicket ticket = this.GenerarTicket();
             this.GuardarTicket(ticket);
-            //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-
+            //ticket.ImprimirTicket("Microsoft XPS Document Writer"); //Nombre de la impresora ticketera
             FrmExito mensajeExito = new FrmExito("Se registrado la venta con éxito.");
             mensajeExito.ShowDialog();
-            //this.vista.tablaVentas.Rows.Clear();
             this.vista.DialogResult = DialogResult.OK;
-
 
         }
 
-
+        //Métodos auxiliares
         private bool GenerarVenta()
         {
-            bool res = true;
-            for (int i = 0; i < this.productosVenta.Count && res; i++)
+            bool esCreado = true;
+            for (int i = 0; i < this.productosVenta.Count && esCreado; i++)
             {
                 Venta venta = new Venta();
                 venta.Id_venta = -1;
@@ -184,15 +179,14 @@ namespace MrTiendita.Controladores
                 venta.Cantidad = this.productosVenta[i].Cantidad_actual;
                 venta.Importe = this.totalVenta;
 
-                res = this.ventaDAO.create(venta);
-                if (!res)
-                {
+                esCreado = this.ventaDAO.Create(venta);
+                if (!esCreado)
                     return false;
-                }
             }
 
             return true;
         }
+        
         private CrearTicket GenerarTicket()
         {
             //Creamos una instancia d ela clase CrearTicket

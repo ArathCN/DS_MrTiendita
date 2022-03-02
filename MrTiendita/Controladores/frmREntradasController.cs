@@ -19,19 +19,19 @@ namespace MrTiendita.Controladores
         {
             this.vista = vista;
             this.entradaAlmacenDAO = new EntradaAlmacenDAO();
-            this.vista.Load += new EventHandler(vista_Load);
+            this.vista.Load += new EventHandler(Vista_Load);
         }
 
-        public void vista_Load(object sender, EventArgs e)
+        public void Vista_Load(object sender, EventArgs e)
         {
             //this.vista.lbl_prueba.Text = this.desde.ToString() + " -> " + this.hasta.ToString();
         }
 
-        public void act(DateTime desde, DateTime hasta)
+        public void ActualizarEntradas(DateTime desde, DateTime hasta)
         {
             this.desde = desde;
             this.hasta = hasta;
-            List<EntradaAlmacen> entradas = this.entradaAlmacenDAO.readBetweenDates(desde, hasta);
+            List<EntradaAlmacen> entradas = this.entradaAlmacenDAO.ReadBetweenDates(desde, hasta);
             this.vista.lbl_prueba.Text = this.desde.ToString() + " -> " + this.hasta.ToString();
             this.vista.tablaEntradas.Rows.Clear();
             foreach (EntradaAlmacen entrada in entradas)
