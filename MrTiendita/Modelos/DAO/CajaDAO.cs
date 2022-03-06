@@ -9,14 +9,26 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
-    class CajaDAO:DbContext
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
+    class CajaDAO :DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CajaDAO"/> class.
+        /// </summary>
         public CajaDAO()
         {
             this.errorUltimaConsulta = false;
             this.mensajeError = null;
         }
 
+        /// <summary>
+        /// Reads the name.
+        /// </summary>
+        /// <param name="nombre">The nombre.</param>
+        /// <returns>Un <see cref="int"/></returns>
         public Caja ReadByName(String nombre)
         {
             Caja caja = null;
@@ -44,6 +56,10 @@ namespace MrTiendita.Modelos.DAO
             return caja;
         }
 
+        /// <summary> Updates the value. </summary>
+        /// <param name="atributo">The atributo.</param>
+        /// <param name="valor">The valor.</param>
+        /// <returns>Un <see cref="bool"/></returns>
         public bool UpdateValue(String atributo, String valor)
         {
 

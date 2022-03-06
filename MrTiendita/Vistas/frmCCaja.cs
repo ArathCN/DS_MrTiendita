@@ -21,7 +21,6 @@ namespace MrTiendita.Vistas
             tablaMovimientos.AllowUserToAddRows = false;
             tablaMovimientos.CurrentCell = null;
             FrmCCajaController controller = new FrmCCajaController(this);
-
         }
 
         public void widthColumnas()

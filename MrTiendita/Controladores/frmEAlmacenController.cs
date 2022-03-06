@@ -11,12 +11,18 @@ using Acciones;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary> Creamos la clase de control del almacen. </summary>
     class FrmEAlmacenController
     {
+        /// <summary> The vista </summary>
         private FrmEAlmacen vista;
+        /// <summary> The producto DAO </summary>
         private ProductoDAO productoDAO;
+        /// <summary> The productos </summary>
         private Productos_Facade Productos = new Productos_Facade();
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmEAlmacenController"/> . </summary>
+        /// <param name="vista">The vista.</param>
         public FrmEAlmacenController(FrmEAlmacen vista){
             this.vista = vista;
             this.productoDAO = new ProductoDAO();
@@ -26,11 +32,17 @@ namespace MrTiendita.Controladores
             this.vista.btn_nuevoProducto.Click += new EventHandler(Btn_nuevoProducto_Click);
         }
 
+        /// <summary> Maneja el evento de carga del control de Vista. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
         private void Vista_load(object sender, EventArgs e)
         {
             Productos.Consultar(this.vista);
         }
 
+        /// <summary> Maneja el evento Text Changed del control Tb_busqueda. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
         private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
             String cadenaBusqueda = this.vista.tb_busqueda.Text;
@@ -47,6 +59,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento CellContentClick del control TablaProductos. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="DataGridViewCellEventArgs"/> .</param>
         private void TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["eliminar"].Selected)
@@ -59,6 +74,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Click del control Btn_nuevoProducto. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
         private void Btn_nuevoProducto_Click(object sender, EventArgs e)
         {
             FrmProducto editar = new FrmProducto("agregar", -1);
@@ -66,6 +84,8 @@ namespace MrTiendita.Controladores
             Productos.Consultar(this.vista);
         }
 
+        /// <summary> Actualiza el producto.</summary>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void ActualizarProducto(DataGridViewCellEventArgs e)
         {
             String idCadena = this.vista.tablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();

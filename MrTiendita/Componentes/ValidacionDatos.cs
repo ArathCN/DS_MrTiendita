@@ -8,11 +8,19 @@ using MrTiendita.Constantes;
 
 namespace MrTiendita.Componentes
 {
+    /// <summary>
+    /// Creamos la clase de validación de datos.
+    /// </summary>
     public static class ValidacionDatos
     {
+        /// <summary> Valido tipo bool. </summary>
         public static bool esValido = false;
+        /// <summary> Mensajes tipo string. </summary>
         public static String mensajes = "";
 
+        /// <summary> No es vacio. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <returns>Booleano en False.</returns>
         public static bool NoVacio(String dato)
         {
             ValidacionDatos.esValido = false;
@@ -25,6 +33,9 @@ namespace MrTiendita.Componentes
             } 
         }
 
+        /// <summary> Cadenas the specified dato. </summary>
+        /// <param name="dato">The dato.</param>
+        /// <returns>Booleano en true.</returns>
         public static bool Cadena(String dato)
         {
             if (!ValidacionDatos.NoVacio(dato)) return false;
@@ -32,6 +43,11 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary> Cadena el dato especificado. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <param name="opciones">Opciones.</param>
+        /// <param name="patron">Patron.</param>
+        /// <returns> Booleano Falso.</returns>
         public static bool Cadena(String dato, Dictionary<int, int> opciones = null, String patron = "")
         {
             if (!ValidacionDatos.NoVacio(dato)) return false;
@@ -73,6 +89,10 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary> Numero el dato especificado. </summary>
+        /// <param name="dato">Ehe dato.</param>
+        /// <param name="datoSalida">El dato de salida.</param>
+        /// <returns>Boolenao en true.</returns>
         public static bool Numero(String dato, out long datoSalida)
         {
             long datoEnNumero;
@@ -94,6 +114,11 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary> Numero el dato especificado. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <param name="datoSalida">El dato de salida.</param>
+        /// <param name="opciones">Las opciones.</param>
+        /// <returns>Boolenao en true</returns>
         public static bool Numero(String dato, out long datoSalida, Dictionary<int, long> opciones)
         {
             long datoEnNumero;
@@ -178,6 +203,10 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary> Numeros el dato especificado. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <param name="datoSalida">El dato de salida.</param>
+        /// <returns>Booleano en true.</returns>
         public static bool Numero(String dato, out double datoSalida)
         {
 
@@ -200,6 +229,11 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary> Numero el dato especificado. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <param name="datoSalida">Dato de salida.</param>
+        /// <param name="opciones">Opciones.</param>
+        /// <returns>Booleano en true.</returns>
         public static bool Numero(String dato, out double datoSalida, Dictionary<int, Double> opciones)
         {
 
@@ -291,6 +325,10 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary> Numero el dato especificado. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <param name="datoSalida">Dato de salida.</param>
+        /// <returns> Booleano en true.</returns>
         public static bool Numero(String dato, out int datoSalida)
         {
 
@@ -313,6 +351,11 @@ namespace MrTiendita.Componentes
             return true;
         }
 
+        /// <summary>Numero el dato especificado. </summary>
+        /// <param name="dato">Dato.</param>
+        /// <param name="datoSalida">Dato de salida.</param>
+        /// <param name="opciones">Opciones.</param>
+        /// <returns>Booleano en true</returns>
         public static bool Numero(String dato, out int datoSalida, Dictionary<int, int> opciones)
         {
             int datoEnNumero;

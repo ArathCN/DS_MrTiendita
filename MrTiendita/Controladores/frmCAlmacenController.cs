@@ -13,16 +13,26 @@ using System.Drawing;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary>
+    /// Creamos el controlador del Almacén.
+    /// </summary>
     public class FrmCAlmacenController
     {
+        /// <summary> La vista del form controlador de almacén</summary>
         private FrmCAlmacen vista;
+        /// <summary> La entrada almacen DAO </summary>
         private EntradaAlmacenDAO entradaAlmacenDAO;
+        /// <summary> El producto DAO</summary>
         private ProductoDAO productoDAO;
+        /// <summary> El proveedor DAO </summary>
         private ProveedorDAO proveedorDAO;
-
+        /// <summary> El producto para entrada </summary>
         private Producto productoParaEntrada = null;
+        /// <summary> La lista proveedores </summary>
         private Dictionary<String, int> listaProveedores;
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmCAlmacenController"/>. </summary>
+        /// <param name="vista">vista.</param>
         public FrmCAlmacenController(FrmCAlmacen vista)
         {
             this.vista = vista;
@@ -49,12 +59,18 @@ namespace MrTiendita.Controladores
             };
         }
 
+        /// <summary> Maneja el evento Load del control de Vista. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/>  La instancia que contiene los datos del evento.</param>
         public void Vista_Load(object sender, EventArgs e)
         {
             this.MostrarProductos();
             this.CargarProveedores();
         }
 
+        /// <summary> Maneja el evento Text Changed del control Tb_busqueda. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> La instancia que contiene los datos del evento.</param>
         private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
             String cadenaBusqueda = this.vista.tb_busqueda.Text;
@@ -71,6 +87,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Text Changed del control Tb_codigo. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> La instancia que contiene los datos del evento.</param>
         private void Tb_codigo_TextChanged(object sender, EventArgs e)
         {
             long codigoBarra;
@@ -105,6 +124,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Click del control Btn_Limpiar. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> La instancia que contiene los datos del evento.</param>
         private void Btn_Limpiar_Click(object sender, EventArgs e)
         {
             this.vista.tb_codigo.Text = "";
@@ -112,6 +134,9 @@ namespace MrTiendita.Controladores
             this.vista.tb_cantidad.Text = "";
         }
 
+        /// <summary>Maneja el evento Click del control Btn_registrarEntrada </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> La instancia que contiene los datos del evento.</param>
         public void Btn_registrarEntrada_Click(object sender, EventArgs e)
         {
             String cantidadCadena = this.vista.tb_cantidad.Text;
@@ -188,7 +213,8 @@ namespace MrTiendita.Controladores
             }
         }
 
-        ///Métodos auxiliares
+        /// <summary> Muestra los productos. </summary>
+        /// Métodos auxiliares
         protected void MostrarProductos()
         {
             this.vista.tablaProductos.Rows.Clear();
@@ -204,6 +230,7 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary>Cargar los proveedores. </summary>
         protected void CargarProveedores()
         {
             this.listaProveedores = new Dictionary<string, int>();

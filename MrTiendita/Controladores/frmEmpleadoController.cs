@@ -13,14 +13,24 @@ using BCrypt.Net;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary> Clase controlador de empleado </summary>
     class FrmEmpleadoController
     {
+        /// <summary> The vista </summary>
         private FrmEditarEmpleado vista;
+        /// <summary> The accion </summary>
         private String accion;
+        /// <summary> The identifier </summary>
         private int id;
+        /// <summary> The empleado DAO </summary>
         private EmpleadoDAO empleadoDAO;
+        /// <summary> The empleado </summary>
         private Empleado empleado;
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmEmpleadoController"/>.</summary>
+        /// <param name="vista">The vista.</param>
+        /// <param name="accion">The accion.</param>
+        /// <param name="id">The identifier.</param>
         public FrmEmpleadoController(FrmEditarEmpleado vista, String accion, int id)
         {
             this.vista = vista;
@@ -121,6 +131,9 @@ namespace MrTiendita.Controladores
             };
         }
 
+        /// <summary> Maneja el evento Load del control de Vista. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
         private void Vista_Load(object sender, EventArgs e)
         {
             this.vista.tb_clave.MaxLength = 20;
@@ -154,6 +167,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Click del control Btn_Cerrar. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento. <see cref="EventArgs"/>.</param>
         private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
             bool esValido = false;
@@ -243,7 +259,10 @@ namespace MrTiendita.Controladores
             if (esValido) this.vista.Close();
         }
 
-        ///Metodos auxiliares
+        /// <summary> Agregar el empleado especificado. </summary>
+        /// <param name="empleado">The empleado.</param>
+        /// <returns>Un booleano.</returns>
+        /// Metodos auxiliares
         private bool Agregar(Empleado empleado)
         {
             //encriptar la contraseña
@@ -264,6 +283,9 @@ namespace MrTiendita.Controladores
             return esCreado;
         }
 
+        /// <summary> Actualizar el empleado especificado.</summary>
+        /// <param name="empleado">The empleado.</param>
+        /// <returns></returns>
         private bool Actualizar(Empleado empleado)
         {
             bool esActualizado = this.empleadoDAO.UpdateInfo(empleado, this.id);

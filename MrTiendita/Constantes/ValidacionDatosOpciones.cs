@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MrTiendita.Constantes
 {
+    /// <summary>
+    /// Creamos la clase de tipo de validación de datos.
+    /// </summary>
     public static class ValidacionDatosOpciones
     {
         public static int POSITIVO = 1;

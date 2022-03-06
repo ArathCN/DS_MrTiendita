@@ -11,14 +11,21 @@ using MrTiendita.Componentes;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary> Clase Controlador de la caja. </summary>
     class FrmCCajaController
     {
+        /// <summary> La vista</summary>
         private FrmCCaja vista;
+        /// <summary> El DAO de movimiento </summary>
         private MovimientoDAO movimientoDAO;
+        /// <summary> El DAO de caja</summary>
         private CajaDAO cajaDAO;
 
+        /// <summary> El valor en caja </summary>
         private Caja valorCaja;
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmCCajaController"/> .</summary>
+        /// <param name="vista">The vista.</param>
         public FrmCCajaController(FrmCCaja vista)
         {
             this.vista = vista;
@@ -53,12 +60,19 @@ namespace MrTiendita.Controladores
             };
         }
 
+        /// <summary> Maneja el evento Load del control de Vista. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> instancia que contiene los datos del evento.</param>
         public void Vista_Load(object sender, EventArgs e)
         {
             this.MostrarMovimientos();
             this.ObtenerValorCaja();
         }
 
+        /// <summary> Maneja el evento SelectedIndexChanged del control Cb_tipoMov2.
+        /// </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/>La instancia que contiene los datos del evento..</param>
         private void Cb_tipoMov2_SelectedIndexChanged(object sender, EventArgs e)
         {
             String tipo = "";
@@ -101,6 +115,9 @@ namespace MrTiendita.Controladores
             this.vista.lbl_total.Visible = true;
         }
 
+        /// <summary> Maneja el evento Click del control Btn_accept. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> La instancia que contiene los datos del evento.</param>
         public void Btn_aceptar_Click(object sender, EventArgs e)
         {
             String importeCadena = this.vista.tb_importe.Text;
@@ -182,7 +199,8 @@ namespace MrTiendita.Controladores
             this.vista.tb_concepto.Text = "";
         }
 
-        ///Métodos auxiliares
+        /// <summary>Muestra los movimientos. </summary>
+        /// Métodos auxiliares
         private void MostrarMovimientos()
         {
             this.vista.tablaMovimientos.Rows.Clear();
@@ -194,9 +212,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary>Obtienes el valor de la caja. </summary>
         private void ObtenerValorCaja()
         {
-            //Obtener el valor de la caja
             this.valorCaja = this.cajaDAO.ReadByName("Total");
             if (this.valorCaja == null)
             {
@@ -204,7 +222,6 @@ namespace MrTiendita.Controladores
                 error.ShowDialog();
                 return;
             }
-
             this.vista.lbl_totalCaja.Text = this.valorCaja.Valor;
         }
 

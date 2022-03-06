@@ -8,19 +8,23 @@ using System.Runtime.InteropServices;
 
 namespace CrearTicketVenta
 {
-    //Esta es la clase para crear el ticket de venta. Crearemos varios métodos aquí.
+    /// <summary> Esta es la clase para crear el ticket de venta. Crearemos varios métodos aquí. </summary>
     public class CrearTicket
     {
-        //Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket
+        /// <summary> Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket </summary>
         StringBuilder linea = new StringBuilder();
 
-        //Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket.
+        /// <summary> Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket. </summary>
         private readonly int maxCar = 40;
+        /// <summary> The cortar </summary>
         private int cortar;
 
+        /// <summary> Gets or sets de linea. </summary>
+        /// <value> The linea. </value>
         public StringBuilder Linea { get => linea; set => linea = value; }
 
-        //Creamos el primer metodo, este dibujara lineas guion.
+        /// <summary> Creamos el primer metodo, este dibujara lineas guion.. </summary>
+        /// <returns>Devolvemos la lineaGuion.</returns>
         public string LineasGuion()
         {
             string lineasGuion = "";
@@ -28,10 +32,11 @@ namespace CrearTicketVenta
             {
                 lineasGuion += "-";//Agregara un guio hasta llegar la numero maximo de caracteres.
             }
-            return Linea.AppendLine(lineasGuion).ToString(); //Devolvemos la lineaGuion
+            return Linea.AppendLine(lineasGuion).ToString();
         }
 
-        //Metodo para dibujar una linea con asteriscos
+        /// <summary>Metodo para dibujar una linea con asteriscos. </summary>
+        /// <returns>Devolvemos la linea con asteriscos</returns>
         public string LineasAsteriscos()
         {
             string lineasAsterisco = "";
@@ -39,10 +44,11 @@ namespace CrearTicketVenta
             {
                 lineasAsterisco += "*";//Agregara un asterisco hasta llegar la numero maximo de caracteres.
             }
-            return Linea.AppendLine(lineasAsterisco).ToString(); //Devolvemos la linea con asteriscos
+            return Linea.AppendLine(lineasAsterisco).ToString();
         }
 
-        //Realizamos el mismo procedimiento para dibujar una lineas con el signo igual
+        /// <summary> Realizamos el mismo procedimiento para dibujar una lineas con el signo igual. </summary>
+        /// <returns>Devolvemos la lienas con iguales.</returns>
         public string LineasIgual()
         {
             string lineasIgual = "";
@@ -50,17 +56,18 @@ namespace CrearTicketVenta
             {
                 lineasIgual += "=";//Agregara un igual hasta llegar la numero maximo de caracteres.
             }
-            return Linea.AppendLine(lineasIgual).ToString(); //Devolvemos la lienas con iguales
+            return Linea.AppendLine(lineasIgual).ToString();
         }
 
-        //Creamos el encabezado para los articulos
+        /// <summary> Creamos el encabezado para los articulos </summary>
         public void EncabezadoVenta()
         {
             //Escribimos los espacios para mostrar el articulo. En total tienen que ser 40 caracteres
             Linea.AppendLine("ARTÍCULO            |CANT|PRECIO|IMPORTE");
         }
 
-        //Creamos un metodo para poner el texto a la izquierda
+        /// <summary> Creamos un metodo para poner el texto a la izquierda. </summary>
+        /// <param name="texto">The texto.</param>
         public void TextoIzquierda(string texto)
         {
             //Si la longitud del texto es mayor al numero maximo de caracteres permitidos, realizar el siguiente procedimiento.
@@ -83,7 +90,8 @@ namespace CrearTicketVenta
             }
         }
 
-        //Creamos un metodo para poner texto a la derecha.
+        /// <summary> Creamos un metodo para poner texto a la derecha.</summary>
+        /// <param name="texto">The texto.</param>
         public void TextoDerecha(string texto)
         {
             //Si la longitud del texto es mayor al numero maximo de caracteres permitidos, realizar el siguiente procedimiento.
@@ -120,7 +128,8 @@ namespace CrearTicketVenta
             }
         }
 
-        //Metodo para centrar el texto
+        /// <summary> Metodo para centrar el texto. </summary>
+        /// <param name="texto">The texto.</param>
         public void TextoCentro(string texto)
         {
             if (texto.Length > maxCar)
@@ -158,11 +167,13 @@ namespace CrearTicketVenta
 
                 //agregamos el fragmento restante, agregamos antes del texto los espacios
                 Linea.AppendLine(espacios + texto);
-            
+
             }
         }
 
-        //Metodo para poner texto a los extremos
+        /// <summary> Metodo para poner texto a los extremos.</summary>
+        /// <param name="textoIzquierdo">The texto izquierdo.</param>
+        /// <param name="textoDerecho">The texto derecho.</param>
         public void TextoExtremos(string textoIzquierdo, string textoDerecho)
         {
             //variables que utilizaremos
@@ -197,13 +208,15 @@ namespace CrearTicketVenta
             Linea.AppendLine(textoCompleto);//agregamos la linea al ticket, al objeto en si.
         }
 
-        //Metodo para agregar los totales d ela venta
+        /// <summary>Metodo para agregar los totales de la venta.</summary>
+        /// <param name="texto">The texto.</param>
+        /// <param name="total">The total.</param>
         public void AgregarTotales(string texto, double total)
         {
             //Variables que usaremos
             string resumen, valor, textoCompleto, espacios = "";
 
-            if(texto.Length > 25)//Si es mayor a 25 lo cortamos
+            if (texto.Length > 25)//Si es mayor a 25 lo cortamos
             {
                 cortar = texto.Length - 25;
                 resumen = texto.Remove(25, cortar);
@@ -225,7 +238,12 @@ namespace CrearTicketVenta
             Linea.AppendLine(textoCompleto);
         }
 
-        //Metodo para agreagar articulos al ticket de venta
+        /// <summary> Metodo para agreagar articulos al ticket de venta.. </summary>
+        /// <param name="articulo">The articulo.</param>
+        /// <param name="cant">The cant.</param>
+        /// <param name="precio">The precio.</param>
+        /// <param name="importe">The importe.</param>
+        /// <exception cref="System.Exception">Los valores ingresados para algunas filas del ticket\nsuperan las columnas soportdas por éste.</exception>
         public void AgregaArticulo(string articulo, double cant, double precio, double importe)
         {
             //Valida que cant precio e importe esten dentro del rango.
@@ -332,21 +350,21 @@ namespace CrearTicketVenta
             }
         }
 
-        //Metodos para enviar secuencias de escape a la impresora
-        //Para cortar el ticket
+        /// <summary>Metodos para enviar secuencias de escape a la impresora para cortar el ticket-.</summary>
         public void CortaTicket()
         {
             Linea.AppendLine("\x1B" + "m"); //Caracteres de corte. Estos comando varian segun el tipo de impresora
             Linea.AppendLine("\x1B" + "d" + "\x09"); //Avanza 9 renglones, Tambien varian
         }
-        //Para abrir el cajon
+        /// <summary> Para abrir el cajon. </summary>
         public void AbreCajon()
         {
             //Estos tambien varian, tienen que ever el manual de la impresora para poner los correctos.
             Linea.AppendLine("\x1B" + "p" + "\x00" + "\x0F" + "\x96"); //Caracteres de apertura cajon 0
             //linea.AppendLine("\x1B" + "p" + "\x01" + "\x0F" + "\x96"); //Caracteres de apertura cajon 1
         }
-        //Para mandara a imprimir el texto a la impresora que le indiquemos.
+        /// <summary> Para mandara a imprimir el texto a la impresora que le indiquemos.. </summary>
+        /// <param name="impresora">La impresora.</param>
         public void ImprimirTicket(string impresora)
         {
             //Este metodo recibe el nombre de la impresora a la cual se mandara a imprimir y el texto que se imprimira.
@@ -358,45 +376,84 @@ namespace CrearTicketVenta
     }
 
 
-    //Clase para mandara a imprimir texto plano a la impresora
+    /// <summary>
+    /// Clase para mandara a imprimir texto plano a la impresora
+    /// </summary>
     public class RawPrinterHelper
     {
-        // Structure and API declarions:
+        /// <summary>Structure and API declarions: </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public class DOCINFOA
         {
+            /// <summary>The p document name</summary>
             [MarshalAs(UnmanagedType.LPStr)]
             public string pDocName;
+            /// <summary>The p output file </summary>
             [MarshalAs(UnmanagedType.LPStr)]
             public string pOutputFile;
+            /// <summary>The p data type</summary>
             [MarshalAs(UnmanagedType.LPStr)]
             public string pDataType;
         }
+        /// <summary> Opens the printer. </summary>
+        /// <param name="szPrinter">The sz printer.</param>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <param name="pd">The pd.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "OpenPrinterA", SetLastError = true, CharSet = CharSet.Ansi, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool OpenPrinter([MarshalAs(UnmanagedType.LPStr)] string szPrinter, out IntPtr hPrinter, IntPtr pd);
 
+        /// <summary> Closes the printer.</summary>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "ClosePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool ClosePrinter(IntPtr hPrinter);
 
+        /// <summary>Starts the document printer. </summary>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <param name="level">The level.</param>
+        /// <param name="di">The di.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "StartDocPrinterA", SetLastError = true, CharSet = CharSet.Ansi, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool StartDocPrinter(IntPtr hPrinter, Int32 level, [In, MarshalAs(UnmanagedType.LPStruct)] DOCINFOA di);
 
+        /// <summary>Ends the document printer. </summary>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "EndDocPrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool EndDocPrinter(IntPtr hPrinter);
 
+        /// <summary>Starts the page printer.</summary>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "StartPagePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool StartPagePrinter(IntPtr hPrinter);
 
+        /// <summary>Ends the page printer. </summary>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "EndPagePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool EndPagePrinter(IntPtr hPrinter);
 
+        /// <summary>Writes the printer.</summary>
+        /// <param name="hPrinter">The h printer.</param>
+        /// <param name="pBytes">The p bytes.</param>
+        /// <param name="dwCount">The dw count.</param>
+        /// <param name="dwWritten">The dw written.</param>
+        /// <returns></returns>
         [DllImport("winspool.Drv", EntryPoint = "WritePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool WritePrinter(IntPtr hPrinter, IntPtr pBytes, Int32 dwCount, out Int32 dwWritten);
 
         // SendBytesToPrinter()
+
+        /// <summary>Envía los bytes a la impresora. </summary>
         // When the function is given a printer name and an unmanaged array
         // of bytes, the function sends those bytes to the print queue.
         // Returns true on success, false on failure.
+        /// <param name="szPrinterName">Name of the sz printer.</param>
+        /// <param name="pBytes">The p bytes.</param>
+        /// <param name="dwCount">The dw count.</param>
+        /// <returns> Si ha sucedido o no.</returns>
         public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
         {
             Int32 dwError = 0, dwWritten = 0;
@@ -432,7 +489,11 @@ namespace CrearTicketVenta
             }
             return bSuccess;
         }
-        
+
+        /// <summary>Envía la cadena a la impresora. </summary>
+        /// <param name="szPrinterName">Name of the sz printer.</param>
+        /// <param name="szString">The sz string.</param>
+        /// <returns>Un booleano en true.</returns>
         public static bool SendStringToPrinter(string szPrinterName, string szString)
         {
             IntPtr pBytes;

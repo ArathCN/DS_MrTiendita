@@ -10,12 +10,18 @@ using MrTiendita.Vistas;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary> Creamos la clase controlador de Empleados. </summary>
     class FrmEEmpleadosController
     {
+        /// <summary> The vista </summary>
         FrmEEmpleado vista;
+        /// <summary> The empleado DAO </summary>
         EmpleadoDAO empleadoDAO;
+        /// <summary> The todos empleados </summary>
         List<Empleado> todosEmpleados;
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmEEmpleadosController"/> . </summary>
+        /// <param name="vista">The vista.</param>
         public FrmEEmpleadosController(FrmEEmpleado vista)
         {
             this.vista = vista;
@@ -26,6 +32,9 @@ namespace MrTiendita.Controladores
             this.vista.btn_nuevoEmpleado.Click += new EventHandler(Btn_nuevoEmpleado_Click);
         }
 
+        /// <summary> Handles the CellContentClick event of the Table_TablaEmpleados control. </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void Table_TablaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.tablaEmpleados.Rows[e.RowIndex].Cells["eliminar"].Selected)
@@ -36,11 +45,17 @@ namespace MrTiendita.Controladores
             this.MostrarTodos();
         }
 
+        /// <summary> Maneja el evento Load del control de Vista. </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Vista_Load(object sender, EventArgs e)
         {
             this.MostrarTodos();
         }
 
+        /// <summary> Maneja el evento Text Changed del control Tb_busqueda. </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
             String cadenaBusqueda = this.vista.tb_busqueda.Text;
@@ -59,6 +74,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Click del control Btn_nuevoEmpleado. </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Btn_nuevoEmpleado_Click(object sender, EventArgs e)
         {
             FrmEditarEmpleado editar = new FrmEditarEmpleado("agregar", -1);
@@ -67,6 +85,7 @@ namespace MrTiendita.Controladores
         }
 
         //Métodos auxiliares
+        /// <summary> Mostrars the todos. </summary>
         private void MostrarTodos()
         {
             this.vista.tablaEmpleados.Rows.Clear();
@@ -86,6 +105,8 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Eliminars the empleado. </summary>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void EliminarEmpleado(DataGridViewCellEventArgs e)
         {
             Form mensaje = new FrmError("El empleado se eliminará");
@@ -112,6 +133,8 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Actualizar el empleado. </summary>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void ActualizarEmpleado(DataGridViewCellEventArgs e)
         {
             String idCadena = this.vista.tablaEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();

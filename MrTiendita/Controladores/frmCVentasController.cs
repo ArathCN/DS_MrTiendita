@@ -13,17 +13,24 @@ using MrTiendita.Constantes;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary> Creamos la clase de control de las ventas. </summary>
     class FrmCVentasController
     {
+        /// <summary> The vista </summary>
         private FrmCVentas vista;
+        /// <summary> The producto DAO </summary>
         private ProductoDAO productoDAO;
-
+        /// <summary> The producto </summary>
         private Producto producto;
+        /// <summary> The total venta </summary>
         private double totalVenta;
+        /// <summary> The productos venta </summary>
         private List<Producto> productosVenta; //solo contiene productos con codigo y cantidad, lo demas vacio
-
+        /// <summary>The lista productos </summary>
         private Dictionary<String, long> listaProductos;
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmCVentasController"/>. </summary>
+        /// <param name="vista">The vista.</param>
         public FrmCVentasController(FrmCVentas vista)
         {
             this.vista = vista;
@@ -51,6 +58,9 @@ namespace MrTiendita.Controladores
             };
         }
 
+        /// <summary> Maneja el evento de carga del control de Vista. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
         private void Vista_load(object sender, EventArgs e)
         {
             this.listaProductos = new Dictionary<string, long>();
@@ -68,6 +78,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Valor Seleccionado Cambiado del control Cb productos. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
         private void Cb_productos_SelectedValueChanged(object sender, EventArgs e)
         {
             if (this.vista.cb_productos.SelectedIndex != -1)
@@ -78,6 +91,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento CellContentClick del control Tabla Ventas. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="DataGridViewCellEventArgs"/> .</param>
         private void TablaVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Producto xProducto = new Producto
@@ -131,6 +147,9 @@ namespace MrTiendita.Controladores
             this.vista.lbl_total.Text = "$" + this.totalVenta.ToString();
         }
 
+        /// <summary>Maneja el evento Text Changed del control Tb_codigo. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento. <see cref="EventArgs"/>.</param>
         private void Tb_codigo_TextChanged(object sender, EventArgs e)
         {
             long codigoBarra;
@@ -161,6 +180,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento Click del control Btn_accept.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
         private void Btn_aceptar_Click(object sender, EventArgs e)
         {
             String cantidadCadena = this.vista.tb_cantidad.Text;
@@ -238,6 +260,9 @@ namespace MrTiendita.Controladores
             this.vista.cb_productos.SelectedIndex = -1;
         }
 
+        /// <summary> Maneja el evento Click del control Btn_Cancelar.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
             this.vista.tablaVentas.Rows.Clear();
@@ -245,6 +270,9 @@ namespace MrTiendita.Controladores
             this.totalVenta = 0;
         }
 
+        /// <summary> Maneja el evento pago del control Venta_metodo.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
         private void Venta_metodo_pago(object sender, EventArgs e)
         {
             //Comprobar si la lista está vacia

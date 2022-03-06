@@ -15,19 +15,34 @@ using System.Drawing;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary>Creamos la clase de control de cobro.</summary>
     class FrmCobroController
     {
+        /// <summary>The vista</summary>
         private FrmCobro vista;
+        /// <summary>The productos venta</summary>
         private List<Producto> productosVenta;
+        /// <summary> The producto DAO </summary>
         private ProductoDAO productoDAO;
+        /// <summary> The movimiento DAO </summary>
         private MovimientoDAO movimientoDAO;
+        /// <summary> The empleado </summary>
         private Empleado empleado;
+        /// <summary> The caja DAO </summary>
         private CajaDAO cajaDAO;
+        /// <summary> The venta DAO </summary>
         private VentaDAO ventaDAO;
+        /// <summary> The total venta </summary>
         private double totalVenta;
+        /// <summary> The efectivo </summary>
         private double efectivo;
-        private bool metodoEfectivo = true; 
+        /// <summary> The metodo efectivo </summary>
+        private bool metodoEfectivo = true;
 
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmCobroController"/> class. </summary>
+        /// <param name="vista">The vista.</param>
+        /// <param name="productos">The productos.</param>
+        /// <param name="total">The total.</param>
         public FrmCobroController(FrmCobro vista, List<Producto> productos, double total)
         {
             this.productoDAO = new ProductoDAO();
@@ -44,6 +59,9 @@ namespace MrTiendita.Controladores
             this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
         }
 
+        /// <summary> Maneja el evento Selected Index Changed del control Cb_metodoPago. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/> La instancia que contiene los datos del evento..</param>
         private void Cb_metodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.vista.btn_aceptar.Visible = true;
@@ -65,6 +83,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento de texto Changed del control Tb_efectivo. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento<see cref="EventArgs"/>.</param>
         private void Tb_efectivo_textChanged(object sender, EventArgs e)
         {
             String efectivoCadena = this.vista.tb_efectivo.Text;
@@ -94,9 +115,11 @@ namespace MrTiendita.Controladores
             this.vista.lbl_cambio.Text = "$" + (this.efectivo - this.totalVenta);
         }
 
+        /// <summary>Maneja el evento Click del control Btn_accept.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"><see cref="EventArgs"/>La instancia que contiene los datos del evento.</param>
         private void Btn_aceptar_Click(object sender, EventArgs e)
-        {
-            
+        {            
             //se actualzia la cantidad en los productos del almacen
             bool esActualizado = this.productoDAO.UpdateCantidad(this.productosVenta);
             if (!esActualizado)
@@ -170,6 +193,8 @@ namespace MrTiendita.Controladores
         }
 
         //Métodos auxiliares
+        /// <summary> Generars the venta. </summary>
+        /// <returns>Un booleano en true.</returns>
         private bool GenerarVenta()
         {
             bool esCreado = true;
@@ -191,7 +216,9 @@ namespace MrTiendita.Controladores
 
             return true;
         }
-        
+
+        /// <summary> Generars the ticket. </summary>
+        /// <returns>El ticket.</returns>
         private CrearTicket GenerarTicket()
         {
             //Creamos una instancia d ela clase CrearTicket
@@ -222,6 +249,8 @@ namespace MrTiendita.Controladores
             return ticket;
         }
 
+        /// <summary> Guardars the ticket. </summary>
+        /// <param name="ticket">The ticket.</param>
         private void GuardarTicket(CrearTicket ticket)
         {
             DateTime hora = DateTime.Now;
