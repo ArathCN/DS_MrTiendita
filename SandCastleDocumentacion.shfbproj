@@ -41,9 +41,11 @@
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <VisibleItems>Attributes, ExplicitInterfaceImplementations, InheritedMembers, Internals, Privates, PrivateFields, Protected, SealedProtected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <ApiFilter>
-      <Filter entryType="Namespace" fullName="" isExposed="False" xmlns="" />
-<Filter entryType="Namespace" fullName="MrTiendita.Controladores" isExposed="False" xmlns="" />
-<Filter entryType="Namespace" fullName="MrTiendita.Vistas" isExposed="False" xmlns="" /></ApiFilter>
+      <Filter entryType="Namespace" fullName="" isExposed="False" />
+<Filter entryType="Namespace" fullName="MrTiendita" isExposed="False" />
+<Filter entryType="Namespace" fullName="MrTiendita.Controladores" isExposed="False" />
+<Filter entryType="Namespace" fullName="MrTiendita.Vistas" isExposed="False" /></ApiFilter>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, TypeParameter, AutoDocumentDispose</MissingTags>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
