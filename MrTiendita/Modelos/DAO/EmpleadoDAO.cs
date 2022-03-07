@@ -9,8 +9,17 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
-    class EmpleadoDAO:DbContext
+    /// <summary>
+    /// Define métodos para acceder a datos tipo <see cref="Empleado" /> en la base de datos.
+    /// </summary>
+    /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
+    class EmpleadoDAO :DbContext
     {
+        /// <summary>
+        /// Crea un registro en la base de datos del empleado especificado.
+        /// </summary>
+        /// <param name="empleado">El empleado a registrar.</param>
+        /// <returns><see cref="Boolean"/>  <c>true</c> si el registro tiene exito, <c>false</c> si ocurre algún error.</returns>
         public bool Create(Empleado empleado)
         {
             this.LimpiarError();
@@ -63,6 +72,13 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Actualiza un registro en la base de datos segun el id especificado.
+        /// </summary>
+        /// <param name="empleado">Los datos nuevos a actualizar.</param>
+        /// <param name="id">El id con el que se buscará el registro a actualizar.</param>
+        /// <returns><see cref="Boolean"/> que es <c>true</c> si se modificó un registro, <c>false</c> si ocurrió
+        /// algún error o no se modificó ningún registro.</returns>
         public bool UpdateInfo(Empleado empleado, long id) //Update by id
         {
             bool success = false;
@@ -112,6 +128,11 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Consulta todos los registros de <see cref="Empleado"/> en la base de datos.
+        /// </summary>
+        /// <returns>Una <see cref="List{Empleado}"/> que contiene a todos los empleados de la base de datos,
+        /// si no hay ninguno es una lista vacía.</returns>
         public List<Empleado> ReadAll()
         {
             List<Empleado> empleados = new List<Empleado>();
@@ -144,7 +165,12 @@ namespace MrTiendita.Modelos.DAO
 
             return empleados;
         }
-        
+
+        /// <summary>
+        /// Consulta un registro de <see cref="Empleado"/> en la base de datos según el id especificado.
+        /// </summary>
+        /// <param name="id">El id de empleado a consultar.</param>
+        /// <returns>Un <see cref="Empleado"/> con la información consultada, <c>null</c> si no se encontró ninguno.</returns>
         public Empleado ReadById(int id)
         {
             Empleado empleado = null;
@@ -182,6 +208,12 @@ namespace MrTiendita.Modelos.DAO
             return empleado;
         }
 
+        /// <summary>
+        /// Consulta registros de <see cref="Empleado"/> en la base de datos por su nombre e id.
+        /// </summary>
+        /// <param name="idOrName">Cadena que contiene un nombre o id de los empleados a consultar.</param>
+        /// <returns><see cref="List{Empleado}"/> que contiene los registros de empleado encontrados.
+        /// Es vacía si no se encontró ninguno.</returns>
         public List<Empleado> ReadByName(String idOrName)
         {
             List<Empleado> empleados = new List<Empleado>();
@@ -221,6 +253,11 @@ namespace MrTiendita.Modelos.DAO
             return empleados;
         }
 
+        /// <summary>
+        /// Elimina un registro de <see cref="Empleado"/> de la base de datos según el id especificado.
+        /// </summary>
+        /// <param name="id">El id con el que se eliminará el empleado.</param>
+        /// <returns><see cref="Boolean"/> <c>true</c> si se eliminó un registro, <c>false</c> si no se eliminó nada.</returns>
         public bool Delete(int id)
         {
             bool success = false;
@@ -243,6 +280,11 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Consulta un registro de <see cref="Empleado"/> según su nombre de usuario.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario a buscar.</param>
+        /// <returns><see cref="Empleado"/> con la información consultada, <c>null</c> si no se encontró ninguno.</returns>
         public Empleado ReadByUsuario(string usuario)
         {
             Empleado empleado = null;

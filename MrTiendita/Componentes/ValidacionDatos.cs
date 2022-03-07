@@ -9,18 +9,20 @@ using MrTiendita.Constantes;
 namespace MrTiendita.Componentes
 {
     /// <summary>
-    /// Creamos la clase de validación de datos.
+    /// Clase que define métodos para validar datos para <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Double"/> y <see cref="String"/>.
+    /// Usa las constantes de la clase <see cref="ValidacionDatosOpciones"/> para especificar opciones de validación.
     /// </summary>
     public static class ValidacionDatos
     {
-        /// <summary> Valido tipo bool. </summary>
+        /// <summary><see cref="Boolean"/> que indica si la última validación fue exitosa o no cumplió con las opciones indicadas.</summary>
         public static bool esValido = false;
-        /// <summary> Mensajes tipo string. </summary>
+
+        /// <summary><see cref="String"/> que contiene el mensaje de error que generó la ultima validación.</summary>
         public static String mensajes = "";
 
-        /// <summary> No es vacio. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <returns>Booleano en False.</returns>
+        /// <summary>Comprueba si un valor <see cref="String"/> es vacío o no.</summary>
+        /// <param name="dato"><see cref="String"/> a comprobar.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena no está vacía, false si está vacía.</returns>
         public static bool NoVacio(String dato)
         {
             ValidacionDatos.esValido = false;
@@ -33,9 +35,9 @@ namespace MrTiendita.Componentes
             } 
         }
 
-        /// <summary> Cadenas the specified dato. </summary>
-        /// <param name="dato">The dato.</param>
-        /// <returns>Booleano en true.</returns>
+        /// <summary>Comprueba si una cadena está vacía o no, usa <see cref="NoVacio(string)"/> para comprobar.</summary>
+        /// <param name="dato"><see cref="String"/> a comprobar.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena no está vacía, false si está vacía.</returns>
         public static bool Cadena(String dato)
         {
             if (!ValidacionDatos.NoVacio(dato)) return false;
@@ -43,11 +45,17 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary> Cadena el dato especificado. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <param name="opciones">Opciones.</param>
-        /// <param name="patron">Patron.</param>
-        /// <returns> Booleano Falso.</returns>
+        /// <summary>Comprueba un <see cref="String"/> usando opciones de validación y una expresión regular como patrón.
+        /// Si no se especifican opciones ni patrón es similar a <see cref="Cadena(string)"/>
+        /// </summary>
+        /// <param name="dato"><see cref="String"/> a comprobar.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/> que contiene las opciones como llaves y los límites como valores.
+        /// Si no se especifica se usa el valor null.
+        /// </param>
+        /// <param name="patron">Expresión regular que debe de cumplir la cadena a comprobar.
+        /// Si no se especifica se toma una cadena vacía como valor y no se comprueba el patrón.
+        /// </param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Cadena(String dato, Dictionary<int, int> opciones = null, String patron = "")
         {
             if (!ValidacionDatos.NoVacio(dato)) return false;
@@ -89,10 +97,10 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary> Numero el dato especificado. </summary>
-        /// <param name="dato">Ehe dato.</param>
-        /// <param name="datoSalida">El dato de salida.</param>
-        /// <returns>Boolenao en true.</returns>
+        /// <summary>Comprueba un si una cadena es valida como <see cref="Int64"/> y regresa el valor en dicho tipo.</summary>
+        /// <param name="dato"><see cref="String"/> que se quiere validar.</param>
+        /// <param name="datoSalida"><see cref="Int64"/> al que se regresa el valor convertido.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Numero(String dato, out long datoSalida)
         {
             long datoEnNumero;
@@ -114,11 +122,15 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary> Numero el dato especificado. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <param name="datoSalida">El dato de salida.</param>
-        /// <param name="opciones">Las opciones.</param>
-        /// <returns>Boolenao en true</returns>
+        /// <summary>Comprueba un si una cadena es valida como <see cref="Int64"/> usando opciones de validación
+        /// y regresa el valor en dicho tipo.
+        /// Si no se especifican opciones es similar a <see cref="Numero(string, out long)"/>.
+        /// </summary>
+        /// <param name="dato"><see cref="String"/> que se quiere validar.</param>
+        /// <param name="datoSalida"><see cref="Int64"/> al que se regresa el valor convertido.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
+        /// como llaves y los límites <see cref="Int64"/> como valores.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Numero(String dato, out long datoSalida, Dictionary<int, long> opciones)
         {
             long datoEnNumero;
@@ -203,10 +215,10 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary> Numeros el dato especificado. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <param name="datoSalida">El dato de salida.</param>
-        /// <returns>Booleano en true.</returns>
+        /// <summary>Comprueba un si una cadena es valida como <see cref="Double"/> y regresa el valor en dicho tipo.</summary>
+        /// <param name="dato"><see cref="String"/> que se quiere validar.</param>
+        /// <param name="datoSalida"><see cref="Double"/> al que se regresa el valor convertido.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Numero(String dato, out double datoSalida)
         {
 
@@ -229,11 +241,14 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary> Numero el dato especificado. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <param name="datoSalida">Dato de salida.</param>
-        /// <param name="opciones">Opciones.</param>
-        /// <returns>Booleano en true.</returns>
+        /// <summary>Comprueba un si una cadena es valida como <see cref="Double"/> usando opciones de validación y regresa el valor en dicho tipo.
+        /// Si no se especifican opciones es similar a <see cref="Numero(string, out double)"/>
+        /// </summary>
+        /// <param name="dato"><see cref="String"/> que se quiere validar.</param>
+        /// <param name="datoSalida"><see cref="Double"/> al que se regresa el valor convertido.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
+        /// como llaves y los límites <see cref="Double"/> como valores.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Numero(String dato, out double datoSalida, Dictionary<int, Double> opciones)
         {
 
@@ -325,10 +340,10 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary> Numero el dato especificado. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <param name="datoSalida">Dato de salida.</param>
-        /// <returns> Booleano en true.</returns>
+        /// <summary>Comprueba un si una cadena es valida como <see cref="Int32"/> y regresa el valor en dicho tipo.</summary>
+        /// <param name="dato"><see cref="String"/> que se quiere validar.</param>
+        /// <param name="datoSalida"><see cref="Int32"/> al que se regresa el valor convertido.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Numero(String dato, out int datoSalida)
         {
 
@@ -351,11 +366,14 @@ namespace MrTiendita.Componentes
             return true;
         }
 
-        /// <summary>Numero el dato especificado. </summary>
-        /// <param name="dato">Dato.</param>
-        /// <param name="datoSalida">Dato de salida.</param>
-        /// <param name="opciones">Opciones.</param>
-        /// <returns>Booleano en true</returns>
+        /// <summary>Comprueba un si una cadena es valida como <see cref="Int32"/> usando opciones de validación y regresa el valor en dicho tipo.
+        /// Si no se especifican opciones es similar a <see cref="Numero(string, out int)"/>
+        /// </summary>
+        /// <param name="dato"><see cref="String"/> que se quiere validar..</param>
+        /// <param name="datoSalida"><see cref="Int32"/> al que se regresa el valor convertido.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
+        /// como llaves y los límites <see cref="Int32"/> como valores.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         public static bool Numero(String dato, out int datoSalida, Dictionary<int, int> opciones)
         {
             int datoEnNumero;

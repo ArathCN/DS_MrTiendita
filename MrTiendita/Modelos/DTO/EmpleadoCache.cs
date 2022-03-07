@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace MrTiendita.Modelos.DTO
 {
+    /// <summary>
+    /// Clase que guarda una instancia de <see cref="Empleado"/> para usarla de sesión en el sistema.
+    /// </summary>
     public class EmpleadoCache
     {
+        /// <summary>
+        /// The empleado
+        /// </summary>
         private static Empleado empleado;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="EmpleadoCache"/> class from being created.
+        /// </summary>
         private EmpleadoCache()
         {
         }
 
+        /// <summary>
+        /// Gets the empleado.
+        /// </summary>
+        /// <param name="empleado">The empleado.</param>
+        /// <returns>An <see cref="Empleado"/> instance.</returns>
         public static Empleado GetEmpleado(Empleado empleado = null)
         {
             if (EmpleadoCache.empleado == null)
@@ -25,6 +39,10 @@ namespace MrTiendita.Modelos.DTO
             return EmpleadoCache.empleado;
         }
 
+        /// <summary>
+        /// Sets the empleado.
+        /// </summary>
+        /// <param name="empleado">The empleado.</param>
         public static void SetEmpleado(Empleado empleado)
         {
             if (empleado == null) {

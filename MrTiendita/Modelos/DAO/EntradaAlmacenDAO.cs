@@ -9,9 +9,16 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
-    class EntradaAlmacenDAO:DbContext
+    /// <summary>
+    /// Define métodos para acceder a datos tipo <see cref="EntradaAlmacen" /> en la base de datos.
+    /// </summary>
+    /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
+    class EntradaAlmacenDAO :DbContext
     {
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntradaAlmacenDAO"/> class.
+        /// </summary>
         public EntradaAlmacenDAO()
         {
             this.errorUltimaConsulta = false;
@@ -19,6 +26,16 @@ namespace MrTiendita.Modelos.DAO
         }
 
         //Formato para fechas en SQL Server yyyy-mm-dd hh:mm:ss
+
+        /// <summary>
+        /// Crea un registro <see cref="EntradaAlmacen"/> en la base de datos según la entrada especificada, además de 
+        /// actualizar el número de existencias de <see cref="Producto"/> especificado.
+        /// </summary>
+        /// <param name="entradaAlmacen">Entrada al almacén a registrar.</param>
+        /// <param name="producto">Producto a actualizar su existencia, su propiedad <see cref="Producto.cantidad_actual"/> 
+        /// ya debe de ser la nueva cantidad. Sólo se necesitan <see cref="Producto.codigo_barra"/> y <see cref="Producto.cantidad_actual"/>.</param>
+        /// <returns><see cref="Boolean"/> <c>true</c> si se hicieron correctamente los movimientos, <c>false</c> si hubo
+        /// un error al registrar o actualizar</returns>
         public bool Create(EntradaAlmacen entradaAlmacen, Producto producto)
         {
             this.LimpiarError();
@@ -108,12 +125,11 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        //Segun yo no se ocupa actualizar registros de entradas
-        /*public bool update(EntradaAlmacen producto)
-        {
-            return false;
-        }*/
 
+        /// <summary>
+        /// Consulta todos los registros de <see cref="EntradaAlmacen"/> de la base de datos.
+        /// </summary>
+        /// <returns><see cref="List{EntradaAlmacen}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
         public List<EntradaAlmacen> ReadAll()
         {
             List<EntradaAlmacen> entradasAlmacen = new List<EntradaAlmacen>();
@@ -146,6 +162,12 @@ namespace MrTiendita.Modelos.DAO
             return entradasAlmacen;
         }
 
+        /// <summary>
+        /// Consulta registros de <see cref="EntradaAlmacen"/> que se hayan realizado entre las fechas especificadas.
+        /// </summary>
+        /// <param name="inicio">Fecha límite de inicio.</param>
+        /// <param name="final">Fecha límite final.</param>
+        /// <returns><see cref="List{EntradaAlmacen}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
         public List<EntradaAlmacen> ReadBetweenDates(DateTime inicio, DateTime final)
         {
             List<EntradaAlmacen> entradasAlmacen = new List<EntradaAlmacen>();
@@ -194,16 +216,5 @@ namespace MrTiendita.Modelos.DAO
             return entradasAlmacen;
         }
 
-        //Segun yo no se ocupa buscar por id, sino entre fechas
-        /*public EntradaAlmacen readById(int id)
-        {
-            return null;
-        }*/
-
-        //Segun yo no se ocupa eliminar registros de entradas
-        /*public bool delete(int id)
-        {
-            return false;
-        }*/
     }
 }

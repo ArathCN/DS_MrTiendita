@@ -9,8 +9,17 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
-    class ProductoDAO:DbContext
+    /// <summary>
+    /// Define métodos para acceder a datos tipo <see cref="Producto" /> en la base de datos.
+    /// </summary>
+    /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
+    class ProductoDAO :DbContext
     {
+        /// <summary>
+        /// Crea un registro <see cref="Producto"/> en la base de datos.
+        /// </summary>
+        /// <param name="producto">El producto a registrar.</param>
+        /// <returns><see cref="Boolean"/>  <c>true</c> si el registro tiene exito, <c>false</c> si no se registró.</returns>
         public bool Create(Producto producto)
         {
             bool success = false;
@@ -46,6 +55,12 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Actualiza un registro <see cref="Producto"/> según el id.
+        /// </summary>
+        /// <param name="producto">Datos nuevos de producto.</param>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns><see cref="Boolean"/>  <c>true</c> si la actualización tiene exito, <c>false</c> si no se efectuó.</returns>
         public bool UpdateInfo(Producto producto, long id) //Update by id
         {
             bool success = false;
@@ -84,6 +99,13 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Actualiza la cantidad de varios <see cref="Producto"/> en una transacción.
+        /// </summary>
+        /// <param name="productos">Lista de productos a actualizar, sólo se necesita <see cref="Producto.cantidad_actual"/>
+        /// y <see cref="Producto.codigo_barra"/> para el movimiento.</param>
+        /// <returns><see cref="Boolean"/>  <c>true</c> si todas las actualizaciones tienen exito, <c>false</c> si ocurre algún error.
+        /// Además, si no se pudo actualizar un producto no se actualizará ninguno.</returns>
         public bool UpdateCantidad(List<Producto> productos) //Update by id
         {
             this.LimpiarError();
@@ -143,6 +165,11 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Consulta todos los registros <see cref="Producto"/> en la base de datos.
+        /// </summary>
+        /// <returns>Una <see cref="List{Producto}"/> que contiene a todos los productos de la base de datos,
+        /// si no hay ninguno es una lista vacía.</returns>
         public List<Producto> ReadAll()
         {
             List<Producto> productos = new List<Producto>();
@@ -174,6 +201,11 @@ namespace MrTiendita.Modelos.DAO
             return productos;
         }
 
+        /// <summary>
+        /// Consulta un <see cref="Producto"/> de la base de datos según el id.
+        /// </summary>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns><see cref="Producto"/> <c>true</c> si se encontró el prodcuto, <c>false</c> si no</returns>
         public Producto ReadById(long id)
         {
             Producto producto = null;
@@ -211,6 +243,12 @@ namespace MrTiendita.Modelos.DAO
             return producto;
         }
 
+        /// <summary>
+        /// Consulta los registros <see cref="Producto"/> de la base de datos según el nombre.
+        /// </summary>
+        /// <param name="idOrName">Cadena que contiene el nombre o id de los productos que se quieren buscar.</param>
+        /// <returns>Una <see cref="List{Producto}"/> que contiene a todos los productos de la base de datos,
+        /// si no hay ninguno es una lista vacía.</returns>
         public List<Producto> ReadByName(String idOrName)
         {
             List<Producto> productos = new List<Producto>();
@@ -247,6 +285,11 @@ namespace MrTiendita.Modelos.DAO
             return productos;
         }
 
+        /// <summary>
+        /// Elimina un registro de <see cref="Producto"/> de la base de datos según el id.
+        /// </summary>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns><see cref="Boolean"/> <c>true</c> si se eliminó un registro, <c>false</c> si no se eliminó nada.</returns>
         public bool Delete(long id)
         {
             bool success = false;

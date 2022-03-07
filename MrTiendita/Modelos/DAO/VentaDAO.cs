@@ -9,14 +9,26 @@ using System.Threading.Tasks;
 
 namespace MrTiendita.Modelos.DAO
 {
-    class VentaDAO:DbContext
+    /// <summary>
+    /// Define métodos para acceder a datos tipo <see cref="Venta" /> en la base de datos.
+    /// </summary>
+    /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
+    class VentaDAO :DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VentaDAO"/> class.
+        /// </summary>
         public VentaDAO()
         {
             this.errorUltimaConsulta = false;
             this.mensajeError = null;
         }
 
+        /// <summary>
+        /// Crea un registro <see cref="Venta"/> en la base de datos.
+        /// </summary>
+        /// <param name="venta">La venta a registrar.</param>
+        /// <returns><see cref="Boolean"/>  <c>true</c> si el registro tiene exito, <c>false</c> si no se registró.</returns>
         public bool Create(Venta venta)
         {
             bool success = false;
@@ -51,11 +63,22 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Consulta todos los registros <see cref="Venta"/> en la base de datos.
+        /// </summary>
+        /// <returns>Una <see cref="List{Venta}"/> que contiene a todos las ventas de la base de datos,
+        /// si no hay ninguno es una lista vacía.</returns>
         public List<Venta> ReadAll()
         {
             return null;
         }
 
+        /// <summary>
+        /// Consulta registros de <see cref="Venta"/> que se hayan realizado entre las fechas especificadas.
+        /// </summary>
+        /// <param name="inicio">Fecha límite de inicio.</param>
+        /// <param name="final">Fecha límite final.</param>
+        /// <returns><see cref="List{Venta}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
         public List<Venta> ReadBetweenDates(DateTime inicio, DateTime final)
         {
             List<Venta> ventas = new List<Venta>();

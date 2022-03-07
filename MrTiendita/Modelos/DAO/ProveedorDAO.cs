@@ -9,8 +9,17 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
+    /// <summary>
+    /// Define métodos para acceder a datos tipo <see cref="Proveedor" /> en la base de datos.
+    /// </summary>
+    /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
     public class ProveedorDAO:DbContext
     {
+        /// <summary>
+        /// Crea un registro en la base de datos del <see cref="Proveedor"/> especificado.
+        /// </summary>
+        /// <param name="proveedor">El proveedor a registrar.</param>
+        /// <returns><see cref="Boolean"/>  <c>true</c> si el registro tiene exito, <c>false</c> si no se registró nada.</returns>
         public bool Create(Proveedor proveedor)
         {
             bool success = false;
@@ -38,6 +47,12 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Actualiza un registro de <see cref="Proveedor"/> en la base de datos segun el id especificado.
+        /// </summary>
+        /// <param name="proveedor">Datos nuevos del proveedor actualizar.</param>
+        /// <param name="id">El id que se buscará.</param>
+        /// <returns><see cref="Boolean"/> que es <c>true</c> si se modificó un registro, <c>false</c> si no se modificó ningún registro.</returns>
         public bool UpdateInfo(Proveedor proveedor, int id)
         {
             bool success = false;
@@ -65,6 +80,11 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        /// <summary>
+        /// Consulta todos los registros <see cref="Proveedor"/> en la base de datos.
+        /// </summary>
+        /// <returns>Una <see cref="List{Proveedor}"/> que contiene a todos los productos de la base de datos,
+        /// si no hay ninguno es una lista vacía.</returns>
         public List<Proveedor> ReadAll()
         {
             List<Proveedor> proveedores = new List<Proveedor>();
@@ -88,6 +108,11 @@ namespace MrTiendita.Modelos.DAO
             return proveedores;
         }
 
+        /// <summary>
+        /// Consulta un <see cref="Proveedor"/> de la base de datos según el id.
+        /// </summary>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns><see cref="Proveedor"/> <c>true</c> si se encontró el proveedor, <c>false</c> si no</returns>
         public Proveedor ReadById(int id)
         {
             Proveedor proveedor = null;
@@ -115,6 +140,12 @@ namespace MrTiendita.Modelos.DAO
             return proveedor;
         }
 
+        /// <summary>
+        /// Consulta los registros <see cref="Proveedor"/> de la base de datos según el nombre.
+        /// </summary>
+        /// <param name="idOrName">Cadena que contiene el nombre o id de los proveedores que se quieren buscar.</param>
+        /// <returns>Una <see cref="List{Proveedor}"/> que contiene a todos los proveedores de la base de datos,
+        /// si no hay ninguno es una lista vacía.</returns>
         public List<Proveedor> ReadByName(String idOrName)
         {
             List<Proveedor> proveedores = new List<Proveedor>();
@@ -142,6 +173,11 @@ namespace MrTiendita.Modelos.DAO
             return proveedores;
         }
 
+        /// <summary>
+        /// Elimina un registro de <see cref="Proveedor"/> de la base de datos según el id.
+        /// </summary>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns><see cref="Boolean"/> <c>true</c> si se eliminó un registro, <c>false</c> si no se eliminó nada.</returns>
         public bool Delete(int id)
         {
             bool success = false;

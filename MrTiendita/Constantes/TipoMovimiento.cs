@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 namespace MrTiendita.Constantes
 {
     /// <summary>
-    /// Creamos una clase para definir el tipo de movimiento que tengamos.
+    /// Clase que contiene contstantes de tipo de Cajero.
     /// </summary>
     public static class TipoMovimiento
     {
+        /// <summary>
+        /// Constante tipo movimiento "Entrada".
+        /// </summary>
         public static String ENTRADA = "Entrada";
+        /// <summary>
+        /// Constante tipo movimiento "Venta".
+        /// </summary>
         public static String VENTA = "Venta";
+        /// <summary>
+        /// Constante tipo movimiento "Salida".
+        /// </summary>
         public static String SALIDA = "Salida";
+        /// <summary>
+        /// Constante tipo movimiento "Todo".
+        /// </summary>
         public static String TODO = "Todo";
     }
 }

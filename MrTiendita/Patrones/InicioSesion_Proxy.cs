@@ -10,19 +10,46 @@ using MrTiendita.Constantes;
 
 namespace MrTiendita.Patrones
 {
+    /// <summary>
+    /// Clase que implementa el patrón Proxy para el inicio de sesión en el sistema.
+    /// </summary>
     class InicioSesion_Proxy
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         public interface ITipoEmpleado
         {
+            /// <summary>
+            /// Peticions the specified p opcion.
+            /// </summary>
+            /// <param name="pOpcion">The p opcion.</param>
+            /// <param name="frmPrincipal">The FRM principal.</param>
             void Peticion(string pOpcion, FrmPrincipal frmPrincipal);
+            /// <summary>
+            /// Cierres the specified inicio.
+            /// </summary>
+            /// <param name="inicio">The inicio.</param>
             void Cierre(FrmInicio inicio);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <seealso cref="MrTiendita.Patrones.InicioSesion_Proxy.ITipoEmpleado" />
         public class Sesion : ITipoEmpleado
         {
+            /// <summary>
+            /// The tipo empleado
+            /// </summary>
             private TipoEmpleado tipoEmpleado;
 
+            /// <summary>
+            /// Peticions the specified p opcion.
+            /// </summary>
+            /// <param name="pOpcion">The p opcion.</param>
+            /// <param name="frmPrincipal">The FRM principal.</param>
             public void Peticion(string pOpcion, FrmPrincipal frmPrincipal)
             {
                 if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado == "Cajero"
@@ -37,6 +64,10 @@ namespace MrTiendita.Patrones
                 }
             }
 
+            /// <summary>
+            /// Cierres the specified inicio.
+            /// </summary>
+            /// <param name="inicio">The inicio.</param>
             public void Cierre(FrmInicio inicio)
             {
                 inicio.tb_IDEmpleado.Clear();
@@ -46,9 +77,19 @@ namespace MrTiendita.Patrones
         }
 
         //Clases que va a usar el proxy dependiendo del tipo de empleado
+        /// <summary>
+        /// 
+        /// </summary>
         private class TipoEmpleado
         {
+            /// <summary>
+            /// The vista
+            /// </summary>
             private FrmPrincipal vista;
+            /// <summary>
+            /// Encargadoes the specified FRM principal.
+            /// </summary>
+            /// <param name="frmPrincipal">The FRM principal.</param>
             public void Encargado(FrmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;
@@ -59,6 +100,10 @@ namespace MrTiendita.Patrones
                 this.vista.pnl_OpEncargado.Visible = false;
             }
 
+            /// <summary>
+            /// Cajeroes the specified FRM principal.
+            /// </summary>
+            /// <param name="frmPrincipal">The FRM principal.</param>
             public void Cajero(FrmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;

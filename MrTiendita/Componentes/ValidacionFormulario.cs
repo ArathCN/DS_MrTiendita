@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Constantes;
 
 namespace MrTiendita.Componentes
 {
-    /// <summary>Clase de Validación de Formulario.</summary>
+    /// <summary>Clase que define métodos para validar datos e imprimir el error en una <see cref="Label"/>.</summary>
     static public class ValidacionFormulario
     {
-        /// <summary>Validar la etiqueta especificada.</summary>
-        /// <param name="etiqueta">La etiqueta.</param>
-        /// <param name="mensaje">El mensaje.</param>
-        /// <param name="dato">El dato.</param>
-        /// <param name="datoSalida">El dato de salida.</param>
-        /// <param name="opciones">Las opciones.</param>
-        /// <returns>Si es valido.</returns>
+        /// <summary>Comprueba si una cadena es valida como <see cref="Double"/>, regresa el valor en dicho tipo 
+        /// y si hay un error lo imprime es una <see cref="Label"/> especificada.
+        /// Además, se pueden incluir opciones de validación.</summary>
+        /// <param name="etiqueta"><see cref="Label"/> en la que se mostrará el mensaje de error si hay uno.</param>
+        /// <param name="mensaje"><see cref="String"/> que contiene el error a mostrar si ocurre un error.</param>
+        /// <param name="dato"><see cref="String"/> a comprobar.</param>
+        /// <param name="datoSalida"><see cref="Double"/> al que se regresa el valor convertido.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
+        /// como llaves y los límites <see cref="Double"/> como valores.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         static public bool Validar(
             Label etiqueta,
             String mensaje,
@@ -51,13 +55,16 @@ namespace MrTiendita.Componentes
             return EsValido;
         }
 
-        /// <summary> Validar la etiqueta especificada. </summary>
-        /// <param name="etiqueta">The etiqueta.</param>
-        /// <param name="mensaje">The mensaje.</param>
-        /// <param name="dato">The dato.</param>
-        /// <param name="datoSalida">The dato salida.</param>
-        /// <param name="opciones">The opciones.</param>
-        /// <returns>Si es válido.</returns>
+        /// <summary>Comprueba si una cadena es valida como <see cref="Int64"/>, regresa el valor en dicho tipo 
+        /// y si hay un error lo imprime es una <see cref="Label"/> especificada.
+        /// Además, se pueden incluir opciones de validación.</summary>
+        /// <param name="etiqueta"><see cref="Label"/> en la que se mostrará el mensaje de error si hay uno.</param>
+        /// <param name="mensaje"><see cref="String"/> que contiene el error a mostrar si ocurre un error.</param>
+        /// <param name="dato"><see cref="String"/> a comprobar.</param>
+        /// <param name="datoSalida"><see cref="Int64"/> al que se regresa el valor convertido.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
+        /// como llaves y los límites <see cref="Int64"/> como valores.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         static public bool Validar(
             Label etiqueta,
             String mensaje,
@@ -94,13 +101,15 @@ namespace MrTiendita.Componentes
             return EsValido;
         }
 
-        /// <summary> Validar la etiqueta especificada. </summary>
-        /// <param name="etiqueta">The etiqueta.</param>
-        /// <param name="mensaje">The mensaje.</param>
-        /// <param name="dato">The dato.</param>
-        /// <param name="opciones">The opciones.</param>
-        /// <param name="patron">The patron.</param>
-        /// <returns>Booleano.</returns>
+        /// <summary>Comprueba si una cadena <see cref="String"/> no es vacía
+        /// y si hay un error lo imprime es una <see cref="Label"/> especificada.
+        /// Además, se pueden incluir opciones de validación y una expresión regular como patrón.</summary>
+        /// <param name="etiqueta"><see cref="Label"/> en la que se mostrará el mensaje de error si hay uno.</param>
+        /// <param name="mensaje"><see cref="String"/> que contiene el error a mostrar si ocurre un error.</param>
+        /// <param name="dato"><see cref="String"/> a comprobar.</param>
+        /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
+        /// como llaves y los límites <see cref="Int32"/> como valores.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         static public bool Validar(
             Label etiqueta,
             String mensaje,

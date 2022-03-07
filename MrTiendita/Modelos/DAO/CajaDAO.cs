@@ -10,7 +10,7 @@ using MrTiendita.Modelos.DTO;
 namespace MrTiendita.Modelos.DAO
 {
     /// <summary>
-    /// 
+    /// Define métodos para acceder a datos tipo <see cref="Caja" /> en la base de datos.
     /// </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
     class CajaDAO :DbContext
@@ -25,10 +25,10 @@ namespace MrTiendita.Modelos.DAO
         }
 
         /// <summary>
-        /// Reads the name.
+        /// Consulta un registro en la base de datos que coincida con el nombre especificado.
         /// </summary>
-        /// <param name="nombre">The nombre.</param>
-        /// <returns>Un <see cref="int"/></returns>
+        /// <param name="nombre">El nombre a consultar.</param>
+        /// <returns>Un registro en tipo <see cref="Caja"/>, null si no se encontró ninguna coincidencia.</returns>
         public Caja ReadByName(String nombre)
         {
             Caja caja = null;
@@ -56,10 +56,10 @@ namespace MrTiendita.Modelos.DAO
             return caja;
         }
 
-        /// <summary> Updates the value. </summary>
-        /// <param name="atributo">The atributo.</param>
-        /// <param name="valor">The valor.</param>
-        /// <returns>Un <see cref="bool"/></returns>
+        /// <summary>Modifica un registro en la base de datos dato el atributo a modificar y el valor nuevo.</summary>
+        /// <param name="atributo">El atributo a modificar</param>
+        /// <param name="valor">El valor nuevo.</param>
+        /// <returns>Un <see cref="bool"/>, true si se modificó un registro, false si no se modificó ninguno.</returns>
         public bool UpdateValue(String atributo, String valor)
         {
 

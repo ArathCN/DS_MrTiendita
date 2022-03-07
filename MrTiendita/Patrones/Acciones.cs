@@ -13,10 +13,21 @@ using BCrypt.Net;
 
 namespace Acciones
 {
+    /// <summary>
+    /// Clase que usa <see cref="Productos_Facade"/> para implementar el patrón Facade.
+    /// </summary>
     class Productos
     {
+        /// <summary>
+        /// Instancia de <see cref="ProductoDAO"/> que contiene los métodos de acceso a la base de datos.
+        /// </summary>
         private ProductoDAO productoDAO = new ProductoDAO();
 
+        /// <summary>
+        /// Crea un registro de producto en la base de datos.
+        /// </summary>
+        /// <param name="producto">El producto a agregar</param>
+        /// <returns>Regresa el mismo valor que <see cref="ProductoDAO.Create(Producto)"/></returns>
         public bool Agregar(Producto producto)
         {
             bool res = productoDAO.Create(producto);
@@ -34,6 +45,12 @@ namespace Acciones
             return res;
         }
 
+        /// <summary>
+        /// Actualiza un registro de producto en la base de datos.
+        /// </summary>
+        /// <param name="producto">Los datos del producto a actualizar.</param>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns>Regresa el mismo valor que <see cref="ProductoDAO.UpdateInfo(Producto, long)"/></returns>
         public bool Actualizar(Producto producto, long id)
         {
             bool res = productoDAO.UpdateInfo(producto, id);
@@ -51,6 +68,11 @@ namespace Acciones
             return res;
         }
 
+        /// <summary>
+        /// Elimina un registro de producto de la base de datos.
+        /// </summary>
+        /// <param name="vista">Formulario que contiene la tabla de productos.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         public void Eliminar(FrmEAlmacen vista, DataGridViewCellEventArgs e)
         {
             Form mensaje = new FrmError("El producto se eliminará");
@@ -75,6 +97,10 @@ namespace Acciones
             }
         }
 
+        /// <summary>
+        /// Consulta todos los productos de la base de datos y los despliega en una tabla.
+        /// </summary>
+        /// <param name="vista">Formulario que contiene la tabla donde se despliegan los prodcutos.</param>
         public void Consultar(FrmEAlmacen vista)
         {
             vista.tablaProductos.Rows.Clear();
@@ -86,10 +112,21 @@ namespace Acciones
         }
     }
 
+    /// <summary>
+    /// Clase auxiliar para implementar el patrón Facade en <see cref="Empleado"/>.
+    /// </summary>
     class Empleados
     {
+        /// <summary>
+        /// Instancia de <see cref="EmpleadoDAO"/> que contiene los métodos de acceso a la base de datos.
+        /// </summary>
         private EmpleadoDAO empleadoDAO = new EmpleadoDAO();
 
+        /// <summary>
+        /// Crea un registro de empleado en la base de datos.
+        /// </summary>
+        /// <param name="empleado">El empleado a agregar.</param>
+        /// <returns>Regresa el mismo valor que <see cref="EmpleadoDAO.Create(Empleado)"/></returns>
         public bool Agregar(Empleado empleado)
         {
             empleado.Clave = BCrypt.Net.BCrypt.EnhancedHashPassword(empleado.Clave, HashType.SHA512, workFactor: 10);
@@ -109,6 +146,12 @@ namespace Acciones
             return res;
         }
 
+        /// <summary>
+        /// Actualiza el registro del empleado según el id.
+        /// </summary>
+        /// <param name="empleado">Daros nuevos a actualziar.</param>
+        /// <param name="id">El id a buscar.</param>
+        /// <returns>Regresa el mismo valor que <see cref="EmpleadoDAO.UpdateInfo(Empleado, long)"/></returns>
         public bool Actualizar(Empleado empleado, long id)
         {
             bool res = empleadoDAO.UpdateInfo(empleado, id);
@@ -126,6 +169,11 @@ namespace Acciones
             return res;
         }
 
+        /// <summary>
+        /// Elimina un registro de empleado de la base de datos.
+        /// </summary>
+        /// <param name="vista">Formulario que contiene la tabla de empleados.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         public void Eliminar(FrmEEmpleado vista, DataGridViewCellEventArgs e)
         {
             Form mensaje = new FrmError("El empleado se eliminará");
@@ -152,6 +200,10 @@ namespace Acciones
             }
         }
 
+        /// <summary>
+        /// Consultar todos los empleados de la base de datos.
+        /// </summary>
+        /// <param name="vista">Formulario que contiene la tabla donde se despliegan los empleados.</param>
         public void Consultar(FrmEEmpleado vista)
         {
             List<Empleado> todosEmpleados;
@@ -165,6 +217,9 @@ namespace Acciones
         }
     }
 
+    /// <summary>
+    /// Clase auxiliar para implementar el patrón Facade en <see cref="Proveedor"/>.
+    /// </summary>
     class Proveedor
     {
 

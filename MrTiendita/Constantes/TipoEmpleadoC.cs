@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace MrTiendita.Constantes
 {
     /// <summary>
-    /// Creamos la clase de que tipo, cajero o Encargado.
+    /// Clase con las constantes de tipo de cajero.
     /// </summary>
     public static class TipoEmpleadoC
     {
+        /// <summary>Constante tipo de empleado "Cajero".</summary>
         public static String CAJERO = "Cajero";
+        /// <summary>Constante tipo de empleado "Encargado".</summary>
         public static String ENCARGADO = "Encargado";
     }
 }
