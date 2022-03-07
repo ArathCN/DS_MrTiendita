@@ -17,39 +17,39 @@ namespace MrTiendita.Patrones
     {
 
         /// <summary>
-        /// 
+        /// Interfaz del tipo de empleado.
         /// </summary>
         public interface ITipoEmpleado
         {
             /// <summary>
-            /// Peticions the specified p opcion.
+            /// Hace una petición de inicio de sesión dependiendo del tipo de empleado.
             /// </summary>
-            /// <param name="pOpcion">The p opcion.</param>
-            /// <param name="frmPrincipal">The FRM principal.</param>
+            /// <param name="pOpcion"><see cref="string"/> que indica la opción deseada.</param>
+            /// <param name="frmPrincipal">Ventana principal del sistema</param>
             void Peticion(string pOpcion, FrmPrincipal frmPrincipal);
             /// <summary>
-            /// Cierres the specified inicio.
+            /// Cierra el formulario <see cref="FrmInicio"./>
             /// </summary>
-            /// <param name="inicio">The inicio.</param>
+            /// <param name="inicio">Ventana de inicio de sesión.</param>
             void Cierre(FrmInicio inicio);
         }
 
         /// <summary>
-        /// 
+        /// Establece una sesión de un usuario.
         /// </summary>
         /// <seealso cref="MrTiendita.Patrones.InicioSesion_Proxy.ITipoEmpleado" />
         public class Sesion : ITipoEmpleado
         {
             /// <summary>
-            /// The tipo empleado
+            /// Tipo de empleado que inicia sesión.
             /// </summary>
             private TipoEmpleado tipoEmpleado;
 
             /// <summary>
-            /// Peticions the specified p opcion.
+            /// Hace una petición de inicio de sesión dependiendo del tipo de empleado.
             /// </summary>
-            /// <param name="pOpcion">The p opcion.</param>
-            /// <param name="frmPrincipal">The FRM principal.</param>
+            /// <param name="pOpcion"><see cref="string"/>que indica la opción deseada.</param>
+            /// <param name="frmPrincipal">Ventana principal del sistema</param>
             public void Peticion(string pOpcion, FrmPrincipal frmPrincipal)
             {
                 if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado == "Cajero"
@@ -65,9 +65,9 @@ namespace MrTiendita.Patrones
             }
 
             /// <summary>
-            /// Cierres the specified inicio.
+            /// Cierra el formulario <see cref="FrmInicio"./>.
             /// </summary>
-            /// <param name="inicio">The inicio.</param>
+            /// <param name="inicio">Ventana de inicio de sesión.</param>
             public void Cierre(FrmInicio inicio)
             {
                 inicio.tb_IDEmpleado.Clear();
@@ -78,18 +78,18 @@ namespace MrTiendita.Patrones
 
         //Clases que va a usar el proxy dependiendo del tipo de empleado
         /// <summary>
-        /// 
+        /// Clase que construye las opciones de la ventana principal dependiendo el tipo de empleado.
         /// </summary>
         private class TipoEmpleado
         {
             /// <summary>
-            /// The vista
+            /// Vista de la ventana principal.
             /// </summary>
             private FrmPrincipal vista;
             /// <summary>
-            /// Encargadoes the specified FRM principal.
+            /// Muestra las opciones de la ventana principal de un encargado.
             /// </summary>
-            /// <param name="frmPrincipal">The FRM principal.</param>
+            /// <param name="frmPrincipal">Ventana principal del sistema</param>
             public void Encargado(FrmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;
@@ -101,9 +101,9 @@ namespace MrTiendita.Patrones
             }
 
             /// <summary>
-            /// Cajeroes the specified FRM principal.
+            /// Muestra las opciones de la ventana principal de un cajero.
             /// </summary>
-            /// <param name="frmPrincipal">The FRM principal.</param>
+            /// <param name="frmPrincipal">Ventana principal del sistema</param>
             public void Cajero(FrmPrincipal frmPrincipal)
             {
                 this.vista = frmPrincipal;
