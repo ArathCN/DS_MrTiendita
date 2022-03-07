@@ -109,6 +109,7 @@ namespace MrTiendita.Componentes
         /// <param name="dato"><see cref="String"/> a comprobar.</param>
         /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
         /// como llaves y los límites <see cref="Int32"/> como valores.</param>
+        /// <param name="patron"><see cref="String"/> que contiene una expresión regular que la cadena debe de cumplir.</param>
         /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         static public bool Validar(
             Label etiqueta,

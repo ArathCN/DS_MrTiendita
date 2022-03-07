@@ -9,7 +9,7 @@ using MrTiendita.Vistas;
 using MrTiendita.Componentes;
 using MrTiendita.Constantes;
 using System.Windows.Forms;
-using Acciones;
+using MrTiendita.Patrones;
 
 namespace MrTiendita.Controladores
 {

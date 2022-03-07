@@ -177,3 +177,4 @@ C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\System.Buffers
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\System.Memory.xml
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\sofii\Desktop\Desarrollo\MrTiendita\MrTiendita\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\sebas\Desktop\Mr.Tiendita Proyecto\MrTiendita\MrTiendita\bin\Debug\MrTiendita.xml

@@ -10,7 +10,7 @@ using MrTiendita.Componentes;
 using MrTiendita.Constantes;
 using System.Windows.Forms;
 
-namespace Acciones
+namespace MrTiendita.Patrones
 {
     /// <summary>
     /// Clase que implementa el patrón Facade en <see cref="Producto"/>

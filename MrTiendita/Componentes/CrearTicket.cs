@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 
+/// <summary>Clases que crean tickets validos para imprimir.</summary>
 namespace CrearTicketVenta
 {
     /// <summary> Esta es la clase para crear el ticket de venta. Crearemos varios métodos aquí. </summary>

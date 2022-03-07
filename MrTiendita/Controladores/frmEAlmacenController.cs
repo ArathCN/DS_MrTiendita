@@ -7,7 +7,7 @@ using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using System.Windows.Forms;
 using MrTiendita.Vistas;
-using Acciones;
+using MrTiendita.Patrones;
 
 namespace MrTiendita.Controladores
 {

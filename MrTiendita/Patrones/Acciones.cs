@@ -11,7 +11,7 @@ using MrTiendita.Constantes;
 using System.Windows.Forms;
 using BCrypt.Net;
 
-namespace Acciones
+namespace MrTiendita.Patrones
 {
     /// <summary>
     /// Clase que usa <see cref="Productos_Facade"/> para implementar el patrón Facade.
