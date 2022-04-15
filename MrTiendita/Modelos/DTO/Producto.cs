@@ -22,7 +22,7 @@ namespace MrTiendita.Modelos.DTO
         /// <summary>
         /// The precio venta
         /// </summary>
-        private double precio_venta;
+        private int ganancia;
         /// <summary>
         /// The precio compra
         /// </summary>
@@ -35,6 +35,11 @@ namespace MrTiendita.Modelos.DTO
         /// The medida
         /// </summary>
         private bool medida; //false es medida por unidad, true por kilos
+        /// <summary>
+        /// The categoria
+        /// </summary>
+        private String categoria;
+        private double minimo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Producto"/> class.
@@ -48,18 +53,20 @@ namespace MrTiendita.Modelos.DTO
         /// </summary>
         /// <param name="codigo_barra">The codigo barra.</param>
         /// <param name="descripcion">The descripcion.</param>
-        /// <param name="precio_venta">The precio venta.</param>
+        /// <param name="ganancia">The precio venta.</param>
         /// <param name="precio_compra">The precio compra.</param>
         /// <param name="cantidad_actual">The cantidad actual.</param>
         /// <param name="medida">if set to <c>true</c> [medida].</param>
-        public Producto(long codigo_barra, string descripcion, double precio_venta, double precio_compra, double cantidad_actual, bool medida)
+        public Producto(long codigo_barra, string descripcion, int ganancia, double precio_compra, double cantidad_actual, bool medida, String categoria, double minimo)
         {
             this.codigo_barra = codigo_barra;
             this.descripcion = descripcion;
-            this.precio_venta = precio_venta;
+            this.ganancia = ganancia;
             this.precio_compra = precio_compra;
             this.cantidad_actual = cantidad_actual;
             this.medida = medida;
+            this.categoria = categoria;
+            this.minimo = minimo;
         }
 
         /// <summary>
@@ -90,10 +97,10 @@ namespace MrTiendita.Modelos.DTO
         /// <value>
         /// The precio venta.
         /// </value>
-        public double Precio_venta
+        public int Ganancia
         {
-            get { return this.precio_venta; }
-            set { this.precio_venta = value; }
+            get { return this.ganancia; }
+            set { this.ganancia = value; }
         }
         /// <summary>
         /// Gets or sets the cantidad actual.
@@ -122,5 +129,9 @@ namespace MrTiendita.Modelos.DTO
         ///   <c>true</c> if medida; otherwise, <c>false</c>.
         /// </value>
         public bool Medida { get => this.medida; set => this.medida = value; }
+
+        public String Categoria { get => this.categoria; set => this.categoria = value; }
+
+        public double Minimo { get => this.minimo; set => this.minimo = value; }
     }
 }
