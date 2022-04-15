@@ -56,6 +56,10 @@ namespace MrTiendita.Modelos.DTO
         /// </summary>
         private String usuario;
 
+        /// <summary>
+        /// The estado
+        /// </summary>
+        private String estado;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Empleado"/> class.
@@ -76,7 +80,9 @@ namespace MrTiendita.Modelos.DTO
         /// <param name="tipo_empleado">The tipo empleado.</param>
         /// <param name="clave">The clave.</param>
         /// <param name="usuario">The usuario.</param>
-        public Empleado(int id_empleado, string nombre, string a_paterno, string a_materno, long telefono, double sueldo, string tipo_empleado, string clave, string usuario)
+        /// <param name="estado">The estado.</param>
+
+        public Empleado(int id_empleado, string nombre, string a_paterno, string a_materno, long telefono, double sueldo, string tipo_empleado, string clave, string usuario, string estado)
         {
             this.id_empleado = id_empleado;
             this.nombre = nombre;
@@ -87,6 +93,7 @@ namespace MrTiendita.Modelos.DTO
             this.tipo_empleado = tipo_empleado;
             this.clave = clave;
             this.usuario = usuario;
+            this.estado = estado;
         }
 
         /// <summary>
@@ -160,6 +167,14 @@ namespace MrTiendita.Modelos.DTO
         /// The usuario.
         /// </value>
         public string Usuario { get => this.usuario; set => this.usuario = value; }
+
+        /// <summary>
+        /// Gets or sets the estado.
+        /// </summary>
+        /// <value>
+        /// The estado.
+        /// </value>
+        public string Estado { get => this.estado; set => this.estado = value; }
 
     }
 }

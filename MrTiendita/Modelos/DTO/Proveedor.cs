@@ -23,6 +23,10 @@ namespace MrTiendita.Modelos.DTO
         /// The telefono
         /// </summary>
         private long telefono;
+        /// <summary>
+        /// The estado
+        /// </summary>
+        private String estado;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Proveedor"/> class.
@@ -38,11 +42,14 @@ namespace MrTiendita.Modelos.DTO
         /// <param name="id_proveedor">The identifier proveedor.</param>
         /// <param name="nombre">The nombre.</param>
         /// <param name="telefono">The telefono.</param>
-        public Proveedor(int id_proveedor, string nombre, long telefono)
+        /// <param name="estado">The nombre.</param>
+
+        public Proveedor(int id_proveedor, string nombre, long telefono, string estado)
         {
             this.id_proveedor = id_proveedor;
             this.nombre = nombre;
             this.telefono = telefono;
+            this.estado = estado;
         }
 
         /// <summary>
@@ -66,5 +73,12 @@ namespace MrTiendita.Modelos.DTO
         /// The telefono.
         /// </value>
         public long Telefono { get => this.telefono; set => this.telefono = value; }
+        /// <summary>
+        /// Gets or sets the nombre.
+        /// </summary>
+        /// <value>
+        /// The nombre.
+        /// </value>
+        public string Estado { get => this.estado; set => this.estado = value; }
     }
 }

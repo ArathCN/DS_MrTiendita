@@ -13,7 +13,7 @@ namespace MrTiendita.Modelos.DAO
     /// Define métodos para acceder a datos tipo <see cref="Empleado" /> en la base de datos.
     /// </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
-    class EmpleadoDAO :DbContext
+    class EmpleadoDAO : DbContext
     {
         /// <summary>
         /// Crea un registro en la base de datos del empleado especificado.
@@ -50,7 +50,7 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters["@tip"].Value = empleado.Tipo_empleado;
                     command.Parameters["@cla"].Value = empleado.Clave;
                     command.Parameters["@usu"].Value = empleado.Usuario;
-                    
+
                     int rowsAffected = 0;
 
                     try
@@ -64,7 +64,7 @@ namespace MrTiendita.Modelos.DAO
                         this.MensajeError = msg;
                         this.errorUltimaConsulta = true;
                     }
-                    
+
 
                     if (rowsAffected == 1) success = true;
                 }
@@ -156,7 +156,8 @@ namespace MrTiendita.Modelos.DAO
                                     reader.GetInt64(4),
                                     decimal.ToDouble(reader.GetDecimal(5)),
                                     reader.GetString(6), reader.GetString(7),
-                                    reader.GetString(8))
+                                    reader.GetString(8),
+                                    reader.GetString(9))
                                 );
                         }
                     }
@@ -198,7 +199,8 @@ namespace MrTiendita.Modelos.DAO
                                 decimal.ToDouble(reader.GetDecimal(5)),
                                 reader.GetString(6),
                                 reader.GetString(7),
-                                reader.GetString(8)
+                                reader.GetString(8),
+                                reader.GetString(9)
                             );
                         }
                     }
@@ -242,7 +244,8 @@ namespace MrTiendita.Modelos.DAO
                                     decimal.ToDouble(reader.GetDecimal(5)),
                                     reader.GetString(6),
                                     reader.GetString(7),
-                                    reader.GetString(8)
+                                    reader.GetString(8),
+                                    reader.GetString(9)
                                 )
                             );
                         }
@@ -312,7 +315,46 @@ namespace MrTiendita.Modelos.DAO
                                 decimal.ToDouble(reader.GetDecimal(5)),
                                 reader.GetString(6),
                                 reader.GetString(7),
-                                reader.GetString(8)
+                                reader.GetString(8),
+                                reader.GetString(9)
+                            );
+                        }
+                    }
+                }
+            }
+
+            return empleado;
+        }
+
+        public Empleado ReadByState(String estado)
+        {
+            Empleado empleado = null;
+
+            String sql = "SELECT * FROM Empleado WHERE estado = @est;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@est", SqlDbType.VarChar);
+                    command.Parameters["@id"].Value = estado;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            empleado = new Empleado(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3),
+                                reader.GetInt64(4),
+                                decimal.ToDouble(reader.GetDecimal(5)),
+                                reader.GetString(6),
+                                reader.GetString(7),
+                                reader.GetString(8),
+                                reader.GetString(9)
                             );
                         }
                     }
