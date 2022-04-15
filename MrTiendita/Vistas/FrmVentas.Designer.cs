@@ -35,19 +35,19 @@ namespace MrTiendita.Vistas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.tlp_PanelSuperior = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_CancelarVenta = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_CompletarVenta = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_Efectivo = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.check_Tarjeta = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label4 = new System.Windows.Forms.Label();
-            this.check_ProductoAgotado = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.check_Efectivo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_TotalAPagar = new System.Windows.Forms.Label();
             this.lbl_Ruta = new System.Windows.Forms.Label();
             this.lbl_Atajos = new System.Windows.Forms.Label();
             this.lbl_DescAtajos = new System.Windows.Forms.Label();
@@ -97,19 +97,19 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Atajos.BorderRadius = 10;
-            this.pnl_Atajos.Controls.Add(this.guna2Button2);
-            this.pnl_Atajos.Controls.Add(this.guna2Button1);
+            this.pnl_Atajos.Controls.Add(this.btn_CancelarVenta);
+            this.pnl_Atajos.Controls.Add(this.btn_CompletarVenta);
             this.pnl_Atajos.Controls.Add(this.label8);
             this.pnl_Atajos.Controls.Add(this.label9);
             this.pnl_Atajos.Controls.Add(this.label7);
-            this.pnl_Atajos.Controls.Add(this.guna2TextBox2);
+            this.pnl_Atajos.Controls.Add(this.tb_Efectivo);
             this.pnl_Atajos.Controls.Add(this.label6);
             this.pnl_Atajos.Controls.Add(this.label5);
-            this.pnl_Atajos.Controls.Add(this.bunifuCheckbox1);
+            this.pnl_Atajos.Controls.Add(this.check_Tarjeta);
             this.pnl_Atajos.Controls.Add(this.label4);
-            this.pnl_Atajos.Controls.Add(this.check_ProductoAgotado);
+            this.pnl_Atajos.Controls.Add(this.check_Efectivo);
             this.pnl_Atajos.Controls.Add(this.label3);
-            this.pnl_Atajos.Controls.Add(this.label2);
+            this.pnl_Atajos.Controls.Add(this.lbl_TotalAPagar);
             this.pnl_Atajos.Controls.Add(this.lbl_Ruta);
             this.pnl_Atajos.Controls.Add(this.lbl_Atajos);
             this.pnl_Atajos.Controls.Add(this.lbl_DescAtajos);
@@ -122,42 +122,42 @@ namespace MrTiendita.Vistas
             this.pnl_Atajos.Size = new System.Drawing.Size(354, 809);
             this.pnl_Atajos.TabIndex = 2;
             // 
-            // guna2Button2
+            // btn_CancelarVenta
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(145, 544);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(188, 40);
-            this.guna2Button2.TabIndex = 29;
-            this.guna2Button2.Text = "Cancelar venta";
+            this.btn_CancelarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_CancelarVenta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_CancelarVenta.BorderRadius = 5;
+            this.btn_CancelarVenta.BorderThickness = 1;
+            this.btn_CancelarVenta.CheckedState.Parent = this.btn_CancelarVenta;
+            this.btn_CancelarVenta.CustomImages.Parent = this.btn_CancelarVenta;
+            this.btn_CancelarVenta.FillColor = System.Drawing.Color.White;
+            this.btn_CancelarVenta.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CancelarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_CancelarVenta.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_CancelarVenta.HoverState.Parent = this.btn_CancelarVenta;
+            this.btn_CancelarVenta.Location = new System.Drawing.Point(145, 544);
+            this.btn_CancelarVenta.Name = "btn_CancelarVenta";
+            this.btn_CancelarVenta.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_CancelarVenta.ShadowDecoration.Parent = this.btn_CancelarVenta;
+            this.btn_CancelarVenta.Size = new System.Drawing.Size(188, 40);
+            this.btn_CancelarVenta.TabIndex = 29;
+            this.btn_CancelarVenta.Text = "Cancelar venta";
             // 
-            // guna2Button1
+            // btn_CompletarVenta
             // 
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(24, 544);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(188, 40);
-            this.guna2Button1.TabIndex = 28;
-            this.guna2Button1.Text = "Completar venta";
+            this.btn_CompletarVenta.BorderRadius = 5;
+            this.btn_CompletarVenta.CheckedState.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.CustomImages.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_CompletarVenta.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CompletarVenta.ForeColor = System.Drawing.Color.White;
+            this.btn_CompletarVenta.HoverState.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.Location = new System.Drawing.Point(24, 544);
+            this.btn_CompletarVenta.Name = "btn_CompletarVenta";
+            this.btn_CompletarVenta.ShadowDecoration.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.Size = new System.Drawing.Size(188, 40);
+            this.btn_CompletarVenta.TabIndex = 28;
+            this.btn_CompletarVenta.Text = "Completar venta";
             // 
             // label8
             // 
@@ -194,31 +194,31 @@ namespace MrTiendita.Vistas
             this.label7.TabIndex = 25;
             this.label7.Text = "Efectivo";
             // 
-            // guna2TextBox2
+            // tb_Efectivo
             // 
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.guna2TextBox2.BorderRadius = 5;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(24, 381);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(260, 40);
-            this.guna2TextBox2.TabIndex = 24;
+            this.tb_Efectivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.tb_Efectivo.BorderRadius = 5;
+            this.tb_Efectivo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_Efectivo.DefaultText = "";
+            this.tb_Efectivo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_Efectivo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_Efectivo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Efectivo.DisabledState.Parent = this.tb_Efectivo;
+            this.tb_Efectivo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Efectivo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Efectivo.FocusedState.Parent = this.tb_Efectivo;
+            this.tb_Efectivo.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Efectivo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Efectivo.HoverState.Parent = this.tb_Efectivo;
+            this.tb_Efectivo.Location = new System.Drawing.Point(24, 381);
+            this.tb_Efectivo.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Efectivo.Name = "tb_Efectivo";
+            this.tb_Efectivo.PasswordChar = '\0';
+            this.tb_Efectivo.PlaceholderText = "";
+            this.tb_Efectivo.SelectedText = "";
+            this.tb_Efectivo.ShadowDecoration.Parent = this.tb_Efectivo;
+            this.tb_Efectivo.Size = new System.Drawing.Size(260, 40);
+            this.tb_Efectivo.TabIndex = 24;
             // 
             // label6
             // 
@@ -244,18 +244,18 @@ namespace MrTiendita.Vistas
             this.label5.TabIndex = 22;
             this.label5.Text = "Tarjeta";
             // 
-            // bunifuCheckbox1
+            // check_Tarjeta
             // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = false;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(160, 243);
-            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 21;
+            this.check_Tarjeta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.check_Tarjeta.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.check_Tarjeta.Checked = false;
+            this.check_Tarjeta.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.check_Tarjeta.ForeColor = System.Drawing.Color.White;
+            this.check_Tarjeta.Location = new System.Drawing.Point(160, 243);
+            this.check_Tarjeta.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.check_Tarjeta.Name = "check_Tarjeta";
+            this.check_Tarjeta.Size = new System.Drawing.Size(20, 20);
+            this.check_Tarjeta.TabIndex = 21;
             // 
             // label4
             // 
@@ -269,18 +269,18 @@ namespace MrTiendita.Vistas
             this.label4.TabIndex = 20;
             this.label4.Text = "Efectivo";
             // 
-            // check_ProductoAgotado
+            // check_Efectivo
             // 
-            this.check_ProductoAgotado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.check_ProductoAgotado.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.check_ProductoAgotado.Checked = true;
-            this.check_ProductoAgotado.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.check_ProductoAgotado.ForeColor = System.Drawing.Color.White;
-            this.check_ProductoAgotado.Location = new System.Drawing.Point(24, 243);
-            this.check_ProductoAgotado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.check_ProductoAgotado.Name = "check_ProductoAgotado";
-            this.check_ProductoAgotado.Size = new System.Drawing.Size(20, 20);
-            this.check_ProductoAgotado.TabIndex = 19;
+            this.check_Efectivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.check_Efectivo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.check_Efectivo.Checked = true;
+            this.check_Efectivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.check_Efectivo.ForeColor = System.Drawing.Color.White;
+            this.check_Efectivo.Location = new System.Drawing.Point(24, 243);
+            this.check_Efectivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.check_Efectivo.Name = "check_Efectivo";
+            this.check_Efectivo.Size = new System.Drawing.Size(20, 20);
+            this.check_Efectivo.TabIndex = 19;
             // 
             // label3
             // 
@@ -294,18 +294,18 @@ namespace MrTiendita.Vistas
             this.label3.TabIndex = 6;
             this.label3.Text = "Método de pago";
             // 
-            // label2
+            // lbl_TotalAPagar
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(277, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "$0.00";
+            this.lbl_TotalAPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_TotalAPagar.AutoSize = true;
+            this.lbl_TotalAPagar.BackColor = System.Drawing.Color.White;
+            this.lbl_TotalAPagar.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TotalAPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_TotalAPagar.Location = new System.Drawing.Point(277, 120);
+            this.lbl_TotalAPagar.Name = "lbl_TotalAPagar";
+            this.lbl_TotalAPagar.Size = new System.Drawing.Size(56, 25);
+            this.lbl_TotalAPagar.TabIndex = 5;
+            this.lbl_TotalAPagar.Text = "$0.00";
             // 
             // lbl_Ruta
             // 
@@ -676,17 +676,17 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Codigo;
         private System.Windows.Forms.Label lbl_Ruta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_TotalAPagar;
         private System.Windows.Forms.Label label5;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
+        private Bunifu.Framework.UI.BunifuCheckbox check_Tarjeta;
         private System.Windows.Forms.Label label4;
-        private Bunifu.Framework.UI.BunifuCheckbox check_ProductoAgotado;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Bunifu.Framework.UI.BunifuCheckbox check_Efectivo;
+        private Guna.UI2.WinForms.Guna2Button btn_CancelarVenta;
+        private Guna.UI2.WinForms.Guna2Button btn_CompletarVenta;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox tb_Efectivo;
         private System.Windows.Forms.Label label6;
     }
 }

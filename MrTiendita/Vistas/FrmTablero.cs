@@ -15,7 +15,7 @@ namespace MrTiendita.Vistas
         public FrmTablero()
         {
             InitializeComponent();
-            ModificarNotificacion(flowLayoutPanel1);
+            ModificarNotificacion(flp_ListaNotificaciones);
         }
 
         public void ModificarNotificacion(FlowLayoutPanel Contenedor)

@@ -31,6 +31,7 @@ namespace MrTiendita.Vistas
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTablero));
             this.pnl_Notificaciones = new Guna.UI2.WinForms.Guna2Panel();
+            this.flp_ListaNotificaciones = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_Notificaciones = new System.Windows.Forms.Label();
             this.lbl_DescNoti = new System.Windows.Forms.Label();
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
@@ -45,7 +46,6 @@ namespace MrTiendita.Vistas
             this.lbl_Estadisticas = new System.Windows.Forms.Label();
             this.lbl_DescEstadisticas = new System.Windows.Forms.Label();
             this.tlp_PanelSuperior = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnl_Notificaciones.SuspendLayout();
             this.pnl_Atajos.SuspendLayout();
@@ -59,7 +59,7 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Notificaciones.BorderRadius = 10;
-            this.pnl_Notificaciones.Controls.Add(this.flowLayoutPanel1);
+            this.pnl_Notificaciones.Controls.Add(this.flp_ListaNotificaciones);
             this.pnl_Notificaciones.Controls.Add(this.lbl_Notificaciones);
             this.pnl_Notificaciones.Controls.Add(this.lbl_DescNoti);
             this.pnl_Notificaciones.FillColor = System.Drawing.Color.White;
@@ -69,6 +69,17 @@ namespace MrTiendita.Vistas
             this.pnl_Notificaciones.ShadowDecoration.Parent = this.pnl_Notificaciones;
             this.pnl_Notificaciones.Size = new System.Drawing.Size(800, 438);
             this.pnl_Notificaciones.TabIndex = 1;
+            // 
+            // flp_ListaNotificaciones
+            // 
+            this.flp_ListaNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flp_ListaNotificaciones.AutoScroll = true;
+            this.flp_ListaNotificaciones.BackColor = System.Drawing.Color.White;
+            this.flp_ListaNotificaciones.Location = new System.Drawing.Point(24, 108);
+            this.flp_ListaNotificaciones.Name = "flp_ListaNotificaciones";
+            this.flp_ListaNotificaciones.Size = new System.Drawing.Size(762, 315);
+            this.flp_ListaNotificaciones.TabIndex = 6;
             // 
             // lbl_Notificaciones
             // 
@@ -325,17 +336,6 @@ namespace MrTiendita.Vistas
             this.tlp_PanelSuperior.Size = new System.Drawing.Size(1171, 444);
             this.tlp_PanelSuperior.TabIndex = 3;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 108);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(762, 315);
-            this.flowLayoutPanel1.TabIndex = 6;
-            // 
             // FrmTablero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,7 +375,7 @@ namespace MrTiendita.Vistas
         private Guna.UI2.WinForms.Guna2Button btn_AtajoEntrada;
         private Guna.UI2.WinForms.Guna2Button btn_AtajoProductos;
         private Guna.UI2.WinForms.Guna2Button btn_AtajoVenta;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flp_ListaNotificaciones;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
