@@ -37,16 +37,16 @@ namespace MrTiendita.Vistas
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_CancelarVenta = new Guna.UI2.WinForms.Guna2Button();
             this.btn_CompletarVenta = new Guna.UI2.WinForms.Guna2Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_Cambio = new System.Windows.Forms.Label();
+            this.lbl_CambioDesc = new System.Windows.Forms.Label();
+            this.lbl_EfetivoTb = new System.Windows.Forms.Label();
             this.tb_Efectivo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Pago = new System.Windows.Forms.Label();
+            this.lbl_Tarjeta = new System.Windows.Forms.Label();
             this.check_Tarjeta = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_Efectivo = new System.Windows.Forms.Label();
             this.check_Efectivo = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_Metodo = new System.Windows.Forms.Label();
             this.lbl_TotalAPagar = new System.Windows.Forms.Label();
             this.lbl_Ruta = new System.Windows.Forms.Label();
             this.lbl_Atajos = new System.Windows.Forms.Label();
@@ -60,12 +60,12 @@ namespace MrTiendita.Vistas
             this.col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_CambiarRuta = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_Tablero = new Guna.UI2.WinForms.Guna2Button();
-            this.lbl_SueldoCajeros = new System.Windows.Forms.Label();
-            this.tb_SueldoCajeros = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_Agregar = new Guna.UI2.WinForms.Guna2Button();
+            this.lbl_Cantidad = new System.Windows.Forms.Label();
+            this.tb_Cantidad = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_Buscar = new Guna.UI2.WinForms.Guna2Button();
+            this.lbl_CodigoBarras = new System.Windows.Forms.Label();
+            this.tb_Codigo = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_Notificaciones = new System.Windows.Forms.Label();
             this.lbl_DescNoti = new System.Windows.Forms.Label();
             this.tlp_PanelSuperior.SuspendLayout();
@@ -99,16 +99,16 @@ namespace MrTiendita.Vistas
             this.pnl_Atajos.BorderRadius = 10;
             this.pnl_Atajos.Controls.Add(this.btn_CancelarVenta);
             this.pnl_Atajos.Controls.Add(this.btn_CompletarVenta);
-            this.pnl_Atajos.Controls.Add(this.label8);
-            this.pnl_Atajos.Controls.Add(this.label9);
-            this.pnl_Atajos.Controls.Add(this.label7);
+            this.pnl_Atajos.Controls.Add(this.lbl_Cambio);
+            this.pnl_Atajos.Controls.Add(this.lbl_CambioDesc);
+            this.pnl_Atajos.Controls.Add(this.lbl_EfetivoTb);
             this.pnl_Atajos.Controls.Add(this.tb_Efectivo);
-            this.pnl_Atajos.Controls.Add(this.label6);
-            this.pnl_Atajos.Controls.Add(this.label5);
+            this.pnl_Atajos.Controls.Add(this.lbl_Pago);
+            this.pnl_Atajos.Controls.Add(this.lbl_Tarjeta);
             this.pnl_Atajos.Controls.Add(this.check_Tarjeta);
-            this.pnl_Atajos.Controls.Add(this.label4);
+            this.pnl_Atajos.Controls.Add(this.lbl_Efectivo);
             this.pnl_Atajos.Controls.Add(this.check_Efectivo);
-            this.pnl_Atajos.Controls.Add(this.label3);
+            this.pnl_Atajos.Controls.Add(this.lbl_Metodo);
             this.pnl_Atajos.Controls.Add(this.lbl_TotalAPagar);
             this.pnl_Atajos.Controls.Add(this.lbl_Ruta);
             this.pnl_Atajos.Controls.Add(this.lbl_Atajos);
@@ -159,40 +159,40 @@ namespace MrTiendita.Vistas
             this.btn_CompletarVenta.TabIndex = 28;
             this.btn_CompletarVenta.Text = "Completar venta";
             // 
-            // label8
+            // lbl_Cambio
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label8.Location = new System.Drawing.Point(278, 471);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 25);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "$0.00";
+            this.lbl_Cambio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Cambio.AutoSize = true;
+            this.lbl_Cambio.BackColor = System.Drawing.Color.White;
+            this.lbl_Cambio.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Cambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Cambio.Location = new System.Drawing.Point(278, 471);
+            this.lbl_Cambio.Name = "lbl_Cambio";
+            this.lbl_Cambio.Size = new System.Drawing.Size(56, 25);
+            this.lbl_Cambio.TabIndex = 27;
+            this.lbl_Cambio.Text = "$0.00";
             // 
-            // label9
+            // lbl_CambioDesc
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label9.Location = new System.Drawing.Point(20, 471);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 25);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Cambio";
+            this.lbl_CambioDesc.AutoSize = true;
+            this.lbl_CambioDesc.BackColor = System.Drawing.Color.White;
+            this.lbl_CambioDesc.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CambioDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_CambioDesc.Location = new System.Drawing.Point(20, 471);
+            this.lbl_CambioDesc.Name = "lbl_CambioDesc";
+            this.lbl_CambioDesc.Size = new System.Drawing.Size(80, 25);
+            this.lbl_CambioDesc.TabIndex = 26;
+            this.lbl_CambioDesc.Text = "Cambio";
             // 
-            // label7
+            // lbl_EfetivoTb
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(21, 353);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 23);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Efectivo";
+            this.lbl_EfetivoTb.AutoSize = true;
+            this.lbl_EfetivoTb.BackColor = System.Drawing.Color.White;
+            this.lbl_EfetivoTb.Location = new System.Drawing.Point(21, 353);
+            this.lbl_EfetivoTb.Name = "lbl_EfetivoTb";
+            this.lbl_EfetivoTb.Size = new System.Drawing.Size(69, 23);
+            this.lbl_EfetivoTb.TabIndex = 25;
+            this.lbl_EfetivoTb.Text = "Efectivo";
             // 
             // tb_Efectivo
             // 
@@ -220,29 +220,29 @@ namespace MrTiendita.Vistas
             this.tb_Efectivo.Size = new System.Drawing.Size(260, 40);
             this.tb_Efectivo.TabIndex = 24;
             // 
-            // label6
+            // lbl_Pago
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label6.Location = new System.Drawing.Point(19, 311);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 25);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Pago";
+            this.lbl_Pago.AutoSize = true;
+            this.lbl_Pago.BackColor = System.Drawing.Color.White;
+            this.lbl_Pago.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Pago.Location = new System.Drawing.Point(19, 311);
+            this.lbl_Pago.Name = "lbl_Pago";
+            this.lbl_Pago.Size = new System.Drawing.Size(58, 25);
+            this.lbl_Pago.TabIndex = 23;
+            this.lbl_Pago.Text = "Pago";
             // 
-            // label5
+            // lbl_Tarjeta
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label5.Location = new System.Drawing.Point(187, 240);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 25);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Tarjeta";
+            this.lbl_Tarjeta.AutoSize = true;
+            this.lbl_Tarjeta.BackColor = System.Drawing.Color.White;
+            this.lbl_Tarjeta.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Tarjeta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Tarjeta.Location = new System.Drawing.Point(187, 240);
+            this.lbl_Tarjeta.Name = "lbl_Tarjeta";
+            this.lbl_Tarjeta.Size = new System.Drawing.Size(70, 25);
+            this.lbl_Tarjeta.TabIndex = 22;
+            this.lbl_Tarjeta.Text = "Tarjeta";
             // 
             // check_Tarjeta
             // 
@@ -257,17 +257,17 @@ namespace MrTiendita.Vistas
             this.check_Tarjeta.Size = new System.Drawing.Size(20, 20);
             this.check_Tarjeta.TabIndex = 21;
             // 
-            // label4
+            // lbl_Efectivo
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label4.Location = new System.Drawing.Point(51, 240);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 25);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Efectivo";
+            this.lbl_Efectivo.AutoSize = true;
+            this.lbl_Efectivo.BackColor = System.Drawing.Color.White;
+            this.lbl_Efectivo.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Efectivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Efectivo.Location = new System.Drawing.Point(51, 240);
+            this.lbl_Efectivo.Name = "lbl_Efectivo";
+            this.lbl_Efectivo.Size = new System.Drawing.Size(78, 25);
+            this.lbl_Efectivo.TabIndex = 20;
+            this.lbl_Efectivo.Text = "Efectivo";
             // 
             // check_Efectivo
             // 
@@ -282,17 +282,17 @@ namespace MrTiendita.Vistas
             this.check_Efectivo.Size = new System.Drawing.Size(20, 20);
             this.check_Efectivo.TabIndex = 19;
             // 
-            // label3
+            // lbl_Metodo
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label3.Location = new System.Drawing.Point(19, 201);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Método de pago";
+            this.lbl_Metodo.AutoSize = true;
+            this.lbl_Metodo.BackColor = System.Drawing.Color.White;
+            this.lbl_Metodo.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Metodo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Metodo.Location = new System.Drawing.Point(19, 201);
+            this.lbl_Metodo.Name = "lbl_Metodo";
+            this.lbl_Metodo.Size = new System.Drawing.Size(161, 25);
+            this.lbl_Metodo.TabIndex = 6;
+            this.lbl_Metodo.Text = "Método de pago";
             // 
             // lbl_TotalAPagar
             // 
@@ -348,12 +348,12 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Notificaciones.BorderRadius = 10;
             this.pnl_Notificaciones.Controls.Add(this.dgv_TablaVentas);
-            this.pnl_Notificaciones.Controls.Add(this.btn_CambiarRuta);
-            this.pnl_Notificaciones.Controls.Add(this.label1);
-            this.pnl_Notificaciones.Controls.Add(this.guna2TextBox1);
-            this.pnl_Notificaciones.Controls.Add(this.btn_Tablero);
-            this.pnl_Notificaciones.Controls.Add(this.lbl_SueldoCajeros);
-            this.pnl_Notificaciones.Controls.Add(this.tb_SueldoCajeros);
+            this.pnl_Notificaciones.Controls.Add(this.btn_Agregar);
+            this.pnl_Notificaciones.Controls.Add(this.lbl_Cantidad);
+            this.pnl_Notificaciones.Controls.Add(this.tb_Cantidad);
+            this.pnl_Notificaciones.Controls.Add(this.btn_Buscar);
+            this.pnl_Notificaciones.Controls.Add(this.lbl_CodigoBarras);
+            this.pnl_Notificaciones.Controls.Add(this.tb_Codigo);
             this.pnl_Notificaciones.Controls.Add(this.lbl_Notificaciones);
             this.pnl_Notificaciones.Controls.Add(this.lbl_DescNoti);
             this.pnl_Notificaciones.FillColor = System.Drawing.Color.White;
@@ -494,120 +494,120 @@ namespace MrTiendita.Vistas
             this.col_Codigo.ReadOnly = true;
             this.col_Codigo.Visible = false;
             // 
-            // btn_CambiarRuta
+            // btn_Agregar
             // 
-            this.btn_CambiarRuta.BorderRadius = 5;
-            this.btn_CambiarRuta.CheckedState.Parent = this.btn_CambiarRuta;
-            this.btn_CambiarRuta.CustomImages.Parent = this.btn_CambiarRuta;
-            this.btn_CambiarRuta.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.btn_CambiarRuta.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CambiarRuta.ForeColor = System.Drawing.Color.White;
-            this.btn_CambiarRuta.HoverState.Parent = this.btn_CambiarRuta;
-            this.btn_CambiarRuta.Location = new System.Drawing.Point(472, 132);
-            this.btn_CambiarRuta.Name = "btn_CambiarRuta";
-            this.btn_CambiarRuta.ShadowDecoration.Parent = this.btn_CambiarRuta;
-            this.btn_CambiarRuta.Size = new System.Drawing.Size(152, 40);
-            this.btn_CambiarRuta.TabIndex = 13;
-            this.btn_CambiarRuta.Text = "Agregar";
+            this.btn_Agregar.BorderRadius = 5;
+            this.btn_Agregar.CheckedState.Parent = this.btn_Agregar;
+            this.btn_Agregar.CustomImages.Parent = this.btn_Agregar;
+            this.btn_Agregar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_Agregar.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_Agregar.HoverState.Parent = this.btn_Agregar;
+            this.btn_Agregar.Location = new System.Drawing.Point(472, 132);
+            this.btn_Agregar.Name = "btn_Agregar";
+            this.btn_Agregar.ShadowDecoration.Parent = this.btn_Agregar;
+            this.btn_Agregar.Size = new System.Drawing.Size(152, 40);
+            this.btn_Agregar.TabIndex = 13;
+            this.btn_Agregar.Text = "Agregar";
             // 
-            // label1
+            // lbl_Cantidad
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(336, 104);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 23);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Cantidad";
+            this.lbl_Cantidad.AutoSize = true;
+            this.lbl_Cantidad.BackColor = System.Drawing.Color.White;
+            this.lbl_Cantidad.Location = new System.Drawing.Point(336, 104);
+            this.lbl_Cantidad.Name = "lbl_Cantidad";
+            this.lbl_Cantidad.Size = new System.Drawing.Size(79, 23);
+            this.lbl_Cantidad.TabIndex = 12;
+            this.lbl_Cantidad.Text = "Cantidad";
             // 
-            // guna2TextBox1
+            // tb_Cantidad
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(339, 132);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(126, 40);
-            this.guna2TextBox1.TabIndex = 11;
+            this.tb_Cantidad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.tb_Cantidad.BorderRadius = 5;
+            this.tb_Cantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_Cantidad.DefaultText = "";
+            this.tb_Cantidad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_Cantidad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_Cantidad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Cantidad.DisabledState.Parent = this.tb_Cantidad;
+            this.tb_Cantidad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Cantidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Cantidad.FocusedState.Parent = this.tb_Cantidad;
+            this.tb_Cantidad.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Cantidad.HoverState.Parent = this.tb_Cantidad;
+            this.tb_Cantidad.Location = new System.Drawing.Point(339, 132);
+            this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Cantidad.Name = "tb_Cantidad";
+            this.tb_Cantidad.PasswordChar = '\0';
+            this.tb_Cantidad.PlaceholderText = "";
+            this.tb_Cantidad.SelectedText = "";
+            this.tb_Cantidad.ShadowDecoration.Parent = this.tb_Cantidad;
+            this.tb_Cantidad.Size = new System.Drawing.Size(126, 40);
+            this.tb_Cantidad.TabIndex = 11;
             // 
-            // btn_Tablero
+            // btn_Buscar
             // 
-            this.btn_Tablero.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Tablero.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.btn_Tablero.BorderRadius = 5;
-            this.btn_Tablero.BorderThickness = 1;
-            this.btn_Tablero.CheckedState.Parent = this.btn_Tablero;
-            this.btn_Tablero.CustomImages.Parent = this.btn_Tablero;
-            this.btn_Tablero.FillColor = System.Drawing.Color.White;
-            this.btn_Tablero.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Tablero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Tablero.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.btn_Tablero.HoverState.FillColor = System.Drawing.Color.White;
-            this.btn_Tablero.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btn_Tablero.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Tablero.HoverState.Image")));
-            this.btn_Tablero.HoverState.Parent = this.btn_Tablero;
-            this.btn_Tablero.Image = ((System.Drawing.Image)(resources.GetObject("btn_Tablero.Image")));
-            this.btn_Tablero.ImageSize = new System.Drawing.Size(24, 24);
-            this.btn_Tablero.Location = new System.Drawing.Point(24, 132);
-            this.btn_Tablero.Name = "btn_Tablero";
-            this.btn_Tablero.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.btn_Tablero.ShadowDecoration.Parent = this.btn_Tablero;
-            this.btn_Tablero.Size = new System.Drawing.Size(40, 40);
-            this.btn_Tablero.TabIndex = 10;
-            this.btn_Tablero.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Tablero.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Buscar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Buscar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.btn_Buscar.BorderRadius = 5;
+            this.btn_Buscar.BorderThickness = 1;
+            this.btn_Buscar.CheckedState.Parent = this.btn_Buscar;
+            this.btn_Buscar.CustomImages.Parent = this.btn_Buscar;
+            this.btn_Buscar.FillColor = System.Drawing.Color.White;
+            this.btn_Buscar.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Buscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_Buscar.HoverState.FillColor = System.Drawing.Color.White;
+            this.btn_Buscar.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btn_Buscar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Tablero.HoverState.Image")));
+            this.btn_Buscar.HoverState.Parent = this.btn_Buscar;
+            this.btn_Buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Buscar.Image")));
+            this.btn_Buscar.ImageSize = new System.Drawing.Size(24, 24);
+            this.btn_Buscar.Location = new System.Drawing.Point(24, 132);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_Buscar.ShadowDecoration.Parent = this.btn_Buscar;
+            this.btn_Buscar.Size = new System.Drawing.Size(40, 40);
+            this.btn_Buscar.TabIndex = 10;
+            this.btn_Buscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Buscar.TextOffset = new System.Drawing.Point(16, 0);
             // 
-            // lbl_SueldoCajeros
+            // lbl_CodigoBarras
             // 
-            this.lbl_SueldoCajeros.AutoSize = true;
-            this.lbl_SueldoCajeros.BackColor = System.Drawing.Color.White;
-            this.lbl_SueldoCajeros.Location = new System.Drawing.Point(68, 104);
-            this.lbl_SueldoCajeros.Name = "lbl_SueldoCajeros";
-            this.lbl_SueldoCajeros.Size = new System.Drawing.Size(141, 23);
-            this.lbl_SueldoCajeros.TabIndex = 9;
-            this.lbl_SueldoCajeros.Text = "Código de barras";
+            this.lbl_CodigoBarras.AutoSize = true;
+            this.lbl_CodigoBarras.BackColor = System.Drawing.Color.White;
+            this.lbl_CodigoBarras.Location = new System.Drawing.Point(68, 104);
+            this.lbl_CodigoBarras.Name = "lbl_CodigoBarras";
+            this.lbl_CodigoBarras.Size = new System.Drawing.Size(141, 23);
+            this.lbl_CodigoBarras.TabIndex = 9;
+            this.lbl_CodigoBarras.Text = "Código de barras";
             // 
-            // tb_SueldoCajeros
+            // tb_Codigo
             // 
-            this.tb_SueldoCajeros.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.tb_SueldoCajeros.BorderRadius = 5;
-            this.tb_SueldoCajeros.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_SueldoCajeros.DefaultText = "";
-            this.tb_SueldoCajeros.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_SueldoCajeros.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_SueldoCajeros.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_SueldoCajeros.DisabledState.Parent = this.tb_SueldoCajeros;
-            this.tb_SueldoCajeros.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_SueldoCajeros.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_SueldoCajeros.FocusedState.Parent = this.tb_SueldoCajeros;
-            this.tb_SueldoCajeros.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_SueldoCajeros.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_SueldoCajeros.HoverState.Parent = this.tb_SueldoCajeros;
-            this.tb_SueldoCajeros.Location = new System.Drawing.Point(71, 132);
-            this.tb_SueldoCajeros.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_SueldoCajeros.Name = "tb_SueldoCajeros";
-            this.tb_SueldoCajeros.PasswordChar = '\0';
-            this.tb_SueldoCajeros.PlaceholderText = "";
-            this.tb_SueldoCajeros.SelectedText = "";
-            this.tb_SueldoCajeros.ShadowDecoration.Parent = this.tb_SueldoCajeros;
-            this.tb_SueldoCajeros.Size = new System.Drawing.Size(260, 40);
-            this.tb_SueldoCajeros.TabIndex = 8;
+            this.tb_Codigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.tb_Codigo.BorderRadius = 5;
+            this.tb_Codigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_Codigo.DefaultText = "";
+            this.tb_Codigo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_Codigo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_Codigo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Codigo.DisabledState.Parent = this.tb_Codigo;
+            this.tb_Codigo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Codigo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Codigo.FocusedState.Parent = this.tb_Codigo;
+            this.tb_Codigo.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Codigo.HoverState.Parent = this.tb_Codigo;
+            this.tb_Codigo.Location = new System.Drawing.Point(71, 132);
+            this.tb_Codigo.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Codigo.Name = "tb_Codigo";
+            this.tb_Codigo.PasswordChar = '\0';
+            this.tb_Codigo.PlaceholderText = "";
+            this.tb_Codigo.SelectedText = "";
+            this.tb_Codigo.ShadowDecoration.Parent = this.tb_Codigo;
+            this.tb_Codigo.Size = new System.Drawing.Size(260, 40);
+            this.tb_Codigo.TabIndex = 8;
             // 
             // lbl_Notificaciones
             // 
@@ -660,12 +660,12 @@ namespace MrTiendita.Vistas
         private Guna.UI2.WinForms.Guna2Panel pnl_Notificaciones;
         private System.Windows.Forms.Label lbl_Notificaciones;
         private System.Windows.Forms.Label lbl_DescNoti;
-        private System.Windows.Forms.Label lbl_SueldoCajeros;
-        private Guna.UI2.WinForms.Guna2TextBox tb_SueldoCajeros;
-        private Guna.UI2.WinForms.Guna2Button btn_Tablero;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2Button btn_CambiarRuta;
+        private System.Windows.Forms.Label lbl_CodigoBarras;
+        private Guna.UI2.WinForms.Guna2TextBox tb_Codigo;
+        private Guna.UI2.WinForms.Guna2Button btn_Buscar;
+        private System.Windows.Forms.Label lbl_Cantidad;
+        private Guna.UI2.WinForms.Guna2TextBox tb_Cantidad;
+        private Guna.UI2.WinForms.Guna2Button btn_Agregar;
         private Guna.UI2.WinForms.Guna2DataGridView dgv_TablaVentas;
         private System.Windows.Forms.DataGridViewImageColumn col_menos;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Cantidad;
@@ -675,18 +675,18 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Codigo;
         private System.Windows.Forms.Label lbl_Ruta;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_Metodo;
         private System.Windows.Forms.Label lbl_TotalAPagar;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_Tarjeta;
         private Bunifu.Framework.UI.BunifuCheckbox check_Tarjeta;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_Efectivo;
         private Bunifu.Framework.UI.BunifuCheckbox check_Efectivo;
         private Guna.UI2.WinForms.Guna2Button btn_CancelarVenta;
         private Guna.UI2.WinForms.Guna2Button btn_CompletarVenta;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_Cambio;
+        private System.Windows.Forms.Label lbl_CambioDesc;
+        private System.Windows.Forms.Label lbl_EfetivoTb;
         private Guna.UI2.WinForms.Guna2TextBox tb_Efectivo;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_Pago;
     }
 }
