@@ -13,7 +13,7 @@ namespace MrTiendita.Modelos.DAO
     /// Define métodos para acceder a datos tipo <see cref="Proveedor" /> en la base de datos.
     /// </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
-    public class ProveedorDAO:DbContext
+    public class ProveedorDAO : DbContext
     {
         /// <summary>
         /// Crea un registro en la base de datos del <see cref="Proveedor"/> especificado.
@@ -33,7 +33,7 @@ namespace MrTiendita.Modelos.DAO
                 {
                     command.Parameters.Add("@nom", SqlDbType.VarChar);
                     command.Parameters.Add("@tel", SqlDbType.BigInt);
-                    
+
 
                     command.Parameters["@nom"].Value = proveedor.Nombre;
                     command.Parameters["@tel"].Value = proveedor.Telefono;
@@ -99,7 +99,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2)));
+                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3)));
                         }
                     }
                 }
@@ -131,7 +131,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedor = new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2));
+                            proveedor = new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3));
                         }
                     }
                 }
@@ -164,7 +164,7 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2)));
+                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3)));
                         }
                     }
                 }
@@ -198,6 +198,38 @@ namespace MrTiendita.Modelos.DAO
                 }
             }
             return success;
+        }
+
+        public Proveedor ReadByState(String estado)
+        {
+            Proveedor proveedor = null;
+
+            String sql = "SELECT * FROM Proveedor WHERE estado = @est;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@est", SqlDbType.VarChar);
+                    command.Parameters["@id"].Value = estado;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            proveedor = new Proveedor(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetInt64(2),
+                                reader.GetString(3)
+                            );
+                        }
+                    }
+                }
+            }
+
+            return proveedor;
         }
     }
 }
