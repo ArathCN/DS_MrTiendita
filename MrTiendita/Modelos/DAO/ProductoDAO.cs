@@ -24,8 +24,8 @@ namespace MrTiendita.Modelos.DAO
         {
             bool success = false;
             String sql =
-                "INSERT INTO Producto (codigo_barra, descripcion, precio_venta, precio_compra, cantidad_actual, medida) " +
-                "VALUES (@cb, @des, @pre, @precom, @ca, @med);";
+                "INSERT INTO Producto (codigo_barra, descripcion, precio_compra, cantidad_actual, medida, categoria, minimo, ganancia) " +
+                "VALUES (@cb, @des, @precom, @ca, @med, @cat, @min, @gan);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -34,17 +34,21 @@ namespace MrTiendita.Modelos.DAO
                 {
                     command.Parameters.Add("@cb", SqlDbType.BigInt);
                     command.Parameters.Add("@des", SqlDbType.VarChar);
-                    command.Parameters.Add("@pre", SqlDbType.Decimal);
                     command.Parameters.Add("@precom", SqlDbType.Decimal);
                     command.Parameters.Add("@ca", SqlDbType.Decimal);
                     command.Parameters.Add("@med", SqlDbType.Bit);
+                    command.Parameters.Add("@cat", SqlDbType.VarChar);
+                    command.Parameters.Add("@min", SqlDbType.Decimal);
+                    command.Parameters.Add("@gan", SqlDbType.Int);
 
                     command.Parameters["@cb"].Value = producto.Codigo_barra;
                     command.Parameters["@des"].Value = producto.Descripcion;
-                    command.Parameters["@pre"].Value = producto.Precio_venta;
                     command.Parameters["@precom"].Value = producto.Precio_compra;
                     command.Parameters["@ca"].Value = producto.Cantidad_actual;
                     command.Parameters["@med"].Value = producto.Medida;
+                    command.Parameters["@cat"].Value = producto.Categoria;
+                    command.Parameters["@min"].Value = producto.Minimo;
+                    command.Parameters["@gan"].Value = producto.Ganancia;
 
 
                     int rowsAffected = command.ExecuteNonQuery();
@@ -64,32 +68,33 @@ namespace MrTiendita.Modelos.DAO
         public bool UpdateInfo(Producto producto, long id) //Update by id
         {
             bool success = false;
-            String sql = "UPDATE Producto SET codigo_barra = @cbn, descripcion = @des, precio_venta = @pre," +
-                " precio_compra = @precom, cantidad_actual = @ca, medida = @med WHERE codigo_barra = @cb;";
+            String sql = "UPDATE Producto SET codigo_barra = @cbn, descripcion = @des, precio_compra = @precom," +
+                " cantidad_actual = @ca, medida = @med, categoria = @cat, minimo = @min, ganancia = @gan WHERE codigo_barra = @cb;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.Add("@des", SqlDbType.VarChar);
-                    command.Parameters.Add("@pre", SqlDbType.Decimal);
-                    command.Parameters.Add("@precom", SqlDbType.Decimal);
-                    command.Parameters.Add("@can", SqlDbType.Int);
-                    command.Parameters.Add("@cb", SqlDbType.BigInt);
                     command.Parameters.Add("@cbn", SqlDbType.BigInt);
+                    command.Parameters.Add("@des", SqlDbType.VarChar);
+                    command.Parameters.Add("@precom", SqlDbType.Decimal);
                     command.Parameters.Add("@ca", SqlDbType.Decimal);
                     command.Parameters.Add("@med", SqlDbType.Bit);
+                    command.Parameters.Add("@cat", SqlDbType.VarChar);
+                    command.Parameters.Add("@min", SqlDbType.Decimal);
+                    command.Parameters.Add("@gan", SqlDbType.Int);
+                    command.Parameters.Add("@cb", SqlDbType.BigInt);
 
-                    command.Parameters["@des"].Value = producto.Descripcion;
-                    command.Parameters["@pre"].Value = producto.Precio_venta;
-                    command.Parameters["@precom"].Value = producto.Precio_compra;
-                    command.Parameters["@can"].Value = producto.Cantidad_actual;
                     command.Parameters["@cbn"].Value = producto.Codigo_barra;
-                    command.Parameters["@cb"].Value = id;
+                    command.Parameters["@des"].Value = producto.Descripcion;
+                    command.Parameters["@precom"].Value = producto.Precio_compra;
                     command.Parameters["@ca"].Value = producto.Cantidad_actual;
                     command.Parameters["@med"].Value = producto.Medida;
-
+                    command.Parameters["@cat"].Value = producto.Categoria;
+                    command.Parameters["@min"].Value = producto.Minimo;
+                    command.Parameters["@gan"].Value = producto.Ganancia;
+                    command.Parameters["@cb"].Value = id;
 
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -187,10 +192,13 @@ namespace MrTiendita.Modelos.DAO
                             productos.Add(
                                 new Producto(
                                     reader.GetInt64(0),
-                                    reader.GetString(1),decimal.ToDouble(reader.GetDecimal(2)),
+                                    reader.GetString(1),
+                                    reader.GetInt32(2),
                                     decimal.ToDouble(reader.GetDecimal(3)),
                                     decimal.ToDouble(reader.GetDecimal(4)),
-                                    reader.GetBoolean(5)
+                                    reader.GetBoolean(5),
+                                    reader.GetString(6),
+                                    decimal.ToDouble(reader.GetDecimal(7))
                                 )
                             );
                         }
@@ -226,13 +234,15 @@ namespace MrTiendita.Modelos.DAO
                         {
                             while (reader.Read())
                             {
-                                producto = new Producto(
+                                new Producto(
                                     reader.GetInt64(0),
                                     reader.GetString(1),
-                                    decimal.ToDouble(reader.GetDecimal(2)),
+                                    reader.GetInt32(2),
                                     decimal.ToDouble(reader.GetDecimal(3)),
                                     decimal.ToDouble(reader.GetDecimal(4)),
-                                    reader.GetBoolean(5)
+                                    reader.GetBoolean(5),
+                                    reader.GetString(6),
+                                    decimal.ToDouble(reader.GetDecimal(7))
                                 );
                             }
                         }
@@ -271,10 +281,12 @@ namespace MrTiendita.Modelos.DAO
                                 new Producto(
                                     reader.GetInt64(0),
                                     reader.GetString(1),
-                                    decimal.ToDouble(reader.GetDecimal(2)),
+                                    reader.GetInt32(2),
                                     decimal.ToDouble(reader.GetDecimal(3)),
                                     decimal.ToDouble(reader.GetDecimal(4)),
-                                    reader.GetBoolean(5)
+                                    reader.GetBoolean(5),
+                                    reader.GetString(6),
+                                    decimal.ToDouble(reader.GetDecimal(7))
                                 )
                             );
                         }
