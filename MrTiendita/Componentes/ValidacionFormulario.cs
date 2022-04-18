@@ -101,6 +101,42 @@ namespace MrTiendita.Componentes
             return EsValido;
         }
 
+        static public bool Validar(
+            Label etiqueta,
+            String mensaje,
+            String dato,
+            out int datoSalida,
+            Dictionary<int, int> opciones = null)
+        {
+            bool EsValido = false;
+            if (opciones != null)
+                if (!ValidacionDatos.Numero(dato, out datoSalida, opciones))
+                {
+                    etiqueta.Text = mensaje;
+                    etiqueta.Visible = true;
+                }
+                else
+                {
+                    etiqueta.Text = "";
+                    etiqueta.Visible = false;
+                    EsValido = true;
+                }
+            else
+                if (!ValidacionDatos.Numero(dato, out datoSalida))
+            {
+                etiqueta.Text = mensaje;
+                etiqueta.Visible = true;
+            }
+            else
+            {
+                etiqueta.Text = "";
+                etiqueta.Visible = false;
+                EsValido = true;
+            }
+
+            return EsValido;
+        }
+
         /// <summary>Comprueba si una cadena <see cref="String"/> no es vacía
         /// y si hay un error lo imprime es una <see cref="Label"/> especificada.
         /// Además, se pueden incluir opciones de validación y una expresión regular como patrón.</summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -258,7 +259,7 @@ namespace MrTiendita.Componentes
 
             if (!ValidacionDatos.NoVacio(dato)) return false;
 
-            if (!Double.TryParse(dato, out datoEnNumero))
+            if (!Double.TryParse(dato, NumberStyles.AllowDecimalPoint, new CultureInfo("es-MX"), out datoEnNumero))
             {
                 ValidacionDatos.mensajes = "Dato no numerico.";
                 ValidacionDatos.esValido = true;
@@ -389,6 +390,16 @@ namespace MrTiendita.Componentes
                 return false;
             }
 
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_CARACTERES))
+            {
+                if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "Número de caracteres debe ser igual a " + opciones[ValidacionDatosOpciones.NUM_CARACTERES];
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
             {
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
@@ -409,11 +420,33 @@ namespace MrTiendita.Componentes
                 }
             }
 
+            if (opciones.ContainsKey(ValidacionDatosOpciones.MAYOR_IGUAL_A))
+            {
+                if (datoEnNumero < opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A])
+                {
+                    ValidacionDatos.mensajes = "El número debe ser mayor o igual a " +
+                        opciones[ValidacionDatosOpciones.MAYOR_IGUAL_A];
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+
             if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_A))
             {
                 if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_A])
                 {
                     ValidacionDatos.mensajes = "Dato mayor al número maximo especificado.";
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.MENOR_IGUAL_A))
+            {
+                if (datoEnNumero > opciones[ValidacionDatosOpciones.MENOR_IGUAL_A])
+                {
+                    ValidacionDatos.mensajes = "El número debe ser menor o igual que " +
+                        opciones[ValidacionDatosOpciones.MENOR_IGUAL_A];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
