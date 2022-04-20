@@ -45,5 +45,15 @@ namespace MrTiendita.Vistas
         {
             AbrirFormulario(new FrmVentas());
         }
+
+        private void btn_Empleados_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmEmpleados());
+        }
+
+        private void btn_Proveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProveedores());
+        }
     }
 }

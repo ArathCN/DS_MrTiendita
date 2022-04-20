@@ -225,3 +225,5 @@ C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmConfigura
 C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmTablero.resources
 C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmVentas.resources
 C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.Notificacion.resources
+C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmEmpleados.resources
+C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmBuscarProducto.resources
