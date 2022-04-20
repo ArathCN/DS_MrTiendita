@@ -114,6 +114,12 @@ namespace MrTiendita.Controladores
             }
         }
 
+
+        /// <summary>
+        /// Handles the Click event of the Btn_Cerrar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
             bool IsCompleted;
@@ -121,11 +127,23 @@ namespace MrTiendita.Controladores
             String codigoBarraCad = this.vista.tb_codigo.Text;
             String cantidadCad = this.vista.tb_cantidad.Text;
             String descripcionCad = this.vista.tb_descripcion.Text;
-            String precioVentaCad = this.vista.tb_precioVenta.Text;
             String precioCompraCad = this.vista.tb_precioCompra.Text;
+            ///
+            /// 
+            /// 
+            ///Extraer los valores del formulario y cambiar las etiquetas en las validaciones.
+            String categoriaCad = "Sin Categoría";
+            String minimoCad = "";
+            String gananciaCad = "";
+            int ganancia = 0;
+            ///
+            ///
+            ///
+            ///
+            ///
 
             long codigoBarra;
-            double cantidad, precioVenta, precioCompra;
+            double cantidad, precioCompra, minimo;
 
             String mensajeCodigo = "Debe ser un número de 13 dígitos.";
             Dictionary<int, long> opCodigo = new Dictionary<int, long>() {
@@ -144,8 +162,20 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 120}
             };
+            String msgCategoria = "Texto de entre 5 a 100 caracteres.";
+            Dictionary<int, int> opCategoria = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+            };
             String msgPc = "De ser un número entre 0 y 10000 con máximo dos decimales.";
             Dictionary<int, double> opPc = new Dictionary<int, double>() {
+                {ValidacionDatosOpciones.MAYOR_A, 0},
+                {ValidacionDatosOpciones.MENOR_A, 10000},
+                {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            };
+            String msgGanancia = "De ser un número entre 0 y 10000 con máximo dos decimales.";
+            Dictionary<int, int> opGanancia = new Dictionary<int, int>() {
                 {ValidacionDatosOpciones.MAYOR_A, 0},
                 {ValidacionDatosOpciones.MENOR_A, 10000},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
@@ -156,7 +186,9 @@ namespace MrTiendita.Controladores
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, msgCantidad, cantidadCad, out cantidad, opCantidad) ||
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, msgDesc, descripcionCad, opDesc) ||
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorPc, msgPc, precioCompraCad, out precioCompra, opPc) ||
-                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgPc, precioVentaCad, out precioVenta, opPc)
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgGanancia, gananciaCad, out ganancia, opGanancia) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgCantidad, minimoCad, out minimo, opCantidad) ||
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorPv, msgCategoria, categoriaCad, opCategoria)
                 )
             {
                 Form mensajeError = new FrmError("Llene todos los datos correctamente.");
@@ -185,7 +217,7 @@ namespace MrTiendita.Controladores
             }
 
             //Obtener el producto de los campos...
-            Producto producto = new Producto(codigoBarra, descripcionCad, precioVenta, precioCompra, cantidad, medida);
+            Producto producto = new Producto(codigoBarra, descripcionCad, ganancia, precioCompra, cantidad, medida, categoriaCad, minimo);
 
             //Hacer la acción 
             if (this.accion == "agregar")

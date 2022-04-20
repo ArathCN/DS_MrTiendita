@@ -40,6 +40,7 @@ namespace MrTiendita.Modelos.DTO
         /// </summary>
         private String categoria;
         private double minimo;
+        private double precio_venta;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Producto"/> class.
@@ -67,6 +68,7 @@ namespace MrTiendita.Modelos.DTO
             this.medida = medida;
             this.categoria = categoria;
             this.minimo = minimo;
+            this.precio_venta = this.CalcularPrecioVenta();
         }
 
         /// <summary>
@@ -133,5 +135,12 @@ namespace MrTiendita.Modelos.DTO
         public String Categoria { get => this.categoria; set => this.categoria = value; }
 
         public double Minimo { get => this.minimo; set => this.minimo = value; }
+
+        public double Precio_venta { get => this.precio_venta; set => this.precio_venta = value; }
+
+        private double CalcularPrecioVenta()
+        {
+            return ((this.ganancia * this.precio_compra) / 100) + this.precio_compra;
+        }
     }
 }

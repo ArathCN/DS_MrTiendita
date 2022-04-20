@@ -39,8 +39,9 @@ namespace MrTiendita.Controladores
             this.entradaAlmacenDAO = new EntradaAlmacenDAO();
             this.productoDAO = new ProductoDAO();
             this.proveedorDAO = new ProveedorDAO();
-            this.vista.btn_registrarEntrada.Click += new EventHandler(Btn_registrarEntrada_Click);
+
             this.vista.Load += new EventHandler(Vista_Load);
+            this.vista.btn_registrarEntrada.Click += new EventHandler(Btn_registrarEntrada_Click);
             this.vista.tb_busqueda.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
             this.vista.tb_codigo.TextChanged += new EventHandler(Tb_codigo_TextChanged);
             this.vista.btn_Limpiar.Click += new EventHandler(Btn_Limpiar_Click);
@@ -94,6 +95,7 @@ namespace MrTiendita.Controladores
         {
             long codigoBarra;
             String codigoBarraCadena = this.vista.tb_codigo.Text;
+            String mensaje = "Solo se aceptan números de 13 dígitos.";
             Dictionary<int, long> opcionesNumero = new Dictionary<int, long>() {
                 {ValidacionDatosOpciones.MAYOR_A, 0},
                 {ValidacionDatosOpciones.NUM_CARACTERES, 13}
@@ -102,10 +104,8 @@ namespace MrTiendita.Controladores
             this.vista.lbl_ErrorCodigo.Visible = false;
 
             //Comprueba que sea un numero long, no nulo y mayor a 0
-            if (!ValidacionDatos.Numero(codigoBarraCadena, out codigoBarra, opcionesNumero))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, mensaje, codigoBarraCadena, out codigoBarra, opcionesNumero))
             {
-                this.vista.lbl_ErrorCodigo.Text = "Solo se aceptan números";
-                this.vista.lbl_ErrorCodigo.Visible = true;
                 productoParaEntrada = null;
                 return;
             }
@@ -234,7 +234,7 @@ namespace MrTiendita.Controladores
         protected void CargarProveedores()
         {
             this.listaProveedores = new Dictionary<string, int>();
-            List<Proveedor> proveedores = this.proveedorDAO.ReadAll();
+            List<Proveedor> proveedores = this.proveedorDAO.ReadByState(TipoEmpleadoC.ESTADO_ACTIVO);
             List<String> nombreProveedores = new List<string>();
             foreach (Proveedor proveedor in proveedores)
             {

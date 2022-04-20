@@ -19,9 +19,9 @@ namespace MrTiendita.Controladores
         {
             this.vista = vista;
             this.proveedorDAO = new ProveedorDAO();
-            this.vista.tablaProveedores.CellContentClick += new DataGridViewCellEventHandler(TablaProveedores_CellContentClick);
+            this.vista.dgv_TablaProveedores.CellContentClick += new DataGridViewCellEventHandler(TablaProveedores_CellContentClick);
             this.vista.Load += new EventHandler(Vista_load);
-            this.vista.tb_busqueda.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
+            this.vista.tb_BuscarProveedor.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
             this.vista.btn_nuevoProveedor.Click += new EventHandler(Btn_nuevoProveedor_Click);
         }
 
@@ -32,20 +32,20 @@ namespace MrTiendita.Controladores
 
         private void Tb_busqueda_TextChanged(object sender, EventArgs e)
         {
-            String cadenaBusqueda = this.vista.tb_busqueda.Text;
+            String cadenaBusqueda = this.vista.tb_BuscarProveedor.Text;
             List<Proveedor> proveedores = this.proveedorDAO.ReadByName(cadenaBusqueda);
-            this.vista.tablaProveedores.Rows.Clear();
+            this.vista.dgv_TablaProveedores.Rows.Clear();
             foreach (Proveedor xProveedor in proveedores)
             {
-                this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
+                this.vista.dgv_TablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
             }
         }
 
         private void TablaProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.vista.tablaProveedores.Rows[e.RowIndex].Cells["eliminar"].Selected)
+            if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["eliminar"].Selected)
                 this.EliminarProveedor(e);
-            else if (this.vista.tablaProveedores.Rows[e.RowIndex].Cells["editar"].Selected)
+            else if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["editar"].Selected)
                 this.ActualizarProveedor(e);
             this.MostrarTodos();
         }
@@ -60,12 +60,12 @@ namespace MrTiendita.Controladores
         ///Métodos auxiliares
         private void MostrarTodos()
         {
-            this.vista.tablaProveedores.Rows.Clear();
+            this.vista.dgv_TablaProveedores.Rows.Clear();
             List<Proveedor> proveedores = this.proveedorDAO.ReadAll();
             this.todosProveedores = proveedores;
             foreach (Proveedor xProveedor in proveedores)
             {
-                this.vista.tablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
+                this.vista.dgv_TablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
             }
         }
 
@@ -77,12 +77,12 @@ namespace MrTiendita.Controladores
             if (resultado == DialogResult.OK)
             {
                 //Eliminar la fila seleccionada
-                String idCadena = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String idCadena = this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
                 int id = Int32.Parse(idCadena);
                 bool esEliminado = this.proveedorDAO.Delete(id);
                 if (esEliminado)
                 {
-                    this.vista.tablaProveedores.Rows.Remove(this.vista.tablaProveedores.Rows[e.RowIndex]);
+                    this.vista.dgv_TablaProveedores.Rows.Remove(this.vista.dgv_TablaProveedores.Rows[e.RowIndex]);
                     Form mensajeExito = new FrmError("El proveedor fue eliminado");
                     mensajeExito.ShowDialog();
                     this.MostrarTodos();
@@ -97,7 +97,7 @@ namespace MrTiendita.Controladores
 
         private void ActualizarProveedor(DataGridViewCellEventArgs e)
         {
-            String idCadena = this.vista.tablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
+            String idCadena = this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
             int id = Int32.Parse(idCadena);
             FrmEditarProveedor editar = new FrmEditarProveedor("editar", id);
             editar.ShowDialog();

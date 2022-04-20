@@ -37,7 +37,7 @@ namespace MrTiendita.Controladores
             this.id = id;
             this.accion = accion;
             this.empleadoDAO = new EmpleadoDAO();
-            this.vista.btn_guardarEmpleado.Click += new EventHandler(Btn_Cerrar_Click);
+            this.vista.btn_Aceptar.Click += new EventHandler(Btn_Cerrar_Click);
             this.vista.Load += new EventHandler(Vista_Load);
 
             this.vista.tb_idEmpleado.TextChanged += delegate (object sender, EventArgs e)

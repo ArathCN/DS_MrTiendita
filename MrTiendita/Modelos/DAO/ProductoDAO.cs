@@ -193,12 +193,12 @@ namespace MrTiendita.Modelos.DAO
                                 new Producto(
                                     reader.GetInt64(0),
                                     reader.GetString(1),
-                                    reader.GetInt32(2),
+                                    reader.GetInt32(7),
+                                    decimal.ToDouble(reader.GetDecimal(2)),
                                     decimal.ToDouble(reader.GetDecimal(3)),
-                                    decimal.ToDouble(reader.GetDecimal(4)),
-                                    reader.GetBoolean(5),
-                                    reader.GetString(6),
-                                    decimal.ToDouble(reader.GetDecimal(7))
+                                    reader.GetBoolean(4),
+                                    reader.GetString(5),
+                                    decimal.ToDouble(reader.GetDecimal(6))
                                 )
                             );
                         }
@@ -237,12 +237,12 @@ namespace MrTiendita.Modelos.DAO
                                 new Producto(
                                     reader.GetInt64(0),
                                     reader.GetString(1),
-                                    reader.GetInt32(2),
+                                    reader.GetInt32(7),
+                                    decimal.ToDouble(reader.GetDecimal(2)),
                                     decimal.ToDouble(reader.GetDecimal(3)),
-                                    decimal.ToDouble(reader.GetDecimal(4)),
-                                    reader.GetBoolean(5),
-                                    reader.GetString(6),
-                                    decimal.ToDouble(reader.GetDecimal(7))
+                                    reader.GetBoolean(4),
+                                    reader.GetString(5),
+                                    decimal.ToDouble(reader.GetDecimal(6))
                                 );
                             }
                         }
@@ -281,12 +281,12 @@ namespace MrTiendita.Modelos.DAO
                                 new Producto(
                                     reader.GetInt64(0),
                                     reader.GetString(1),
-                                    reader.GetInt32(2),
+                                    reader.GetInt32(7),
+                                    decimal.ToDouble(reader.GetDecimal(2)),
                                     decimal.ToDouble(reader.GetDecimal(3)),
-                                    decimal.ToDouble(reader.GetDecimal(4)),
-                                    reader.GetBoolean(5),
-                                    reader.GetString(6),
-                                    decimal.ToDouble(reader.GetDecimal(7))
+                                    reader.GetBoolean(4),
+                                    reader.GetString(5),
+                                    decimal.ToDouble(reader.GetDecimal(6))
                                 )
                             );
                         }
@@ -323,5 +323,6 @@ namespace MrTiendita.Modelos.DAO
             }
             return success;
         }
+    
     }
 }

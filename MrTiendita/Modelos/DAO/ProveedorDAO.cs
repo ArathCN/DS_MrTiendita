@@ -200,9 +200,9 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public Proveedor ReadByState(String estado)
+        public List<Proveedor> ReadByState(String estado)
         {
-            Proveedor proveedor = null;
+            List<Proveedor> proveedores = new List<Proveedor>();
 
             String sql = "SELECT * FROM Proveedor WHERE estado = @est;";
 
@@ -212,24 +212,26 @@ namespace MrTiendita.Modelos.DAO
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.Add("@est", SqlDbType.VarChar);
-                    command.Parameters["@id"].Value = estado;
+                    command.Parameters["@est"].Value = estado;
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            proveedor = new Proveedor(
-                                reader.GetInt32(0),
-                                reader.GetString(1),
-                                reader.GetInt64(2),
-                                reader.GetString(3)
+                            proveedores.Add(
+                                new Proveedor(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetInt64(2),
+                                    reader.GetString(3)
+                                )
                             );
                         }
                     }
                 }
             }
 
-            return proveedor;
+            return proveedores;
         }
     }
 }

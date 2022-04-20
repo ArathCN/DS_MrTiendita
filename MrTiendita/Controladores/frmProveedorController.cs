@@ -66,28 +66,47 @@ namespace MrTiendita.Controladores
             //Comprobar campos vacios...
             String _nombre = this.vista.tb_nombre.Text;
             String _telefono = this.vista.tb_telefono.Text;
+            ///
+            ///
+            ///
+            ///Extraer el estado del formulario y camnbiar la etiqueta en validacion
+            String _estado = "";
+            ///
+
             long telefono;
+
+            String msgTel = "Número de 10 dígitos";
             Dictionary<int, long> opTel = new Dictionary<int, long>()
             {
                 {ValidacionDatosOpciones.NUM_CARACTERES, 10}
             };
+
+            String msgNom = "Cadena de 5 a 10 caracteres.";
             Dictionary<int, int> opNom = new Dictionary<int, int>()
             {
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
             };
 
+            String msgEstado = "Cadena de 5 a 100 caracteres.";
+            Dictionary<int, int> opEstado = new Dictionary<int, int>()
+            {
+                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+            };
+
             //Comprobar que el nombre tenga inimo 10 caracteres
             //Comprobar que el telefeno tenga minimo 10 caracteres y que sea mayor a 0 (no negativo)
-            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, "", _telefono, out telefono, opTel) ||
-            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, "", _nombre, opNom))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, msgTel, _telefono, out telefono, opTel) ||
+            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, msgNom, _nombre, opNom) ||
+            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, msgEstado, _estado, opEstado))
             {
                 Form mensajeError = new FrmError("Llene todos los datos datos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
 
-            Proveedor proveedor = new Proveedor(-1, _nombre, telefono);
+            Proveedor proveedor = new Proveedor(-1, _nombre, telefono, _estado);
 
             if (this.accion == "Agregar")
             {

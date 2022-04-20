@@ -201,10 +201,12 @@ namespace MrTiendita.Modelos.DAO
                             Producto producto = new Producto(
                                 reader.GetInt64(6),
                                 reader.GetString(7),
+                                reader.GetInt32(13),
                                 decimal.ToDouble(reader.GetDecimal(8)),
                                 decimal.ToDouble(reader.GetDecimal(9)),
-                                decimal.ToDouble(reader.GetDecimal(10)),
-                                reader.GetBoolean(11)
+                                reader.GetBoolean(10),
+                                reader.GetString(11),
+                                decimal.ToDouble(reader.GetDecimal(12))
                             );
                             entrada.Producto = producto;
                             entradasAlmacen.Add(entrada);
