@@ -84,6 +84,7 @@
     <Compile Include="Controladores\FrmCAlmacenController.cs" />
     <Compile Include="Controladores\FrmCCajaController.cs" />
     <Compile Include="Controladores\FrmCobroController.cs" />
+    <Compile Include="Controladores\FrmConfiguracionesController.cs" />
     <Compile Include="Controladores\FrmCVentasController.cs" />
     <Compile Include="Controladores\FrmEAlmacenController.cs" />
     <Compile Include="Controladores\FrmEEmpleadosController.cs" />
