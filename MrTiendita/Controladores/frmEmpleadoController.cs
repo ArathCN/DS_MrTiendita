@@ -54,10 +54,10 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_nombre.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Texto de entre 5 a 100 caracteres.";
+                String mensajeError = "Texto de entre 3 a 100 caracteres.";
                 Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
                 {
-                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 3},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
                 };
                 ValidacionFormulario.Validar(
@@ -66,10 +66,10 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_apPaterno.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Texto de entre 5 a 60 caracteres.";
+                String mensajeError = "Texto de entre 3 a 60 caracteres.";
                 Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
                 {
-                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 3},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
                 };
                 ValidacionFormulario.Validar(
@@ -78,10 +78,10 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_apMaterno.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Texto de entre 5 a 60 caracteres.";
+                String mensajeError = "Texto de entre 3 a 60 caracteres.";
                 Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
                 {
-                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 3},
                     {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
                 };
                 ValidacionFormulario.Validar(
@@ -181,6 +181,7 @@ namespace MrTiendita.Controladores
             String sueldoCad = this.vista.tb_sueldo.Text;
             String claveCad = this.vista.tb_clave.Text;
             String tipoEmpleadoCad = "";
+            String estado = TipoEmpleadoC.ESTADO_ACTIVO;
             long telefono;
             double sueldo;
 
@@ -250,7 +251,7 @@ namespace MrTiendita.Controladores
 
             //Crear el empleado
             Empleado empleado = new Empleado(
-                -1, nombreCad, apPaternoCad, apMaternoCad, telefono, sueldo, tipoEmpleadoCad, claveCad, usuarioCad);
+                -1, nombreCad, apPaternoCad, apMaternoCad, telefono, sueldo, tipoEmpleadoCad, claveCad, usuarioCad, estado);
 
             if (this.accion == "agregar")
                 esValido = this.Agregar(empleado);

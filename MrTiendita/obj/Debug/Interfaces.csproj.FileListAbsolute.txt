@@ -225,6 +225,7 @@ C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmConfigura
 C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmTablero.resources
 C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmVentas.resources
 C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.Notificacion.resources
+<<<<<<< HEAD
 C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\Interfaces.csproj.AssemblyReference.cache
 C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\Interfaces.csproj.SuggestedBindingRedirects.cache
 C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Properties.Resources.resources
@@ -253,3 +254,7 @@ C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmVentas.re
 C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.Notificacion.resources
 C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\Interfaces.csproj.GenerateResource.cache
 C:\Users\greci\Desktop\MARSS\MrTiendita\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+=======
+C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmEmpleados.resources
+C:\Users\sofii\Desktop\MARSS\MrTiendita\obj\Debug\MrTiendita.Vistas.FrmBuscarProducto.resources
+>>>>>>> 76841e68c13ca4015f1ae3f0b0ed368b29018603

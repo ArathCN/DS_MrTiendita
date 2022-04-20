@@ -77,7 +77,7 @@ namespace MrTiendita.Controladores
             List<Producto> productos = this.productoDAO.ReadByName(cadenaBusqueda);
             this.vista.tablaProductos.Rows.Clear();
             foreach (Producto xProducto in productos)
-            { 
+            {
                 this.vista.tablaProductos.Rows.Add(
                     xProducto.Codigo_barra,
                     xProducto.Cantidad_actual,
@@ -245,7 +245,7 @@ namespace MrTiendita.Controladores
             foreach (string proveedor in nombreProveedores)
             {
                 this.vista.cb_Proveedor.Items.Add(proveedor);
-            }                               
+            }
         }
     }
 }
