@@ -15,5 +15,10 @@ namespace MrTiendita.Constantes
         public static String CAJERO = "Cajero";
         /// <summary>Constante tipo de empleado "Encargado".</summary>
         public static String ENCARGADO = "Encargado";
+        /// <summary>Constante estado activo del empleado y del proveedor "Estado".</summary>
+        public static String ESTADO_ACTIVO = "Activo";
+        /// <summary>Constante estado inactivo del empleado y del proveedor "Estado".</summary>
+        public static String ESTADO_INACTIVO = "Inactivo";
+
     }
 }
