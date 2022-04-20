@@ -34,12 +34,10 @@ namespace MrTiendita.Vistas
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.tb_idEmpleado = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_apMaterno = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.tb_nombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.rb_encargado = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -56,7 +54,6 @@ namespace MrTiendita.Vistas
             this.label9 = new System.Windows.Forms.Label();
             this.tb_clave = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btn_guardarEmpleado = new Bunifu.Framework.UI.BunifuFlatButton();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.lbl_ErrorID = new System.Windows.Forms.Label();
             this.lbl_ErrorNombre = new System.Windows.Forms.Label();
@@ -65,29 +62,30 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorAm = new System.Windows.Forms.Label();
             this.lbl_ErrorSue = new System.Windows.Forms.Label();
             this.lbl_ErrorClave = new System.Windows.Forms.Label();
+            this.btn_Aceptar = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.btn_Cerrar);
             this.panel1.Controls.Add(this.lbl_Titulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(629, 34);
+            this.panel1.Size = new System.Drawing.Size(629, 38);
             this.panel1.TabIndex = 39;
             // 
             // btn_Cerrar
             // 
             this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
+            this.btn_Cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(591, 4);
+            this.btn_Cerrar.Location = new System.Drawing.Point(591, 6);
             this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
@@ -99,19 +97,14 @@ namespace MrTiendita.Vistas
             // lbl_Titulo
             // 
             this.lbl_Titulo.AutoSize = true;
-            this.lbl_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(140)))), ((int)(((byte)(169)))));
-            this.lbl_Titulo.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.lbl_Titulo.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(13, 6);
+            this.lbl_Titulo.Location = new System.Drawing.Point(13, 4);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(61, 24);
+            this.lbl_Titulo.Size = new System.Drawing.Size(62, 28);
             this.lbl_Titulo.TabIndex = 40;
             this.lbl_Titulo.Text = "Titulo";
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 10;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // tb_idEmpleado
             // 
@@ -126,11 +119,11 @@ namespace MrTiendita.Vistas
             this.tb_idEmpleado.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_idEmpleado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_idEmpleado.FocusedState.Parent = this.tb_idEmpleado;
-            this.tb_idEmpleado.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_idEmpleado.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_idEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_idEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_idEmpleado.HoverState.Parent = this.tb_idEmpleado;
-            this.tb_idEmpleado.Location = new System.Drawing.Point(17, 80);
+            this.tb_idEmpleado.Location = new System.Drawing.Point(17, 82);
             this.tb_idEmpleado.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_idEmpleado.Name = "tb_idEmpleado";
             this.tb_idEmpleado.PasswordChar = '\0';
@@ -143,10 +136,10 @@ namespace MrTiendita.Vistas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 54);
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.Size = new System.Drawing.Size(72, 23);
             this.label1.TabIndex = 40;
             this.label1.Text = "Usuario:";
             // 
@@ -163,11 +156,11 @@ namespace MrTiendita.Vistas
             this.tb_apMaterno.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_apMaterno.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_apMaterno.FocusedState.Parent = this.tb_apMaterno;
-            this.tb_apMaterno.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_apMaterno.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_apMaterno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_apMaterno.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_apMaterno.HoverState.Parent = this.tb_apMaterno;
-            this.tb_apMaterno.Location = new System.Drawing.Point(404, 182);
+            this.tb_apMaterno.Location = new System.Drawing.Point(404, 184);
             this.tb_apMaterno.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_apMaterno.Name = "tb_apMaterno";
             this.tb_apMaterno.PasswordChar = '\0';
@@ -176,15 +169,6 @@ namespace MrTiendita.Vistas
             this.tb_apMaterno.ShadowDecoration.Parent = this.tb_apMaterno;
             this.tb_apMaterno.Size = new System.Drawing.Size(197, 39);
             this.tb_apMaterno.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(604, 34);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(25, 396);
-            this.panel2.TabIndex = 43;
             // 
             // tb_nombre
             // 
@@ -199,11 +183,11 @@ namespace MrTiendita.Vistas
             this.tb_nombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_nombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_nombre.FocusedState.Parent = this.tb_nombre;
-            this.tb_nombre.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_nombre.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_nombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_nombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_nombre.HoverState.Parent = this.tb_nombre;
-            this.tb_nombre.Location = new System.Drawing.Point(17, 182);
+            this.tb_nombre.Location = new System.Drawing.Point(17, 184);
             this.tb_nombre.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_nombre.Name = "tb_nombre";
             this.tb_nombre.PasswordChar = '\0';
@@ -216,10 +200,10 @@ namespace MrTiendita.Vistas
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(313, 54);
+            this.label2.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(316, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 20);
+            this.label2.Size = new System.Drawing.Size(152, 23);
             this.label2.TabIndex = 45;
             this.label2.Text = "Tipo de empleado:";
             // 
@@ -248,11 +232,11 @@ namespace MrTiendita.Vistas
             this.rb_cajero.Checked = true;
             this.rb_cajero.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(89)))), ((int)(((byte)(8)))));
             this.rb_cajero.CheckedState.BorderThickness = 0;
-            this.rb_cajero.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.rb_cajero.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.rb_cajero.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rb_cajero.CheckedState.Parent = this.rb_cajero;
             this.rb_cajero.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rb_cajero.Location = new System.Drawing.Point(455, 90);
+            this.rb_cajero.Location = new System.Drawing.Point(477, 90);
             this.rb_cajero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rb_cajero.Name = "rb_cajero";
             this.rb_cajero.ShadowDecoration.Parent = this.rb_cajero;
@@ -267,20 +251,20 @@ namespace MrTiendita.Vistas
             // lbl_encargado
             // 
             this.lbl_encargado.AutoSize = true;
-            this.lbl_encargado.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_encargado.Location = new System.Drawing.Point(343, 90);
+            this.lbl_encargado.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_encargado.Location = new System.Drawing.Point(343, 87);
             this.lbl_encargado.Name = "lbl_encargado";
-            this.lbl_encargado.Size = new System.Drawing.Size(91, 20);
+            this.lbl_encargado.Size = new System.Drawing.Size(91, 23);
             this.lbl_encargado.TabIndex = 48;
             this.lbl_encargado.Text = "Encargado";
             // 
             // lbl_cajero
             // 
             this.lbl_cajero.AutoSize = true;
-            this.lbl_cajero.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cajero.Location = new System.Drawing.Point(481, 90);
+            this.lbl_cajero.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cajero.Location = new System.Drawing.Point(506, 87);
             this.lbl_cajero.Name = "lbl_cajero";
-            this.lbl_cajero.Size = new System.Drawing.Size(58, 20);
+            this.lbl_cajero.Size = new System.Drawing.Size(59, 23);
             this.lbl_cajero.TabIndex = 49;
             this.lbl_cajero.Text = "Cajero";
             // 
@@ -297,11 +281,11 @@ namespace MrTiendita.Vistas
             this.tb_apPaterno.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_apPaterno.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_apPaterno.FocusedState.Parent = this.tb_apPaterno;
-            this.tb_apPaterno.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_apPaterno.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_apPaterno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_apPaterno.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_apPaterno.HoverState.Parent = this.tb_apPaterno;
-            this.tb_apPaterno.Location = new System.Drawing.Point(195, 182);
+            this.tb_apPaterno.Location = new System.Drawing.Point(195, 184);
             this.tb_apPaterno.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_apPaterno.Name = "tb_apPaterno";
             this.tb_apPaterno.PasswordChar = '\0';
@@ -314,30 +298,30 @@ namespace MrTiendita.Vistas
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 156);
+            this.label5.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 156);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
+            this.label5.Size = new System.Drawing.Size(77, 23);
             this.label5.TabIndex = 51;
             this.label5.Text = "Nombre:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(416, 156);
+            this.label6.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(400, 156);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 20);
+            this.label6.Size = new System.Drawing.Size(146, 23);
             this.label6.TabIndex = 52;
             this.label6.Text = "Apellido materno:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(191, 156);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 20);
+            this.label7.Size = new System.Drawing.Size(141, 23);
             this.label7.TabIndex = 53;
             this.label7.Text = "Apellido paterno:";
             // 
@@ -354,11 +338,11 @@ namespace MrTiendita.Vistas
             this.tb_telefono.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_telefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_telefono.FocusedState.Parent = this.tb_telefono;
-            this.tb_telefono.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_telefono.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_telefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_telefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_telefono.HoverState.Parent = this.tb_telefono;
-            this.tb_telefono.Location = new System.Drawing.Point(19, 284);
+            this.tb_telefono.Location = new System.Drawing.Point(19, 286);
             this.tb_telefono.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_telefono.Name = "tb_telefono";
             this.tb_telefono.PasswordChar = '\0';
@@ -381,11 +365,11 @@ namespace MrTiendita.Vistas
             this.tb_sueldo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_sueldo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_sueldo.FocusedState.Parent = this.tb_sueldo;
-            this.tb_sueldo.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_sueldo.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_sueldo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_sueldo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_sueldo.HoverState.Parent = this.tb_sueldo;
-            this.tb_sueldo.Location = new System.Drawing.Point(195, 284);
+            this.tb_sueldo.Location = new System.Drawing.Point(195, 286);
             this.tb_sueldo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_sueldo.Name = "tb_sueldo";
             this.tb_sueldo.PasswordChar = '\0';
@@ -398,20 +382,20 @@ namespace MrTiendita.Vistas
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(15, 258);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 20);
+            this.label8.Size = new System.Drawing.Size(80, 23);
             this.label8.TabIndex = 56;
             this.label8.Text = "Teléfono:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(191, 258);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 20);
+            this.label9.Size = new System.Drawing.Size(66, 23);
             this.label9.TabIndex = 57;
             this.label9.Text = "Sueldo:";
             // 
@@ -428,11 +412,11 @@ namespace MrTiendita.Vistas
             this.tb_clave.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_clave.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_clave.FocusedState.Parent = this.tb_clave;
-            this.tb_clave.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_clave.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_clave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tb_clave.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(93)))), ((int)(((byte)(112)))));
             this.tb_clave.HoverState.Parent = this.tb_clave;
-            this.tb_clave.Location = new System.Drawing.Point(373, 284);
+            this.tb_clave.Location = new System.Drawing.Point(373, 286);
             this.tb_clave.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tb_clave.Name = "tb_clave";
             this.tb_clave.PasswordChar = '\0';
@@ -445,49 +429,12 @@ namespace MrTiendita.Vistas
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(371, 258);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 20);
+            this.label10.Size = new System.Drawing.Size(101, 23);
             this.label10.TabIndex = 59;
             this.label10.Text = "Contraseña:";
-            // 
-            // btn_guardarEmpleado
-            // 
-            this.btn_guardarEmpleado.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(238)))), ((int)(((byte)(86)))));
-            this.btn_guardarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_guardarEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_guardarEmpleado.BorderRadius = 7;
-            this.btn_guardarEmpleado.ButtonText = "Guardar";
-            this.btn_guardarEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_guardarEmpleado.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_guardarEmpleado.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardarEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(89)))), ((int)(((byte)(8)))));
-            this.btn_guardarEmpleado.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_guardarEmpleado.Iconimage = null;
-            this.btn_guardarEmpleado.Iconimage_right = null;
-            this.btn_guardarEmpleado.Iconimage_right_Selected = null;
-            this.btn_guardarEmpleado.Iconimage_Selected = null;
-            this.btn_guardarEmpleado.IconMarginLeft = 0;
-            this.btn_guardarEmpleado.IconMarginRight = 0;
-            this.btn_guardarEmpleado.IconRightVisible = true;
-            this.btn_guardarEmpleado.IconRightZoom = 0D;
-            this.btn_guardarEmpleado.IconVisible = true;
-            this.btn_guardarEmpleado.IconZoom = 40D;
-            this.btn_guardarEmpleado.IsTab = false;
-            this.btn_guardarEmpleado.Location = new System.Drawing.Point(19, 363);
-            this.btn_guardarEmpleado.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btn_guardarEmpleado.Name = "btn_guardarEmpleado";
-            this.btn_guardarEmpleado.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_guardarEmpleado.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_guardarEmpleado.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_guardarEmpleado.selected = false;
-            this.btn_guardarEmpleado.Size = new System.Drawing.Size(581, 39);
-            this.btn_guardarEmpleado.TabIndex = 10;
-            this.btn_guardarEmpleado.Text = "Guardar";
-            this.btn_guardarEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_guardarEmpleado.Textcolor = System.Drawing.Color.White;
-            this.btn_guardarEmpleado.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // guna2DragControl1
             // 
@@ -496,11 +443,11 @@ namespace MrTiendita.Vistas
             // lbl_ErrorID
             // 
             this.lbl_ErrorID.AutoSize = true;
-            this.lbl_ErrorID.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorID.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorID.Location = new System.Drawing.Point(17, 126);
+            this.lbl_ErrorID.Location = new System.Drawing.Point(17, 128);
             this.lbl_ErrorID.Name = "lbl_ErrorID";
-            this.lbl_ErrorID.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorID.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorID.TabIndex = 61;
             this.lbl_ErrorID.Text = "* Error";
             this.lbl_ErrorID.Visible = false;
@@ -508,11 +455,11 @@ namespace MrTiendita.Vistas
             // lbl_ErrorNombre
             // 
             this.lbl_ErrorNombre.AutoSize = true;
-            this.lbl_ErrorNombre.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorNombre.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorNombre.Location = new System.Drawing.Point(17, 226);
+            this.lbl_ErrorNombre.Location = new System.Drawing.Point(17, 228);
             this.lbl_ErrorNombre.Name = "lbl_ErrorNombre";
-            this.lbl_ErrorNombre.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorNombre.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorNombre.TabIndex = 62;
             this.lbl_ErrorNombre.Text = "* Error";
             this.lbl_ErrorNombre.Visible = false;
@@ -520,11 +467,11 @@ namespace MrTiendita.Vistas
             // lbl_ErrorAp
             // 
             this.lbl_ErrorAp.AutoSize = true;
-            this.lbl_ErrorAp.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorAp.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorAp.Location = new System.Drawing.Point(195, 226);
+            this.lbl_ErrorAp.Location = new System.Drawing.Point(195, 228);
             this.lbl_ErrorAp.Name = "lbl_ErrorAp";
-            this.lbl_ErrorAp.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorAp.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorAp.TabIndex = 63;
             this.lbl_ErrorAp.Text = "* Error";
             this.lbl_ErrorAp.Visible = false;
@@ -532,11 +479,11 @@ namespace MrTiendita.Vistas
             // lbl_ErrorTel
             // 
             this.lbl_ErrorTel.AutoSize = true;
-            this.lbl_ErrorTel.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorTel.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorTel.Location = new System.Drawing.Point(19, 329);
+            this.lbl_ErrorTel.Location = new System.Drawing.Point(19, 331);
             this.lbl_ErrorTel.Name = "lbl_ErrorTel";
-            this.lbl_ErrorTel.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorTel.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorTel.TabIndex = 64;
             this.lbl_ErrorTel.Text = "* Error";
             this.lbl_ErrorTel.Visible = false;
@@ -544,11 +491,11 @@ namespace MrTiendita.Vistas
             // lbl_ErrorAm
             // 
             this.lbl_ErrorAm.AutoSize = true;
-            this.lbl_ErrorAm.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorAm.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorAm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorAm.Location = new System.Drawing.Point(404, 226);
+            this.lbl_ErrorAm.Location = new System.Drawing.Point(404, 228);
             this.lbl_ErrorAm.Name = "lbl_ErrorAm";
-            this.lbl_ErrorAm.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorAm.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorAm.TabIndex = 65;
             this.lbl_ErrorAm.Text = "* Error";
             this.lbl_ErrorAm.Visible = false;
@@ -556,11 +503,11 @@ namespace MrTiendita.Vistas
             // lbl_ErrorSue
             // 
             this.lbl_ErrorSue.AutoSize = true;
-            this.lbl_ErrorSue.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorSue.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorSue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorSue.Location = new System.Drawing.Point(195, 329);
+            this.lbl_ErrorSue.Location = new System.Drawing.Point(195, 331);
             this.lbl_ErrorSue.Name = "lbl_ErrorSue";
-            this.lbl_ErrorSue.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorSue.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorSue.TabIndex = 66;
             this.lbl_ErrorSue.Text = "* Error";
             this.lbl_ErrorSue.Visible = false;
@@ -568,22 +515,39 @@ namespace MrTiendita.Vistas
             // lbl_ErrorClave
             // 
             this.lbl_ErrorClave.AutoSize = true;
-            this.lbl_ErrorClave.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorClave.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorClave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorClave.Location = new System.Drawing.Point(373, 329);
+            this.lbl_ErrorClave.Location = new System.Drawing.Point(373, 331);
             this.lbl_ErrorClave.Name = "lbl_ErrorClave";
-            this.lbl_ErrorClave.Size = new System.Drawing.Size(48, 17);
+            this.lbl_ErrorClave.Size = new System.Drawing.Size(49, 19);
             this.lbl_ErrorClave.TabIndex = 67;
             this.lbl_ErrorClave.Text = "* Error";
             this.lbl_ErrorClave.Visible = false;
             // 
-            // frmEditarEmpleado
+            // btn_Aceptar
+            // 
+            this.btn_Aceptar.BorderRadius = 5;
+            this.btn_Aceptar.CheckedState.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.CustomImages.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_Aceptar.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Aceptar.ForeColor = System.Drawing.Color.White;
+            this.btn_Aceptar.HoverState.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.Location = new System.Drawing.Point(17, 363);
+            this.btn_Aceptar.Name = "btn_Aceptar";
+            this.btn_Aceptar.ShadowDecoration.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.Size = new System.Drawing.Size(584, 40);
+            this.btn_Aceptar.TabIndex = 68;
+            this.btn_Aceptar.Text = "Aceptar";
+            // 
+            // FrmEditarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(629, 430);
+            this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.lbl_ErrorClave);
             this.Controls.Add(this.lbl_ErrorSue);
             this.Controls.Add(this.lbl_ErrorAm);
@@ -591,7 +555,6 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.lbl_ErrorAp);
             this.Controls.Add(this.lbl_ErrorNombre);
             this.Controls.Add(this.lbl_ErrorID);
-            this.Controls.Add(this.btn_guardarEmpleado);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tb_clave);
             this.Controls.Add(this.label9);
@@ -608,7 +571,6 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.rb_encargado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_nombre);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_apMaterno);
             this.Controls.Add(this.tb_idEmpleado);
             this.Controls.Add(this.label1);
@@ -616,7 +578,7 @@ namespace MrTiendita.Vistas
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmEditarEmpleado";
+            this.Name = "FrmEditarEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarEmpleado";
             this.panel1.ResumeLayout(false);
@@ -632,13 +594,11 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.PictureBox btn_Cerrar;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
         public Guna.UI2.WinForms.Guna2TextBox tb_apMaterno;
         public Guna.UI2.WinForms.Guna2TextBox tb_idEmpleado;
         private System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2TextBox tb_nombre;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         public Guna.UI2.WinForms.Guna2TextBox tb_clave;
@@ -650,7 +610,6 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2TextBox tb_apPaterno;
-        public Bunifu.Framework.UI.BunifuFlatButton btn_guardarEmpleado;
         public Guna.UI2.WinForms.Guna2CustomRadioButton rb_cajero;
         public Guna.UI2.WinForms.Guna2CustomRadioButton rb_encargado;
         public System.Windows.Forms.Label lbl_cajero;
@@ -663,5 +622,6 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Label lbl_ErrorAp;
         public System.Windows.Forms.Label lbl_ErrorNombre;
         public System.Windows.Forms.Label lbl_ErrorID;
+        private Guna.UI2.WinForms.Guna2Button btn_Aceptar;
     }
 }

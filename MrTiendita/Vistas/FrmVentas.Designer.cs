@@ -405,7 +405,7 @@ namespace MrTiendita.Vistas
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_TablaVentas.EnableHeadersVisualStyles = false;
-            this.dgv_TablaVentas.GridColor = System.Drawing.Color.White;
+            this.dgv_TablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaVentas.Location = new System.Drawing.Point(24, 201);
             this.dgv_TablaVentas.Name = "dgv_TablaVentas";
             this.dgv_TablaVentas.ReadOnly = true;
@@ -423,7 +423,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgv_TablaVentas.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgv_TablaVentas.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaVentas.ThemeStyle.GridColor = System.Drawing.Color.White;
+            this.dgv_TablaVentas.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaVentas.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.dgv_TablaVentas.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_TablaVentas.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -560,7 +560,7 @@ namespace MrTiendita.Vistas
             this.btn_Buscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_Buscar.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Buscar.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btn_Buscar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Tablero.HoverState.Image")));
+            this.btn_Buscar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Buscar.HoverState.Image")));
             this.btn_Buscar.HoverState.Parent = this.btn_Buscar;
             this.btn_Buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Buscar.Image")));
             this.btn_Buscar.ImageSize = new System.Drawing.Size(24, 24);

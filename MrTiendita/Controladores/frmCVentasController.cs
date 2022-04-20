@@ -139,7 +139,7 @@ namespace MrTiendita.Controladores
                 }
 
                 this.vista.tablaVentas.Rows[e.RowIndex].Cells["cantidad_actual"].Value = xProducto.Cantidad_actual;
-                this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value = 
+                this.vista.tablaVentas.Rows[e.RowIndex].Cells["subtotal"].Value =
                     xProducto.Cantidad_actual * xProducto.Precio_venta;
                 this.totalVenta += xProducto.Precio_venta;
             }
@@ -166,7 +166,7 @@ namespace MrTiendita.Controladores
                 this.producto = null;
                 return;
             }
-            
+
             //Se busca el producto...
             this.producto = this.productoDAO.ReadById(codigoBarra);
             if (this.producto != null)
@@ -193,7 +193,7 @@ namespace MrTiendita.Controladores
                     {ValidacionDatosOpciones.MENOR_A, 1001},
                     {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
             };
-            
+
             //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
             if (this.producto == null ||
                 !ValidacionFormulario.Validar(
@@ -243,7 +243,7 @@ namespace MrTiendita.Controladores
             {
                 //se agrega un nuevo producto a la tabla
                 this.vista.tablaVentas.Rows.Add();
-                int indexNuevoProducto = this.vista.tablaVentas.RowCount -1;
+                int indexNuevoProducto = this.vista.tablaVentas.RowCount - 1;
                 Console.WriteLine(indexNuevoProducto);
                 this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["cantidad_Actual"].Value = cantidad;
                 this.vista.tablaVentas.Rows[indexNuevoProducto].Cells["descripcion"].Value = producto.Descripcion;

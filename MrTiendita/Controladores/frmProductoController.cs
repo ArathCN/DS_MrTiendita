@@ -101,7 +101,7 @@ namespace MrTiendita.Controladores
         {
             if (this.accion == "editar")
             {
-                Producto producto =  this.productoDAO.ReadById(this.id);
+                Producto producto = this.productoDAO.ReadById(this.id);
 
                 this.vista.tb_codigo.Text = producto.Codigo_barra.ToString();
                 this.vista.tb_descripcion.Text = producto.Descripcion;
@@ -193,7 +193,7 @@ namespace MrTiendita.Controladores
             else
                 IsCompleted = Productos.Modificar(producto, this.id);
 
-            if(IsCompleted) this.vista.Close();
-        } 
+            if (IsCompleted) this.vista.Close();
+        }
     }
 }
