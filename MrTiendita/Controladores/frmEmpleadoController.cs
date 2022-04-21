@@ -10,6 +10,7 @@ using MrTiendita.Vistas;
 using MrTiendita.Componentes;
 using MrTiendita.Constantes;
 using BCrypt.Net;
+using System.Globalization;
 
 namespace MrTiendita.Controladores
 {
@@ -37,8 +38,10 @@ namespace MrTiendita.Controladores
             this.id = id;
             this.accion = accion;
             this.empleadoDAO = new EmpleadoDAO();
-            this.vista.btn_Aceptar.Click += new EventHandler(Btn_Cerrar_Click);
             this.vista.Load += new EventHandler(Vista_Load);
+            this.vista.btn_Aceptar.Click += new EventHandler(Btn_Cerrar_Click);
+            this.vista.rb_cajero.CheckedChanged += new EventHandler(rb_cajero_CheckedChanged);
+            this.vista.rb_encargado.CheckedChanged += new EventHandler(rb_encargado_CheckedChanged);
 
             this.vista.tb_idEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
@@ -149,22 +152,40 @@ namespace MrTiendita.Controladores
                 this.vista.tb_apPaterno.Text = empleado.A_paterno;
                 this.vista.tb_apMaterno.Text = empleado.A_materno;
                 this.vista.tb_telefono.Text = empleado.Telefono.ToString();
-                this.vista.tb_sueldo.Text = empleado.Sueldo.ToString();
+                
 
                 if (empleado.Tipo_empleado == TipoEmpleadoC.CAJERO)
-                {
-                    this.vista.rb_encargado.Checked = true;
-                    this.vista.rb_cajero.Checked = false;
-                }
-                else if (empleado.Tipo_empleado == TipoEmpleadoC.ENCARGADO)
                 {
                     this.vista.rb_encargado.Checked = false;
                     this.vista.rb_cajero.Checked = true;
                 }
+                else if (empleado.Tipo_empleado == TipoEmpleadoC.ENCARGADO)
+                {
+                    this.vista.rb_encargado.Checked = true;
+                    this.vista.rb_cajero.Checked = false;
+                }
+                this.vista.tb_sueldo.Text = empleado.Sueldo.ToString(new CultureInfo("es-MX"));
                 this.vista.tb_clave.Text = empleado.Clave;
                 this.vista.lbl_ErrorClave.Visible = false;
                 this.empleado = empleado;
             }
+            else
+            {
+                this.vista.tb_telefono.Text = Properties.Settings.Default.lada.ToString();
+                this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+            }
+        }
+
+        private void rb_cajero_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.vista.rb_cajero.Checked)
+            this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+        }
+
+        private void rb_encargado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.vista.rb_encargado.Checked)
+                this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoEncargados.ToString(new CultureInfo("es-MX"));
         }
 
         /// <summary> Maneja el evento Click del control Btn_Cerrar. </summary>

@@ -234,7 +234,7 @@ namespace MrTiendita.Modelos.DAO
                         {
                             while (reader.Read())
                             {
-                                new Producto(
+                                producto = new Producto(
                                     reader.GetInt64(0),
                                     reader.GetString(1),
                                     reader.GetInt32(7),

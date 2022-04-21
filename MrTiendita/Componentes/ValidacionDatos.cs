@@ -62,6 +62,17 @@ namespace MrTiendita.Componentes
             if (!ValidacionDatos.NoVacio(dato)) return false;
             if (opciones != null)
             {
+                if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_CARACTERES))
+                {
+                    if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
+                    {
+                        ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " +
+                            opciones[ValidacionDatosOpciones.NUM_CARACTERES];
+                        ValidacionDatos.esValido = true;
+                        return false;
+                    }
+                }
+
                 if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
                 {
                     if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
@@ -157,12 +168,22 @@ namespace MrTiendita.Componentes
                     return false;
                 }
             }
-
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
             {
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
+                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " +
+                        opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES))
+            {
+                if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "Número de caracteres maximo superado:" +
+                        opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -250,7 +271,7 @@ namespace MrTiendita.Componentes
         /// <param name="opciones"><see cref="Dictionary{TKey, TValue}"/>  que contiene <see cref="ValidacionDatosOpciones"/> 
         /// como llaves y los límites <see cref="Double"/> como valores.</param>
         /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
-        public static bool Numero(String dato, out double datoSalida, Dictionary<int, Double> opciones)
+        public static bool Numero(String dato, out double datoSalida, Dictionary<int, double> opciones)
         {
 
             double datoEnNumero;
@@ -266,11 +287,34 @@ namespace MrTiendita.Componentes
                 return false;
             }
 
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_CARACTERES))
+            {
+                if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " +
+                        opciones[ValidacionDatosOpciones.NUM_CARACTERES];
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
             {
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
+                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " +
+                        opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES))
+            {
+                if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "Número de caracteres maximo superado:" +
+                        opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -321,7 +365,6 @@ namespace MrTiendita.Componentes
             {
                 datoEnNumero = Math.Round(datoEnNumero, (int) opciones[ValidacionDatosOpciones.NUM_DECIMALES]);
             }
-            
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND))
             {
                 int numeroDecimales = (int)opciones[ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND];
@@ -394,17 +437,28 @@ namespace MrTiendita.Componentes
             {
                 if (dato.Length != opciones[ValidacionDatosOpciones.NUM_CARACTERES])
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres debe ser igual a " + opciones[ValidacionDatosOpciones.NUM_CARACTERES];
+                    ValidacionDatos.mensajes = "El número de caracteres debe ser igual a " +
+                        opciones[ValidacionDatosOpciones.NUM_CARACTERES];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
             }
-
             if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MINIMO_CARACTERES))
             {
                 if (dato.Length < opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES])
                 {
-                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado.";
+                    ValidacionDatos.mensajes = "Número de caracteres minimo no superado: " +
+                        opciones[ValidacionDatosOpciones.NUM_MINIMO_CARACTERES];
+                    ValidacionDatos.esValido = true;
+                    return false;
+                }
+            }
+            if (opciones.ContainsKey(ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES))
+            {
+                if (dato.Length > opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES])
+                {
+                    ValidacionDatos.mensajes = "Número de caracteres maximo superado:" +
+                        opciones[ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES];
                     ValidacionDatos.esValido = true;
                     return false;
                 }
@@ -457,5 +511,6 @@ namespace MrTiendita.Componentes
             datoSalida = datoEnNumero;
             return true;
         }
+
     }
 }
