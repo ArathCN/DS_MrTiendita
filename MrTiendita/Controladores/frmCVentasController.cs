@@ -85,9 +85,11 @@ namespace MrTiendita.Controladores
         {
             if (this.vista.cb_productos.SelectedIndex != -1)
             {
+                int cantidadInicial = 1;
                 String nombreProducto = this.vista.cb_productos.SelectedItem.ToString();
                 long idProducto = this.listaProductos[nombreProducto];
                 this.vista.tb_codigo.Text = idProducto.ToString();
+                this.vista.tb_cantidad.Text = cantidadInicial.ToString();
             }
         }
 
@@ -258,6 +260,8 @@ namespace MrTiendita.Controladores
             this.vista.tb_codigo.Text = "";
             this.vista.tb_cantidad.Text = "";
             this.vista.cb_productos.SelectedIndex = -1;
+            this.vista.lbl_ErrorCodigo.Visible = false;
+            this.vista.lbl_ErrorCantidad.Visible = false;
         }
 
         /// <summary> Maneja el evento Click del control Btn_Cancelar.</summary>

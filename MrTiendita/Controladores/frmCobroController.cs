@@ -12,6 +12,7 @@ using System.IO;
 using MrTiendita.Constantes;
 using MrTiendita.Componentes;
 using System.Drawing;
+using System.Globalization;
 
 namespace MrTiendita.Controladores
 {
@@ -71,6 +72,7 @@ namespace MrTiendita.Controladores
                 this.vista.label2.Visible = true;
                 this.vista.lbl_cambio.Visible = true;
                 this.vista.tb_efectivo.Visible = true;
+                this.vista.tb_efectivo.Text = this.totalVenta.ToString(new CultureInfo("es-MX"));
                 this.metodoEfectivo = true;
             }
             else if (this.vista.cb_metodoPago.SelectedIndex == 1)
@@ -92,7 +94,7 @@ namespace MrTiendita.Controladores
             String mensajeError = "De ser un número mayor a " + this.totalVenta + " con máximo dos decimales.";
             Dictionary<int, double> longitudCadenas = new Dictionary<int, double>()
             {
-                {ValidacionDatosOpciones.MAYOR_A, this.totalVenta},
+                {ValidacionDatosOpciones.MAYOR_IGUAL_A, this.totalVenta},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
             };
 
@@ -112,7 +114,7 @@ namespace MrTiendita.Controladores
             }
 
             this.vista.btn_aceptar.Enabled = true;
-            this.vista.lbl_cambio.Text = "$" + (this.efectivo - this.totalVenta);
+            this.vista.lbl_cambio.Text = "$" + Math.Round(this.efectivo - this.totalVenta, 2);
         }
 
         /// <summary>Maneja el evento Click del control Btn_accept.</summary>

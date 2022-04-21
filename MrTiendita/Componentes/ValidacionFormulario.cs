@@ -31,7 +31,7 @@ namespace MrTiendita.Componentes
             bool EsValido = false;
             if (opciones != null)
                 if (!ValidacionDatos.Numero(dato, out datoSalida, opciones)) {
-                    etiqueta.Text = mensaje;
+                    etiqueta.Text = ValidacionDatos.mensajes;
                     etiqueta.Visible = true;
                 }
                 else
@@ -43,7 +43,7 @@ namespace MrTiendita.Componentes
             else
                 if (!ValidacionDatos.Numero(dato, out datoSalida))
                 {
-                    etiqueta.Text = mensaje;
+                    etiqueta.Text = ValidacionDatos.mensajes;
                     etiqueta.Visible = true;
                 }
                 else {
@@ -76,7 +76,7 @@ namespace MrTiendita.Componentes
             if (opciones != null)
                 if (!ValidacionDatos.Numero(dato, out datoSalida, opciones))
                 {
-                    etiqueta.Text = mensaje;
+                    etiqueta.Text = ValidacionDatos.mensajes;
                     etiqueta.Visible = true;
                 }
                 else
@@ -88,7 +88,7 @@ namespace MrTiendita.Componentes
             else
                 if (!ValidacionDatos.Numero(dato, out datoSalida))
             {
-                etiqueta.Text = mensaje;
+                etiqueta.Text = ValidacionDatos.mensajes;
                 etiqueta.Visible = true;
             }
             else
@@ -112,7 +112,7 @@ namespace MrTiendita.Componentes
             if (opciones != null)
                 if (!ValidacionDatos.Numero(dato, out datoSalida, opciones))
                 {
-                    etiqueta.Text = mensaje;
+                    etiqueta.Text = ValidacionDatos.mensajes;
                     etiqueta.Visible = true;
                 }
                 else
@@ -124,7 +124,7 @@ namespace MrTiendita.Componentes
             else
                 if (!ValidacionDatos.Numero(dato, out datoSalida))
             {
-                etiqueta.Text = mensaje;
+                etiqueta.Text = ValidacionDatos.mensajes;
                 etiqueta.Visible = true;
             }
             else
@@ -158,7 +158,7 @@ namespace MrTiendita.Componentes
             if (patron == null) patron = "";
             if (!ValidacionDatos.Cadena(dato, opciones, patron))
             {
-                etiqueta.Text = mensaje;
+                etiqueta.Text = ValidacionDatos.mensajes;
                 etiqueta.Visible = true;
             }
             else
