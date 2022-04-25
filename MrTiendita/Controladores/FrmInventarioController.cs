@@ -5,8 +5,6 @@ using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
 using MrTiendita.Vistas;
-using MrTiendita.Vistas.Secciones_Inventario;
-using MrTiendita.Vistas.Secciones;
 using MrTiendita.Constantes;
 using MrTiendita.Componentes;
 using Guna.UI2.WinForms;

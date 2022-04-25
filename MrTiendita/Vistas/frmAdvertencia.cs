@@ -19,12 +19,12 @@ namespace MrTiendita.Vistas
             lbl_Mensaje.Text = mensaje;
         }
 
-        private void Btn_Si_Click(object sender, EventArgs e)
+        private void btn_Si_Click_1(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
 
-        private void Btn_No_Click(object sender, EventArgs e)
+        private void btn_No_Click_1(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }

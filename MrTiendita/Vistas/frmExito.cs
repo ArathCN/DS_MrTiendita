@@ -30,7 +30,7 @@ namespace MrTiendita.Vistas
             frm.ShowDialog();
         }
 
-        private void btn_Aceptar_Click(object sender, EventArgs e)
+        private void btn_Aceptar_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

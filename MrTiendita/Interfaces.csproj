@@ -275,18 +275,6 @@
     <Compile Include="Vistas\Notificacion.Designer.cs">
       <DependentUpon>Notificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Secciones\FrmConsultarProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Secciones\FrmConsultarProductos.Designer.cs">
-      <DependentUpon>FrmConsultarProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Secciones\FrmNuevaEntrada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Secciones\FrmNuevaEntrada.Designer.cs">
-      <DependentUpon>FrmNuevaEntrada.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -373,12 +361,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Notificacion.resx">
       <DependentUpon>Notificacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Secciones\FrmConsultarProductos.resx">
-      <DependentUpon>FrmConsultarProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Secciones\FrmNuevaEntrada.resx">
-      <DependentUpon>FrmNuevaEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
