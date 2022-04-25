@@ -14,36 +14,50 @@ namespace MrTiendita.Vistas
     {
         public FrmBuscarProducto()
         {
-            //InitializeComponent();
-            //dgv_TablaVentas.AllowUserToAddRows = false;
-            //dgv_TablaVentas.CurrentCell = null;
-            //int indexNuevoProducto;
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    dgv_TablaVentas.Rows.Add();
-            //    indexNuevoProducto = dgv_TablaVentas.RowCount - 1;
-            //    Console.WriteLine(indexNuevoProducto);
-            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Cantidad"].Value = "2";
-            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = "Leche Lala Deslactosada 1L";
-            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Precio"].Value = "$25.99";
-            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Subtotal"].Value = "$62.00";
-            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Codigo"].Value = "123456789012";
-            //}
-            //dgv_TablaVentas.AllowUserToResizeColumns = false;
-            //AjustarColumnas();
+            InitializeComponent();
+            sombra.SetShadowForm(this);
+            dgv_TablaProductos.AllowUserToAddRows = false;
+            dgv_TablaProductos.CurrentCell = null;
+            int indexNuevoProducto;
+            for (int i = 0; i < 3; i++)
+            {
+                dgv_TablaProductos.Rows.Add();
+                indexNuevoProducto = dgv_TablaProductos.RowCount - 1;
+                Console.WriteLine(indexNuevoProducto);
+                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Nombre"].Value = "Leche Lala Deslactosada 1L";
+                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Categoria"].Value = "Higiene personal y salud";
+                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Precio"].Value = "$27.80";
+                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_CantidadAgregar"].Value = "1";
+            }
+            dgv_TablaProductos.AllowUserToResizeColumns = false;
+            PermitirCantidad();
+            AjustarColumnas();
         }
 
         public void AjustarColumnas()
         {
-            //dgv_TablaVentas.Columns[0].Width = 30;//Restar
-            //dgv_TablaVentas.Columns[1].Width = 50;//Cantidad
-            //dgv_TablaVentas.Columns[2].Width = 30;//Sumar
-            //dgv_TablaVentas.Columns[3].Width = 300;//Descripcion
-            //dgv_TablaVentas.Columns[4].Width = 80;//Precio
-            //col_Cantidad.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgv_TablaVentas.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgv_TablaVentas.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //dgv_TablaVentas.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgv_TablaProductos.Columns[0].Width = 60;//Nombre
+            dgv_TablaProductos.Columns[1].Width = 50;//Categoria
+            dgv_TablaProductos.Columns[2].Width = 20;//Precio
+            dgv_TablaProductos.Columns[3].Width = 35;//Cantidad a agregar
+            dgv_TablaProductos.Columns[4].Width = 60;//Icono agregar al carrito
+            col_CantidadAgregar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            col_AgregarCarrito.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_TablaProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_TablaProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        public void PermitirCantidad()
+        {
+            for (int i = 0; i < dgv_TablaProductos.Rows.Count - 1; i++)
+            {
+                dgv_TablaProductos.Rows[i].Cells["col_CantidadAgregar"].ReadOnly = false;
+            }
+        }
+
+        private void btn_Cerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

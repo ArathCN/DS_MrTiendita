@@ -45,5 +45,11 @@ namespace MrTiendita.Vistas
             dgv_TablaVentas.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgv_TablaVentas.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarProducto frmBuscarProducto = new FrmBuscarProducto();
+            frmBuscarProducto.Show();
+        }
     }
 }

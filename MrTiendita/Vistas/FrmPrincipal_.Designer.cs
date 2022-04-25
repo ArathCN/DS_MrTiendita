@@ -29,6 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal_));
             this.pnl_Superior = new System.Windows.Forms.Panel();
             this.btn_Maximizar = new System.Windows.Forms.PictureBox();
@@ -49,6 +50,7 @@ namespace MrTiendita.Vistas
             this.btn_Tablero = new Guna.UI2.WinForms.Guna2Button();
             this.pb_Linea = new System.Windows.Forms.PictureBox();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).BeginInit();
@@ -403,6 +405,10 @@ namespace MrTiendita.Vistas
             this.pnl_Contenedor.Size = new System.Drawing.Size(1195, 839);
             this.pnl_Contenedor.TabIndex = 2;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.pnl_Superior;
+            // 
             // FrmPrincipal_
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -450,5 +456,6 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.PictureBox btn_Maximizar;
         public System.Windows.Forms.PictureBox btn_Minimizar;
         public System.Windows.Forms.PictureBox btn_Cerrar;
+        public Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

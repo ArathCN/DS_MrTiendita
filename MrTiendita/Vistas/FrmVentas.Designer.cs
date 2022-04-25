@@ -572,6 +572,7 @@ namespace MrTiendita.Vistas
             this.btn_Buscar.TabIndex = 10;
             this.btn_Buscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Buscar.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // lbl_CodigoBarras
             // 
