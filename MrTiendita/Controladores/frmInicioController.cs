@@ -16,7 +16,7 @@ namespace MrTiendita.Controladores
     class FrmInicioController
     {
         private readonly FrmInicio vista;
-        private readonly FrmPrincipal principal;
+        private readonly FrmPrincipal_ principal;
         private readonly EmpleadoDAO empleadoDAO;
         public bool esCerradoInicio = false;
         readonly InicioSesion_Proxy.ITipoEmpleado conexion = new InicioSesion_Proxy.Sesion();
@@ -24,7 +24,7 @@ namespace MrTiendita.Controladores
         public FrmInicioController(FrmInicio vista)
         {
             this.vista = vista;
-            this.principal = new FrmPrincipal();
+            this.principal = new FrmPrincipal_();
             this.empleadoDAO = new EmpleadoDAO();
             this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
             this.vista.btn_Cerrar.Click += new EventHandler(Btn_Cerrar_Click);
@@ -133,9 +133,7 @@ namespace MrTiendita.Controladores
                 e.Cancel = true;
                 this.vista.Hide();
             }
-                
         }
-
     }
     
 }
