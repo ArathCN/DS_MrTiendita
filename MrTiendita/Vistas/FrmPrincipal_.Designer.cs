@@ -77,6 +77,7 @@ namespace MrTiendita.Vistas
             // 
             // btn_Maximizar
             // 
+            this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
             this.btn_Maximizar.Location = new System.Drawing.Point(1326, 14);
@@ -85,9 +86,11 @@ namespace MrTiendita.Vistas
             this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Maximizar.TabIndex = 4;
             this.btn_Maximizar.TabStop = false;
+            this.btn_Maximizar.Click += new System.EventHandler(this.btn_Maximizar_Click);
             // 
             // btn_Minimizar
             // 
+            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizar.Image")));
             this.btn_Minimizar.Location = new System.Drawing.Point(1296, 14);
@@ -96,9 +99,11 @@ namespace MrTiendita.Vistas
             this.btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Minimizar.TabIndex = 3;
             this.btn_Minimizar.TabStop = false;
+            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
             // 
             // btn_Cerrar
             // 
+            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.Location = new System.Drawing.Point(1356, 14);
@@ -151,6 +156,7 @@ namespace MrTiendita.Vistas
             // 
             // btn_CerrarSesion
             // 
+            this.btn_CerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_CerrarSesion.BorderRadius = 5;
             this.btn_CerrarSesion.CheckedState.Parent = this.btn_CerrarSesion;
             this.btn_CerrarSesion.CustomImages.Parent = this.btn_CerrarSesion;
@@ -200,6 +206,7 @@ namespace MrTiendita.Vistas
             // 
             // btn_Configuracion
             // 
+            this.btn_Configuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Configuracion.BorderRadius = 5;
             this.btn_Configuracion.CheckedState.Parent = this.btn_Configuracion;
             this.btn_Configuracion.CustomImages.Parent = this.btn_Configuracion;

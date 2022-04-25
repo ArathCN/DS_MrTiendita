@@ -17,6 +17,7 @@ namespace MrTiendita.Vistas
         public FrmPrincipal_()
         {
             InitializeComponent();
+            AbrirFormulario(new FrmTablero());
         }
 
         private void AbrirFormulario(Form FormHijo)
@@ -94,6 +95,19 @@ namespace MrTiendita.Vistas
                 this.Hide();
                 AbrirFormulario(new FrmTablero());
             }
+        }
+
+        private void btn_Maximizar_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btn_Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

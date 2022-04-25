@@ -16,6 +16,7 @@ namespace MrTiendita.Vistas
         public FrmInicio()
         {
             InitializeComponent();
+            sombra.SetShadowForm(this);
             FrmInicioController controlador = new FrmInicioController(this);
         }
     }
