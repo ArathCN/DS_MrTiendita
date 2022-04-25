@@ -325,7 +325,7 @@ namespace MrTiendita.Vistas
             this.lbl_Atajos.BackColor = System.Drawing.Color.White;
             this.lbl_Atajos.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Atajos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Atajos.Location = new System.Drawing.Point(18, 33);
+            this.lbl_Atajos.Location = new System.Drawing.Point(20, 33);
             this.lbl_Atajos.Name = "lbl_Atajos";
             this.lbl_Atajos.Size = new System.Drawing.Size(85, 32);
             this.lbl_Atajos.TabIndex = 2;
@@ -616,7 +616,7 @@ namespace MrTiendita.Vistas
             this.lbl_Notificaciones.BackColor = System.Drawing.Color.White;
             this.lbl_Notificaciones.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Notificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Notificaciones.Location = new System.Drawing.Point(18, 33);
+            this.lbl_Notificaciones.Location = new System.Drawing.Point(20, 33);
             this.lbl_Notificaciones.Name = "lbl_Notificaciones";
             this.lbl_Notificaciones.Size = new System.Drawing.Size(223, 32);
             this.lbl_Notificaciones.TabIndex = 4;

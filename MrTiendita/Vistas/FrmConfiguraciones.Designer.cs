@@ -31,6 +31,14 @@ namespace MrTiendita.Vistas
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguraciones));
             this.pnl_Configuracion = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_ErrorGanancia = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.lbl_Ganancia = new System.Windows.Forms.Label();
+            this.tb_Ganancia = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_ErrorCantidadMin = new System.Windows.Forms.Label();
+            this.lbl_errorSueldoCajeros = new System.Windows.Forms.Label();
             this.lbl_CantidadMinima = new System.Windows.Forms.Label();
             this.lbl_ProductoAgotado = new System.Windows.Forms.Label();
             this.check_CantidadMinima = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -52,14 +60,6 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.lbl_Descripcion = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.lbl_errorSueldoCajeros = new System.Windows.Forms.Label();
-            this.lbl_ErrorCantidadMin = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_ErrorGanancia = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.lbl_Ganancia = new System.Windows.Forms.Label();
-            this.tb_Ganancia = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnl_Configuracion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +105,121 @@ namespace MrTiendita.Vistas
             this.pnl_Configuracion.ShadowDecoration.Parent = this.pnl_Configuracion;
             this.pnl_Configuracion.Size = new System.Drawing.Size(1171, 815);
             this.pnl_Configuracion.TabIndex = 0;
+            // 
+            // lbl_ErrorGanancia
+            // 
+            this.lbl_ErrorGanancia.AutoSize = true;
+            this.lbl_ErrorGanancia.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ErrorGanancia.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorGanancia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorGanancia.Location = new System.Drawing.Point(59, 735);
+            this.lbl_ErrorGanancia.Name = "lbl_ErrorGanancia";
+            this.lbl_ErrorGanancia.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorGanancia.TabIndex = 69;
+            this.lbl_ErrorGanancia.Text = "* Error";
+            this.lbl_ErrorGanancia.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(57, 618);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(546, 25);
+            this.label3.TabIndex = 68;
+            this.label3.Text = "Establecer un porcentaje de ganancia para todos los productos.";
+            // 
+            // bunifuCheckbox1
+            // 
+            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.bunifuCheckbox1.Checked = false;
+            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.bunifuCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
+            this.bunifuCheckbox1.Location = new System.Drawing.Point(29, 618);
+            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
+            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
+            this.bunifuCheckbox1.TabIndex = 67;
+            // 
+            // lbl_Ganancia
+            // 
+            this.lbl_Ganancia.AutoSize = true;
+            this.lbl_Ganancia.BackColor = System.Drawing.Color.White;
+            this.lbl_Ganancia.Location = new System.Drawing.Point(59, 656);
+            this.lbl_Ganancia.Name = "lbl_Ganancia";
+            this.lbl_Ganancia.Size = new System.Drawing.Size(189, 23);
+            this.lbl_Ganancia.TabIndex = 66;
+            this.lbl_Ganancia.Text = "Porcentaje de ganancia";
+            // 
+            // tb_Ganancia
+            // 
+            this.tb_Ganancia.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.tb_Ganancia.BorderRadius = 5;
+            this.tb_Ganancia.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_Ganancia.DefaultText = "";
+            this.tb_Ganancia.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_Ganancia.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_Ganancia.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Ganancia.DisabledState.Parent = this.tb_Ganancia;
+            this.tb_Ganancia.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_Ganancia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Ganancia.FocusedState.Parent = this.tb_Ganancia;
+            this.tb_Ganancia.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Ganancia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_Ganancia.HoverState.Parent = this.tb_Ganancia;
+            this.tb_Ganancia.IconRight = ((System.Drawing.Image)(resources.GetObject("tb_Ganancia.IconRight")));
+            this.tb_Ganancia.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tb_Ganancia.IconRightSize = new System.Drawing.Size(12, 12);
+            this.tb_Ganancia.Location = new System.Drawing.Point(62, 685);
+            this.tb_Ganancia.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_Ganancia.Name = "tb_Ganancia";
+            this.tb_Ganancia.PasswordChar = '\0';
+            this.tb_Ganancia.PlaceholderText = "";
+            this.tb_Ganancia.SelectedText = "";
+            this.tb_Ganancia.ShadowDecoration.Parent = this.tb_Ganancia;
+            this.tb_Ganancia.Size = new System.Drawing.Size(180, 44);
+            this.tb_Ganancia.TabIndex = 65;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.label1.Location = new System.Drawing.Point(20, 582);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(470, 25);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "Ganancia predeterminada para todos los productos";
+            // 
+            // lbl_ErrorCantidadMin
+            // 
+            this.lbl_ErrorCantidadMin.AutoSize = true;
+            this.lbl_ErrorCantidadMin.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ErrorCantidadMin.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorCantidadMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorCantidadMin.Location = new System.Drawing.Point(59, 536);
+            this.lbl_ErrorCantidadMin.Name = "lbl_ErrorCantidadMin";
+            this.lbl_ErrorCantidadMin.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorCantidadMin.TabIndex = 63;
+            this.lbl_ErrorCantidadMin.Text = "* Error";
+            this.lbl_ErrorCantidadMin.Visible = false;
+            // 
+            // lbl_errorSueldoCajeros
+            // 
+            this.lbl_errorSueldoCajeros.AutoSize = true;
+            this.lbl_errorSueldoCajeros.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_errorSueldoCajeros.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_errorSueldoCajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_errorSueldoCajeros.Location = new System.Drawing.Point(25, 320);
+            this.lbl_errorSueldoCajeros.Name = "lbl_errorSueldoCajeros";
+            this.lbl_errorSueldoCajeros.Size = new System.Drawing.Size(49, 19);
+            this.lbl_errorSueldoCajeros.TabIndex = 62;
+            this.lbl_errorSueldoCajeros.Text = "* Error";
+            this.lbl_errorSueldoCajeros.Visible = false;
             // 
             // lbl_CantidadMinima
             // 
@@ -402,7 +517,7 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.BackColor = System.Drawing.Color.White;
             this.lbl_Titulo.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(19, 33);
+            this.lbl_Titulo.Location = new System.Drawing.Point(20, 33);
             this.lbl_Titulo.Name = "lbl_Titulo";
             this.lbl_Titulo.Size = new System.Drawing.Size(178, 32);
             this.lbl_Titulo.TabIndex = 0;
@@ -417,121 +532,6 @@ namespace MrTiendita.Vistas
             this.lbl_Descripcion.Size = new System.Drawing.Size(334, 23);
             this.lbl_Descripcion.TabIndex = 1;
             this.lbl_Descripcion.Text = "Personaliza las características de tu tienda.";
-            // 
-            // lbl_errorSueldoCajeros
-            // 
-            this.lbl_errorSueldoCajeros.AutoSize = true;
-            this.lbl_errorSueldoCajeros.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_errorSueldoCajeros.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_errorSueldoCajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_errorSueldoCajeros.Location = new System.Drawing.Point(25, 320);
-            this.lbl_errorSueldoCajeros.Name = "lbl_errorSueldoCajeros";
-            this.lbl_errorSueldoCajeros.Size = new System.Drawing.Size(49, 19);
-            this.lbl_errorSueldoCajeros.TabIndex = 62;
-            this.lbl_errorSueldoCajeros.Text = "* Error";
-            this.lbl_errorSueldoCajeros.Visible = false;
-            // 
-            // lbl_ErrorCantidadMin
-            // 
-            this.lbl_ErrorCantidadMin.AutoSize = true;
-            this.lbl_ErrorCantidadMin.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ErrorCantidadMin.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ErrorCantidadMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorCantidadMin.Location = new System.Drawing.Point(59, 536);
-            this.lbl_ErrorCantidadMin.Name = "lbl_ErrorCantidadMin";
-            this.lbl_ErrorCantidadMin.Size = new System.Drawing.Size(49, 19);
-            this.lbl_ErrorCantidadMin.TabIndex = 63;
-            this.lbl_ErrorCantidadMin.Text = "* Error";
-            this.lbl_ErrorCantidadMin.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(20, 582);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(470, 25);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Ganancia predeterminada para todos los productos";
-            // 
-            // lbl_ErrorGanancia
-            // 
-            this.lbl_ErrorGanancia.AutoSize = true;
-            this.lbl_ErrorGanancia.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ErrorGanancia.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ErrorGanancia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorGanancia.Location = new System.Drawing.Point(59, 735);
-            this.lbl_ErrorGanancia.Name = "lbl_ErrorGanancia";
-            this.lbl_ErrorGanancia.Size = new System.Drawing.Size(49, 19);
-            this.lbl_ErrorGanancia.TabIndex = 69;
-            this.lbl_ErrorGanancia.Text = "* Error";
-            this.lbl_ErrorGanancia.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 618);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(546, 25);
-            this.label3.TabIndex = 68;
-            this.label3.Text = "Establecer un porcentaje de ganancia para todos los productos.";
-            // 
-            // bunifuCheckbox1
-            // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = false;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.bunifuCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(29, 618);
-            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 67;
-            // 
-            // lbl_Ganancia
-            // 
-            this.lbl_Ganancia.AutoSize = true;
-            this.lbl_Ganancia.BackColor = System.Drawing.Color.White;
-            this.lbl_Ganancia.Location = new System.Drawing.Point(59, 656);
-            this.lbl_Ganancia.Name = "lbl_Ganancia";
-            this.lbl_Ganancia.Size = new System.Drawing.Size(189, 23);
-            this.lbl_Ganancia.TabIndex = 66;
-            this.lbl_Ganancia.Text = "Porcentaje de ganancia";
-            // 
-            // tb_Ganancia
-            // 
-            this.tb_Ganancia.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.tb_Ganancia.BorderRadius = 5;
-            this.tb_Ganancia.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_Ganancia.DefaultText = "";
-            this.tb_Ganancia.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_Ganancia.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_Ganancia.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_Ganancia.DisabledState.Parent = this.tb_Ganancia;
-            this.tb_Ganancia.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_Ganancia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_Ganancia.FocusedState.Parent = this.tb_Ganancia;
-            this.tb_Ganancia.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Ganancia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_Ganancia.HoverState.Parent = this.tb_Ganancia;
-            this.tb_Ganancia.IconRight = ((System.Drawing.Image)(resources.GetObject("tb_Ganancia.IconRight")));
-            this.tb_Ganancia.IconRightOffset = new System.Drawing.Point(5, 0);
-            this.tb_Ganancia.IconRightSize = new System.Drawing.Size(16, 16);
-            this.tb_Ganancia.Location = new System.Drawing.Point(62, 685);
-            this.tb_Ganancia.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.tb_Ganancia.Name = "tb_Ganancia";
-            this.tb_Ganancia.PasswordChar = '\0';
-            this.tb_Ganancia.PlaceholderText = "";
-            this.tb_Ganancia.SelectedText = "";
-            this.tb_Ganancia.ShadowDecoration.Parent = this.tb_Ganancia;
-            this.tb_Ganancia.Size = new System.Drawing.Size(180, 44);
-            this.tb_Ganancia.TabIndex = 65;
             // 
             // FrmConfiguraciones
             // 

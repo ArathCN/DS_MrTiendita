@@ -94,7 +94,7 @@ namespace MrTiendita.Vistas
             this.panel2.Controls.Add(this.lbl_NombreProducto);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(740, 90);
+            this.panel2.Size = new System.Drawing.Size(828, 90);
             this.panel2.TabIndex = 9;
             // 
             // Notificacion
@@ -105,7 +105,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.panel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Notificacion";
-            this.Size = new System.Drawing.Size(740, 87);
+            this.Size = new System.Drawing.Size(828, 87);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

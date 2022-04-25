@@ -109,5 +109,10 @@ namespace MrTiendita.Vistas
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btn_Inventario_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmInventario());
+        }
     }
 }

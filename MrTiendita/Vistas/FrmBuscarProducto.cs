@@ -30,7 +30,6 @@ namespace MrTiendita.Vistas
                 dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_CantidadAgregar"].Value = "1";
             }
             dgv_TablaProductos.AllowUserToResizeColumns = false;
-            PermitirCantidad();
             AjustarColumnas();
         }
 
@@ -45,14 +44,6 @@ namespace MrTiendita.Vistas
             col_AgregarCarrito.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        }
-
-        public void PermitirCantidad()
-        {
-            for (int i = 0; i < dgv_TablaProductos.Rows.Count - 1; i++)
-            {
-                dgv_TablaProductos.Rows[i].Cells["col_CantidadAgregar"].ReadOnly = false;
-            }
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

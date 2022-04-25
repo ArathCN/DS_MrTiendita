@@ -203,6 +203,7 @@ namespace MrTiendita.Vistas
             this.btn_Inventario.Text = "Inventario";
             this.btn_Inventario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Inventario.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Inventario.Click += new System.EventHandler(this.btn_Inventario_Click);
             // 
             // btn_Configuracion
             // 

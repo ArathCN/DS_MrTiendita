@@ -91,6 +91,7 @@
     <Compile Include="Controladores\FrmEmpleadoController.cs" />
     <Compile Include="Controladores\FrmEProveedorController.cs" />
     <Compile Include="Controladores\FrmInicioController.cs" />
+    <Compile Include="Controladores\FrmInventarioController.cs" />
     <Compile Include="Controladores\FrmPrincipalController.cs" />
     <Compile Include="Controladores\FrmProductoController.cs" />
     <Compile Include="Controladores\FrmProveedorController.cs" />
@@ -202,6 +203,12 @@
     <Compile Include="Vistas\FrmExito.Designer.cs">
       <DependentUpon>FrmExito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\FrmInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmInventario.Designer.cs">
+      <DependentUpon>FrmInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +275,18 @@
     <Compile Include="Vistas\Notificacion.Designer.cs">
       <DependentUpon>Notificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Secciones\FrmConsultarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Secciones\FrmConsultarProductos.Designer.cs">
+      <DependentUpon>FrmConsultarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Secciones\FrmNuevaEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Secciones\FrmNuevaEntrada.Designer.cs">
+      <DependentUpon>FrmNuevaEntrada.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -319,6 +338,9 @@
     <EmbeddedResource Include="Vistas\FrmExito.resx">
       <DependentUpon>FrmExito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FrmInventario.resx">
+      <DependentUpon>FrmInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Notificacion.resx">
       <DependentUpon>Notificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Secciones\FrmConsultarProductos.resx">
+      <DependentUpon>FrmConsultarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Secciones\FrmNuevaEntrada.resx">
+      <DependentUpon>FrmNuevaEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
