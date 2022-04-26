@@ -24,8 +24,8 @@ namespace MrTiendita.Vistas
             {
                 Notificacion notificacion = new Notificacion();
                 notificacion.NombreProducto = "Leche Lala Deslactosada 1L";
-                notificacion.Dock = DockStyle.Top;
                 Contenedor.Controls.Add(notificacion);
+                notificacion.Dock = DockStyle.Top;
             }
         }
 

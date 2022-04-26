@@ -19,7 +19,7 @@ namespace MrTiendita.Vistas
             lbl_Mensaje.Text = mensaje;
         }
 
-        private void btn_No_Click(object sender, EventArgs e)
+        private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }

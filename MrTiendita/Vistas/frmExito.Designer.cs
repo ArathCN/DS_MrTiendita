@@ -33,11 +33,11 @@ namespace MrTiendita.Vistas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExito));
             this.lbl_Mensaje = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_Aceptar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.borde = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.btn_Aceptar = new Guna.UI2.WinForms.Guna2Button();
+            this.DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,48 +65,11 @@ namespace MrTiendita.Vistas
             this.label1.Text = "La tarea se ha completado exitosamente.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_Aceptar
-            // 
-            this.btn_Aceptar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(192)))), ((int)(((byte)(39)))));
-            this.btn_Aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_Aceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Aceptar.BorderRadius = 4;
-            this.btn_Aceptar.ButtonText = "Aceptar";
-            this.btn_Aceptar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Aceptar.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_Aceptar.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Aceptar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_Aceptar.Iconimage = null;
-            this.btn_Aceptar.Iconimage_right = null;
-            this.btn_Aceptar.Iconimage_right_Selected = null;
-            this.btn_Aceptar.Iconimage_Selected = null;
-            this.btn_Aceptar.IconMarginLeft = 0;
-            this.btn_Aceptar.IconMarginRight = 0;
-            this.btn_Aceptar.IconRightVisible = true;
-            this.btn_Aceptar.IconRightZoom = 0D;
-            this.btn_Aceptar.IconVisible = true;
-            this.btn_Aceptar.IconZoom = 90D;
-            this.btn_Aceptar.IsTab = false;
-            this.btn_Aceptar.Location = new System.Drawing.Point(101, 318);
-            this.btn_Aceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_Aceptar.Name = "btn_Aceptar";
-            this.btn_Aceptar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
-            this.btn_Aceptar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(192)))), ((int)(((byte)(39)))));
-            this.btn_Aceptar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_Aceptar.selected = false;
-            this.btn_Aceptar.Size = new System.Drawing.Size(130, 33);
-            this.btn_Aceptar.TabIndex = 3;
-            this.btn_Aceptar.Text = "Aceptar";
-            this.btn_Aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_Aceptar.Textcolor = System.Drawing.Color.White;
-            this.btn_Aceptar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(113, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(115, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(102, 90);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -115,32 +78,48 @@ namespace MrTiendita.Vistas
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(211)))), ((int)(((byte)(17)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(335, 160);
             this.panel1.TabIndex = 11;
             // 
-            // borde
+            // btn_Aceptar
             // 
-            this.borde.BorderRadius = 10;
-            this.borde.TargetControl = this;
+            this.btn_Aceptar.BorderRadius = 5;
+            this.btn_Aceptar.CheckedState.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.CustomImages.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_Aceptar.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Aceptar.ForeColor = System.Drawing.Color.White;
+            this.btn_Aceptar.HoverState.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.Location = new System.Drawing.Point(102, 336);
+            this.btn_Aceptar.Name = "btn_Aceptar";
+            this.btn_Aceptar.ShadowDecoration.Parent = this.btn_Aceptar;
+            this.btn_Aceptar.Size = new System.Drawing.Size(126, 40);
+            this.btn_Aceptar.TabIndex = 31;
+            this.btn_Aceptar.Text = "Aceptar";
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click_1);
             // 
-            // frmExito
+            // DragControl
+            // 
+            this.DragControl.TargetControl = this.panel1;
+            // 
+            // FrmExito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(335, 403);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Aceptar);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Mensaje);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmExito";
+            this.Name = "FrmExito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmExito";
             this.Load += new System.EventHandler(this.frmExito_Load);
@@ -151,11 +130,11 @@ namespace MrTiendita.Vistas
 
         #endregion
         private System.Windows.Forms.Label lbl_Mensaje;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_Aceptar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2Elipse borde;
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
+        private Guna.UI2.WinForms.Guna2Button btn_Aceptar;
+        private Guna.UI2.WinForms.Guna2DragControl DragControl;
     }
 }

@@ -26,7 +26,7 @@ namespace MrTiendita.Patrones
             /// </summary>
             /// <param name="pOpcion"><see cref="string"/> que indica la opción deseada.</param>
             /// <param name="frmPrincipal">Ventana principal del sistema</param>
-            void Peticion(string pOpcion, FrmPrincipal frmPrincipal);
+            void Peticion(string pOpcion, FrmPrincipal_ frmPrincipal);
             /// <summary>
             /// Cierra el formulario <see cref="FrmInicio"./>
             /// </summary>
@@ -50,7 +50,7 @@ namespace MrTiendita.Patrones
             /// </summary>
             /// <param name="pOpcion"><see cref="string"/>que indica la opción deseada.</param>
             /// <param name="frmPrincipal">Ventana principal del sistema</param>
-            public void Peticion(string pOpcion, FrmPrincipal frmPrincipal)
+            public void Peticion(string pOpcion, FrmPrincipal_ frmPrincipal)
             {
                 if (pOpcion == TipoEmpleadoC.ENCARGADO) //Encargado == "Cajero"
                 {
@@ -85,33 +85,35 @@ namespace MrTiendita.Patrones
             /// <summary>
             /// Vista de la ventana principal.
             /// </summary>
-            private FrmPrincipal vista;
+            private FrmPrincipal_ vista;
             /// <summary>
             /// Muestra las opciones de la ventana principal de un encargado.
             /// </summary>
             /// <param name="frmPrincipal">Ventana principal del sistema</param>
-            public void Encargado(FrmPrincipal frmPrincipal)
+            public void Encargado(FrmPrincipal_ frmPrincipal)
             {
                 this.vista = frmPrincipal;
+                this.vista.btn_Empleados.Visible = true;
+                this.vista.btn_Proveedores.Visible = true;
+                this.vista.btn_Reportes.Visible = true;
+                this.vista.btn_Configuracion.Visible = true;
                 this.vista.Show();
-                this.vista.pnl_Cajero.Visible = true;
-                this.vista.pnl_OpCajero.Visible = false;
-                this.vista.pnl_Encargado.Visible = true;
-                this.vista.pnl_OpEncargado.Visible = false;
+                
             }
 
             /// <summary>
             /// Muestra las opciones de la ventana principal de un cajero.
             /// </summary>
             /// <param name="frmPrincipal">Ventana principal del sistema</param>
-            public void Cajero(FrmPrincipal frmPrincipal)
+            public void Cajero(FrmPrincipal_ frmPrincipal)
             {
                 this.vista = frmPrincipal;
+                this.vista.btn_Empleados.Visible = false;
+                this.vista.btn_Proveedores.Visible = false;
+                this.vista.btn_Reportes.Visible = false;
+                this.vista.btn_Configuracion.Visible = false;
                 this.vista.Show();
-                this.vista.pnl_Cajero.Visible = false;
-                this.vista.pnl_OpCajero.Visible = true;
-                this.vista.pnl_Encargado.Visible = false;
-                this.vista.pnl_OpEncargado.Visible = false;
+
             }
         }
     }

@@ -29,6 +29,7 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal_));
             this.pnl_Superior = new System.Windows.Forms.Panel();
             this.btn_Maximizar = new System.Windows.Forms.PictureBox();
@@ -49,6 +50,7 @@ namespace MrTiendita.Vistas
             this.btn_Tablero = new Guna.UI2.WinForms.Guna2Button();
             this.pb_Linea = new System.Windows.Forms.PictureBox();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).BeginInit();
@@ -75,6 +77,7 @@ namespace MrTiendita.Vistas
             // 
             // btn_Maximizar
             // 
+            this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
             this.btn_Maximizar.Location = new System.Drawing.Point(1326, 14);
@@ -83,9 +86,11 @@ namespace MrTiendita.Vistas
             this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Maximizar.TabIndex = 4;
             this.btn_Maximizar.TabStop = false;
+            this.btn_Maximizar.Click += new System.EventHandler(this.btn_Maximizar_Click);
             // 
             // btn_Minimizar
             // 
+            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizar.Image")));
             this.btn_Minimizar.Location = new System.Drawing.Point(1296, 14);
@@ -94,9 +99,11 @@ namespace MrTiendita.Vistas
             this.btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Minimizar.TabIndex = 3;
             this.btn_Minimizar.TabStop = false;
+            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
             // 
             // btn_Cerrar
             // 
+            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.Location = new System.Drawing.Point(1356, 14);
@@ -105,6 +112,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Cerrar.TabIndex = 2;
             this.btn_Cerrar.TabStop = false;
+            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
             // lbl_MARSS
             // 
@@ -148,6 +156,7 @@ namespace MrTiendita.Vistas
             // 
             // btn_CerrarSesion
             // 
+            this.btn_CerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_CerrarSesion.BorderRadius = 5;
             this.btn_CerrarSesion.CheckedState.Parent = this.btn_CerrarSesion;
             this.btn_CerrarSesion.CustomImages.Parent = this.btn_CerrarSesion;
@@ -169,6 +178,7 @@ namespace MrTiendita.Vistas
             this.btn_CerrarSesion.Text = "Cerrar sesión";
             this.btn_CerrarSesion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CerrarSesion.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_CerrarSesion.Click += new System.EventHandler(this.btn_CerrarSesion_Click);
             // 
             // btn_Inventario
             // 
@@ -193,9 +203,11 @@ namespace MrTiendita.Vistas
             this.btn_Inventario.Text = "Inventario";
             this.btn_Inventario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Inventario.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Inventario.Click += new System.EventHandler(this.btn_Inventario_Click);
             // 
             // btn_Configuracion
             // 
+            this.btn_Configuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Configuracion.BorderRadius = 5;
             this.btn_Configuracion.CheckedState.Parent = this.btn_Configuracion;
             this.btn_Configuracion.CustomImages.Parent = this.btn_Configuracion;
@@ -242,6 +254,7 @@ namespace MrTiendita.Vistas
             this.btn_Reportes.Text = "Reportes";
             this.btn_Reportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Reportes.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Reportes.Click += new System.EventHandler(this.btn_Reportes_Click);
             // 
             // btn_Movimientos
             // 
@@ -267,6 +280,7 @@ namespace MrTiendita.Vistas
             this.btn_Movimientos.Text = "Movimientos";
             this.btn_Movimientos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Movimientos.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Movimientos.Click += new System.EventHandler(this.btn_Movimientos_Click);
             // 
             // btn_Proveedores
             // 
@@ -399,6 +413,10 @@ namespace MrTiendita.Vistas
             this.pnl_Contenedor.Size = new System.Drawing.Size(1195, 839);
             this.pnl_Contenedor.TabIndex = 2;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.pnl_Superior;
+            // 
             // FrmPrincipal_
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -411,6 +429,7 @@ namespace MrTiendita.Vistas
             this.Name = "FrmPrincipal_";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrincipal_";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal__FormClosing);
             this.pnl_Superior.ResumeLayout(false);
             this.pnl_Superior.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).EndInit();
@@ -428,22 +447,23 @@ namespace MrTiendita.Vistas
 
         private System.Windows.Forms.Panel pnl_Superior;
         private System.Windows.Forms.Panel pnl_Menu;
-        private System.Windows.Forms.Panel pnl_Contenedor;
         private System.Windows.Forms.PictureBox pb_Logo;
         private System.Windows.Forms.Label lbl_MARSS;
-        private System.Windows.Forms.PictureBox btn_Maximizar;
-        private System.Windows.Forms.PictureBox btn_Minimizar;
-        private System.Windows.Forms.PictureBox btn_Cerrar;
         private System.Windows.Forms.PictureBox pb_Linea;
-        private Guna.UI2.WinForms.Guna2Button btn_Tablero;
         private System.Windows.Forms.Label lbl_Herramientas;
-        private Guna.UI2.WinForms.Guna2Button btn_Inventario;
-        private Guna.UI2.WinForms.Guna2Button btn_Movimientos;
-        private Guna.UI2.WinForms.Guna2Button btn_Ventas;
-        private Guna.UI2.WinForms.Guna2Button btn_Configuracion;
-        private Guna.UI2.WinForms.Guna2Button btn_CerrarSesion;
-        private Guna.UI2.WinForms.Guna2Button btn_Reportes;
-        private Guna.UI2.WinForms.Guna2Button btn_Proveedores;
-        private Guna.UI2.WinForms.Guna2Button btn_Empleados;
+        public Guna.UI2.WinForms.Guna2Button btn_Tablero;
+        public Guna.UI2.WinForms.Guna2Button btn_Inventario;
+        public Guna.UI2.WinForms.Guna2Button btn_Movimientos;
+        public Guna.UI2.WinForms.Guna2Button btn_Ventas;
+        public Guna.UI2.WinForms.Guna2Button btn_Configuracion;
+        public Guna.UI2.WinForms.Guna2Button btn_CerrarSesion;
+        public Guna.UI2.WinForms.Guna2Button btn_Reportes;
+        public Guna.UI2.WinForms.Guna2Button btn_Proveedores;
+        public Guna.UI2.WinForms.Guna2Button btn_Empleados;
+        public System.Windows.Forms.Panel pnl_Contenedor;
+        public System.Windows.Forms.PictureBox btn_Maximizar;
+        public System.Windows.Forms.PictureBox btn_Minimizar;
+        public System.Windows.Forms.PictureBox btn_Cerrar;
+        public Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

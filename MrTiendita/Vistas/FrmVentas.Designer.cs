@@ -29,9 +29,9 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.tlp_PanelSuperior = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
@@ -68,10 +68,12 @@ namespace MrTiendita.Vistas
             this.tb_Codigo = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_Notificaciones = new System.Windows.Forms.Label();
             this.lbl_DescNoti = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlp_PanelSuperior.SuspendLayout();
             this.pnl_Atajos.SuspendLayout();
             this.pnl_Notificaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TablaVentas)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlp_PanelSuperior
@@ -97,8 +99,7 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Atajos.BorderRadius = 10;
-            this.pnl_Atajos.Controls.Add(this.btn_CancelarVenta);
-            this.pnl_Atajos.Controls.Add(this.btn_CompletarVenta);
+            this.pnl_Atajos.Controls.Add(this.tableLayoutPanel1);
             this.pnl_Atajos.Controls.Add(this.lbl_Cambio);
             this.pnl_Atajos.Controls.Add(this.lbl_CambioDesc);
             this.pnl_Atajos.Controls.Add(this.lbl_EfetivoTb);
@@ -124,7 +125,6 @@ namespace MrTiendita.Vistas
             // 
             // btn_CancelarVenta
             // 
-            this.btn_CancelarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_CancelarVenta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.BorderRadius = 5;
             this.btn_CancelarVenta.BorderThickness = 1;
@@ -135,16 +135,18 @@ namespace MrTiendita.Vistas
             this.btn_CancelarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.HoverState.Parent = this.btn_CancelarVenta;
-            this.btn_CancelarVenta.Location = new System.Drawing.Point(145, 544);
+            this.btn_CancelarVenta.Location = new System.Drawing.Point(221, 3);
             this.btn_CancelarVenta.Name = "btn_CancelarVenta";
+            this.btn_CancelarVenta.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btn_CancelarVenta.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.ShadowDecoration.Parent = this.btn_CancelarVenta;
-            this.btn_CancelarVenta.Size = new System.Drawing.Size(188, 40);
+            this.btn_CancelarVenta.Size = new System.Drawing.Size(188, 34);
             this.btn_CancelarVenta.TabIndex = 29;
             this.btn_CancelarVenta.Text = "Cancelar venta";
             // 
             // btn_CompletarVenta
             // 
+            this.btn_CompletarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_CompletarVenta.BorderRadius = 5;
             this.btn_CompletarVenta.CheckedState.Parent = this.btn_CompletarVenta;
             this.btn_CompletarVenta.CustomImages.Parent = this.btn_CompletarVenta;
@@ -152,10 +154,11 @@ namespace MrTiendita.Vistas
             this.btn_CompletarVenta.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CompletarVenta.ForeColor = System.Drawing.Color.White;
             this.btn_CompletarVenta.HoverState.Parent = this.btn_CompletarVenta;
-            this.btn_CompletarVenta.Location = new System.Drawing.Point(24, 544);
+            this.btn_CompletarVenta.Location = new System.Drawing.Point(27, 3);
             this.btn_CompletarVenta.Name = "btn_CompletarVenta";
+            this.btn_CompletarVenta.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.btn_CompletarVenta.ShadowDecoration.Parent = this.btn_CompletarVenta;
-            this.btn_CompletarVenta.Size = new System.Drawing.Size(188, 40);
+            this.btn_CompletarVenta.Size = new System.Drawing.Size(188, 34);
             this.btn_CompletarVenta.TabIndex = 28;
             this.btn_CompletarVenta.Text = "Completar venta";
             // 
@@ -325,7 +328,7 @@ namespace MrTiendita.Vistas
             this.lbl_Atajos.BackColor = System.Drawing.Color.White;
             this.lbl_Atajos.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Atajos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Atajos.Location = new System.Drawing.Point(18, 33);
+            this.lbl_Atajos.Location = new System.Drawing.Point(20, 33);
             this.lbl_Atajos.Name = "lbl_Atajos";
             this.lbl_Atajos.Size = new System.Drawing.Size(85, 32);
             this.lbl_Atajos.TabIndex = 2;
@@ -370,8 +373,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.AllowUserToDeleteRows = false;
             this.dgv_TablaVentas.AllowUserToResizeColumns = false;
             this.dgv_TablaVentas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_TablaVentas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_TablaVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -379,14 +382,14 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaVentas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_TablaVentas.ColumnHeadersHeight = 35;
             this.dgv_TablaVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_menos,
@@ -396,14 +399,14 @@ namespace MrTiendita.Vistas
             this.col_Precio,
             this.col_Subtotal,
             this.col_Codigo});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_TablaVentas.EnableHeadersVisualStyles = false;
             this.dgv_TablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaVentas.Location = new System.Drawing.Point(24, 201);
@@ -572,6 +575,7 @@ namespace MrTiendita.Vistas
             this.btn_Buscar.TabIndex = 10;
             this.btn_Buscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Buscar.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // lbl_CodigoBarras
             // 
@@ -615,7 +619,7 @@ namespace MrTiendita.Vistas
             this.lbl_Notificaciones.BackColor = System.Drawing.Color.White;
             this.lbl_Notificaciones.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Notificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Notificaciones.Location = new System.Drawing.Point(18, 33);
+            this.lbl_Notificaciones.Location = new System.Drawing.Point(20, 33);
             this.lbl_Notificaciones.Name = "lbl_Notificaciones";
             this.lbl_Notificaciones.Size = new System.Drawing.Size(223, 32);
             this.lbl_Notificaciones.TabIndex = 4;
@@ -630,6 +634,23 @@ namespace MrTiendita.Vistas
             this.lbl_DescNoti.Size = new System.Drawing.Size(408, 23);
             this.lbl_DescNoti.TabIndex = 5;
             this.lbl_DescNoti.Text = "Añade los productos del cliente a la lista de compra.";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btn_CompletarVenta, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btn_CancelarVenta, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(-34, 549);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(437, 40);
+            this.tableLayoutPanel1.TabIndex = 30;
             // 
             // FrmVentas
             // 
@@ -647,6 +668,7 @@ namespace MrTiendita.Vistas
             this.pnl_Notificaciones.ResumeLayout(false);
             this.pnl_Notificaciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TablaVentas)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -688,5 +710,6 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label lbl_EfetivoTb;
         private Guna.UI2.WinForms.Guna2TextBox tb_Efectivo;
         private System.Windows.Forms.Label lbl_Pago;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
