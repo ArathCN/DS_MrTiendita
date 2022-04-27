@@ -66,12 +66,6 @@ namespace MrTiendita.Controladores
             //Comprobar campos vacios...
             String _nombre = this.vista.tb_nombre.Text;
             String _telefono = this.vista.tb_telefono.Text;
-            ///
-            ///
-            ///
-            ///Extraer el estado del formulario y camnbiar la etiqueta en validacion
-            String _estado = "";
-            ///
 
             long telefono;
 
@@ -88,25 +82,17 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
             };
 
-            String msgEstado = "Cadena de 5 a 100 caracteres.";
-            Dictionary<int, int> opEstado = new Dictionary<int, int>()
-            {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
-                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
-            };
-
             //Comprobar que el nombre tenga inimo 10 caracteres
             //Comprobar que el telefeno tenga minimo 10 caracteres y que sea mayor a 0 (no negativo)
             if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorTel, msgTel, _telefono, out telefono, opTel) ||
-            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, msgNom, _nombre, opNom) ||
-            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, msgEstado, _estado, opEstado))
+            !ValidacionFormulario.Validar(this.vista.lbl_ErrorNombre, msgNom, _nombre, opNom))
             {
                 Form mensajeError = new FrmError("Llene todos los datos datos correctamente.");
                 mensajeError.ShowDialog();
                 return;
             }
 
-            Proveedor proveedor = new Proveedor(-1, _nombre, telefono, _estado);
+            Proveedor proveedor = new Proveedor(-1, _nombre, telefono);
 
             if (this.accion == "Agregar")
             {

@@ -34,17 +34,17 @@ namespace MrTiendita.Vistas
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_Seccion = new Guna.UI2.WinForms.Guna2Panel();
-            this.btn_FiltroEmpleados = new Guna.UI2.WinForms.Guna2Button();
             this.btn_nuevoProveedor = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_CodigoBarras = new System.Windows.Forms.Label();
             this.tb_BuscarProveedor = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv_TablaProveedores = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lbl_Titulo = new System.Windows.Forms.Label();
+            this.lbl_Descripcion = new System.Windows.Forms.Label();
+            this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Estado = new System.Windows.Forms.DataGridViewButtonColumn();
             this.col_Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lbl_Estadisticas = new System.Windows.Forms.Label();
-            this.lbl_DescEstadisticas = new System.Windows.Forms.Label();
+            this.col_Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnl_Seccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TablaProveedores)).BeginInit();
             this.SuspendLayout();
@@ -55,46 +55,20 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Seccion.BorderRadius = 10;
-            this.pnl_Seccion.Controls.Add(this.btn_FiltroEmpleados);
             this.pnl_Seccion.Controls.Add(this.btn_nuevoProveedor);
             this.pnl_Seccion.Controls.Add(this.lbl_CodigoBarras);
             this.pnl_Seccion.Controls.Add(this.tb_BuscarProveedor);
             this.pnl_Seccion.Controls.Add(this.dgv_TablaProveedores);
-            this.pnl_Seccion.Controls.Add(this.lbl_Estadisticas);
-            this.pnl_Seccion.Controls.Add(this.lbl_DescEstadisticas);
+            this.pnl_Seccion.Controls.Add(this.lbl_Titulo);
+            this.pnl_Seccion.Controls.Add(this.lbl_Descripcion);
             this.pnl_Seccion.FillColor = System.Drawing.Color.White;
             this.pnl_Seccion.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_Seccion.Location = new System.Drawing.Point(9, 10);
-            this.pnl_Seccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Seccion.Location = new System.Drawing.Point(12, 12);
+            this.pnl_Seccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Seccion.Name = "pnl_Seccion";
             this.pnl_Seccion.ShadowDecoration.Parent = this.pnl_Seccion;
-            this.pnl_Seccion.Size = new System.Drawing.Size(874, 662);
+            this.pnl_Seccion.Size = new System.Drawing.Size(1165, 815);
             this.pnl_Seccion.TabIndex = 5;
-            // 
-            // btn_FiltroEmpleados
-            // 
-            this.btn_FiltroEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_FiltroEmpleados.BackColor = System.Drawing.Color.White;
-            this.btn_FiltroEmpleados.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_FiltroEmpleados.BorderRadius = 5;
-            this.btn_FiltroEmpleados.CheckedState.Parent = this.btn_FiltroEmpleados;
-            this.btn_FiltroEmpleados.CustomImages.Parent = this.btn_FiltroEmpleados;
-            this.btn_FiltroEmpleados.FillColor = System.Drawing.Color.White;
-            this.btn_FiltroEmpleados.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FiltroEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_FiltroEmpleados.HoverState.FillColor = System.Drawing.Color.White;
-            this.btn_FiltroEmpleados.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_FiltroEmpleados.HoverState.Parent = this.btn_FiltroEmpleados;
-            this.btn_FiltroEmpleados.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_FiltroEmpleados.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_FiltroEmpleados.Location = new System.Drawing.Point(659, 106);
-            this.btn_FiltroEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_FiltroEmpleados.Name = "btn_FiltroEmpleados";
-            this.btn_FiltroEmpleados.PressedColor = System.Drawing.Color.White;
-            this.btn_FiltroEmpleados.ShadowDecoration.Parent = this.btn_FiltroEmpleados;
-            this.btn_FiltroEmpleados.Size = new System.Drawing.Size(194, 32);
-            this.btn_FiltroEmpleados.TabIndex = 19;
-            this.btn_FiltroEmpleados.Text = "Ver proveedores inactivos";
             // 
             // btn_nuevoProveedor
             // 
@@ -109,11 +83,11 @@ namespace MrTiendita.Vistas
             this.btn_nuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btn_nuevoProveedor.Image")));
             this.btn_nuevoProveedor.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_nuevoProveedor.ImageOffset = new System.Drawing.Point(5, 0);
-            this.btn_nuevoProveedor.Location = new System.Drawing.Point(482, 106);
-            this.btn_nuevoProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_nuevoProveedor.Location = new System.Drawing.Point(907, 130);
+            this.btn_nuevoProveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_nuevoProveedor.Name = "btn_nuevoProveedor";
             this.btn_nuevoProveedor.ShadowDecoration.Parent = this.btn_nuevoProveedor;
-            this.btn_nuevoProveedor.Size = new System.Drawing.Size(173, 32);
+            this.btn_nuevoProveedor.Size = new System.Drawing.Size(231, 39);
             this.btn_nuevoProveedor.TabIndex = 18;
             this.btn_nuevoProveedor.Text = "Nuevo proveedor";
             this.btn_nuevoProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -124,10 +98,9 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_CodigoBarras.AutoSize = true;
             this.lbl_CodigoBarras.BackColor = System.Drawing.Color.White;
-            this.lbl_CodigoBarras.Location = new System.Drawing.Point(16, 84);
-            this.lbl_CodigoBarras.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_CodigoBarras.Location = new System.Drawing.Point(21, 103);
             this.lbl_CodigoBarras.Name = "lbl_CodigoBarras";
-            this.lbl_CodigoBarras.Size = new System.Drawing.Size(112, 17);
+            this.lbl_CodigoBarras.Size = new System.Drawing.Size(143, 23);
             this.lbl_CodigoBarras.TabIndex = 17;
             this.lbl_CodigoBarras.Text = "Buscar proveedor";
             // 
@@ -148,13 +121,14 @@ namespace MrTiendita.Vistas
             this.tb_BuscarProveedor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_BuscarProveedor.HoverState.Parent = this.tb_BuscarProveedor;
             this.tb_BuscarProveedor.IconLeft = ((System.Drawing.Image)(resources.GetObject("tb_BuscarProveedor.IconLeft")));
-            this.tb_BuscarProveedor.Location = new System.Drawing.Point(17, 106);
+            this.tb_BuscarProveedor.Location = new System.Drawing.Point(23, 130);
+            this.tb_BuscarProveedor.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tb_BuscarProveedor.Name = "tb_BuscarProveedor";
             this.tb_BuscarProveedor.PasswordChar = '\0';
             this.tb_BuscarProveedor.PlaceholderText = "";
             this.tb_BuscarProveedor.SelectedText = "";
             this.tb_BuscarProveedor.ShadowDecoration.Parent = this.tb_BuscarProveedor;
-            this.tb_BuscarProveedor.Size = new System.Drawing.Size(376, 32);
+            this.tb_BuscarProveedor.Size = new System.Drawing.Size(501, 39);
             this.tb_BuscarProveedor.TabIndex = 16;
             // 
             // dgv_TablaProveedores
@@ -182,10 +156,11 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_TablaProveedores.ColumnHeadersHeight = 35;
             this.dgv_TablaProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_ID,
             this.col_Nombre,
             this.col_Telefono,
-            this.col_Estado,
-            this.col_Editar});
+            this.col_Editar,
+            this.col_Borrar});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,8 +171,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProveedores.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_TablaProveedores.EnableHeadersVisualStyles = false;
             this.dgv_TablaProveedores.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
-            this.dgv_TablaProveedores.Location = new System.Drawing.Point(17, 160);
-            this.dgv_TablaProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_TablaProveedores.Location = new System.Drawing.Point(23, 197);
+            this.dgv_TablaProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_TablaProveedores.Name = "dgv_TablaProveedores";
             this.dgv_TablaProveedores.ReadOnly = true;
             this.dgv_TablaProveedores.RowHeadersVisible = false;
@@ -205,7 +180,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_TablaProveedores.RowTemplate.Height = 35;
             this.dgv_TablaProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_TablaProveedores.Size = new System.Drawing.Size(836, 457);
+            this.dgv_TablaProveedores.Size = new System.Drawing.Size(1115, 562);
             this.dgv_TablaProveedores.TabIndex = 15;
             this.dgv_TablaProveedores.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgv_TablaProveedores.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -230,6 +205,36 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProveedores.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgv_TablaProveedores.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
             // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.BackColor = System.Drawing.Color.White;
+            this.lbl_Titulo.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Titulo.Location = new System.Drawing.Point(19, 33);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(158, 32);
+            this.lbl_Titulo.TabIndex = 4;
+            this.lbl_Titulo.Text = "Proveedores";
+            // 
+            // lbl_Descripcion
+            // 
+            this.lbl_Descripcion.AutoSize = true;
+            this.lbl_Descripcion.BackColor = System.Drawing.Color.White;
+            this.lbl_Descripcion.Location = new System.Drawing.Point(20, 64);
+            this.lbl_Descripcion.Name = "lbl_Descripcion";
+            this.lbl_Descripcion.Size = new System.Drawing.Size(433, 23);
+            this.lbl_Descripcion.TabIndex = 5;
+            this.lbl_Descripcion.Text = "Consulta, agrega o modifica los datos de un proveedor.";
+            // 
+            // col_ID
+            // 
+            this.col_ID.HeaderText = "ID";
+            this.col_ID.MinimumWidth = 6;
+            this.col_ID.Name = "col_ID";
+            this.col_ID.ReadOnly = true;
+            this.col_ID.Visible = false;
+            // 
             // col_Nombre
             // 
             this.col_Nombre.HeaderText = "Nombre";
@@ -244,15 +249,6 @@ namespace MrTiendita.Vistas
             this.col_Telefono.Name = "col_Telefono";
             this.col_Telefono.ReadOnly = true;
             // 
-            // col_Estado
-            // 
-            this.col_Estado.HeaderText = "Estado";
-            this.col_Estado.MinimumWidth = 6;
-            this.col_Estado.Name = "col_Estado";
-            this.col_Estado.ReadOnly = true;
-            this.col_Estado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.col_Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // col_Editar
             // 
             this.col_Editar.HeaderText = "Editar";
@@ -261,39 +257,25 @@ namespace MrTiendita.Vistas
             this.col_Editar.Name = "col_Editar";
             this.col_Editar.ReadOnly = true;
             // 
-            // lbl_Estadisticas
+            // col_Borrar
             // 
-            this.lbl_Estadisticas.AutoSize = true;
-            this.lbl_Estadisticas.BackColor = System.Drawing.Color.White;
-            this.lbl_Estadisticas.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Estadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Estadisticas.Location = new System.Drawing.Point(14, 27);
-            this.lbl_Estadisticas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Estadisticas.Name = "lbl_Estadisticas";
-            this.lbl_Estadisticas.Size = new System.Drawing.Size(124, 25);
-            this.lbl_Estadisticas.TabIndex = 4;
-            this.lbl_Estadisticas.Text = "Proveedores";
-            // 
-            // lbl_DescEstadisticas
-            // 
-            this.lbl_DescEstadisticas.AutoSize = true;
-            this.lbl_DescEstadisticas.BackColor = System.Drawing.Color.White;
-            this.lbl_DescEstadisticas.Location = new System.Drawing.Point(15, 52);
-            this.lbl_DescEstadisticas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_DescEstadisticas.Name = "lbl_DescEstadisticas";
-            this.lbl_DescEstadisticas.Size = new System.Drawing.Size(337, 17);
-            this.lbl_DescEstadisticas.TabIndex = 5;
-            this.lbl_DescEstadisticas.Text = "Consulta, agrega o modifica los datos de un proveedor.";
+            this.col_Borrar.HeaderText = "Borrar";
+            this.col_Borrar.Image = ((System.Drawing.Image)(resources.GetObject("col_Borrar.Image")));
+            this.col_Borrar.MinimumWidth = 6;
+            this.col_Borrar.Name = "col_Borrar";
+            this.col_Borrar.ReadOnly = true;
+            this.col_Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmProveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(896, 640);
+            this.ClientSize = new System.Drawing.Size(1195, 839);
             this.Controls.Add(this.pnl_Seccion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProveedores";
@@ -307,16 +289,16 @@ namespace MrTiendita.Vistas
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel pnl_Seccion;
-        private Guna.UI2.WinForms.Guna2Button btn_FiltroEmpleados;
         private System.Windows.Forms.Label lbl_CodigoBarras;
-        private System.Windows.Forms.Label lbl_Estadisticas;
-        private System.Windows.Forms.Label lbl_DescEstadisticas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Telefono;
-        private System.Windows.Forms.DataGridViewButtonColumn col_Estado;
-        private System.Windows.Forms.DataGridViewImageColumn col_Editar;
+        private System.Windows.Forms.Label lbl_Titulo;
+        private System.Windows.Forms.Label lbl_Descripcion;
         public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProveedores;
         public Guna.UI2.WinForms.Guna2TextBox tb_BuscarProveedor;
         public Guna.UI2.WinForms.Guna2Button btn_nuevoProveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Telefono;
+        private System.Windows.Forms.DataGridViewImageColumn col_Editar;
+        private System.Windows.Forms.DataGridViewImageColumn col_Borrar;
     }
 }

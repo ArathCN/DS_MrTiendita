@@ -234,7 +234,7 @@ namespace MrTiendita.Controladores
         protected void CargarProveedores()
         {
             this.listaProveedores = new Dictionary<string, int>();
-            List<Proveedor> proveedores = this.proveedorDAO.ReadByState(TipoEmpleadoC.ESTADO_ACTIVO);
+            List<Proveedor> proveedores = this.proveedorDAO.ReadAll();
             List<String> nombreProveedores = new List<string>();
             foreach (Proveedor proveedor in proveedores)
             {

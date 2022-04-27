@@ -73,19 +73,19 @@ namespace MrTiendita.Patrones
         /// </summary>
         /// <param name="vista">Formulario que contiene la tabla de productos.</param>
         /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
-        public void Eliminar(FrmEAlmacen vista, DataGridViewCellEventArgs e)
+        public void Eliminar(FrmInventario vista, DataGridViewCellEventArgs e)
         {
             Form mensaje = new FrmError("El producto se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
-                String _id = vista.tablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String _id = vista.dgv_TablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
                 long id = Int64.Parse(_id);
                 bool res = productoDAO.Delete(id);
                 if (res)
                 {
-                    vista.tablaProductos.Rows.Remove(vista.tablaProductos.Rows[e.RowIndex]);
+                    vista.dgv_TablaProductos.Rows.Remove(vista.dgv_TablaProductos.Rows[e.RowIndex]);
                     Form mensajeExito = new FrmError("El producto fue eliminado");
                     Consultar(vista);
                 }
@@ -101,13 +101,19 @@ namespace MrTiendita.Patrones
         /// Consulta todos los productos de la base de datos y los despliega en una tabla.
         /// </summary>
         /// <param name="vista">Formulario que contiene la tabla donde se despliegan los prodcutos.</param>
-        public void Consultar(FrmEAlmacen vista)
+        public void Consultar(FrmInventario vista)
         {
-            vista.tablaProductos.Rows.Clear();
+            vista.dgv_TablaProductos.Rows.Clear();
             List<Producto> productos = productoDAO.ReadAll();
             foreach (Producto xProducto in productos)
             {
-                vista.tablaProductos.Rows.Add(xProducto.Codigo_barra, xProducto.Cantidad_actual, xProducto.Descripcion, xProducto.Precio_venta, xProducto.Precio_compra);
+                vista.dgv_TablaProductos.Rows.Add(xProducto.Codigo_barra,
+                                                  xProducto.Descripcion,
+                                                  xProducto.Precio_compra,
+                                                  xProducto.Ganancia,
+                                                  xProducto.Categoria,
+                                                  xProducto.Cantidad_actual,
+                                                  xProducto.Minimo);
             }
         }
     }

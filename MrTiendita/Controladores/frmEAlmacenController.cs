@@ -37,7 +37,7 @@ namespace MrTiendita.Controladores
         /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
         private void Vista_load(object sender, EventArgs e)
         {
-            Productos.Consultar(this.vista);
+            //Productos.Consultar(this.vista);
         }
 
         /// <summary> Maneja el evento Text Changed del control Tb_busqueda. </summary>
@@ -66,7 +66,7 @@ namespace MrTiendita.Controladores
         {
             if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["eliminar"].Selected)
             {
-                Productos.Eliminar(this.vista, e);
+                //Productos.Eliminar(this.vista, e);
             }
             else if (this.vista.tablaProductos.Rows[e.RowIndex].Cells["editar"].Selected)
             {
@@ -81,7 +81,7 @@ namespace MrTiendita.Controladores
         {
             FrmProducto editar = new FrmProducto("agregar", -1);
             editar.ShowDialog();
-            Productos.Consultar(this.vista);
+            //Productos.Consultar(this.vista);
         }
 
         /// <summary> Actualiza el producto.</summary>
@@ -92,7 +92,7 @@ namespace MrTiendita.Controladores
             long id = long.Parse(idCadena);
             FrmProducto editar = new FrmProducto("editar", id);
             editar.ShowDialog();
-            Productos.Consultar(this.vista);
+            //Productos.Consultar(this.vista);
         }
     }
 }

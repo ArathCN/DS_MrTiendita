@@ -26,7 +26,6 @@ namespace MrTiendita.Vistas
                 Console.WriteLine(indexNuevoProducto);
                 dgv_TablaProveedores.Rows[indexNuevoProducto].Cells["col_Nombre"].Value = "Coca Cola S.A de C.V.";
                 dgv_TablaProveedores.Rows[indexNuevoProducto].Cells["col_Telefono"].Value = "6221828945";
-                dgv_TablaProveedores.Rows[indexNuevoProducto].Cells["col_Estado"].Value = "Activo";
             }
             dgv_TablaProveedores.AllowUserToResizeColumns = false;
             FrmEProveedorController controlador = new FrmEProveedorController(this);
@@ -37,7 +36,6 @@ namespace MrTiendita.Vistas
         {
             dgv_TablaProveedores.Columns[0].Width = 300;//Nombre
             dgv_TablaProveedores.Columns[1].Width = 100;//Teléfono
-            dgv_TablaProveedores.Columns[2].Width = 45;//Estado
             dgv_TablaProveedores.Columns[3].Width = 40;//Editar
             col_Editar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }

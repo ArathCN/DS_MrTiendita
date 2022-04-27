@@ -44,20 +44,20 @@ namespace MrTiendita.Patrones
         }
 
         /// <summary>
-        /// Llaama al método <see cref="Productos.Eliminar(FrmEAlmacen, DataGridViewCellEventArgs)"/>
+        /// Llaama al método <see cref="Productos.Eliminar(FrmInventario, DataGridViewCellEventArgs)"/>
         /// </summary>
         /// <param name="vista">El formulario con la tabla de productos a eliminar.</param>
         /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
-        public void Eliminar(FrmEAlmacen vista, DataGridViewCellEventArgs e)
+        public void Eliminar(FrmInventario vista, DataGridViewCellEventArgs e)
         {
             productos.Eliminar(vista, e);
         }
 
         /// <summary>
-        /// Llama al método <see cref="Productos.Consultar(FrmEAlmacen)"/>
+        /// Llama al método <see cref="Productos.Consultar(FrmInventario)"/>
         /// </summary>
         /// <param name="vista">Formulario con la tabla a desplegar los registros.</param>
-        public void Consultar(FrmEAlmacen vista)
+        public void Consultar(FrmInventario vista)
         {
             productos.Consultar(vista);
         }

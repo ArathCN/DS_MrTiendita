@@ -566,13 +566,13 @@
         AAAAAEBs97rX/wfKFNHsTQUVyQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="col_ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="col_Nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="col_Telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="col_Estado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="col_Editar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -591,6 +591,19 @@
         +6RDkoTAwQgL3Px67YJDbu/XsllhjgLz1f5EY4kmufmlkoRE45TOSss/Jhz0MzNfa5ekETAHmotB79pF
         E9tHUtz1skiYtTWb6J/5e15hF/v8rZcREZlAgVfUf4t2ubFt0vNH+OdLjJ9/jST/HaW+AT/kKsVZfQ8W
         AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="col_Borrar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="col_Borrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gQRBwUcfdV6igAAAN1JREFU
+        SEtjGCGg+78YQ9t/P4b2/6FgDGKDxKgCWv8bAQ38CMT/0fBHoGWGUFUUgLb/M4D4HkPHfzmggYJgDGKD
+        xFr/T4eqIgG0/JcGGrIQaMAqKH4ExK+Q+DAMEgPJQfggPZ3/paCm4AHN/1WBGk4A8X+gpqNAejdeDFED
+        CrITYL1Egfb/TlBNalAR3ACkBuIYJ6gIEWDUAoJg1AKCYNQCgmDoW9Dy3wJqgQ9QI6SIxoVBakBqQXqI
+        BvX/2YCazkEtIQafBeshCdT/5wC60A2IIdUkbuwGVjtMAQMDABT4URQgImHfAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

@@ -23,26 +23,62 @@ namespace MrTiendita.Modelos.DAO
         public bool Create(Proveedor proveedor)
         {
             bool success = false;
-            String sql = "INSERT INTO Proveedor (nombre, telefono) " +
+            String sqlProveedorOriginal = "INSERT INTO Proveedor (nombre, telefono) " +
                 "VALUES (@nom, @tel);";
+            String sqlProveedorVistaUsuario = "INSERT INTO ProveedorUserView (id_Proveedor) VALUES (@id);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
+
+                using (SqlTransaction tran = connection.BeginTransaction("AltaProveedor" + DateTimeOffset.Now.ToUnixTimeSeconds()))
                 {
-                    command.Parameters.Add("@nom", SqlDbType.VarChar);
-                    command.Parameters.Add("@tel", SqlDbType.BigInt);
+                    using (SqlCommand commandProveedorOriginal = new SqlCommand(sqlProveedorOriginal, connection))
+                    {
+                        commandProveedorOriginal.Parameters.Add("@nom", SqlDbType.VarChar);
+                        commandProveedorOriginal.Parameters.Add("@tel", SqlDbType.BigInt);
 
 
-                    command.Parameters["@nom"].Value = proveedor.Nombre;
-                    command.Parameters["@tel"].Value = proveedor.Telefono;
+                        commandProveedorOriginal.Parameters["@nom"].Value = proveedor.Nombre;
+                        commandProveedorOriginal.Parameters["@tel"].Value = proveedor.Telefono;
 
 
-                    int rowsAffected = command.ExecuteNonQuery();
+                        using (SqlCommand commandProveedorVistaUsuario = new SqlCommand(sqlProveedorVistaUsuario, connection))
+                        {
+                            commandProveedorVistaUsuario.Parameters.Add("@id", SqlDbType.Int);
 
-                    if (rowsAffected == 1) success = true;
+                            commandProveedorVistaUsuario.Parameters["@nom"].Value = proveedor.Id_proveedor;
+
+                            try
+                            {
+                                commandProveedorOriginal.ExecuteNonQuery();
+                                commandProveedorVistaUsuario.ExecuteNonQuery();
+                                tran.Commit();
+                                success = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                this.errorUltimaConsulta = true;
+                                success = false;
+                                this.mensajeError = ex.GetType() + "  ->  " + ex.Message;
+
+
+                                // Attempt to roll back the transaction.
+                                try
+                                {
+                                    tran.Rollback();
+                                }
+                                catch (Exception ex2)
+                                {
+                                    this.mensajeError = ex2.GetType() + "  ->  " + ex2.Message;
+                                }
+                            }
+                            
+
+                        }
+                    }
                 }
+                
             }
             return success;
         }
@@ -88,7 +124,8 @@ namespace MrTiendita.Modelos.DAO
         public List<Proveedor> ReadAll()
         {
             List<Proveedor> proveedores = new List<Proveedor>();
-            String sql = "SELECT * FROM Proveedor;";
+            String sql = "SELECT PO.id_proveedor, PO.nombre, PO.telefono FROM ProveedorUserView AS PC" +
+                " INNER JOIN Proveedor AS PO ON PC.id_Proveedor = PO.id_proveedor;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -99,7 +136,12 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3)));
+                            proveedores.Add(new Proveedor(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetInt64(2)
+                                )
+                            );
                         }
                     }
                 }
@@ -117,7 +159,9 @@ namespace MrTiendita.Modelos.DAO
         {
             Proveedor proveedor = null;
 
-            String sql = "SELECT * FROM Proveedor WHERE id_proveedor = @id;";
+            String sql = "SELECT PO.id_proveedor, PO.nombre, PO.telefono FROM ProveedorUserView AS PC " +
+                "INNER JOIN Proveedor AS PO ON PC.id_Proveedor = PO.id_proveedor " +
+                "WHERE PO.id_proveedor = @id; ";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -131,7 +175,11 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedor = new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3));
+                            proveedor = new Proveedor(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetInt64(2)
+                            );
                         }
                     }
                 }
@@ -150,7 +198,9 @@ namespace MrTiendita.Modelos.DAO
         {
             List<Proveedor> proveedores = new List<Proveedor>();
             idOrName = "%" + idOrName + "%";
-            String sql = "SELECT * FROM Proveedor WHERE nombre LIKE @condicion2;";
+            String sql = "SELECT PO.id_proveedor, PO.nombre, PO.telefono FROM ProveedorUserView AS PC " +
+                "INNER JOIN Proveedor AS PO ON PC.id_Proveedor = PO.id_proveedor " +
+                "WHERE PO.nombre LIKE @condicion2; ; ";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -164,7 +214,12 @@ namespace MrTiendita.Modelos.DAO
                     {
                         while (reader.Read())
                         {
-                            proveedores.Add(new Proveedor(reader.GetInt32(0), reader.GetString(1), reader.GetInt64(2), reader.GetString(3)));
+                            proveedores.Add(new Proveedor(
+                                reader.GetInt32(0), 
+                                reader.GetString(1),
+                                reader.GetInt64(2)
+                                )
+                            );
                         }
                     }
                 }
@@ -181,7 +236,7 @@ namespace MrTiendita.Modelos.DAO
         public bool Delete(int id)
         {
             bool success = false;
-            String sql = "DELETE FROM Proveedor WHERE id_proveedor = @id";
+            String sql = "DELETE FROM ProveedorUserView WHERE id_Proveedor = @id";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -200,38 +255,5 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        public List<Proveedor> ReadByState(String estado)
-        {
-            List<Proveedor> proveedores = new List<Proveedor>();
-
-            String sql = "SELECT * FROM Proveedor WHERE estado = @est;";
-
-            using (SqlConnection connection = new SqlConnection(this.stringConexion))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.Add("@est", SqlDbType.VarChar);
-                    command.Parameters["@est"].Value = estado;
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            proveedores.Add(
-                                new Proveedor(
-                                    reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetInt64(2),
-                                    reader.GetString(3)
-                                )
-                            );
-                        }
-                    }
-                }
-            }
-
-            return proveedores;
-        }
     }
 }
