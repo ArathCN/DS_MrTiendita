@@ -23,38 +23,69 @@ namespace MrTiendita.Modelos.DAO
         public bool Create(Producto producto)
         {
             bool success = false;
-            String sql =
+            String sqlProductoOriginal =
                 "INSERT INTO Producto (codigo_barra, descripcion, precio_compra, cantidad_actual, medida, categoria, minimo, ganancia) " +
                 "VALUES (@cb, @des, @precom, @ca, @med, @cat, @min, @gan);";
+            String sqlProductoVistaUsuario = "INSERT INTO ProductoUserView (id_Producto) VALUES (@id);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlTransaction tran = connection.BeginTransaction("AltaProducto" + DateTimeOffset.Now.ToUnixTimeSeconds()))
                 {
-                    command.Parameters.Add("@cb", SqlDbType.BigInt);
-                    command.Parameters.Add("@des", SqlDbType.VarChar);
-                    command.Parameters.Add("@precom", SqlDbType.Decimal);
-                    command.Parameters.Add("@ca", SqlDbType.Decimal);
-                    command.Parameters.Add("@med", SqlDbType.Bit);
-                    command.Parameters.Add("@cat", SqlDbType.VarChar);
-                    command.Parameters.Add("@min", SqlDbType.Decimal);
-                    command.Parameters.Add("@gan", SqlDbType.Int);
+                    using (SqlCommand commandOriginal = new SqlCommand(sqlProductoOriginal, connection))
+                    {
+                        commandOriginal.Parameters.Add("@cb", SqlDbType.BigInt);
+                        commandOriginal.Parameters.Add("@des", SqlDbType.VarChar);
+                        commandOriginal.Parameters.Add("@precom", SqlDbType.Decimal);
+                        commandOriginal.Parameters.Add("@ca", SqlDbType.Decimal);
+                        commandOriginal.Parameters.Add("@med", SqlDbType.Bit);
+                        commandOriginal.Parameters.Add("@cat", SqlDbType.VarChar);
+                        commandOriginal.Parameters.Add("@min", SqlDbType.Decimal);
+                        commandOriginal.Parameters.Add("@gan", SqlDbType.Int);
 
-                    command.Parameters["@cb"].Value = producto.Codigo_barra;
-                    command.Parameters["@des"].Value = producto.Descripcion;
-                    command.Parameters["@precom"].Value = producto.Precio_compra;
-                    command.Parameters["@ca"].Value = producto.Cantidad_actual;
-                    command.Parameters["@med"].Value = producto.Medida;
-                    command.Parameters["@cat"].Value = producto.Categoria;
-                    command.Parameters["@min"].Value = producto.Minimo;
-                    command.Parameters["@gan"].Value = producto.Ganancia;
+                        commandOriginal.Parameters["@cb"].Value = producto.Codigo_barra;
+                        commandOriginal.Parameters["@des"].Value = producto.Descripcion;
+                        commandOriginal.Parameters["@precom"].Value = producto.Precio_compra;
+                        commandOriginal.Parameters["@ca"].Value = producto.Cantidad_actual;
+                        commandOriginal.Parameters["@med"].Value = producto.Medida;
+                        commandOriginal.Parameters["@cat"].Value = producto.Categoria;
+                        commandOriginal.Parameters["@min"].Value = producto.Minimo;
+                        commandOriginal.Parameters["@gan"].Value = producto.Ganancia;
+
+                        using (SqlCommand commandUserView = new SqlCommand(sqlProductoVistaUsuario, connection))
+                        {
+                            commandUserView.Parameters.Add("@id", SqlDbType.BigInt);
+                            commandUserView.Parameters["@id"].Value = producto.Codigo_barra;
+
+                            try
+                            {
+                                commandOriginal.ExecuteNonQuery();
+                                commandUserView.ExecuteNonQuery();
+                                tran.Commit();
+                                success = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                this.errorUltimaConsulta = true;
+                                success = false;
+                                this.mensajeError = ex.GetType() + "  ->  " + ex.Message;
 
 
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected == 1) success = true;
+                                // Attempt to roll back the transaction.
+                                try
+                                {
+                                    tran.Rollback();
+                                }
+                                catch (Exception ex2)
+                                {
+                                    this.mensajeError = ex2.GetType() + "  ->  " + ex2.Message;
+                                }
+                            }
+                        }
+                    }
                 }
+                
             }
             return success;
         }
@@ -178,7 +209,8 @@ namespace MrTiendita.Modelos.DAO
         public List<Producto> ReadAll()
         {
             List<Producto> productos = new List<Producto>();
-            String sql = "SELECT * FROM Producto;";
+            String sql = "SELECT PO.* FROM ProductoUserView AS PC " +
+                "INNER JOIN Producto AS PO ON PC.id_Producto = PO.codigo_barra; ";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -218,7 +250,9 @@ namespace MrTiendita.Modelos.DAO
         {
             Producto producto = null;
 
-            String sql = "SELECT * FROM Producto WHERE codigo_barra = @cb;";
+            String sql = "SELECT PO.* FROM ProductoUserView AS PC " +
+                "INNER JOIN Producto AS PO ON PC.id_Producto = PO.codigo_barra " +
+                "WHERE PO.codigo_barra = @cb;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -263,7 +297,9 @@ namespace MrTiendita.Modelos.DAO
         {
             List<Producto> productos = new List<Producto>();
             idOrName = "%" + idOrName + "%";
-            String sql = "SELECT * FROM Producto WHERE descripcion LIKE @condicion2;";
+            String sql = "SELECT PO.* FROM ProductoUserView AS PC " +
+                "INNER JOIN Producto AS PO ON PC.id_Producto = PO.codigo_barra " +
+                "WHERE PO.descripcion LIKE @condicion2;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {
@@ -305,7 +341,7 @@ namespace MrTiendita.Modelos.DAO
         public bool Delete(long id)
         {
             bool success = false;
-            String sql = "DELETE FROM Producto WHERE codigo_barra = @cb";
+            String sql = "DELETE FROM ProductoUserView WHERE id_Producto = @cb";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {

@@ -65,7 +65,11 @@ namespace MrTiendita.Controladores
             this.todosProveedores = proveedores;
             foreach (Proveedor xProveedor in proveedores)
             {
-                this.vista.dgv_TablaProveedores.Rows.Add(xProveedor.Id_proveedor, xProveedor.Nombre, xProveedor.Telefono);
+                this.vista.dgv_TablaProveedores.Rows.Add(
+                    xProveedor.Id_proveedor,
+                    xProveedor.Nombre,
+                    xProveedor.Telefono
+                );
             }
         }
 
