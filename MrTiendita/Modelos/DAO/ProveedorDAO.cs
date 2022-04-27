@@ -23,8 +23,8 @@ namespace MrTiendita.Modelos.DAO
         public bool Create(Proveedor proveedor)
         {
             bool success = false;
-            String sqlProveedorOriginal = "INSERT INTO Proveedor (nombre, telefono) " +
-                "VALUES (@nom, @tel);";
+            String sqlProveedorOriginal = "INSERT INTO Proveedor (nombre, telefono) VALUES (@nom, @tel); " +
+                "SELECT CAST(scope_identity() AS int);";
             String sqlProveedorVistaUsuario = "INSERT INTO ProveedorUserView (id_Proveedor) VALUES (@id);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -33,25 +33,24 @@ namespace MrTiendita.Modelos.DAO
 
                 using (SqlTransaction tran = connection.BeginTransaction("AltaProveedor" + DateTimeOffset.Now.ToUnixTimeSeconds()))
                 {
-                    using (SqlCommand commandProveedorOriginal = new SqlCommand(sqlProveedorOriginal, connection))
+                    using (SqlCommand commandProveedorOriginal = new SqlCommand(sqlProveedorOriginal, connection, tran))
                     {
                         commandProveedorOriginal.Parameters.Add("@nom", SqlDbType.VarChar);
                         commandProveedorOriginal.Parameters.Add("@tel", SqlDbType.BigInt);
-
 
                         commandProveedorOriginal.Parameters["@nom"].Value = proveedor.Nombre;
                         commandProveedorOriginal.Parameters["@tel"].Value = proveedor.Telefono;
 
 
-                        using (SqlCommand commandProveedorVistaUsuario = new SqlCommand(sqlProveedorVistaUsuario, connection))
+                        using (SqlCommand commandProveedorVistaUsuario = new SqlCommand(sqlProveedorVistaUsuario, connection, tran))
                         {
                             commandProveedorVistaUsuario.Parameters.Add("@id", SqlDbType.Int);
 
-                            commandProveedorVistaUsuario.Parameters["@nom"].Value = proveedor.Id_proveedor;
 
                             try
                             {
-                                commandProveedorOriginal.ExecuteNonQuery();
+                                int idNuevo = (Int32)commandProveedorOriginal.ExecuteScalar();
+                                commandProveedorVistaUsuario.Parameters["@id"].Value = idNuevo;
                                 commandProveedorVistaUsuario.ExecuteNonQuery();
                                 tran.Commit();
                                 success = true;
@@ -61,7 +60,7 @@ namespace MrTiendita.Modelos.DAO
                                 this.errorUltimaConsulta = true;
                                 success = false;
                                 this.mensajeError = ex.GetType() + "  ->  " + ex.Message;
-
+                                Console.WriteLine(ex.GetType() + "  ->  " + ex.Message);
 
                                 // Attempt to roll back the transaction.
                                 try
@@ -73,12 +72,11 @@ namespace MrTiendita.Modelos.DAO
                                     this.mensajeError = ex2.GetType() + "  ->  " + ex2.Message;
                                 }
                             }
-                            
+
 
                         }
                     }
                 }
-                
             }
             return success;
         }

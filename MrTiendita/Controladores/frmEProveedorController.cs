@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Constantes;
 using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using MrTiendita.Vistas;
@@ -43,16 +44,16 @@ namespace MrTiendita.Controladores
 
         private void TablaProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["eliminar"].Selected)
+            if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["col_Borrar"].Selected)
                 this.EliminarProveedor(e);
-            else if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["editar"].Selected)
+            else if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["col_Editar"].Selected)
                 this.ActualizarProveedor(e);
             this.MostrarTodos();
         }
 
         private void Btn_nuevoProveedor_Click(object sender, EventArgs e)
         {
-            FrmEditarProveedor editar = new FrmEditarProveedor("agregar", -1);
+            FrmEditarProveedor editar = new FrmEditarProveedor(AccionesCRUD.CREATE, -1);
             editar.ShowDialog();
             this.MostrarTodos();
         }
@@ -75,7 +76,7 @@ namespace MrTiendita.Controladores
 
         private void EliminarProveedor(DataGridViewCellEventArgs e)
         {
-            Form mensaje = new FrmError("El proveedor se eliminará");
+            Form mensaje = new FrmAdvertencia("El proveedor se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -103,7 +104,7 @@ namespace MrTiendita.Controladores
         {
             String idCadena = this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
             int id = Int32.Parse(idCadena);
-            FrmEditarProveedor editar = new FrmEditarProveedor("editar", id);
+            FrmEditarProveedor editar = new FrmEditarProveedor(AccionesCRUD.UPDATE, id);
             editar.ShowDialog();
         }
     }

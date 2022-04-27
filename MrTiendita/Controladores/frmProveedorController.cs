@@ -52,7 +52,7 @@ namespace MrTiendita.Controladores
         }
         private void Vista_Load(object sender, EventArgs e)
         {
-            if (this.accion == "editar")
+            if (this.accion == AccionesCRUD.UPDATE)
             {
                 Proveedor proveedor = this.proveedorDAO.ReadById(this.id);
                 this.vista.tb_nombre.Text = proveedor.Nombre;
@@ -94,11 +94,11 @@ namespace MrTiendita.Controladores
 
             Proveedor proveedor = new Proveedor(-1, _nombre, telefono);
 
-            if (this.accion == "Agregar")
+            if (this.accion == AccionesCRUD.CREATE)
             {
                 res = this.Agregar(proveedor);
             }
-            else
+            else if (this.accion == AccionesCRUD.UPDATE)
             {
                 res = this.Actualizar(proveedor);
             }
@@ -117,7 +117,7 @@ namespace MrTiendita.Controladores
             }
             else
             {
-                Form mensajeError = new FrmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError(this.proveedorDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 

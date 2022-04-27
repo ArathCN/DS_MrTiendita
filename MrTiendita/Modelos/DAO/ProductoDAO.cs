@@ -25,7 +25,8 @@ namespace MrTiendita.Modelos.DAO
             bool success = false;
             String sqlProductoOriginal =
                 "INSERT INTO Producto (codigo_barra, descripcion, precio_compra, cantidad_actual, medida, categoria, minimo, ganancia) " +
-                "VALUES (@cb, @des, @precom, @ca, @med, @cat, @min, @gan);";
+                "VALUES (@cb, @des, @precom, @ca, @med, @cat, @min, @gan); " +
+                "SELECT CAST(scope_identity() AS bigint);";
             String sqlProductoVistaUsuario = "INSERT INTO ProductoUserView (id_Producto) VALUES (@id);";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -33,7 +34,7 @@ namespace MrTiendita.Modelos.DAO
                 connection.Open();
                 using (SqlTransaction tran = connection.BeginTransaction("AltaProducto" + DateTimeOffset.Now.ToUnixTimeSeconds()))
                 {
-                    using (SqlCommand commandOriginal = new SqlCommand(sqlProductoOriginal, connection))
+                    using (SqlCommand commandOriginal = new SqlCommand(sqlProductoOriginal, connection, tran))
                     {
                         commandOriginal.Parameters.Add("@cb", SqlDbType.BigInt);
                         commandOriginal.Parameters.Add("@des", SqlDbType.VarChar);
@@ -53,14 +54,15 @@ namespace MrTiendita.Modelos.DAO
                         commandOriginal.Parameters["@min"].Value = producto.Minimo;
                         commandOriginal.Parameters["@gan"].Value = producto.Ganancia;
 
-                        using (SqlCommand commandUserView = new SqlCommand(sqlProductoVistaUsuario, connection))
+                        using (SqlCommand commandUserView = new SqlCommand(sqlProductoVistaUsuario, connection, tran))
                         {
                             commandUserView.Parameters.Add("@id", SqlDbType.BigInt);
-                            commandUserView.Parameters["@id"].Value = producto.Codigo_barra;
+                            
 
                             try
                             {
-                                commandOriginal.ExecuteNonQuery();
+                                long idNuevo = (Int64)commandOriginal.ExecuteScalar();
+                                commandUserView.Parameters["@id"].Value = idNuevo;
                                 commandUserView.ExecuteNonQuery();
                                 tran.Commit();
                                 success = true;
