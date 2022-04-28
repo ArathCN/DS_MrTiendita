@@ -131,6 +131,8 @@ namespace MrTiendita.Controladores
 
         private void Btn_CrearProducto_Click(object sender, EventArgs e)
         {
+            this.vista.btn_ModificarProducto.Visible = false;
+            this.bordeInferior.Visible = false;
             this.accion = AccionesCRUD.CREATE;
             this.id = -1;
             this.vista.lbl_Titulo.Text = "Crear un nuevo producto";
@@ -179,14 +181,18 @@ namespace MrTiendita.Controladores
 
         private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Borrar"].Selected)
+            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells != this.vista.dgv_TablaProductos.Rows[-1].Cells)
             {
-                Productos.Eliminar(this.vista, e);
+                if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Borrar"].Selected)
+                {
+                    Productos.Eliminar(this.vista, e);
+                }
+                else if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Editar"].Selected)
+                {
+                    this.ActualizarProducto(e);
+                }
             }
-            else if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Editar"].Selected)
-            {
-                this.ActualizarProducto(e);
-            }
+            
         }
 
 
@@ -223,9 +229,24 @@ namespace MrTiendita.Controladores
             String descripcionCad = this.vista.tb_Descripcion.Text;
             String cantidadCad = this.vista.tb_CantidadCrear.Text;
             String precioCompraCad = this.vista.tb_PrecioCompra.Text;
-            String categoriaCad = this.vista.cb_Categoria.SelectedItem.ToString();
+            String categoriaCad, gananciaCad;
+            if (this.vista.cb_Categoria.SelectedIndex == -1)
+            {
+                Form mensajeError = new FrmError("Debe seleccionar una categoría de producto.");
+                mensajeError.ShowDialog();
+                return;
+            }
+            else
+                categoriaCad = this.vista.cb_Categoria.SelectedItem.ToString();
             String minimoCad = this.vista.tb_Minima.Text;
-            String gananciaCad = this.vista.cb_GananciaPorcentaje.SelectedItem.ToString().TrimEnd('%');
+            if (this.vista.cb_GananciaPorcentaje.SelectedIndex == -1)
+            {
+                Form mensajeError = new FrmError("Debe seleccionar el porcentaje de ganancia para el producto");
+                mensajeError.ShowDialog();
+                return;
+            }
+            else
+                gananciaCad = this.vista.cb_GananciaPorcentaje.SelectedItem.ToString().TrimEnd('%');
 
             if (
                 !ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigo, "", codigoBarraCad, out codigoBarra, ValidacionDatosOpciones.CODIGO_BARRA) ||
@@ -293,10 +314,15 @@ namespace MrTiendita.Controladores
                 this.vista.tb_PrecioVenta.Text = "";
 
                 OcultarErrores();
+                this.AbrirPanel(this.vista.pnl_NuevaEntrada);
             } 
             else if (this.accion == AccionesCRUD.CREATE)
+            {
                 Productos.Agregar(producto);
+            }
+                
 
+            this.LimpiarCampos();
             this.MostrarProductos();
         }
 
@@ -513,6 +539,19 @@ namespace MrTiendita.Controladores
             this.vista.lbl_ErrorMinimo.Visible = false;
             this.vista.lbl_ErrorPrecioCompra.Visible = false;
             this.vista.lbl_ErrorPrecioVenta.Visible = false;
+        }
+
+        private void LimpiarCampos()
+        {
+            this.vista.tb_CodigoBarras.Text = "";
+            this.vista.tb_Descripcion.Text = "";
+            this.vista.tb_CantidadCrear.Text = "";
+            this.vista.cb_Categoria.SelectedIndex = -1;
+            this.vista.cb_TipoMedida.Checked = false;
+            this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
+            this.vista.tb_Minima.Text = "";
+            this.vista.tb_PrecioCompra.Text = "";
+            this.vista.tb_PrecioVenta.Text = "";
         }
 
         protected void CargarProveedores()
