@@ -181,8 +181,6 @@ namespace MrTiendita.Controladores
 
         private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells != this.vista.dgv_TablaProductos.Rows[-1].Cells)
-            {
                 if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Borrar"].Selected)
                 {
                     Productos.Eliminar(this.vista, e);
@@ -191,7 +189,6 @@ namespace MrTiendita.Controladores
                 {
                     this.ActualizarProducto(e);
                 }
-            }
             
         }
 
