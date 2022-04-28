@@ -64,6 +64,20 @@ namespace MrTiendita.Controladores
 
         private void Btn_CrearProducto_Click(object sender, EventArgs e)
         {
+            this.vista.lbl_Titulo.Text = "Crear un nuevo producto";
+            this.vista.btn_AgregarProducto.Text = "Crear producto";
+            this.vista.lbl_Descripcion.Text = "Crea un producto nuevo para empezar a venderlo en la tienda.";
+            this.vista.tb_CodigoBarras.Text = "";
+            this.vista.tb_Descripcion.Text = "";
+            this.vista.tb_CantidadCrear.Text = "";
+            this.vista.cb_Categoria.SelectedIndex = -1;
+            this.vista.cb_TipoMedida.Checked = false;
+            this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
+            this.vista.tb_Minima.Text = "";
+            this.vista.tb_PrecioCompra.Text = "";
+            this.vista.tb_PrecioVenta.Text = "";
+
+            OcultarErrores();
             ActivarBoton(sender);
             AbrirPanel(this.vista.pnl_CrearProducto);
         }
@@ -71,7 +85,6 @@ namespace MrTiendita.Controladores
         private void Btn_ModificarProducto_Click(object sender, EventArgs e)
         {
             ActivarBoton(sender);
-            bordeInferior.Location = new Point(botonSeleccionado.Location.X + 15, 42);
         }
 
         private void Tb_BuscarProducto_TextChanged(object sender, EventArgs e)
@@ -83,20 +96,23 @@ namespace MrTiendita.Controladores
             {
                 this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Codigo_barra,
-                    xProducto.Cantidad_actual,
                     xProducto.Descripcion,
-                    xProducto.Precio_venta
-                );
+                    xProducto.Precio_compra,
+                    CalcularPrecioVenta(xProducto.Ganancia, xProducto.Precio_compra),
+                    xProducto.Ganancia,
+                    xProducto.Categoria,
+                    xProducto.Cantidad_actual,
+                    xProducto.Minimo);
             }
         }
 
         private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["eliminar"].Selected)
+            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Borrar"].Selected)
             {
                 Productos.Eliminar(this.vista, e);
             }
-            else if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["editar"].Selected)
+            else if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_Editar"].Selected)
             {
                 this.ActualizarProducto(e);
             }
@@ -154,7 +170,7 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private double CalcularPrecioVenta(double ganancia, double precioCompra)
+        private double CalcularPrecioVenta(int ganancia, double precioCompra)
         {
             double porcentajeGanancia, precioVenta;
             porcentajeGanancia = ganancia * 0.01;
@@ -166,12 +182,53 @@ namespace MrTiendita.Controladores
         {
             String idCadena = this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
             this.vista.btn_ModificarProducto.Visible = true;
+            this.vista.lbl_Titulo.Text = "Modifica un producto";
+            this.vista.btn_AgregarProducto.Text = "Guardar cambios";
+            this.vista.lbl_Descripcion.Text = "Cambia el o los datos de un producto.";
             ActivarBoton(this.vista.btn_ModificarProducto);
-
-            //long id = long.Parse(idCadena);
-            //FrmProducto editar = new FrmProducto("editar", id);
-            //editar.ShowDialog();
+            AbrirPanel(this.vista.pnl_CrearProducto);
+            long id = long.Parse(idCadena);
+            CargarProductoModificar(id);
             MostrarProductos();
+        }
+
+        private void CargarProductoModificar(long id)
+        {
+            Producto producto = this.productoDAO.ReadById(id);
+            String porcentaje;
+
+            this.vista.tb_CodigoBarras.Text = producto.Codigo_barra.ToString();
+            this.vista.tb_Descripcion.Text = producto.Descripcion;
+            this.vista.tb_CantidadCrear.Text = producto.Cantidad_actual.ToString();
+            foreach (var categoria in this.vista.cb_Categoria.Items)
+            {
+                if (categoria.ToString() == producto.Categoria)
+                {
+                    this.vista.cb_Categoria.SelectedItem = producto.Categoria;
+                }
+            }
+            if (producto.Medida) this.vista.cb_TipoMedida.Checked = true;
+            foreach (var porcentajes in this.vista.cb_GananciaPorcentaje.Items)
+            {
+                porcentaje = porcentajes.ToString().TrimEnd('%');
+                if (porcentaje == producto.Ganancia.ToString()) this.vista.cb_GananciaPorcentaje.SelectedItem = producto.Ganancia.ToString() + "%";
+            }
+            this.vista.tb_Minima.Text = producto.Minimo.ToString();
+            this.vista.tb_PrecioCompra.Text = producto.Precio_compra.ToString();
+            this.vista.tb_PrecioVenta.Text = CalcularPrecioVenta(producto.Ganancia, producto.Precio_compra).ToString();
+            FrmProductoController frmProductoController = new FrmProductoController(this.vista, "editar");
+        }
+
+        private void OcultarErrores()
+        {
+            this.vista.lbl_ErrorCodigo.Visible = false;
+            this.vista.lbl_ErrorDescripcion.Visible = false;
+            this.vista.lbl_ErrorCantidadCrear.Visible = false;
+            this.vista.lbl_ErrorCategoria.Visible = false;
+            this.vista.lbl_ErrorGanancia.Visible = false;
+            this.vista.lbl_ErrorMinimo.Visible = false;
+            this.vista.lbl_ErrorPrecioCompra.Visible = false;
+            this.vista.lbl_ErrorPrecioVenta.Visible = false;
         }
     }
 }
