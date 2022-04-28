@@ -72,7 +72,7 @@ namespace MrTiendita.Vistas
             this.pnl_Superior.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pnl_Superior.Location = new System.Drawing.Point(0, 0);
             this.pnl_Superior.Name = "pnl_Superior";
-            this.pnl_Superior.Size = new System.Drawing.Size(1395, 60);
+            this.pnl_Superior.Size = new System.Drawing.Size(1300, 60);
             this.pnl_Superior.TabIndex = 0;
             // 
             // btn_Maximizar
@@ -80,7 +80,7 @@ namespace MrTiendita.Vistas
             this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
-            this.btn_Maximizar.Location = new System.Drawing.Point(1326, 14);
+            this.btn_Maximizar.Location = new System.Drawing.Point(1231, 14);
             this.btn_Maximizar.Name = "btn_Maximizar";
             this.btn_Maximizar.Size = new System.Drawing.Size(24, 24);
             this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -93,7 +93,7 @@ namespace MrTiendita.Vistas
             this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizar.Image")));
-            this.btn_Minimizar.Location = new System.Drawing.Point(1296, 14);
+            this.btn_Minimizar.Location = new System.Drawing.Point(1201, 14);
             this.btn_Minimizar.Name = "btn_Minimizar";
             this.btn_Minimizar.Size = new System.Drawing.Size(24, 24);
             this.btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +106,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(1356, 14);
+            this.btn_Cerrar.Location = new System.Drawing.Point(1261, 14);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(24, 24);
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,7 +151,7 @@ namespace MrTiendita.Vistas
             this.pnl_Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_Menu.Location = new System.Drawing.Point(0, 60);
             this.pnl_Menu.Name = "pnl_Menu";
-            this.pnl_Menu.Size = new System.Drawing.Size(200, 839);
+            this.pnl_Menu.Size = new System.Drawing.Size(200, 640);
             this.pnl_Menu.TabIndex = 1;
             // 
             // btn_CerrarSesion
@@ -170,7 +170,7 @@ namespace MrTiendita.Vistas
             this.btn_CerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btn_CerrarSesion.Image")));
             this.btn_CerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CerrarSesion.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_CerrarSesion.Location = new System.Drawing.Point(20, 787);
+            this.btn_CerrarSesion.Location = new System.Drawing.Point(20, 588);
             this.btn_CerrarSesion.Name = "btn_CerrarSesion";
             this.btn_CerrarSesion.ShadowDecoration.Parent = this.btn_CerrarSesion;
             this.btn_CerrarSesion.Size = new System.Drawing.Size(160, 40);
@@ -221,7 +221,7 @@ namespace MrTiendita.Vistas
             this.btn_Configuracion.Image = ((System.Drawing.Image)(resources.GetObject("btn_Configuracion.Image")));
             this.btn_Configuracion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Configuracion.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Configuracion.Location = new System.Drawing.Point(20, 731);
+            this.btn_Configuracion.Location = new System.Drawing.Point(20, 532);
             this.btn_Configuracion.Name = "btn_Configuracion";
             this.btn_Configuracion.ShadowDecoration.Parent = this.btn_Configuracion;
             this.btn_Configuracion.Size = new System.Drawing.Size(160, 40);
@@ -401,7 +401,7 @@ namespace MrTiendita.Vistas
             this.pb_Linea.Image = ((System.Drawing.Image)(resources.GetObject("pb_Linea.Image")));
             this.pb_Linea.Location = new System.Drawing.Point(195, 0);
             this.pb_Linea.Name = "pb_Linea";
-            this.pb_Linea.Size = new System.Drawing.Size(5, 839);
+            this.pb_Linea.Size = new System.Drawing.Size(5, 640);
             this.pb_Linea.TabIndex = 0;
             this.pb_Linea.TabStop = false;
             // 
@@ -410,7 +410,7 @@ namespace MrTiendita.Vistas
             this.pnl_Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Contenedor.Location = new System.Drawing.Point(200, 60);
             this.pnl_Contenedor.Name = "pnl_Contenedor";
-            this.pnl_Contenedor.Size = new System.Drawing.Size(1195, 839);
+            this.pnl_Contenedor.Size = new System.Drawing.Size(1100, 640);
             this.pnl_Contenedor.TabIndex = 2;
             // 
             // guna2DragControl1
@@ -421,7 +421,7 @@ namespace MrTiendita.Vistas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1395, 899);
+            this.ClientSize = new System.Drawing.Size(1300, 700);
             this.Controls.Add(this.pnl_Contenedor);
             this.Controls.Add(this.pnl_Menu);
             this.Controls.Add(this.pnl_Superior);
