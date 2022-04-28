@@ -38,13 +38,13 @@ namespace MrTiendita.Vistas
             this.lbl_CodigoBarras = new System.Windows.Forms.Label();
             this.tb_BuscarProveedor = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv_TablaProveedores = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbl_Titulo = new System.Windows.Forms.Label();
-            this.lbl_Descripcion = new System.Windows.Forms.Label();
             this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.col_Borrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lbl_Titulo = new System.Windows.Forms.Label();
+            this.lbl_Descripcion = new System.Windows.Forms.Label();
             this.pnl_Seccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TablaProveedores)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +67,7 @@ namespace MrTiendita.Vistas
             this.pnl_Seccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Seccion.Name = "pnl_Seccion";
             this.pnl_Seccion.ShadowDecoration.Parent = this.pnl_Seccion;
-            this.pnl_Seccion.Size = new System.Drawing.Size(1165, 815);
+            this.pnl_Seccion.Size = new System.Drawing.Size(1165, 727);
             this.pnl_Seccion.TabIndex = 5;
             // 
             // btn_nuevoProveedor
@@ -180,7 +180,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_TablaProveedores.RowTemplate.Height = 35;
             this.dgv_TablaProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_TablaProveedores.Size = new System.Drawing.Size(1115, 562);
+            this.dgv_TablaProveedores.Size = new System.Drawing.Size(1115, 512);
             this.dgv_TablaProveedores.TabIndex = 15;
             this.dgv_TablaProveedores.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgv_TablaProveedores.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -204,28 +204,6 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProveedores.ThemeStyle.RowsStyle.Height = 35;
             this.dgv_TablaProveedores.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgv_TablaProveedores.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            // 
-            // lbl_Titulo
-            // 
-            this.lbl_Titulo.AutoSize = true;
-            this.lbl_Titulo.BackColor = System.Drawing.Color.White;
-            this.lbl_Titulo.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(19, 33);
-            this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(158, 32);
-            this.lbl_Titulo.TabIndex = 4;
-            this.lbl_Titulo.Text = "Proveedores";
-            // 
-            // lbl_Descripcion
-            // 
-            this.lbl_Descripcion.AutoSize = true;
-            this.lbl_Descripcion.BackColor = System.Drawing.Color.White;
-            this.lbl_Descripcion.Location = new System.Drawing.Point(20, 64);
-            this.lbl_Descripcion.Name = "lbl_Descripcion";
-            this.lbl_Descripcion.Size = new System.Drawing.Size(433, 23);
-            this.lbl_Descripcion.TabIndex = 5;
-            this.lbl_Descripcion.Text = "Consulta, agrega o modifica los datos de un proveedor.";
             // 
             // col_ID
             // 
@@ -267,12 +245,34 @@ namespace MrTiendita.Vistas
             this.col_Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.col_Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.BackColor = System.Drawing.Color.White;
+            this.lbl_Titulo.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Titulo.Location = new System.Drawing.Point(19, 33);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(158, 32);
+            this.lbl_Titulo.TabIndex = 4;
+            this.lbl_Titulo.Text = "Proveedores";
+            // 
+            // lbl_Descripcion
+            // 
+            this.lbl_Descripcion.AutoSize = true;
+            this.lbl_Descripcion.BackColor = System.Drawing.Color.White;
+            this.lbl_Descripcion.Location = new System.Drawing.Point(20, 64);
+            this.lbl_Descripcion.Name = "lbl_Descripcion";
+            this.lbl_Descripcion.Size = new System.Drawing.Size(433, 23);
+            this.lbl_Descripcion.TabIndex = 5;
+            this.lbl_Descripcion.Text = "Consulta, agrega o modifica los datos de un proveedor.";
+            // 
             // FrmProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1195, 839);
+            this.ClientSize = new System.Drawing.Size(1195, 750);
             this.Controls.Add(this.pnl_Seccion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
