@@ -25,7 +25,6 @@ namespace MrTiendita.Vistas
             {
                 lbl_Titulo.Text = "Actualizar producto";
             }
-            FrmProductoController controlador = new FrmProductoController(this, accion, id);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
