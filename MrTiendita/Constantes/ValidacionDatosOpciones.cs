@@ -62,5 +62,40 @@ namespace MrTiendita.Constantes
         /// Constante opción PATRON = 10.
         /// </summary>
         public static int PATRON = 10;
+
+
+        /// conjunto de opcines ya pre hechas
+        public static Dictionary<int, long> CODIGO_BARRA = new Dictionary<int, long>() {
+            {ValidacionDatosOpciones.MAYOR_A, 0},
+            {ValidacionDatosOpciones.NUM_CARACTERES, 13}
+        };
+
+        public static Dictionary<int, double> CANTIDAD = new Dictionary<int, double>() {
+            {ValidacionDatosOpciones.MAYOR_A, 0},
+            {ValidacionDatosOpciones.MENOR_A, 10000},
+            {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+        };
+
+        public static Dictionary<int, int> DESCRIPCION = new Dictionary<int, int>() {
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 120}
+        };
+
+        public static Dictionary<int, double> PRECIO = new Dictionary<int, double>() {
+            {ValidacionDatosOpciones.MAYOR_A, 0},
+            {ValidacionDatosOpciones.MENOR_A, 10000},
+            {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+        };
+
+        public static Dictionary<int, int> GANANCIA = new Dictionary<int, int>() {
+            {ValidacionDatosOpciones.MAYOR_A, 0},
+            {ValidacionDatosOpciones.MENOR_A, 10000},
+            {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+        };
+
+        public static Dictionary<int, int> CATEGORIA = new Dictionary<int, int>(){
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+        };
     }
 }

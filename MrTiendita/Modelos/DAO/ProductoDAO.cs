@@ -57,12 +57,12 @@ namespace MrTiendita.Modelos.DAO
                         using (SqlCommand commandUserView = new SqlCommand(sqlProductoVistaUsuario, connection, tran))
                         {
                             commandUserView.Parameters.Add("@id", SqlDbType.BigInt);
-                            
+                            commandUserView.Parameters["@id"].Value = producto.Codigo_barra;
+
 
                             try
                             {
-                                long idNuevo = (Int64)commandOriginal.ExecuteScalar();
-                                commandUserView.Parameters["@id"].Value = idNuevo;
+                                commandOriginal.ExecuteNonQuery();
                                 commandUserView.ExecuteNonQuery();
                                 tran.Commit();
                                 success = true;
@@ -72,6 +72,7 @@ namespace MrTiendita.Modelos.DAO
                                 this.errorUltimaConsulta = true;
                                 success = false;
                                 this.mensajeError = ex.GetType() + "  ->  " + ex.Message;
+                                Console.WriteLine(ex.StackTrace);
 
 
                                 // Attempt to roll back the transaction.

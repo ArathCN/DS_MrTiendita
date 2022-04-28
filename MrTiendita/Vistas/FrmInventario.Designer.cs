@@ -29,12 +29,13 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventario));
             this.pnl_MenuProductos = new Guna.UI2.WinForms.Guna2Panel();
             this.pnl_CrearProducto = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_ErrorCantidadCrear = new System.Windows.Forms.Label();
             this.cb_GananciaPorcentaje = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tb_CantidadCrear = new Guna.UI2.WinForms.Guna2TextBox();
@@ -99,7 +100,6 @@ namespace MrTiendita.Vistas
             this.lbl_Producto = new System.Windows.Forms.Label();
             this.tb_BuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
             this.tlp_Display = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnl_MenuProductos.SuspendLayout();
             this.pnl_CrearProducto.SuspendLayout();
             this.pnl_NuevaEntrada.SuspendLayout();
@@ -114,19 +114,19 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_MenuProductos.BorderRadius = 10;
+            this.pnl_MenuProductos.Controls.Add(this.pnl_NuevaEntrada);
             this.pnl_MenuProductos.Controls.Add(this.pnl_CrearProducto);
             this.pnl_MenuProductos.Controls.Add(this.btn_ModificarProducto);
-            this.pnl_MenuProductos.Controls.Add(this.pnl_NuevaEntrada);
             this.pnl_MenuProductos.Controls.Add(this.btn_CrearProducto);
             this.pnl_MenuProductos.Controls.Add(this.btn_NuevaEntrada);
             this.pnl_MenuProductos.Controls.Add(this.Separador);
             this.pnl_MenuProductos.FillColor = System.Drawing.Color.White;
             this.pnl_MenuProductos.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_MenuProductos.Location = new System.Drawing.Point(3, 396);
-            this.pnl_MenuProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_MenuProductos.Location = new System.Drawing.Point(2, 322);
+            this.pnl_MenuProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_MenuProductos.Name = "pnl_MenuProductos";
             this.pnl_MenuProductos.ShadowDecoration.Parent = this.pnl_MenuProductos;
-            this.pnl_MenuProductos.Size = new System.Drawing.Size(1165, 325);
+            this.pnl_MenuProductos.Size = new System.Drawing.Size(874, 263);
             this.pnl_MenuProductos.TabIndex = 1;
             // 
             // pnl_CrearProducto
@@ -165,20 +165,34 @@ namespace MrTiendita.Vistas
             this.pnl_CrearProducto.Controls.Add(this.tb_CodigoBarras);
             this.pnl_CrearProducto.Controls.Add(this.lbl_Titulo);
             this.pnl_CrearProducto.Controls.Add(this.lbl_Descripcion);
-            this.pnl_CrearProducto.Location = new System.Drawing.Point(18, 62);
+            this.pnl_CrearProducto.Location = new System.Drawing.Point(14, 50);
+            this.pnl_CrearProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_CrearProducto.Name = "pnl_CrearProducto";
-            this.pnl_CrearProducto.Size = new System.Drawing.Size(1134, 257);
+            this.pnl_CrearProducto.Size = new System.Drawing.Size(850, 209);
             this.pnl_CrearProducto.TabIndex = 0;
             this.pnl_CrearProducto.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(675, 64);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 15);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "Cantidad";
             // 
             // lbl_ErrorCantidadCrear
             // 
             this.lbl_ErrorCantidadCrear.AutoSize = true;
             this.lbl_ErrorCantidadCrear.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCantidadCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorCantidadCrear.Location = new System.Drawing.Point(900, 145);
+            this.lbl_ErrorCantidadCrear.Location = new System.Drawing.Point(675, 118);
+            this.lbl_ErrorCantidadCrear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorCantidadCrear.Name = "lbl_ErrorCantidadCrear";
-            this.lbl_ErrorCantidadCrear.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorCantidadCrear.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorCantidadCrear.TabIndex = 73;
             this.lbl_ErrorCantidadCrear.Text = "* Error";
             this.lbl_ErrorCantidadCrear.Visible = false;
@@ -218,10 +232,11 @@ namespace MrTiendita.Vistas
             "95%",
             "100%"});
             this.cb_GananciaPorcentaje.ItemsAppearance.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.Location = new System.Drawing.Point(24, 194);
+            this.cb_GananciaPorcentaje.Location = new System.Drawing.Point(18, 158);
+            this.cb_GananciaPorcentaje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_GananciaPorcentaje.Name = "cb_GananciaPorcentaje";
             this.cb_GananciaPorcentaje.ShadowDecoration.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(138, 36);
+            this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(104, 36);
             this.cb_GananciaPorcentaje.TabIndex = 72;
             // 
             // tb_CantidadCrear
@@ -241,14 +256,13 @@ namespace MrTiendita.Vistas
             this.tb_CantidadCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_CantidadCrear.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_CantidadCrear.HoverState.Parent = this.tb_CantidadCrear;
-            this.tb_CantidadCrear.Location = new System.Drawing.Point(904, 106);
-            this.tb_CantidadCrear.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_CantidadCrear.Location = new System.Drawing.Point(678, 86);
             this.tb_CantidadCrear.Name = "tb_CantidadCrear";
             this.tb_CantidadCrear.PasswordChar = '\0';
             this.tb_CantidadCrear.PlaceholderText = "";
             this.tb_CantidadCrear.SelectedText = "";
             this.tb_CantidadCrear.ShadowDecoration.Parent = this.tb_CantidadCrear;
-            this.tb_CantidadCrear.Size = new System.Drawing.Size(170, 36);
+            this.tb_CantidadCrear.Size = new System.Drawing.Size(128, 29);
             this.tb_CantidadCrear.TabIndex = 71;
             // 
             // label2
@@ -256,9 +270,10 @@ namespace MrTiendita.Vistas
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.label2.Location = new System.Drawing.Point(697, 200);
+            this.label2.Location = new System.Drawing.Point(523, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 23);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 70;
             this.label2.Text = "Granel";
             // 
@@ -267,9 +282,10 @@ namespace MrTiendita.Vistas
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(666, 171);
+            this.label1.Location = new System.Drawing.Point(500, 139);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.Size = new System.Drawing.Size(93, 15);
             this.label1.TabIndex = 69;
             this.label1.Text = "Tipo de medida:";
             // 
@@ -281,8 +297,8 @@ namespace MrTiendita.Vistas
             this.cb_TipoMedida.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.cb_TipoMedida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_TipoMedida.ForeColor = System.Drawing.Color.White;
-            this.cb_TipoMedida.Location = new System.Drawing.Point(670, 203);
-            this.cb_TipoMedida.Margin = new System.Windows.Forms.Padding(4, 9, 4, 9);
+            this.cb_TipoMedida.Location = new System.Drawing.Point(502, 165);
+            this.cb_TipoMedida.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.cb_TipoMedida.Name = "cb_TipoMedida";
             this.cb_TipoMedida.Size = new System.Drawing.Size(20, 20);
             this.cb_TipoMedida.TabIndex = 68;
@@ -292,9 +308,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorCategoria.AutoSize = true;
             this.lbl_ErrorCategoria.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorCategoria.Location = new System.Drawing.Point(640, 145);
+            this.lbl_ErrorCategoria.Location = new System.Drawing.Point(480, 118);
+            this.lbl_ErrorCategoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorCategoria.Name = "lbl_ErrorCategoria";
-            this.lbl_ErrorCategoria.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorCategoria.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorCategoria.TabIndex = 54;
             this.lbl_ErrorCategoria.Text = "* Error";
             this.lbl_ErrorCategoria.Visible = false;
@@ -304,9 +321,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorPrecioVenta.AutoSize = true;
             this.lbl_ErrorPrecioVenta.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorPrecioVenta.Location = new System.Drawing.Point(488, 233);
+            this.lbl_ErrorPrecioVenta.Location = new System.Drawing.Point(366, 189);
+            this.lbl_ErrorPrecioVenta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorPrecioVenta.Name = "lbl_ErrorPrecioVenta";
-            this.lbl_ErrorPrecioVenta.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorPrecioVenta.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorPrecioVenta.TabIndex = 53;
             this.lbl_ErrorPrecioVenta.Text = "* Error";
             this.lbl_ErrorPrecioVenta.Visible = false;
@@ -316,9 +334,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorPrecioCompra.AutoSize = true;
             this.lbl_ErrorPrecioCompra.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorPrecioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorPrecioCompra.Location = new System.Drawing.Point(323, 234);
+            this.lbl_ErrorPrecioCompra.Location = new System.Drawing.Point(242, 190);
+            this.lbl_ErrorPrecioCompra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorPrecioCompra.Name = "lbl_ErrorPrecioCompra";
-            this.lbl_ErrorPrecioCompra.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorPrecioCompra.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorPrecioCompra.TabIndex = 52;
             this.lbl_ErrorPrecioCompra.Text = "* Error";
             this.lbl_ErrorPrecioCompra.Visible = false;
@@ -328,9 +347,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorMinimo.AutoSize = true;
             this.lbl_ErrorMinimo.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorMinimo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorMinimo.Location = new System.Drawing.Point(165, 234);
+            this.lbl_ErrorMinimo.Location = new System.Drawing.Point(124, 190);
+            this.lbl_ErrorMinimo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorMinimo.Name = "lbl_ErrorMinimo";
-            this.lbl_ErrorMinimo.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorMinimo.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorMinimo.TabIndex = 51;
             this.lbl_ErrorMinimo.Text = "* Error";
             this.lbl_ErrorMinimo.Visible = false;
@@ -340,9 +360,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorGanancia.AutoSize = true;
             this.lbl_ErrorGanancia.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorGanancia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorGanancia.Location = new System.Drawing.Point(21, 234);
+            this.lbl_ErrorGanancia.Location = new System.Drawing.Point(16, 190);
+            this.lbl_ErrorGanancia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorGanancia.Name = "lbl_ErrorGanancia";
-            this.lbl_ErrorGanancia.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorGanancia.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorGanancia.TabIndex = 50;
             this.lbl_ErrorGanancia.Text = "* Error";
             this.lbl_ErrorGanancia.Visible = false;
@@ -352,9 +373,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorDescripcion.AutoSize = true;
             this.lbl_ErrorDescripcion.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorDescripcion.Location = new System.Drawing.Point(248, 145);
+            this.lbl_ErrorDescripcion.Location = new System.Drawing.Point(186, 118);
+            this.lbl_ErrorDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorDescripcion.Name = "lbl_ErrorDescripcion";
-            this.lbl_ErrorDescripcion.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorDescripcion.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorDescripcion.TabIndex = 49;
             this.lbl_ErrorDescripcion.Text = "* Error";
             this.lbl_ErrorDescripcion.Visible = false;
@@ -364,9 +386,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorCodigo.AutoSize = true;
             this.lbl_ErrorCodigo.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorCodigo.Location = new System.Drawing.Point(21, 145);
+            this.lbl_ErrorCodigo.Location = new System.Drawing.Point(16, 118);
+            this.lbl_ErrorCodigo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorCodigo.Name = "lbl_ErrorCodigo";
-            this.lbl_ErrorCodigo.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorCodigo.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorCodigo.TabIndex = 48;
             this.lbl_ErrorCodigo.Text = "* Error";
             this.lbl_ErrorCodigo.Visible = false;
@@ -376,9 +399,10 @@ namespace MrTiendita.Vistas
             this.lbl_PrecioVenta.AutoSize = true;
             this.lbl_PrecioVenta.BackColor = System.Drawing.Color.White;
             this.lbl_PrecioVenta.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_PrecioVenta.Location = new System.Drawing.Point(481, 171);
+            this.lbl_PrecioVenta.Location = new System.Drawing.Point(361, 139);
+            this.lbl_PrecioVenta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_PrecioVenta.Name = "lbl_PrecioVenta";
-            this.lbl_PrecioVenta.Size = new System.Drawing.Size(111, 20);
+            this.lbl_PrecioVenta.Size = new System.Drawing.Size(88, 15);
             this.lbl_PrecioVenta.TabIndex = 46;
             this.lbl_PrecioVenta.Text = "Precio de venta";
             // 
@@ -391,10 +415,11 @@ namespace MrTiendita.Vistas
             this.btn_AgregarProducto.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AgregarProducto.ForeColor = System.Drawing.Color.White;
             this.btn_AgregarProducto.HoverState.Parent = this.btn_AgregarProducto;
-            this.btn_AgregarProducto.Location = new System.Drawing.Point(904, 194);
+            this.btn_AgregarProducto.Location = new System.Drawing.Point(678, 158);
+            this.btn_AgregarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_AgregarProducto.Name = "btn_AgregarProducto";
             this.btn_AgregarProducto.ShadowDecoration.Parent = this.btn_AgregarProducto;
-            this.btn_AgregarProducto.Size = new System.Drawing.Size(170, 36);
+            this.btn_AgregarProducto.Size = new System.Drawing.Size(128, 29);
             this.btn_AgregarProducto.TabIndex = 47;
             this.btn_AgregarProducto.Text = "Crear producto";
             // 
@@ -409,20 +434,20 @@ namespace MrTiendita.Vistas
             this.tb_PrecioVenta.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_PrecioVenta.DisabledState.Parent = this.tb_PrecioVenta;
             this.tb_PrecioVenta.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_PrecioVenta.Enabled = false;
             this.tb_PrecioVenta.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_PrecioVenta.FocusedState.Parent = this.tb_PrecioVenta;
             this.tb_PrecioVenta.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_PrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_PrecioVenta.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_PrecioVenta.HoverState.Parent = this.tb_PrecioVenta;
-            this.tb_PrecioVenta.Location = new System.Drawing.Point(485, 194);
-            this.tb_PrecioVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_PrecioVenta.Location = new System.Drawing.Point(364, 158);
             this.tb_PrecioVenta.Name = "tb_PrecioVenta";
             this.tb_PrecioVenta.PasswordChar = '\0';
             this.tb_PrecioVenta.PlaceholderText = "";
             this.tb_PrecioVenta.SelectedText = "";
             this.tb_PrecioVenta.ShadowDecoration.Parent = this.tb_PrecioVenta;
-            this.tb_PrecioVenta.Size = new System.Drawing.Size(150, 36);
+            this.tb_PrecioVenta.Size = new System.Drawing.Size(112, 29);
             this.tb_PrecioVenta.TabIndex = 45;
             // 
             // tb_PrecioCompra
@@ -442,14 +467,13 @@ namespace MrTiendita.Vistas
             this.tb_PrecioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_PrecioCompra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_PrecioCompra.HoverState.Parent = this.tb_PrecioCompra;
-            this.tb_PrecioCompra.Location = new System.Drawing.Point(327, 194);
-            this.tb_PrecioCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_PrecioCompra.Location = new System.Drawing.Point(245, 158);
             this.tb_PrecioCompra.Name = "tb_PrecioCompra";
             this.tb_PrecioCompra.PasswordChar = '\0';
             this.tb_PrecioCompra.PlaceholderText = "";
             this.tb_PrecioCompra.SelectedText = "";
             this.tb_PrecioCompra.ShadowDecoration.Parent = this.tb_PrecioCompra;
-            this.tb_PrecioCompra.Size = new System.Drawing.Size(150, 36);
+            this.tb_PrecioCompra.Size = new System.Drawing.Size(112, 29);
             this.tb_PrecioCompra.TabIndex = 43;
             // 
             // lbl_PrecioCompra
@@ -457,9 +481,10 @@ namespace MrTiendita.Vistas
             this.lbl_PrecioCompra.AutoSize = true;
             this.lbl_PrecioCompra.BackColor = System.Drawing.Color.White;
             this.lbl_PrecioCompra.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_PrecioCompra.Location = new System.Drawing.Point(323, 170);
+            this.lbl_PrecioCompra.Location = new System.Drawing.Point(242, 138);
+            this.lbl_PrecioCompra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_PrecioCompra.Name = "lbl_PrecioCompra";
-            this.lbl_PrecioCompra.Size = new System.Drawing.Size(126, 20);
+            this.lbl_PrecioCompra.Size = new System.Drawing.Size(100, 15);
             this.lbl_PrecioCompra.TabIndex = 44;
             this.lbl_PrecioCompra.Text = "Precio de compra";
             // 
@@ -468,9 +493,10 @@ namespace MrTiendita.Vistas
             this.lbl_CantidadMinima.AutoSize = true;
             this.lbl_CantidadMinima.BackColor = System.Drawing.Color.White;
             this.lbl_CantidadMinima.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CantidadMinima.Location = new System.Drawing.Point(165, 171);
+            this.lbl_CantidadMinima.Location = new System.Drawing.Point(124, 139);
+            this.lbl_CantidadMinima.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CantidadMinima.Name = "lbl_CantidadMinima";
-            this.lbl_CantidadMinima.Size = new System.Drawing.Size(121, 20);
+            this.lbl_CantidadMinima.Size = new System.Drawing.Size(97, 15);
             this.lbl_CantidadMinima.TabIndex = 42;
             this.lbl_CantidadMinima.Text = "Mínima cantidad\r\n";
             // 
@@ -491,14 +517,13 @@ namespace MrTiendita.Vistas
             this.tb_Minima.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_Minima.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Minima.HoverState.Parent = this.tb_Minima;
-            this.tb_Minima.Location = new System.Drawing.Point(169, 194);
-            this.tb_Minima.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Minima.Location = new System.Drawing.Point(127, 158);
             this.tb_Minima.Name = "tb_Minima";
             this.tb_Minima.PasswordChar = '\0';
             this.tb_Minima.PlaceholderText = "";
             this.tb_Minima.SelectedText = "";
             this.tb_Minima.ShadowDecoration.Parent = this.tb_Minima;
-            this.tb_Minima.Size = new System.Drawing.Size(150, 36);
+            this.tb_Minima.Size = new System.Drawing.Size(112, 29);
             this.tb_Minima.TabIndex = 41;
             // 
             // lbl_Ganancia
@@ -506,9 +531,10 @@ namespace MrTiendita.Vistas
             this.lbl_Ganancia.AutoSize = true;
             this.lbl_Ganancia.BackColor = System.Drawing.Color.White;
             this.lbl_Ganancia.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Ganancia.Location = new System.Drawing.Point(21, 171);
+            this.lbl_Ganancia.Location = new System.Drawing.Point(16, 139);
+            this.lbl_Ganancia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Ganancia.Name = "lbl_Ganancia";
-            this.lbl_Ganancia.Size = new System.Drawing.Size(70, 20);
+            this.lbl_Ganancia.Size = new System.Drawing.Size(56, 15);
             this.lbl_Ganancia.TabIndex = 40;
             this.lbl_Ganancia.Text = "Ganancia";
             // 
@@ -538,10 +564,11 @@ namespace MrTiendita.Vistas
             "Refrigerados",
             "Sin categoria"});
             this.cb_Categoria.ItemsAppearance.Parent = this.cb_Categoria;
-            this.cb_Categoria.Location = new System.Drawing.Point(642, 106);
+            this.cb_Categoria.Location = new System.Drawing.Point(482, 86);
+            this.cb_Categoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_Categoria.Name = "cb_Categoria";
             this.cb_Categoria.ShadowDecoration.Parent = this.cb_Categoria;
-            this.cb_Categoria.Size = new System.Drawing.Size(251, 36);
+            this.cb_Categoria.Size = new System.Drawing.Size(189, 36);
             this.cb_Categoria.TabIndex = 29;
             // 
             // lbl_Categoria
@@ -549,9 +576,10 @@ namespace MrTiendita.Vistas
             this.lbl_Categoria.AutoSize = true;
             this.lbl_Categoria.BackColor = System.Drawing.Color.White;
             this.lbl_Categoria.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Categoria.Location = new System.Drawing.Point(640, 78);
+            this.lbl_Categoria.Location = new System.Drawing.Point(480, 63);
+            this.lbl_Categoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Categoria.Name = "lbl_Categoria";
-            this.lbl_Categoria.Size = new System.Drawing.Size(74, 20);
+            this.lbl_Categoria.Size = new System.Drawing.Size(58, 15);
             this.lbl_Categoria.TabIndex = 30;
             this.lbl_Categoria.Text = "Categoría";
             // 
@@ -572,14 +600,13 @@ namespace MrTiendita.Vistas
             this.tb_Descripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_Descripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Descripcion.HoverState.Parent = this.tb_Descripcion;
-            this.tb_Descripcion.Location = new System.Drawing.Point(246, 105);
-            this.tb_Descripcion.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Descripcion.Location = new System.Drawing.Point(184, 85);
             this.tb_Descripcion.Name = "tb_Descripcion";
             this.tb_Descripcion.PasswordChar = '\0';
             this.tb_Descripcion.PlaceholderText = "";
             this.tb_Descripcion.SelectedText = "";
             this.tb_Descripcion.ShadowDecoration.Parent = this.tb_Descripcion;
-            this.tb_Descripcion.Size = new System.Drawing.Size(389, 36);
+            this.tb_Descripcion.Size = new System.Drawing.Size(292, 29);
             this.tb_Descripcion.TabIndex = 27;
             // 
             // lbl_Nombre
@@ -587,9 +614,10 @@ namespace MrTiendita.Vistas
             this.lbl_Nombre.AutoSize = true;
             this.lbl_Nombre.BackColor = System.Drawing.Color.White;
             this.lbl_Nombre.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Nombre.Location = new System.Drawing.Point(248, 80);
+            this.lbl_Nombre.Location = new System.Drawing.Point(186, 65);
+            this.lbl_Nombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Nombre.Name = "lbl_Nombre";
-            this.lbl_Nombre.Size = new System.Drawing.Size(87, 20);
+            this.lbl_Nombre.Size = new System.Drawing.Size(69, 15);
             this.lbl_Nombre.TabIndex = 28;
             this.lbl_Nombre.Text = "Descripción";
             // 
@@ -598,9 +626,10 @@ namespace MrTiendita.Vistas
             this.lbl_CodigoBarras.AutoSize = true;
             this.lbl_CodigoBarras.BackColor = System.Drawing.Color.White;
             this.lbl_CodigoBarras.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CodigoBarras.Location = new System.Drawing.Point(21, 80);
+            this.lbl_CodigoBarras.Location = new System.Drawing.Point(16, 65);
+            this.lbl_CodigoBarras.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CodigoBarras.Name = "lbl_CodigoBarras";
-            this.lbl_CodigoBarras.Size = new System.Drawing.Size(124, 20);
+            this.lbl_CodigoBarras.Size = new System.Drawing.Size(97, 15);
             this.lbl_CodigoBarras.TabIndex = 25;
             this.lbl_CodigoBarras.Text = "Código de barras";
             // 
@@ -621,14 +650,13 @@ namespace MrTiendita.Vistas
             this.tb_CodigoBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_CodigoBarras.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_CodigoBarras.HoverState.Parent = this.tb_CodigoBarras;
-            this.tb_CodigoBarras.Location = new System.Drawing.Point(25, 106);
-            this.tb_CodigoBarras.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_CodigoBarras.Location = new System.Drawing.Point(19, 86);
             this.tb_CodigoBarras.Name = "tb_CodigoBarras";
             this.tb_CodigoBarras.PasswordChar = '\0';
             this.tb_CodigoBarras.PlaceholderText = "";
             this.tb_CodigoBarras.SelectedText = "";
             this.tb_CodigoBarras.ShadowDecoration.Parent = this.tb_CodigoBarras;
-            this.tb_CodigoBarras.Size = new System.Drawing.Size(213, 36);
+            this.tb_CodigoBarras.Size = new System.Drawing.Size(160, 29);
             this.tb_CodigoBarras.TabIndex = 24;
             // 
             // lbl_Titulo
@@ -637,9 +665,10 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo.BackColor = System.Drawing.Color.White;
             this.lbl_Titulo.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Titulo.Location = new System.Drawing.Point(12, 12);
+            this.lbl_Titulo.Location = new System.Drawing.Point(9, 10);
+            this.lbl_Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Titulo.Name = "lbl_Titulo";
-            this.lbl_Titulo.Size = new System.Drawing.Size(304, 32);
+            this.lbl_Titulo.Size = new System.Drawing.Size(239, 25);
             this.lbl_Titulo.TabIndex = 4;
             this.lbl_Titulo.Text = "Crear un producto nuevo\r\n";
             // 
@@ -648,9 +677,10 @@ namespace MrTiendita.Vistas
             this.lbl_Descripcion.AutoSize = true;
             this.lbl_Descripcion.BackColor = System.Drawing.Color.White;
             this.lbl_Descripcion.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.lbl_Descripcion.Location = new System.Drawing.Point(14, 43);
+            this.lbl_Descripcion.Location = new System.Drawing.Point(10, 35);
+            this.lbl_Descripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Descripcion.Name = "lbl_Descripcion";
-            this.lbl_Descripcion.Size = new System.Drawing.Size(491, 23);
+            this.lbl_Descripcion.Size = new System.Drawing.Size(377, 17);
             this.lbl_Descripcion.TabIndex = 5;
             this.lbl_Descripcion.Text = "Crea un producto nuevo para empezar a venderlo en la tienda.";
             // 
@@ -664,11 +694,12 @@ namespace MrTiendita.Vistas
             this.btn_ModificarProducto.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_ModificarProducto.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_ModificarProducto.HoverState.Parent = this.btn_ModificarProducto;
-            this.btn_ModificarProducto.Location = new System.Drawing.Point(559, 7);
+            this.btn_ModificarProducto.Location = new System.Drawing.Point(419, 6);
+            this.btn_ModificarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_ModificarProducto.Name = "btn_ModificarProducto";
             this.btn_ModificarProducto.PressedColor = System.Drawing.Color.White;
             this.btn_ModificarProducto.ShadowDecoration.Parent = this.btn_ModificarProducto;
-            this.btn_ModificarProducto.Size = new System.Drawing.Size(253, 45);
+            this.btn_ModificarProducto.Size = new System.Drawing.Size(190, 37);
             this.btn_ModificarProducto.TabIndex = 1;
             this.btn_ModificarProducto.Text = "Modificar producto";
             // 
@@ -691,9 +722,10 @@ namespace MrTiendita.Vistas
             this.pnl_NuevaEntrada.Controls.Add(this.tb_CodigoBarra);
             this.pnl_NuevaEntrada.Controls.Add(this.lbl_NuevaEntrada);
             this.pnl_NuevaEntrada.Controls.Add(this.lbl_DescripcionNueva);
-            this.pnl_NuevaEntrada.Location = new System.Drawing.Point(18, 62);
+            this.pnl_NuevaEntrada.Location = new System.Drawing.Point(14, 50);
+            this.pnl_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_NuevaEntrada.Name = "pnl_NuevaEntrada";
-            this.pnl_NuevaEntrada.Size = new System.Drawing.Size(1134, 257);
+            this.pnl_NuevaEntrada.Size = new System.Drawing.Size(850, 209);
             this.pnl_NuevaEntrada.TabIndex = 35;
             this.pnl_NuevaEntrada.Visible = false;
             // 
@@ -702,9 +734,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorProveedor.AutoSize = true;
             this.lbl_ErrorProveedor.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorProveedor.Location = new System.Drawing.Point(495, 144);
+            this.lbl_ErrorProveedor.Location = new System.Drawing.Point(371, 117);
+            this.lbl_ErrorProveedor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorProveedor.Name = "lbl_ErrorProveedor";
-            this.lbl_ErrorProveedor.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorProveedor.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorProveedor.TabIndex = 51;
             this.lbl_ErrorProveedor.Text = "* Error";
             this.lbl_ErrorProveedor.Visible = false;
@@ -714,9 +747,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorCantidad.AutoSize = true;
             this.lbl_ErrorCantidad.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorCantidad.Location = new System.Drawing.Point(312, 144);
+            this.lbl_ErrorCantidad.Location = new System.Drawing.Point(234, 117);
+            this.lbl_ErrorCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorCantidad.Name = "lbl_ErrorCantidad";
-            this.lbl_ErrorCantidad.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorCantidad.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorCantidad.TabIndex = 50;
             this.lbl_ErrorCantidad.Text = "* Error";
             this.lbl_ErrorCantidad.Visible = false;
@@ -726,9 +760,10 @@ namespace MrTiendita.Vistas
             this.lbl_ErrorCodigoBarras.AutoSize = true;
             this.lbl_ErrorCodigoBarras.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCodigoBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(80)))), ((int)(((byte)(76)))));
-            this.lbl_ErrorCodigoBarras.Location = new System.Drawing.Point(21, 144);
+            this.lbl_ErrorCodigoBarras.Location = new System.Drawing.Point(16, 117);
+            this.lbl_ErrorCodigoBarras.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ErrorCodigoBarras.Name = "lbl_ErrorCodigoBarras";
-            this.lbl_ErrorCodigoBarras.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorCodigoBarras.Size = new System.Drawing.Size(40, 13);
             this.lbl_ErrorCodigoBarras.TabIndex = 49;
             this.lbl_ErrorCodigoBarras.Text = "* Error";
             this.lbl_ErrorCodigoBarras.Visible = false;
@@ -745,11 +780,12 @@ namespace MrTiendita.Vistas
             this.btn_LimpiarEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.HoverState.Parent = this.btn_LimpiarEntrada;
-            this.btn_LimpiarEntrada.Location = new System.Drawing.Point(194, 180);
+            this.btn_LimpiarEntrada.Location = new System.Drawing.Point(146, 146);
+            this.btn_LimpiarEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_LimpiarEntrada.Name = "btn_LimpiarEntrada";
             this.btn_LimpiarEntrada.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.ShadowDecoration.Parent = this.btn_LimpiarEntrada;
-            this.btn_LimpiarEntrada.Size = new System.Drawing.Size(152, 36);
+            this.btn_LimpiarEntrada.Size = new System.Drawing.Size(114, 29);
             this.btn_LimpiarEntrada.TabIndex = 44;
             this.btn_LimpiarEntrada.Text = "Limpiar";
             // 
@@ -762,10 +798,11 @@ namespace MrTiendita.Vistas
             this.btn_RegistrarProducto.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RegistrarProducto.ForeColor = System.Drawing.Color.White;
             this.btn_RegistrarProducto.HoverState.Parent = this.btn_RegistrarProducto;
-            this.btn_RegistrarProducto.Location = new System.Drawing.Point(18, 180);
+            this.btn_RegistrarProducto.Location = new System.Drawing.Point(14, 146);
+            this.btn_RegistrarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_RegistrarProducto.Name = "btn_RegistrarProducto";
             this.btn_RegistrarProducto.ShadowDecoration.Parent = this.btn_RegistrarProducto;
-            this.btn_RegistrarProducto.Size = new System.Drawing.Size(152, 36);
+            this.btn_RegistrarProducto.Size = new System.Drawing.Size(114, 29);
             this.btn_RegistrarProducto.TabIndex = 43;
             this.btn_RegistrarProducto.Text = "Registrar";
             // 
@@ -784,10 +821,11 @@ namespace MrTiendita.Vistas
             this.cb_Proveedor.HoverState.Parent = this.cb_Proveedor;
             this.cb_Proveedor.ItemHeight = 30;
             this.cb_Proveedor.ItemsAppearance.Parent = this.cb_Proveedor;
-            this.cb_Proveedor.Location = new System.Drawing.Point(492, 104);
+            this.cb_Proveedor.Location = new System.Drawing.Point(369, 84);
+            this.cb_Proveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_Proveedor.Name = "cb_Proveedor";
             this.cb_Proveedor.ShadowDecoration.Parent = this.cb_Proveedor;
-            this.cb_Proveedor.Size = new System.Drawing.Size(329, 36);
+            this.cb_Proveedor.Size = new System.Drawing.Size(248, 36);
             this.cb_Proveedor.TabIndex = 41;
             // 
             // lbl_Proveedor
@@ -795,9 +833,10 @@ namespace MrTiendita.Vistas
             this.lbl_Proveedor.AutoSize = true;
             this.lbl_Proveedor.BackColor = System.Drawing.Color.White;
             this.lbl_Proveedor.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Proveedor.Location = new System.Drawing.Point(495, 78);
+            this.lbl_Proveedor.Location = new System.Drawing.Point(371, 63);
+            this.lbl_Proveedor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Proveedor.Name = "lbl_Proveedor";
-            this.lbl_Proveedor.Size = new System.Drawing.Size(77, 20);
+            this.lbl_Proveedor.Size = new System.Drawing.Size(61, 15);
             this.lbl_Proveedor.TabIndex = 42;
             this.lbl_Proveedor.Text = "Proveedor\r\n";
             // 
@@ -817,14 +856,13 @@ namespace MrTiendita.Vistas
             this.tb_Cantidad.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Cantidad.HoverState.Parent = this.tb_Cantidad;
-            this.tb_Cantidad.Location = new System.Drawing.Point(312, 104);
-            this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Cantidad.Location = new System.Drawing.Point(234, 84);
             this.tb_Cantidad.Name = "tb_Cantidad";
             this.tb_Cantidad.PasswordChar = '\0';
             this.tb_Cantidad.PlaceholderText = "";
             this.tb_Cantidad.SelectedText = "";
             this.tb_Cantidad.ShadowDecoration.Parent = this.tb_Cantidad;
-            this.tb_Cantidad.Size = new System.Drawing.Size(173, 36);
+            this.tb_Cantidad.Size = new System.Drawing.Size(130, 29);
             this.tb_Cantidad.TabIndex = 39;
             // 
             // lbl_Cantidad
@@ -832,9 +870,10 @@ namespace MrTiendita.Vistas
             this.lbl_Cantidad.AutoSize = true;
             this.lbl_Cantidad.BackColor = System.Drawing.Color.White;
             this.lbl_Cantidad.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Cantidad.Location = new System.Drawing.Point(312, 78);
+            this.lbl_Cantidad.Location = new System.Drawing.Point(234, 63);
+            this.lbl_Cantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Cantidad.Name = "lbl_Cantidad";
-            this.lbl_Cantidad.Size = new System.Drawing.Size(69, 20);
+            this.lbl_Cantidad.Size = new System.Drawing.Size(55, 15);
             this.lbl_Cantidad.TabIndex = 40;
             this.lbl_Cantidad.Text = "Cantidad";
             // 
@@ -843,9 +882,10 @@ namespace MrTiendita.Vistas
             this.lbl_CodigoBarra.AutoSize = true;
             this.lbl_CodigoBarra.BackColor = System.Drawing.Color.White;
             this.lbl_CodigoBarra.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CodigoBarra.Location = new System.Drawing.Point(21, 80);
+            this.lbl_CodigoBarra.Location = new System.Drawing.Point(16, 65);
+            this.lbl_CodigoBarra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CodigoBarra.Name = "lbl_CodigoBarra";
-            this.lbl_CodigoBarra.Size = new System.Drawing.Size(124, 20);
+            this.lbl_CodigoBarra.Size = new System.Drawing.Size(97, 15);
             this.lbl_CodigoBarra.TabIndex = 37;
             this.lbl_CodigoBarra.Text = "Código de barras";
             // 
@@ -865,14 +905,13 @@ namespace MrTiendita.Vistas
             this.tb_CodigoBarra.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_CodigoBarra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_CodigoBarra.HoverState.Parent = this.tb_CodigoBarra;
-            this.tb_CodigoBarra.Location = new System.Drawing.Point(25, 104);
-            this.tb_CodigoBarra.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_CodigoBarra.Location = new System.Drawing.Point(19, 84);
             this.tb_CodigoBarra.Name = "tb_CodigoBarra";
             this.tb_CodigoBarra.PasswordChar = '\0';
             this.tb_CodigoBarra.PlaceholderText = "";
             this.tb_CodigoBarra.SelectedText = "";
             this.tb_CodigoBarra.ShadowDecoration.Parent = this.tb_CodigoBarra;
-            this.tb_CodigoBarra.Size = new System.Drawing.Size(279, 36);
+            this.tb_CodigoBarra.Size = new System.Drawing.Size(209, 29);
             this.tb_CodigoBarra.TabIndex = 36;
             // 
             // lbl_NuevaEntrada
@@ -881,9 +920,10 @@ namespace MrTiendita.Vistas
             this.lbl_NuevaEntrada.BackColor = System.Drawing.Color.White;
             this.lbl_NuevaEntrada.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NuevaEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_NuevaEntrada.Location = new System.Drawing.Point(12, 12);
+            this.lbl_NuevaEntrada.Location = new System.Drawing.Point(9, 10);
+            this.lbl_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_NuevaEntrada.Name = "lbl_NuevaEntrada";
-            this.lbl_NuevaEntrada.Size = new System.Drawing.Size(334, 32);
+            this.lbl_NuevaEntrada.Size = new System.Drawing.Size(259, 25);
             this.lbl_NuevaEntrada.TabIndex = 34;
             this.lbl_NuevaEntrada.Text = "Nueva entrada al inventario";
             // 
@@ -892,9 +932,10 @@ namespace MrTiendita.Vistas
             this.lbl_DescripcionNueva.AutoSize = true;
             this.lbl_DescripcionNueva.BackColor = System.Drawing.Color.White;
             this.lbl_DescripcionNueva.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.lbl_DescripcionNueva.Location = new System.Drawing.Point(14, 43);
+            this.lbl_DescripcionNueva.Location = new System.Drawing.Point(10, 35);
+            this.lbl_DescripcionNueva.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_DescripcionNueva.Name = "lbl_DescripcionNueva";
-            this.lbl_DescripcionNueva.Size = new System.Drawing.Size(450, 23);
+            this.lbl_DescripcionNueva.Size = new System.Drawing.Size(353, 17);
             this.lbl_DescripcionNueva.TabIndex = 35;
             this.lbl_DescripcionNueva.Text = "Registra la entrega de productos por parte del proveedor.\r\n";
             // 
@@ -908,11 +949,12 @@ namespace MrTiendita.Vistas
             this.btn_CrearProducto.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_CrearProducto.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CrearProducto.HoverState.Parent = this.btn_CrearProducto;
-            this.btn_CrearProducto.Location = new System.Drawing.Point(286, 7);
+            this.btn_CrearProducto.Location = new System.Drawing.Point(214, 6);
+            this.btn_CrearProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_CrearProducto.Name = "btn_CrearProducto";
             this.btn_CrearProducto.PressedColor = System.Drawing.Color.White;
             this.btn_CrearProducto.ShadowDecoration.Parent = this.btn_CrearProducto;
-            this.btn_CrearProducto.Size = new System.Drawing.Size(253, 45);
+            this.btn_CrearProducto.Size = new System.Drawing.Size(190, 37);
             this.btn_CrearProducto.TabIndex = 4;
             this.btn_CrearProducto.Text = "Crear producto";
             // 
@@ -926,11 +968,12 @@ namespace MrTiendita.Vistas
             this.btn_NuevaEntrada.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_NuevaEntrada.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_NuevaEntrada.HoverState.Parent = this.btn_NuevaEntrada;
-            this.btn_NuevaEntrada.Location = new System.Drawing.Point(13, 7);
+            this.btn_NuevaEntrada.Location = new System.Drawing.Point(10, 6);
+            this.btn_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_NuevaEntrada.Name = "btn_NuevaEntrada";
             this.btn_NuevaEntrada.PressedColor = System.Drawing.Color.White;
             this.btn_NuevaEntrada.ShadowDecoration.Parent = this.btn_NuevaEntrada;
-            this.btn_NuevaEntrada.Size = new System.Drawing.Size(253, 45);
+            this.btn_NuevaEntrada.Size = new System.Drawing.Size(190, 37);
             this.btn_NuevaEntrada.TabIndex = 3;
             this.btn_NuevaEntrada.Text = "Nueva entrada";
             // 
@@ -944,12 +987,13 @@ namespace MrTiendita.Vistas
             this.Separador.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.Separador.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.Separador.Location = new System.Drawing.Point(18, 27);
+            this.Separador.Location = new System.Drawing.Point(14, 22);
+            this.Separador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Separador.Name = "Separador";
             this.Separador.PasswordChar = '\0';
             this.Separador.ReadOnly = true;
             this.Separador.SelectedText = "";
-            this.Separador.Size = new System.Drawing.Size(1134, 30);
+            this.Separador.Size = new System.Drawing.Size(850, 26);
             this.Separador.TabIndex = 34;
             // 
             // pnl_Contenedor
@@ -965,11 +1009,11 @@ namespace MrTiendita.Vistas
             this.pnl_Contenedor.Controls.Add(this.tb_BuscarProducto);
             this.pnl_Contenedor.FillColor = System.Drawing.Color.White;
             this.pnl_Contenedor.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_Contenedor.Location = new System.Drawing.Point(3, 2);
-            this.pnl_Contenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 5);
+            this.pnl_Contenedor.Location = new System.Drawing.Point(2, 2);
+            this.pnl_Contenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
             this.pnl_Contenedor.Name = "pnl_Contenedor";
             this.pnl_Contenedor.ShadowDecoration.Parent = this.pnl_Contenedor;
-            this.pnl_Contenedor.Size = new System.Drawing.Size(1165, 387);
+            this.pnl_Contenedor.Size = new System.Drawing.Size(874, 314);
             this.pnl_Contenedor.TabIndex = 2;
             // 
             // lbl_ConsultarProductos
@@ -978,9 +1022,10 @@ namespace MrTiendita.Vistas
             this.lbl_ConsultarProductos.BackColor = System.Drawing.Color.White;
             this.lbl_ConsultarProductos.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ConsultarProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_ConsultarProductos.Location = new System.Drawing.Point(20, 33);
+            this.lbl_ConsultarProductos.Location = new System.Drawing.Point(15, 27);
+            this.lbl_ConsultarProductos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ConsultarProductos.Name = "lbl_ConsultarProductos";
-            this.lbl_ConsultarProductos.Size = new System.Drawing.Size(249, 32);
+            this.lbl_ConsultarProductos.Size = new System.Drawing.Size(195, 25);
             this.lbl_ConsultarProductos.TabIndex = 28;
             this.lbl_ConsultarProductos.Text = "Consultar productos";
             // 
@@ -990,8 +1035,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.AllowUserToDeleteRows = false;
             this.dgv_TablaProductos.AllowUserToResizeColumns = false;
             this.dgv_TablaProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_TablaProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1000,14 +1045,14 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_TablaProductos.ColumnHeadersHeight = 35;
             this.dgv_TablaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1021,24 +1066,25 @@ namespace MrTiendita.Vistas
             this.col_Minimo,
             this.col_Editar,
             this.col_Borrar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaProductos.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_TablaProductos.EnableHeadersVisualStyles = false;
             this.dgv_TablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
-            this.dgv_TablaProductos.Location = new System.Drawing.Point(24, 172);
+            this.dgv_TablaProductos.Location = new System.Drawing.Point(18, 140);
+            this.dgv_TablaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_TablaProductos.Name = "dgv_TablaProductos";
             this.dgv_TablaProductos.RowHeadersVisible = false;
             this.dgv_TablaProductos.RowHeadersWidth = 65;
             this.dgv_TablaProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_TablaProductos.RowTemplate.Height = 35;
             this.dgv_TablaProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_TablaProductos.Size = new System.Drawing.Size(1123, 201);
+            this.dgv_TablaProductos.Size = new System.Drawing.Size(842, 163);
             this.dgv_TablaProductos.TabIndex = 32;
             this.dgv_TablaProductos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgv_TablaProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -1144,9 +1190,10 @@ namespace MrTiendita.Vistas
             this.lbl_DescripcionConsultar.AutoSize = true;
             this.lbl_DescripcionConsultar.BackColor = System.Drawing.Color.White;
             this.lbl_DescripcionConsultar.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.lbl_DescripcionConsultar.Location = new System.Drawing.Point(22, 65);
+            this.lbl_DescripcionConsultar.Location = new System.Drawing.Point(16, 53);
+            this.lbl_DescripcionConsultar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_DescripcionConsultar.Name = "lbl_DescripcionConsultar";
-            this.lbl_DescripcionConsultar.Size = new System.Drawing.Size(405, 23);
+            this.lbl_DescripcionConsultar.Size = new System.Drawing.Size(314, 17);
             this.lbl_DescripcionConsultar.TabIndex = 29;
             this.lbl_DescripcionConsultar.Text = "Consulta la lista de todos los productos de la tienda\r\n";
             // 
@@ -1155,9 +1202,10 @@ namespace MrTiendita.Vistas
             this.lbl_Producto.AutoSize = true;
             this.lbl_Producto.BackColor = System.Drawing.Color.White;
             this.lbl_Producto.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Producto.Location = new System.Drawing.Point(21, 96);
+            this.lbl_Producto.Location = new System.Drawing.Point(16, 78);
+            this.lbl_Producto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Producto.Name = "lbl_Producto";
-            this.lbl_Producto.Size = new System.Drawing.Size(117, 20);
+            this.lbl_Producto.Size = new System.Drawing.Size(94, 15);
             this.lbl_Producto.TabIndex = 31;
             this.lbl_Producto.Text = "Buscar producto";
             // 
@@ -1178,14 +1226,13 @@ namespace MrTiendita.Vistas
             this.tb_BuscarProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_BuscarProducto.HoverState.Parent = this.tb_BuscarProducto;
             this.tb_BuscarProducto.IconLeft = ((System.Drawing.Image)(resources.GetObject("tb_BuscarProducto.IconLeft")));
-            this.tb_BuscarProducto.Location = new System.Drawing.Point(24, 120);
-            this.tb_BuscarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_BuscarProducto.Location = new System.Drawing.Point(18, 98);
             this.tb_BuscarProducto.Name = "tb_BuscarProducto";
             this.tb_BuscarProducto.PasswordChar = '\0';
             this.tb_BuscarProducto.PlaceholderText = "";
             this.tb_BuscarProducto.SelectedText = "";
             this.tb_BuscarProducto.ShadowDecoration.Parent = this.tb_BuscarProducto;
-            this.tb_BuscarProducto.Size = new System.Drawing.Size(501, 36);
+            this.tb_BuscarProducto.Size = new System.Drawing.Size(376, 29);
             this.tb_BuscarProducto.TabIndex = 30;
             // 
             // tlp_Display
@@ -1197,33 +1244,24 @@ namespace MrTiendita.Vistas
             this.tlp_Display.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_Display.Controls.Add(this.pnl_Contenedor, 0, 0);
             this.tlp_Display.Controls.Add(this.pnl_MenuProductos, 0, 1);
-            this.tlp_Display.Location = new System.Drawing.Point(12, 15);
+            this.tlp_Display.Location = new System.Drawing.Point(9, 12);
+            this.tlp_Display.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tlp_Display.Name = "tlp_Display";
             this.tlp_Display.RowCount = 2;
             this.tlp_Display.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_Display.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 329F));
-            this.tlp_Display.Size = new System.Drawing.Size(1171, 723);
+            this.tlp_Display.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 267F));
+            this.tlp_Display.Size = new System.Drawing.Size(878, 587);
             this.tlp_Display.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(900, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "Cantidad";
             // 
             // FrmInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1195, 750);
+            this.ClientSize = new System.Drawing.Size(896, 609);
             this.Controls.Add(this.tlp_Display);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmInventario";
             this.Text = "FrmInventario";
             this.pnl_MenuProductos.ResumeLayout(false);

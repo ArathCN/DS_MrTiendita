@@ -38,7 +38,7 @@ namespace MrTiendita.Patrones
             }
             else
             {
-                Form mensajeError = new FrmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError(productoDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 
@@ -56,12 +56,12 @@ namespace MrTiendita.Patrones
             bool res = productoDAO.UpdateInfo(producto, id);
             if (res)
             {
-                Form mensajeExito = new FrmExito("Se ha actualizado el producto con éxito.");
+                Form mensajeExito = new FrmExito("Se ha actualizado el producto con éxito..");
                 mensajeExito.ShowDialog();
             }
             else
             {
-                Form mensajeError = new FrmError("Ha ocurrido un error.");
+                Form mensajeError = new FrmError("A" + productoDAO.MensajeError);
                 mensajeError.ShowDialog();
             }
 
@@ -75,7 +75,7 @@ namespace MrTiendita.Patrones
         /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         public void Eliminar(FrmInventario vista, DataGridViewCellEventArgs e)
         {
-            Form mensaje = new FrmError("El producto se eliminará");
+            Form mensaje = new FrmAdvertencia("El producto se eliminará");
             DialogResult resultado = mensaje.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -226,7 +226,7 @@ namespace MrTiendita.Patrones
     /// <summary>
     /// Clase auxiliar para implementar el patrón Facade en <see cref="Proveedor"/>.
     /// </summary>
-    class Proveedor
+    class Proveedores
     {
 
     }

@@ -140,7 +140,12 @@ namespace MrTiendita.Modelos.DTO
 
         private double CalcularPrecioVenta()
         {
-            return ((this.ganancia * this.precio_compra) / 100) + this.precio_compra;
+            return Producto.PresupuestarPrecioVenta(this.precio_compra, this.ganancia);
+        }
+
+        static public double PresupuestarPrecioVenta(double precioCompra, int ganancia)
+        {
+            return ((ganancia * precioCompra) / 100) + precioCompra;
         }
     }
 }
