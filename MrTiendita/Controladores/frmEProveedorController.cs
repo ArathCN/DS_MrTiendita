@@ -43,9 +43,9 @@ namespace MrTiendita.Controladores
 
         private void TablaProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["eliminar"].Selected)
+            if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["col_Borrar"].Selected)
                 this.EliminarProveedor(e);
-            else if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["editar"].Selected)
+            else if (this.vista.dgv_TablaProveedores.Rows[e.RowIndex].Cells["col_Editar"].Selected)
                 this.ActualizarProveedor(e);
             this.MostrarTodos();
         }

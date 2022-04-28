@@ -34,10 +34,12 @@ namespace MrTiendita.Vistas
 
         private void AjustarColumnas()
         {
-            dgv_TablaProveedores.Columns[0].Width = 300;//Nombre
-            dgv_TablaProveedores.Columns[1].Width = 100;//Teléfono
-            dgv_TablaProveedores.Columns[3].Width = 40;//Editar
+            dgv_TablaProveedores.Columns[1].Width = 500;//Nombre
+            dgv_TablaProveedores.Columns[2].Width = 100;//Teléfono
+            dgv_TablaProveedores.Columns[3].Width = 70;//Editar
+            dgv_TablaProveedores.Columns[4].Width = 70;//Editar
             col_Editar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            col_Borrar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void btn_NuevoEmpleado_Click(object sender, EventArgs e)
