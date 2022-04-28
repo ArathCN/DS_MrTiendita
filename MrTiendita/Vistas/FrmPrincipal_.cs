@@ -17,7 +17,7 @@ namespace MrTiendita.Vistas
         public FrmPrincipal_()
         {
             InitializeComponent();
-            AbrirFormulario(new FrmTablero());
+            AbrirFormulario(new FrmInventario());
         }
 
         private void AbrirFormulario(Form FormHijo)
@@ -93,7 +93,7 @@ namespace MrTiendita.Vistas
                 e.Cancel = true;
                 esCerrado = true;
                 this.Hide();
-                AbrirFormulario(new FrmTablero());
+                AbrirFormulario(new FrmInventario());
             }
         }
 
