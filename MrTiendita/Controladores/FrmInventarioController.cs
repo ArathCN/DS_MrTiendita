@@ -309,17 +309,18 @@ namespace MrTiendita.Controladores
                 this.vista.tb_Minima.Text = "";
                 this.vista.tb_PrecioCompra.Text = "";
                 this.vista.tb_PrecioVenta.Text = "";
-
-                OcultarErrores();
                 this.AbrirPanel(this.vista.pnl_NuevaEntrada);
+                this.ActivarBoton(this.vista.btn_NuevaEntrada);
             } 
             else if (this.accion == AccionesCRUD.CREATE)
             {
                 Productos.Agregar(producto);
+                
             }
                 
 
             this.LimpiarCampos();
+            this.OcultarErrores();
             this.MostrarProductos();
         }
 
