@@ -276,7 +276,6 @@ namespace MrTiendita.Vistas
             this.btn_Configuracion.Text = "Configuración";
             this.btn_Configuracion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Configuracion.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Configuracion.Visible = false;
             this.btn_Configuracion.Click += new System.EventHandler(this.btn_Configuracion_Click);
             // 
             // btn_Reportes
@@ -302,7 +301,6 @@ namespace MrTiendita.Vistas
             this.btn_Reportes.Text = "Reportes";
             this.btn_Reportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Reportes.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Reportes.Visible = false;
             this.btn_Reportes.Click += new System.EventHandler(this.btn_Reportes_Click);
             // 
             // btn_Movimientos
@@ -329,7 +327,6 @@ namespace MrTiendita.Vistas
             this.btn_Movimientos.Text = "Movimientos";
             this.btn_Movimientos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Movimientos.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Movimientos.Visible = false;
             this.btn_Movimientos.Click += new System.EventHandler(this.btn_Movimientos_Click);
             // 
             // btn_Ventas
@@ -355,7 +352,6 @@ namespace MrTiendita.Vistas
             this.btn_Ventas.Text = "Ventas";
             this.btn_Ventas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Ventas.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Ventas.Visible = false;
             this.btn_Ventas.Click += new System.EventHandler(this.btn_Ventas_Click);
             // 
             // btn_Empleados
@@ -381,7 +377,6 @@ namespace MrTiendita.Vistas
             this.btn_Empleados.Text = "Empleados";
             this.btn_Empleados.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Empleados.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Empleados.Visible = false;
             this.btn_Empleados.Click += new System.EventHandler(this.btn_Empleados_Click);
             // 
             // btn_Tablero
@@ -408,7 +403,6 @@ namespace MrTiendita.Vistas
             this.btn_Tablero.Text = "Tablero";
             this.btn_Tablero.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Tablero.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Tablero.Visible = false;
             this.btn_Tablero.Click += new System.EventHandler(this.btn_Tablero_Click);
             // 
             // pnl_Contenedor
