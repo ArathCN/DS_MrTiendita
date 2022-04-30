@@ -202,7 +202,6 @@ namespace MrTiendita.Controladores
             String sueldoCad = this.vista.tb_sueldo.Text;
             String claveCad = this.vista.tb_clave.Text;
             String tipoEmpleadoCad = "";
-            String estado = TipoEmpleadoC.ESTADO_ACTIVO;
             long telefono;
             double sueldo;
 
@@ -272,7 +271,7 @@ namespace MrTiendita.Controladores
 
             //Crear el empleado
             Empleado empleado = new Empleado(
-                -1, nombreCad, apPaternoCad, apMaternoCad, telefono, sueldo, tipoEmpleadoCad, claveCad, usuarioCad, estado);
+                -1, nombreCad, apPaternoCad, apMaternoCad, telefono, sueldo, tipoEmpleadoCad, claveCad, usuarioCad);
 
             if (this.accion == "agregar")
                 esValido = this.Agregar(empleado);

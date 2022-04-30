@@ -156,8 +156,7 @@ namespace MrTiendita.Modelos.DAO
                                     reader.GetInt64(4),
                                     decimal.ToDouble(reader.GetDecimal(5)),
                                     reader.GetString(6), reader.GetString(7),
-                                    reader.GetString(8),
-                                    reader.GetString(9))
+                                    reader.GetString(8))
                                 );
                         }
                     }
@@ -199,8 +198,7 @@ namespace MrTiendita.Modelos.DAO
                                 decimal.ToDouble(reader.GetDecimal(5)),
                                 reader.GetString(6),
                                 reader.GetString(7),
-                                reader.GetString(8),
-                                reader.GetString(9)
+                                reader.GetString(8)
                             );
                         }
                     }
@@ -244,8 +242,7 @@ namespace MrTiendita.Modelos.DAO
                                     decimal.ToDouble(reader.GetDecimal(5)),
                                     reader.GetString(6),
                                     reader.GetString(7),
-                                    reader.GetString(8),
-                                    reader.GetString(9)
+                                    reader.GetString(8)
                                 )
                             );
                         }
@@ -315,8 +312,7 @@ namespace MrTiendita.Modelos.DAO
                                 decimal.ToDouble(reader.GetDecimal(5)),
                                 reader.GetString(6),
                                 reader.GetString(7),
-                                reader.GetString(8),
-                                reader.GetString(9)
+                                reader.GetString(8)
                             );
                         }
                     }
@@ -326,42 +322,6 @@ namespace MrTiendita.Modelos.DAO
             return empleado;
         }
 
-        public Empleado ReadByState(String estado)
-        {
-            Empleado empleado = null;
-
-            String sql = "SELECT * FROM Empleado WHERE estado = @est;";
-
-            using (SqlConnection connection = new SqlConnection(this.stringConexion))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.Add("@est", SqlDbType.VarChar);
-                    command.Parameters["@id"].Value = estado;
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            empleado = new Empleado(
-                                reader.GetInt32(0),
-                                reader.GetString(1),
-                                reader.GetString(2),
-                                reader.GetString(3),
-                                reader.GetInt64(4),
-                                decimal.ToDouble(reader.GetDecimal(5)),
-                                reader.GetString(6),
-                                reader.GetString(7),
-                                reader.GetString(8),
-                                reader.GetString(9)
-                            );
-                        }
-                    }
-                }
-            }
-
-            return empleado;
-        }
+        
     }
 }
