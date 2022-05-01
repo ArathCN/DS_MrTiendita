@@ -12,6 +12,7 @@ using MrTiendita.Componentes;
 using MrTiendita.Patrones;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace MrTiendita.Controladores
 {
@@ -141,12 +142,26 @@ namespace MrTiendita.Controladores
             this.vista.tb_CodigoBarras.Text = "";
             this.vista.tb_Descripcion.Text = "";
             this.vista.tb_CantidadCrear.Text = "";
-            this.vista.cb_Categoria.SelectedIndex = -1;
             this.vista.cb_TipoMedida.Checked = false;
             this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
-            this.vista.tb_Minima.Text = "";
             this.vista.tb_PrecioCompra.Text = "";
             this.vista.tb_PrecioVenta.Text = "";
+            if (Properties.Settings.Default.siMinimoGlobal)
+            {
+                this.vista.tb_Minima.Text = Properties.Settings.Default.minimoGlobal.ToString(new CultureInfo("es-MX"));
+                this.vista.tb_Minima.Enabled = false;
+            }
+            else this.vista.tb_Minima.Text = "";
+            if (Properties.Settings.Default.siGanancia)
+            {
+                double opcion = (Properties.Settings.Default.ganancia / 5) - 2;
+                this.vista.cb_GananciaPorcentaje.SelectedIndex = (Int32)opcion;
+                this.vista.cb_GananciaPorcentaje.Enabled = false;
+            }
+            else this.vista.cb_Categoria.SelectedIndex = -1;
+
+
+
 
             OcultarErrores();
             ActivarBoton(sender);
@@ -490,6 +505,8 @@ namespace MrTiendita.Controladores
         {
             String idCadena = this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
             this.vista.btn_ModificarProducto.Visible = true;
+            if (Properties.Settings.Default.siMinimoGlobal) this.vista.tb_Minima.Enabled = false;
+            if (Properties.Settings.Default.siGanancia) this.vista.cb_GananciaPorcentaje.Enabled = false;
             this.vista.lbl_Titulo.Text = "Modifica un producto";
             this.vista.btn_AgregarProducto.Text = "Guardar cambios";
             this.vista.lbl_Descripcion.Text = "Cambia el o los datos de un producto.";

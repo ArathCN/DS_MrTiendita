@@ -106,5 +106,29 @@ namespace MrTiendita.Properties {
                 this["siMinimoGlobal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool siGanancia {
+            get {
+                return ((bool)(this["siGanancia"]));
+            }
+            set {
+                this["siGanancia"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ganancia {
+            get {
+                return ((int)(this["ganancia"]));
+            }
+            set {
+                this["ganancia"] = value;
+            }
+        }
     }
 }
