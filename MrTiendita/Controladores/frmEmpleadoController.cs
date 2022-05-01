@@ -171,21 +171,26 @@ namespace MrTiendita.Controladores
             }
             else
             {
-                this.vista.tb_telefono.Text = Properties.Settings.Default.lada.ToString();
-                this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+                if(Properties.Settings.Default.lada != 0) this.vista.tb_telefono.Text = Properties.Settings.Default.lada.ToString();
+                if (Properties.Settings.Default.sueldoCajeros != 0) this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+                this.vista.lbl_ErrorTel.Visible = false;
             }
         }
 
         private void rb_cajero_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.vista.rb_cajero.Checked)
-            this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+            if (this.vista.rb_cajero.Checked && Properties.Settings.Default.sueldoCajeros != 0)
+                this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+            else this.vista.tb_sueldo.Text = "";
+                this.vista.lbl_ErrorSue.Visible = false;
         }
 
         private void rb_encargado_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.vista.rb_encargado.Checked)
+            if (this.vista.rb_encargado.Checked && Properties.Settings.Default.sueldoEncargados != 0)
                 this.vista.tb_sueldo.Text = Properties.Settings.Default.sueldoEncargados.ToString(new CultureInfo("es-MX"));
+            else this.vista.tb_sueldo.Text = "";
+            this.vista.lbl_ErrorSue.Visible = false;
         }
 
         /// <summary> Maneja el evento Click del control Btn_Cerrar. </summary>
