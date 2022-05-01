@@ -69,33 +69,54 @@ namespace MrTiendita.Constantes
             {ValidacionDatosOpciones.MAYOR_A, 0},
             {ValidacionDatosOpciones.NUM_CARACTERES, 13}
         };
-
         public static Dictionary<int, double> CANTIDAD = new Dictionary<int, double>() {
             {ValidacionDatosOpciones.MAYOR_A, 0},
             {ValidacionDatosOpciones.MENOR_A, 10000},
             {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
         };
-
         public static Dictionary<int, int> DESCRIPCION = new Dictionary<int, int>() {
             {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
             {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 120}
         };
-
         public static Dictionary<int, double> PRECIO = new Dictionary<int, double>() {
             {ValidacionDatosOpciones.MAYOR_A, 0},
             {ValidacionDatosOpciones.MENOR_A, 10000},
             {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
         };
-
         public static Dictionary<int, int> GANANCIA = new Dictionary<int, int>() {
             {ValidacionDatosOpciones.MAYOR_A, 0},
-            {ValidacionDatosOpciones.MENOR_A, 10000},
-            {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
+            {ValidacionDatosOpciones.MENOR_A, 100},
+            {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 0}
         };
-
         public static Dictionary<int, int> CATEGORIA = new Dictionary<int, int>(){
             {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
             {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+        };
+
+        public static Dictionary<int, int> USUARIO = new Dictionary<int, int>()
+        {
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
+        };
+        public static Dictionary<int, int> NOMBRE = new Dictionary<int, int>()
+        {
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 3},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 100}
+        };
+        public static Dictionary<int, int> APELLIDO = new Dictionary<int, int>()
+        {
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 3},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 60}
+        };
+        public static Dictionary<int, long> TELEFONO = new Dictionary<int, long>()
+        {
+            {ValidacionDatosOpciones.MAYOR_A, 0},
+            {ValidacionDatosOpciones.NUM_CARACTERES, 10}
+        };
+        public static Dictionary<int, int> CLAVE = new Dictionary<int, int>()
+        {
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
         };
     }
 }

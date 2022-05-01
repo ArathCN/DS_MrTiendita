@@ -218,7 +218,7 @@ namespace MrTiendita.Modelos.DAO
         {
             List<Empleado> empleados = new List<Empleado>();
             idOrName = "%" + idOrName + "%";
-            String sql = "SELECT * FROM Empleado WHERE usuario LIKE @condicion2;";
+            String sql = "SELECT * FROM Empleado WHERE CONCAT(nombre, ' ', ap_paterno, ' ', ap_materno) LIKE @condicion2;";
 
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
             {

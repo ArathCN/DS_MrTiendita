@@ -93,6 +93,7 @@
     <Compile Include="Controladores\FrmEAlmacenController.cs" />
     <Compile Include="Controladores\FrmEEmpleadosController.cs" />
     <Compile Include="Controladores\FrmEmpleadoController.cs" />
+    <Compile Include="Controladores\FrmEmpleadosController.cs" />
     <Compile Include="Controladores\FrmEProveedorController.cs" />
     <Compile Include="Controladores\FrmInicioController.cs" />
     <Compile Include="Controladores\FrmInventarioController.cs" />
