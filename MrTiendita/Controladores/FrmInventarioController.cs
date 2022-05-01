@@ -444,7 +444,7 @@ namespace MrTiendita.Controladores
                 this.botonSeleccionado = (Guna2Button)boton;
                 this.botonSeleccionado.ForeColor = Color.FromArgb(0, 134, 255);
                 this.bordeInferior.BackColor = Color.FromArgb(0, 134, 255);
-                this.bordeInferior.Location = new Point(this.botonSeleccionado.Location.X + 18, 45);
+                this.bordeInferior.Location = new Point(this.botonSeleccionado.Location.X + 18, 49);
                 this.bordeInferior.BringToFront();
                 this.bordeInferior.Visible = true;
             }

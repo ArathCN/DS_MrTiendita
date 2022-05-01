@@ -23,7 +23,6 @@ namespace MrTiendita.Controladores
             this.vista.dgv_TablaProveedores.CellContentClick += new DataGridViewCellEventHandler(TablaProveedores_CellContentClick);
             this.vista.Load += new EventHandler(Vista_load);
             this.vista.tb_BuscarProveedor.TextChanged += new EventHandler(Tb_busqueda_TextChanged);
-            this.vista.btn_nuevoProveedor.Click += new EventHandler(Btn_nuevoProveedor_Click);
         }
 
         private void Vista_load(object sender, EventArgs e)
