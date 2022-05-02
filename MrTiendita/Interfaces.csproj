@@ -97,6 +97,7 @@
     <Compile Include="Controladores\FrmEProveedorController.cs" />
     <Compile Include="Controladores\FrmInicioController.cs" />
     <Compile Include="Controladores\FrmInventarioController.cs" />
+    <Compile Include="Controladores\FrmMovimientosController.cs" />
     <Compile Include="Controladores\FrmPrincipalController.cs" />
     <Compile Include="Controladores\FrmProductoController.cs" />
     <Compile Include="Controladores\FrmProveedorController.cs" />
@@ -213,6 +214,12 @@
     </Compile>
     <Compile Include="Vistas\FrmInventario.Designer.cs">
       <DependentUpon>FrmInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmMovimientos.Designer.cs">
+      <DependentUpon>FrmMovimientos.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -333,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmInventario.resx">
       <DependentUpon>FrmInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FrmMovimientos.resx">
+      <DependentUpon>FrmMovimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

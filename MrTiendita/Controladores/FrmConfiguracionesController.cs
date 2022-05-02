@@ -52,7 +52,7 @@ namespace MrTiendita.Controladores
             this.vista.check_CantidadMinima.OnChange += new EventHandler(check_CantidadMinima_OnChange);
             this.vista.check_ProductoAgotado.OnChange += new EventHandler(check_ProductoAgotado_OnChange);
             this.vista.cb_siGanancia.OnChange += new EventHandler(cb_siGanancia_OnChange);
-            this.vista.tb_Ganancia.TextChanged += new EventHandler(tb_Ganancia_TextChanged);
+            this.vista.cb_GananciaPorcentaje.SelectedIndexChanged += new EventHandler(tb_Ganancia_TextChanged);
             this.vista.btn_GuardarDatos.Click += new EventHandler(btn_GuardarDatos_Click);
         }
 
@@ -86,8 +86,8 @@ namespace MrTiendita.Controladores
             if (this.siGanancia)
             {
                 this.vista.cb_siGanancia.Checked = true;
-                this.vista.tb_Ganancia.Text = this.ganancia.ToString();
-                this.vista.tb_Ganancia.Enabled = true;
+                this.vista.cb_GananciaPorcentaje.SelectedItem = this.ganancia.ToString() + "%";
+                this.vista.cb_GananciaPorcentaje.Enabled = true;
             }
             this.vista.check_CantidadMinima.Checked = this.siMinimoGlobal;
             this.vista.check_ProductoAgotado.Checked = this.siNotificar;
@@ -218,17 +218,17 @@ namespace MrTiendita.Controladores
             this.siGanancia = this.vista.cb_siGanancia.Checked;
             if (this.siGanancia)
             {
-                this.vista.tb_Ganancia.Enabled = true;
-                this.vista.tb_Ganancia.Text = this.ganancia.ToString();
-            }else
-                this.vista.tb_Ganancia.Enabled = false;
+                this.vista.cb_GananciaPorcentaje.Enabled = true;
+                this.vista.cb_GananciaPorcentaje.SelectedItem = this.ganancia.ToString() + "%";
+            } else
+                this.vista.cb_GananciaPorcentaje.Enabled = false;
 
         }
 
         private void tb_Ganancia_TextChanged(object sender, EventArgs e)
         {
             bool siValido;
-            String str_ganancia = this.vista.tb_Ganancia.Text;
+            String str_ganancia = this.vista.cb_GananciaPorcentaje.SelectedItem.ToString().TrimEnd('%');
             int int_ganancia;
             Dictionary<int, int> opcionesCantidad = new Dictionary<int, int>()
             {

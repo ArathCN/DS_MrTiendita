@@ -77,6 +77,9 @@ namespace MrTiendita.Vistas
 
         private void btn_Movimientos_Click(object sender, EventArgs e)
         {
+
+            AbrirFormulario(new FrmMovimientos());
+            ActivarBoton(sender);
             esActivado = false;
         }
 
