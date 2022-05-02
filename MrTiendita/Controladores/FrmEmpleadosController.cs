@@ -20,7 +20,6 @@ namespace MrTiendita.Controladores
     {
         private FrmEmpleados vista;
         private EmpleadoDAO empleadoDAO;
-        private List<Empleado> todosEmpleados;
         private String accion;
         private int id;
 
@@ -31,7 +30,6 @@ namespace MrTiendita.Controladores
         {
             this.vista = vista;
             this.empleadoDAO = new EmpleadoDAO();
-            this.todosEmpleados = null;
             this.accion = AccionesCRUD.CREATE;
 
             this.vista.Load += new EventHandler(Vista_Load);
@@ -104,8 +102,8 @@ namespace MrTiendita.Controladores
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Vista_Load(object sender, EventArgs e)
         {
-            bordeInferior = new Panel();
-            bordeInferior.Size = new Size(160, 2);
+            this.bordeInferior = new Panel();
+            this.bordeInferior.Size = new Size(160, 2);
             this.vista.pnl_MenuProductos.Controls.Add(bordeInferior);
             this.vista.btn_ModificarEmpleado.Visible = false;
             ActivarBoton(this.vista.btn_RegistrarEmpleado);
@@ -238,7 +236,6 @@ namespace MrTiendita.Controladores
         {
             this.vista.tablaEmpleados.Rows.Clear();
             List<Empleado> empleados = this.empleadoDAO.ReadAll();
-            this.todosEmpleados = empleados;
             foreach (Empleado xEmpleado in empleados)
             {
                 this.vista.tablaEmpleados.Rows.Add(
@@ -326,6 +323,7 @@ namespace MrTiendita.Controladores
                 if (esEliminado)
                 {
                     Form mensajeExito = new FrmError("El empleado fue eliminado");
+                    mensajeExito.ShowDialog();
                 }
                 else
                 {

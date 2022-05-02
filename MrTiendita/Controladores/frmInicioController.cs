@@ -33,26 +33,14 @@ namespace MrTiendita.Controladores
 
             this.vista.tb_IDEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Texto de entre 5 a 50 caracteres.";
-                Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
-                {
-                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
-                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
-                };
                 ValidacionFormulario.Validar(
-                    this.vista.lbl_ErrorID, mensajeError, this.vista.tb_IDEmpleado.Text, longitudCadenas);
+                    this.vista.lbl_ErrorID, "", this.vista.tb_IDEmpleado.Text, ValidacionDatosOpciones.USUARIO);
             };
 
             this.vista.tb_claveEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
-                String mensajeError = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
-                Dictionary<int, int> longitudCadenas = new Dictionary<int, int>()
-                {
-                    {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
-                    {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
-                };
                 ValidacionFormulario.Validar(
-                    this.vista.lbl_ErrorClave, mensajeError, this.vista.tb_claveEmpleado.Text, longitudCadenas, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
+                    this.vista.lbl_ErrorClave, "", this.vista.tb_claveEmpleado.Text, ValidacionDatosOpciones.CLAVE, patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$");
             };
         }
 
@@ -121,6 +109,8 @@ namespace MrTiendita.Controladores
             this.principal.esCerrado = false;
             this.principal.Close();
             conexion.Cierre(this.vista);
+            this.vista.lbl_ErrorID.Visible = false;
+            this.vista.lbl_ErrorClave.Visible = false;
         }
 
         private void FrmInicio_FormClosing(object sender, FormClosingEventArgs e)

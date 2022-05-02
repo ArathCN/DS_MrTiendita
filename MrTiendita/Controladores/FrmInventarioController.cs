@@ -416,9 +416,8 @@ namespace MrTiendita.Controladores
             bool esCreado = this.entradaAlmacenDAO.Create(entrada, productoParaEntrada);
             if (esCreado)
             {
-                this.vista.tb_CodigoBarra.Text = "";
-                this.vista.tb_Cantidad.Text = "";
-                this.vista.cb_Proveedor.SelectedIndex = -1;
+                this.LimpiarCampos();
+                this.OcultarErrores();
                 productoParaEntrada = null;
 
                 Form mensajeExito = new FrmExito("Se ha hecho la entrada con éxito.");
@@ -554,6 +553,9 @@ namespace MrTiendita.Controladores
             this.vista.lbl_ErrorMinimo.Visible = false;
             this.vista.lbl_ErrorPrecioCompra.Visible = false;
             this.vista.lbl_ErrorPrecioVenta.Visible = false;
+
+            this.vista.lbl_ErrorCodigoBarras.Visible = false;
+            this.vista.lbl_ErrorCantidad.Visible = false;
         }
 
         private void LimpiarCampos()
@@ -567,6 +569,10 @@ namespace MrTiendita.Controladores
             this.vista.tb_Minima.Text = "";
             this.vista.tb_PrecioCompra.Text = "";
             this.vista.tb_PrecioVenta.Text = "";
+
+            this.vista.tb_CodigoBarra.Text = "";
+            this.vista.tb_Cantidad.Text = "";
+            this.vista.cb_Proveedor.SelectedIndex = -1;
         }
 
         protected void CargarProveedores()
