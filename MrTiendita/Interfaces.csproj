@@ -85,6 +85,7 @@
     <Compile Include="Constantes\TipoMovimiento.cs" />
     <Compile Include="Constantes\ValidacionDatosOpciones.cs" />
     <Compile Include="Componentes\CrearTicket.cs" />
+    <Compile Include="Controladores\FrmBuscarProductoController.cs" />
     <Compile Include="Controladores\FrmCAlmacenController.cs" />
     <Compile Include="Controladores\FrmCCajaController.cs" />
     <Compile Include="Controladores\FrmCobroController.cs" />
