@@ -31,25 +31,25 @@ namespace MrTiendita.Vistas
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscarProducto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.pnl_MenuSuperior = new System.Windows.Forms.Panel();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.pnl_Productos = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cb_Categoria = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbl_Producto = new System.Windows.Forms.Label();
             this.tb_BuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv_TablaProductos = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cb_Categoria = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.col_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_CantidadAgregar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_AgregarCarrito = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.pnl_MenuSuperior.SuspendLayout();
             this.pnl_Productos.SuspendLayout();
@@ -80,7 +80,7 @@ namespace MrTiendita.Vistas
             this.pnl_MenuSuperior.Location = new System.Drawing.Point(0, 0);
             this.pnl_MenuSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_MenuSuperior.Name = "pnl_MenuSuperior";
-            this.pnl_MenuSuperior.Size = new System.Drawing.Size(938, 38);
+            this.pnl_MenuSuperior.Size = new System.Drawing.Size(939, 38);
             this.pnl_MenuSuperior.TabIndex = 40;
             // 
             // lbl_Titulo
@@ -104,14 +104,60 @@ namespace MrTiendita.Vistas
             this.pnl_Productos.Controls.Add(this.dgv_TablaProductos);
             this.pnl_Productos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Productos.Location = new System.Drawing.Point(0, 38);
+            this.pnl_Productos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Productos.Name = "pnl_Productos";
-            this.pnl_Productos.Size = new System.Drawing.Size(938, 569);
+            this.pnl_Productos.Size = new System.Drawing.Size(939, 569);
             this.pnl_Productos.TabIndex = 42;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.label1.Location = new System.Drawing.Point(16, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 23);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Categoría de los productos:";
+            // 
+            // cb_Categoria
+            // 
+            this.cb_Categoria.BackColor = System.Drawing.Color.Transparent;
+            this.cb_Categoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.cb_Categoria.BorderRadius = 5;
+            this.cb_Categoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_Categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Categoria.FocusedColor = System.Drawing.Color.Empty;
+            this.cb_Categoria.FocusedState.Parent = this.cb_Categoria;
+            this.cb_Categoria.Font = new System.Drawing.Font("Leelawadee UI", 11.25F);
+            this.cb_Categoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cb_Categoria.FormattingEnabled = true;
+            this.cb_Categoria.HoverState.Parent = this.cb_Categoria;
+            this.cb_Categoria.ItemHeight = 30;
+            this.cb_Categoria.Items.AddRange(new object[] {
+            "Todos",
+            "Frutas y verduras ",
+            "Panadería y tortillería ",
+            "Carnicería ",
+            "Lácteos ",
+            "Abarrotes ",
+            "Limpieza y hogar ",
+            "Higiene personal y salud ",
+            "Mascotas ",
+            "Refrigerados",
+            "Sin categoría"});
+            this.cb_Categoria.ItemsAppearance.Parent = this.cb_Categoria;
+            this.cb_Categoria.Location = new System.Drawing.Point(19, 63);
+            this.cb_Categoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_Categoria.Name = "cb_Categoria";
+            this.cb_Categoria.ShadowDecoration.Parent = this.cb_Categoria;
+            this.cb_Categoria.Size = new System.Drawing.Size(316, 36);
+            this.cb_Categoria.TabIndex = 20;
             // 
             // lbl_Producto
             // 
             this.lbl_Producto.AutoSize = true;
-            this.lbl_Producto.BackColor = System.Drawing.Color.White;
+            this.lbl_Producto.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Producto.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.lbl_Producto.Location = new System.Drawing.Point(16, 126);
             this.lbl_Producto.Name = "lbl_Producto";
@@ -136,14 +182,14 @@ namespace MrTiendita.Vistas
             this.tb_BuscarProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_BuscarProducto.HoverState.Parent = this.tb_BuscarProducto;
             this.tb_BuscarProducto.IconLeft = ((System.Drawing.Image)(resources.GetObject("tb_BuscarProducto.IconLeft")));
-            this.tb_BuscarProducto.Location = new System.Drawing.Point(18, 153);
-            this.tb_BuscarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_BuscarProducto.Location = new System.Drawing.Point(19, 153);
+            this.tb_BuscarProducto.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tb_BuscarProducto.Name = "tb_BuscarProducto";
             this.tb_BuscarProducto.PasswordChar = '\0';
             this.tb_BuscarProducto.PlaceholderText = "";
             this.tb_BuscarProducto.SelectedText = "";
             this.tb_BuscarProducto.ShadowDecoration.Parent = this.tb_BuscarProducto;
-            this.tb_BuscarProducto.Size = new System.Drawing.Size(501, 40);
+            this.tb_BuscarProducto.Size = new System.Drawing.Size(501, 39);
             this.tb_BuscarProducto.TabIndex = 18;
             // 
             // dgv_TablaProductos
@@ -152,8 +198,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.AllowUserToDeleteRows = false;
             this.dgv_TablaProductos.AllowUserToResizeColumns = false;
             this.dgv_TablaProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_TablaProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_TablaProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -161,14 +207,14 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_TablaProductos.ColumnHeadersHeight = 35;
             this.dgv_TablaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -177,17 +223,18 @@ namespace MrTiendita.Vistas
             this.col_Precio,
             this.col_CantidadAgregar,
             this.col_AgregarCarrito});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaProductos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaProductos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_TablaProductos.EnableHeadersVisualStyles = false;
             this.dgv_TablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
-            this.dgv_TablaProductos.Location = new System.Drawing.Point(18, 213);
+            this.dgv_TablaProductos.Location = new System.Drawing.Point(19, 213);
+            this.dgv_TablaProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_TablaProductos.Name = "dgv_TablaProductos";
             this.dgv_TablaProductos.RowHeadersVisible = false;
             this.dgv_TablaProductos.RowHeadersWidth = 65;
@@ -218,54 +265,6 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.ThemeStyle.RowsStyle.Height = 35;
             this.dgv_TablaProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgv_TablaProductos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            // 
-            // cb_Categoria
-            // 
-            this.cb_Categoria.BackColor = System.Drawing.Color.Transparent;
-            this.cb_Categoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.cb_Categoria.BorderRadius = 5;
-            this.cb_Categoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cb_Categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Categoria.FocusedColor = System.Drawing.Color.Empty;
-            this.cb_Categoria.FocusedState.Parent = this.cb_Categoria;
-            this.cb_Categoria.Font = new System.Drawing.Font("Leelawadee UI", 11.25F);
-            this.cb_Categoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cb_Categoria.FormattingEnabled = true;
-            this.cb_Categoria.HoverState.Parent = this.cb_Categoria;
-            this.cb_Categoria.ItemHeight = 30;
-            this.cb_Categoria.Items.AddRange(new object[] {
-            "Todos",
-            "Frutas y verduras ",
-            "Panadería y tortillería ",
-            "Carnicería ",
-            "Lácteos ",
-            "Abarrotes ",
-            "Limpieza y hogar ",
-            "Higiene personal y salud ",
-            "Mascotas ",
-            "Refrigerados",
-            "Sin categoría"});
-            this.cb_Categoria.ItemsAppearance.Parent = this.cb_Categoria;
-            this.cb_Categoria.Location = new System.Drawing.Point(18, 63);
-            this.cb_Categoria.Name = "cb_Categoria";
-            this.cb_Categoria.ShadowDecoration.Parent = this.cb_Categoria;
-            this.cb_Categoria.Size = new System.Drawing.Size(316, 36);
-            this.cb_Categoria.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.label1.Location = new System.Drawing.Point(16, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 23);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Categoría de los productos:";
-            // 
-            // DragControl
-            // 
-            this.DragControl.TargetControl = this.pnl_MenuSuperior;
             // 
             // col_Nombre
             // 
@@ -311,15 +310,20 @@ namespace MrTiendita.Vistas
             this.col_AgregarCarrito.ReadOnly = true;
             this.col_AgregarCarrito.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // DragControl
+            // 
+            this.DragControl.TargetControl = this.pnl_MenuSuperior;
+            // 
             // FrmBuscarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(938, 623);
+            this.ClientSize = new System.Drawing.Size(939, 623);
             this.Controls.Add(this.pnl_Productos);
             this.Controls.Add(this.pnl_MenuSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmBuscarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBuscarProducto";
@@ -339,11 +343,7 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Panel pnl_MenuSuperior;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.Panel pnl_Productos;
-        private Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProductos;
         private System.Windows.Forms.Label lbl_Producto;
-        private Guna.UI2.WinForms.Guna2TextBox tb_BuscarProducto;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
         public Guna.UI2.WinForms.Guna2DragControl DragControl;
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Nombre;
@@ -351,5 +351,9 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_CantidadAgregar;
         private System.Windows.Forms.DataGridViewImageColumn col_AgregarCarrito;
+        public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProductos;
+        public Guna.UI2.WinForms.Guna2TextBox tb_BuscarProducto;
+        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
     }
 }
