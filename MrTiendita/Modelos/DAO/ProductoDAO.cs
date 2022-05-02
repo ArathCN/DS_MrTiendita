@@ -362,6 +362,45 @@ namespace MrTiendita.Modelos.DAO
             }
             return success;
         }
-    
+
+        public List<Producto> ReadByCategoria(String categoria)
+        {
+            List<Producto> productos = new List<Producto>();
+            categoria = "" + categoria + "";
+            String sql = "SELECT PO.* FROM ProductoUserView AS PC " +
+                            "INNER JOIN Producto AS PO ON PC.id_Producto = PO.codigo_barra " +
+                            "WHERE PO.categoria = @condicion2;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@condicion2", SqlDbType.VarChar);
+                    command.Parameters["@condicion2"].Value = categoria;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            productos.Add(
+                                new Producto(
+                                    reader.GetInt64(0),
+                                    reader.GetString(1),
+                                    reader.GetInt32(7),
+                                    decimal.ToDouble(reader.GetDecimal(2)),
+                                    decimal.ToDouble(reader.GetDecimal(3)),
+                                    reader.GetBoolean(4),
+                                    reader.GetString(5),
+                                    decimal.ToDouble(reader.GetDecimal(6))
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+
+            return productos;
+        }
     }
 }
