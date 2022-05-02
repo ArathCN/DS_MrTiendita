@@ -234,6 +234,7 @@ namespace MrTiendita.Vistas
             this.cb_Proveedor.BackColor = System.Drawing.Color.Transparent;
             this.cb_Proveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
             this.cb_Proveedor.BorderRadius = 5;
+            this.cb_Proveedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cb_Proveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Proveedor.FocusedColor = System.Drawing.Color.Empty;
             this.cb_Proveedor.FocusedState.Parent = this.cb_Proveedor;
@@ -247,7 +248,7 @@ namespace MrTiendita.Vistas
             this.cb_Proveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Proveedor.Name = "cb_Proveedor";
             this.cb_Proveedor.ShadowDecoration.Parent = this.cb_Proveedor;
-            this.cb_Proveedor.Size = new System.Drawing.Size(329, 28);
+            this.cb_Proveedor.Size = new System.Drawing.Size(329, 26);
             this.cb_Proveedor.TabIndex = 41;
             // 
             // lbl_Proveedor
@@ -280,7 +281,6 @@ namespace MrTiendita.Vistas
             this.tb_Cantidad.HoverState.Parent = this.tb_Cantidad;
             this.tb_Cantidad.Location = new System.Drawing.Point(312, 100);
             this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_Cantidad.MaxLength = 3;
             this.tb_Cantidad.Name = "tb_Cantidad";
             this.tb_Cantidad.PasswordChar = '\0';
             this.tb_Cantidad.PlaceholderText = "";
@@ -330,7 +330,6 @@ namespace MrTiendita.Vistas
             this.tb_CodigoBarra.HoverState.Parent = this.tb_CodigoBarra;
             this.tb_CodigoBarra.Location = new System.Drawing.Point(25, 100);
             this.tb_CodigoBarra.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_CodigoBarra.MaxLength = 13;
             this.tb_CodigoBarra.Name = "tb_CodigoBarra";
             this.tb_CodigoBarra.PasswordChar = '\0';
             this.tb_CodigoBarra.PlaceholderText = "";
@@ -433,6 +432,7 @@ namespace MrTiendita.Vistas
             this.cb_GananciaPorcentaje.BackColor = System.Drawing.Color.Transparent;
             this.cb_GananciaPorcentaje.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
             this.cb_GananciaPorcentaje.BorderRadius = 5;
+            this.cb_GananciaPorcentaje.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cb_GananciaPorcentaje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_GananciaPorcentaje.FocusedColor = System.Drawing.Color.Empty;
             this.cb_GananciaPorcentaje.FocusedState.Parent = this.cb_GananciaPorcentaje;
@@ -466,7 +466,7 @@ namespace MrTiendita.Vistas
             this.cb_GananciaPorcentaje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_GananciaPorcentaje.Name = "cb_GananciaPorcentaje";
             this.cb_GananciaPorcentaje.ShadowDecoration.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(137, 28);
+            this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(137, 26);
             this.cb_GananciaPorcentaje.TabIndex = 72;
             // 
             // tb_CantidadCrear
@@ -488,7 +488,6 @@ namespace MrTiendita.Vistas
             this.tb_CantidadCrear.HoverState.Parent = this.tb_CantidadCrear;
             this.tb_CantidadCrear.Location = new System.Drawing.Point(904, 100);
             this.tb_CantidadCrear.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_CantidadCrear.MaxLength = 3;
             this.tb_CantidadCrear.Name = "tb_CantidadCrear";
             this.tb_CantidadCrear.PasswordChar = '\0';
             this.tb_CantidadCrear.PlaceholderText = "";
@@ -665,7 +664,6 @@ namespace MrTiendita.Vistas
             this.tb_PrecioVenta.HoverState.Parent = this.tb_PrecioVenta;
             this.tb_PrecioVenta.Location = new System.Drawing.Point(485, 182);
             this.tb_PrecioVenta.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_PrecioVenta.MaxLength = 10;
             this.tb_PrecioVenta.Name = "tb_PrecioVenta";
             this.tb_PrecioVenta.PasswordChar = '\0';
             this.tb_PrecioVenta.PlaceholderText = "";
@@ -693,7 +691,6 @@ namespace MrTiendita.Vistas
             this.tb_PrecioCompra.HoverState.Parent = this.tb_PrecioCompra;
             this.tb_PrecioCompra.Location = new System.Drawing.Point(327, 182);
             this.tb_PrecioCompra.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_PrecioCompra.MaxLength = 10;
             this.tb_PrecioCompra.Name = "tb_PrecioCompra";
             this.tb_PrecioCompra.PasswordChar = '\0';
             this.tb_PrecioCompra.PlaceholderText = "";
@@ -743,7 +740,6 @@ namespace MrTiendita.Vistas
             this.tb_Minima.HoverState.Parent = this.tb_Minima;
             this.tb_Minima.Location = new System.Drawing.Point(169, 182);
             this.tb_Minima.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_Minima.MaxLength = 3;
             this.tb_Minima.Name = "tb_Minima";
             this.tb_Minima.PasswordChar = '\0';
             this.tb_Minima.PlaceholderText = "";
@@ -768,6 +764,7 @@ namespace MrTiendita.Vistas
             this.cb_Categoria.BackColor = System.Drawing.Color.Transparent;
             this.cb_Categoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
             this.cb_Categoria.BorderRadius = 5;
+            this.cb_Categoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cb_Categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Categoria.FocusedColor = System.Drawing.Color.Empty;
             this.cb_Categoria.FocusedState.Parent = this.cb_Categoria;
@@ -792,7 +789,7 @@ namespace MrTiendita.Vistas
             this.cb_Categoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Categoria.Name = "cb_Categoria";
             this.cb_Categoria.ShadowDecoration.Parent = this.cb_Categoria;
-            this.cb_Categoria.Size = new System.Drawing.Size(251, 28);
+            this.cb_Categoria.Size = new System.Drawing.Size(251, 26);
             this.cb_Categoria.TabIndex = 29;
             // 
             // lbl_Categoria
@@ -825,7 +822,6 @@ namespace MrTiendita.Vistas
             this.tb_Descripcion.HoverState.Parent = this.tb_Descripcion;
             this.tb_Descripcion.Location = new System.Drawing.Point(245, 100);
             this.tb_Descripcion.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_Descripcion.MaxLength = 200;
             this.tb_Descripcion.Name = "tb_Descripcion";
             this.tb_Descripcion.PasswordChar = '\0';
             this.tb_Descripcion.PlaceholderText = "";
@@ -850,7 +846,7 @@ namespace MrTiendita.Vistas
             this.lbl_CodigoBarras.AutoSize = true;
             this.lbl_CodigoBarras.BackColor = System.Drawing.Color.White;
             this.lbl_CodigoBarras.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CodigoBarras.Location = new System.Drawing.Point(21, 79);
+            this.lbl_CodigoBarras.Location = new System.Drawing.Point(21, 80);
             this.lbl_CodigoBarras.Name = "lbl_CodigoBarras";
             this.lbl_CodigoBarras.Size = new System.Drawing.Size(124, 20);
             this.lbl_CodigoBarras.TabIndex = 25;
@@ -875,7 +871,6 @@ namespace MrTiendita.Vistas
             this.tb_CodigoBarras.HoverState.Parent = this.tb_CodigoBarras;
             this.tb_CodigoBarras.Location = new System.Drawing.Point(25, 100);
             this.tb_CodigoBarras.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tb_CodigoBarras.MaxLength = 13;
             this.tb_CodigoBarras.Name = "tb_CodigoBarras";
             this.tb_CodigoBarras.PasswordChar = '\0';
             this.tb_CodigoBarras.PlaceholderText = "";
