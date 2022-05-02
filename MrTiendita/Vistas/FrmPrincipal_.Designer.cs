@@ -38,17 +38,17 @@ namespace MrTiendita.Vistas
             this.lbl_MARSS = new System.Windows.Forms.Label();
             this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.pnl_Menu = new System.Windows.Forms.Panel();
-            this.btn_CerrarSesion = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Inventario = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Proveedores = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_Herramientas = new System.Windows.Forms.Label();
+            this.btn_Proveedores = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Inventario = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Tablero = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_CerrarSesion = new Guna.UI2.WinForms.Guna2Button();
             this.pb_Linea = new System.Windows.Forms.PictureBox();
-            this.btn_Configuracion = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Empleados = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Reportes = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Movimientos = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Ventas = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Empleados = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Tablero = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Configuracion = new Guna.UI2.WinForms.Guna2Button();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnl_Superior.SuspendLayout();
@@ -154,83 +154,6 @@ namespace MrTiendita.Vistas
             this.pnl_Menu.Size = new System.Drawing.Size(200, 640);
             this.pnl_Menu.TabIndex = 1;
             // 
-            // btn_CerrarSesion
-            // 
-            this.btn_CerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_CerrarSesion.BorderRadius = 5;
-            this.btn_CerrarSesion.CheckedState.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.CustomImages.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_CerrarSesion.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_CerrarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_CerrarSesion.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btn_CerrarSesion.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_CerrarSesion.HoverState.Image")));
-            this.btn_CerrarSesion.HoverState.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btn_CerrarSesion.Image")));
-            this.btn_CerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_CerrarSesion.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_CerrarSesion.Location = new System.Drawing.Point(20, 588);
-            this.btn_CerrarSesion.Name = "btn_CerrarSesion";
-            this.btn_CerrarSesion.ShadowDecoration.Parent = this.btn_CerrarSesion;
-            this.btn_CerrarSesion.Size = new System.Drawing.Size(160, 40);
-            this.btn_CerrarSesion.TabIndex = 10;
-            this.btn_CerrarSesion.Text = "Cerrar sesión";
-            this.btn_CerrarSesion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_CerrarSesion.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_CerrarSesion.Click += new System.EventHandler(this.btn_CerrarSesion_Click);
-            // 
-            // btn_Inventario
-            // 
-            this.btn_Inventario.BorderRadius = 5;
-            this.btn_Inventario.CheckedState.Parent = this.btn_Inventario;
-            this.btn_Inventario.CustomImages.Parent = this.btn_Inventario;
-            this.btn_Inventario.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Inventario.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Inventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Inventario.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Inventario.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btn_Inventario.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inventario.HoverState.Image")));
-            this.btn_Inventario.HoverState.Parent = this.btn_Inventario;
-            this.btn_Inventario.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inventario.Image")));
-            this.btn_Inventario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Inventario.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Inventario.Location = new System.Drawing.Point(20, 197);
-            this.btn_Inventario.Name = "btn_Inventario";
-            this.btn_Inventario.ShadowDecoration.Parent = this.btn_Inventario;
-            this.btn_Inventario.Size = new System.Drawing.Size(160, 40);
-            this.btn_Inventario.TabIndex = 5;
-            this.btn_Inventario.Text = "Inventario";
-            this.btn_Inventario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Inventario.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Inventario.Click += new System.EventHandler(this.btn_Inventario_Click);
-            // 
-            // btn_Proveedores
-            // 
-            this.btn_Proveedores.BorderRadius = 5;
-            this.btn_Proveedores.CheckedState.Parent = this.btn_Proveedores;
-            this.btn_Proveedores.CustomImages.Parent = this.btn_Proveedores;
-            this.btn_Proveedores.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Proveedores.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Proveedores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Proveedores.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Proveedores.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btn_Proveedores.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Proveedores.HoverState.Image")));
-            this.btn_Proveedores.HoverState.Parent = this.btn_Proveedores;
-            this.btn_Proveedores.Image = ((System.Drawing.Image)(resources.GetObject("btn_Proveedores.Image")));
-            this.btn_Proveedores.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Proveedores.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Proveedores.ImageSize = new System.Drawing.Size(22, 22);
-            this.btn_Proveedores.Location = new System.Drawing.Point(20, 365);
-            this.btn_Proveedores.Name = "btn_Proveedores";
-            this.btn_Proveedores.ShadowDecoration.Parent = this.btn_Proveedores;
-            this.btn_Proveedores.Size = new System.Drawing.Size(160, 40);
-            this.btn_Proveedores.TabIndex = 8;
-            this.btn_Proveedores.Text = "Proveedores";
-            this.btn_Proveedores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Proveedores.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Proveedores.Click += new System.EventHandler(this.btn_Proveedores_Click);
-            // 
             // lbl_Herramientas
             // 
             this.lbl_Herramientas.AutoSize = true;
@@ -242,147 +165,58 @@ namespace MrTiendita.Vistas
             this.lbl_Herramientas.TabIndex = 2;
             this.lbl_Herramientas.Text = "Herramientas";
             // 
-            // pb_Linea
+            // btn_Proveedores
             // 
-            this.pb_Linea.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pb_Linea.Image = ((System.Drawing.Image)(resources.GetObject("pb_Linea.Image")));
-            this.pb_Linea.Location = new System.Drawing.Point(195, 0);
-            this.pb_Linea.Name = "pb_Linea";
-            this.pb_Linea.Size = new System.Drawing.Size(5, 640);
-            this.pb_Linea.TabIndex = 0;
-            this.pb_Linea.TabStop = false;
+            this.btn_Proveedores.CheckedState.Parent = this.btn_Proveedores;
+            this.btn_Proveedores.CustomImages.Parent = this.btn_Proveedores;
+            this.btn_Proveedores.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Proveedores.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Proveedores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Proveedores.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Proveedores.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btn_Proveedores.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Proveedores.HoverState.Image")));
+            this.btn_Proveedores.HoverState.Parent = this.btn_Proveedores;
+            this.btn_Proveedores.Image = ((System.Drawing.Image)(resources.GetObject("btn_Proveedores.Image")));
+            this.btn_Proveedores.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Proveedores.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Proveedores.ImageSize = new System.Drawing.Size(22, 22);
+            this.btn_Proveedores.Location = new System.Drawing.Point(0, 365);
+            this.btn_Proveedores.Name = "btn_Proveedores";
+            this.btn_Proveedores.ShadowDecoration.Parent = this.btn_Proveedores;
+            this.btn_Proveedores.Size = new System.Drawing.Size(195, 40);
+            this.btn_Proveedores.TabIndex = 8;
+            this.btn_Proveedores.Text = "Proveedores";
+            this.btn_Proveedores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Proveedores.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Proveedores.Click += new System.EventHandler(this.btn_Proveedores_Click);
             // 
-            // btn_Configuracion
+            // btn_Inventario
             // 
-            this.btn_Configuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Configuracion.BorderRadius = 5;
-            this.btn_Configuracion.CheckedState.Parent = this.btn_Configuracion;
-            this.btn_Configuracion.CustomImages.Parent = this.btn_Configuracion;
-            this.btn_Configuracion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Configuracion.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Configuracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Configuracion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Configuracion.HoverState.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Configuracion.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Configuracion.HoverState.Image")));
-            this.btn_Configuracion.HoverState.Parent = this.btn_Configuracion;
-            this.btn_Configuracion.Image = ((System.Drawing.Image)(resources.GetObject("btn_Configuracion.Image")));
-            this.btn_Configuracion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Configuracion.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Configuracion.Location = new System.Drawing.Point(20, 532);
-            this.btn_Configuracion.Name = "btn_Configuracion";
-            this.btn_Configuracion.ShadowDecoration.Parent = this.btn_Configuracion;
-            this.btn_Configuracion.Size = new System.Drawing.Size(160, 40);
-            this.btn_Configuracion.TabIndex = 6;
-            this.btn_Configuracion.Text = "Configuración";
-            this.btn_Configuracion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Configuracion.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Configuracion.Click += new System.EventHandler(this.btn_Configuracion_Click);
-            // 
-            // btn_Reportes
-            // 
-            this.btn_Reportes.BorderRadius = 5;
-            this.btn_Reportes.CheckedState.Parent = this.btn_Reportes;
-            this.btn_Reportes.CustomImages.Parent = this.btn_Reportes;
-            this.btn_Reportes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Reportes.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Reportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Reportes.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Reportes.HoverState.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Reportes.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Reportes.HoverState.Image")));
-            this.btn_Reportes.HoverState.Parent = this.btn_Reportes;
-            this.btn_Reportes.Image = ((System.Drawing.Image)(resources.GetObject("btn_Reportes.Image")));
-            this.btn_Reportes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Reportes.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Reportes.Location = new System.Drawing.Point(20, 422);
-            this.btn_Reportes.Name = "btn_Reportes";
-            this.btn_Reportes.ShadowDecoration.Parent = this.btn_Reportes;
-            this.btn_Reportes.Size = new System.Drawing.Size(160, 40);
-            this.btn_Reportes.TabIndex = 9;
-            this.btn_Reportes.Text = "Reportes";
-            this.btn_Reportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Reportes.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Reportes.Click += new System.EventHandler(this.btn_Reportes_Click);
-            // 
-            // btn_Movimientos
-            // 
-            this.btn_Movimientos.BorderRadius = 5;
-            this.btn_Movimientos.CheckedState.Parent = this.btn_Movimientos;
-            this.btn_Movimientos.CustomImages.Parent = this.btn_Movimientos;
-            this.btn_Movimientos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Movimientos.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Movimientos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Movimientos.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Movimientos.HoverState.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Movimientos.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Movimientos.HoverState.Image")));
-            this.btn_Movimientos.HoverState.Parent = this.btn_Movimientos;
-            this.btn_Movimientos.Image = ((System.Drawing.Image)(resources.GetObject("btn_Movimientos.Image")));
-            this.btn_Movimientos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Movimientos.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Movimientos.ImageSize = new System.Drawing.Size(22, 22);
-            this.btn_Movimientos.Location = new System.Drawing.Point(20, 254);
-            this.btn_Movimientos.Name = "btn_Movimientos";
-            this.btn_Movimientos.ShadowDecoration.Parent = this.btn_Movimientos;
-            this.btn_Movimientos.Size = new System.Drawing.Size(160, 40);
-            this.btn_Movimientos.TabIndex = 4;
-            this.btn_Movimientos.Text = "Movimientos";
-            this.btn_Movimientos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Movimientos.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Movimientos.Click += new System.EventHandler(this.btn_Movimientos_Click);
-            // 
-            // btn_Ventas
-            // 
-            this.btn_Ventas.BorderRadius = 5;
-            this.btn_Ventas.CheckedState.Parent = this.btn_Ventas;
-            this.btn_Ventas.CustomImages.Parent = this.btn_Ventas;
-            this.btn_Ventas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Ventas.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Ventas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Ventas.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Ventas.HoverState.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Ventas.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ventas.HoverState.Image")));
-            this.btn_Ventas.HoverState.Parent = this.btn_Ventas;
-            this.btn_Ventas.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ventas.Image")));
-            this.btn_Ventas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Ventas.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Ventas.Location = new System.Drawing.Point(20, 142);
-            this.btn_Ventas.Name = "btn_Ventas";
-            this.btn_Ventas.ShadowDecoration.Parent = this.btn_Ventas;
-            this.btn_Ventas.Size = new System.Drawing.Size(160, 40);
-            this.btn_Ventas.TabIndex = 3;
-            this.btn_Ventas.Text = "Ventas";
-            this.btn_Ventas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Ventas.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Ventas.Click += new System.EventHandler(this.btn_Ventas_Click);
-            // 
-            // btn_Empleados
-            // 
-            this.btn_Empleados.BorderRadius = 5;
-            this.btn_Empleados.CheckedState.Parent = this.btn_Empleados;
-            this.btn_Empleados.CustomImages.Parent = this.btn_Empleados;
-            this.btn_Empleados.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Empleados.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Empleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.btn_Empleados.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.btn_Empleados.HoverState.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Empleados.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Empleados.HoverState.Image")));
-            this.btn_Empleados.HoverState.Parent = this.btn_Empleados;
-            this.btn_Empleados.Image = ((System.Drawing.Image)(resources.GetObject("btn_Empleados.Image")));
-            this.btn_Empleados.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Empleados.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Empleados.Location = new System.Drawing.Point(20, 310);
-            this.btn_Empleados.Name = "btn_Empleados";
-            this.btn_Empleados.ShadowDecoration.Parent = this.btn_Empleados;
-            this.btn_Empleados.Size = new System.Drawing.Size(160, 40);
-            this.btn_Empleados.TabIndex = 7;
-            this.btn_Empleados.Text = "Empleados";
-            this.btn_Empleados.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Empleados.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Empleados.Click += new System.EventHandler(this.btn_Empleados_Click);
+            this.btn_Inventario.CheckedState.Parent = this.btn_Inventario;
+            this.btn_Inventario.CustomImages.Parent = this.btn_Inventario;
+            this.btn_Inventario.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Inventario.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Inventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Inventario.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Inventario.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btn_Inventario.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inventario.HoverState.Image")));
+            this.btn_Inventario.HoverState.Parent = this.btn_Inventario;
+            this.btn_Inventario.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inventario.Image")));
+            this.btn_Inventario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Inventario.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Inventario.Location = new System.Drawing.Point(0, 197);
+            this.btn_Inventario.Name = "btn_Inventario";
+            this.btn_Inventario.ShadowDecoration.Parent = this.btn_Inventario;
+            this.btn_Inventario.Size = new System.Drawing.Size(195, 40);
+            this.btn_Inventario.TabIndex = 5;
+            this.btn_Inventario.Text = "Inventario";
+            this.btn_Inventario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Inventario.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Inventario.Click += new System.EventHandler(this.btn_Inventario_Click);
             // 
             // btn_Tablero
             // 
             this.btn_Tablero.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.btn_Tablero.BorderRadius = 5;
             this.btn_Tablero.CheckedState.Parent = this.btn_Tablero;
             this.btn_Tablero.CustomImages.Parent = this.btn_Tablero;
             this.btn_Tablero.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
@@ -394,16 +228,175 @@ namespace MrTiendita.Vistas
             this.btn_Tablero.HoverState.Parent = this.btn_Tablero;
             this.btn_Tablero.Image = ((System.Drawing.Image)(resources.GetObject("btn_Tablero.Image")));
             this.btn_Tablero.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Tablero.ImageOffset = new System.Drawing.Point(9, 0);
-            this.btn_Tablero.Location = new System.Drawing.Point(20, 40);
+            this.btn_Tablero.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Tablero.Location = new System.Drawing.Point(0, 40);
             this.btn_Tablero.Name = "btn_Tablero";
             this.btn_Tablero.ShadowDecoration.Parent = this.btn_Tablero;
-            this.btn_Tablero.Size = new System.Drawing.Size(160, 40);
+            this.btn_Tablero.Size = new System.Drawing.Size(195, 40);
             this.btn_Tablero.TabIndex = 0;
             this.btn_Tablero.Text = "Tablero";
             this.btn_Tablero.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Tablero.TextOffset = new System.Drawing.Point(16, 0);
+            this.btn_Tablero.TextOffset = new System.Drawing.Point(25, 0);
             this.btn_Tablero.Click += new System.EventHandler(this.btn_Tablero_Click);
+            // 
+            // btn_CerrarSesion
+            // 
+            this.btn_CerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_CerrarSesion.CheckedState.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.CustomImages.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_CerrarSesion.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_CerrarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_CerrarSesion.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btn_CerrarSesion.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_CerrarSesion.HoverState.Image")));
+            this.btn_CerrarSesion.HoverState.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btn_CerrarSesion.Image")));
+            this.btn_CerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_CerrarSesion.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_CerrarSesion.Location = new System.Drawing.Point(0, 588);
+            this.btn_CerrarSesion.Name = "btn_CerrarSesion";
+            this.btn_CerrarSesion.ShadowDecoration.Parent = this.btn_CerrarSesion;
+            this.btn_CerrarSesion.Size = new System.Drawing.Size(195, 40);
+            this.btn_CerrarSesion.TabIndex = 10;
+            this.btn_CerrarSesion.Text = "Cerrar sesión";
+            this.btn_CerrarSesion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_CerrarSesion.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_CerrarSesion.Click += new System.EventHandler(this.btn_CerrarSesion_Click);
+            // 
+            // pb_Linea
+            // 
+            this.pb_Linea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pb_Linea.Image = ((System.Drawing.Image)(resources.GetObject("pb_Linea.Image")));
+            this.pb_Linea.Location = new System.Drawing.Point(195, 0);
+            this.pb_Linea.Name = "pb_Linea";
+            this.pb_Linea.Size = new System.Drawing.Size(3, 640);
+            this.pb_Linea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Linea.TabIndex = 0;
+            this.pb_Linea.TabStop = false;
+            // 
+            // btn_Empleados
+            // 
+            this.btn_Empleados.CheckedState.Parent = this.btn_Empleados;
+            this.btn_Empleados.CustomImages.Parent = this.btn_Empleados;
+            this.btn_Empleados.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Empleados.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Empleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Empleados.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Empleados.HoverState.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Empleados.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Empleados.HoverState.Image")));
+            this.btn_Empleados.HoverState.Parent = this.btn_Empleados;
+            this.btn_Empleados.Image = ((System.Drawing.Image)(resources.GetObject("btn_Empleados.Image")));
+            this.btn_Empleados.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Empleados.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Empleados.Location = new System.Drawing.Point(0, 310);
+            this.btn_Empleados.Name = "btn_Empleados";
+            this.btn_Empleados.ShadowDecoration.Parent = this.btn_Empleados;
+            this.btn_Empleados.Size = new System.Drawing.Size(196, 40);
+            this.btn_Empleados.TabIndex = 7;
+            this.btn_Empleados.Text = "Empleados";
+            this.btn_Empleados.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Empleados.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Empleados.Click += new System.EventHandler(this.btn_Empleados_Click);
+            // 
+            // btn_Reportes
+            // 
+            this.btn_Reportes.CheckedState.Parent = this.btn_Reportes;
+            this.btn_Reportes.CustomImages.Parent = this.btn_Reportes;
+            this.btn_Reportes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Reportes.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Reportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Reportes.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Reportes.HoverState.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Reportes.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Reportes.HoverState.Image")));
+            this.btn_Reportes.HoverState.Parent = this.btn_Reportes;
+            this.btn_Reportes.Image = ((System.Drawing.Image)(resources.GetObject("btn_Reportes.Image")));
+            this.btn_Reportes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Reportes.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Reportes.Location = new System.Drawing.Point(0, 422);
+            this.btn_Reportes.Name = "btn_Reportes";
+            this.btn_Reportes.ShadowDecoration.Parent = this.btn_Reportes;
+            this.btn_Reportes.Size = new System.Drawing.Size(196, 40);
+            this.btn_Reportes.TabIndex = 9;
+            this.btn_Reportes.Text = "Reportes";
+            this.btn_Reportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Reportes.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Reportes.Click += new System.EventHandler(this.btn_Reportes_Click);
+            // 
+            // btn_Movimientos
+            // 
+            this.btn_Movimientos.CheckedState.Parent = this.btn_Movimientos;
+            this.btn_Movimientos.CustomImages.Parent = this.btn_Movimientos;
+            this.btn_Movimientos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Movimientos.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Movimientos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Movimientos.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Movimientos.HoverState.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Movimientos.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Movimientos.HoverState.Image")));
+            this.btn_Movimientos.HoverState.Parent = this.btn_Movimientos;
+            this.btn_Movimientos.Image = ((System.Drawing.Image)(resources.GetObject("btn_Movimientos.Image")));
+            this.btn_Movimientos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Movimientos.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Movimientos.ImageSize = new System.Drawing.Size(22, 22);
+            this.btn_Movimientos.Location = new System.Drawing.Point(0, 254);
+            this.btn_Movimientos.Name = "btn_Movimientos";
+            this.btn_Movimientos.ShadowDecoration.Parent = this.btn_Movimientos;
+            this.btn_Movimientos.Size = new System.Drawing.Size(196, 40);
+            this.btn_Movimientos.TabIndex = 4;
+            this.btn_Movimientos.Text = "Movimientos";
+            this.btn_Movimientos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Movimientos.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Movimientos.Click += new System.EventHandler(this.btn_Movimientos_Click);
+            // 
+            // btn_Ventas
+            // 
+            this.btn_Ventas.CheckedState.Parent = this.btn_Ventas;
+            this.btn_Ventas.CustomImages.Parent = this.btn_Ventas;
+            this.btn_Ventas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Ventas.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Ventas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Ventas.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Ventas.HoverState.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Ventas.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ventas.HoverState.Image")));
+            this.btn_Ventas.HoverState.Parent = this.btn_Ventas;
+            this.btn_Ventas.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ventas.Image")));
+            this.btn_Ventas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Ventas.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Ventas.Location = new System.Drawing.Point(0, 142);
+            this.btn_Ventas.Name = "btn_Ventas";
+            this.btn_Ventas.ShadowDecoration.Parent = this.btn_Ventas;
+            this.btn_Ventas.Size = new System.Drawing.Size(196, 40);
+            this.btn_Ventas.TabIndex = 3;
+            this.btn_Ventas.Text = "Ventas";
+            this.btn_Ventas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Ventas.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Ventas.Click += new System.EventHandler(this.btn_Ventas_Click);
+            // 
+            // btn_Configuracion
+            // 
+            this.btn_Configuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Configuracion.CheckedState.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.CustomImages.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Configuracion.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Configuracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Configuracion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Configuracion.HoverState.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Configuracion.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("btn_Configuracion.HoverState.Image")));
+            this.btn_Configuracion.HoverState.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.Image = ((System.Drawing.Image)(resources.GetObject("btn_Configuracion.Image")));
+            this.btn_Configuracion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Configuracion.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btn_Configuracion.Location = new System.Drawing.Point(0, 532);
+            this.btn_Configuracion.Name = "btn_Configuracion";
+            this.btn_Configuracion.ShadowDecoration.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.Size = new System.Drawing.Size(196, 40);
+            this.btn_Configuracion.TabIndex = 6;
+            this.btn_Configuracion.Text = "Configuración";
+            this.btn_Configuracion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Configuracion.TextOffset = new System.Drawing.Point(25, 0);
+            this.btn_Configuracion.Click += new System.EventHandler(this.btn_Configuracion_Click);
             // 
             // pnl_Contenedor
             // 
@@ -430,6 +423,7 @@ namespace MrTiendita.Vistas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrincipal_";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal__FormClosing);
+            this.Load += new System.EventHandler(this.FrmPrincipal__Load);
             this.pnl_Superior.ResumeLayout(false);
             this.pnl_Superior.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).EndInit();

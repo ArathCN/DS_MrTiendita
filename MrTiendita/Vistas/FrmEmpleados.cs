@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -18,48 +19,38 @@ namespace MrTiendita.Vistas
             
             InitializeComponent();
 
-            dgv_TablaEmpleados.AllowUserToAddRows = false;
-            dgv_TablaEmpleados.CurrentCell = null;
+            tablaEmpleados.AllowUserToAddRows = false;
+            tablaEmpleados.CurrentCell = null;
             int indexNuevoProducto;
             for (int i = 0; i < 3; i++)
             {
-                dgv_TablaEmpleados.Rows.Add();
-                indexNuevoProducto = dgv_TablaEmpleados.RowCount - 1;
+                tablaEmpleados.Rows.Add();
+                indexNuevoProducto = tablaEmpleados.RowCount - 1;
                 Console.WriteLine(indexNuevoProducto);
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_Nombre"].Value = "Ana Sofía";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_ApellidoPa"].Value = "De Haro";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_ApellidoMa"].Value = "De La Cruz";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_Telefono"].Value = "6221828945";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_Sueldo"].Value = "$1000.00";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_TipoEmpleado"].Value = "Encargado";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_Clave"].Value = "AnaSofia27.";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_Usuario"].Value = "AnaSofia";
-                dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_Estado"].Value = "Activo";
+                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Nombre"].Value = "Ana Sofía";
+                //dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_ApellidoPa"].Value = "De Haro";
+                //dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_ApellidoMa"].Value = "De La Cruz";
+                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Telefono"].Value = "6221828945";
+                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Sueldo"].Value = "$1000.00";
+                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_TipoEmpleado"].Value = "Encargado";
+                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Usuario"].Value = "AnaSofia";
             }
-            dgv_TablaEmpleados.AllowUserToResizeColumns = false;
+            tablaEmpleados.AllowUserToResizeColumns = false;
             AjustarColumnas();
+            FrmEmpleadosController controller = new FrmEmpleadosController(this);
         }
 
         private void AjustarColumnas()
         {
-            dgv_TablaEmpleados.Columns[0].Width = 50;//Nombre
-            dgv_TablaEmpleados.Columns[1].Width = 50;//Apellido paterno
-            dgv_TablaEmpleados.Columns[2].Width = 50;//Apellido materno
-            dgv_TablaEmpleados.Columns[3].Width = 40;//Teléfono
-            dgv_TablaEmpleados.Columns[4].Width = 40;//Sueldo
-            dgv_TablaEmpleados.Columns[5].Width = 40;//Tipo de empleado
-            dgv_TablaEmpleados.Columns[6].Width = 45;//Contraseña
-            dgv_TablaEmpleados.Columns[7].Width = 45;//Usuario
-            dgv_TablaEmpleados.Columns[8].Width = 45;//Estado
-            dgv_TablaEmpleados.Columns[9].Width = 40;//Editar
+            tablaEmpleados.Columns[1].Width = 200;//Nombre(s)
+            tablaEmpleados.Columns[2].Width = 60;//Teléfono
+            tablaEmpleados.Columns[3].Width = 60;//Sueldo
+            tablaEmpleados.Columns[4].Width = 60;//Tipo de empleado
+            tablaEmpleados.Columns[5].Width = 75;//Usuario
+            tablaEmpleados.Columns[6].Width = 40;//Editar
+            tablaEmpleados.Columns[7].Width = 40;//Borrar
             col_Editar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        }
-
-        private void btn_Agregar_Click(object sender, EventArgs e)
-        {
-            FrmEditarEmpleado frmEditarEmpleado = new FrmEditarEmpleado("Agregar", 1);
-            frmEditarEmpleado.Show();
-
+            col_Borrar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }
 }
