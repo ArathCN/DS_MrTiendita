@@ -63,7 +63,7 @@ namespace MrTiendita.Modelos.DAO
                         command.Parameters.Add("@idp", SqlDbType.Int);
 
                         command.Parameters["@cb"].Value = entradaAlmacen.Codigo_barra;
-                        command.Parameters["@fecha"].Value = entradaAlmacen.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
+                        command.Parameters["@fecha"].Value = entradaAlmacen.Fecha.ToString(this.formatoDatetime);
                         command.Parameters["@cant"].Value = entradaAlmacen.Cantidad;
                         command.Parameters["@imp"].Value = entradaAlmacen.Importe;
                         command.Parameters["@idp"].Value = entradaAlmacen.Id_proveedor;
@@ -183,8 +183,8 @@ namespace MrTiendita.Modelos.DAO
                     command.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
                     command.Parameters.Add("@fechaFin", SqlDbType.DateTime);
 
-                    command.Parameters["@fechaInicio"].Value = inicio;
-                    command.Parameters["@fechaFin"].Value = final;
+                    command.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
+                    command.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

@@ -19,6 +19,8 @@ namespace MrTiendita.Modelos.DAO
         //protected String stringConexion = "Data Source=LAPTOP-3SLQTV7O;Initial Catalog=MRTIENDITA;Integrated Security=True";
         //protected String stringConexion = "Data Source=HP-PAVILION-R5;Initial Catalog=MrTiendita;Integrated Security=True";
 
+        protected String formatoDatetime = "yyyy-MM-dd HH:mm:ss";
+
         /// <summary>
         /// Boleano que nos avisa si hubo o no un error en la última consulta realizada.
         /// </summary>
