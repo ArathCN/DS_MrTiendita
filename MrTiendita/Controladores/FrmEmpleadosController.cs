@@ -110,6 +110,8 @@ namespace MrTiendita.Controladores
             AbrirPanel(this.vista.pnl_RegistrarEmpleado);
             this.PreperarFormularioCrearEmpleado();
             this.MostrarTodos();
+            this.vista.cb_Cajero.Checked = true;
+            this.CajeroDefault();
         }
 
         /// <summary> Maneja el evento Text Changed del control Tb_busqueda. </summary>
@@ -152,19 +154,11 @@ namespace MrTiendita.Controladores
 
         private void cb_Cajero_OnChange(object sender, EventArgs e)
         {
-            if (this.vista.cb_Cajero.Checked) this.vista.cb_Encargado.Checked = false;
-            if (this.vista.cb_Cajero.Checked && Properties.Settings.Default.sueldoCajeros != 0)
-                this.vista.tb_Sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
-            else this.vista.tb_Sueldo.Text = "";
-            this.vista.lbl_ErrorSueldo.Visible = false;
+            this.CajeroDefault();
         }
         private void cb_Encargado_OnChange(object sender, EventArgs e)
         {
-            if (this.vista.cb_Encargado.Checked) this.vista.cb_Cajero.Checked = false;
-            if (this.vista.cb_Encargado.Checked && Properties.Settings.Default.sueldoEncargados != 0)
-                this.vista.tb_Sueldo.Text = Properties.Settings.Default.sueldoEncargados.ToString(new CultureInfo("es-MX"));
-            else this.vista.tb_Sueldo.Text = "";
-            this.vista.lbl_ErrorSueldo.Visible = false;
+            this.EncargadoDefault();
         }
         private void btn_AgregarEmpleado_Click(object sender, EventArgs e)
         {
@@ -390,6 +384,8 @@ namespace MrTiendita.Controladores
             this.OcultarErrores();
 
             ActivarBoton(this.vista.btn_RegistrarEmpleado);
+            this.vista.cb_Cajero.Checked = true;
+            this.CajeroDefault();
         }
 
         private void PreperarFormularioActualizarEmpleado(DataGridViewCellEventArgs e)
@@ -424,5 +420,22 @@ namespace MrTiendita.Controladores
             this.ActivarBoton(this.vista.btn_ModificarEmpleado);
         }
 
+        private void CajeroDefault()
+        {
+            if (this.vista.cb_Cajero.Checked) this.vista.cb_Encargado.Checked = false;
+            if (this.vista.cb_Cajero.Checked)
+                this.vista.tb_Sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+            if (this.vista.cb_Cajero.Checked == false) this.vista.cb_Cajero.Checked = true;
+            this.vista.tb_Sueldo.Text = Properties.Settings.Default.sueldoCajeros.ToString(new CultureInfo("es-MX"));
+        }
+
+        private void EncargadoDefault()
+        {
+            if (this.vista.cb_Encargado.Checked) this.vista.cb_Cajero.Checked = false;
+            if (this.vista.cb_Encargado.Checked)
+                this.vista.tb_Sueldo.Text = Properties.Settings.Default.sueldoEncargados.ToString(new CultureInfo("es-MX"));
+            if (this.vista.cb_Encargado.Checked == false) this.vista.cb_Encargado.Checked = true;
+            this.vista.tb_Sueldo.Text = Properties.Settings.Default.sueldoEncargados.ToString(new CultureInfo("es-MX"));
+        }
     }
 }
