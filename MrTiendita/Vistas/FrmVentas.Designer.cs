@@ -29,14 +29,15 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.tlp_PanelSuperior = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
-            this.btn_CancelarVenta = new Guna.UI2.WinForms.Guna2Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_CompletarVenta = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_CancelarVenta = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_Cambio = new System.Windows.Forms.Label();
             this.lbl_CambioDesc = new System.Windows.Forms.Label();
             this.lbl_EfetivoTb = new System.Windows.Forms.Label();
@@ -68,12 +69,11 @@ namespace MrTiendita.Vistas
             this.tb_Codigo = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_Notificaciones = new System.Windows.Forms.Label();
             this.lbl_DescNoti = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlp_PanelSuperior.SuspendLayout();
             this.pnl_Atajos.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.pnl_Notificaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TablaVentas)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlp_PanelSuperior
@@ -86,11 +86,12 @@ namespace MrTiendita.Vistas
             this.tlp_PanelSuperior.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.16994F));
             this.tlp_PanelSuperior.Controls.Add(this.pnl_Atajos, 1, 0);
             this.tlp_PanelSuperior.Controls.Add(this.pnl_Notificaciones, 0, 0);
-            this.tlp_PanelSuperior.Location = new System.Drawing.Point(12, 12);
+            this.tlp_PanelSuperior.Location = new System.Drawing.Point(9, 10);
+            this.tlp_PanelSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tlp_PanelSuperior.Name = "tlp_PanelSuperior";
             this.tlp_PanelSuperior.RowCount = 1;
             this.tlp_PanelSuperior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_PanelSuperior.Size = new System.Drawing.Size(1171, 815);
+            this.tlp_PanelSuperior.Size = new System.Drawing.Size(878, 662);
             this.tlp_PanelSuperior.TabIndex = 4;
             // 
             // pnl_Atajos
@@ -116,12 +117,49 @@ namespace MrTiendita.Vistas
             this.pnl_Atajos.Controls.Add(this.lbl_DescAtajos);
             this.pnl_Atajos.FillColor = System.Drawing.Color.White;
             this.pnl_Atajos.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_Atajos.Location = new System.Drawing.Point(814, 3);
-            this.pnl_Atajos.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.pnl_Atajos.Location = new System.Drawing.Point(610, 2);
+            this.pnl_Atajos.Margin = new System.Windows.Forms.Padding(6, 2, 2, 2);
             this.pnl_Atajos.Name = "pnl_Atajos";
             this.pnl_Atajos.ShadowDecoration.Parent = this.pnl_Atajos;
-            this.pnl_Atajos.Size = new System.Drawing.Size(354, 809);
+            this.pnl_Atajos.Size = new System.Drawing.Size(266, 658);
             this.pnl_Atajos.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btn_CompletarVenta, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btn_CancelarVenta, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(-26, 446);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(328, 32);
+            this.tableLayoutPanel1.TabIndex = 30;
+            // 
+            // btn_CompletarVenta
+            // 
+            this.btn_CompletarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_CompletarVenta.BorderRadius = 5;
+            this.btn_CompletarVenta.CheckedState.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.CustomImages.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_CompletarVenta.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CompletarVenta.ForeColor = System.Drawing.Color.White;
+            this.btn_CompletarVenta.HoverState.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.Location = new System.Drawing.Point(21, 2);
+            this.btn_CompletarVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_CompletarVenta.Name = "btn_CompletarVenta";
+            this.btn_CompletarVenta.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btn_CompletarVenta.ShadowDecoration.Parent = this.btn_CompletarVenta;
+            this.btn_CompletarVenta.Size = new System.Drawing.Size(141, 28);
+            this.btn_CompletarVenta.TabIndex = 28;
+            this.btn_CompletarVenta.Text = "Completar venta";
             // 
             // btn_CancelarVenta
             // 
@@ -135,32 +173,15 @@ namespace MrTiendita.Vistas
             this.btn_CancelarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.HoverState.Parent = this.btn_CancelarVenta;
-            this.btn_CancelarVenta.Location = new System.Drawing.Point(221, 3);
+            this.btn_CancelarVenta.Location = new System.Drawing.Point(166, 2);
+            this.btn_CancelarVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_CancelarVenta.Name = "btn_CancelarVenta";
-            this.btn_CancelarVenta.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btn_CancelarVenta.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btn_CancelarVenta.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.ShadowDecoration.Parent = this.btn_CancelarVenta;
-            this.btn_CancelarVenta.Size = new System.Drawing.Size(188, 34);
+            this.btn_CancelarVenta.Size = new System.Drawing.Size(141, 28);
             this.btn_CancelarVenta.TabIndex = 29;
             this.btn_CancelarVenta.Text = "Cancelar venta";
-            // 
-            // btn_CompletarVenta
-            // 
-            this.btn_CompletarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_CompletarVenta.BorderRadius = 5;
-            this.btn_CompletarVenta.CheckedState.Parent = this.btn_CompletarVenta;
-            this.btn_CompletarVenta.CustomImages.Parent = this.btn_CompletarVenta;
-            this.btn_CompletarVenta.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.btn_CompletarVenta.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CompletarVenta.ForeColor = System.Drawing.Color.White;
-            this.btn_CompletarVenta.HoverState.Parent = this.btn_CompletarVenta;
-            this.btn_CompletarVenta.Location = new System.Drawing.Point(27, 3);
-            this.btn_CompletarVenta.Name = "btn_CompletarVenta";
-            this.btn_CompletarVenta.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.btn_CompletarVenta.ShadowDecoration.Parent = this.btn_CompletarVenta;
-            this.btn_CompletarVenta.Size = new System.Drawing.Size(188, 34);
-            this.btn_CompletarVenta.TabIndex = 28;
-            this.btn_CompletarVenta.Text = "Completar venta";
             // 
             // lbl_Cambio
             // 
@@ -169,9 +190,10 @@ namespace MrTiendita.Vistas
             this.lbl_Cambio.BackColor = System.Drawing.Color.White;
             this.lbl_Cambio.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Cambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Cambio.Location = new System.Drawing.Point(278, 471);
+            this.lbl_Cambio.Location = new System.Drawing.Point(208, 383);
+            this.lbl_Cambio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Cambio.Name = "lbl_Cambio";
-            this.lbl_Cambio.Size = new System.Drawing.Size(56, 25);
+            this.lbl_Cambio.Size = new System.Drawing.Size(44, 20);
             this.lbl_Cambio.TabIndex = 27;
             this.lbl_Cambio.Text = "$0.00";
             // 
@@ -181,9 +203,10 @@ namespace MrTiendita.Vistas
             this.lbl_CambioDesc.BackColor = System.Drawing.Color.White;
             this.lbl_CambioDesc.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_CambioDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_CambioDesc.Location = new System.Drawing.Point(20, 471);
+            this.lbl_CambioDesc.Location = new System.Drawing.Point(15, 383);
+            this.lbl_CambioDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CambioDesc.Name = "lbl_CambioDesc";
-            this.lbl_CambioDesc.Size = new System.Drawing.Size(80, 25);
+            this.lbl_CambioDesc.Size = new System.Drawing.Size(62, 20);
             this.lbl_CambioDesc.TabIndex = 26;
             this.lbl_CambioDesc.Text = "Cambio";
             // 
@@ -191,9 +214,10 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_EfetivoTb.AutoSize = true;
             this.lbl_EfetivoTb.BackColor = System.Drawing.Color.White;
-            this.lbl_EfetivoTb.Location = new System.Drawing.Point(21, 353);
+            this.lbl_EfetivoTb.Location = new System.Drawing.Point(16, 287);
+            this.lbl_EfetivoTb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_EfetivoTb.Name = "lbl_EfetivoTb";
-            this.lbl_EfetivoTb.Size = new System.Drawing.Size(69, 23);
+            this.lbl_EfetivoTb.Size = new System.Drawing.Size(53, 17);
             this.lbl_EfetivoTb.TabIndex = 25;
             this.lbl_EfetivoTb.Text = "Efectivo";
             // 
@@ -213,14 +237,13 @@ namespace MrTiendita.Vistas
             this.tb_Efectivo.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Efectivo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Efectivo.HoverState.Parent = this.tb_Efectivo;
-            this.tb_Efectivo.Location = new System.Drawing.Point(24, 381);
-            this.tb_Efectivo.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Efectivo.Location = new System.Drawing.Point(18, 310);
             this.tb_Efectivo.Name = "tb_Efectivo";
             this.tb_Efectivo.PasswordChar = '\0';
             this.tb_Efectivo.PlaceholderText = "";
             this.tb_Efectivo.SelectedText = "";
             this.tb_Efectivo.ShadowDecoration.Parent = this.tb_Efectivo;
-            this.tb_Efectivo.Size = new System.Drawing.Size(260, 40);
+            this.tb_Efectivo.Size = new System.Drawing.Size(195, 32);
             this.tb_Efectivo.TabIndex = 24;
             // 
             // lbl_Pago
@@ -229,9 +252,10 @@ namespace MrTiendita.Vistas
             this.lbl_Pago.BackColor = System.Drawing.Color.White;
             this.lbl_Pago.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Pago.Location = new System.Drawing.Point(19, 311);
+            this.lbl_Pago.Location = new System.Drawing.Point(14, 253);
+            this.lbl_Pago.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Pago.Name = "lbl_Pago";
-            this.lbl_Pago.Size = new System.Drawing.Size(58, 25);
+            this.lbl_Pago.Size = new System.Drawing.Size(44, 20);
             this.lbl_Pago.TabIndex = 23;
             this.lbl_Pago.Text = "Pago";
             // 
@@ -241,9 +265,10 @@ namespace MrTiendita.Vistas
             this.lbl_Tarjeta.BackColor = System.Drawing.Color.White;
             this.lbl_Tarjeta.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Tarjeta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Tarjeta.Location = new System.Drawing.Point(187, 240);
+            this.lbl_Tarjeta.Location = new System.Drawing.Point(140, 195);
+            this.lbl_Tarjeta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Tarjeta.Name = "lbl_Tarjeta";
-            this.lbl_Tarjeta.Size = new System.Drawing.Size(70, 25);
+            this.lbl_Tarjeta.Size = new System.Drawing.Size(55, 20);
             this.lbl_Tarjeta.TabIndex = 22;
             this.lbl_Tarjeta.Text = "Tarjeta";
             // 
@@ -254,8 +279,8 @@ namespace MrTiendita.Vistas
             this.check_Tarjeta.Checked = false;
             this.check_Tarjeta.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.check_Tarjeta.ForeColor = System.Drawing.Color.White;
-            this.check_Tarjeta.Location = new System.Drawing.Point(160, 243);
-            this.check_Tarjeta.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.check_Tarjeta.Location = new System.Drawing.Point(120, 197);
+            this.check_Tarjeta.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.check_Tarjeta.Name = "check_Tarjeta";
             this.check_Tarjeta.Size = new System.Drawing.Size(20, 20);
             this.check_Tarjeta.TabIndex = 21;
@@ -266,9 +291,10 @@ namespace MrTiendita.Vistas
             this.lbl_Efectivo.BackColor = System.Drawing.Color.White;
             this.lbl_Efectivo.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Efectivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Efectivo.Location = new System.Drawing.Point(51, 240);
+            this.lbl_Efectivo.Location = new System.Drawing.Point(38, 195);
+            this.lbl_Efectivo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Efectivo.Name = "lbl_Efectivo";
-            this.lbl_Efectivo.Size = new System.Drawing.Size(78, 25);
+            this.lbl_Efectivo.Size = new System.Drawing.Size(62, 20);
             this.lbl_Efectivo.TabIndex = 20;
             this.lbl_Efectivo.Text = "Efectivo";
             // 
@@ -279,8 +305,8 @@ namespace MrTiendita.Vistas
             this.check_Efectivo.Checked = true;
             this.check_Efectivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.check_Efectivo.ForeColor = System.Drawing.Color.White;
-            this.check_Efectivo.Location = new System.Drawing.Point(24, 243);
-            this.check_Efectivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.check_Efectivo.Location = new System.Drawing.Point(18, 197);
+            this.check_Efectivo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.check_Efectivo.Name = "check_Efectivo";
             this.check_Efectivo.Size = new System.Drawing.Size(20, 20);
             this.check_Efectivo.TabIndex = 19;
@@ -291,9 +317,10 @@ namespace MrTiendita.Vistas
             this.lbl_Metodo.BackColor = System.Drawing.Color.White;
             this.lbl_Metodo.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Metodo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Metodo.Location = new System.Drawing.Point(19, 201);
+            this.lbl_Metodo.Location = new System.Drawing.Point(14, 163);
+            this.lbl_Metodo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Metodo.Name = "lbl_Metodo";
-            this.lbl_Metodo.Size = new System.Drawing.Size(161, 25);
+            this.lbl_Metodo.Size = new System.Drawing.Size(124, 20);
             this.lbl_Metodo.TabIndex = 6;
             this.lbl_Metodo.Text = "Método de pago";
             // 
@@ -304,9 +331,10 @@ namespace MrTiendita.Vistas
             this.lbl_TotalAPagar.BackColor = System.Drawing.Color.White;
             this.lbl_TotalAPagar.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TotalAPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_TotalAPagar.Location = new System.Drawing.Point(277, 120);
+            this.lbl_TotalAPagar.Location = new System.Drawing.Point(208, 98);
+            this.lbl_TotalAPagar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_TotalAPagar.Name = "lbl_TotalAPagar";
-            this.lbl_TotalAPagar.Size = new System.Drawing.Size(56, 25);
+            this.lbl_TotalAPagar.Size = new System.Drawing.Size(44, 20);
             this.lbl_TotalAPagar.TabIndex = 5;
             this.lbl_TotalAPagar.Text = "$0.00";
             // 
@@ -316,9 +344,10 @@ namespace MrTiendita.Vistas
             this.lbl_Ruta.BackColor = System.Drawing.Color.White;
             this.lbl_Ruta.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Ruta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Ruta.Location = new System.Drawing.Point(19, 120);
+            this.lbl_Ruta.Location = new System.Drawing.Point(14, 98);
+            this.lbl_Ruta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Ruta.Name = "lbl_Ruta";
-            this.lbl_Ruta.Size = new System.Drawing.Size(129, 25);
+            this.lbl_Ruta.Size = new System.Drawing.Size(101, 20);
             this.lbl_Ruta.TabIndex = 4;
             this.lbl_Ruta.Text = "Total a pagar";
             // 
@@ -328,9 +357,10 @@ namespace MrTiendita.Vistas
             this.lbl_Atajos.BackColor = System.Drawing.Color.White;
             this.lbl_Atajos.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Atajos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Atajos.Location = new System.Drawing.Point(20, 33);
+            this.lbl_Atajos.Location = new System.Drawing.Point(15, 27);
+            this.lbl_Atajos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Atajos.Name = "lbl_Atajos";
-            this.lbl_Atajos.Size = new System.Drawing.Size(85, 32);
+            this.lbl_Atajos.Size = new System.Drawing.Size(68, 25);
             this.lbl_Atajos.TabIndex = 2;
             this.lbl_Atajos.Text = "Cobro";
             // 
@@ -338,9 +368,10 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_DescAtajos.AutoSize = true;
             this.lbl_DescAtajos.BackColor = System.Drawing.Color.White;
-            this.lbl_DescAtajos.Location = new System.Drawing.Point(20, 64);
+            this.lbl_DescAtajos.Location = new System.Drawing.Point(15, 52);
+            this.lbl_DescAtajos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_DescAtajos.Name = "lbl_DescAtajos";
-            this.lbl_DescAtajos.Size = new System.Drawing.Size(313, 23);
+            this.lbl_DescAtajos.Size = new System.Drawing.Size(242, 17);
             this.lbl_DescAtajos.TabIndex = 3;
             this.lbl_DescAtajos.Text = "Añade el pago de la compra del cliente.";
             // 
@@ -361,10 +392,11 @@ namespace MrTiendita.Vistas
             this.pnl_Notificaciones.Controls.Add(this.lbl_DescNoti);
             this.pnl_Notificaciones.FillColor = System.Drawing.Color.White;
             this.pnl_Notificaciones.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_Notificaciones.Location = new System.Drawing.Point(3, 3);
+            this.pnl_Notificaciones.Location = new System.Drawing.Point(2, 2);
+            this.pnl_Notificaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_Notificaciones.Name = "pnl_Notificaciones";
             this.pnl_Notificaciones.ShadowDecoration.Parent = this.pnl_Notificaciones;
-            this.pnl_Notificaciones.Size = new System.Drawing.Size(800, 809);
+            this.pnl_Notificaciones.Size = new System.Drawing.Size(600, 658);
             this.pnl_Notificaciones.TabIndex = 1;
             // 
             // dgv_TablaVentas
@@ -373,8 +405,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.AllowUserToDeleteRows = false;
             this.dgv_TablaVentas.AllowUserToResizeColumns = false;
             this.dgv_TablaVentas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_TablaVentas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_TablaVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -382,14 +414,14 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaVentas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_TablaVentas.ColumnHeadersHeight = 35;
             this.dgv_TablaVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_menos,
@@ -399,17 +431,18 @@ namespace MrTiendita.Vistas
             this.col_Precio,
             this.col_Subtotal,
             this.col_Codigo});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_TablaVentas.EnableHeadersVisualStyles = false;
             this.dgv_TablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
-            this.dgv_TablaVentas.Location = new System.Drawing.Point(24, 201);
+            this.dgv_TablaVentas.Location = new System.Drawing.Point(18, 163);
+            this.dgv_TablaVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_TablaVentas.Name = "dgv_TablaVentas";
             this.dgv_TablaVentas.ReadOnly = true;
             this.dgv_TablaVentas.RowHeadersVisible = false;
@@ -417,7 +450,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_TablaVentas.RowTemplate.Height = 35;
             this.dgv_TablaVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_TablaVentas.Size = new System.Drawing.Size(752, 583);
+            this.dgv_TablaVentas.Size = new System.Drawing.Size(564, 474);
             this.dgv_TablaVentas.TabIndex = 14;
             this.dgv_TablaVentas.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgv_TablaVentas.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -506,10 +539,11 @@ namespace MrTiendita.Vistas
             this.btn_Agregar.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Agregar.ForeColor = System.Drawing.Color.White;
             this.btn_Agregar.HoverState.Parent = this.btn_Agregar;
-            this.btn_Agregar.Location = new System.Drawing.Point(472, 132);
+            this.btn_Agregar.Location = new System.Drawing.Point(354, 107);
+            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.ShadowDecoration.Parent = this.btn_Agregar;
-            this.btn_Agregar.Size = new System.Drawing.Size(152, 40);
+            this.btn_Agregar.Size = new System.Drawing.Size(114, 32);
             this.btn_Agregar.TabIndex = 13;
             this.btn_Agregar.Text = "Agregar";
             // 
@@ -517,9 +551,10 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_Cantidad.AutoSize = true;
             this.lbl_Cantidad.BackColor = System.Drawing.Color.White;
-            this.lbl_Cantidad.Location = new System.Drawing.Point(336, 104);
+            this.lbl_Cantidad.Location = new System.Drawing.Point(252, 84);
+            this.lbl_Cantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Cantidad.Name = "lbl_Cantidad";
-            this.lbl_Cantidad.Size = new System.Drawing.Size(79, 23);
+            this.lbl_Cantidad.Size = new System.Drawing.Size(60, 17);
             this.lbl_Cantidad.TabIndex = 12;
             this.lbl_Cantidad.Text = "Cantidad";
             // 
@@ -539,14 +574,13 @@ namespace MrTiendita.Vistas
             this.tb_Cantidad.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Cantidad.HoverState.Parent = this.tb_Cantidad;
-            this.tb_Cantidad.Location = new System.Drawing.Point(339, 132);
-            this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Cantidad.Location = new System.Drawing.Point(254, 107);
             this.tb_Cantidad.Name = "tb_Cantidad";
             this.tb_Cantidad.PasswordChar = '\0';
             this.tb_Cantidad.PlaceholderText = "";
             this.tb_Cantidad.SelectedText = "";
             this.tb_Cantidad.ShadowDecoration.Parent = this.tb_Cantidad;
-            this.tb_Cantidad.Size = new System.Drawing.Size(126, 40);
+            this.tb_Cantidad.Size = new System.Drawing.Size(94, 32);
             this.tb_Cantidad.TabIndex = 11;
             // 
             // btn_Buscar
@@ -567,11 +601,12 @@ namespace MrTiendita.Vistas
             this.btn_Buscar.HoverState.Parent = this.btn_Buscar;
             this.btn_Buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Buscar.Image")));
             this.btn_Buscar.ImageSize = new System.Drawing.Size(24, 24);
-            this.btn_Buscar.Location = new System.Drawing.Point(24, 132);
+            this.btn_Buscar.Location = new System.Drawing.Point(18, 107);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_Buscar.ShadowDecoration.Parent = this.btn_Buscar;
-            this.btn_Buscar.Size = new System.Drawing.Size(40, 40);
+            this.btn_Buscar.Size = new System.Drawing.Size(30, 32);
             this.btn_Buscar.TabIndex = 10;
             this.btn_Buscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Buscar.TextOffset = new System.Drawing.Point(16, 0);
@@ -581,9 +616,10 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_CodigoBarras.AutoSize = true;
             this.lbl_CodigoBarras.BackColor = System.Drawing.Color.White;
-            this.lbl_CodigoBarras.Location = new System.Drawing.Point(68, 104);
+            this.lbl_CodigoBarras.Location = new System.Drawing.Point(51, 84);
+            this.lbl_CodigoBarras.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CodigoBarras.Name = "lbl_CodigoBarras";
-            this.lbl_CodigoBarras.Size = new System.Drawing.Size(141, 23);
+            this.lbl_CodigoBarras.Size = new System.Drawing.Size(112, 17);
             this.lbl_CodigoBarras.TabIndex = 9;
             this.lbl_CodigoBarras.Text = "Código de barras";
             // 
@@ -603,14 +639,13 @@ namespace MrTiendita.Vistas
             this.tb_Codigo.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Codigo.HoverState.Parent = this.tb_Codigo;
-            this.tb_Codigo.Location = new System.Drawing.Point(71, 132);
-            this.tb_Codigo.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Codigo.Location = new System.Drawing.Point(53, 107);
             this.tb_Codigo.Name = "tb_Codigo";
             this.tb_Codigo.PasswordChar = '\0';
             this.tb_Codigo.PlaceholderText = "";
             this.tb_Codigo.SelectedText = "";
             this.tb_Codigo.ShadowDecoration.Parent = this.tb_Codigo;
-            this.tb_Codigo.Size = new System.Drawing.Size(260, 40);
+            this.tb_Codigo.Size = new System.Drawing.Size(195, 32);
             this.tb_Codigo.TabIndex = 8;
             // 
             // lbl_Notificaciones
@@ -619,9 +654,10 @@ namespace MrTiendita.Vistas
             this.lbl_Notificaciones.BackColor = System.Drawing.Color.White;
             this.lbl_Notificaciones.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Notificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Notificaciones.Location = new System.Drawing.Point(20, 33);
+            this.lbl_Notificaciones.Location = new System.Drawing.Point(15, 27);
+            this.lbl_Notificaciones.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Notificaciones.Name = "lbl_Notificaciones";
-            this.lbl_Notificaciones.Size = new System.Drawing.Size(223, 32);
+            this.lbl_Notificaciones.Size = new System.Drawing.Size(174, 25);
             this.lbl_Notificaciones.TabIndex = 4;
             this.lbl_Notificaciones.Text = "Carrito de compra";
             // 
@@ -629,46 +665,31 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_DescNoti.AutoSize = true;
             this.lbl_DescNoti.BackColor = System.Drawing.Color.White;
-            this.lbl_DescNoti.Location = new System.Drawing.Point(20, 64);
+            this.lbl_DescNoti.Location = new System.Drawing.Point(15, 52);
+            this.lbl_DescNoti.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_DescNoti.Name = "lbl_DescNoti";
-            this.lbl_DescNoti.Size = new System.Drawing.Size(408, 23);
+            this.lbl_DescNoti.Size = new System.Drawing.Size(316, 17);
             this.lbl_DescNoti.TabIndex = 5;
             this.lbl_DescNoti.Text = "Añade los productos del cliente a la lista de compra.";
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btn_CompletarVenta, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_CancelarVenta, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(-34, 549);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(437, 40);
-            this.tableLayoutPanel1.TabIndex = 30;
-            // 
             // FrmVentas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1195, 839);
+            this.ClientSize = new System.Drawing.Size(896, 682);
             this.Controls.Add(this.tlp_PanelSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmVentas";
             this.Text = "FrmVentas";
             this.tlp_PanelSuperior.ResumeLayout(false);
             this.pnl_Atajos.ResumeLayout(false);
             this.pnl_Atajos.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.pnl_Notificaciones.ResumeLayout(false);
             this.pnl_Notificaciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TablaVentas)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -677,18 +698,7 @@ namespace MrTiendita.Vistas
 
         private System.Windows.Forms.TableLayoutPanel tlp_PanelSuperior;
         private Guna.UI2.WinForms.Guna2Panel pnl_Atajos;
-        private System.Windows.Forms.Label lbl_Atajos;
-        private System.Windows.Forms.Label lbl_DescAtajos;
         private Guna.UI2.WinForms.Guna2Panel pnl_Notificaciones;
-        private System.Windows.Forms.Label lbl_Notificaciones;
-        private System.Windows.Forms.Label lbl_DescNoti;
-        private System.Windows.Forms.Label lbl_CodigoBarras;
-        private Guna.UI2.WinForms.Guna2TextBox tb_Codigo;
-        private Guna.UI2.WinForms.Guna2Button btn_Buscar;
-        private System.Windows.Forms.Label lbl_Cantidad;
-        private Guna.UI2.WinForms.Guna2TextBox tb_Cantidad;
-        private Guna.UI2.WinForms.Guna2Button btn_Agregar;
-        private Guna.UI2.WinForms.Guna2DataGridView dgv_TablaVentas;
         private System.Windows.Forms.DataGridViewImageColumn col_menos;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Cantidad;
         private System.Windows.Forms.DataGridViewImageColumn col_mas;
@@ -696,20 +706,31 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Codigo;
-        private System.Windows.Forms.Label lbl_Ruta;
-        private System.Windows.Forms.Label lbl_Metodo;
-        private System.Windows.Forms.Label lbl_TotalAPagar;
-        private System.Windows.Forms.Label lbl_Tarjeta;
-        private Bunifu.Framework.UI.BunifuCheckbox check_Tarjeta;
-        private System.Windows.Forms.Label lbl_Efectivo;
-        private Bunifu.Framework.UI.BunifuCheckbox check_Efectivo;
         private Guna.UI2.WinForms.Guna2Button btn_CancelarVenta;
         private Guna.UI2.WinForms.Guna2Button btn_CompletarVenta;
-        private System.Windows.Forms.Label lbl_Cambio;
-        private System.Windows.Forms.Label lbl_CambioDesc;
-        private System.Windows.Forms.Label lbl_EfetivoTb;
-        private Guna.UI2.WinForms.Guna2TextBox tb_Efectivo;
-        private System.Windows.Forms.Label lbl_Pago;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.Label lbl_Atajos;
+        public System.Windows.Forms.Label lbl_DescAtajos;
+        public System.Windows.Forms.Label lbl_Notificaciones;
+        public System.Windows.Forms.Label lbl_DescNoti;
+        public System.Windows.Forms.Label lbl_CodigoBarras;
+        public Guna.UI2.WinForms.Guna2TextBox tb_Codigo;
+        public Guna.UI2.WinForms.Guna2Button btn_Buscar;
+        public System.Windows.Forms.Label lbl_Cantidad;
+        public Guna.UI2.WinForms.Guna2TextBox tb_Cantidad;
+        public Guna.UI2.WinForms.Guna2Button btn_Agregar;
+        public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaVentas;
+        public System.Windows.Forms.Label lbl_Ruta;
+        public System.Windows.Forms.Label lbl_Metodo;
+        public System.Windows.Forms.Label lbl_TotalAPagar;
+        public System.Windows.Forms.Label lbl_Tarjeta;
+        public Bunifu.Framework.UI.BunifuCheckbox check_Tarjeta;
+        public System.Windows.Forms.Label lbl_Efectivo;
+        public Bunifu.Framework.UI.BunifuCheckbox check_Efectivo;
+        public System.Windows.Forms.Label lbl_Cambio;
+        public System.Windows.Forms.Label lbl_CambioDesc;
+        public System.Windows.Forms.Label lbl_EfetivoTb;
+        public Guna.UI2.WinForms.Guna2TextBox tb_Efectivo;
+        public System.Windows.Forms.Label lbl_Pago;
     }
 }

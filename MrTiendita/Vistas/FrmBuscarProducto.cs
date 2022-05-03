@@ -46,11 +46,17 @@ namespace MrTiendita.Vistas
             col_AgregarCarrito.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pnl_Productos_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
