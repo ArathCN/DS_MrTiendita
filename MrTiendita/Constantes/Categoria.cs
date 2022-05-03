@@ -8,6 +8,7 @@ namespace MrTiendita.Constantes
 {
     public static class Categorias
     {
+        public static Categoria TODOS = new Categoria(0, "Todos");
         public static Categoria FRUTAS_VERDURAS = new Categoria(1, "Frutas y verduras");
         public static Categoria PANADERIA_TORTILLERIA = new Categoria(2, "Panadería y tortillería");
         public static Categoria CARNICERIA = new Categoria(3, "Carnicería");
@@ -17,7 +18,7 @@ namespace MrTiendita.Constantes
         public static Categoria HIGENE_PERSONAL_SALUD = new Categoria(7, "Higiene personal y salud");
         public static Categoria MASCOTAS = new Categoria(8, "Mascotas");
         public static Categoria REFRIGERADOS = new Categoria(9, "Refrigerados");
-        public static Categoria SIN_CATEGORIA = new Categoria(0, "Sin categoría");
+        public static Categoria SIN_CATEGORIA = new Categoria(10, "Sin categoría");
         //public static Categoria ABARROTES = "Abarrotes";
         //public static Categoria LIMPIEZA_HOGAR = "Limpieza y hogar";
         //public static Categoria HIGENE_PERSONAL_SALUD = "Higiene personal y salud";
@@ -27,7 +28,7 @@ namespace MrTiendita.Constantes
 
         public static List<Categoria> CATEGORIAS = new List<Categoria>
         {
-            FRUTAS_VERDURAS, PANADERIA_TORTILLERIA, CARNICERIA, LACTEOS, ABARROTES, LIMPIEZA_HOGAR, HIGENE_PERSONAL_SALUD,
+            TODOS, FRUTAS_VERDURAS, PANADERIA_TORTILLERIA, CARNICERIA, LACTEOS, ABARROTES, LIMPIEZA_HOGAR, HIGENE_PERSONAL_SALUD,
             MASCOTAS, REFRIGERADOS, SIN_CATEGORIA
         };
 
