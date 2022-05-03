@@ -85,6 +85,8 @@ namespace MrTiendita.Vistas
 
         private void btn_Reportes_Click(object sender, EventArgs e)
         {
+            AbrirFormulario(new FrmReportes_());
+            ActivarBoton(sender);
             esActivado = false;
         }
 

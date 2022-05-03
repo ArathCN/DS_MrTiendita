@@ -263,7 +263,7 @@ namespace MrTiendita.Vistas
             this.lbl_EsteMes.Text = "Este mes";
             // 
             // lbl_EstaSemana
-            // 
+            //
             this.lbl_EstaSemana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_EstaSemana.AutoSize = true;
             this.lbl_EstaSemana.BackColor = System.Drawing.Color.White;
@@ -430,7 +430,7 @@ namespace MrTiendita.Vistas
             this.tablaMovimientos.ThemeStyle.RowsStyle.Height = 35;
             this.tablaMovimientos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.tablaMovimientos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            // 
+            //
             // col_TipoMovimiento
             // 
             this.col_TipoMovimiento.HeaderText = "Tipo de movimiento";

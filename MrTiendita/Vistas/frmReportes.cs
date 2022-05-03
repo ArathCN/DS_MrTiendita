@@ -16,7 +16,7 @@ namespace MrTiendita.Vistas
         public FrmReportes()
         {
             InitializeComponent();
-            FrmReportesController controller = new FrmReportesController(this);
+            //FrmReportesController controller = new FrmReportesController(this);
         }
     }
 }
