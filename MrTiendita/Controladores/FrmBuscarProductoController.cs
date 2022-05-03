@@ -44,6 +44,9 @@ namespace MrTiendita.Controladores
         private void Vista_Load(object sender, EventArgs e)
         {
             MostrarProductos();
+            this.vista.cb_Categoria.Items.Clear();
+            foreach (Categoria categoria in Categorias.CATEGORIAS) 
+            { this.vista.cb_Categoria.Items.Add(categoria.Nombre); }
         }
 
         protected void MostrarProductos()
@@ -59,6 +62,7 @@ namespace MrTiendita.Controladores
                     xProducto.Precio_venta,
                     1);
             }
+
         }
 
         private void Tb_BuscarProducto_TextChanged(object sender, EventArgs e)
