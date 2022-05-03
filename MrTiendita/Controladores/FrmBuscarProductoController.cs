@@ -18,13 +18,14 @@ namespace MrTiendita.Controladores
     public class FrmBuscarProductoController
     {
         private FrmBuscarProducto vista;
-        private FrmVentas vista2;
+        private FrmCVentasController cventas;
         private ProductoDAO productoDAO;
 
 
         public FrmBuscarProductoController(FrmBuscarProducto vista) 
         { 
             this.vista = vista;
+            this.cventas = this.vista.controlador2;
 
             this.productoDAO = new ProductoDAO();
 
@@ -35,6 +36,7 @@ namespace MrTiendita.Controladores
             this.vista.cb_Categoria.TextChanged += new EventHandler (Cb_Categoria_TextChanged);
 
             this.vista.dgv_TablaProductos.CellContentClick += new DataGridViewCellEventHandler(Dgv_TablaProductos_CellContentClick);
+
             this.vista.dgv_TablaProductos.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Dgv_TablaProductos_EditingControlShowing);
 
         }
@@ -51,6 +53,7 @@ namespace MrTiendita.Controladores
             foreach (Producto xProducto in productos)
             {
                 this.vista.dgv_TablaProductos.Rows.Add(
+                    xProducto.Codigo_barra,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
@@ -66,6 +69,7 @@ namespace MrTiendita.Controladores
             foreach (Producto xProducto in productos)
             {
                 this.vista.dgv_TablaProductos.Rows.Add(
+                    xProducto.Codigo_barra,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
@@ -86,6 +90,7 @@ namespace MrTiendita.Controladores
                 foreach (Producto xProducto in productos1)
                 {
                     this.vista.dgv_TablaProductos.Rows.Add(
+                    xProducto.Codigo_barra,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
@@ -98,6 +103,7 @@ namespace MrTiendita.Controladores
                 foreach (Producto xProducto in productos)
                 {
                     this.vista.dgv_TablaProductos.Rows.Add(
+                    xProducto.Codigo_barra,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
@@ -106,10 +112,13 @@ namespace MrTiendita.Controladores
             }  
         }
 
+       
         private void Dgv_TablaProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
+            
+
             e.Control.KeyPress -= new KeyPressEventHandler(Columns_KeyPress);
-            if (this.vista.dgv_TablaProductos.CurrentCell.ColumnIndex == 3) 
+            if (this.vista.dgv_TablaProductos.CurrentCell.ColumnIndex == 4) 
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
@@ -129,25 +138,35 @@ namespace MrTiendita.Controladores
 
         private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_AgregarCarrito"].Selected)
-            //{
-            //    this.AgregarVenta(e);
-            //}
-        }
+            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_AgregarCarrito"].Selected)
+            {
+                int index = this.vista.dgv_TablaProductos.CurrentCell.RowIndex;
+                //Console.WriteLine(index);
+                Producto xProducto = new Producto
+                {
+                    Codigo_barra = Int64.Parse(
+                        this.vista.dgv_TablaProductos.Rows[index].Cells["col_CodigoBarra"].Value.ToString()),
+                    Precio_venta = Convert.ToDouble(
+                                this.vista.dgv_TablaProductos.Rows[index].Cells["col_Precio"].Value.ToString()),
+                    Cantidad_actual = Convert.ToDouble(
+                                this.vista.dgv_TablaProductos.Rows[index].Cells["col_CantidadAgregar"].Value.ToString())
+                };
 
-        //private void AgregarVenta(DataGridViewCellEventArgs e) 
-        //{
-        //    List<Producto> productos = this.productoDAO.ReadAll();
-        //    this.vista.dgv_TablaProductos.Rows.Clear();
-        //    foreach (Producto xProducto in productos)
-        //    {
-        //        this.vista.dgv_TablaProductos.Rows.Add(
-        //        xProducto.Descripcion,
-        //        xProducto.Categoria,
-        //        xProducto.Precio_venta,
-        //        1);
-        //    }
-        //}
+                Producto producto = this.productoDAO.ReadById(xProducto.Codigo_barra);
+                //Console.Write(/*producto.Codigo_barra+*//*"  "+*/xProducto.Cantidad_actual);
+                if (xProducto.Cantidad_actual > producto.Cantidad_actual)
+                {
+                    Form mensajeError = new FrmError("No hay cantidad suficiente de este producto.");
+                    mensajeError.ShowDialog();
+                    return;
+                }
+                else {
+                    long x = Int64.Parse(this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_CodigoBarra"].Value.ToString());
+                    double a = Double.Parse(this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_CantidadAgregar"].Value.ToString());
+                    this.cventas.AgregarProducto(x, a);
+                }             
+            }          
+        }
     }
 }
 

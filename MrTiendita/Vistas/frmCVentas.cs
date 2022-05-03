@@ -19,7 +19,7 @@ namespace MrTiendita.Vistas
             widthColumnas();
             tablaVentas.AllowUserToAddRows = false;
             tablaVentas.CurrentCell = null;
-            FrmCVentasController controller = new FrmCVentasController(this);
+            //FrmCVentasController controller = new FrmCVentasController(this);
 
 
         }

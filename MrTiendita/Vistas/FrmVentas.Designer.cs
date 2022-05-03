@@ -87,7 +87,7 @@ namespace MrTiendita.Vistas
             this.tlp_PanelSuperior.Controls.Add(this.pnl_Atajos, 1, 0);
             this.tlp_PanelSuperior.Controls.Add(this.pnl_Notificaciones, 0, 0);
             this.tlp_PanelSuperior.Location = new System.Drawing.Point(9, 10);
-            this.tlp_PanelSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlp_PanelSuperior.Margin = new System.Windows.Forms.Padding(2);
             this.tlp_PanelSuperior.Name = "tlp_PanelSuperior";
             this.tlp_PanelSuperior.RowCount = 1;
             this.tlp_PanelSuperior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -135,7 +135,7 @@ namespace MrTiendita.Vistas
             this.tableLayoutPanel1.Controls.Add(this.btn_CompletarVenta, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btn_CancelarVenta, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(-26, 446);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -153,7 +153,7 @@ namespace MrTiendita.Vistas
             this.btn_CompletarVenta.ForeColor = System.Drawing.Color.White;
             this.btn_CompletarVenta.HoverState.Parent = this.btn_CompletarVenta;
             this.btn_CompletarVenta.Location = new System.Drawing.Point(21, 2);
-            this.btn_CompletarVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_CompletarVenta.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CompletarVenta.Name = "btn_CompletarVenta";
             this.btn_CompletarVenta.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.btn_CompletarVenta.ShadowDecoration.Parent = this.btn_CompletarVenta;
@@ -174,7 +174,7 @@ namespace MrTiendita.Vistas
             this.btn_CancelarVenta.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.btn_CancelarVenta.HoverState.Parent = this.btn_CancelarVenta;
             this.btn_CancelarVenta.Location = new System.Drawing.Point(166, 2);
-            this.btn_CancelarVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_CancelarVenta.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CancelarVenta.Name = "btn_CancelarVenta";
             this.btn_CancelarVenta.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btn_CancelarVenta.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
@@ -238,6 +238,7 @@ namespace MrTiendita.Vistas
             this.tb_Efectivo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Efectivo.HoverState.Parent = this.tb_Efectivo;
             this.tb_Efectivo.Location = new System.Drawing.Point(18, 310);
+            this.tb_Efectivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Efectivo.Name = "tb_Efectivo";
             this.tb_Efectivo.PasswordChar = '\0';
             this.tb_Efectivo.PlaceholderText = "";
@@ -393,7 +394,7 @@ namespace MrTiendita.Vistas
             this.pnl_Notificaciones.FillColor = System.Drawing.Color.White;
             this.pnl_Notificaciones.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_Notificaciones.Location = new System.Drawing.Point(2, 2);
-            this.pnl_Notificaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Notificaciones.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Notificaciones.Name = "pnl_Notificaciones";
             this.pnl_Notificaciones.ShadowDecoration.Parent = this.pnl_Notificaciones;
             this.pnl_Notificaciones.Size = new System.Drawing.Size(600, 658);
@@ -442,7 +443,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.EnableHeadersVisualStyles = false;
             this.dgv_TablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaVentas.Location = new System.Drawing.Point(18, 163);
-            this.dgv_TablaVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_TablaVentas.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_TablaVentas.Name = "dgv_TablaVentas";
             this.dgv_TablaVentas.ReadOnly = true;
             this.dgv_TablaVentas.RowHeadersVisible = false;
@@ -540,7 +541,7 @@ namespace MrTiendita.Vistas
             this.btn_Agregar.ForeColor = System.Drawing.Color.White;
             this.btn_Agregar.HoverState.Parent = this.btn_Agregar;
             this.btn_Agregar.Location = new System.Drawing.Point(354, 107);
-            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.ShadowDecoration.Parent = this.btn_Agregar;
             this.btn_Agregar.Size = new System.Drawing.Size(114, 32);
@@ -575,6 +576,7 @@ namespace MrTiendita.Vistas
             this.tb_Cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Cantidad.HoverState.Parent = this.tb_Cantidad;
             this.tb_Cantidad.Location = new System.Drawing.Point(254, 107);
+            this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Cantidad.Name = "tb_Cantidad";
             this.tb_Cantidad.PasswordChar = '\0';
             this.tb_Cantidad.PlaceholderText = "";
@@ -602,7 +604,7 @@ namespace MrTiendita.Vistas
             this.btn_Buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Buscar.Image")));
             this.btn_Buscar.ImageSize = new System.Drawing.Size(24, 24);
             this.btn_Buscar.Location = new System.Drawing.Point(18, 107);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_Buscar.ShadowDecoration.Parent = this.btn_Buscar;
@@ -610,7 +612,6 @@ namespace MrTiendita.Vistas
             this.btn_Buscar.TabIndex = 10;
             this.btn_Buscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Buscar.TextOffset = new System.Drawing.Point(16, 0);
-            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // lbl_CodigoBarras
             // 
@@ -640,6 +641,7 @@ namespace MrTiendita.Vistas
             this.tb_Codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Codigo.HoverState.Parent = this.tb_Codigo;
             this.tb_Codigo.Location = new System.Drawing.Point(53, 107);
+            this.tb_Codigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Codigo.Name = "tb_Codigo";
             this.tb_Codigo.PasswordChar = '\0';
             this.tb_Codigo.PlaceholderText = "";
@@ -680,7 +682,7 @@ namespace MrTiendita.Vistas
             this.ClientSize = new System.Drawing.Size(896, 682);
             this.Controls.Add(this.tlp_PanelSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmVentas";
             this.Text = "FrmVentas";
             this.tlp_PanelSuperior.ResumeLayout(false);

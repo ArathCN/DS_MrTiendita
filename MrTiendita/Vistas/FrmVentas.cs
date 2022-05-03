@@ -13,9 +13,14 @@ namespace MrTiendita.Vistas
 {
     public partial class FrmVentas : Form
     {
+        public FrmCVentasController controlador;
         public FrmVentas()
         {
+            
             InitializeComponent();
+
+            controlador = new FrmCVentasController(this);
+
             dgv_TablaVentas.AllowUserToAddRows = false;
             dgv_TablaVentas.CurrentCell = null;
             //int indexNuevoProducto;
@@ -45,12 +50,6 @@ namespace MrTiendita.Vistas
             dgv_TablaVentas.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaVentas.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgv_TablaVentas.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-        }
-
-        private void btn_Buscar_Click(object sender, EventArgs e)
-        {
-            FrmBuscarProducto frmBuscarProducto = new FrmBuscarProducto();
-            frmBuscarProducto.Show();
-        }
+        } 
     }
 }
