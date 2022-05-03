@@ -63,7 +63,7 @@ namespace MrTiendita.Vistas
             this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
             this.btn_Cerrar.Location = new System.Drawing.Point(675, 5);
-            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(19, 20);
             this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,7 +78,7 @@ namespace MrTiendita.Vistas
             this.pnl_MenuSuperior.Controls.Add(this.lbl_Titulo);
             this.pnl_MenuSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_MenuSuperior.Location = new System.Drawing.Point(0, 0);
-            this.pnl_MenuSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_MenuSuperior.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_MenuSuperior.Name = "pnl_MenuSuperior";
             this.pnl_MenuSuperior.Size = new System.Drawing.Size(704, 31);
             this.pnl_MenuSuperior.TabIndex = 40;
@@ -105,10 +105,11 @@ namespace MrTiendita.Vistas
             this.pnl_Productos.Controls.Add(this.dgv_TablaProductos);
             this.pnl_Productos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Productos.Location = new System.Drawing.Point(0, 31);
-            this.pnl_Productos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Productos.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Productos.Name = "pnl_Productos";
             this.pnl_Productos.Size = new System.Drawing.Size(704, 462);
             this.pnl_Productos.TabIndex = 42;
+            this.pnl_Productos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Productos_Paint);
             // 
             // label1
             // 
@@ -150,7 +151,7 @@ namespace MrTiendita.Vistas
             "Sin categoría"});
             this.cb_Categoria.ItemsAppearance.Parent = this.cb_Categoria;
             this.cb_Categoria.Location = new System.Drawing.Point(14, 51);
-            this.cb_Categoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Categoria.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Categoria.Name = "cb_Categoria";
             this.cb_Categoria.ShadowDecoration.Parent = this.cb_Categoria;
             this.cb_Categoria.Size = new System.Drawing.Size(238, 36);
@@ -186,6 +187,7 @@ namespace MrTiendita.Vistas
             this.tb_BuscarProducto.HoverState.Parent = this.tb_BuscarProducto;
             this.tb_BuscarProducto.IconLeft = ((System.Drawing.Image)(resources.GetObject("tb_BuscarProducto.IconLeft")));
             this.tb_BuscarProducto.Location = new System.Drawing.Point(14, 124);
+            this.tb_BuscarProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_BuscarProducto.Name = "tb_BuscarProducto";
             this.tb_BuscarProducto.PasswordChar = '\0';
             this.tb_BuscarProducto.PlaceholderText = "";
@@ -236,7 +238,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.EnableHeadersVisualStyles = false;
             this.dgv_TablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaProductos.Location = new System.Drawing.Point(14, 173);
-            this.dgv_TablaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_TablaProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_TablaProductos.Name = "dgv_TablaProductos";
             this.dgv_TablaProductos.RowHeadersVisible = false;
             this.dgv_TablaProductos.RowHeadersWidth = 65;
@@ -298,6 +300,7 @@ namespace MrTiendita.Vistas
             // col_CantidadAgregar
             // 
             this.col_CantidadAgregar.HeaderText = "Cantidad a agregar";
+            this.col_CantidadAgregar.MaxInputLength = 2;
             this.col_CantidadAgregar.MinimumWidth = 6;
             this.col_CantidadAgregar.Name = "col_CantidadAgregar";
             this.col_CantidadAgregar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -325,7 +328,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.pnl_Productos);
             this.Controls.Add(this.pnl_MenuSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmBuscarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBuscarProducto";
@@ -348,14 +351,14 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label lbl_Producto;
         public Guna.UI2.WinForms.Guna2DragControl DragControl;
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
+        public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProductos;
+        public Guna.UI2.WinForms.Guna2TextBox tb_BuscarProducto;
+        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_CantidadAgregar;
         private System.Windows.Forms.DataGridViewImageColumn col_AgregarCarrito;
-        public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProductos;
-        public Guna.UI2.WinForms.Guna2TextBox tb_BuscarProducto;
-        public System.Windows.Forms.Label label1;
-        public Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -17,18 +18,18 @@ namespace MrTiendita.Vistas
             InitializeComponent();
             dgv_TablaVentas.AllowUserToAddRows = false;
             dgv_TablaVentas.CurrentCell = null;
-            int indexNuevoProducto;
-            for (int i = 0; i < 3; i++)
-            {
-                dgv_TablaVentas.Rows.Add();
-                indexNuevoProducto = dgv_TablaVentas.RowCount - 1;
-                Console.WriteLine(indexNuevoProducto);
-                dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Cantidad"].Value = "2";
-                dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = "Leche Lala Deslactosada 1L";
-                dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Precio"].Value = "$25.99";
-                dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Subtotal"].Value = "$62.00";
-                dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Codigo"].Value = "123456789012";
-            }
+            //int indexNuevoProducto;
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    dgv_TablaVentas.Rows.Add();
+            //    indexNuevoProducto = dgv_TablaVentas.RowCount - 1;
+            //    Console.WriteLine(indexNuevoProducto);
+            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Cantidad"].Value = "2";
+            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = "Leche Lala Deslactosada 1L";
+            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Precio"].Value = "$25.99";
+            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Subtotal"].Value = "$62.00";
+            //    dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Codigo"].Value = "123456789012";
+            //}
             dgv_TablaVentas.AllowUserToResizeColumns = false;
             AjustarColumnas();
         }
