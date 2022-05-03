@@ -332,8 +332,6 @@ namespace MrTiendita.Controladores
                 Productos.Agregar(producto);
                 
             }
-                
-
             this.LimpiarCampos();
             this.OcultarErrores();
             this.MostrarProductos();
