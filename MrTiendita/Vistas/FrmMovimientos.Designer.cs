@@ -29,16 +29,16 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMovimientos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_ConsultarMovimientos = new Guna.UI2.WinForms.Guna2Panel();
             this.lbl_EsteMes = new System.Windows.Forms.Label();
             this.lbl_EstaSemana = new System.Windows.Forms.Label();
@@ -339,7 +339,7 @@ namespace MrTiendita.Vistas
             "Ventas"});
             this.cb_FiltroMovimientos.ItemsAppearance.Parent = this.cb_FiltroMovimientos;
             this.cb_FiltroMovimientos.Location = new System.Drawing.Point(19, 96);
-            this.cb_FiltroMovimientos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_FiltroMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.cb_FiltroMovimientos.Name = "cb_FiltroMovimientos";
             this.cb_FiltroMovimientos.ShadowDecoration.Parent = this.cb_FiltroMovimientos;
             this.cb_FiltroMovimientos.Size = new System.Drawing.Size(227, 26);
@@ -363,8 +363,8 @@ namespace MrTiendita.Vistas
             this.tablaMovimientos.AllowUserToDeleteRows = false;
             this.tablaMovimientos.AllowUserToResizeColumns = false;
             this.tablaMovimientos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tablaMovimientos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            this.tablaMovimientos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
             this.tablaMovimientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -373,14 +373,14 @@ namespace MrTiendita.Vistas
             this.tablaMovimientos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaMovimientos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tablaMovimientos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.tablaMovimientos.ColumnHeadersHeight = 35;
             this.tablaMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaMovimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -388,18 +388,18 @@ namespace MrTiendita.Vistas
             this.col_Descripcion,
             this.col_Fecha,
             this.col_Importe});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle30;
             this.tablaMovimientos.EnableHeadersVisualStyles = false;
             this.tablaMovimientos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.tablaMovimientos.Location = new System.Drawing.Point(19, 128);
-            this.tablaMovimientos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablaMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.tablaMovimientos.Name = "tablaMovimientos";
             this.tablaMovimientos.RowHeadersVisible = false;
             this.tablaMovimientos.RowHeadersWidth = 65;
@@ -466,7 +466,7 @@ namespace MrTiendita.Vistas
             this.btn_CorteCaja.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CorteCaja.HoverState.Parent = this.btn_CorteCaja;
             this.btn_CorteCaja.Location = new System.Drawing.Point(214, 6);
-            this.btn_CorteCaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_CorteCaja.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CorteCaja.Name = "btn_CorteCaja";
             this.btn_CorteCaja.PressedColor = System.Drawing.Color.White;
             this.btn_CorteCaja.ShadowDecoration.Parent = this.btn_CorteCaja;
@@ -485,7 +485,7 @@ namespace MrTiendita.Vistas
             this.btn_ConsultarMovimientos.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_ConsultarMovimientos.HoverState.Parent = this.btn_ConsultarMovimientos;
             this.btn_ConsultarMovimientos.Location = new System.Drawing.Point(10, 6);
-            this.btn_ConsultarMovimientos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ConsultarMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ConsultarMovimientos.Name = "btn_ConsultarMovimientos";
             this.btn_ConsultarMovimientos.PressedColor = System.Drawing.Color.White;
             this.btn_ConsultarMovimientos.ShadowDecoration.Parent = this.btn_ConsultarMovimientos;
@@ -566,7 +566,7 @@ namespace MrTiendita.Vistas
             this.btn_LimpiarEntrada.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.HoverState.Parent = this.btn_LimpiarEntrada;
             this.btn_LimpiarEntrada.Location = new System.Drawing.Point(479, 129);
-            this.btn_LimpiarEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_LimpiarEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.btn_LimpiarEntrada.Name = "btn_LimpiarEntrada";
             this.btn_LimpiarEntrada.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.ShadowDecoration.Parent = this.btn_LimpiarEntrada;
@@ -598,7 +598,7 @@ namespace MrTiendita.Vistas
             this.btn_RegistrarMov.ForeColor = System.Drawing.Color.White;
             this.btn_RegistrarMov.HoverState.Parent = this.btn_RegistrarMov;
             this.btn_RegistrarMov.Location = new System.Drawing.Point(479, 97);
-            this.btn_RegistrarMov.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_RegistrarMov.Margin = new System.Windows.Forms.Padding(2);
             this.btn_RegistrarMov.Name = "btn_RegistrarMov";
             this.btn_RegistrarMov.ShadowDecoration.Parent = this.btn_RegistrarMov;
             this.btn_RegistrarMov.Size = new System.Drawing.Size(114, 26);
@@ -638,7 +638,7 @@ namespace MrTiendita.Vistas
             "Salida"});
             this.cb_TipoMov.ItemsAppearance.Parent = this.cb_TipoMov;
             this.cb_TipoMov.Location = new System.Drawing.Point(19, 97);
-            this.cb_TipoMov.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_TipoMov.Margin = new System.Windows.Forms.Padding(2);
             this.cb_TipoMov.Name = "cb_TipoMov";
             this.cb_TipoMov.ShadowDecoration.Parent = this.cb_TipoMov;
             this.cb_TipoMov.Size = new System.Drawing.Size(211, 26);
@@ -674,7 +674,7 @@ namespace MrTiendita.Vistas
             this.tb_Desc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Desc.HoverState.Parent = this.tb_Desc;
             this.tb_Desc.Location = new System.Drawing.Point(251, 97);
-            this.tb_Desc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_Desc.Margin = new System.Windows.Forms.Padding(6);
             this.tb_Desc.Multiline = true;
             this.tb_Desc.Name = "tb_Desc";
             this.tb_Desc.PasswordChar = '\0';
@@ -751,7 +751,7 @@ namespace MrTiendita.Vistas
             this.tb_Importe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Importe.HoverState.Parent = this.tb_Importe;
             this.tb_Importe.Location = new System.Drawing.Point(20, 158);
-            this.tb_Importe.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_Importe.Margin = new System.Windows.Forms.Padding(6);
             this.tb_Importe.Name = "tb_Importe";
             this.tb_Importe.PasswordChar = '\0';
             this.tb_Importe.PlaceholderText = "";
@@ -770,7 +770,7 @@ namespace MrTiendita.Vistas
             this.pnl_MenuSuperior.FillColor = System.Drawing.Color.White;
             this.pnl_MenuSuperior.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_MenuSuperior.Location = new System.Drawing.Point(9, 12);
-            this.pnl_MenuSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_MenuSuperior.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_MenuSuperior.Name = "pnl_MenuSuperior";
             this.pnl_MenuSuperior.ShadowDecoration.Parent = this.pnl_MenuSuperior;
             this.pnl_MenuSuperior.Size = new System.Drawing.Size(876, 61);
@@ -785,7 +785,7 @@ namespace MrTiendita.Vistas
             this.tlp_DisplayCorte.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_DisplayCorte.Controls.Add(this.pnl_CorteCaja, 0, 0);
             this.tlp_DisplayCorte.Location = new System.Drawing.Point(9, 76);
-            this.tlp_DisplayCorte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlp_DisplayCorte.Margin = new System.Windows.Forms.Padding(2);
             this.tlp_DisplayCorte.Name = "tlp_DisplayCorte";
             this.tlp_DisplayCorte.RowCount = 1;
             this.tlp_DisplayCorte.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -809,7 +809,7 @@ namespace MrTiendita.Vistas
             this.pnl_CorteCaja.FillColor = System.Drawing.Color.White;
             this.pnl_CorteCaja.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_CorteCaja.Location = new System.Drawing.Point(2, 2);
-            this.pnl_CorteCaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_CorteCaja.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_CorteCaja.Name = "pnl_CorteCaja";
             this.pnl_CorteCaja.ShadowDecoration.Parent = this.pnl_CorteCaja;
             this.pnl_CorteCaja.Size = new System.Drawing.Size(874, 518);
@@ -826,7 +826,7 @@ namespace MrTiendita.Vistas
             this.btn_GuardarArchivo.ForeColor = System.Drawing.Color.White;
             this.btn_GuardarArchivo.HoverState.Parent = this.btn_GuardarArchivo;
             this.btn_GuardarArchivo.Location = new System.Drawing.Point(735, 92);
-            this.btn_GuardarArchivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_GuardarArchivo.Margin = new System.Windows.Forms.Padding(2);
             this.btn_GuardarArchivo.Name = "btn_GuardarArchivo";
             this.btn_GuardarArchivo.ShadowDecoration.Parent = this.btn_GuardarArchivo;
             this.btn_GuardarArchivo.Size = new System.Drawing.Size(128, 26);
@@ -870,7 +870,7 @@ namespace MrTiendita.Vistas
             this.Separador.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.Separador.Location = new System.Drawing.Point(20, 93);
-            this.Separador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Separador.Margin = new System.Windows.Forms.Padding(2);
             this.Separador.Name = "Separador";
             this.Separador.PasswordChar = '\0';
             this.Separador.ReadOnly = true;
@@ -892,7 +892,7 @@ namespace MrTiendita.Vistas
             this.pnl_CorteDesplegado.Controls.Add(this.pnl_VentasCategoria);
             this.pnl_CorteDesplegado.Controls.Add(this.pnl_VentasMetodos);
             this.pnl_CorteDesplegado.Location = new System.Drawing.Point(20, 128);
-            this.pnl_CorteDesplegado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_CorteDesplegado.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_CorteDesplegado.Name = "pnl_CorteDesplegado";
             this.pnl_CorteDesplegado.Size = new System.Drawing.Size(843, 388);
             this.pnl_CorteDesplegado.TabIndex = 21;
@@ -906,7 +906,7 @@ namespace MrTiendita.Vistas
             this.pnl_Salidas.Controls.Add(this.lbl_SalidasTotales);
             this.pnl_Salidas.Controls.Add(this.lbl_DescSalidasTotales);
             this.pnl_Salidas.Location = new System.Drawing.Point(9, 477);
-            this.pnl_Salidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Salidas.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Salidas.Name = "pnl_Salidas";
             this.pnl_Salidas.Size = new System.Drawing.Size(378, 259);
             this.pnl_Salidas.TabIndex = 21;
@@ -917,8 +917,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaSalidas.AllowUserToDeleteRows = false;
             this.dgv_TablaSalidas.AllowUserToResizeColumns = false;
             this.dgv_TablaSalidas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaSalidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaSalidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.dgv_TablaSalidas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -927,31 +927,31 @@ namespace MrTiendita.Vistas
             this.dgv_TablaSalidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaSalidas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaSalidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.dgv_TablaSalidas.ColumnHeadersHeight = 35;
             this.dgv_TablaSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaSalidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_DescripcionCorteSalida,
             this.col_ImporteCorteSalida});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaSalidas.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaSalidas.DefaultCellStyle = dataGridViewCellStyle33;
             this.dgv_TablaSalidas.EnableHeadersVisualStyles = false;
             this.dgv_TablaSalidas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaSalidas.Location = new System.Drawing.Point(22, 90);
-            this.dgv_TablaSalidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_TablaSalidas.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_TablaSalidas.Name = "dgv_TablaSalidas";
             this.dgv_TablaSalidas.RowHeadersVisible = false;
             this.dgv_TablaSalidas.RowHeadersWidth = 65;
@@ -1000,7 +1000,7 @@ namespace MrTiendita.Vistas
             this.pb_Salidas.BackColor = System.Drawing.Color.Transparent;
             this.pb_Salidas.Image = ((System.Drawing.Image)(resources.GetObject("pb_Salidas.Image")));
             this.pb_Salidas.Location = new System.Drawing.Point(22, 23);
-            this.pb_Salidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Salidas.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Salidas.Name = "pb_Salidas";
             this.pb_Salidas.Size = new System.Drawing.Size(24, 26);
             this.pb_Salidas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1056,7 +1056,7 @@ namespace MrTiendita.Vistas
             this.pnl_Entradas.Controls.Add(this.lbl_EntradasTotales);
             this.pnl_Entradas.Controls.Add(this.lbl_DescEntradasTotales);
             this.pnl_Entradas.Location = new System.Drawing.Point(9, 206);
-            this.pnl_Entradas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Entradas.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Entradas.Name = "pnl_Entradas";
             this.pnl_Entradas.Size = new System.Drawing.Size(378, 259);
             this.pnl_Entradas.TabIndex = 20;
@@ -1067,8 +1067,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaEntradas.AllowUserToDeleteRows = false;
             this.dgv_TablaEntradas.AllowUserToResizeColumns = false;
             this.dgv_TablaEntradas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaEntradas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaEntradas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.dgv_TablaEntradas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1077,31 +1077,31 @@ namespace MrTiendita.Vistas
             this.dgv_TablaEntradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaEntradas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaEntradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgv_TablaEntradas.ColumnHeadersHeight = 35;
             this.dgv_TablaEntradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaEntradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_DescripcionCorteEntrada,
             this.col_ImporteCorteEntrada});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaEntradas.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaEntradas.DefaultCellStyle = dataGridViewCellStyle36;
             this.dgv_TablaEntradas.EnableHeadersVisualStyles = false;
             this.dgv_TablaEntradas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaEntradas.Location = new System.Drawing.Point(22, 90);
-            this.dgv_TablaEntradas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_TablaEntradas.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_TablaEntradas.Name = "dgv_TablaEntradas";
             this.dgv_TablaEntradas.RowHeadersVisible = false;
             this.dgv_TablaEntradas.RowHeadersWidth = 65;
@@ -1150,7 +1150,7 @@ namespace MrTiendita.Vistas
             this.pb_Entradas.BackColor = System.Drawing.Color.Transparent;
             this.pb_Entradas.Image = ((System.Drawing.Image)(resources.GetObject("pb_Entradas.Image")));
             this.pb_Entradas.Location = new System.Drawing.Point(22, 23);
-            this.pb_Entradas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Entradas.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Entradas.Name = "pb_Entradas";
             this.pb_Entradas.Size = new System.Drawing.Size(24, 26);
             this.pb_Entradas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1233,7 +1233,7 @@ namespace MrTiendita.Vistas
             this.pnl_GananciasCategoria.Controls.Add(this.lbl_DescFrutas2);
             this.pnl_GananciasCategoria.Controls.Add(this.lbl_DescPanaderia2);
             this.pnl_GananciasCategoria.Location = new System.Drawing.Point(398, 477);
-            this.pnl_GananciasCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_GananciasCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_GananciasCategoria.Name = "pnl_GananciasCategoria";
             this.pnl_GananciasCategoria.Size = new System.Drawing.Size(378, 392);
             this.pnl_GananciasCategoria.TabIndex = 45;
@@ -1242,7 +1242,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_SinCategoria2.Image = ((System.Drawing.Image)(resources.GetObject("pb_SinCategoria2.Image")));
             this.pb_SinCategoria2.Location = new System.Drawing.Point(25, 353);
-            this.pb_SinCategoria2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_SinCategoria2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_SinCategoria2.Name = "pb_SinCategoria2";
             this.pb_SinCategoria2.Size = new System.Drawing.Size(21, 23);
             this.pb_SinCategoria2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1280,7 +1280,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Refrigerados2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Refrigerados2.Image")));
             this.pb_Refrigerados2.Location = new System.Drawing.Point(25, 319);
-            this.pb_Refrigerados2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Refrigerados2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Refrigerados2.Name = "pb_Refrigerados2";
             this.pb_Refrigerados2.Size = new System.Drawing.Size(21, 23);
             this.pb_Refrigerados2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1291,7 +1291,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Mascotas2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Mascotas2.Image")));
             this.pb_Mascotas2.Location = new System.Drawing.Point(25, 287);
-            this.pb_Mascotas2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Mascotas2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Mascotas2.Name = "pb_Mascotas2";
             this.pb_Mascotas2.Size = new System.Drawing.Size(21, 23);
             this.pb_Mascotas2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1302,7 +1302,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Higiene2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Higiene2.Image")));
             this.pb_Higiene2.Location = new System.Drawing.Point(25, 254);
-            this.pb_Higiene2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Higiene2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Higiene2.Name = "pb_Higiene2";
             this.pb_Higiene2.Size = new System.Drawing.Size(21, 23);
             this.pb_Higiene2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1313,7 +1313,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Limpieza2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Limpieza2.Image")));
             this.pb_Limpieza2.Location = new System.Drawing.Point(25, 222);
-            this.pb_Limpieza2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Limpieza2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Limpieza2.Name = "pb_Limpieza2";
             this.pb_Limpieza2.Size = new System.Drawing.Size(21, 23);
             this.pb_Limpieza2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1324,7 +1324,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Abarrotes2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Abarrotes2.Image")));
             this.pb_Abarrotes2.Location = new System.Drawing.Point(25, 189);
-            this.pb_Abarrotes2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Abarrotes2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Abarrotes2.Name = "pb_Abarrotes2";
             this.pb_Abarrotes2.Size = new System.Drawing.Size(21, 23);
             this.pb_Abarrotes2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1335,7 +1335,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Lacteos2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Lacteos2.Image")));
             this.pb_Lacteos2.Location = new System.Drawing.Point(25, 157);
-            this.pb_Lacteos2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Lacteos2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Lacteos2.Name = "pb_Lacteos2";
             this.pb_Lacteos2.Size = new System.Drawing.Size(21, 23);
             this.pb_Lacteos2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1346,7 +1346,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Carniceria2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Carniceria2.Image")));
             this.pb_Carniceria2.Location = new System.Drawing.Point(25, 124);
-            this.pb_Carniceria2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Carniceria2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Carniceria2.Name = "pb_Carniceria2";
             this.pb_Carniceria2.Size = new System.Drawing.Size(21, 23);
             this.pb_Carniceria2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1357,7 +1357,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Panaderia2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Panaderia2.Image")));
             this.pb_Panaderia2.Location = new System.Drawing.Point(25, 92);
-            this.pb_Panaderia2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Panaderia2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Panaderia2.Name = "pb_Panaderia2";
             this.pb_Panaderia2.Size = new System.Drawing.Size(21, 23);
             this.pb_Panaderia2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1368,7 +1368,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Frutas2.Image = ((System.Drawing.Image)(resources.GetObject("pb_Frutas2.Image")));
             this.pb_Frutas2.Location = new System.Drawing.Point(23, 59);
-            this.pb_Frutas2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Frutas2.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Frutas2.Name = "pb_Frutas2";
             this.pb_Frutas2.Size = new System.Drawing.Size(21, 23);
             this.pb_Frutas2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1569,7 +1569,7 @@ namespace MrTiendita.Vistas
             this.pb_Categoria.BackColor = System.Drawing.Color.Transparent;
             this.pb_Categoria.Image = ((System.Drawing.Image)(resources.GetObject("pb_Categoria.Image")));
             this.pb_Categoria.Location = new System.Drawing.Point(22, 23);
-            this.pb_Categoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Categoria.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Categoria.Name = "pb_Categoria";
             this.pb_Categoria.Size = new System.Drawing.Size(24, 26);
             this.pb_Categoria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1651,7 +1651,7 @@ namespace MrTiendita.Vistas
             this.pnl_Totales.Controls.Add(this.pnl_GananciasTotales);
             this.pnl_Totales.Controls.Add(this.pnl_VentasTotales);
             this.pnl_Totales.Location = new System.Drawing.Point(2, 2);
-            this.pnl_Totales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Totales.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Totales.Name = "pnl_Totales";
             this.pnl_Totales.Size = new System.Drawing.Size(841, 60);
             this.pnl_Totales.TabIndex = 12;
@@ -1662,7 +1662,7 @@ namespace MrTiendita.Vistas
             this.pnl_GananciasTotales.Controls.Add(this.pb_GananciasTotales);
             this.pnl_GananciasTotales.Controls.Add(this.lbl_DescGanancias);
             this.pnl_GananciasTotales.Location = new System.Drawing.Point(396, 7);
-            this.pnl_GananciasTotales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_GananciasTotales.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_GananciasTotales.Name = "pnl_GananciasTotales";
             this.pnl_GananciasTotales.Size = new System.Drawing.Size(378, 44);
             this.pnl_GananciasTotales.TabIndex = 14;
@@ -1686,7 +1686,7 @@ namespace MrTiendita.Vistas
             this.pb_GananciasTotales.BackColor = System.Drawing.Color.Transparent;
             this.pb_GananciasTotales.Image = ((System.Drawing.Image)(resources.GetObject("pb_GananciasTotales.Image")));
             this.pb_GananciasTotales.Location = new System.Drawing.Point(22, 8);
-            this.pb_GananciasTotales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_GananciasTotales.Margin = new System.Windows.Forms.Padding(2);
             this.pb_GananciasTotales.Name = "pb_GananciasTotales";
             this.pb_GananciasTotales.Size = new System.Drawing.Size(24, 26);
             this.pb_GananciasTotales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1712,7 +1712,7 @@ namespace MrTiendita.Vistas
             this.pnl_VentasTotales.Controls.Add(this.lbl_VentasTotales);
             this.pnl_VentasTotales.Controls.Add(this.pb_VentasTotales);
             this.pnl_VentasTotales.Location = new System.Drawing.Point(7, 7);
-            this.pnl_VentasTotales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_VentasTotales.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_VentasTotales.Name = "pnl_VentasTotales";
             this.pnl_VentasTotales.Size = new System.Drawing.Size(378, 44);
             this.pnl_VentasTotales.TabIndex = 13;
@@ -1749,7 +1749,7 @@ namespace MrTiendita.Vistas
             this.pb_VentasTotales.BackColor = System.Drawing.Color.Transparent;
             this.pb_VentasTotales.Image = ((System.Drawing.Image)(resources.GetObject("pb_VentasTotales.Image")));
             this.pb_VentasTotales.Location = new System.Drawing.Point(22, 8);
-            this.pb_VentasTotales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_VentasTotales.Margin = new System.Windows.Forms.Padding(2);
             this.pb_VentasTotales.Name = "pb_VentasTotales";
             this.pb_VentasTotales.Size = new System.Drawing.Size(24, 26);
             this.pb_VentasTotales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1792,7 +1792,7 @@ namespace MrTiendita.Vistas
             this.pnl_VentasCategoria.Controls.Add(this.lbl_DescFrutas);
             this.pnl_VentasCategoria.Controls.Add(this.lbl_DescPanaderia);
             this.pnl_VentasCategoria.Location = new System.Drawing.Point(398, 73);
-            this.pnl_VentasCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_VentasCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_VentasCategoria.Name = "pnl_VentasCategoria";
             this.pnl_VentasCategoria.Size = new System.Drawing.Size(378, 392);
             this.pnl_VentasCategoria.TabIndex = 20;
@@ -1801,7 +1801,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_SinCategoria.Image = ((System.Drawing.Image)(resources.GetObject("pb_SinCategoria.Image")));
             this.pb_SinCategoria.Location = new System.Drawing.Point(25, 353);
-            this.pb_SinCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_SinCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.pb_SinCategoria.Name = "pb_SinCategoria";
             this.pb_SinCategoria.Size = new System.Drawing.Size(21, 23);
             this.pb_SinCategoria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1839,7 +1839,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Refrigerados.Image = ((System.Drawing.Image)(resources.GetObject("pb_Refrigerados.Image")));
             this.pb_Refrigerados.Location = new System.Drawing.Point(25, 319);
-            this.pb_Refrigerados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Refrigerados.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Refrigerados.Name = "pb_Refrigerados";
             this.pb_Refrigerados.Size = new System.Drawing.Size(21, 23);
             this.pb_Refrigerados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1850,7 +1850,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Mascotas.Image = ((System.Drawing.Image)(resources.GetObject("pb_Mascotas.Image")));
             this.pb_Mascotas.Location = new System.Drawing.Point(25, 287);
-            this.pb_Mascotas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Mascotas.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Mascotas.Name = "pb_Mascotas";
             this.pb_Mascotas.Size = new System.Drawing.Size(21, 23);
             this.pb_Mascotas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1861,7 +1861,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Higiene.Image = ((System.Drawing.Image)(resources.GetObject("pb_Higiene.Image")));
             this.pb_Higiene.Location = new System.Drawing.Point(25, 254);
-            this.pb_Higiene.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Higiene.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Higiene.Name = "pb_Higiene";
             this.pb_Higiene.Size = new System.Drawing.Size(21, 23);
             this.pb_Higiene.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1872,7 +1872,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Limpieza.Image = ((System.Drawing.Image)(resources.GetObject("pb_Limpieza.Image")));
             this.pb_Limpieza.Location = new System.Drawing.Point(25, 222);
-            this.pb_Limpieza.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Limpieza.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Limpieza.Name = "pb_Limpieza";
             this.pb_Limpieza.Size = new System.Drawing.Size(21, 23);
             this.pb_Limpieza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1883,7 +1883,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Abarrotes.Image = ((System.Drawing.Image)(resources.GetObject("pb_Abarrotes.Image")));
             this.pb_Abarrotes.Location = new System.Drawing.Point(25, 189);
-            this.pb_Abarrotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Abarrotes.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Abarrotes.Name = "pb_Abarrotes";
             this.pb_Abarrotes.Size = new System.Drawing.Size(21, 23);
             this.pb_Abarrotes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1894,7 +1894,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Lacteos.Image = ((System.Drawing.Image)(resources.GetObject("pb_Lacteos.Image")));
             this.pb_Lacteos.Location = new System.Drawing.Point(25, 157);
-            this.pb_Lacteos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Lacteos.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Lacteos.Name = "pb_Lacteos";
             this.pb_Lacteos.Size = new System.Drawing.Size(21, 23);
             this.pb_Lacteos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1905,7 +1905,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Carniceria.Image = ((System.Drawing.Image)(resources.GetObject("pb_Carniceria.Image")));
             this.pb_Carniceria.Location = new System.Drawing.Point(25, 124);
-            this.pb_Carniceria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Carniceria.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Carniceria.Name = "pb_Carniceria";
             this.pb_Carniceria.Size = new System.Drawing.Size(21, 23);
             this.pb_Carniceria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1916,7 +1916,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Panaderia.Image = ((System.Drawing.Image)(resources.GetObject("pb_Panaderia.Image")));
             this.pb_Panaderia.Location = new System.Drawing.Point(25, 92);
-            this.pb_Panaderia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Panaderia.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Panaderia.Name = "pb_Panaderia";
             this.pb_Panaderia.Size = new System.Drawing.Size(21, 23);
             this.pb_Panaderia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1927,7 +1927,7 @@ namespace MrTiendita.Vistas
             // 
             this.pb_Frutas.Image = ((System.Drawing.Image)(resources.GetObject("pb_Frutas.Image")));
             this.pb_Frutas.Location = new System.Drawing.Point(23, 59);
-            this.pb_Frutas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Frutas.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Frutas.Name = "pb_Frutas";
             this.pb_Frutas.Size = new System.Drawing.Size(21, 23);
             this.pb_Frutas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2128,7 +2128,7 @@ namespace MrTiendita.Vistas
             this.pb_VentasCategoria.BackColor = System.Drawing.Color.Transparent;
             this.pb_VentasCategoria.Image = ((System.Drawing.Image)(resources.GetObject("pb_VentasCategoria.Image")));
             this.pb_VentasCategoria.Location = new System.Drawing.Point(22, 23);
-            this.pb_VentasCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_VentasCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.pb_VentasCategoria.Name = "pb_VentasCategoria";
             this.pb_VentasCategoria.Size = new System.Drawing.Size(24, 26);
             this.pb_VentasCategoria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2212,7 +2212,7 @@ namespace MrTiendita.Vistas
             this.pnl_VentasMetodos.Controls.Add(this.lbl_DescVentasEfectivo);
             this.pnl_VentasMetodos.Controls.Add(this.lbl_DescVentasTarjeta);
             this.pnl_VentasMetodos.Location = new System.Drawing.Point(9, 73);
-            this.pnl_VentasMetodos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_VentasMetodos.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_VentasMetodos.Name = "pnl_VentasMetodos";
             this.pnl_VentasMetodos.Size = new System.Drawing.Size(378, 123);
             this.pnl_VentasMetodos.TabIndex = 19;
@@ -2222,7 +2222,7 @@ namespace MrTiendita.Vistas
             this.pb_Ventas.BackColor = System.Drawing.Color.Transparent;
             this.pb_Ventas.Image = ((System.Drawing.Image)(resources.GetObject("pb_Ventas.Image")));
             this.pb_Ventas.Location = new System.Drawing.Point(22, 23);
-            this.pb_Ventas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Ventas.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Ventas.Name = "pb_Ventas";
             this.pb_Ventas.Size = new System.Drawing.Size(24, 26);
             this.pb_Ventas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2326,11 +2326,11 @@ namespace MrTiendita.Vistas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(896, 609);
-            this.Controls.Add(this.tlp_DisplayConsultar);
             this.Controls.Add(this.tlp_DisplayCorte);
+            this.Controls.Add(this.tlp_DisplayConsultar);
             this.Controls.Add(this.pnl_MenuSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMovimientos";
             this.Text = "FrmMovimientos";
             this.pnl_ConsultarMovimientos.ResumeLayout(false);

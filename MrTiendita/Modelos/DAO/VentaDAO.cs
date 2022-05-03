@@ -68,9 +68,87 @@ namespace MrTiendita.Modelos.DAO
         /// </summary>
         /// <returns>Una <see cref="List{Venta}"/> que contiene a todos las ventas de la base de datos,
         /// si no hay ninguno es una lista vacía.</returns>
-        public List<Venta> ReadAll()
+        public List<Venta> ReadBetweenDatesCompleteInfo(DateTime inicio, DateTime final)
         {
-            return null;
+            List<Venta> ventas = new List<Venta>();
+            List<Producto> productos = new List<Producto>();
+            String sqlProductos = "SELECT P.* FROM " +
+                "(SELECT codigo_barra FROM Venta WHERE fecha >= @fechaInicio AND fecha <= @fechaFin GROUP BY codigo_barra) AS V " +
+                "INNER JOIN Producto AS P ON V.codigo_barra = P.codigo_barra;";
+            String sqlVentas = "SELECT * FROM Venta WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";
+            SqlConnection connection = new SqlConnection(this.stringConexion);
+            connection.Open();
+            SqlCommand commandProductos = new SqlCommand(sqlProductos, connection);
+            SqlCommand commandVentas = new SqlCommand(sqlVentas, connection);
+            SqlDataReader readerProductos;
+            SqlDataReader readerVentas;
+
+            commandProductos.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
+            commandProductos.Parameters.Add("@fechaFin", SqlDbType.DateTime);
+            commandProductos.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
+            commandProductos.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
+
+            commandVentas.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
+            commandVentas.Parameters.Add("@fechaFin", SqlDbType.DateTime);
+            commandVentas.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
+            commandVentas.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
+
+            
+            try
+            {
+                readerProductos = commandProductos.ExecuteReader();
+                while (readerProductos.Read())
+                {
+                    productos.Add(
+                        new Producto(
+                            readerProductos.GetInt64(0),
+                            readerProductos.GetString(1),
+                            readerProductos.GetInt32(7),
+                            decimal.ToDouble(readerProductos.GetDecimal(2)),
+                            decimal.ToDouble(readerProductos.GetDecimal(3)),
+                            readerProductos.GetBoolean(4),
+                            readerProductos.GetString(5),
+                            decimal.ToDouble(readerProductos.GetDecimal(6))
+                        )
+                    );
+                }
+                readerProductos.Close();
+                readerProductos.Dispose();
+
+                readerVentas = commandVentas.ExecuteReader();
+                while (readerVentas.Read())
+                {
+                    Venta venta = new Venta(
+                        readerVentas.GetInt32(0),
+                        readerVentas.GetInt64(1),
+                        readerVentas.GetInt32(2),
+                        readerVentas.GetString(3),
+                        readerVentas.GetDateTime(4),
+                        decimal.ToDouble(readerVentas.GetDecimal(5)),
+                        decimal.ToDouble(readerVentas.GetDecimal(6))
+                    );
+
+                    Producto producto = productos.FirstOrDefault(producto => producto.Codigo_barra == venta.Codigo_barra);
+                    if (producto != null) venta.Producto = producto;
+
+                    ventas.Add(venta);
+                }
+                
+                readerVentas.Close();
+                readerVentas.Dispose();
+            }
+            catch (Exception e)
+            {
+                this.errorUltimaConsulta = true;
+                this.mensajeError = e.GetType() + "  ->  " + e.Message;
+                Console.WriteLine(e.GetType() + "  ->  " + e.Message + "  EN  " + e.StackTrace);
+            }
+
+            commandProductos.Dispose();
+            commandVentas.Dispose();
+            connection.Dispose();
+
+            return ventas;
         }
 
         /// <summary>
