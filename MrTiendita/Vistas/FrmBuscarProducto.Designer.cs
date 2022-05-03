@@ -108,6 +108,7 @@ namespace MrTiendita.Vistas
             this.pnl_Productos.Name = "pnl_Productos";
             this.pnl_Productos.Size = new System.Drawing.Size(939, 569);
             this.pnl_Productos.TabIndex = 42;
+            this.pnl_Productos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Productos_Paint);
             // 
             // label1
             // 
@@ -296,6 +297,7 @@ namespace MrTiendita.Vistas
             // col_CantidadAgregar
             // 
             this.col_CantidadAgregar.HeaderText = "Cantidad a agregar";
+            this.col_CantidadAgregar.MaxInputLength = 2;
             this.col_CantidadAgregar.MinimumWidth = 6;
             this.col_CantidadAgregar.Name = "col_CantidadAgregar";
             this.col_CantidadAgregar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -346,14 +348,14 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label lbl_Producto;
         public Guna.UI2.WinForms.Guna2DragControl DragControl;
         private Guna.UI2.WinForms.Guna2ShadowForm sombra;
+        public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProductos;
+        public Guna.UI2.WinForms.Guna2TextBox tb_BuscarProducto;
+        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_CantidadAgregar;
         private System.Windows.Forms.DataGridViewImageColumn col_AgregarCarrito;
-        public Guna.UI2.WinForms.Guna2DataGridView dgv_TablaProductos;
-        public Guna.UI2.WinForms.Guna2TextBox tb_BuscarProducto;
-        public System.Windows.Forms.Label label1;
-        public Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
     }
 }

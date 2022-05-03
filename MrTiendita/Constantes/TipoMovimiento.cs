@@ -27,5 +27,9 @@ namespace MrTiendita.Constantes
         /// Constante tipo movimiento "Todo".
         /// </summary>
         public static String TODO = "Todo";
+
+        public static String EFECTIVO = "Efectivo";
+
+        public static String TARJETA = "Tarjeta";
     }
 }

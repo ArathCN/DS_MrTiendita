@@ -18,6 +18,7 @@ namespace MrTiendita.Controladores
     public class FrmBuscarProductoController
     {
         private FrmBuscarProducto vista;
+        private FrmVentas vista2;
         private ProductoDAO productoDAO;
 
 
@@ -34,6 +35,7 @@ namespace MrTiendita.Controladores
             this.vista.cb_Categoria.TextChanged += new EventHandler (Cb_Categoria_TextChanged);
 
             this.vista.dgv_TablaProductos.CellContentClick += new DataGridViewCellEventHandler(Dgv_TablaProductos_CellContentClick);
+            this.vista.dgv_TablaProductos.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Dgv_TablaProductos_EditingControlShowing);
 
         }
 
@@ -51,7 +53,8 @@ namespace MrTiendita.Controladores
                 this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Descripcion,
                     xProducto.Categoria,
-                    xProducto.Precio_venta);
+                    xProducto.Precio_venta,
+                    1);
             }
         }
 
@@ -65,7 +68,8 @@ namespace MrTiendita.Controladores
                 this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Descripcion,
                     xProducto.Categoria,
-                    xProducto.Precio_venta);
+                    xProducto.Precio_venta,
+                    1);
             }
         }
         
@@ -82,9 +86,10 @@ namespace MrTiendita.Controladores
                 foreach (Producto xProducto in productos1)
                 {
                     this.vista.dgv_TablaProductos.Rows.Add(
-                        xProducto.Descripcion,
-                        xProducto.Categoria,
-                        xProducto.Precio_venta);
+                    xProducto.Descripcion,
+                    xProducto.Categoria,
+                    xProducto.Precio_venta,
+                    1);
                 }
             }
             else {
@@ -93,25 +98,56 @@ namespace MrTiendita.Controladores
                 foreach (Producto xProducto in productos)
                 {
                     this.vista.dgv_TablaProductos.Rows.Add(
-                        xProducto.Descripcion,
-                        xProducto.Categoria,
-                        xProducto.Precio_venta);
+                    xProducto.Descripcion,
+                    xProducto.Categoria,
+                    xProducto.Precio_venta,
+                    1);
                 }
             }  
         }
 
-        private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Dgv_TablaProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_AgregarCarrito"].Selected)
+            e.Control.KeyPress -= new KeyPressEventHandler(Columns_KeyPress);
+            if (this.vista.dgv_TablaProductos.CurrentCell.ColumnIndex == 3) 
             {
-                this.AgregarVenta(e);
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Columns_KeyPress);
+                }
             }
         }
 
-        private void AgregarVenta(DataGridViewCellEventArgs e) 
-        { 
-
+        private void Columns_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
+
+        private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_AgregarCarrito"].Selected)
+            //{
+            //    this.AgregarVenta(e);
+            //}
+        }
+
+        //private void AgregarVenta(DataGridViewCellEventArgs e) 
+        //{
+        //    List<Producto> productos = this.productoDAO.ReadAll();
+        //    this.vista.dgv_TablaProductos.Rows.Clear();
+        //    foreach (Producto xProducto in productos)
+        //    {
+        //        this.vista.dgv_TablaProductos.Rows.Add(
+        //        xProducto.Descripcion,
+        //        xProducto.Categoria,
+        //        xProducto.Precio_venta,
+        //        1);
+        //    }
+        //}
     }
 }
 
