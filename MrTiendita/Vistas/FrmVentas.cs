@@ -41,15 +41,15 @@ namespace MrTiendita.Vistas
 
         public void AjustarColumnas()
         {
-            dgv_TablaVentas.Columns[0].Width = 30;//Restar
-            dgv_TablaVentas.Columns[1].Width = 50;//Cantidad
-            dgv_TablaVentas.Columns[2].Width = 30;//Sumar
-            dgv_TablaVentas.Columns[3].Width = 300;//Descripcion
-            dgv_TablaVentas.Columns[4].Width = 80;//Precio
+            dgv_TablaVentas.Columns[1].Width = 30;//Restar
+            dgv_TablaVentas.Columns[2].Width = 50;//Cantidad
+            dgv_TablaVentas.Columns[3].Width = 30;//Sumar
+            dgv_TablaVentas.Columns[4].Width = 300;//Descripcion
+            dgv_TablaVentas.Columns[5].Width = 80;//Precio
             col_Cantidad.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv_TablaVentas.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv_TablaVentas.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgv_TablaVentas.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgv_TablaVentas.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_TablaVentas.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgv_TablaVentas.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         } 
     }
 }

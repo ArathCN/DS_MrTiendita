@@ -29,9 +29,9 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.tlp_PanelSuperior = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
@@ -54,13 +54,6 @@ namespace MrTiendita.Vistas
             this.lbl_DescAtajos = new System.Windows.Forms.Label();
             this.pnl_Notificaciones = new Guna.UI2.WinForms.Guna2Panel();
             this.dgv_TablaVentas = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.col_menos = new System.Windows.Forms.DataGridViewImageColumn();
-            this.col_Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_mas = new System.Windows.Forms.DataGridViewImageColumn();
-            this.col_Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Agregar = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_Cantidad = new System.Windows.Forms.Label();
             this.tb_Cantidad = new Guna.UI2.WinForms.Guna2TextBox();
@@ -69,6 +62,13 @@ namespace MrTiendita.Vistas
             this.tb_Codigo = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_Notificaciones = new System.Windows.Forms.Label();
             this.lbl_DescNoti = new System.Windows.Forms.Label();
+            this.col_Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_menos = new System.Windows.Forms.DataGridViewImageColumn();
+            this.col_Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_mas = new System.Windows.Forms.DataGridViewImageColumn();
+            this.col_Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_PanelSuperior.SuspendLayout();
             this.pnl_Atajos.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -406,8 +406,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.AllowUserToDeleteRows = false;
             this.dgv_TablaVentas.AllowUserToResizeColumns = false;
             this.dgv_TablaVentas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_TablaVentas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_TablaVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -415,31 +415,31 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaVentas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_TablaVentas.ColumnHeadersHeight = 35;
             this.dgv_TablaVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_Codigo,
             this.col_menos,
             this.col_Cantidad,
             this.col_mas,
             this.col_Descripcion,
             this.col_Precio,
-            this.col_Subtotal,
-            this.col_Codigo});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.col_Subtotal});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaVentas.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_TablaVentas.EnableHeadersVisualStyles = false;
             this.dgv_TablaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaVentas.Location = new System.Drawing.Point(18, 163);
@@ -475,61 +475,6 @@ namespace MrTiendita.Vistas
             this.dgv_TablaVentas.ThemeStyle.RowsStyle.Height = 35;
             this.dgv_TablaVentas.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgv_TablaVentas.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            // 
-            // col_menos
-            // 
-            this.col_menos.HeaderText = "";
-            this.col_menos.Image = ((System.Drawing.Image)(resources.GetObject("col_menos.Image")));
-            this.col_menos.MinimumWidth = 6;
-            this.col_menos.Name = "col_menos";
-            this.col_menos.ReadOnly = true;
-            this.col_menos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // col_Cantidad
-            // 
-            this.col_Cantidad.HeaderText = "Cantidad";
-            this.col_Cantidad.MinimumWidth = 6;
-            this.col_Cantidad.Name = "col_Cantidad";
-            this.col_Cantidad.ReadOnly = true;
-            // 
-            // col_mas
-            // 
-            this.col_mas.HeaderText = "";
-            this.col_mas.Image = ((System.Drawing.Image)(resources.GetObject("col_mas.Image")));
-            this.col_mas.MinimumWidth = 6;
-            this.col_mas.Name = "col_mas";
-            this.col_mas.ReadOnly = true;
-            this.col_mas.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_mas.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // col_Descripcion
-            // 
-            this.col_Descripcion.HeaderText = "Descripcion";
-            this.col_Descripcion.MinimumWidth = 6;
-            this.col_Descripcion.Name = "col_Descripcion";
-            this.col_Descripcion.ReadOnly = true;
-            // 
-            // col_Precio
-            // 
-            this.col_Precio.HeaderText = "Precio";
-            this.col_Precio.MinimumWidth = 6;
-            this.col_Precio.Name = "col_Precio";
-            this.col_Precio.ReadOnly = true;
-            // 
-            // col_Subtotal
-            // 
-            this.col_Subtotal.HeaderText = "Subtotal";
-            this.col_Subtotal.MinimumWidth = 6;
-            this.col_Subtotal.Name = "col_Subtotal";
-            this.col_Subtotal.ReadOnly = true;
-            // 
-            // col_Codigo
-            // 
-            this.col_Codigo.HeaderText = "Código";
-            this.col_Codigo.MinimumWidth = 6;
-            this.col_Codigo.Name = "col_Codigo";
-            this.col_Codigo.ReadOnly = true;
-            this.col_Codigo.Visible = false;
             // 
             // btn_Agregar
             // 
@@ -674,6 +619,61 @@ namespace MrTiendita.Vistas
             this.lbl_DescNoti.TabIndex = 5;
             this.lbl_DescNoti.Text = "Añade los productos del cliente a la lista de compra.";
             // 
+            // col_Codigo
+            // 
+            this.col_Codigo.HeaderText = "Código";
+            this.col_Codigo.MinimumWidth = 6;
+            this.col_Codigo.Name = "col_Codigo";
+            this.col_Codigo.ReadOnly = true;
+            this.col_Codigo.Visible = false;
+            // 
+            // col_menos
+            // 
+            this.col_menos.HeaderText = "";
+            this.col_menos.Image = ((System.Drawing.Image)(resources.GetObject("col_menos.Image")));
+            this.col_menos.MinimumWidth = 6;
+            this.col_menos.Name = "col_menos";
+            this.col_menos.ReadOnly = true;
+            this.col_menos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // col_Cantidad
+            // 
+            this.col_Cantidad.HeaderText = "Cantidad";
+            this.col_Cantidad.MinimumWidth = 6;
+            this.col_Cantidad.Name = "col_Cantidad";
+            this.col_Cantidad.ReadOnly = true;
+            // 
+            // col_mas
+            // 
+            this.col_mas.HeaderText = "";
+            this.col_mas.Image = ((System.Drawing.Image)(resources.GetObject("col_mas.Image")));
+            this.col_mas.MinimumWidth = 6;
+            this.col_mas.Name = "col_mas";
+            this.col_mas.ReadOnly = true;
+            this.col_mas.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_mas.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // col_Descripcion
+            // 
+            this.col_Descripcion.HeaderText = "Descripcion";
+            this.col_Descripcion.MinimumWidth = 6;
+            this.col_Descripcion.Name = "col_Descripcion";
+            this.col_Descripcion.ReadOnly = true;
+            // 
+            // col_Precio
+            // 
+            this.col_Precio.HeaderText = "Precio";
+            this.col_Precio.MinimumWidth = 6;
+            this.col_Precio.Name = "col_Precio";
+            this.col_Precio.ReadOnly = true;
+            // 
+            // col_Subtotal
+            // 
+            this.col_Subtotal.HeaderText = "Subtotal";
+            this.col_Subtotal.MinimumWidth = 6;
+            this.col_Subtotal.Name = "col_Subtotal";
+            this.col_Subtotal.ReadOnly = true;
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,15 +701,6 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.TableLayoutPanel tlp_PanelSuperior;
         private Guna.UI2.WinForms.Guna2Panel pnl_Atajos;
         private Guna.UI2.WinForms.Guna2Panel pnl_Notificaciones;
-        private System.Windows.Forms.DataGridViewImageColumn col_menos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Cantidad;
-        private System.Windows.Forms.DataGridViewImageColumn col_mas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Subtotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Codigo;
-        private Guna.UI2.WinForms.Guna2Button btn_CancelarVenta;
-        private Guna.UI2.WinForms.Guna2Button btn_CompletarVenta;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Label lbl_Atajos;
         public System.Windows.Forms.Label lbl_DescAtajos;
@@ -734,5 +725,14 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Label lbl_EfetivoTb;
         public Guna.UI2.WinForms.Guna2TextBox tb_Efectivo;
         public System.Windows.Forms.Label lbl_Pago;
+        public Guna.UI2.WinForms.Guna2Button btn_CompletarVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Codigo;
+        private System.Windows.Forms.DataGridViewImageColumn col_menos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Cantidad;
+        private System.Windows.Forms.DataGridViewImageColumn col_mas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Subtotal;
+        public Guna.UI2.WinForms.Guna2Button btn_CancelarVenta;
     }
 }

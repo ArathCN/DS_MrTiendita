@@ -145,7 +145,7 @@ namespace MrTiendita.Modelos.DTO
 
         static public double PresupuestarPrecioVenta(double precioCompra, int ganancia)
         {
-            return ((ganancia * precioCompra) / 100) + precioCompra;
+            return Math.Round(((ganancia * precioCompra) / 100) + precioCompra, 2);
         }
     }
 }
