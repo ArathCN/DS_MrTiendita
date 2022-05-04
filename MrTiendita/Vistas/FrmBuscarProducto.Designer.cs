@@ -43,14 +43,15 @@ namespace MrTiendita.Vistas
             this.lbl_Producto = new System.Windows.Forms.Label();
             this.tb_BuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv_TablaProductos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.col_CodigoBarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_TipoMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_CantidadAgregar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_AgregarCarrito = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.sombra = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.pnl_MenuSuperior.SuspendLayout();
             this.pnl_Productos.SuspendLayout();
@@ -224,6 +225,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_CodigoBarra,
+            this.col_TipoMedida,
             this.col_Nombre,
             this.col_Categoria,
             this.col_Precio,
@@ -272,11 +274,23 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgv_TablaProductos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
             // 
+            // DragControl
+            // 
+            this.DragControl.TargetControl = this.pnl_MenuSuperior;
+            // 
             // col_CodigoBarra
             // 
             this.col_CodigoBarra.HeaderText = "Codigo de Barras";
             this.col_CodigoBarra.Name = "col_CodigoBarra";
             this.col_CodigoBarra.Visible = false;
+            // 
+            // col_TipoMedida
+            // 
+            this.col_TipoMedida.HeaderText = "Medida";
+            this.col_TipoMedida.Name = "col_TipoMedida";
+            this.col_TipoMedida.ReadOnly = true;
+            this.col_TipoMedida.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.col_TipoMedida.Visible = false;
             // 
             // col_Nombre
             // 
@@ -308,7 +322,7 @@ namespace MrTiendita.Vistas
             // col_CantidadAgregar
             // 
             this.col_CantidadAgregar.HeaderText = "Cantidad a agregar";
-            this.col_CantidadAgregar.MaxInputLength = 2;
+            this.col_CantidadAgregar.MaxInputLength = 6;
             this.col_CantidadAgregar.MinimumWidth = 6;
             this.col_CantidadAgregar.Name = "col_CantidadAgregar";
             this.col_CantidadAgregar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -322,10 +336,6 @@ namespace MrTiendita.Vistas
             this.col_AgregarCarrito.Name = "col_AgregarCarrito";
             this.col_AgregarCarrito.ReadOnly = true;
             this.col_AgregarCarrito.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // DragControl
-            // 
-            this.DragControl.TargetControl = this.pnl_MenuSuperior;
             // 
             // FrmBuscarProducto
             // 
@@ -364,6 +374,7 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2ComboBox cb_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_CodigoBarra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_TipoMedida;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Precio;

@@ -43,11 +43,11 @@ namespace MrTiendita.Vistas
 
         public void AjustarColumnas()
         {
-            dgv_TablaProductos.Columns[1].Width = 60;//Nombre
-            dgv_TablaProductos.Columns[2].Width = 50;//Categoria
-            dgv_TablaProductos.Columns[3].Width = 20;//Precio
-            dgv_TablaProductos.Columns[4].Width = 35;//Cantidad a agregar
-            dgv_TablaProductos.Columns[5].Width = 60;//Icono agregar al carrito
+            dgv_TablaProductos.Columns[2].Width = 60;//Nombre
+            dgv_TablaProductos.Columns[3].Width = 50;//Categoria
+            dgv_TablaProductos.Columns[4].Width = 20;//Precio
+            dgv_TablaProductos.Columns[5].Width = 35;//Cantidad a agregar
+            dgv_TablaProductos.Columns[6].Width = 60;//Icono agregar al carrito
             col_CantidadAgregar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             col_AgregarCarrito.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;

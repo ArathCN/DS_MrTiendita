@@ -20,6 +20,7 @@ namespace MrTiendita.Controladores
         private FrmBuscarProducto vista;
         private FrmCVentasController cventas;
         private ProductoDAO productoDAO;
+           
 
 
         public FrmBuscarProductoController(FrmBuscarProducto vista) 
@@ -39,6 +40,8 @@ namespace MrTiendita.Controladores
 
             this.vista.dgv_TablaProductos.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Dgv_TablaProductos_EditingControlShowing);
 
+            this.vista.dgv_TablaProductos.CellFormatting += new DataGridViewCellFormattingEventHandler(Dgv_TablaProductos_CellFormatting);
+
         }
 
         private void Vista_Load(object sender, EventArgs e)
@@ -57,10 +60,12 @@ namespace MrTiendita.Controladores
             {
                 this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Codigo_barra,
+                    xProducto.Medida,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
-                    1);
+                    1
+                    );
             }
 
         }
@@ -74,10 +79,12 @@ namespace MrTiendita.Controladores
             {
                 this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Codigo_barra,
+                    xProducto.Medida,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
-                    1);
+                    1
+                    );
             }
         }
         
@@ -95,10 +102,12 @@ namespace MrTiendita.Controladores
                 {
                     this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Codigo_barra,
+                    xProducto.Medida,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
-                    1);
+                    1
+                    );
                 }
             }
             else {
@@ -108,39 +117,65 @@ namespace MrTiendita.Controladores
                 {
                     this.vista.dgv_TablaProductos.Rows.Add(
                     xProducto.Codigo_barra,
+                    xProducto.Medida,
                     xProducto.Descripcion,
                     xProducto.Categoria,
                     xProducto.Precio_venta,
-                    1);
+                    1
+                    );
                 }
             }  
         }
 
-       
+        private void Dgv_TablaProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) 
+        {
+            if (this.vista.dgv_TablaProductos.Columns[e.ColumnIndex].Name.Equals("col_CantidadAgregar"))
+            {
+                //Asegúrese de que el valor sea una cadena.
+                String stringValue = e.Value as string;
+
+                if (stringValue == null) return;
+
+                e.Value = String.Format("{0:0.##}", e.Value);
+            }
+        }
+
         private void Dgv_TablaProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            
-
             e.Control.KeyPress -= new KeyPressEventHandler(Columns_KeyPress);
-            if (this.vista.dgv_TablaProductos.CurrentCell.ColumnIndex == 4) 
+            if (this.vista.dgv_TablaProductos.CurrentCell.ColumnIndex == 5) 
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
                 {
+                   
                     tb.KeyPress += new KeyPressEventHandler(Columns_KeyPress);
+
                 }
             }
         }
 
         private void Columns_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            int index = this.vista.dgv_TablaProductos.CurrentCell.RowIndex;
+            if (Equals(this.vista.dgv_TablaProductos.Rows[index].Cells["col_TipoMedida"].Value, true))
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsPunctuation(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
             }
+            else
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }        
         }
+        
 
-        private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_AgregarCarrito"].Selected)
             {

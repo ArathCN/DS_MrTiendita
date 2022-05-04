@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MrTiendita.Controladores;
 
 namespace MrTiendita.Vistas
 {
@@ -15,19 +16,9 @@ namespace MrTiendita.Vistas
         public FrmTablero()
         {
             InitializeComponent();
-            ModificarNotificacion(flp_ListaNotificaciones);
+            
+            FrmTableroController controller = new FrmTableroController(this);
+            
         }
-
-        public void ModificarNotificacion(FlowLayoutPanel Contenedor)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                Notificacion notificacion = new Notificacion();
-                notificacion.NombreProducto = "Leche Lala Deslactosada 1L";
-                Contenedor.Controls.Add(notificacion);
-                notificacion.Dock = DockStyle.Top;
-            }
-        }
-
     }
 }
