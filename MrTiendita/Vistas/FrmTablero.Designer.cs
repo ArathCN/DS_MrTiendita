@@ -65,7 +65,7 @@ namespace MrTiendita.Vistas
             this.pnl_Notificaciones.FillColor = System.Drawing.Color.White;
             this.pnl_Notificaciones.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_Notificaciones.Location = new System.Drawing.Point(2, 2);
-            this.pnl_Notificaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Notificaciones.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Notificaciones.Name = "pnl_Notificaciones";
             this.pnl_Notificaciones.ShadowDecoration.Parent = this.pnl_Notificaciones;
             this.pnl_Notificaciones.Size = new System.Drawing.Size(600, 357);
@@ -78,7 +78,7 @@ namespace MrTiendita.Vistas
             this.flp_ListaNotificaciones.AutoScroll = true;
             this.flp_ListaNotificaciones.BackColor = System.Drawing.Color.White;
             this.flp_ListaNotificaciones.Location = new System.Drawing.Point(18, 88);
-            this.flp_ListaNotificaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flp_ListaNotificaciones.Margin = new System.Windows.Forms.Padding(2);
             this.flp_ListaNotificaciones.Name = "flp_ListaNotificaciones";
             this.flp_ListaNotificaciones.Size = new System.Drawing.Size(572, 256);
             this.flp_ListaNotificaciones.TabIndex = 6;
@@ -147,7 +147,7 @@ namespace MrTiendita.Vistas
             this.btn_AtajoCorte.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_AtajoCorte.ImageOffset = new System.Drawing.Point(9, 0);
             this.btn_AtajoCorte.Location = new System.Drawing.Point(18, 254);
-            this.btn_AtajoCorte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AtajoCorte.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AtajoCorte.Name = "btn_AtajoCorte";
             this.btn_AtajoCorte.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_AtajoCorte.ShadowDecoration.Parent = this.btn_AtajoCorte;
@@ -175,7 +175,7 @@ namespace MrTiendita.Vistas
             this.btn_AtajoSalida.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_AtajoSalida.ImageOffset = new System.Drawing.Point(9, 0);
             this.btn_AtajoSalida.Location = new System.Drawing.Point(18, 212);
-            this.btn_AtajoSalida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AtajoSalida.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AtajoSalida.Name = "btn_AtajoSalida";
             this.btn_AtajoSalida.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_AtajoSalida.ShadowDecoration.Parent = this.btn_AtajoSalida;
@@ -203,7 +203,7 @@ namespace MrTiendita.Vistas
             this.btn_AtajoEntrada.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_AtajoEntrada.ImageOffset = new System.Drawing.Point(9, 0);
             this.btn_AtajoEntrada.Location = new System.Drawing.Point(18, 171);
-            this.btn_AtajoEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AtajoEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AtajoEntrada.Name = "btn_AtajoEntrada";
             this.btn_AtajoEntrada.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_AtajoEntrada.ShadowDecoration.Parent = this.btn_AtajoEntrada;
@@ -231,7 +231,7 @@ namespace MrTiendita.Vistas
             this.btn_AtajoProductos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_AtajoProductos.ImageOffset = new System.Drawing.Point(9, 0);
             this.btn_AtajoProductos.Location = new System.Drawing.Point(18, 129);
-            this.btn_AtajoProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AtajoProductos.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AtajoProductos.Name = "btn_AtajoProductos";
             this.btn_AtajoProductos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_AtajoProductos.ShadowDecoration.Parent = this.btn_AtajoProductos;
@@ -259,7 +259,7 @@ namespace MrTiendita.Vistas
             this.btn_AtajoVenta.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_AtajoVenta.ImageOffset = new System.Drawing.Point(9, 0);
             this.btn_AtajoVenta.Location = new System.Drawing.Point(18, 88);
-            this.btn_AtajoVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AtajoVenta.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AtajoVenta.Name = "btn_AtajoVenta";
             this.btn_AtajoVenta.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_AtajoVenta.ShadowDecoration.Parent = this.btn_AtajoVenta;
@@ -304,7 +304,7 @@ namespace MrTiendita.Vistas
             this.pnl_Estadisticas.FillColor = System.Drawing.Color.White;
             this.pnl_Estadisticas.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_Estadisticas.Location = new System.Drawing.Point(11, 375);
-            this.pnl_Estadisticas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Estadisticas.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Estadisticas.Name = "pnl_Estadisticas";
             this.pnl_Estadisticas.ShadowDecoration.Parent = this.pnl_Estadisticas;
             this.pnl_Estadisticas.Size = new System.Drawing.Size(874, 297);
@@ -344,7 +344,7 @@ namespace MrTiendita.Vistas
             this.tlp_PanelSuperior.Controls.Add(this.pnl_Atajos, 1, 0);
             this.tlp_PanelSuperior.Controls.Add(this.pnl_Notificaciones, 0, 0);
             this.tlp_PanelSuperior.Location = new System.Drawing.Point(9, 10);
-            this.tlp_PanelSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlp_PanelSuperior.Margin = new System.Windows.Forms.Padding(2);
             this.tlp_PanelSuperior.Name = "tlp_PanelSuperior";
             this.tlp_PanelSuperior.RowCount = 1;
             this.tlp_PanelSuperior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -360,7 +360,7 @@ namespace MrTiendita.Vistas
             this.Controls.Add(this.tlp_PanelSuperior);
             this.Controls.Add(this.pnl_Estadisticas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmTablero";
             this.Text = "FrmTablero";
             this.pnl_Notificaciones.ResumeLayout(false);
@@ -378,8 +378,6 @@ namespace MrTiendita.Vistas
 
         private Guna.UI2.WinForms.Guna2Panel pnl_Notificaciones;
         private Guna.UI2.WinForms.Guna2Panel pnl_Atajos;
-        private Guna.UI2.WinForms.Guna2Panel pnl_Estadisticas;
-        private System.Windows.Forms.TableLayoutPanel tlp_PanelSuperior;
         private System.Windows.Forms.Label lbl_Atajos;
         private System.Windows.Forms.Label lbl_DescAtajos;
         private System.Windows.Forms.Label lbl_Notificaciones;
@@ -391,7 +389,9 @@ namespace MrTiendita.Vistas
         private Guna.UI2.WinForms.Guna2Button btn_AtajoEntrada;
         private Guna.UI2.WinForms.Guna2Button btn_AtajoProductos;
         private Guna.UI2.WinForms.Guna2Button btn_AtajoVenta;
-        private System.Windows.Forms.FlowLayoutPanel flp_ListaNotificaciones;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public Guna.UI2.WinForms.Guna2Panel pnl_Estadisticas;
+        public System.Windows.Forms.TableLayoutPanel tlp_PanelSuperior;
+        public System.Windows.Forms.FlowLayoutPanel flp_ListaNotificaciones;
     }
 }

@@ -106,6 +106,7 @@
     <Compile Include="Controladores\FrmREntradasController.cs" />
     <Compile Include="Controladores\FrmReportesController.cs" />
     <Compile Include="Controladores\FrmRVentasController.cs" />
+    <Compile Include="Controladores\FrmTableroController.cs" />
     <Compile Include="Modelos\DAO\CajaDAO.cs" />
     <Compile Include="Modelos\DAO\DbContext.cs" />
     <Compile Include="Modelos\DAO\EmpleadoDAO.cs" />
