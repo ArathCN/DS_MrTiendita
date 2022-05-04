@@ -63,6 +63,214 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
+        //Venta efectivo
+        public bool Create(List<Venta> ventas, List<Producto> productos, Movimiento movimiento, Caja caja)
+        {
+            this.LimpiarError();
+            bool success = false;
+            String sqlVenta = "INSERT INTO Venta (codigo_barra, id_empleado, metodo_pago, fecha, cantidad, importe) " +
+                "VALUES (@cb, @ide, @met, @fec, @can, @imp);";
+            String sqlActualizarCantidad = "UPDATE Producto SET cantidad_actual = cantidad_actual - @ca WHERE codigo_barra = @cb;";
+            String sqlMovimiento = "INSERT INTO Movimientos (tipo, fecha, importe, caja, concepto) " +
+                "VALUES (@tipo, @fec, @imp, @caj, @con);";
+            String sqlCaja = "UPDATE Caja SET valor = @val WHERE atributo = @att";
+            SqlConnection connection = new SqlConnection(this.stringConexion);
+
+            try
+            {
+                connection.Open();
+                
+            }
+            catch (Exception e)
+            {
+                this.errorUltimaConsulta = true;
+                this.mensajeError = e.Message;
+                return success;
+            }
+
+            SqlTransaction tran = connection.BeginTransaction("VentaEfectivo" + DateTimeOffset.Now.ToUnixTimeSeconds());
+
+            SqlCommand cmdVenta = new SqlCommand(sqlVenta, connection, tran);
+            cmdVenta.Parameters.Add("@cb", SqlDbType.BigInt);
+            cmdVenta.Parameters.Add("@ide", SqlDbType.Int);
+            cmdVenta.Parameters.Add("@met", SqlDbType.VarChar);
+            cmdVenta.Parameters.Add("@fec", SqlDbType.DateTime);
+            cmdVenta.Parameters.Add("@can", SqlDbType.Int);
+            cmdVenta.Parameters.Add("@imp", SqlDbType.Decimal);
+
+            SqlCommand cmdActualizarCantidad = new SqlCommand(sqlActualizarCantidad, connection, tran);
+            cmdActualizarCantidad.Parameters.Add("@cb", SqlDbType.BigInt);
+            cmdActualizarCantidad.Parameters.Add("@ca", SqlDbType.Decimal);
+
+            SqlCommand cmdMovimiento = new SqlCommand(sqlMovimiento, connection, tran);
+            cmdMovimiento.Parameters.Add("@tipo", SqlDbType.VarChar);
+            cmdMovimiento.Parameters.Add("@fec", SqlDbType.DateTime);
+            cmdMovimiento.Parameters.Add("@imp", SqlDbType.Decimal);
+            cmdMovimiento.Parameters.Add("@caj", SqlDbType.Decimal);
+            cmdMovimiento.Parameters.Add("@con", SqlDbType.VarChar);
+            cmdMovimiento.Parameters["@tipo"].Value = movimiento.Tipo;
+            cmdMovimiento.Parameters["@fec"].Value = movimiento.Fecha.ToString(this.formatoDatetime);
+            cmdMovimiento.Parameters["@imp"].Value = movimiento.Importe;
+            cmdMovimiento.Parameters["@caj"].Value = movimiento.Caja;
+            cmdMovimiento.Parameters["@con"].Value = movimiento.Concepto;
+
+            SqlCommand cmdCaja = new SqlCommand(sqlCaja, connection, tran);
+            cmdCaja.Parameters.Add("@val", SqlDbType.VarChar);
+            cmdCaja.Parameters.Add("@att", SqlDbType.VarChar);
+
+            cmdCaja.Parameters["@val"].Value = caja.Valor;
+            cmdCaja.Parameters["@att"].Value = caja.Atributo;
+
+            try
+            {
+                foreach (Venta venta in ventas)
+                {
+                    cmdVenta.Parameters["@cb"].Value = venta.Codigo_barra;
+                    cmdVenta.Parameters["@ide"].Value = venta.Id_empleado;
+                    cmdVenta.Parameters["@met"].Value = venta.Metodo_pago;
+                    cmdVenta.Parameters["@fec"].Value = venta.Fecha.ToString(this.formatoDatetime);
+                    cmdVenta.Parameters["@can"].Value = venta.Cantidad;
+                    cmdVenta.Parameters["@imp"].Value = venta.Importe;
+                    cmdVenta.ExecuteNonQuery();
+                }
+
+                foreach (Producto producto in productos)
+                {
+                    cmdActualizarCantidad.Parameters["@cb"].Value = producto.Codigo_barra;
+                    cmdActualizarCantidad.Parameters["@ca"].Value = producto.Cantidad_actual;
+                    int affectedRowsCantidad = cmdActualizarCantidad.ExecuteNonQuery();
+                    if (affectedRowsCantidad == 0)
+                        throw new SqlUpdateNoAffectedRows("La actualización de productos con id [" + producto.Codigo_barra + "] no produjo cambios.");
+                }
+
+                cmdMovimiento.ExecuteNonQuery();
+
+                int affectedRowsCaja = cmdCaja.ExecuteNonQuery();
+                if (affectedRowsCaja == 0)
+                    throw new SqlUpdateNoAffectedRows("La actualización de la caja con el atributo [" + caja.Atributo + "] no produjo cambios.");
+
+                tran.Commit();
+                success = true;
+            }
+            catch (Exception ex)
+            {
+                this.errorUltimaConsulta = true;
+                this.mensajeError = ex.Message;
+                success = false;
+
+                // Attempt to roll back the transaction.
+                try
+                {
+                    tran.Rollback();
+                }
+                catch (Exception ex2)
+                {
+                    this.mensajeError = ex2.GetType() + "  ->  " + ex2.Message;
+                }
+
+                Console.WriteLine(this.mensajeError);
+            }
+
+            cmdVenta.Dispose();
+            cmdCaja.Dispose();
+            cmdMovimiento.Dispose();
+            cmdActualizarCantidad.Dispose();
+            tran.Dispose();
+            connection.Dispose();
+
+            return success;
+        }
+
+        //Venta tarjeta
+        public bool Create(List<Venta> ventas, List<Producto> productos)
+        {
+            this.LimpiarError();
+            bool success = false;
+            String sqlVenta = "INSERT INTO Venta (codigo_barra, id_empleado, metodo_pago, fecha, cantidad, importe) " +
+                "VALUES (@cb, @ide, @met, @fec, @can, @imp);";
+            String sqlActualizarCantidad = "UPDATE Producto SET cantidad_actual = cantidad_actual - @ca WHERE codigo_barra = @cb;";
+
+            SqlConnection connection = new SqlConnection(this.stringConexion);
+
+            try
+            {
+                connection.Open();
+
+            }
+            catch (Exception e)
+            {
+                this.errorUltimaConsulta = true;
+                this.mensajeError = e.Message;
+                return success;
+            }
+
+            SqlTransaction tran = connection.BeginTransaction("VentaEfectivo" + DateTimeOffset.Now.ToUnixTimeSeconds());
+
+            SqlCommand cmdVenta = new SqlCommand(sqlVenta, connection, tran);
+            cmdVenta.Parameters.Add("@cb", SqlDbType.BigInt);
+            cmdVenta.Parameters.Add("@ide", SqlDbType.Int);
+            cmdVenta.Parameters.Add("@met", SqlDbType.VarChar);
+            cmdVenta.Parameters.Add("@fec", SqlDbType.DateTime);
+            cmdVenta.Parameters.Add("@can", SqlDbType.Int);
+            cmdVenta.Parameters.Add("@imp", SqlDbType.Decimal);
+
+            SqlCommand cmdActualizarCantidad = new SqlCommand(sqlActualizarCantidad, connection, tran);
+            cmdActualizarCantidad.Parameters.Add("@cb", SqlDbType.BigInt);
+            cmdActualizarCantidad.Parameters.Add("@ca", SqlDbType.Decimal);
+
+            try
+            {
+                foreach (Venta venta in ventas)
+                {
+                    cmdVenta.Parameters["@cb"].Value = venta.Codigo_barra;
+                    cmdVenta.Parameters["@ide"].Value = venta.Id_empleado;
+                    cmdVenta.Parameters["@met"].Value = venta.Metodo_pago;
+                    cmdVenta.Parameters["@fec"].Value = venta.Fecha.ToString(this.formatoDatetime);
+                    cmdVenta.Parameters["@can"].Value = venta.Cantidad;
+                    cmdVenta.Parameters["@imp"].Value = venta.Importe;
+                    cmdVenta.ExecuteNonQuery();
+                }
+
+                foreach (Producto producto in productos)
+                {
+                    cmdActualizarCantidad.Parameters["@cb"].Value = producto.Codigo_barra;
+                    cmdActualizarCantidad.Parameters["@ca"].Value = producto.Cantidad_actual;
+                    int affectedRowsCantidad = cmdActualizarCantidad.ExecuteNonQuery();
+                    if (affectedRowsCantidad == 0)
+                        throw new SqlUpdateNoAffectedRows("La actualización de productos con id [" + producto.Codigo_barra + "] no produjo cambios.");
+                }
+
+                tran.Commit();
+                success = true;
+            }
+            catch (Exception ex)
+            {
+                this.errorUltimaConsulta = true;
+                this.mensajeError = ex.Message;
+                success = false;
+
+                // Attempt to roll back the transaction.
+                try
+                {
+                    tran.Rollback();
+                }
+                catch (Exception ex2)
+                {
+                    this.mensajeError = ex2.GetType() + "  ->  " + ex2.Message;
+                }
+
+                Console.WriteLine(this.mensajeError);
+
+            }
+
+            cmdVenta.Dispose();
+            cmdActualizarCantidad.Dispose();
+            tran.Dispose();
+            connection.Dispose();
+
+            return success;
+        }
+
         /// <summary>
         /// Consulta todos los registros <see cref="Venta"/> en la base de datos.
         /// </summary>

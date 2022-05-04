@@ -15,10 +15,10 @@ namespace MrTiendita.Modelos.DAO
         /// <summary>
         /// La cadena de conexión con la base de datos.
         /// </summary>
-        //protected String stringConexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=MrTiendita;Integrated Security=True";
+        protected String stringConexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=MrTiendita;Integrated Security=True";
         //protected String stringConexion = "Data Source=LAPTOP-3SLQTV7O;Initial Catalog=MRTIENDITA;Integrated Security=True";
         //protected String stringConexion = "Data Source=HP-PAVILION-R5;Initial Catalog=MrTiendita;Integrated Security=True";
-        protected String stringConexion = "Data Source=" + Environment.MachineName + ";Initial Catalog=MrTiendita;Integrated Security=True";
+        //protected String stringConexion = "Data Source=" + Environment.MachineName + ";Initial Catalog=MrTiendita;Integrated Security=True";
 
         protected String formatoDatetime = "yyyy-MM-dd HH:mm:ss";
 
@@ -57,5 +57,17 @@ namespace MrTiendita.Modelos.DAO
             this.mensajeError = "";
         }
 
+    }
+
+    public class SqlUpdateNoAffectedRows : Exception
+    {
+        public SqlUpdateNoAffectedRows() : base() { }
+        public SqlUpdateNoAffectedRows(string message) : base(message) { }
+        public SqlUpdateNoAffectedRows(string message, Exception inner) : base(message, inner) { }
+
+        // A constructor is needed for serialization when an
+        // exception propagates from a remoting server to the client.
+        protected SqlUpdateNoAffectedRows(System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 }
