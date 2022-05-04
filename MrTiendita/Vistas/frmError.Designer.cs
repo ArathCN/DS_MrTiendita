@@ -44,7 +44,7 @@ namespace MrTiendita.Vistas
             // 
             this.lbl_Mensaje.AutoEllipsis = true;
             this.lbl_Mensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Mensaje.Font = new System.Drawing.Font("Roboto", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Mensaje.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.lbl_Mensaje.Location = new System.Drawing.Point(27, 171);
             this.lbl_Mensaje.Name = "lbl_Mensaje";
             this.lbl_Mensaje.Size = new System.Drawing.Size(281, 137);
