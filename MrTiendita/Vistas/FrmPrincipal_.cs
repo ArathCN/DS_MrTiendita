@@ -34,7 +34,6 @@ namespace MrTiendita.Vistas
             this.tablero.btn_AtajoVenta.Click += new EventHandler(Btn_AtajoVenta_Click);
             this.tablero.btn_AtajoProductos.Click += new EventHandler(Btn_AtajoProductos_Click);
 
-
         }
 
         private void Btn_AtajoVenta_Click(object sender, EventArgs e) 
@@ -53,7 +52,6 @@ namespace MrTiendita.Vistas
         {
             if (formActivado != this.tablero)
             {
-                MessageBox.Show("entro al primer if");
                 formActivado = FormHijo;
                 FormHijo.TopLevel = false;
                 FormHijo.Dock = DockStyle.Fill;
@@ -63,11 +61,9 @@ namespace MrTiendita.Vistas
                 FormHijo.Show();
             }
             else {
-                MessageBox.Show($"El form es:{formActivado}");
                 if (formActivado != null && formActivado == this.tablero) 
                 {
                     formActivado.Close();
-                    MessageBox.Show("entro al segundo if");
                 }         
                 formActivado = FormHijo;
                 FormHijo.TopLevel = false;
