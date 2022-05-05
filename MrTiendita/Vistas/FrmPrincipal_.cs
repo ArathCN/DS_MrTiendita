@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using MrTiendita.Vistas;
 
 namespace MrTiendita.Vistas
 {
@@ -17,27 +18,66 @@ namespace MrTiendita.Vistas
         private Form formActivado = null;
         private Guna2Button botonSeleccionado;
         private Panel bordeInferior;
+        public FrmTablero tablero;
+
         public FrmPrincipal_()
         {
             InitializeComponent();
             bordeInferior = new Panel();
             bordeInferior.Size = new Size(3, 40);
             pnl_Menu.Controls.Add(bordeInferior);
-            AbrirFormulario(new FrmTablero());
+            this.tablero = new FrmTablero();
+            
+            AbrirFormulario(this.tablero);
             ActivarBoton(this.btn_Tablero);
+
+            this.tablero.btn_AtajoVenta.Click += new EventHandler(Btn_AtajoVenta_Click);
+            this.tablero.btn_AtajoProductos.Click += new EventHandler(Btn_AtajoProductos_Click);
+
+
+        }
+
+        private void Btn_AtajoVenta_Click(object sender, EventArgs e) 
+        {
+            AbrirFormulario(new FrmVentas());
+            ActivarBoton(btn_Ventas);
+        }
+
+        private void Btn_AtajoProductos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmInventario());
+            ActivarBoton(btn_Inventario);
         }
 
         private void AbrirFormulario(Form FormHijo)
         {
-            if (formActivado != null)
-                formActivado.Close();
-            formActivado = FormHijo;
-            FormHijo.TopLevel = false;
-            FormHijo.Dock = DockStyle.Fill;
-            pnl_Contenedor.Controls.Add(FormHijo);
-            pnl_Contenedor.Tag = FormHijo;
-            FormHijo.BringToFront();
-            FormHijo.Show();
+            if (formActivado != this.tablero)
+            {
+                MessageBox.Show("entro al primer if");
+                formActivado = FormHijo;
+                FormHijo.TopLevel = false;
+                FormHijo.Dock = DockStyle.Fill;
+                pnl_Contenedor.Controls.Add(FormHijo);
+                pnl_Contenedor.Tag = FormHijo;
+                FormHijo.BringToFront();
+                FormHijo.Show();
+            }
+            else {
+                MessageBox.Show($"El form es:{formActivado}");
+                if (formActivado != null && formActivado == this.tablero) 
+                {
+                    formActivado.Close();
+                    MessageBox.Show("entro al segundo if");
+                }         
+                formActivado = FormHijo;
+                FormHijo.TopLevel = false;
+                FormHijo.Dock = DockStyle.Fill;
+                pnl_Contenedor.Controls.Add(FormHijo);
+                pnl_Contenedor.Tag = FormHijo;
+                FormHijo.BringToFront();
+                FormHijo.Show();
+            }
+            
         }
 
         private void btn_Configuracion_Click(object sender, EventArgs e)
@@ -52,6 +92,7 @@ namespace MrTiendita.Vistas
             AbrirFormulario(new FrmTablero());
             ActivarBoton(sender);
             esActivado = false;
+            //this.tablero = (FrmTablero)this.formActivado;
         }
 
         private void btn_Ventas_Click(object sender, EventArgs e)
