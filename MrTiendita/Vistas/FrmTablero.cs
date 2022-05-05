@@ -17,7 +17,7 @@ namespace MrTiendita.Vistas
         {
             InitializeComponent();
             
-            FrmTableroController controller = new FrmTableroController(this);
+            //FrmTableroController controller = new FrmTableroController(this);
             
         }
     }
