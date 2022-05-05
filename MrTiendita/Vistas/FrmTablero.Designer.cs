@@ -378,20 +378,20 @@ namespace MrTiendita.Vistas
 
         private Guna.UI2.WinForms.Guna2Panel pnl_Notificaciones;
         private Guna.UI2.WinForms.Guna2Panel pnl_Atajos;
-        private System.Windows.Forms.Label lbl_Atajos;
-        private System.Windows.Forms.Label lbl_DescAtajos;
         private System.Windows.Forms.Label lbl_Notificaciones;
         private System.Windows.Forms.Label lbl_DescNoti;
         private System.Windows.Forms.Label lbl_Estadisticas;
         private System.Windows.Forms.Label lbl_DescEstadisticas;
-        private Guna.UI2.WinForms.Guna2Button btn_AtajoCorte;
-        private Guna.UI2.WinForms.Guna2Button btn_AtajoSalida;
-        private Guna.UI2.WinForms.Guna2Button btn_AtajoEntrada;
-        private Guna.UI2.WinForms.Guna2Button btn_AtajoProductos;
-        private Guna.UI2.WinForms.Guna2Button btn_AtajoVenta;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public Guna.UI2.WinForms.Guna2Panel pnl_Estadisticas;
         public System.Windows.Forms.TableLayoutPanel tlp_PanelSuperior;
         public System.Windows.Forms.FlowLayoutPanel flp_ListaNotificaciones;
+        public System.Windows.Forms.Label lbl_Atajos;
+        public System.Windows.Forms.Label lbl_DescAtajos;
+        public Guna.UI2.WinForms.Guna2Button btn_AtajoCorte;
+        public Guna.UI2.WinForms.Guna2Button btn_AtajoSalida;
+        public Guna.UI2.WinForms.Guna2Button btn_AtajoEntrada;
+        public Guna.UI2.WinForms.Guna2Button btn_AtajoProductos;
+        public Guna.UI2.WinForms.Guna2Button btn_AtajoVenta;
     }
 }

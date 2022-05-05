@@ -121,7 +121,7 @@ namespace MrTiendita.Vistas
             this.lbl_MARSS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(51)))));
             this.lbl_MARSS.Location = new System.Drawing.Point(66, 14);
             this.lbl_MARSS.Name = "lbl_MARSS";
-            this.lbl_MARSS.Size = new System.Drawing.Size(97, 32);
+            this.lbl_MARSS.Size = new System.Drawing.Size(77, 25);
             this.lbl_MARSS.TabIndex = 1;
             this.lbl_MARSS.Text = "MARSS";
             // 
@@ -161,7 +161,7 @@ namespace MrTiendita.Vistas
             this.lbl_Herramientas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
             this.lbl_Herramientas.Location = new System.Drawing.Point(16, 100);
             this.lbl_Herramientas.Name = "lbl_Herramientas";
-            this.lbl_Herramientas.Size = new System.Drawing.Size(118, 23);
+            this.lbl_Herramientas.Size = new System.Drawing.Size(100, 19);
             this.lbl_Herramientas.TabIndex = 2;
             this.lbl_Herramientas.Text = "Herramientas";
             // 
