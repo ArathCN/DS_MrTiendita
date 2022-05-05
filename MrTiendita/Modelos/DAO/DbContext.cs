@@ -15,10 +15,10 @@ namespace MrTiendita.Modelos.DAO
         /// <summary>
         /// La cadena de conexión con la base de datos.
         /// </summary>
-        protected String stringConexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=MrTiendita;Integrated Security=True";
+        //protected String stringConexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=MrTiendita;Integrated Security=True";
         //protected String stringConexion = "Data Source=LAPTOP-3SLQTV7O;Initial Catalog=MRTIENDITA;Integrated Security=True";
         //protected String stringConexion = "Data Source=HP-PAVILION-R5;Initial Catalog=MrTiendita;Integrated Security=True";
-        //protected String stringConexion = "Data Source=" + Environment.MachineName + ";Initial Catalog=MrTiendita;Integrated Security=True";
+        protected String stringConexion = "Data Source=" + Environment.MachineName + ";Initial Catalog=MrTiendita;Integrated Security=True";
 
         protected String formatoDatetime = "yyyy-MM-dd HH:mm:ss";
 

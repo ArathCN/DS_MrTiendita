@@ -403,5 +403,93 @@ namespace MrTiendita.Modelos.DAO
 
             return ventas;
         }
+
+        public List<Venta> ReadBetweenDatesWithDescription(DateTime inicio, DateTime final)
+        {
+            List<Venta> ventas = new List<Venta>();
+            String sql = "SELECT * FROM Venta AS V "+
+                "INNER JOIN Producto AS P ON V.codigo_barra = P.codigo_barra" +
+                " WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
+                    command.Parameters.Add("@fechaFin", SqlDbType.DateTime);
+
+                    command.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
+                    command.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Venta venta = new Venta(
+                                    reader.GetInt32(0),
+                                    reader.GetInt64(1),
+                                    reader.GetInt32(2),
+                                    reader.GetString(3),
+                                    reader.GetDateTime(4),
+                                    decimal.ToDouble(reader.GetDecimal(5)),
+                                    decimal.ToDouble(reader.GetDecimal(6))
+                            );
+                            Producto producto = new Producto(
+                                reader.GetInt64(7),
+                                reader.GetString(8),
+                                reader.GetInt32(14),
+                                decimal.ToDouble(reader.GetDecimal(9)),
+                                decimal.ToDouble(reader.GetDecimal(10)),
+                                reader.GetBoolean(11),
+                                reader.GetString(12),
+                                decimal.ToDouble(reader.GetDecimal(13))
+                            );
+                            venta.Producto = producto;
+                            ventas.Add(venta);
+                        }
+                    }
+                }
+            }
+
+            return ventas;
+        }
+
+        //public List<Venta> ReadBetweenDatesByProduct()
+        //{
+        //    List<Venta> ventas = new List<Venta>();
+        //    String sql = "SELECT P.codigo_barra, P.descripcion, P.precio_compra, V.total_cantidad, V.fecha, V.importe" +
+        //                  "FROM Producto AS P INNER JOIN(" +
+        //                  "SELECT codigo_barra, fecha, SUM(cantidad) AS total_cantidad FROM Venta" +
+        //                  "GROUP BY  codigo_barra, fecha, importe" +
+        //                  ") AS V ON P.codigo_barra = V.codigo_barra";
+         
+        //    using (SqlConnection connection = new SqlConnection(this.stringConexion))
+        //    {
+        //        connection.Open();
+        //        using (SqlCommand command = new SqlCommand(sql, connection))
+        //        {
+        //            using (SqlDataReader reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    Venta venta = new Venta(
+        //                            reader.GetDateTime(4),
+        //                            decimal.ToDouble(reader.GetDecimal(3)),
+        //                            decimal.ToDouble(reader.GetDecimal(5))
+        //                    );
+        //                    Producto producto = new Producto(
+        //                        reader.GetInt64(0),
+        //                        reader.GetString(1),
+        //                        decimal.ToDouble(reader.GetDecimal(2))
+        //                    );
+        //                    venta.Producto = producto;
+        //                    ventas.Add(venta);
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    return ventas;
+        //}
     }
 }

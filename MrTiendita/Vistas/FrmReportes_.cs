@@ -20,41 +20,13 @@ namespace MrTiendita.Vistas
             dgv_TablaTodasVentas.CurrentCell = null;
             dgv_TablaEntradas.AllowUserToAddRows = false;
             dgv_TablaEntradas.CurrentCell = null;
+            dgv_TablaVentasCategoria.AllowUserToAddRows = false;
+            dgv_TablaVentasCategoria.CurrentCell = null;
 
-            int indexNuevoProducto;
-            for (int i = 0; i < 15; i++)
-            {
-                dgv_TablaTodasVentas.Rows.Add();
-                indexNuevoProducto = dgv_TablaTodasVentas.RowCount - 1;
-                Console.WriteLine(indexNuevoProducto);
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_IDVenta"].Value = "1078";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_CodigoBarras"].Value = "1112223334445";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = "Leche Lala Deslactosada 1L";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_IDEmpleado"].Value = "admin admin";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_MetodoPago"].Value = "Efectivo";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_Fecha"].Value = "02/05/2022 08:19:43 PM";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_Cantidad"].Value = "23";
-                dgv_TablaTodasVentas.Rows[indexNuevoProducto].Cells["col_Importe"].Value = "$1,000.00";
-            }
-
-            //int indexNuevoEntrada;
-            //for (int i = 0; i < 15; i++)
-            //{
-            //    dgv_TablaEntradas.Rows.Add();
-            //    indexNuevoEntrada = dgv_TablaEntradas.RowCount - 1;
-            //    Console.WriteLine(indexNuevoEntrada);
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_IDEntrada"].Value = "1078";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_CodigoBarrasEntrada"].Value = "1112223334445";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_DescripcionEntrada"].Value = "Leche Lala Deslactosada 1L";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_CantidadEntrada"].Value = "40";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_FechaEntrada"].Value = "02/05/2022 08:19:43 PM";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_PrecioCompra"].Value = "$1,000.00";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_PrecioVenta"].Value = "$1,000.00";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_ImporteEntrada"].Value = "$1,000.00";
-            //}
 
             dgv_TablaTodasVentas.AllowUserToResizeColumns = false;
             dgv_TablaEntradas.AllowUserToResizeColumns = false;
+            dgv_TablaVentasCategoria.AllowUserToResizeColumns = false;
             AjustarColumnas();
             FrmReportesController controller = new FrmReportesController(this);
         }
@@ -78,6 +50,14 @@ namespace MrTiendita.Vistas
             dgv_TablaEntradas.Columns[5].Width = 40;//Precio compra
             dgv_TablaEntradas.Columns[6].Width = 40;//Precio venta
             dgv_TablaEntradas.Columns[7].Width = 50;//Importe
+
+            col_ProductosVendidos.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            col_TotalCategoria.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            col_GananciaCategoria.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgv_TablaVentasCategoria.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_TablaVentasCategoria.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_TablaVentasCategoria.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
     }

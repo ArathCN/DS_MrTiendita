@@ -71,6 +71,12 @@ namespace MrTiendita.Modelos.DTO
             this.precio_venta = this.CalcularPrecioVenta();
         }
 
+        public Producto(long codigo_barra, string descripcion, double precio_compra)
+        {
+            this.codigo_barra = codigo_barra;
+            this.descripcion = descripcion;
+        }
+
         /// <summary>
         /// Gets or sets the codigo barra.
         /// </summary>

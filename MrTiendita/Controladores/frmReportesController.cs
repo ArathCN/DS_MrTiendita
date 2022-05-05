@@ -55,7 +55,7 @@ namespace MrTiendita.Controladores
             this.vista.dp_DesdeEntradas.Value = DateTime.Today;
             this.vista.dp_HastaEntradas.Value = DateTime.Today;
             this.vista.dp_DesdeVentas.Value = DateTime.Today;
-            this.vista.dp_DesdeEntradas.Value = DateTime.Today;
+            this.vista.dp_HastaVentas.Value = DateTime.Today;
             bordeInferior = new Panel();
             bordeInferior.Size = new Size(160, 2);
             this.vista.pnl_MenuProductos.Controls.Add(bordeInferior);
@@ -148,16 +148,21 @@ namespace MrTiendita.Controladores
 
         private void Cb_TipoReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
+            DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
+            fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             switch (this.vista.cb_TipoReporte.SelectedIndex)
             {
                 case 0:
                     CambiarReporte(this.vista.dgv_TablaTodasVentas);
+                    ActualizarVentasTotales(fechaDesde, fechaHasta, this.vista.lbl_Periodo);
                     break;
                 case 1:
                     CambiarReporte(this.vista.dgv_TablaVentasProducto);
                     break;
                 case 2:
                     CambiarReporte(this.vista.dgv_TablaVentasCategoria);
+                    ActualizarVentasCategoria(fechaDesde, fechaHasta, this.vista.lbl_Periodo);
                     break;
                 default:
                     break;
@@ -175,10 +180,7 @@ namespace MrTiendita.Controladores
                     ActualizarVentasTotales(this.desde, this.hasta, sender);
                     break;
                 case 1:
-                    //ActualizarVentasProducto(this.desde, this.hasta, sender);
-                    break;
-                case 3:
-                    //ActualizarVentasCategoria(this.desde, this.hasta, sender);
+                    ActualizarVentasCategoria(this.desde, this.hasta, sender);
                     break;
                 default:
                     break;
@@ -188,18 +190,15 @@ namespace MrTiendita.Controladores
         private void Lbl_EstaSemanaVentas_Click(object sender, EventArgs e)
         {
             ActivarPeriodo(sender);
-            this.desde = DateTime.Today;
+            this.desde = DateTime.Today.AddDays(-7);
             this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             switch (this.vista.cb_TipoReporte.SelectedIndex)
             {
                 case 0:
                     ActualizarVentasTotales(this.desde, this.hasta, sender);
                     break;
-                case 1:
-                    //ActualizarVentasProducto(this.desde, this.hasta, sender);
-                    break;
-                case 3:
-                    //ActualizarVentasCategoria(this.desde, this.hasta, sender);
+                case 2:
+                    ActualizarVentasCategoria(this.desde, this.hasta, sender);
                     break;
                 default:
                     break;
@@ -209,18 +208,15 @@ namespace MrTiendita.Controladores
         private void Lbl_EsteMesVentas_Click(object sender, EventArgs e)
         {
             ActivarPeriodo(sender);
-            this.desde = DateTime.Today;
             this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
+            this.desde = FiltroMes(this.hasta);
             switch (this.vista.cb_TipoReporte.SelectedIndex)
             {
                 case 0:
                     ActualizarVentasTotales(this.desde, this.hasta, sender);
                     break;
                 case 1:
-                    //ActualizarVentasProducto(this.desde, this.hasta, sender);
-                    break;
-                case 3:
-                    //ActualizarVentasCategoria(this.desde, this.hasta, sender);
+                    ActualizarVentasCategoria(this.desde, this.hasta, sender);
                     break;
                 default:
                     break;
@@ -239,36 +235,32 @@ namespace MrTiendita.Controladores
                     ActualizarVentasTotales(fechaDesde, fechaHasta, sender);
                     break;
                 case 1:
-                    //ActualizarVentasProducto(this.desde, this.hasta, sender);
-                    break;
-                case 3:
-                    //ActualizarVentasCategoria(this.desde, this.hasta, sender);
+                    ActualizarVentasCategoria(fechaDesde, fechaHasta, sender);
                     break;
                 default:
                     break;
             }
+            ActivarPeriodo(this.vista.lbl_Periodo);
         }
 
         private void Dp_HastaVentas_onValueChanged(object sender, EventArgs e)
         {
             //yyyy - mm - dd hh: mm: ss
-            DateTime fechaDesde = this.vista.dp_DesdeEntradas.Value;
-            DateTime fechaHasta = this.vista.dp_HastaEntradas.Value;
+            DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
+            DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             switch (this.vista.cb_TipoReporte.SelectedIndex)
             {
                 case 0:
-                    ActualizarVentasTotales(this.desde, this.hasta, sender);
+                    ActualizarVentasTotales(fechaDesde, fechaHasta, sender);
                     break;
                 case 1:
-                    //ActualizarVentasProducto(this.desde, this.hasta, sender);
-                    break;
-                case 3:
-                    //ActualizarVentasCategoria(this.desde, this.hasta, sender);
+                    ActualizarVentasCategoria(fechaDesde, fechaHasta, sender);
                     break;
                 default:
                     break;
             }
+            ActivarPeriodo(this.vista.lbl_Periodo);
         }
 
         //Métodos auxiliares
@@ -294,7 +286,7 @@ namespace MrTiendita.Controladores
 
         public void ActualizarVentasTotales(DateTime desde, DateTime hasta, object sender)
         {
-            List<Venta> ventas = this.ventaDAO.ReadBetweenDates(desde, hasta);
+            List<Venta> ventas = this.ventaDAO.ReadBetweenDatesWithDescription(desde, hasta);
             if (ventas.Count != 0)
             {
                 this.vista.dgv_TablaTodasVentas.Rows.Clear();
@@ -320,12 +312,83 @@ namespace MrTiendita.Controladores
 
         public void ActualizarVentasProducto(DateTime desde, DateTime hasta, object sender)
         {
-            //Ventas por cada producto
+            ////Ventas por cada producto
+            //List<Venta> ventasPorProducto = this.ventaDAO.ReadBetweenDatesByProduct();
+            //if (ventasPorProducto.Count != 0)
+            //{
+            //    Dictionary<string, double> totalVentasProducto = new Dictionary<string, double>();
+            //    Dictionary<string, double> totalEfectivoProducto = new Dictionary<string, double>();
+            //    Dictionary<string, double> totalGananciaProducto = new Dictionary<string, double>();
+            //    foreach (Venta ventas in ventasPorProducto)
+            //    {
+            //        if (ventas.Fecha.Date == )
+            //        {
+
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    MensajeError(sender);
+            //    this.vista.dgv_TablaTodasVentas.Rows.Clear();
+            //}
         }
 
         public void ActualizarVentasCategoria(DateTime desde, DateTime hasta, object sender)
         {
-            //Ventas por cada categoría
+            List<Venta> ventasTotales = this.ventaDAO.ReadBetweenDatesCompleteInfo(desde, hasta);
+            MessageBox.Show($"Desde: {desde}");
+            MessageBox.Show($"Hasta: {hasta}");
+            if (ventasTotales.Count != 0)
+            {
+                Dictionary<string, double> totalVentasCategoria = new Dictionary<string, double>();
+                Dictionary<string, double> totalGananciaCategoria = new Dictionary<string, double>();
+                Dictionary<string, double> totalProductosCategoria = new Dictionary<string, double>();
+                foreach (Categoria categoria in Categorias.CATEGORIAS)
+                {
+                    totalVentasCategoria.Add(categoria.Nombre, 0);
+                }
+
+                foreach (Categoria categoria in Categorias.CATEGORIAS)
+                {
+                    totalGananciaCategoria.Add(categoria.Nombre, 0);
+                }
+
+                foreach (Categoria categoria in Categorias.CATEGORIAS)
+                {
+                    totalProductosCategoria.Add(categoria.Nombre, 0);
+                }
+
+                foreach (Venta venta in ventasTotales)
+                {
+                    //Sumar las ventas a cada categoría
+                    if (totalVentasCategoria.ContainsKey(venta.Producto.Categoria))
+                    {
+                        totalVentasCategoria[venta.Producto.Categoria] += venta.Importe;
+                        totalGananciaCategoria[venta.Producto.Categoria] += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
+                        totalProductosCategoria[venta.Producto.Categoria] += venta.Cantidad;
+                    }
+                }
+                this.vista.dgv_TablaVentasCategoria.Rows.Clear();
+                foreach (Categoria categoria in Categorias.CATEGORIAS)
+                {
+                    if (categoria.Nombre != "Todos")
+                    {
+                        this.vista.dgv_TablaVentasCategoria.Rows.Add(
+                        categoria.Nombre,
+                        totalProductosCategoria[categoria.Nombre],
+                        "$"+totalVentasCategoria[categoria.Nombre],
+                        "$"+totalGananciaCategoria[categoria.Nombre]
+                        );
+                    }
+                }
+            }
+            else
+            {
+                MensajeError(sender);
+                this.vista.dgv_TablaTodasVentas.Rows.Clear();
+            }
+            
         }
 
         public void ActualizarEntradas(DateTime desde, DateTime hasta, object sender)
@@ -386,19 +449,34 @@ namespace MrTiendita.Controladores
         public void MensajeError(object sender)
         {
             string mensaje = "se mostrará un reporte vacío. Seleccione un período de tiempo más grande";
-            if (sender == this.vista.lbl_HoyEntradas || sender == this.vista.lbl_HoyVentas)
+            if (sender == this.vista.lbl_HoyEntradas)
             {
                 FrmError frmError = new FrmError($"Hoy no ha hecho una entrada al almacén, {mensaje} o agregue una entrada al almacén.");
                 frmError.ShowDialog();
             }
-            else if (sender == this.vista.lbl_EstaSemanaEntradas || sender == this.vista.lbl_EstaSemanaVentas)
+            else if (sender == this.vista.lbl_EstaSemanaEntradas)
             {
                 FrmError frmError = new FrmError($"Esta semana no ha hecho una entrada al almacén, {mensaje} o agregue una entrada al almacén.");
                 frmError.ShowDialog();
             }
-            else if (sender == this.vista.lbl_EsteMesEntradas || sender == this.vista.lbl_EsteMesVentas)
+            else if (sender == this.vista.lbl_EsteMesEntradas)
             {
                 FrmError frmError = new FrmError($"Este mes no ha hecho una entrada al almacén, {mensaje} o agregue una entrada al almacén.");
+                frmError.ShowDialog();
+            }
+            else if (sender == this.vista.lbl_HoyVentas)
+            {
+                FrmError frmError = new FrmError($"Hoy no ha hecho ninguna venta, {mensaje} o realice una venta.");
+                frmError.ShowDialog();
+            }
+            else if (sender == this.vista.lbl_EstaSemanaVentas)
+            {
+                FrmError frmError = new FrmError($"Esta semana no ha hecho ninguna venta, {mensaje} o realice una venta.");
+                frmError.ShowDialog();
+            }
+            else if (sender == this.vista.lbl_EsteMesVentas)
+            {
+                FrmError frmError = new FrmError($"Este mes no ha hecho ninguna venta, {mensaje} o realice una venta.");
                 frmError.ShowDialog();
             }
         }
