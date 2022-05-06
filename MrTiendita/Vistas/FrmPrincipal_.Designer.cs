@@ -51,6 +51,7 @@ namespace MrTiendita.Vistas
             this.btn_Configuracion = new Guna.UI2.WinForms.Guna2Button();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.pnl_Contenedor2 = new System.Windows.Forms.Panel();
             this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).BeginInit();
@@ -121,7 +122,7 @@ namespace MrTiendita.Vistas
             this.lbl_MARSS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(51)))));
             this.lbl_MARSS.Location = new System.Drawing.Point(66, 14);
             this.lbl_MARSS.Name = "lbl_MARSS";
-            this.lbl_MARSS.Size = new System.Drawing.Size(77, 25);
+            this.lbl_MARSS.Size = new System.Drawing.Size(97, 32);
             this.lbl_MARSS.TabIndex = 1;
             this.lbl_MARSS.Text = "MARSS";
             // 
@@ -161,7 +162,7 @@ namespace MrTiendita.Vistas
             this.lbl_Herramientas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
             this.lbl_Herramientas.Location = new System.Drawing.Point(16, 100);
             this.lbl_Herramientas.Name = "lbl_Herramientas";
-            this.lbl_Herramientas.Size = new System.Drawing.Size(100, 19);
+            this.lbl_Herramientas.Size = new System.Drawing.Size(118, 23);
             this.lbl_Herramientas.TabIndex = 2;
             this.lbl_Herramientas.Text = "Herramientas";
             // 
@@ -400,6 +401,7 @@ namespace MrTiendita.Vistas
             // 
             // pnl_Contenedor
             // 
+            this.pnl_Contenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.pnl_Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Contenedor.Location = new System.Drawing.Point(200, 60);
             this.pnl_Contenedor.Name = "pnl_Contenedor";
@@ -410,11 +412,21 @@ namespace MrTiendita.Vistas
             // 
             this.guna2DragControl1.TargetControl = this.pnl_Superior;
             // 
+            // pnl_Contenedor2
+            // 
+            this.pnl_Contenedor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.pnl_Contenedor2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Contenedor2.Location = new System.Drawing.Point(200, 60);
+            this.pnl_Contenedor2.Name = "pnl_Contenedor2";
+            this.pnl_Contenedor2.Size = new System.Drawing.Size(1100, 640);
+            this.pnl_Contenedor2.TabIndex = 3;
+            // 
             // FrmPrincipal_
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1300, 700);
+            this.Controls.Add(this.pnl_Contenedor2);
             this.Controls.Add(this.pnl_Contenedor);
             this.Controls.Add(this.pnl_Menu);
             this.Controls.Add(this.pnl_Superior);
@@ -459,5 +471,6 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.PictureBox btn_Minimizar;
         public System.Windows.Forms.PictureBox btn_Cerrar;
         public Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        public System.Windows.Forms.Panel pnl_Contenedor2;
     }
 }

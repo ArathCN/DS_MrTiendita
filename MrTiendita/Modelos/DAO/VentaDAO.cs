@@ -454,6 +454,38 @@ namespace MrTiendita.Modelos.DAO
             return ventas;
         }
 
+        public List<Venta> ReadBetweenDatesByNumber(DateTime inicio, DateTime final)
+        {
+            List<Venta> ventas = new List<Venta>();
+            String sql = "SELECT dateadd(DAY,0, datediff(day,0, fecha)), SUM(cantidad) as Ventas_dia " +
+                "FROM VENTA WHERE fecha >= @fechaInicio AND fecha <= @fechaFin GROUP BY dateadd(DAY,0, datediff(day,0, fecha));";
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
+                    command.Parameters.Add("@fechaFin", SqlDbType.DateTime);
+
+                    command.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
+                    command.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Venta venta = new Venta(
+                                    reader.GetDateTime(0),
+                                    decimal.ToDouble(reader.GetDecimal(1))
+                            );
+                        }
+                    }
+                }
+            }
+
+            return ventas;
+        }
+
         //public List<Venta> ReadBetweenDatesByProduct()
         //{
         //    List<Venta> ventas = new List<Venta>();
@@ -462,7 +494,7 @@ namespace MrTiendita.Modelos.DAO
         //                  "SELECT codigo_barra, fecha, SUM(cantidad) AS total_cantidad FROM Venta" +
         //                  "GROUP BY  codigo_barra, fecha, importe" +
         //                  ") AS V ON P.codigo_barra = V.codigo_barra";
-         
+
         //    using (SqlConnection connection = new SqlConnection(this.stringConexion))
         //    {
         //        connection.Open();
