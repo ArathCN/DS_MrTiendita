@@ -13,6 +13,15 @@ using Guna.UI2.WinForms;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Globalization;
+using iText.Kernel.Pdf;
+using System.IO;
+using iTextSharp.text.pdf;
+using iText.Layout;
+using iText.Kernel.Font;
+using iText.IO.Font.Constants;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Kernel.Utils;
 
 namespace MrTiendita.Controladores
 {
@@ -27,8 +36,14 @@ namespace MrTiendita.Controladores
 
         private Guna2Button botonSeleccionado;
         private Panel bordeInferior;
-        private Panel pnlActivado;
         private String movimientoSeleccionado;
+
+        //Corte de caja
+        private Dictionary<string, string> corteCaja;
+        private List<Movimiento> entradas;
+        private List<Movimiento> salidas;
+        private Dictionary<string, double> ventas;
+        private Dictionary<string, double> ganancias;
 
         public FrmMovimientosController(FrmMovimientos vista)
         {
@@ -37,12 +52,21 @@ namespace MrTiendita.Controladores
             this.VentaDAO = new VentaDAO();
             this.cajaDAO = new CajaDAO();
 
+            this.corteCaja = new Dictionary<string, string>();
+            this.ventas = new Dictionary<string, double>();
+            this.ganancias = new Dictionary<string, double>();
+            this.entradas = new List<Movimiento>();
+            this.salidas = new List<Movimiento>();
+            
 
             this.vista.Load += new EventHandler(Vista_Load);
 
             //Pestañas
             this.vista.btn_ConsultarMovimientos.Click += new EventHandler(Btn_ConsultarMovimientos_Click);
             this.vista.btn_CorteCaja.Click += new EventHandler(Btn_CorteCaja_Click);
+
+            //Vista de corte de caja
+            this.vista.btn_GuardarArchivo.Click += new EventHandler(btn_GuardarArchivo_Click);
 
             //Vista de movimientos
             this.vista.cb_FiltroMovimientos.SelectedIndexChanged += new EventHandler(cb_FiltroMovimientos_SelectedIndexChanged);
@@ -93,6 +117,25 @@ namespace MrTiendita.Controladores
             this.PrepararVistaCorte();
         }
 
+
+        //Mátodos vista corte de caja
+        private void btn_GuardarArchivo_Click(object sender, EventArgs e)
+        {
+            this.vista.btn_GuardarArchivo.Enabled = false;
+            try
+            {
+                this.GenerarCorteCaja();
+            }
+            catch (Exception ex)
+            {
+                FrmError error = new FrmError(ex.Message);
+                error.ShowDialog();
+                return;
+            }
+
+            this.vista.btn_GuardarArchivo.Enabled = true;
+
+        }
 
         //Metodos vista movimientos
         private void cb_FiltroMovimientos_SelectedIndexChanged(object sender, EventArgs e)
@@ -290,6 +333,11 @@ namespace MrTiendita.Controladores
 
         private void PrepararVistaCorte()
         {
+            this.corteCaja.Clear();
+            this.entradas.Clear();
+            this.salidas.Clear();
+            this.ventas.Clear();
+            this.ganancias.Clear();
             this.vista.dgv_TablaEntradas.Rows.Clear();
             this.vista.dgv_TablaSalidas.Rows.Clear();
 
@@ -303,15 +351,6 @@ namespace MrTiendita.Controladores
             List<Venta> ventasEfectivo = new List<Venta>();
             List<Venta> ventasTarjeta = new List<Venta>();
 
-            List<Movimiento> entradas = new List<Movimiento>();
-            List<Movimiento> salidas = new List<Movimiento>();
-
-            Dictionary<string, double> totalVentasCategoria = new Dictionary<string, double>();
-            foreach (Categoria categoria in Categorias.CATEGORIAS)
-            {
-                totalVentasCategoria.Add(categoria.Nombre, 0);
-            }
-
             double totalVentas = 0;
             double totalVentasEfectivo = 0;
             double totalVentasTarjeta = 0;
@@ -320,16 +359,21 @@ namespace MrTiendita.Controladores
             double totalSalidas = 0;
 
             double totalGanancia = 0;
-            Dictionary<string, double> totalGananciaCategoria = new Dictionary<string, double>();
-            foreach (Categoria categoria in Categorias.CATEGORIAS)
-            {
-                totalGananciaCategoria.Add(categoria.Nombre, 0);
-            }
 
             NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
             formato.CurrencyGroupSeparator = ",";
             formato.NumberDecimalSeparator = ".";
             formato.CurrencyDecimalDigits = 2;
+
+            foreach (Categoria categoria in Categorias.CATEGORIAS)
+            {
+                this.ventas.Add(categoria.Nombre, 0);
+            }
+
+            foreach (Categoria categoria in Categorias.CATEGORIAS)
+            {
+                this.ganancias.Add(categoria.Nombre, 0);
+            }
 
             //Obtener las ventas y clasificarlas
             ventasTotales = this.VentaDAO.ReadBetweenDatesCompleteInfo(hoy, fin);
@@ -348,10 +392,10 @@ namespace MrTiendita.Controladores
                 }
 
                 //Sumar las ventas a cada categoría
-                if (totalVentasCategoria.ContainsKey(venta.Producto.Categoria))
+                if (this.ventas.ContainsKey(venta.Producto.Categoria))
                 {
-                    totalVentasCategoria[venta.Producto.Categoria] += venta.Importe;
-                    totalGananciaCategoria[venta.Producto.Categoria] += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
+                    this.ventas[venta.Producto.Categoria] += venta.Importe;
+                    this.ganancias[venta.Producto.Categoria] += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
                 }
                 else //no debería salir erro si cuando se dan de alta productos se usan las constantes de Categorias
                 {
@@ -365,20 +409,29 @@ namespace MrTiendita.Controladores
 
 
             //Obtener las entradas y salida, sacar el total de cada una e implimir en la tabla
-            entradas = this.movimientoDAO.Read(TipoMovimiento.ENTRADA, hoy, fin);
-            salidas = this.movimientoDAO.Read(TipoMovimiento.SALIDA, hoy, fin);
-            foreach (Movimiento movimiento in entradas)
+            this.entradas = this.movimientoDAO.Read(TipoMovimiento.ENTRADA, hoy, fin);
+            this.salidas = this.movimientoDAO.Read(TipoMovimiento.SALIDA, hoy, fin);
+            foreach (Movimiento movimiento in this.entradas)
             {
                 totalEntradas += movimiento.Importe;
                 this.vista.dgv_TablaEntradas.Rows.Add(movimiento.Concepto, movimiento.Importe.ToString("C", formato));
             }
-            foreach (Movimiento movimiento in salidas)
+            foreach (Movimiento movimiento in this.salidas)
             {
                 totalSalidas += movimiento.Importe;
                 this.vista.dgv_TablaSalidas.Rows.Add(movimiento.Concepto, movimiento.Importe.ToString("C", formato));
             }
 
             //Imprimir los resultados, los de las tablas se imprimen en los foreach para no hacer otro ciclo sólo de imprimir
+            this.corteCaja.Add("fechaCorte", dia + " de " + mes + " de " + anio);
+            this.corteCaja.Add("fechaHoraCorte", DateTime.Now.ToString("dd/MM/yyyy HH:mm") + " Hrs");
+            this.corteCaja.Add("totalVentas", totalVentas.ToString("C", formato));
+            this.corteCaja.Add("ventasTotales", totalVentas.ToString("C", formato));
+            this.corteCaja.Add("ventasEfectivo", totalVentasEfectivo.ToString("C", formato));
+            this.corteCaja.Add("ventasTarjeta", totalVentasTarjeta.ToString("C", formato));
+            this.corteCaja.Add("numeroVentas", ventasTotales.Count().ToString());
+            this.corteCaja.Add("gananciasTotales", totalGanancia.ToString("C", formato));
+
             this.vista.lbl_FechaCorte.Text = dia + " de " + mes + " de " + anio;
             this.vista.lbl_VentasTotales.Text = totalVentas.ToString("C", formato);
 
@@ -390,27 +443,27 @@ namespace MrTiendita.Controladores
 
             this.vista.lbl_GananciasTotales.Text = totalGanancia.ToString("C", formato);
 
-            this.vista.lbl_VentaFrutas.Text = totalVentasCategoria[Categorias.FRUTAS_VERDURAS.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasPanaderia.Text = totalVentasCategoria[Categorias.PANADERIA_TORTILLERIA.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasCarniceria.Text = totalVentasCategoria[Categorias.CARNICERIA.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasLacteos.Text = totalVentasCategoria[Categorias.LACTEOS.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasAbarrotes.Text = totalVentasCategoria[Categorias.ABARROTES.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasLimpieza.Text = totalVentasCategoria[Categorias.LIMPIEZA_HOGAR.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasHigiene.Text = totalVentasCategoria[Categorias.HIGENE_PERSONAL_SALUD.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasMascotas.Text = totalVentasCategoria[Categorias.MASCOTAS.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasRefrigerados.Text = totalVentasCategoria[Categorias.REFRIGERADOS.Nombre].ToString("C", formato);
-            this.vista.lbl_VentasSinCategoria.Text = totalVentasCategoria[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato);
+            this.vista.lbl_VentaFrutas.Text = this.ventas[Categorias.FRUTAS_VERDURAS.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasPanaderia.Text = this.ventas[Categorias.PANADERIA_TORTILLERIA.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasCarniceria.Text = this.ventas[Categorias.CARNICERIA.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasLacteos.Text = this.ventas[Categorias.LACTEOS.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasAbarrotes.Text = this.ventas[Categorias.ABARROTES.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasLimpieza.Text = this.ventas[Categorias.LIMPIEZA_HOGAR.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasHigiene.Text = this.ventas[Categorias.HIGENE_PERSONAL_SALUD.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasMascotas.Text = this.ventas[Categorias.MASCOTAS.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasRefrigerados.Text = this.ventas[Categorias.REFRIGERADOS.Nombre].ToString("C", formato);
+            this.vista.lbl_VentasSinCategoria.Text = this.ventas[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato);
 
-            this.vista.lbl_GananciaFrutas.Text = totalGananciaCategoria[Categorias.FRUTAS_VERDURAS.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaPanaderia.Text = totalGananciaCategoria[Categorias.PANADERIA_TORTILLERIA.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaCarniceria.Text = totalGananciaCategoria[Categorias.CARNICERIA.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaLacteos.Text = totalGananciaCategoria[Categorias.LACTEOS.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaAbarrotes.Text = totalGananciaCategoria[Categorias.ABARROTES.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaLimpieza.Text = totalGananciaCategoria[Categorias.LIMPIEZA_HOGAR.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaHigiene.Text = totalGananciaCategoria[Categorias.HIGENE_PERSONAL_SALUD.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaMascotas.Text = totalGananciaCategoria[Categorias.MASCOTAS.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaRefrigerados.Text = totalGananciaCategoria[Categorias.REFRIGERADOS.Nombre].ToString("C", formato);
-            this.vista.lbl_GananciaSinCategoria.Text = totalGananciaCategoria[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaFrutas.Text = this.ganancias[Categorias.FRUTAS_VERDURAS.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaPanaderia.Text = this.ganancias[Categorias.PANADERIA_TORTILLERIA.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaCarniceria.Text = this.ganancias[Categorias.CARNICERIA.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaLacteos.Text = this.ganancias[Categorias.LACTEOS.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaAbarrotes.Text = this.ganancias[Categorias.ABARROTES.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaLimpieza.Text = this.ganancias[Categorias.LIMPIEZA_HOGAR.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaHigiene.Text = this.ganancias[Categorias.HIGENE_PERSONAL_SALUD.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaMascotas.Text = this.ganancias[Categorias.MASCOTAS.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaRefrigerados.Text = this.ganancias[Categorias.REFRIGERADOS.Nombre].ToString("C", formato);
+            this.vista.lbl_GananciaSinCategoria.Text = this.ganancias[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato);
         }
 
         private void MostrarMovimientos(String filtro, DateTime inicio, DateTime fin)
@@ -463,6 +516,163 @@ namespace MrTiendita.Controladores
                 return;
             }
             //this.vista.lbl_totalCaja.Text = this.valorCaja.Valor;
+        }
+
+        private void GenerarCorteCaja()
+        {
+            //string nombreProfesor = this.textBox3.Text;
+            //string codigo = this.textBox2.Text;
+            //string nombreAlumno = this.textBox1.Text;
+            DateTime hoy = DateTime.Now;
+            Random random = new Random();
+            long numeroR = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
+            formato.CurrencyGroupSeparator = ",";
+            formato.NumberDecimalSeparator = ".";
+            formato.CurrencyDecimalDigits = 2;
+
+
+            string plantillaCorteCaja = Properties.Settings.Default.RutaTickets + @"\plantillaCorteCaja.pdf";
+            string corteCajaPreeliminar = Properties.Settings.Default.RutaTickets + @"\CorteCajaP" + numeroR + ".pdf";
+            string corteCajaEntradasSalidas = Properties.Settings.Default.RutaTickets + @"\CorteCajaES" + numeroR + ".pdf";
+            string corteCajaFinal = Properties.Settings.Default.RutaTickets + @"\CorteCaja_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm") + ".pdf";
+
+            bool result = File.Exists(plantillaCorteCaja);
+            if (!result)
+            {
+                FrmError error = new FrmError("La plantilla de corte de caja no se encuentra.");
+                error.ShowDialog();
+                return;
+            }
+
+            /////////////////////////
+            ///Primero se crea el corte de caja con los datos que se pueden poner con adobe
+            iTextSharp.text.pdf.PdfReader pdfReader = null;
+
+            // Create the form filler
+            FileStream pdfOutputFile = new FileStream(corteCajaPreeliminar, FileMode.Create);
+
+            pdfReader = new iTextSharp.text.pdf.PdfReader(plantillaCorteCaja);
+
+            PdfStamper pdfStamper = null;
+
+            pdfStamper = new PdfStamper(pdfReader, pdfOutputFile);
+
+            // Get the form fields
+            AcroFields testForm = pdfStamper.AcroFields;
+
+            // Fill the form
+            testForm.SetField("fechaCorte", this.corteCaja["fechaCorte"]);
+            testForm.SetField("fechaHoraCorte", this.corteCaja["fechaHoraCorte"]);
+            testForm.SetField("totalVentas", this.corteCaja["totalVentas"]);
+            testForm.SetField("ventasTotales", this.corteCaja["ventasTotales"]);
+            testForm.SetField("ventasEfectivo", this.corteCaja["ventasEfectivo"]);
+            testForm.SetField("ventasTarjeta", this.corteCaja["ventasTarjeta"]);
+            testForm.SetField("numeroVentas", this.corteCaja["numeroVentas"]);
+            testForm.SetField("gananciasTotales", this.corteCaja["gananciasTotales"]);
+
+            testForm.SetField("ventas_sinCategoria", this.ventas[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_frutasVerduras", this.ventas[Categorias.FRUTAS_VERDURAS.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_panaderiaTortilleria", this.ventas[Categorias.PANADERIA_TORTILLERIA.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_carniceria", this.ventas[Categorias.CARNICERIA.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_lacteos", this.ventas[Categorias.LACTEOS.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_abarrotes", this.ventas[Categorias.ABARROTES.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_limpiezaHogar", this.ventas[Categorias.LIMPIEZA_HOGAR.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_higiene", this.ventas[Categorias.HIGENE_PERSONAL_SALUD.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_mascotas", this.ventas[Categorias.MASCOTAS.Nombre].ToString("C", formato));
+            testForm.SetField("ventas_refrigerados", this.ventas[Categorias.REFRIGERADOS.Nombre].ToString("C", formato));
+
+            testForm.SetField("ganancias_sinCategoria", this.ganancias[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_frutasVerduras", this.ganancias[Categorias.FRUTAS_VERDURAS.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_panaderia", this.ganancias[Categorias.PANADERIA_TORTILLERIA.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_carniceria", this.ganancias[Categorias.CARNICERIA.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_lacteos", this.ganancias[Categorias.LACTEOS.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_abarrotes", this.ganancias[Categorias.ABARROTES.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_limpieza", this.ganancias[Categorias.LIMPIEZA_HOGAR.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_higiene", this.ganancias[Categorias.HIGENE_PERSONAL_SALUD.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_mascotas", this.ganancias[Categorias.MASCOTAS.Nombre].ToString("C", formato));
+            testForm.SetField("ganancias_refrigerados", this.ganancias[Categorias.REFRIGERADOS.Nombre].ToString("C", formato));
+
+
+            //’Flatten’ (make the text go directly onto the pdf) and close the form
+            pdfStamper.FormFlattening = true;
+
+            pdfStamper.Close();
+            pdfReader.Close();
+
+
+            ////////////////////////////
+            ///Ahora se crea un archivo pdf con las entradas y salidas de dinerp
+            iText.Kernel.Pdf.PdfDocument pdfDoc = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(corteCajaEntradasSalidas));
+            Document document = new Document(pdfDoc, iText.Kernel.Geom.PageSize.LETTER);
+            document.SetMargins(20f, 15f, 20f, 15f);
+            iText.Kernel.Font.PdfFont fuente = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+
+            document.Add(new Paragraph("Entradas de efectivo").SetFont(fuente).SetFontSize(16).SetBold().SetTextAlignment(TextAlignment.CENTER));
+
+            Table tablaEntradas = new Table(UnitValue.CreatePercentArray(2));
+            tablaEntradas.SetWidth(UnitValue.CreatePercentValue(60));
+            tablaEntradas.SetTextAlignment(TextAlignment.JUSTIFIED);
+            tablaEntradas.SetFont(fuente);
+            tablaEntradas.SetFontSize(12);
+            tablaEntradas.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+            tablaEntradas.AddHeaderCell(new Cell().Add(new Paragraph("Concepto").SetFont(fuente).SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaEntradas.AddHeaderCell(new Cell().Add(new Paragraph("Importe").SetFont(fuente).SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+
+            foreach (Movimiento movimiento in this.entradas)
+            {
+                tablaEntradas.AddCell(movimiento.Concepto);
+                tablaEntradas.AddCell(new Cell().Add(new Paragraph(movimiento.Importe.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+            }
+
+            document.Add(tablaEntradas);
+
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph("Salidas de efectivo").SetFont(fuente).SetFontSize(16).SetBold().SetTextAlignment(TextAlignment.CENTER));
+            
+            Table tablasalidas = new Table(UnitValue.CreatePercentArray(2));
+            tablasalidas.SetWidth(UnitValue.CreatePercentValue(60));
+            tablasalidas.SetTextAlignment(TextAlignment.JUSTIFIED);
+            tablasalidas.SetFont(fuente);
+            tablasalidas.SetFontSize(12);
+            tablasalidas.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+            tablasalidas.AddHeaderCell(new Cell().Add(new Paragraph("Concepto").SetFont(fuente).SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablasalidas.AddHeaderCell(new Cell().Add(new Paragraph("Importe").SetFont(fuente).SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            foreach (Movimiento movimiento in this.salidas)
+            {
+                tablasalidas.AddCell(movimiento.Concepto);
+                tablasalidas.AddCell(new Cell().Add(new Paragraph(movimiento.Importe.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+            }
+            document.Add(tablasalidas);
+
+            document.Close();
+
+
+
+            ////////////////////////////////
+            ///Juntamos el documento con los datos generales y el documento con las tablas
+            iText.Kernel.Pdf.PdfDocument CorteFinal = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(corteCajaFinal));
+            string[] docsToMerge = new string[] { corteCajaPreeliminar, corteCajaEntradasSalidas };
+            for (int a = 0; a < docsToMerge.Length; a++)
+            {
+                iText.Kernel.Pdf.PdfDocument origPdf2 = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfReader(docsToMerge[a]));
+                PdfMerger merger = new PdfMerger(CorteFinal);
+                merger.Merge(origPdf2, 1, origPdf2.GetNumberOfPages());
+
+                origPdf2.Close();
+
+            }
+            CorteFinal.Close();
+
+            File.Delete(corteCajaPreeliminar);
+            File.Delete(corteCajaEntradasSalidas);
+
+            FrmExito exito = new FrmExito("Se ha realizado el corte");
+            exito.ShowDialog();
+
         }
     }
 }
