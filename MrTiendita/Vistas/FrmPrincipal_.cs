@@ -49,7 +49,6 @@ namespace MrTiendita.Vistas
             this.tablero.btn_AtajoEntrada.Click += new EventHandler(Btn_AtajoEntrada_Click);
             this.tablero.btn_AtajoSalida.Click += new EventHandler(Btn_AtajoSalida_Click);
             this.tablero.btn_AtajoCorte.Click += new EventHandler(Btn_AtajoCorte_Click);
-
         }
 
         private void Btn_AtajoCorte_Click(object sender, EventArgs e)
@@ -106,7 +105,6 @@ namespace MrTiendita.Vistas
             pnl_Contenedor.Tag = FormHijo;
             FormHijo.BringToFront();
             FormHijo.Show();
-            
         }
 
         private void AbrirTablero(Form FormHijo)
