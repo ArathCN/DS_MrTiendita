@@ -73,6 +73,12 @@ namespace MrTiendita.Modelos.DTO
             this.importe = importe;
         }
 
+        public Venta(DateTime fecha, double cantidad)
+        {
+            this.fecha = fecha;
+            this.cantidad = cantidad;
+        }
+
         /// <summary>
         /// Gets or sets the identifier venta.
         /// </summary>

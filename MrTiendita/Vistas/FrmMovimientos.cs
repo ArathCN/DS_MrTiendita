@@ -13,9 +13,11 @@ namespace MrTiendita.Vistas
 {
     public partial class FrmMovimientos : Form
     {
-        public FrmMovimientos()
+        public bool esAtajo = false;
+        public FrmMovimientos(bool esAtajo)
         {
             InitializeComponent();
+            this.esAtajo = esAtajo;
             FrmMovimientosController controller = new FrmMovimientosController(this);
             tablaMovimientos.AllowUserToAddRows = false;
             tablaMovimientos.CurrentCell = null;

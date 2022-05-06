@@ -47,7 +47,7 @@ namespace MrTiendita.Controladores
             this.id = -1;
             this.productoParaEntrada = null;
             this.listaProveedores = null;
-            
+
 
             this.vista.Load += new EventHandler(Vista_Load);
 
@@ -64,6 +64,13 @@ namespace MrTiendita.Controladores
             this.vista.btn_AgregarProducto.Click += new EventHandler(btn_AgregarProducto_Click);
             this.vista.btn_RegistrarProducto.Click += new EventHandler(btn_RegistrarProducto_Click);
             this.vista.btn_LimpiarEntrada.Click += new EventHandler(btn_LimpiarEntrada_Click);
+
+            //Borde
+            this.vista.pnl_MenuProductos.Click += new EventHandler(Pnl_MenuProductos_Click);
+            this.vista.pnl_NuevaEntrada.Click += new EventHandler(Pnl_NuevaEntrada_Click);
+            this.vista.tb_CodigoBarra.Click += new EventHandler(Tb_CodigoBarra_Click);
+            this.vista.tb_Cantidad.Click += new EventHandler(Tb_Cantidad_Click);
+            this.vista.cb_Proveedor.Click += new EventHandler(Cb_Proveedor_Click);
 
             //Campos nuevo producto
             this.vista.tb_CodigoBarras.TextChanged += delegate (object sender, EventArgs e)
@@ -102,6 +109,7 @@ namespace MrTiendita.Controladores
             this.vista.tb_CodigoBarra.TextChanged += new EventHandler(tb_CodigoBarra_TextChanged);
             this.vista.tb_Cantidad.TextChanged += delegate (object sender, EventArgs e)
             {
+                this.vista.pnl_MenuProductos.BorderThickness = 0;
                 double cantidad;
                 ValidacionFormulario.Validar(
                     this.vista.lbl_ErrorCantidad, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD);
@@ -120,6 +128,30 @@ namespace MrTiendita.Controladores
             this.CargarProveedores();
         }
 
+        private void Tb_CodigoBarra_Click(object sender, EventArgs e)
+        {
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
+        }
+
+        private void Tb_Cantidad_Click(object sender, EventArgs e)
+        {
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
+        }
+
+        private void Cb_Proveedor_Click(object sender, EventArgs e)
+        {
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
+        }
+
+        private void Pnl_NuevaEntrada_Click(object sender, EventArgs e)
+        {
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
+        }
+
+        private void Pnl_MenuProductos_Click(object sender, EventArgs e)
+        {
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
+        }
 
         ////Métodos de pestañas
         private void Btn_NuevaEntrada_Click(object sender, EventArgs e)
@@ -345,6 +377,7 @@ namespace MrTiendita.Controladores
             String codigoBarraCadena = this.vista.tb_CodigoBarra.Text;
 
             this.vista.lbl_ErrorCodigoBarras.Visible = false;
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
 
             //Comprueba que sea un numero long, no nulo y mayor a 0
             if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigoBarras, "", codigoBarraCadena, out codigoBarra, ValidacionDatosOpciones.CODIGO_BARRA))

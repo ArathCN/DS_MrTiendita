@@ -24,7 +24,7 @@ namespace MrTiendita.Controladores
         private VentaDAO VentaDAO;
         private CajaDAO cajaDAO;
         private Caja valorCaja;
-
+        
         private Guna2Button botonSeleccionado;
         private Panel bordeInferior;
         private Panel pnlActivado;
@@ -37,8 +37,13 @@ namespace MrTiendita.Controladores
             this.VentaDAO = new VentaDAO();
             this.cajaDAO = new CajaDAO();
 
-
+            bordeInferior = new Panel();
+            bordeInferior.Size = new Size(160, 2);
+            this.vista.pnl_MenuSuperior.Controls.Add(bordeInferior);
             this.vista.Load += new EventHandler(Vista_Load);
+
+            //Borde
+            this.vista.pnl_MenuProductos.Click += new EventHandler(Pnl_MenuProductos_Click);
 
             //Pestañas
             this.vista.btn_ConsultarMovimientos.Click += new EventHandler(Btn_ConsultarMovimientos_Click);
@@ -53,11 +58,13 @@ namespace MrTiendita.Controladores
             //formulario
             this.vista.tb_Importe.TextChanged += delegate (object sender, EventArgs e)
             {
+                this.vista.pnl_MenuProductos.BorderThickness = 0;
                 double datoEvaluar;
                 ValidacionFormulario.Validar(this.vista.lbl_ErrorImporte, "", this.vista.tb_Importe.Text, out datoEvaluar, ValidacionDatosOpciones.CANTIDAD);
             };
             this.vista.tb_Desc.TextChanged += delegate (object sender, EventArgs e)
             {
+                this.vista.pnl_MenuProductos.BorderThickness = 0;
                 ValidacionFormulario.Validar(this.vista.lbl_ErrorDesc, "", this.vista.tb_Desc.Text, ValidacionDatosOpciones.CATEGORIA);
             };
             this.vista.btn_LimpiarEntrada.Click += new EventHandler(btn_LimpiarEntrada_Click);
@@ -66,15 +73,28 @@ namespace MrTiendita.Controladores
 
         private void Vista_Load(object sender, EventArgs e)
         {
-            bordeInferior = new Panel();
-            bordeInferior.Size = new Size(160, 2);
-            this.vista.pnl_MenuSuperior.Controls.Add(bordeInferior);
-            this.ActivarBoton(this.vista.btn_ConsultarMovimientos, new Point(this.vista.btn_ConsultarMovimientos.Location.X + 15, 40));
-
-            this.PrepararVistaMovimientos();
-            this.ObtenerValorCaja();
+            if (this.vista.esAtajo == false)
+            {
+                this.ActivarBoton(this.vista.btn_ConsultarMovimientos, new Point(this.vista.btn_ConsultarMovimientos.Location.X + 15, 40));
+                this.PrepararVistaMovimientos();
+                this.ObtenerValorCaja();
+            }
+            else
+            {
+                this.ActivarBoton(this.vista.btn_CorteCaja, new Point(this.vista.btn_CorteCaja.Location.X + 18, 40));
+                this.PrepararVistaCorte();
+                this.ObtenerValorCaja();
+                this.vista.tlp_DisplayCorte.Visible = true;
+                this.vista.tlp_DisplayConsultar.Visible = false;
+            }
+            
         }
 
+        //Borde
+        private void Pnl_MenuProductos_Click(object sender, EventArgs e)
+        {
+            this.vista.pnl_MenuProductos.BorderThickness = 0;
+        }
 
         //Pestañas
         private void Btn_ConsultarMovimientos_Click(object sender, EventArgs e)
@@ -463,6 +483,14 @@ namespace MrTiendita.Controladores
                 return;
             }
             //this.vista.lbl_totalCaja.Text = this.valorCaja.Valor;
+        }
+
+        public void ActivarCorte(object sender)
+        {
+            ActivarBoton(sender, new Point(this.vista.btn_CorteCaja.Location.X + 18, 40));
+            this.vista.tlp_DisplayCorte.Visible = true;
+            this.vista.tlp_DisplayConsultar.Visible = false;
+            this.PrepararVistaCorte();
         }
     }
 }
