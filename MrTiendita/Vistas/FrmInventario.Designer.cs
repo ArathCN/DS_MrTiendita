@@ -29,9 +29,9 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventario));
             this.pnl_MenuProductos = new Guna.UI2.WinForms.Guna2Panel();
             this.pnl_NuevaEntrada = new System.Windows.Forms.Panel();
@@ -151,7 +151,7 @@ namespace MrTiendita.Vistas
             this.pnl_NuevaEntrada.Location = new System.Drawing.Point(19, 62);
             this.pnl_NuevaEntrada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_NuevaEntrada.Name = "pnl_NuevaEntrada";
-            this.pnl_NuevaEntrada.Size = new System.Drawing.Size(1133, 257);
+            this.pnl_NuevaEntrada.Size = new System.Drawing.Size(1133, 233);
             this.pnl_NuevaEntrada.TabIndex = 35;
             this.pnl_NuevaEntrada.Visible = false;
             // 
@@ -400,7 +400,7 @@ namespace MrTiendita.Vistas
             this.pnl_CrearProducto.Location = new System.Drawing.Point(19, 62);
             this.pnl_CrearProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_CrearProducto.Name = "pnl_CrearProducto";
-            this.pnl_CrearProducto.Size = new System.Drawing.Size(1133, 257);
+            this.pnl_CrearProducto.Size = new System.Drawing.Size(1133, 242);
             this.pnl_CrearProducto.TabIndex = 0;
             this.pnl_CrearProducto.Visible = false;
             // 
@@ -1016,8 +1016,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.AllowUserToDeleteRows = false;
             this.dgv_TablaProductos.AllowUserToResizeColumns = false;
             this.dgv_TablaProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_TablaProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1026,14 +1026,14 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_TablaProductos.ColumnHeadersHeight = 35;
             this.dgv_TablaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1047,14 +1047,14 @@ namespace MrTiendita.Vistas
             this.col_Minimo,
             this.col_Editar,
             this.col_Borrar});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaProductos.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaProductos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_TablaProductos.EnableHeadersVisualStyles = false;
             this.dgv_TablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaProductos.Location = new System.Drawing.Point(24, 172);
@@ -1278,7 +1278,6 @@ namespace MrTiendita.Vistas
         private System.Windows.Forms.Label lbl_Cantidad;
         private System.Windows.Forms.Label lbl_CodigoBarra;
         public Guna.UI2.WinForms.Guna2TextBox tb_CodigoBarra;
-        private System.Windows.Forms.Label lbl_NuevaEntrada;
         private System.Windows.Forms.Label lbl_DescripcionNueva;
         private System.Windows.Forms.Label lbl_CodigoBarras;
         public Guna.UI2.WinForms.Guna2TextBox tb_CodigoBarras;
@@ -1326,5 +1325,6 @@ namespace MrTiendita.Vistas
         public Guna.UI2.WinForms.Guna2ComboBox cb_GananciaPorcentaje;
         public System.Windows.Forms.Label lbl_ErrorCantidadCrear;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label lbl_NuevaEntrada;
     }
 }
