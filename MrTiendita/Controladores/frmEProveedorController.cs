@@ -124,7 +124,7 @@ namespace MrTiendita.Controladores
             this.PreperarFormularioCrearProveedor();
         }
 
-        ///Métodos auxiliares
+        //Métodos auxiliares
         private void MostrarTodos()
         {
             this.vista.dgv_TablaProveedores.Rows.Clear();

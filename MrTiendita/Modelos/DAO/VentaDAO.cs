@@ -9,15 +9,11 @@ using System.Threading.Tasks;
 
 namespace MrTiendita.Modelos.DAO
 {
-    /// <summary>
-    /// Define métodos para acceder a datos tipo <see cref="Venta" /> en la base de datos.
-    /// </summary>
+    /// <summary> Define métodos para acceder a datos tipo <see cref="Venta" /> en la base de datos. </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
     class VentaDAO :DbContext
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VentaDAO"/> class.
-        /// </summary>
+        /// <summary> Initializes a new instance of the <see cref="VentaDAO"/> class. </summary>
         public VentaDAO()
         {
             this.errorUltimaConsulta = false;
@@ -484,44 +480,6 @@ namespace MrTiendita.Modelos.DAO
             }
 
             return ventas;
-        }
-
-        //public List<Venta> ReadBetweenDatesByProduct()
-        //{
-        //    List<Venta> ventas = new List<Venta>();
-        //    String sql = "SELECT P.codigo_barra, P.descripcion, P.precio_compra, V.total_cantidad, V.fecha, V.importe" +
-        //                  "FROM Producto AS P INNER JOIN(" +
-        //                  "SELECT codigo_barra, fecha, SUM(cantidad) AS total_cantidad FROM Venta" +
-        //                  "GROUP BY  codigo_barra, fecha, importe" +
-        //                  ") AS V ON P.codigo_barra = V.codigo_barra";
-
-        //    using (SqlConnection connection = new SqlConnection(this.stringConexion))
-        //    {
-        //        connection.Open();
-        //        using (SqlCommand command = new SqlCommand(sql, connection))
-        //        {
-        //            using (SqlDataReader reader = command.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    Venta venta = new Venta(
-        //                            reader.GetDateTime(4),
-        //                            decimal.ToDouble(reader.GetDecimal(3)),
-        //                            decimal.ToDouble(reader.GetDecimal(5))
-        //                    );
-        //                    Producto producto = new Producto(
-        //                        reader.GetInt64(0),
-        //                        reader.GetString(1),
-        //                        decimal.ToDouble(reader.GetDecimal(2))
-        //                    );
-        //                    venta.Producto = producto;
-        //                    ventas.Add(venta);
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    return ventas;
-        //}
+        }       
     }
 }

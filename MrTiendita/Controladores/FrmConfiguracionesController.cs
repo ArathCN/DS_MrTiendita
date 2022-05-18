@@ -16,25 +16,15 @@ namespace MrTiendita.Controladores
         private FrmConfiguraciones vista;
 
         private String rutaReportes;
-
         private int lada;
-
         private double sueldoCajero;
-
         private double sueldoEncargado;
-
         private double cantidadMinima;
-
         private bool siNotificar;
-
         private bool siMinimoGlobal;
-
         private bool siGanancia;
-
         private int ganancia;
-
         private bool siErrorMinimoGlobal;
-
         private bool siErrorGanancia;
 
         public FrmConfiguracionesController(FrmConfiguraciones vista)
@@ -113,8 +103,7 @@ namespace MrTiendita.Controladores
             {
                 {ValidacionDatosOpciones.MAYOR_A, 0},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
-            };
-            //ValidacionDatos.Numero(str_sueldoCajeros, out dob_sueldoCajeros, opcionesSueldos);
+            };            
             siValido = ValidacionFormulario.Validar(
                     this.vista.lbl_errorSueldoCajeros, "", str_sueldoCajeros, out dob_sueldoCajeros, opcionesSueldos);
             if (siValido) this.sueldoCajero = dob_sueldoCajeros;
@@ -138,7 +127,6 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.MAYOR_A, 0},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
             };
-            //ValidacionDatos.Numero(str_sueldoEncargados, out dob_sueldoEncargados, opcionesSueldos);
             siValido = ValidacionFormulario.Validar(
                     this.vista.lbl_errorSueldoCajeros, mensajeError, str_sueldoEncargados, out dob_sueldoEncargados, opcionesSueldos);
             if (siValido) this.sueldoEncargado = dob_sueldoEncargados;
@@ -162,7 +150,6 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.MENOR_IGUAL_A, 999},
                 {ValidacionDatosOpciones.NUM_CARACTERES, 3}
             };
-            //ValidacionDatos.Numero(str_lada, out dob_lada, opcionesLada);
             siValido = ValidacionFormulario.Validar(
                     this.vista.lbl_errorSueldoCajeros, mensajeError, str_lada, out dob_lada, opcionesLada);
             if (siValido) this.lada = dob_lada;
@@ -186,7 +173,6 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.MENOR_A, 10000},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
             };
-            //ValidacionDatos.Numero(str_lada, out dob_lada, opcionesLada);
             siValido = ValidacionFormulario.Validar(
                     this.vista.lbl_ErrorCantidadMin, mensajeError, str_cantidadMinima, out dob_cantidadMinima, opcionesCantidad);
             if (siValido)
@@ -236,7 +222,6 @@ namespace MrTiendita.Controladores
                 {ValidacionDatosOpciones.MENOR_IGUAL_A, 100},
                 {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
             };
-            //ValidacionDatos.Numero(str_lada, out dob_lada, opcionesLada);
             siValido = ValidacionFormulario.Validar(
                     this.vista.lbl_ErrorGanancia, "", str_ganancia, out int_ganancia, opcionesCantidad);
             if (siValido)
@@ -276,8 +261,6 @@ namespace MrTiendita.Controladores
             Properties.Settings.Default.Save();
             FrmExito exito = new FrmExito("Se han actualizado los cambios");
             exito.Show();
-
-
         }
     }
 }

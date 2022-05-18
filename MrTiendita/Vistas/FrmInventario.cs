@@ -18,22 +18,7 @@ namespace MrTiendita.Vistas
             InitializeComponent();
             FrmInventarioController controller = new FrmInventarioController(this);
             dgv_TablaProductos.AllowUserToAddRows = false;
-            dgv_TablaProductos.CurrentCell = null;
-            int indexNuevoProducto;
-            for (int i = 0; i < 15; i++)
-            {
-                dgv_TablaProductos.Rows.Add();
-                indexNuevoProducto = dgv_TablaProductos.RowCount - 1;
-                Console.WriteLine(indexNuevoProducto);
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_CodigoBarras"].Value = "1112223334445";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = "Leche Lala Deslactosada 1L";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_PrecioVenta"].Value = "$27.80";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_PrecioCompra"].Value = "$27.80";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Ganancia"].Value = "30%";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Categoria"].Value = "Higiene personal y salud";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_CantidadActual"].Value = "23";
-                dgv_TablaProductos.Rows[indexNuevoProducto].Cells["col_Minimo"].Value = "5";
-            }
+            dgv_TablaProductos.CurrentCell = null;            
             dgv_TablaProductos.AllowUserToResizeColumns = false;
             AjustarColumnas();
         }

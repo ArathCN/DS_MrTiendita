@@ -10,24 +10,18 @@ using MrTiendita.Constantes;
 
 namespace MrTiendita.Modelos.DAO
 {
-    /// <summary>
-    /// Define métodos para acceder a datos tipo <see cref="Movimiento" /> en la base de datos.
-    /// </summary>
+    /// <summary> Define métodos para acceder a datos tipo <see cref="Movimiento" /> en la base de datos. </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
     class MovimientoDAO : DbContext
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MovimientoDAO"/> class.
-        /// </summary>
+        /// <summary> Initializes a new instance of the <see cref="MovimientoDAO"/> class. </summary>
         public MovimientoDAO()
         {
             this.errorUltimaConsulta = false;
             this.mensajeError = null;
         }
 
-        /// <summary>
-        /// Crea un registro de <see cref="Movimiento"/> en la base de datos. 
-        /// </summary>
+        /// <summary> Crea un registro de <see cref="Movimiento"/> en la base de datos. </summary>
         /// <param name="movimiento">El movimiento a registrar.</param>
         /// <returns><see cref="Boolean"/> <c>true</c> si se registró correctamente, <c>false</c> si no se registró.</returns>
         public bool Create(Movimiento movimiento)
@@ -63,9 +57,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        /// <summary>
-        /// Consutal todos los registros <see cref="Movimiento"/> en la base de datos.
-        /// </summary>
+        /// <summary> Consutal todos los registros <see cref="Movimiento"/> en la base de datos. </summary>
         /// <returns><see cref="List{Movimiento}"/> que contiene los registros de movimientos encontrados.
         /// Es vacía si no se encontró ninguno.</returns>
         public List<Movimiento> ReadAll()
@@ -138,9 +130,7 @@ namespace MrTiendita.Modelos.DAO
             return movimientos;
         }
 
-        /// <summary>
-        /// Consulta registros <see cref="Movimiento"/> de la base de datos según el tipo de movimiento.
-        /// </summary>
+        /// <summary> Consulta registros <see cref="Movimiento"/> de la base de datos según el tipo de movimiento. </summary>
         /// <param name="tipo">Tipo de movimiento a buscar.</param>
         /// <returns><see cref="List{Movimiento}"/> que contiene los registros de movimientos encontrados.
         /// Es vacía si no se encontró ninguno.</returns>
@@ -292,6 +282,7 @@ namespace MrTiendita.Modelos.DAO
                 }
                 
             }
+
             return success;
         }
     }

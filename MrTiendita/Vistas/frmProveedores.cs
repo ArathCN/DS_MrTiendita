@@ -17,16 +17,7 @@ namespace MrTiendita.Vistas
         {
             InitializeComponent();
             dgv_TablaProveedores.AllowUserToAddRows = false;
-            dgv_TablaProveedores.CurrentCell = null;
-            int indexNuevoProducto;
-            for (int i = 0; i < 3; i++)
-            {
-                dgv_TablaProveedores.Rows.Add();
-                indexNuevoProducto = dgv_TablaProveedores.RowCount - 1;
-                Console.WriteLine(indexNuevoProducto);
-                dgv_TablaProveedores.Rows[indexNuevoProducto].Cells["col_Nombre"].Value = "Coca Cola S.A de C.V.";
-                dgv_TablaProveedores.Rows[indexNuevoProducto].Cells["col_Telefono"].Value = "6221828945";
-            }
+            dgv_TablaProveedores.CurrentCell = null;            
             dgv_TablaProveedores.AllowUserToResizeColumns = false;
             FrmEProveedorController controlador = new FrmEProveedorController(this);
             AjustarColumnas();

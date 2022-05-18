@@ -20,21 +20,7 @@ namespace MrTiendita.Vistas
             InitializeComponent();
 
             tablaEmpleados.AllowUserToAddRows = false;
-            tablaEmpleados.CurrentCell = null;
-            int indexNuevoProducto;
-            for (int i = 0; i < 3; i++)
-            {
-                tablaEmpleados.Rows.Add();
-                indexNuevoProducto = tablaEmpleados.RowCount - 1;
-                Console.WriteLine(indexNuevoProducto);
-                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Nombre"].Value = "Ana Sofía";
-                //dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_ApellidoPa"].Value = "De Haro";
-                //dgv_TablaEmpleados.Rows[indexNuevoProducto].Cells["col_ApellidoMa"].Value = "De La Cruz";
-                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Telefono"].Value = "6221828945";
-                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Sueldo"].Value = "$1000.00";
-                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_TipoEmpleado"].Value = "Encargado";
-                tablaEmpleados.Rows[indexNuevoProducto].Cells["col_Usuario"].Value = "AnaSofia";
-            }
+            tablaEmpleados.CurrentCell = null;            
             tablaEmpleados.AllowUserToResizeColumns = false;
             AjustarColumnas();
             FrmEmpleadosController controller = new FrmEmpleadosController(this);

@@ -144,7 +144,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Componentes\Formulario.cs" />
     <Compile Include="Componentes\ValidacionDatos.cs" />
     <Compile Include="Componentes\ValidacionFormulario.cs" />
     <Compile Include="Constantes\AccionesCRUD.cs" />
@@ -154,25 +153,14 @@
     <Compile Include="Constantes\ValidacionDatosOpciones.cs" />
     <Compile Include="Componentes\CrearTicket.cs" />
     <Compile Include="Controladores\FrmBuscarProductoController.cs" />
-    <Compile Include="Controladores\FrmCAlmacenController.cs" />
-    <Compile Include="Controladores\FrmCCajaController.cs" />
-    <Compile Include="Controladores\FrmCobroController.cs" />
     <Compile Include="Controladores\FrmConfiguracionesController.cs" />
     <Compile Include="Controladores\FrmCVentasController.cs" />
-    <Compile Include="Controladores\FrmEAlmacenController.cs" />
-    <Compile Include="Controladores\FrmEEmpleadosController.cs" />
-    <Compile Include="Controladores\FrmEmpleadoController.cs" />
     <Compile Include="Controladores\FrmEmpleadosController.cs" />
     <Compile Include="Controladores\FrmEProveedorController.cs" />
     <Compile Include="Controladores\FrmInicioController.cs" />
     <Compile Include="Controladores\FrmInventarioController.cs" />
     <Compile Include="Controladores\FrmMovimientosController.cs" />
-    <Compile Include="Controladores\FrmPrincipalController.cs" />
-    <Compile Include="Controladores\FrmProductoController.cs" />
-    <Compile Include="Controladores\FrmProveedorController.cs" />
-    <Compile Include="Controladores\FrmREntradasController.cs" />
     <Compile Include="Controladores\FrmReportesController.cs" />
-    <Compile Include="Controladores\FrmRVentasController.cs" />
     <Compile Include="Controladores\FrmTableroController.cs" />
     <Compile Include="Modelos\DAO\CajaDAO.cs" />
     <Compile Include="Modelos\DAO\DbContext.cs" />
@@ -207,59 +195,11 @@
     <Compile Include="Vistas\FrmBuscarProducto.Designer.cs">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FrmCAlmacen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmCAlmacen.designer.cs">
-      <DependentUpon>FrmCAlmacen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmCCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmCCaja.designer.cs">
-      <DependentUpon>FrmCCaja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmCobro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmCobro.Designer.cs">
-      <DependentUpon>FrmCobro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FrmConfiguraciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\FrmConfiguraciones.Designer.cs">
       <DependentUpon>FrmConfiguraciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmCVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmCVentas.designer.cs">
-      <DependentUpon>FrmCVentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmEAlmacen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmEAlmacen.designer.cs">
-      <DependentUpon>FrmEAlmacen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmEditarEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmEditarEmpleado.Designer.cs">
-      <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmEditarProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmEditarProveedor.designer.cs">
-      <DependentUpon>FrmEditarProveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmEEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmEEmpleado.Designer.cs">
-      <DependentUpon>FrmEEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmEmpleados.cs">
       <SubType>Form</SubType>
@@ -291,41 +231,17 @@
     <Compile Include="Vistas\FrmMovimientos.Designer.cs">
       <DependentUpon>FrmMovimientos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FrmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FrmPrincipal_.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\FrmPrincipal_.Designer.cs">
       <DependentUpon>FrmPrincipal_.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FrmProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmProducto.Designer.cs">
-      <DependentUpon>FrmProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FrmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\FrmProveedores.Designer.cs">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmREntradas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmREntradas.Designer.cs">
-      <DependentUpon>FrmREntradas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmReportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmReportes.Designer.cs">
-      <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmInicio.cs">
       <SubType>Form</SubType>
@@ -338,12 +254,6 @@
     </Compile>
     <Compile Include="Vistas\FrmReportes_.Designer.cs">
       <DependentUpon>FrmReportes_.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmRVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmRVentas.Designer.cs">
-      <DependentUpon>FrmRVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmTablero.cs">
       <SubType>Form</SubType>
@@ -378,32 +288,8 @@
     <EmbeddedResource Include="Vistas\FrmBuscarProducto.resx">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmCAlmacen.resx">
-      <DependentUpon>FrmCAlmacen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmCCaja.resx">
-      <DependentUpon>FrmCCaja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmCobro.resx">
-      <DependentUpon>FrmCobro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmConfiguraciones.resx">
       <DependentUpon>FrmConfiguraciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmCVentas.resx">
-      <DependentUpon>FrmCVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmEAlmacen.resx">
-      <DependentUpon>FrmEAlmacen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmEditarEmpleado.resx">
-      <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmEditarProveedor.resx">
-      <DependentUpon>FrmEditarProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmEEmpleado.resx">
-      <DependentUpon>FrmEEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
@@ -420,32 +306,17 @@
     <EmbeddedResource Include="Vistas\FrmMovimientos.resx">
       <DependentUpon>FrmMovimientos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmPrincipal_.resx">
       <DependentUpon>FrmPrincipal_.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmProducto.resx">
-      <DependentUpon>FrmProducto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmProveedores.resx">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmREntradas.resx">
-      <DependentUpon>FrmREntradas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmReportes.resx">
-      <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmInicio.resx">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmReportes_.resx">
       <DependentUpon>FrmReportes_.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmRVentas.resx">
-      <DependentUpon>FrmRVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmTablero.resx">
       <DependentUpon>FrmTablero.cs</DependentUpon>

@@ -39,7 +39,6 @@ namespace MrTiendita.Controladores
         {
             ModificarNotificacion(this.vista.flp_ListaNotificaciones);
             ObtenerValorCaja();
-            //CargarGrafica();
         }
 
         public void ObtenerValorCaja()
@@ -60,8 +59,7 @@ namespace MrTiendita.Controladores
             List<Producto> productos = productoDAO.ReadAll();
             if (Properties.Settings.Default.siMinimoGlobal)
             {
-                double minimoGlobal = Properties.Settings.Default.minimoGlobal;
-                MessageBox.Show($"El mínimo global es: {minimoGlobal}");
+                double minimoGlobal = Properties.Settings.Default.minimoGlobal;                
                 //Por cada elementos de productos comparar minimoGlobal con cantidad
                 foreach (Producto producto in productos)
                 {
@@ -87,28 +85,7 @@ namespace MrTiendita.Controladores
                         notificacion.Dock = DockStyle.Top;
                     }
                 }
-            }
-            
-            
-        }
-
-        //public void CargarGrafica()
-        //{
-        //    DateTime hoy_ = DateTime.Now;
-        //    DateTime hoy = new DateTime(hoy_.Year, hoy_.Month, hoy_.Day, 0, 0, 0);
-
-        //    int diaSemana = (int)hoy.DayOfWeek;
-        //    if (diaSemana == 0) diaSemana = 7;
-        //    diaSemana--;
-        //    DateTime inicio = hoy.AddDays(-diaSemana);
-        //    DateTime final = hoy.AddDays(6 - diaSemana);
-        //    List<Venta> ventasSemana = this.ventaDAO.ReadBetweenDatesByNumber(inicio, final);
-        //    for (int i = 0; i < ventasSemana.Count; i++)
-        //    {
-        //        Series serie = this.vista.chart_Ventas.Series.Add(ventasSemana[i].Fecha.ToString());
-        //        serie.Label = ventasSemana[i].Cantidad.ToString();
-        //        serie.Points.Add(ventasSemana[i].Cantidad);
-        //    }
-        //}
+            }                       
+        }        
     }
 }

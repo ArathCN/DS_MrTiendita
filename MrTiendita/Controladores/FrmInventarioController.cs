@@ -192,9 +192,6 @@ namespace MrTiendita.Controladores
             }
             else this.vista.cb_Categoria.SelectedIndex = -1;
 
-
-
-
             OcultarErrores();
             ActivarBoton(sender);
             AbrirPanel(this.vista.pnl_CrearProducto);
@@ -238,7 +235,6 @@ namespace MrTiendita.Controladores
                 }
             
         }
-
 
         //Métodos campos de nuevo producto
         private void cb_GananciaPorcentaje_tb_PrecioCompra_Changed(object sender, EventArgs e)
@@ -331,8 +327,7 @@ namespace MrTiendita.Controladores
             //Obtener el producto de los campos...
             Producto producto = new Producto(codigoBarra, descripcionCad, ganancia, precioCompra, cantidad, medida, categoriaCad, minimo);
 
-            //Hacer la acción 
-            //Hacer la acción 
+            //Hacer la acción
             if (this.accion == AccionesCRUD.UPDATE)
             {
                 Productos.Modificar(producto, this.id);

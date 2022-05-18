@@ -30,6 +30,8 @@ namespace MrTiendita.Controladores
             this.vista.btn_Cerrar.Click += new EventHandler(Btn_Cerrar_Click);
             this.vista.FormClosing += new FormClosingEventHandler(FrmInicio_FormClosing);
             this.principal.btn_CerrarSesion.Click += new EventHandler(Btn_CerrarSesion_Click);
+            this.vista.tb_IDEmpleado.KeyPress += new KeyPressEventHandler(Keypressed);
+            this.vista.tb_claveEmpleado.KeyPress += new KeyPressEventHandler(Keypressed);
 
             this.vista.tb_IDEmpleado.TextChanged += delegate (object sender, EventArgs e)
             {
@@ -46,10 +48,48 @@ namespace MrTiendita.Controladores
 
         private void Btn_aceptar_Click(object sender, EventArgs e)
         {
+            this.ValidarDatos();
+        }
+
+        private void Btn_Cerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado;
+            Form mensaje = new FrmAdvertencia("Saldrá del sistema");
+            resultado = mensaje.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                esCerradoInicio = false;
+                Application.Exit();
+            }
+        }
+
+        private void Btn_CerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.principal.esCerrado = false;
+            this.principal.Close();
+            conexion.Cierre(this.vista);
+            this.vista.lbl_ErrorID.Visible = false;
+            this.vista.lbl_ErrorClave.Visible = false;
+        }
+
+        private void FrmInicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (esCerradoInicio == false)
+                Application.Exit();
+            else if (esCerradoInicio == true)
+            {
+                esCerradoInicio = false;
+                e.Cancel = true;
+                this.vista.Hide();
+            }
+        }
+
+        private void ValidarDatos()
+        {
             string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text;
             String mensajeErrorUsuario = "Texto de entre 5 a 50 caracteres.";
             String mensajeErrorClave = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
-
 
             Dictionary<int, int> opcionesUsuario = new Dictionary<int, int>() {
                 {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
@@ -90,38 +130,12 @@ namespace MrTiendita.Controladores
             esCerradoInicio = true;
             this.vista.Close();
         }
-
-        private void Btn_Cerrar_Click(object sender, EventArgs e)
+        private void Keypressed(Object o, KeyPressEventArgs e)
         {
-            DialogResult resultado;
-            Form mensaje = new FrmAdvertencia("Saldrá del sistema");
-            resultado = mensaje.ShowDialog();
-
-            if (resultado == DialogResult.OK)
+            if (e.KeyChar == (char)Keys.Return)
             {
-                esCerradoInicio = false;
-                Application.Exit();
-            }
-        }
-
-        private void Btn_CerrarSesion_Click(object sender, EventArgs e)
-        {
-            this.principal.esCerrado = false;
-            this.principal.Close();
-            conexion.Cierre(this.vista);
-            this.vista.lbl_ErrorID.Visible = false;
-            this.vista.lbl_ErrorClave.Visible = false;
-        }
-
-        private void FrmInicio_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (esCerradoInicio == false)
-                Application.Exit();
-            else if (esCerradoInicio == true)
-            {
-                esCerradoInicio = false;
-                e.Cancel = true;
-                this.vista.Hide();
+                e.Handled = true;
+                ValidarDatos();
             }
         }
     }

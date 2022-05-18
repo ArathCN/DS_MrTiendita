@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace MrTiendita.Constantes
 {
-    /// <summary>
-    /// Clase con las constantes de tipo de cajero.
-    /// </summary>
+    /// <summary> Clase con las constantes de tipo de cajero. </summary>
     public static class TipoEmpleadoC
     {
         /// <summary>Constante tipo de empleado "Cajero".</summary>

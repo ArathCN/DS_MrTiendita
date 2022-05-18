@@ -39,7 +39,6 @@ namespace MrTiendita.Vistas
             this.controller = frmTableroController;
             this.movimientosController = frmMovimientosController;
 
-            //AbrirFormulario(this.tablero);
             AbrirTablero(this.tablero);
             ActivarBoton(this.btn_Tablero);
             pnl_Contenedor2.Visible = true;
@@ -128,7 +127,6 @@ namespace MrTiendita.Vistas
 
         private void btn_Tablero_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario(new FrmTablero());
             controller.ModificarNotificacion(this.tablero.flp_ListaNotificaciones);
             controller.ObtenerValorCaja();
             AbrirTablero(this.tablero);
@@ -181,6 +179,7 @@ namespace MrTiendita.Vistas
 
         private void btn_CerrarSesion_Click(object sender, EventArgs e)
         {
+            ActivarBoton(btn_Tablero);
             esActivado = false;
         }
 

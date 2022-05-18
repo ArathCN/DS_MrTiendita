@@ -6,26 +6,18 @@ using System.Threading.Tasks;
 
 namespace MrTiendita.Modelos.DTO
 {
-    /// <summary>
-    /// Clase que guarda una instancia de <see cref="Empleado"/> para usarla de sesión en el sistema.
-    /// </summary>
+    /// <summary> Clase que guarda una instancia de <see cref="Empleado"/> para usarla de sesión en el sistema. </summary>
     public class EmpleadoCache
     {
-        /// <summary>
-        /// The empleado
-        /// </summary>
+        /// <summary> The empleado </summary>
         private static Empleado empleado;
 
-        /// <summary>
-        /// Prevents a default instance of the <see cref="EmpleadoCache"/> class from being created.
-        /// </summary>
+        /// <summary> Prevents a default instance of the <see cref="EmpleadoCache"/> class from being created.</summary>
         private EmpleadoCache()
         {
         }
 
-        /// <summary>
-        /// Gets the empleado.
-        /// </summary>
+        /// <summary> Gets the empleado. </summary>
         /// <param name="empleado">The empleado.</param>
         /// <returns>An <see cref="Empleado"/> instance.</returns>
         public static Empleado GetEmpleado(Empleado empleado = null)
@@ -33,19 +25,18 @@ namespace MrTiendita.Modelos.DTO
             if (EmpleadoCache.empleado == null)
             {
                 EmpleadoCache.empleado = new Empleado();
-                if(empleado != null )EmpleadoCache.SetEmpleado(empleado);
+                if (empleado != null) EmpleadoCache.SetEmpleado(empleado);
             }
 
             return EmpleadoCache.empleado;
         }
 
-        /// <summary>
-        /// Sets the empleado.
-        /// </summary>
+        /// <summary> Sets the empleado. </summary>
         /// <param name="empleado">The empleado.</param>
         public static void SetEmpleado(Empleado empleado)
         {
-            if (empleado == null) {
+            if (empleado == null)
+            {
                 EmpleadoCache.empleado = null;
                 return;
             }
@@ -58,8 +49,6 @@ namespace MrTiendita.Modelos.DTO
             EmpleadoCache.empleado.Sueldo = empleado.Sueldo;
             EmpleadoCache.empleado.Tipo_empleado = empleado.Tipo_empleado;
             EmpleadoCache.empleado.Usuario = empleado.Usuario;
-
         }
-
     }
 }
