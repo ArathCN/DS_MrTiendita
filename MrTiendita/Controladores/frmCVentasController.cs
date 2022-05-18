@@ -48,7 +48,6 @@ namespace MrTiendita.Controladores
             this.efectivo = 0;
             this.metodoPago = TipoMovimiento.EFECTIVO;
             
-
             this.formato = new CultureInfo("es-MX").NumberFormat;
             this.formato.CurrencyGroupSeparator = ",";
             this.formato.NumberDecimalSeparator = ".";
@@ -61,25 +60,9 @@ namespace MrTiendita.Controladores
             this.vista.check_Tarjeta.OnChange += new EventHandler(check_Tarjeta_OnChange);
             this.vista.tb_Efectivo.TextChanged += new EventHandler(tb_Efectivo_TextChanged);
 
-
-            //this.vista.tb_codigo.TextChanged += new EventHandler(Tb_codigo_TextChanged);
-            //this.vista.cb_productos.SelectedValueChanged += new EventHandler(Cb_productos_SelectedValueChanged);
-            //this.vista.btn_aceptar.Click += new EventHandler(Btn_aceptar_Click);
             this.vista.btn_CompletarVenta.Click += new EventHandler(btn_CompletarVenta_Click);
             this.vista.btn_CancelarVenta.Click += new EventHandler(Btn_cancelar_Click);
-            this.vista.dgv_TablaVentas.CellContentClick += new DataGridViewCellEventHandler(TablaVentas_CellContentClick);
-
-            //this.vista.tb_cantidad.TextChanged += delegate (object sender, EventArgs e)
-            //{
-            //    double datoEvaluar;
-            //    String mensajeError = "Inserta un número de 1-1000 con máximo dos decimales.";
-            //    Dictionary<int, double> longitudCadenas = new Dictionary<int, double>() {
-            //        {ValidacionDatosOpciones.MAYOR_A, 0},
-            //        {ValidacionDatosOpciones.MENOR_A, 1001},
-            //        {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
-            //    };
-            //    ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_cantidad.Text, out datoEvaluar, longitudCadenas);
-            //};
+            this.vista.dgv_TablaVentas.CellContentClick += new DataGridViewCellEventHandler(TablaVentas_CellContentClick);          
         }
 
         /// <summary> Maneja el evento de carga del control de Vista. </summary>
@@ -134,21 +117,7 @@ namespace MrTiendita.Controladores
             this.vista.btn_CompletarVenta.Enabled = true;
             this.vista.lbl_Cambio.Text = (this.efectivo - this.totalVenta).ToString("C", this.formato);
         }
-        /// <summary> Maneja el evento Valor Seleccionado Cambiado del control Cb productos. </summary>
-        /// <param name="sender">La fuente del evento.</param>
-        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/> .</param>
-        //private void Cb_productos_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    if (this.vista.cb_productos.SelectedIndex != -1)
-        //    {
-        //        int cantidadInicial = 1;
-        //        String nombreProducto = this.vista.cb_productos.SelectedItem.ToString();
-        //        long idProducto = this.listaProductos[nombreProducto];
-        //        this.vista.tb_codigo.Text = idProducto.ToString();
-        //        this.vista.tb_cantidad.Text = cantidadInicial.ToString();
-        //    }
-        //}
-
+        
         /// <summary> Maneja el evento CellContentClick del control Tabla Ventas. </summary>
         /// <param name="sender">La fuente del evento.</param>
         /// <param name="e">La instancia que contiene los datos del evento <see cref="DataGridViewCellEventArgs"/> .</param>
@@ -203,123 +172,9 @@ namespace MrTiendita.Controladores
             }
 
             this.vista.lbl_TotalAPagar.Text = this.totalVenta.ToString("C", this.formato);
+            this.vista.tb_Efectivo.Text = this.totalVenta.ToString();
         }
-
-        /// <summary>Maneja el evento Text Changed del control Tb_codigo. </summary>
-        /// <param name="sender">La fuente del evento.</param>
-        /// <param name="e">La instancia que contiene los datos del evento. <see cref="EventArgs"/>.</param>
-        //private void Tb_codigo_TextChanged(object sender, EventArgs e)
-        //{
-        //    long codigoBarra;
-        //    String mensajeError = "Debe ser un número de 13 dígitos.";
-        //    Dictionary<int, long> longitudCadenas = new Dictionary<int, long>()
-        //    {
-        //        {ValidacionDatosOpciones.MAYOR_A, 0},
-        //        {ValidacionDatosOpciones.NUM_CARACTERES, 13}
-        //    };
-
-        //    if (!ValidacionFormulario.Validar(
-        //        this.vista.lbl_ErrorCodigo, mensajeError, this.vista.tb_codigo.Text, out codigoBarra, longitudCadenas))
-        //    {
-        //        this.producto = null;
-        //        return;
-        //    }
-
-        //    //Se busca el producto...
-        //    this.producto = this.productoDAO.ReadById(codigoBarra);
-        //    if (this.producto != null)
-        //    {
-        //        this.vista.lbl_ErrorCodigo.Visible = false;
-        //    }
-        //    else
-        //    {
-        //        this.vista.lbl_ErrorCodigo.Text = "No hay un producto con ese código de barras.";
-        //        this.vista.lbl_ErrorCodigo.Visible = true;
-        //    }
-        //}
-
-        /// <summary> Maneja el evento Click del control Btn_accept.</summary>
-        /// <param name="sender">La fuente del evento.</param>
-        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
-        //private void btn_aceptar_click(object sender, EventArgs e)
-        //{
-        //    string cantidadcadena = this.vista.tb_cantidad.text;
-        //    double cantidad;
-        //    string mensajeerrorcantidad = "debe ser un número de 1-1000 con máximo dos decimales.";
-        //    dictionary<int, double> opciones = new dictionary<int, double>() {
-        //            {validaciondatosopciones.mayor_a, 0},
-        //            {validaciondatosopciones.menor_a, 1001},
-        //            {validaciondatosopciones.num_decimales_no_round, 2}
-        //    };
-
-        //    //comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
-        //    if (this.producto == null ||
-        //        !validacionformulario.validar(
-        //            this.vista.lbl_errorcantidad, mensajeerrorcantidad, cantidadcadena, out cantidad, opciones))
-        //    {
-        //        form mensajeerror = new frmerror("debe de llenar todos los campos correctamente.");
-        //        mensajeerror.showdialog();
-        //        return;
-        //    }
-
-        //    //comprobar si la medida del producto coincide con la cantidad a vender
-        //    var partedecimal = cantidad - math.truncate(cantidad);
-        //    if (producto.medida == false && partedecimal != 0)
-        //    {
-        //        form mensajeerror = new frmerror("no se puede vender en decimales este producto.");
-        //        mensajeerror.showdialog();
-        //        return;
-        //    }
-
-        //    //comprobar que no se quiera vender más de lo que hay
-        //    if (cantidad > producto.cantidad_actual)
-        //    {
-        //        form mensajeerror = new frmerror("no hay suficiente cantidad de este producto.");
-        //        mensajeerror.showdialog();
-        //        return;
-        //    }
-
-        //    //agregarlo a la tabla ----------- mejor ponerlo en un metodo para llamarlo tambien cuando sea por escaner
-        //    double subtotal = cantidad * producto.precio_venta;
-        //    subtotal = math.round(subtotal, 2);
-        //    bool siencontrado = false;
-
-        //    //si se ingresa un articulo que ya estaba en la lista sólo se le suma la cantidad a la fila.
-        //    foreach (datagridviewrow articulo in this.vista.tablaventas.rows)
-        //    {
-        //        if (long.parse(articulo.cells["codigo"].value.tostring()) == this.producto.codigo_barra)
-        //        {
-        //            articulo.cells["cantidad_actual"].value =
-        //                convert.todouble(articulo.cells["cantidad_actual"].value.tostring()) + cantidad;
-        //            articulo.cells["subtotal"].value =
-        //                convert.todouble(articulo.cells["subtotal"].value.tostring()) + subtotal;
-        //            siencontrado = true;
-        //        }
-        //    }
-
-        //    if (!siencontrado)
-        //    {
-        //        //se agrega un nuevo producto a la tabla
-        //        this.vista.tablaventas.rows.add();
-        //        int indexnuevoproducto = this.vista.tablaventas.rowcount - 1;
-        //        console.writeline(indexnuevoproducto);
-        //        this.vista.tablaventas.rows[indexnuevoproducto].cells["cantidad_actual"].value = cantidad;
-        //        this.vista.tablaventas.rows[indexnuevoproducto].cells["descripcion"].value = producto.descripcion;
-        //        this.vista.tablaventas.rows[indexnuevoproducto].cells["precio"].value = producto.precio_venta;
-        //        this.vista.tablaventas.rows[indexnuevoproducto].cells["subtotal"].value = subtotal;
-        //        this.vista.tablaventas.rows[indexnuevoproducto].cells["codigo"].value = producto.codigo_barra;
-        //    }
-
-        //    //actualizar el total
-        //    this.totalventa += subtotal;
-        //    this.vista.lbl_total.text = "$" + this.totalventa;
-        //    this.vista.tb_codigo.text = "";
-        //    this.vista.tb_cantidad.text = "";
-        //    this.vista.cb_productos.selectedindex = -1;
-        //    this.vista.lbl_errorcodigo.visible = false;
-        //    this.vista.lbl_errorcantidad.visible = false;
-        //}
-
+        
         /// <summary> Maneja el evento Click del control Btn_Cancelar.</summary>
         /// <param name="sender">La fuente del evento.</param>
         /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
@@ -328,9 +183,9 @@ namespace MrTiendita.Controladores
             this.LimpiarVista();
         }
 
-        ///// <summary> Maneja el evento pago del control Venta_metodo.</summary>
-        ///// <param name="sender">La fuente del evento.</param>
-        ///// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
+        /// <summary> Maneja el evento pago del control Venta_metodo.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
         private void btn_CompletarVenta_Click(object sender, EventArgs e)
         {
             bool siExito = false;
@@ -373,7 +228,7 @@ namespace MrTiendita.Controladores
             }
 
             //Según el método de pago llama a métodos diferentes
-            if(this.metodoPago == TipoMovimiento.EFECTIVO)
+            if (this.metodoPago == TipoMovimiento.EFECTIVO)
             {
                 //Obtener el valor de la caja
                 Caja caja = this.cajaDAO.ReadByName("Total");
@@ -395,7 +250,6 @@ namespace MrTiendita.Controladores
                     double.Parse(caja.Valor),
                     TipoMovimiento.VENTA
                 );
-
                 siExito = this.ventaDAO.Create(ventas, this.productosVenta, movimiento, caja);
             }
             else if(this.metodoPago == TipoMovimiento.TARJETA)
@@ -409,7 +263,8 @@ namespace MrTiendita.Controladores
                 error.ShowDialog();
                 return;
             }
-
+            CrearTicket ticket = this.GenerarTicket();
+            this.GuardarTicket(ticket);
             FrmExito mensajeExito = new FrmExito("Se registrado la venta con éxito.");
             mensajeExito.ShowDialog();
 
@@ -419,7 +274,7 @@ namespace MrTiendita.Controladores
         private void Btn_Buscar_AbrirFrm(object sender, EventArgs e) 
         {
             this.vista2 = new FrmBuscarProducto(this);
-            this.vista2.Show();
+            this.vista2.ShowDialog();
         }
 
 
@@ -431,7 +286,7 @@ namespace MrTiendita.Controladores
             int indexRow = -1;
             double cantidadTabla = 0;
             double subtotal = 0;
-            //se comprubea si el producto ya está en la tala o no 
+            //se comprubea si el producto ya está en la tabla o no 
             foreach (DataGridViewRow articulo in this.vista.dgv_TablaVentas.Rows)
             {
                 if (long.Parse(articulo.Cells["col_Codigo"].Value.ToString()) == producto.Codigo_barra)
@@ -474,10 +329,7 @@ namespace MrTiendita.Controladores
             //actualizar el total
             this.totalVenta += subtotal;
             this.vista.lbl_TotalAPagar.Text = this.totalVenta.ToString("C", this.formato);
-            //this.vista.tb_Codigo.Text = "";
-            //this.vista.tb_Cantidad.Text = "";
-            //this.vista.lbl_CodigoBarras.Visible = false;
-
+            this.vista.tb_Efectivo.Text = this.totalVenta.ToString();
         }
 
         private void EfectivoDefault()
@@ -512,6 +364,59 @@ namespace MrTiendita.Controladores
             this.vista.lbl_Cambio.Text = "$0.00";
             this.vista.tb_Efectivo.Text = "";
             this.vista.btn_CompletarVenta.Enabled = true;
+        }
+
+        private CrearTicket GenerarTicket()
+        {
+            //Creamos una instancia d ela clase CrearTicket
+            CrearTicket ticket = new CrearTicket();
+            ticket.AbreCajon();//Para abrir el cajon de dinero.
+            ticket.TextoCentro("EL RINCÓN");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("ATENDIÓ: " + this.empleado.Nombre);
+            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+            ticket.TextoIzquierda("");
+            ticket.LineasAsteriscos();
+            ticket.EncabezadoVenta();
+            ticket.LineasAsteriscos();
+            foreach (Producto item in this.productosVenta)
+            {
+                ticket.AgregaArticulo(
+                    item.Descripcion, item.Cantidad_actual, item.Precio_venta, item.Precio_venta * item.Cantidad_actual);
+            }
+            ticket.LineasIgual();
+            ticket.AgregarTotales("         TOTAL.........$", this.totalVenta);
+            ticket.TextoIzquierda("");
+            ticket.AgregarTotales("         EFECTIVO......$", this.efectivo);
+            ticket.AgregarTotales("         CAMBIO........$", this.efectivo - this.totalVenta);
+            ticket.TextoIzquierda("");
+            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+            ticket.CortaTicket();
+            return ticket;
+        }
+
+        /// <summary> Guardars the ticket. </summary>
+        /// <param name="ticket">The ticket.</param>
+        private void GuardarTicket(CrearTicket ticket)
+        {
+            DateTime hora = DateTime.Now;
+            String nombre = "Ticket_" + hora.ToString("yyyy-MM-dd_HH-mm-ss");
+            String rutaTickets = Properties.Settings.Default.RutaTickets;
+            String ruta = rutaTickets + "\\" + nombre + ".txt";
+            Console.WriteLine(ruta);
+            try
+            {
+                using (StreamWriter file = new StreamWriter(ruta))
+                {
+                    file.WriteLine(ticket.Linea);
+                }
+            }
+            catch (Exception e)
+            {
+                Form mensajeError = new FrmError("Error: " + e.Message);
+                mensajeError.ShowDialog();
+            }
         }
     }
 }

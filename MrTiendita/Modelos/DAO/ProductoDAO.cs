@@ -9,15 +9,11 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
-    /// <summary>
-    /// Define métodos para acceder a datos tipo <see cref="Producto" /> en la base de datos.
-    /// </summary>
+    /// <summary> Define métodos para acceder a datos tipo <see cref="Producto" /> en la base de datos. </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
     class ProductoDAO :DbContext
     {
-        /// <summary>
-        /// Crea un registro <see cref="Producto"/> en la base de datos.
-        /// </summary>
+        /// <summary>Crea un registro <see cref="Producto"/> en la base de datos. </summary>
         /// <param name="producto">El producto a registrar.</param>
         /// <returns><see cref="Boolean"/>  <c>true</c> si el registro tiene exito, <c>false</c> si no se registró.</returns>
         public bool Create(Producto producto)

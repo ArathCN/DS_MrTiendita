@@ -9,24 +9,18 @@ using MrTiendita.Modelos.DTO;
 
 namespace MrTiendita.Modelos.DAO
 {
-    /// <summary>
-    /// Define métodos para acceder a datos tipo <see cref="Caja" /> en la base de datos.
-    /// </summary>
+    /// <summary> Define métodos para acceder a datos tipo <see cref="Caja" /> en la base de datos. </summary>
     /// <seealso cref="MrTiendita.Modelos.DAO.DbContext" />
     class CajaDAO :DbContext
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CajaDAO"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="CajaDAO"/> class.</summary>
         public CajaDAO()
         {
             this.errorUltimaConsulta = false;
             this.mensajeError = null;
         }
 
-        /// <summary>
-        /// Consulta un registro en la base de datos que coincida con el nombre especificado.
-        /// </summary>
+        /// <summary> Consulta un registro en la base de datos que coincida con el nombre especificado. </summary>
         /// <param name="nombre">El nombre a consultar.</param>
         /// <returns>Un registro en tipo <see cref="Caja"/>, null si no se encontró ninguna coincidencia.</returns>
         public Caja ReadByName(String nombre)

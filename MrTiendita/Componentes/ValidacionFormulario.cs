@@ -100,7 +100,13 @@ namespace MrTiendita.Componentes
 
             return EsValido;
         }
-
+        /// <summary> Validars the specified etiqueta. </summary>
+        /// <param name="etiqueta">The etiqueta.</param>
+        /// <param name="mensaje">The mensaje.</param>
+        /// <param name="dato">The dato.</param>
+        /// <param name="datoSalida">The dato salida.</param>
+        /// <param name="opciones">The opciones.</param>
+        /// <returns><see cref="Boolean"/> true si la cadena es valida, false si la cadena no es valida.</returns>
         static public bool Validar(
             Label etiqueta,
             String mensaje,

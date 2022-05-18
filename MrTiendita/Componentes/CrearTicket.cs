@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 
-/// <summary>Clases que crean tickets validos para imprimir.</summary>
+
 namespace CrearTicketVenta
 {
     /// <summary> Esta es la clase para crear el ticket de venta. Crearemos varios métodos aquí. </summary>
@@ -448,13 +448,13 @@ namespace CrearTicketVenta
         // SendBytesToPrinter()
 
         /// <summary>Envía los bytes a la impresora. </summary>
-        // When the function is given a printer name and an unmanaged array
-        // of bytes, the function sends those bytes to the print queue.
-        // Returns true on success, false on failure.
         /// <param name="szPrinterName">Name of the sz printer.</param>
         /// <param name="pBytes">The p bytes.</param>
         /// <param name="dwCount">The dw count.</param>
         /// <returns> Si ha sucedido o no.</returns>
+        // When the function is given a printer name and an unmanaged array
+        // of bytes, the function sends those bytes to the print queue.
+        // Returns true on success, false on failure.
         public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
         {
             Int32 dwError = 0, dwWritten = 0;
@@ -510,5 +510,4 @@ namespace CrearTicketVenta
             return true;
         }
     }
-    //
 }

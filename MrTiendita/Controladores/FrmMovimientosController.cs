@@ -194,8 +194,7 @@ namespace MrTiendita.Controladores
             final = final.AddHours(23);
             final = final.AddMinutes(59);
             final = final.AddSeconds(59);
-            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
-            //Console.WriteLine(inicio.ToString("yyyy-MM-dd HH:mm:ss") + "  -->  " + final.ToString("yyyy-MM-dd HH:mm:ss"));
+            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);            
         }
 
         private void lbl_EsteMes_Click(object sender, EventArgs e)
@@ -281,23 +280,7 @@ namespace MrTiendita.Controladores
                 FrmError error = new FrmError("Hubo un error al registrar el movimiento. ->  " + this.movimientoDAO.MensajeError);
                 error.ShowDialog();
                 return;
-            }
-
-            //esValido = this.movimientoDAO.Create(movimiento);
-            //if (!esValido)
-            //{
-            //    FrmError error = new FrmError("Hubo un error al registrar el movimiento. ->  " + this.movimientoDAO.MensajeError);
-            //    error.ShowDialog();
-            //    return;
-            //}
-
-            //esValido = this.cajaDAO.UpdateValue("Total", this.valorCaja.Valor);
-            //if (!esValido)
-            //{
-            //    FrmError error = new FrmError("Hubo un error al actualizar el total de la caja. ->  " + this.cajaDAO.MensajeError);
-            //    error.ShowDialog();
-            //    return;
-            //}
+            }            
 
             FrmExito mensajeExito = new FrmExito("Se registrado el movimiento con éxito.");
             mensajeExito.ShowDialog();
@@ -486,42 +469,24 @@ namespace MrTiendita.Controladores
 
         private void MostrarMovimientos(String filtro, DateTime inicio, DateTime fin)
         {
-            //double total = 0;
-
             List<Movimiento> movimientos = this.movimientoDAO.Read(filtro, inicio, fin);
             this.vista.tablaMovimientos.Rows.Clear();
             foreach (Movimiento movimiento in movimientos)
             {
                 this.vista.tablaMovimientos.Rows.Add(
                     movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
-                //total += movimiento.Importe;
             }
-
-            //this.vista.lbl_total.Text = "$" + total.ToString();
-
-            //Hacer visibles las etiquetas para el total
-            //this.vista.lbl_totaltxt.Visible = true;
-            //this.vista.lbl_total.Visible = true;
         }
 
         private void MostrarMovimientos(String filtro)
         {
-            //double total = 0;
-
             List<Movimiento> movimientos = this.movimientoDAO.ReadByType(filtro);
             this.vista.tablaMovimientos.Rows.Clear();
             foreach (Movimiento movimiento in movimientos)
             {
                 this.vista.tablaMovimientos.Rows.Add(
                     movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
-                //total += movimiento.Importe;
             }
-
-            //this.vista.lbl_total.Text = "$" + total.ToString();
-
-            //Hacer visibles las etiquetas para el total
-            //this.vista.lbl_totaltxt.Visible = true;
-            //this.vista.lbl_total.Visible = true;
         }
 
         private void ObtenerValorCaja()
@@ -533,14 +498,10 @@ namespace MrTiendita.Controladores
                 error.ShowDialog();
                 return;
             }
-            //this.vista.lbl_totalCaja.Text = this.valorCaja.Valor;
         }
       
         private void GenerarCorteCaja()
         {
-            //string nombreProfesor = this.textBox3.Text;
-            //string codigo = this.textBox2.Text;
-            //string nombreAlumno = this.textBox1.Text;
             DateTime hoy = DateTime.Now;
             Random random = new Random();
             long numeroR = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
@@ -564,7 +525,7 @@ namespace MrTiendita.Controladores
             }
 
             /////////////////////////
-            ///Primero se crea el corte de caja con los datos que se pueden poner con adobe
+            // Primero se crea el corte de caja con los datos que se pueden poner con adobe
             iTextSharp.text.pdf.PdfReader pdfReader = null;
 
             // Create the form filler
@@ -620,7 +581,7 @@ namespace MrTiendita.Controladores
 
 
             ////////////////////////////
-            ///Ahora se crea un archivo pdf con las entradas y salidas de dinerp
+            //Ahora se crea un archivo pdf con las entradas y salidas de dinerp
             iText.Kernel.Pdf.PdfDocument pdfDoc = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(corteCajaEntradasSalidas));
             Document document = new Document(pdfDoc, iText.Kernel.Geom.PageSize.LETTER);
             document.SetMargins(20f, 15f, 20f, 15f);
@@ -671,7 +632,7 @@ namespace MrTiendita.Controladores
 
 
             ////////////////////////////////
-            ///Juntamos el documento con los datos generales y el documento con las tablas
+            //Juntamos el documento con los datos generales y el documento con las tablas
             iText.Kernel.Pdf.PdfDocument CorteFinal = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(corteCajaFinal));
             string[] docsToMerge = new string[] { corteCajaPreeliminar, corteCajaEntradasSalidas };
             for (int a = 0; a < docsToMerge.Length; a++)

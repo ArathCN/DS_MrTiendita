@@ -318,10 +318,7 @@ namespace MrTiendita.Modelos.DAO
                     }
                 }
             }
-
             return empleado;
-        }
-
-        
+        }        
     }
 }

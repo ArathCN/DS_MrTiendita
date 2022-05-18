@@ -114,9 +114,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-        /// <summary>
-        /// Consulta todos los registros <see cref="Proveedor"/> en la base de datos.
-        /// </summary>
+        /// <summary> Consulta todos los registros <see cref="Proveedor"/> en la base de datos. </summary>
         /// <returns>Una <see cref="List{Proveedor}"/> que contiene a todos los productos de la base de datos,
         /// si no hay ninguno es una lista vacía.</returns>
         public List<Proveedor> ReadAll()
@@ -243,7 +241,6 @@ namespace MrTiendita.Modelos.DAO
                 {
                     command.Parameters.Add("@id", SqlDbType.Int);
                     command.Parameters["@id"].Value = id;
-
 
                     int rowsAffected = command.ExecuteNonQuery();
 

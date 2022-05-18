@@ -125,10 +125,7 @@ namespace MrTiendita.Modelos.DAO
             return success;
         }
 
-
-        /// <summary>
-        /// Consulta todos los registros de <see cref="EntradaAlmacen"/> de la base de datos.
-        /// </summary>
+        /// <summary> Consulta todos los registros de <see cref="EntradaAlmacen"/> de la base de datos. </summary>
         /// <returns><see cref="List{EntradaAlmacen}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
         public List<EntradaAlmacen> ReadAll()
         {
@@ -162,9 +159,7 @@ namespace MrTiendita.Modelos.DAO
             return entradasAlmacen;
         }
 
-        /// <summary>
-        /// Consulta registros de <see cref="EntradaAlmacen"/> que se hayan realizado entre las fechas especificadas.
-        /// </summary>
+        /// <summary> Consulta registros de <see cref="EntradaAlmacen"/> que se hayan realizado entre las fechas especificadas. </summary>
         /// <param name="inicio">Fecha límite de inicio.</param>
         /// <param name="final">Fecha límite final.</param>
         /// <returns><see cref="List{EntradaAlmacen}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
@@ -214,9 +209,7 @@ namespace MrTiendita.Modelos.DAO
                     }
                 }
             }
-
             return entradasAlmacen;
         }
-
     }
 }

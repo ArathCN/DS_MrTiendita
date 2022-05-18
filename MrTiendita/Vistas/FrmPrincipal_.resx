@@ -2467,7 +2467,7 @@
   <data name="pb_Linea.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAIAAANGCAYAAADXl1/DAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAC9JREFUWEftxiENAAAIADD6d8TQAgUjAv7i2yOr54iIiIiIiIiIiIiIiIiIyDs9
+        EQAACxEBf2RfkQAAAC9JREFUWEftxiENAAAIADD6d8TQAgUjAv7i2yOr54iIiIiIiIiIiIiIiIiIyDs9
         C4/QU31OQI6uAAAAAElFTkSuQmCC
 </value>
   </data>
@@ -4971,6 +4971,6 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>49</value>
+    <value>27</value>
   </metadata>
 </root>

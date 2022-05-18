@@ -15,14 +15,18 @@ using System.Windows.Forms;
 
 namespace MrTiendita.Controladores
 {
+    /// <summary> Creación de la clase de tipo Controller para la busqueda de los productos. </summary>
     public class FrmBuscarProductoController
     {
+        /// <summary> La vista. </summary>
         private FrmBuscarProducto vista;
+        /// <summary> El controller de ventas. </summary>
         private FrmCVentasController cventas;
+        /// <summary> El DAO de producto. </summary>
         private ProductoDAO productoDAO;
-           
 
-
+        /// <summary> Inicializa una nueva instancia de la clase <see cref="FrmBuscarProductoController"/>. </summary>
+        /// <param name="vista">La vista.</param>
         public FrmBuscarProductoController(FrmBuscarProducto vista) 
         { 
             this.vista = vista;
@@ -44,6 +48,9 @@ namespace MrTiendita.Controladores
 
         }
 
+        /// <summary> Maneja el evento Load del control de Vista. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="EventArgs"/> que contiene los datos del evento.</param>
         private void Vista_Load(object sender, EventArgs e)
         {
             MostrarProductos();
@@ -51,7 +58,8 @@ namespace MrTiendita.Controladores
             foreach (Categoria categoria in Categorias.CATEGORIAS) 
             { this.vista.cb_Categoria.Items.Add(categoria.Nombre); }
         }
-
+        
+        /// <summary> Muestra los productos. </summary>
         protected void MostrarProductos()
         {
             this.vista.dgv_TablaProductos.Rows.Clear();
@@ -70,6 +78,9 @@ namespace MrTiendita.Controladores
 
         }
 
+        /// <summary> Maneja el evento TextChanged del control Tb_BuscarProducto. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="EventArgs"/> que contiene los datos del evento.</param>
         private void Tb_BuscarProducto_TextChanged(object sender, EventArgs e)
         {
             String cadenaBusqueda = this.vista.tb_BuscarProducto.Text;
@@ -87,7 +98,10 @@ namespace MrTiendita.Controladores
                     );
             }
         }
-        
+
+        /// <summary> Maneja el evento TextChanged del control Cb_Categoria. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="EventArgs"/>que contiene los datos del evento.</param>
         private void Cb_Categoria_TextChanged(object sender, EventArgs e) 
         {
 
@@ -127,6 +141,9 @@ namespace MrTiendita.Controladores
             }  
         }
 
+        /// <summary> Maneja el evento CellFormatting del control Dgv_TablaProductos. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="DataGridViewCellFormattingEventArgs"/> que contiene los datos del evento.</param>
         private void Dgv_TablaProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) 
         {
             if (this.vista.dgv_TablaProductos.Columns[e.ColumnIndex].Name.Equals("col_CantidadAgregar"))
@@ -140,6 +157,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento EditingControlShowing del control Dgv_TablaProductos.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="DataGridViewEditingControlShowingEventArgs"/> que contiene los datos del evento.</param>
         private void Dgv_TablaProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Columns_KeyPress);
@@ -155,6 +175,9 @@ namespace MrTiendita.Controladores
             }
         }
 
+        /// <summary> Maneja el evento KeyPress del control Columns. </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="KeyPressEventArgs"/> que contiene los datos del evento.</param>
         private void Columns_KeyPress(object sender, KeyPressEventArgs e)
         {
             int index = this.vista.dgv_TablaProductos.CurrentCell.RowIndex;
@@ -173,14 +196,15 @@ namespace MrTiendita.Controladores
                 }
             }        
         }
-        
 
-    private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        /// <summary> Maneja el evento CellContentClick del control Dgv_TablaProductos.</summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e"> La instancia <see cref="DataGridViewCellEventArgs"/> que contiene los datos del evento.</param>
+        private void Dgv_TablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.vista.dgv_TablaProductos.Rows[e.RowIndex].Cells["col_AgregarCarrito"].Selected)
             {
                 int index = this.vista.dgv_TablaProductos.CurrentCell.RowIndex;
-                //Console.WriteLine(index);
                 Producto xProducto = new Producto
                 {
                     Codigo_barra = Int64.Parse(
@@ -192,7 +216,6 @@ namespace MrTiendita.Controladores
                 };
 
                 Producto producto = this.productoDAO.ReadById(xProducto.Codigo_barra);
-                //Console.Write(/*producto.Codigo_barra+*//*"  "+*/xProducto.Cantidad_actual);
                 if (xProducto.Cantidad_actual > producto.Cantidad_actual)
                 {
                     Form mensajeError = new FrmError("No hay cantidad suficiente de este producto.");
@@ -208,15 +231,3 @@ namespace MrTiendita.Controladores
         }
     }
 }
-
-
-
-
- 
- 
- 
- 
-
- 
- 
-

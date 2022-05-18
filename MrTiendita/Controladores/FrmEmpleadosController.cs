@@ -47,8 +47,7 @@ namespace MrTiendita.Controladores
 
             //Listener para error
             this.vista.tb_Usuario.TextChanged += delegate (object sender, EventArgs e)
-            {
-                
+            {                
                 ValidacionFormulario.Validar(
                     this.vista.lbl_ErrorUsuario, "", this.vista.tb_Usuario.Text, ValidacionDatosOpciones.USUARIO);
             };
@@ -146,11 +145,8 @@ namespace MrTiendita.Controladores
                 this.MostrarTodos();
             }  
             else if (this.vista.tablaEmpleados.Rows[e.RowIndex].Cells["col_Editar"].Selected)
-                PreperarFormularioActualizarEmpleado(e);
-
-            
+                PreperarFormularioActualizarEmpleado(e);            
         }
-
 
         private void cb_Cajero_OnChange(object sender, EventArgs e)
         {
@@ -207,13 +203,11 @@ namespace MrTiendita.Controladores
                 this.ActualizarEmpleado(empleado);
                 
             }
-
             this.PreperarFormularioCrearEmpleado();
             this.MostrarTodos();
         }
 
-
-        ////Métodos de pestañas
+        //Métodos de pestañas
         private void btn_RegistrarEmpleado_Click(object sender, EventArgs e)
         {
             this.PreperarFormularioCrearEmpleado();
@@ -243,7 +237,7 @@ namespace MrTiendita.Controladores
             }
         }
 
-        ////Métodos auxiliares
+        //Métodos auxiliares
         private void ActivarBoton(Guna2Button boton)
         {
             if (boton != null)

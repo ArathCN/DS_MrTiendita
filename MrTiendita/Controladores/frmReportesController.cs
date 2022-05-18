@@ -124,24 +124,18 @@ namespace MrTiendita.Controladores
 
         private void Dp_DesdeEntradas_onValueChanged(object sender, EventArgs e)
         {
-            //yyyy - mm - dd hh: mm: ss
             DateTime fechaDesde = this.vista.dp_DesdeEntradas.Value;
             DateTime fechaHasta = this.vista.dp_HastaEntradas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
-            //MessageBox.Show($"Desde: {fechaDesde}");
-            //MessageBox.Show($"Hasta: {fechaHasta}");
             ActualizarEntradas(fechaDesde, fechaHasta, this.vista.lbl_Periodo);
             ActivarPeriodo(this.vista.lbl_Periodo);
         }
 
         private void Dp_HastaEntradas_onValueChanged(object sender, EventArgs e)
         {
-            //yyyy - mm - dd hh: mm: ss
             DateTime fechaDesde = this.vista.dp_DesdeEntradas.Value;
             DateTime fechaHasta = this.vista.dp_HastaEntradas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
-            //MessageBox.Show($"Desde: {fechaDesde}");
-            //MessageBox.Show($"Hasta: {fechaHasta}");
             ActualizarEntradas(fechaDesde, fechaHasta, this.vista.lbl_Periodo);
             ActivarPeriodo(this.vista.lbl_Periodo);
         }
@@ -225,7 +219,6 @@ namespace MrTiendita.Controladores
 
         private void Dp_DesdeVentas_onValueChanged(object sender, EventArgs e)
         {
-            //yyyy - mm - dd hh: mm: ss
             DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
             DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -245,7 +238,6 @@ namespace MrTiendita.Controladores
 
         private void Dp_HastaVentas_onValueChanged(object sender, EventArgs e)
         {
-            //yyyy - mm - dd hh: mm: ss
             DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
             DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -308,31 +300,7 @@ namespace MrTiendita.Controladores
                 MensajeError(sender);
                 this.vista.dgv_TablaTodasVentas.Rows.Clear();
             }
-        }
-
-        public void ActualizarVentasProducto(DateTime desde, DateTime hasta, object sender)
-        {
-            ////Ventas por cada producto
-            //List<Venta> ventasPorProducto = this.ventaDAO.ReadBetweenDatesByProduct();
-            //if (ventasPorProducto.Count != 0)
-            //{
-            //    Dictionary<string, double> totalVentasProducto = new Dictionary<string, double>();
-            //    Dictionary<string, double> totalEfectivoProducto = new Dictionary<string, double>();
-            //    Dictionary<string, double> totalGananciaProducto = new Dictionary<string, double>();
-            //    foreach (Venta ventas in ventasPorProducto)
-            //    {
-            //        if (ventas.Fecha.Date == )
-            //        {
-
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    MensajeError(sender);
-            //    this.vista.dgv_TablaTodasVentas.Rows.Clear();
-            //}
-        }
+        }       
 
         public void ActualizarVentasCategoria(DateTime desde, DateTime hasta, object sender)
         {
@@ -438,8 +406,6 @@ namespace MrTiendita.Controladores
         {
             DateTime inicioMes = hoy;
             int diasMenos;
-            //this.desde = DateTime.Today;
-            //MessageBox.Show(string.Format("Día {0}. Mes {1}. Año {2}. ", this.desde.Day, this.desde.Month, this.desde.Year));
             hoy = hoy.AddDays(-1);
             diasMenos = hoy.Day;
             inicioMes = inicioMes.AddDays(-diasMenos).AddHours(-23).AddMinutes(-59).AddSeconds(-59);

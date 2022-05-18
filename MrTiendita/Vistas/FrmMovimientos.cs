@@ -26,40 +26,7 @@ namespace MrTiendita.Vistas
             dgv_TablaEntradas.CurrentCell = null;
 
             dgv_TablaSalidas.AllowUserToAddRows = false;
-            dgv_TablaSalidas.CurrentCell = null;
-
-
-            //int indexNuevoProducto;
-            //for (int i = 0; i < 15; i++)
-            //{
-            //    tablaMovimientos.Rows.Add();
-            //    indexNuevoProducto = tablaMovimientos.RowCount - 1;
-            //    Console.WriteLine(indexNuevoProducto);
-            //    tablaMovimientos.Rows[indexNuevoProducto].Cells["col_TipoMovimiento"].Value = "Entrada";
-            //    tablaMovimientos.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = "Entrada de dinero de fondo de caja";
-            //    tablaMovimientos.Rows[indexNuevoProducto].Cells["col_Fecha"].Value = "01/05/2022 01:35:09 PM";
-            //    tablaMovimientos.Rows[indexNuevoProducto].Cells["col_Importe"].Value = "$10,000.00";
-            //}
-
-            //int indexNuevoEntrada;
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    dgv_TablaEntradas.Rows.Add();
-            //    indexNuevoEntrada = dgv_TablaEntradas.RowCount - 1;
-            //    Console.WriteLine(indexNuevoEntrada);
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_DescripcionCorteEntrada"].Value = "Entrada de dinero de fondo de caja el 01/05/2022 a las 5:00 PM";
-            //    dgv_TablaEntradas.Rows[indexNuevoEntrada].Cells["col_ImporteCorteEntrada"].Value = "$1,000";
-            //}
-
-            //int indexNuevoSalida;
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    dgv_TablaSalidas.Rows.Add();
-            //    indexNuevoSalida = dgv_TablaSalidas.RowCount - 1;
-            //    Console.WriteLine(indexNuevoSalida);
-            //    dgv_TablaSalidas.Rows[indexNuevoSalida].Cells["col_DescripcionCorteSalida"].Value = "Pago de proveedor el 01/05/2022 a las 5:00 PM";
-            //    dgv_TablaSalidas.Rows[indexNuevoSalida].Cells["col_ImporteCorteSalida"].Value = "$500";
-            //}
+            dgv_TablaSalidas.CurrentCell = null;            
 
             tablaMovimientos.AllowUserToResizeColumns = false;
             dgv_TablaEntradas.AllowUserToResizeColumns = false;
