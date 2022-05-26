@@ -29,6 +29,7 @@ namespace MrTiendita.Controladores
         private double efectivo;
         private string metodoPago;
         private NumberFormatInfo formato;
+        private Producto producto;
 
         private List<Producto> productosVenta; //solo contiene productos con codigo y cantidad, lo demas vacio
         private Dictionary<String, long> listaProductos;
@@ -47,7 +48,7 @@ namespace MrTiendita.Controladores
             this.totalVenta = 0;
             this.efectivo = 0;
             this.metodoPago = TipoMovimiento.EFECTIVO;
-            
+
             this.formato = new CultureInfo("es-MX").NumberFormat;
             this.formato.CurrencyGroupSeparator = ",";
             this.formato.NumberDecimalSeparator = ".";
@@ -55,6 +56,15 @@ namespace MrTiendita.Controladores
 
             this.vista.Load += new EventHandler(Vista_load);
             this.vista.btn_Buscar.Click += new EventHandler(Btn_Buscar_AbrirFrm);
+            this.vista.tb_Codigo.TextChanged += new EventHandler(tb_Codigo_TextChanged);
+            this.vista.tb_Cantidad.TextChanged += delegate (object sender, EventArgs e)
+            {
+                double cantidad;
+                Label label = new Label();
+                ValidacionFormulario.Validar(
+                    label, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD);
+            };
+            this.vista.btn_Agregar.Click += new EventHandler(btn_Agregar_Click);
 
             this.vista.check_Efectivo.OnChange += new EventHandler(check_Efectivo_OnChange);
             this.vista.check_Tarjeta.OnChange += new EventHandler(check_Tarjeta_OnChange);
@@ -62,7 +72,7 @@ namespace MrTiendita.Controladores
 
             this.vista.btn_CompletarVenta.Click += new EventHandler(btn_CompletarVenta_Click);
             this.vista.btn_CancelarVenta.Click += new EventHandler(Btn_cancelar_Click);
-            this.vista.dgv_TablaVentas.CellContentClick += new DataGridViewCellEventHandler(TablaVentas_CellContentClick);          
+            this.vista.dgv_TablaVentas.CellContentClick += new DataGridViewCellEventHandler(TablaVentas_CellContentClick);
         }
 
         /// <summary> Maneja el evento de carga del control de Vista. </summary>
@@ -117,7 +127,7 @@ namespace MrTiendita.Controladores
             this.vista.btn_CompletarVenta.Enabled = true;
             this.vista.lbl_Cambio.Text = (this.efectivo - this.totalVenta).ToString("C", this.formato);
         }
-        
+
         /// <summary> Maneja el evento CellContentClick del control Tabla Ventas. </summary>
         /// <param name="sender">La fuente del evento.</param>
         /// <param name="e">La instancia que contiene los datos del evento <see cref="DataGridViewCellEventArgs"/> .</param>
@@ -174,7 +184,7 @@ namespace MrTiendita.Controladores
             this.vista.lbl_TotalAPagar.Text = this.totalVenta.ToString("C", this.formato);
             this.vista.tb_Efectivo.Text = this.totalVenta.ToString();
         }
-        
+
         /// <summary> Maneja el evento Click del control Btn_Cancelar.</summary>
         /// <param name="sender">La fuente del evento.</param>
         /// <param name="e">La instancia que contiene los datos del evento <see cref="EventArgs"/>.</param>
@@ -252,7 +262,7 @@ namespace MrTiendita.Controladores
                 );
                 siExito = this.ventaDAO.Create(ventas, this.productosVenta, movimiento, caja);
             }
-            else if(this.metodoPago == TipoMovimiento.TARJETA)
+            else if (this.metodoPago == TipoMovimiento.TARJETA)
             {
                 siExito = this.ventaDAO.Create(ventas, this.productosVenta);
             }
@@ -271,10 +281,46 @@ namespace MrTiendita.Controladores
             this.LimpiarVista();
         }
 
-        private void Btn_Buscar_AbrirFrm(object sender, EventArgs e) 
+        private void Btn_Buscar_AbrirFrm(object sender, EventArgs e)
         {
             this.vista2 = new FrmBuscarProducto(this);
             this.vista2.ShowDialog();
+        }
+
+        private void tb_Codigo_TextChanged(object sender, EventArgs e)
+        {
+            string _codigo = this.vista.tb_Codigo.Text;
+            long codigo;
+            Label label = new Label();
+
+            if (!ValidacionFormulario.Validar(label, "", _codigo, out codigo, ValidacionDatosOpciones.CODIGO_BARRA))
+            {
+                this.producto = null;
+                return;
+            }
+
+            this.producto = this.productoDAO.ReadById(codigo);
+
+            if(this.producto == null)
+            {
+                //imprimir el mensaje en la etiqueta
+                label.Text = "Producto no encontrado...";
+            }
+        }
+
+        private void btn_Agregar_Click(object sender, EventArgs e)
+        {
+            double cantidad;
+            Label label = new Label();
+            if (this.producto == null ||
+                !ValidacionFormulario.Validar(label, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD))
+            {
+                FrmError error = new FrmError("Debe de escribir el código de barras y la cantidad correctamente.");
+                error.ShowDialog();
+                return;
+            }
+
+            this.AgregarProducto(this.producto.Codigo_barra, cantidad);
         }
 
 

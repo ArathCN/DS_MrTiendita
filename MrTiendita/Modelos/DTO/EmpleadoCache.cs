@@ -20,14 +20,8 @@ namespace MrTiendita.Modelos.DTO
         /// <summary> Gets the empleado. </summary>
         /// <param name="empleado">The empleado.</param>
         /// <returns>An <see cref="Empleado"/> instance.</returns>
-        public static Empleado GetEmpleado(Empleado empleado = null)
+        public static Empleado GetEmpleado()
         {
-            if (EmpleadoCache.empleado == null)
-            {
-                EmpleadoCache.empleado = new Empleado();
-                if (empleado != null) EmpleadoCache.SetEmpleado(empleado);
-            }
-
             return EmpleadoCache.empleado;
         }
 
@@ -35,11 +29,9 @@ namespace MrTiendita.Modelos.DTO
         /// <param name="empleado">The empleado.</param>
         public static void SetEmpleado(Empleado empleado)
         {
-            if (empleado == null)
-            {
-                EmpleadoCache.empleado = null;
-                return;
-            }
+            EmpleadoCache.empleado = null;
+            EmpleadoCache.empleado = new Empleado();
+            if (empleado == null) return;
             EmpleadoCache.empleado.Id_empleado = empleado.Id_empleado;
             EmpleadoCache.empleado.Clave = empleado.Clave;
             EmpleadoCache.empleado.Nombre = empleado.Nombre;

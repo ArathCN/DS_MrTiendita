@@ -71,6 +71,7 @@ namespace MrTiendita.Controladores
             conexion.Cierre(this.vista);
             this.vista.lbl_ErrorID.Visible = false;
             this.vista.lbl_ErrorClave.Visible = false;
+            EmpleadoCache.SetEmpleado(null);
         }
 
         private void FrmInicio_FormClosing(object sender, FormClosingEventArgs e)
@@ -88,24 +89,13 @@ namespace MrTiendita.Controladores
         private void ValidarDatos()
         {
             string usuario = this.vista.tb_IDEmpleado.Text, clave = this.vista.tb_claveEmpleado.Text;
-            String mensajeErrorUsuario = "Texto de entre 5 a 50 caracteres.";
-            String mensajeErrorClave = "Texto de entre 5 a 20 caracteres, acepta a-z 0-9 * ? ! @ # $ / () {} = - . , ; :";
 
-            Dictionary<int, int> opcionesUsuario = new Dictionary<int, int>() {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
-                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 50}
-            };
-            Dictionary<int, int> opcionesClave = new Dictionary<int, int>() {
-                {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 5},
-                {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 20}
-            };
-
-            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorID, mensajeErrorUsuario, usuario, opcionesUsuario) ||
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorID, "", usuario, ValidacionDatosOpciones.USUARIO) ||
                 !ValidacionFormulario.Validar(
                     this.vista.lbl_ErrorClave,
-                    mensajeErrorClave,
+                    "",
                     clave,
-                    opcionesClave,
+                    ValidacionDatosOpciones.CLAVE,
                     patron: "^[a-z0-9\\-\\*\\?\\!\\@\\#\\$\\/\\(\\)\\{\\}\\=\\.\\,\\;\\:]*$"))
             {
                 Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
@@ -123,7 +113,7 @@ namespace MrTiendita.Controladores
             }
 
             //como son correctos se crea el empelado en cache
-            EmpleadoCache.GetEmpleado(empleado);
+            EmpleadoCache.SetEmpleado(empleado);
 
             //abre las opciones segun el tipo de empleado
             conexion.Peticion(empleado.Tipo_empleado, principal);

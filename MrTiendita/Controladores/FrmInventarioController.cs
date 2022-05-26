@@ -126,6 +126,8 @@ namespace MrTiendita.Controladores
             AbrirPanel(this.vista.pnl_NuevaEntrada);
             MostrarProductos();
             this.CargarProveedores();
+            foreach (Categoria categoria in Categorias.CATEGORIAS)
+                this.vista.cb_Categoria.Items.Add(categoria.Nombre);
         }
 
         private void Tb_CodigoBarra_Click(object sender, EventArgs e)
@@ -156,6 +158,8 @@ namespace MrTiendita.Controladores
         ////Métodos de pestañas
         private void Btn_NuevaEntrada_Click(object sender, EventArgs e)
         {
+            this.vista.btn_ModificarProducto.Visible = false;
+            this.bordeInferior.Visible = false;
             this.accion = AccionesCRUD.CREATE;
             this.id = -1;
             ActivarBoton(sender);
