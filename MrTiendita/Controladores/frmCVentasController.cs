@@ -23,7 +23,6 @@ namespace MrTiendita.Controladores
         private ProductoDAO productoDAO;
         private VentaDAO ventaDAO;
         private CajaDAO cajaDAO;
-        private Producto producto;
 
         private Empleado empleado;
         private double totalVenta;
@@ -61,28 +60,14 @@ namespace MrTiendita.Controladores
             this.vista.tb_Cantidad.TextChanged += delegate (object sender, EventArgs e)
             {
                 double cantidad;
-                Label label = new Label();
                 ValidacionFormulario.Validar(
-                    label, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD);
+                    this.vista.lbl_ErrorCantidad, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD);
             };
             this.vista.btn_Agregar.Click += new EventHandler(btn_Agregar_Click);
 
             this.vista.check_Efectivo.OnChange += new EventHandler(check_Efectivo_OnChange);
             this.vista.check_Tarjeta.OnChange += new EventHandler(check_Tarjeta_OnChange);
             this.vista.tb_Efectivo.TextChanged += new EventHandler(tb_Efectivo_TextChanged);
-            this.vista.btn_Agregar.Click += new EventHandler(btn_Agregar_Click);
-            this.vista.tb_Codigo.TextChanged += new EventHandler(Tb_codigo_TextChanged);
-            this.vista.tb_Cantidad.TextChanged += delegate (object sender, EventArgs e)
-            {
-                double datoEvaluar;
-                String mensajeError = "Inserta un número de mayor a 0 con máximo dos decimales.";
-                Dictionary<int, double> longitudCadenas = new Dictionary<int, double>() {
-                    {ValidacionDatosOpciones.MAYOR_A, 0},
-                    {ValidacionDatosOpciones.MENOR_A, 1001},
-                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
-                };
-                ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, mensajeError, this.vista.tb_Cantidad.Text, out datoEvaluar, longitudCadenas);
-            };
 
             this.vista.btn_CompletarVenta.Click += new EventHandler(btn_CompletarVenta_Click);
             this.vista.btn_CancelarVenta.Click += new EventHandler(Btn_cancelar_Click);
@@ -101,116 +86,6 @@ namespace MrTiendita.Controladores
             {
                 this.listaProductos.Add(producto.Descripcion, producto.Codigo_barra);
                 nombreProductos.Add(producto.Descripcion);
-            }
-        }
-
-        private void btn_Agregar_Click(object sender, EventArgs e)
-        {
-            String cantidadCadena = this.vista.tb_Cantidad.Text;
-            double cantidad;
-            String mensajeErrorCantidad = "Ingrese un número mayor a 0";
-            Dictionary<int, double> opciones = new Dictionary<int, double>() {
-                    {ValidacionDatosOpciones.MAYOR_A, 0},
-                    {ValidacionDatosOpciones.MENOR_A, 1001},
-                    {ValidacionDatosOpciones.NUM_DECIMALES_NO_ROUND, 2}
-            };
-
-            //Comprobar que el código haya sido ingresado y que la cantidad sea numerica no nula mayor a 0
-            if (this.producto == null ||
-                !ValidacionFormulario.Validar(
-                    this.vista.lbl_ErrorCantidad, mensajeErrorCantidad, cantidadCadena, out cantidad, opciones))
-            {
-                Form mensajeError = new FrmError("Debe de llenar todos los campos correctamente.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
-            //comprobar si la medida del producto coincide con la cantidad a vender
-            var parteDecimal = cantidad - Math.Truncate(cantidad);
-            if (producto.Medida == false && parteDecimal != 0)
-            {
-                Form mensajeError = new FrmError("Este producto se vende por unidades.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
-            //comprobar que no se quiera vender más de lo que hay
-            if (cantidad > producto.Cantidad_actual)
-            {
-                Form mensajeError = new FrmError("No hay suficiente cantidad de este producto.");
-                mensajeError.ShowDialog();
-                return;
-            }
-
-            //agregarlo a la tabla ----------- MEJOR PONERLO EN UN METODO PARA LLAMARLO TAMBIEN CUANDO SEA POR ESCANER
-            double subtotal = cantidad * producto.Precio_venta;
-            subtotal = Math.Round(subtotal, 2);
-            bool siEncontrado = false;
-
-            //si se ingresa un articulo que ya estaba en la lista sólo se le suma la cantidad a la fila.
-            foreach (DataGridViewRow articulo in this.vista.dgv_TablaVentas.Rows)
-            {
-                if (long.Parse(articulo.Cells["col_Codigo"].Value.ToString()) == this.producto.Codigo_barra)
-                {
-                    articulo.Cells["col_Cantidad"].Value =
-                        Convert.ToDouble(articulo.Cells["col_Cantidad"].Value.ToString()) + cantidad;
-                    articulo.Cells["col_Subtotal"].Value =
-                        Convert.ToDouble(articulo.Cells["col_Subtotal"].Value.ToString()) + subtotal;
-                    siEncontrado = true;
-                }
-            }
-
-            if (!siEncontrado)
-            {
-                //se agrega un nuevo producto a la tabla
-                this.vista.dgv_TablaVentas.Rows.Add();
-                int indexNuevoProducto = this.vista.dgv_TablaVentas.RowCount - 1;
-                Console.WriteLine(indexNuevoProducto);
-                this.vista.dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Cantidad"].Value = cantidad;
-                this.vista.dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Descripcion"].Value = producto.Descripcion;
-                this.vista.dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Precio"].Value = producto.Precio_venta;
-                this.vista.dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Subtotal"].Value = subtotal;
-                this.vista.dgv_TablaVentas.Rows[indexNuevoProducto].Cells["col_Codigo"].Value = producto.Codigo_barra;
-            }
-
-            //actualizar el total
-            this.totalVenta += subtotal;
-            this.vista.lbl_TotalAPagar.Text = "$" + this.totalVenta;
-            this.vista.tb_Efectivo.Text = this.totalVenta.ToString();
-            this.vista.tb_Codigo.Text = "";
-            this.vista.tb_Cantidad.Text = "";
-            //Ocultar errores
-            this.vista.lbl_ErrorCantidad.Visible = false;
-            this.vista.lbl_ErrorCodigoBarras.Visible = false;
-        }
-
-        private void Tb_codigo_TextChanged(object sender, EventArgs e)
-        {
-            long codigoBarra;
-            String mensajeError = "Debe ser un número de 13 dígitos.";
-            Dictionary<int, long> longitudCadenas = new Dictionary<int, long>()
-            {
-                {ValidacionDatosOpciones.MAYOR_A, 0},
-                {ValidacionDatosOpciones.NUM_CARACTERES, 13}
-            };
-
-            if (!ValidacionFormulario.Validar(
-                this.vista.lbl_ErrorCodigoBarras, mensajeError, this.vista.tb_Codigo.Text, out codigoBarra, longitudCadenas))
-            {
-                this.producto = null;
-                return;
-            }
-
-            //Se busca el producto...
-            this.producto = this.productoDAO.ReadById(codigoBarra);
-            if (this.producto != null)
-            {
-                this.vista.lbl_ErrorCodigoBarras.Visible = false;
-            }
-            else
-            {
-                this.vista.lbl_ErrorCodigoBarras.Text = "No existe el código de barras.";
-                this.vista.lbl_ErrorCodigoBarras.Visible = true;
             }
         }
 
@@ -410,9 +285,8 @@ namespace MrTiendita.Controladores
         {
             string _codigo = this.vista.tb_Codigo.Text;
             long codigo;
-            Label label = new Label();
 
-            if (!ValidacionFormulario.Validar(label, "", _codigo, out codigo, ValidacionDatosOpciones.CODIGO_BARRA))
+            if (!ValidacionFormulario.Validar(this.vista.lbl_ErrorCodigoBarras, "", _codigo, out codigo, ValidacionDatosOpciones.CODIGO_BARRA))
             {
                 this.producto = null;
                 return;
@@ -423,23 +297,40 @@ namespace MrTiendita.Controladores
             if(this.producto == null)
             {
                 //imprimir el mensaje en la etiqueta
-                label.Text = "Producto no encontrado...";
+                this.vista.lbl_ErrorCodigoBarras.Visible = true;
+                this.vista.lbl_ErrorCodigoBarras.Text = "Producto no encontrado.";
             }
         }
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            double cantidad;
-            Label label = new Label();
+            double cantidad, cantidadEntero, cantidadDecimal;
+
             if (this.producto == null ||
-                !ValidacionFormulario.Validar(label, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD))
+                !ValidacionFormulario.Validar(this.vista.lbl_ErrorCantidad, "", this.vista.tb_Cantidad.Text, out cantidad, ValidacionDatosOpciones.CANTIDAD))
             {
                 FrmError error = new FrmError("Debe de escribir el código de barras y la cantidad correctamente.");
                 error.ShowDialog();
                 return;
             }
 
+            //comprobar si la cantidad es decimal y el producto a granel
+            cantidadEntero = Math.Truncate(cantidad);
+            cantidadDecimal = cantidad - cantidadEntero;
+            if (cantidadDecimal > 0 && !this.producto.Medida)
+            {
+                FrmError error = new FrmError("Este producto no se puede vender en decimales.");
+                error.ShowDialog();
+                return;
+            }
+
             this.AgregarProducto(this.producto.Codigo_barra, cantidad);
+
+            this.vista.tb_Codigo.Text = "";
+            this.vista.tb_Cantidad.Text = "";
+
+            this.vista.lbl_ErrorCodigoBarras.Visible = false;
+            this.vista.lbl_ErrorCantidad.Visible = false;
         }
 
 

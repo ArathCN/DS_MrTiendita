@@ -179,7 +179,7 @@ namespace MrTiendita.Controladores
             this.vista.tb_Descripcion.Text = "";
             this.vista.tb_CantidadCrear.Text = "";
             this.vista.cb_TipoMedida.Checked = false;
-            this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
+            this.vista.cb_Categoria.SelectedIndex = -1;
             this.vista.tb_PrecioCompra.Text = "";
             this.vista.tb_PrecioVenta.Text = "";
             if (Properties.Settings.Default.siMinimoGlobal)
@@ -194,7 +194,7 @@ namespace MrTiendita.Controladores
                 this.vista.cb_GananciaPorcentaje.SelectedIndex = (Int32)opcion;
                 this.vista.cb_GananciaPorcentaje.Enabled = false;
             }
-            else this.vista.cb_Categoria.SelectedIndex = -1;
+            else this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
 
             OcultarErrores();
             ActivarBoton(sender);
@@ -346,15 +346,6 @@ namespace MrTiendita.Controladores
                 this.vista.lbl_Titulo.Text = "Crear un nuevo producto";
                 this.vista.btn_AgregarProducto.Text = "Crear producto";
                 this.vista.lbl_Descripcion.Text = "Crea un producto nuevo para empezar a venderlo en la tienda.";
-                this.vista.tb_CodigoBarras.Text = "";
-                this.vista.tb_Descripcion.Text = "";
-                this.vista.tb_CantidadCrear.Text = "";
-                this.vista.cb_Categoria.SelectedIndex = -1;
-                this.vista.cb_TipoMedida.Checked = false;
-                this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
-                this.vista.tb_Minima.Text = "";
-                this.vista.tb_PrecioCompra.Text = "";
-                this.vista.tb_PrecioVenta.Text = "";
                 this.AbrirPanel(this.vista.pnl_NuevaEntrada);
                 this.ActivarBoton(this.vista.btn_NuevaEntrada);
             } 
@@ -595,14 +586,26 @@ namespace MrTiendita.Controladores
             this.vista.tb_CantidadCrear.Text = "";
             this.vista.cb_Categoria.SelectedIndex = -1;
             this.vista.cb_TipoMedida.Checked = false;
-            this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
-            this.vista.tb_Minima.Text = "";
             this.vista.tb_PrecioCompra.Text = "";
             this.vista.tb_PrecioVenta.Text = "";
 
             this.vista.tb_CodigoBarra.Text = "";
             this.vista.tb_Cantidad.Text = "";
             this.vista.cb_Proveedor.SelectedIndex = -1;
+
+            if (Properties.Settings.Default.siMinimoGlobal)
+            {
+                this.vista.tb_Minima.Text = Properties.Settings.Default.minimoGlobal.ToString(new CultureInfo("es-MX"));
+                this.vista.tb_Minima.Enabled = false;
+            }
+            else this.vista.tb_Minima.Text = "";
+            if (Properties.Settings.Default.siGanancia)
+            {
+                double opcion = (Properties.Settings.Default.ganancia / 5) - 2;
+                this.vista.cb_GananciaPorcentaje.SelectedIndex = (Int32)opcion;
+                this.vista.cb_GananciaPorcentaje.Enabled = false;
+            }
+            else this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
         }
 
         protected void CargarProveedores()
