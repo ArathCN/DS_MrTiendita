@@ -10,6 +10,7 @@ using MrTiendita.Constantes;
 using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using Guna.UI2.WinForms;
+using Guna.UI.WinForms;
 
 namespace MrTiendita.Controladores
 {
@@ -17,13 +18,15 @@ namespace MrTiendita.Controladores
     {
         private readonly FrmReportes_ vista;
         private Guna2Button botonSeleccionado;
-        private Label periodo;
+        private Label periodo, labelSince, labelUntil;
+        private GunaDateTimePicker dateTimePicker, dateTimePickerSince, dateTimePickerUntil;
         private Guna2DataGridView tabla;
         private Panel bordeInferior;
         private DateTime desde;
         private DateTime hasta;
         private VentaDAO ventaDAO;
         private EntradaAlmacenDAO entradaAlmacenDAO;
+        private bool esActivado = false;
 
         public FrmReportesController(FrmReportes_ vista)
         {
@@ -40,6 +43,8 @@ namespace MrTiendita.Controladores
             this.vista.lbl_EsteMesEntradas.Click += new EventHandler(Lbl_EsteMesEntradas_Click);
             this.vista.dp_DesdeEntradas.ValueChanged += new EventHandler(Dp_DesdeEntradas_onValueChanged);
             this.vista.dp_HastaEntradas.ValueChanged += new EventHandler(Dp_HastaEntradas_onValueChanged);
+            this.vista.dp_DesdeEntradas.Click += new EventHandler(Dp_DesdeEntradas_Click);
+            this.vista.dp_HastaEntradas.Click += new EventHandler(Dp_HastaEntradas_Click);
 
             //Reportes Ventas
             this.vista.cb_TipoReporte.SelectedIndexChanged += new EventHandler(Cb_TipoReporte_SelectedIndexChanged);
@@ -48,14 +53,18 @@ namespace MrTiendita.Controladores
             this.vista.lbl_EsteMesVentas.Click += new EventHandler(Lbl_EsteMesVentas_Click);
             this.vista.dp_DesdeVentas.ValueChanged += new EventHandler(Dp_DesdeVentas_onValueChanged);
             this.vista.dp_HastaVentas.ValueChanged += new EventHandler(Dp_HastaVentas_onValueChanged);
+            this.vista.dp_DesdeVentas.Click += new EventHandler(Dp_DesdeVentas_Click);
+            this.vista.dp_HastaVentas.Click += new EventHandler(Dp_HastaVentas_Click);
         }
 
         private void Vista_Load(object sender, EventArgs e)
         {
             this.vista.dp_DesdeEntradas.Value = DateTime.Today;
-            this.vista.dp_HastaEntradas.Value = DateTime.Today;
+            this.vista.dp_HastaEntradas.Value = DateTime.Today.AddDays(+1); ;
             this.vista.dp_DesdeVentas.Value = DateTime.Today;
-            this.vista.dp_HastaVentas.Value = DateTime.Today;
+            this.vista.dp_HastaVentas.Value = DateTime.Today.AddDays(+1);
+            BlackOutDateTimePicker(this.vista.dp_DesdeVentas, this.vista.dp_HastaVentas);
+            BlackOutDateTimePicker(this.vista.dp_DesdeEntradas, this.vista.dp_HastaEntradas);
             bordeInferior = new Panel();
             bordeInferior.Size = new Size(160, 2);
             this.vista.pnl_MenuProductos.Controls.Add(bordeInferior);
@@ -71,6 +80,7 @@ namespace MrTiendita.Controladores
             this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             ActualizarVentasTotales(this.desde, this.hasta, this.vista.lbl_HoyVentas);
             ActivarPeriodo(this.vista.lbl_HoyVentas);
+            esActivado = true;
         }
 
         private void Btn_Ventas_Click(object sender, EventArgs e)
@@ -78,7 +88,6 @@ namespace MrTiendita.Controladores
             ActivarBoton(sender);
             this.vista.pnl_Ventas.Visible = true;
             this.vista.pnl_EntradasAlmacen.Visible = false;
-
             this.vista.cb_TipoReporte.SelectedIndex = 0;
             CambiarReporte(this.vista.dgv_TablaTodasVentas);
             this.desde = DateTime.Today;
@@ -104,14 +113,15 @@ namespace MrTiendita.Controladores
             this.desde = DateTime.Today;
             this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             ActualizarEntradas(this.desde, this.hasta, sender);
+            UnfocusDatePicker(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
         }
 
         private void Lbl_EstaSemanaEntradas_Click(object sender, EventArgs e)
         {
             ActivarPeriodo(sender);
-            this.desde = DateTime.Today.AddDays(-7);
-            this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
+            FiltroSemana();
             ActualizarEntradas(this.desde, this.hasta, sender);
+            UnfocusDatePicker(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
         }
 
         private void Lbl_EsteMesEntradas_Click(object sender, EventArgs e)
@@ -120,10 +130,12 @@ namespace MrTiendita.Controladores
             this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             this.desde = FiltroMes(this.hasta);
             ActualizarEntradas(this.desde, this.hasta, sender);
+            UnfocusDatePicker(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
         }
 
         private void Dp_DesdeEntradas_onValueChanged(object sender, EventArgs e)
         {
+            BlackOutDateTimePicker(sender, this.vista.dp_HastaEntradas);
             DateTime fechaDesde = this.vista.dp_DesdeEntradas.Value;
             DateTime fechaHasta = this.vista.dp_HastaEntradas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -140,26 +152,41 @@ namespace MrTiendita.Controladores
             ActivarPeriodo(this.vista.lbl_Periodo);
         }
 
+        private void Dp_DesdeEntradas_Click(object sender, EventArgs e)
+        {
+            DatePickerFocus(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
+            DatePickerFocus(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
+        }
+
+        private void Dp_HastaEntradas_Click(object sender, EventArgs e)
+        {
+            DatePickerFocus(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
+            DatePickerFocus(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
+        }
+
         private void Cb_TipoReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
-            DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
+            DateTime fechaDesde = DateTime.Today;
+            DateTime fechaHasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
-            switch (this.vista.cb_TipoReporte.SelectedIndex)
+            if (esActivado)
             {
-                case 0:
-                    CambiarReporte(this.vista.dgv_TablaTodasVentas);
-                    ActualizarVentasTotales(fechaDesde, fechaHasta, this.vista.lbl_Periodo);
-                    break;
-                case 1:
-                    CambiarReporte(this.vista.dgv_TablaVentasProducto);
-                    break;
-                case 2:
-                    CambiarReporte(this.vista.dgv_TablaVentasCategoria);
-                    ActualizarVentasCategoria(fechaDesde, fechaHasta, this.vista.lbl_Periodo);
-                    break;
-                default:
-                    break;
+                switch (this.vista.cb_TipoReporte.SelectedIndex)
+                {
+                    case 0:
+                        CambiarReporte(this.vista.dgv_TablaTodasVentas);
+                        ActivarPeriodo(this.vista.lbl_HoyVentas);
+                        ActualizarVentasTotales(fechaDesde, fechaHasta, this.vista.lbl_HoyVentas);
+                        break;
+                    case 1:
+                        CambiarReporte(this.vista.dgv_TablaVentasCategoria);
+                        ActivarPeriodo(this.vista.lbl_HoyVentas);
+                        ActualizarVentasCategoria(fechaDesde, fechaHasta, this.vista.lbl_HoyVentas);
+                        break;
+                    default:
+                        break;
+                }
+                UnfocusDatePicker(this.vista.lbl_Desde, this.vista.lbl_Hasta);
             }
         }
 
@@ -179,24 +206,25 @@ namespace MrTiendita.Controladores
                 default:
                     break;
             }
+            UnfocusDatePicker(this.vista.lbl_Desde, this.vista.lbl_Hasta);
         }
 
         private void Lbl_EstaSemanaVentas_Click(object sender, EventArgs e)
         {
             ActivarPeriodo(sender);
-            this.desde = DateTime.Today.AddDays(-7);
-            this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
+            FiltroSemana();
             switch (this.vista.cb_TipoReporte.SelectedIndex)
             {
                 case 0:
                     ActualizarVentasTotales(this.desde, this.hasta, sender);
                     break;
-                case 2:
+                case 1:
                     ActualizarVentasCategoria(this.desde, this.hasta, sender);
                     break;
                 default:
                     break;
             }
+            UnfocusDatePicker(this.vista.lbl_Desde, this.vista.lbl_Hasta);
         }
 
         private void Lbl_EsteMesVentas_Click(object sender, EventArgs e)
@@ -215,10 +243,12 @@ namespace MrTiendita.Controladores
                 default:
                     break;
             }
+            UnfocusDatePicker(this.vista.lbl_Desde, this.vista.lbl_Hasta);
         }
 
         private void Dp_DesdeVentas_onValueChanged(object sender, EventArgs e)
         {
+            BlackOutDateTimePicker(sender, this.vista.dp_HastaVentas);
             DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
             DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -253,6 +283,18 @@ namespace MrTiendita.Controladores
                     break;
             }
             ActivarPeriodo(this.vista.lbl_Periodo);
+        }
+
+        private void Dp_HastaVentas_Click(object sender, EventArgs e)
+        {
+            DatePickerFocus(this.vista.lbl_Desde, this.vista.lbl_Hasta);
+            DatePickerFocus(this.vista.lbl_Desde, this.vista.lbl_Hasta);
+        }
+
+        private void Dp_DesdeVentas_Click(object sender, EventArgs e)
+        {
+            DatePickerFocus(this.vista.lbl_Desde2, this.vista.lbl_Hasta2);
+            DatePickerFocus(this.vista.lbl_Desde, this.vista.lbl_Hasta);
         }
 
         //Métodos auxiliares
@@ -292,7 +334,7 @@ namespace MrTiendita.Controladores
                         venta.Metodo_pago,
                         venta.Fecha,
                         venta.Cantidad,
-                        venta.Importe);
+                        "$"+venta.Importe);
                 }
             }
             else
@@ -305,8 +347,6 @@ namespace MrTiendita.Controladores
         public void ActualizarVentasCategoria(DateTime desde, DateTime hasta, object sender)
         {
             List<Venta> ventasTotales = this.ventaDAO.ReadBetweenDatesCompleteInfo(desde, hasta);
-            MessageBox.Show($"Desde: {desde}");
-            MessageBox.Show($"Hasta: {hasta}");
             if (ventasTotales.Count != 0)
             {
                 Dictionary<string, double> totalVentasCategoria = new Dictionary<string, double>();
@@ -354,7 +394,7 @@ namespace MrTiendita.Controladores
             else
             {
                 MensajeError(sender);
-                this.vista.dgv_TablaTodasVentas.Rows.Clear();
+                this.vista.dgv_TablaVentasCategoria.Rows.Clear();
             }
             
         }
@@ -373,9 +413,9 @@ namespace MrTiendita.Controladores
                     entrada.Producto.Descripcion,
                     entrada.Cantidad,
                     entrada.Fecha,
-                    entrada.Producto.Precio_compra,
-                    entrada.Producto.Precio_venta,
-                    entrada.Importe);
+                    "$" + entrada.Producto.Precio_compra,
+                    "$" + entrada.Producto.Precio_venta,
+                    "$" + entrada.Importe);
                 }
             }
             else
@@ -385,7 +425,7 @@ namespace MrTiendita.Controladores
             }
         }
 
-        private void ActivarPeriodo(object label)
+        public void ActivarPeriodo(object label)
         {
             if (label != null)
             {
@@ -402,6 +442,30 @@ namespace MrTiendita.Controladores
                 this.periodo.ForeColor = Color.FromArgb(70, 70, 74);
         }
 
+        private void DatePickerFocus(object label, object label2)
+        {
+                this.labelSince = (Label)label;
+                this.labelUntil = (Label)label2;
+                this.labelSince.ForeColor = Color.FromArgb(0, 134, 255);
+                this.labelUntil.ForeColor = Color.FromArgb(0, 134, 255);
+        }
+
+        private void UnfocusDatePicker(object label, object label2)
+        {
+            this.labelSince = (Label)label;
+            this.labelUntil = (Label)label2;
+            this.labelSince.ForeColor = Color.FromArgb(70, 70, 74);
+            this.labelUntil.ForeColor = Color.FromArgb(70, 70, 74);
+        }
+
+        private void BlackOutDateTimePicker(object DatePickerSince, object DatePickerUntil)
+        {
+            this.dateTimePickerSince = (GunaDateTimePicker)DatePickerSince;
+            this.dateTimePickerUntil = (GunaDateTimePicker)DatePickerUntil;
+            DateTime sinceDate = this.dateTimePickerSince.Value;
+            this.dateTimePickerUntil.MinDate = sinceDate.AddDays(+1);           
+        }
+
         public DateTime FiltroMes(DateTime hoy)
         {
             DateTime inicioMes = hoy;
@@ -410,6 +474,19 @@ namespace MrTiendita.Controladores
             diasMenos = hoy.Day;
             inicioMes = inicioMes.AddDays(-diasMenos).AddHours(-23).AddMinutes(-59).AddSeconds(-59);
             return inicioMes;
+        }
+
+        public void FiltroSemana()
+        {
+            DateTime hoy_ = DateTime.Now;
+            DateTime hoy = new DateTime(hoy_.Year, hoy_.Month, hoy_.Day, 0, 0, 0);
+            int diaSemana = (int)hoy.DayOfWeek;
+            if (diaSemana == 0) diaSemana = 7;
+            diaSemana--;
+            DateTime inicio = hoy.AddDays(-diaSemana);
+            DateTime final = hoy.AddDays(6 - diaSemana);
+            this.desde = inicio;
+            this.hasta = final;
         }
 
         public void MensajeError(object sender)

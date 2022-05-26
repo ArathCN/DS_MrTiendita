@@ -37,6 +37,7 @@ namespace MrTiendita.Controladores
         private Guna2Button botonSeleccionado;
         private Panel bordeInferior;
         private String movimientoSeleccionado;
+        private Label periodo;
 
         //Corte de caja
         private Dictionary<string, string> corteCaja;
@@ -109,6 +110,7 @@ namespace MrTiendita.Controladores
                 this.vista.tlp_DisplayCorte.Visible = true;
                 this.vista.tlp_DisplayConsultar.Visible = false;
             }
+            ActivarPeriodo(this.vista.lbl_Hoy);
             
         }
 
@@ -194,7 +196,8 @@ namespace MrTiendita.Controladores
             final = final.AddHours(23);
             final = final.AddMinutes(59);
             final = final.AddSeconds(59);
-            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);            
+            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
+            ActivarPeriodo(sender);
         }
 
         private void lbl_EsteMes_Click(object sender, EventArgs e)
@@ -202,6 +205,7 @@ namespace MrTiendita.Controladores
             DateTime hoy = DateTime.Now;
             DateTime inicio = new DateTime(hoy.Year, hoy.Month, 1, 0, 0, 0);
             DateTime final = new DateTime(hoy.Year, hoy.Month, DateTime.DaysInMonth(hoy.Year, hoy.Month), 23, 59, 59);
+            ActivarPeriodo(sender);
 
             this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
             Console.WriteLine(inicio.ToString("yyyy-MM-dd HH:mm:ss") + "  -->  " + final.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -217,7 +221,7 @@ namespace MrTiendita.Controladores
             diaSemana--;
             DateTime inicio = hoy.AddDays(-diaSemana);
             DateTime final = hoy.AddDays(6 - diaSemana);
-
+            ActivarPeriodo(sender);
             this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
             Console.WriteLine(inicio.ToString("yyyy-MM-dd HH:mm:ss") + "  -->  " + final.ToString("yyyy-MM-dd HH:mm:ss"));
         }
@@ -659,6 +663,23 @@ namespace MrTiendita.Controladores
             this.vista.tlp_DisplayCorte.Visible = true;
             this.vista.tlp_DisplayConsultar.Visible = false;
             this.PrepararVistaCorte();
+        }
+
+        public void ActivarPeriodo(object label)
+        {
+            if (label != null)
+            {
+                DesactivarPeriodos();
+                this.periodo = (Label)label;
+                this.periodo.ForeColor = Color.FromArgb(0, 134, 255);
+
+            }
+        }
+
+        public void DesactivarPeriodos()
+        {
+            if (this.periodo != null)
+                this.periodo.ForeColor = Color.FromArgb(70, 70, 74);
         }
     }
 }

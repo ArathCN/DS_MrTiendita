@@ -30,6 +30,9 @@ namespace MrTiendita.Vistas
         private void InitializeComponent()
         {
             this.pnl_Configuracion = new Guna.UI2.WinForms.Guna2Panel();
+            this.cb_GananciaPorcentaje = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lbl_ErrorLada = new System.Windows.Forms.Label();
+            this.lbl_ErrorSueldo = new System.Windows.Forms.Label();
             this.lbl_ErrorGanancia = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_siGanancia = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -58,9 +61,6 @@ namespace MrTiendita.Vistas
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.lbl_Descripcion = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.lbl_ErrorSueldo = new System.Windows.Forms.Label();
-            this.lbl_ErrorLada = new System.Windows.Forms.Label();
-            this.cb_GananciaPorcentaje = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnl_Configuracion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +108,74 @@ namespace MrTiendita.Vistas
             this.pnl_Configuracion.ShadowDecoration.Parent = this.pnl_Configuracion;
             this.pnl_Configuracion.Size = new System.Drawing.Size(1171, 722);
             this.pnl_Configuracion.TabIndex = 0;
+            // 
+            // cb_GananciaPorcentaje
+            // 
+            this.cb_GananciaPorcentaje.BackColor = System.Drawing.Color.Transparent;
+            this.cb_GananciaPorcentaje.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
+            this.cb_GananciaPorcentaje.BorderRadius = 5;
+            this.cb_GananciaPorcentaje.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_GananciaPorcentaje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_GananciaPorcentaje.FocusedColor = System.Drawing.Color.Empty;
+            this.cb_GananciaPorcentaje.FocusedState.Parent = this.cb_GananciaPorcentaje;
+            this.cb_GananciaPorcentaje.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_GananciaPorcentaje.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cb_GananciaPorcentaje.FormattingEnabled = true;
+            this.cb_GananciaPorcentaje.HoverState.Parent = this.cb_GananciaPorcentaje;
+            this.cb_GananciaPorcentaje.ItemHeight = 30;
+            this.cb_GananciaPorcentaje.Items.AddRange(new object[] {
+            "10%",
+            "15%",
+            "20%",
+            "25%",
+            "30%",
+            "35%",
+            "40%",
+            "45%",
+            "50%",
+            "55%",
+            "60%",
+            "65%",
+            "70%",
+            "75%",
+            "80%",
+            "85%",
+            "90%",
+            "95%",
+            "100%"});
+            this.cb_GananciaPorcentaje.ItemsAppearance.Parent = this.cb_GananciaPorcentaje;
+            this.cb_GananciaPorcentaje.Location = new System.Drawing.Point(61, 643);
+            this.cb_GananciaPorcentaje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_GananciaPorcentaje.Name = "cb_GananciaPorcentaje";
+            this.cb_GananciaPorcentaje.ShadowDecoration.Parent = this.cb_GananciaPorcentaje;
+            this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(173, 36);
+            this.cb_GananciaPorcentaje.TabIndex = 73;
+            // 
+            // lbl_ErrorLada
+            // 
+            this.lbl_ErrorLada.AutoSize = true;
+            this.lbl_ErrorLada.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ErrorLada.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorLada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorLada.Location = new System.Drawing.Point(469, 303);
+            this.lbl_ErrorLada.Name = "lbl_ErrorLada";
+            this.lbl_ErrorLada.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorLada.TabIndex = 71;
+            this.lbl_ErrorLada.Text = "* Error";
+            this.lbl_ErrorLada.Visible = false;
+            // 
+            // lbl_ErrorSueldo
+            // 
+            this.lbl_ErrorSueldo.AutoSize = true;
+            this.lbl_ErrorSueldo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ErrorSueldo.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ErrorSueldo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
+            this.lbl_ErrorSueldo.Location = new System.Drawing.Point(247, 303);
+            this.lbl_ErrorSueldo.Name = "lbl_ErrorSueldo";
+            this.lbl_ErrorSueldo.Size = new System.Drawing.Size(49, 19);
+            this.lbl_ErrorSueldo.TabIndex = 70;
+            this.lbl_ErrorSueldo.Text = "* Error";
+            this.lbl_ErrorSueldo.Visible = false;
             // 
             // lbl_ErrorGanancia
             // 
@@ -298,6 +366,7 @@ namespace MrTiendita.Vistas
             // 
             // btn_GuardarDatos
             // 
+            this.btn_GuardarDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_GuardarDatos.BorderRadius = 5;
             this.btn_GuardarDatos.CheckedState.Parent = this.btn_GuardarDatos;
             this.btn_GuardarDatos.CustomImages.Parent = this.btn_GuardarDatos;
@@ -305,7 +374,7 @@ namespace MrTiendita.Vistas
             this.btn_GuardarDatos.Font = new System.Drawing.Font("Leelawadee UI", 10.2F);
             this.btn_GuardarDatos.ForeColor = System.Drawing.Color.White;
             this.btn_GuardarDatos.HoverState.Parent = this.btn_GuardarDatos;
-            this.btn_GuardarDatos.Location = new System.Drawing.Point(596, 643);
+            this.btn_GuardarDatos.Location = new System.Drawing.Point(906, 643);
             this.btn_GuardarDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_GuardarDatos.Name = "btn_GuardarDatos";
             this.btn_GuardarDatos.ShadowDecoration.Parent = this.btn_GuardarDatos;
@@ -513,74 +582,6 @@ namespace MrTiendita.Vistas
             this.lbl_Descripcion.Size = new System.Drawing.Size(334, 23);
             this.lbl_Descripcion.TabIndex = 1;
             this.lbl_Descripcion.Text = "Personaliza las características de tu tienda.";
-            // 
-            // lbl_ErrorSueldo
-            // 
-            this.lbl_ErrorSueldo.AutoSize = true;
-            this.lbl_ErrorSueldo.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ErrorSueldo.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ErrorSueldo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorSueldo.Location = new System.Drawing.Point(247, 303);
-            this.lbl_ErrorSueldo.Name = "lbl_ErrorSueldo";
-            this.lbl_ErrorSueldo.Size = new System.Drawing.Size(49, 19);
-            this.lbl_ErrorSueldo.TabIndex = 70;
-            this.lbl_ErrorSueldo.Text = "* Error";
-            this.lbl_ErrorSueldo.Visible = false;
-            // 
-            // lbl_ErrorLada
-            // 
-            this.lbl_ErrorLada.AutoSize = true;
-            this.lbl_ErrorLada.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ErrorLada.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ErrorLada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(82)))), ((int)(((byte)(73)))));
-            this.lbl_ErrorLada.Location = new System.Drawing.Point(469, 303);
-            this.lbl_ErrorLada.Name = "lbl_ErrorLada";
-            this.lbl_ErrorLada.Size = new System.Drawing.Size(49, 19);
-            this.lbl_ErrorLada.TabIndex = 71;
-            this.lbl_ErrorLada.Text = "* Error";
-            this.lbl_ErrorLada.Visible = false;
-            // 
-            // cb_GananciaPorcentaje
-            // 
-            this.cb_GananciaPorcentaje.BackColor = System.Drawing.Color.Transparent;
-            this.cb_GananciaPorcentaje.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.cb_GananciaPorcentaje.BorderRadius = 5;
-            this.cb_GananciaPorcentaje.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cb_GananciaPorcentaje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_GananciaPorcentaje.FocusedColor = System.Drawing.Color.Empty;
-            this.cb_GananciaPorcentaje.FocusedState.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_GananciaPorcentaje.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cb_GananciaPorcentaje.FormattingEnabled = true;
-            this.cb_GananciaPorcentaje.HoverState.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.ItemHeight = 30;
-            this.cb_GananciaPorcentaje.Items.AddRange(new object[] {
-            "10%",
-            "15%",
-            "20%",
-            "25%",
-            "30%",
-            "35%",
-            "40%",
-            "45%",
-            "50%",
-            "55%",
-            "60%",
-            "65%",
-            "70%",
-            "75%",
-            "80%",
-            "85%",
-            "90%",
-            "95%",
-            "100%"});
-            this.cb_GananciaPorcentaje.ItemsAppearance.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.Location = new System.Drawing.Point(61, 643);
-            this.cb_GananciaPorcentaje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cb_GananciaPorcentaje.Name = "cb_GananciaPorcentaje";
-            this.cb_GananciaPorcentaje.ShadowDecoration.Parent = this.cb_GananciaPorcentaje;
-            this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(173, 36);
-            this.cb_GananciaPorcentaje.TabIndex = 73;
             // 
             // FrmConfiguraciones
             // 
