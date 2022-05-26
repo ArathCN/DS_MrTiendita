@@ -355,55 +355,14 @@ namespace MrTiendita.Modelos.DAO
             return ventas;
         }
 
-        /// <summary>
-        /// Consulta registros de <see cref="Venta"/> que se hayan realizado entre las fechas especificadas.
-        /// </summary>
-        /// <param name="inicio">Fecha límite de inicio.</param>
-        /// <param name="final">Fecha límite final.</param>
-        /// <returns><see cref="List{Venta}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
-        public List<Venta> ReadBetweenDates(DateTime inicio, DateTime final)
-        {
-            List<Venta> ventas = new List<Venta>();
-            String sql = "SELECT * FROM Venta WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";
-
-            using (SqlConnection connection = new SqlConnection(this.stringConexion))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
-                    command.Parameters.Add("@fechaFin", SqlDbType.DateTime);
-
-                    command.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
-                    command.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            ventas.Add(
-                                new Venta(
-                                    reader.GetInt32(0),
-                                    reader.GetInt64(1),
-                                    reader.GetInt32(2),
-                                    reader.GetString(3),
-                                    reader.GetDateTime(4),
-                                    decimal.ToDouble(reader.GetDecimal(5)),
-                                    decimal.ToDouble(reader.GetDecimal(6))
-                                )
-                            );
-                        }
-                    }
-                }
-            }
-
-            return ventas;
-        }
+        //ReadBetweenDatesWithDescription devuelve lo mismo que ReadBetweenDatesCompleteInfo solo que el segundo trae de
+        //la base de datos 1 copia de registro por producto, es decir si hay 3 ventas del mismo producto se trae sólo un registro.
+        //Mientras que el primero trae 3 copias, uno por cada venta
 
         public List<Venta> ReadBetweenDatesWithDescription(DateTime inicio, DateTime final)
         {
             List<Venta> ventas = new List<Venta>();
-            String sql = "SELECT * FROM Venta AS V "+
+            String sql = "SELECT * FROM Venta AS V " +
                 "INNER JOIN Producto AS P ON V.codigo_barra = P.codigo_barra" +
                 " WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";
             using (SqlConnection connection = new SqlConnection(this.stringConexion))
@@ -449,6 +408,52 @@ namespace MrTiendita.Modelos.DAO
 
             return ventas;
         }
+
+        /// <summary>
+        /// Consulta registros de <see cref="Venta"/> que se hayan realizado entre las fechas especificadas.
+        /// </summary>
+        /// <param name="inicio">Fecha límite de inicio.</param>
+        /// <param name="final">Fecha límite final.</param>
+        /// <returns><see cref="List{Venta}"/> con los registros encontrados, vacía si no se encontró ninguno.</returns>
+        public List<Venta> ReadBetweenDates(DateTime inicio, DateTime final)
+        {
+            List<Venta> ventas = new List<Venta>();
+            String sql = "SELECT * FROM Venta WHERE fecha >= @fechaInicio AND fecha <= @fechaFin;";
+
+            using (SqlConnection connection = new SqlConnection(this.stringConexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add("@fechaInicio", SqlDbType.DateTime);
+                    command.Parameters.Add("@fechaFin", SqlDbType.DateTime);
+
+                    command.Parameters["@fechaInicio"].Value = inicio.ToString(this.formatoDatetime);
+                    command.Parameters["@fechaFin"].Value = final.ToString(this.formatoDatetime);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ventas.Add(
+                                new Venta(
+                                    reader.GetInt32(0),
+                                    reader.GetInt64(1),
+                                    reader.GetInt32(2),
+                                    reader.GetString(3),
+                                    reader.GetDateTime(4),
+                                    decimal.ToDouble(reader.GetDecimal(5)),
+                                    decimal.ToDouble(reader.GetDecimal(6))
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+
+            return ventas;
+        }
+
 
         public List<Venta> ReadBetweenDatesByNumber(DateTime inicio, DateTime final)
         {

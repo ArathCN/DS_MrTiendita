@@ -123,7 +123,7 @@ namespace MrTiendita.Vistas
             this.pnl_MenuProductos.FillColor = System.Drawing.Color.White;
             this.pnl_MenuProductos.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_MenuProductos.Location = new System.Drawing.Point(2, 322);
-            this.pnl_MenuProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_MenuProductos.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_MenuProductos.Name = "pnl_MenuProductos";
             this.pnl_MenuProductos.ShadowDecoration.Parent = this.pnl_MenuProductos;
             this.pnl_MenuProductos.Size = new System.Drawing.Size(874, 263);
@@ -149,7 +149,7 @@ namespace MrTiendita.Vistas
             this.pnl_NuevaEntrada.Controls.Add(this.lbl_NuevaEntrada);
             this.pnl_NuevaEntrada.Controls.Add(this.lbl_DescripcionNueva);
             this.pnl_NuevaEntrada.Location = new System.Drawing.Point(14, 50);
-            this.pnl_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_NuevaEntrada.Name = "pnl_NuevaEntrada";
             this.pnl_NuevaEntrada.Size = new System.Drawing.Size(850, 189);
             this.pnl_NuevaEntrada.TabIndex = 35;
@@ -207,7 +207,7 @@ namespace MrTiendita.Vistas
             this.btn_LimpiarEntrada.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.HoverState.Parent = this.btn_LimpiarEntrada;
             this.btn_LimpiarEntrada.Location = new System.Drawing.Point(137, 148);
-            this.btn_LimpiarEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_LimpiarEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.btn_LimpiarEntrada.Name = "btn_LimpiarEntrada";
             this.btn_LimpiarEntrada.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_LimpiarEntrada.ShadowDecoration.Parent = this.btn_LimpiarEntrada;
@@ -225,7 +225,7 @@ namespace MrTiendita.Vistas
             this.btn_RegistrarProducto.ForeColor = System.Drawing.Color.White;
             this.btn_RegistrarProducto.HoverState.Parent = this.btn_RegistrarProducto;
             this.btn_RegistrarProducto.Location = new System.Drawing.Point(19, 148);
-            this.btn_RegistrarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_RegistrarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btn_RegistrarProducto.Name = "btn_RegistrarProducto";
             this.btn_RegistrarProducto.ShadowDecoration.Parent = this.btn_RegistrarProducto;
             this.btn_RegistrarProducto.Size = new System.Drawing.Size(114, 26);
@@ -248,7 +248,7 @@ namespace MrTiendita.Vistas
             this.cb_Proveedor.ItemHeight = 20;
             this.cb_Proveedor.ItemsAppearance.Parent = this.cb_Proveedor;
             this.cb_Proveedor.Location = new System.Drawing.Point(369, 81);
-            this.cb_Proveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Proveedor.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Proveedor.Name = "cb_Proveedor";
             this.cb_Proveedor.ShadowDecoration.Parent = this.cb_Proveedor;
             this.cb_Proveedor.Size = new System.Drawing.Size(248, 26);
@@ -284,7 +284,7 @@ namespace MrTiendita.Vistas
             this.tb_Cantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Cantidad.HoverState.Parent = this.tb_Cantidad;
             this.tb_Cantidad.Location = new System.Drawing.Point(234, 81);
-            this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_Cantidad.Margin = new System.Windows.Forms.Padding(6);
             this.tb_Cantidad.Name = "tb_Cantidad";
             this.tb_Cantidad.PasswordChar = '\0';
             this.tb_Cantidad.PlaceholderText = "";
@@ -335,8 +335,7 @@ namespace MrTiendita.Vistas
             this.tb_CodigoBarra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_CodigoBarra.HoverState.Parent = this.tb_CodigoBarra;
             this.tb_CodigoBarra.Location = new System.Drawing.Point(19, 81);
-            this.tb_CodigoBarra.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tb_CodigoBarra.MaxLength = 13;
+            this.tb_CodigoBarra.Margin = new System.Windows.Forms.Padding(6);
             this.tb_CodigoBarra.Name = "tb_CodigoBarra";
             this.tb_CodigoBarra.PasswordChar = '\0';
             this.tb_CodigoBarra.PlaceholderText = "";
@@ -407,7 +406,7 @@ namespace MrTiendita.Vistas
             this.pnl_CrearProducto.Controls.Add(this.lbl_Titulo);
             this.pnl_CrearProducto.Controls.Add(this.lbl_Descripcion);
             this.pnl_CrearProducto.Location = new System.Drawing.Point(14, 50);
-            this.pnl_CrearProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_CrearProducto.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_CrearProducto.Name = "pnl_CrearProducto";
             this.pnl_CrearProducto.Size = new System.Drawing.Size(850, 197);
             this.pnl_CrearProducto.TabIndex = 0;
@@ -474,7 +473,7 @@ namespace MrTiendita.Vistas
             "100%"});
             this.cb_GananciaPorcentaje.ItemsAppearance.Parent = this.cb_GananciaPorcentaje;
             this.cb_GananciaPorcentaje.Location = new System.Drawing.Point(19, 148);
-            this.cb_GananciaPorcentaje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_GananciaPorcentaje.Margin = new System.Windows.Forms.Padding(2);
             this.cb_GananciaPorcentaje.Name = "cb_GananciaPorcentaje";
             this.cb_GananciaPorcentaje.ShadowDecoration.Parent = this.cb_GananciaPorcentaje;
             this.cb_GananciaPorcentaje.Size = new System.Drawing.Size(104, 26);
@@ -498,7 +497,7 @@ namespace MrTiendita.Vistas
             this.tb_CantidadCrear.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_CantidadCrear.HoverState.Parent = this.tb_CantidadCrear;
             this.tb_CantidadCrear.Location = new System.Drawing.Point(678, 81);
-            this.tb_CantidadCrear.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_CantidadCrear.Margin = new System.Windows.Forms.Padding(6);
             this.tb_CantidadCrear.Name = "tb_CantidadCrear";
             this.tb_CantidadCrear.PasswordChar = '\0';
             this.tb_CantidadCrear.PlaceholderText = "";
@@ -658,7 +657,7 @@ namespace MrTiendita.Vistas
             this.btn_AgregarProducto.ForeColor = System.Drawing.Color.White;
             this.btn_AgregarProducto.HoverState.Parent = this.btn_AgregarProducto;
             this.btn_AgregarProducto.Location = new System.Drawing.Point(676, 148);
-            this.btn_AgregarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AgregarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AgregarProducto.Name = "btn_AgregarProducto";
             this.btn_AgregarProducto.ShadowDecoration.Parent = this.btn_AgregarProducto;
             this.btn_AgregarProducto.Size = new System.Drawing.Size(128, 26);
@@ -684,7 +683,7 @@ namespace MrTiendita.Vistas
             this.tb_PrecioVenta.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_PrecioVenta.HoverState.Parent = this.tb_PrecioVenta;
             this.tb_PrecioVenta.Location = new System.Drawing.Point(364, 148);
-            this.tb_PrecioVenta.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_PrecioVenta.Margin = new System.Windows.Forms.Padding(6);
             this.tb_PrecioVenta.Name = "tb_PrecioVenta";
             this.tb_PrecioVenta.PasswordChar = '\0';
             this.tb_PrecioVenta.PlaceholderText = "";
@@ -711,7 +710,7 @@ namespace MrTiendita.Vistas
             this.tb_PrecioCompra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_PrecioCompra.HoverState.Parent = this.tb_PrecioCompra;
             this.tb_PrecioCompra.Location = new System.Drawing.Point(245, 148);
-            this.tb_PrecioCompra.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_PrecioCompra.Margin = new System.Windows.Forms.Padding(6);
             this.tb_PrecioCompra.Name = "tb_PrecioCompra";
             this.tb_PrecioCompra.PasswordChar = '\0';
             this.tb_PrecioCompra.PlaceholderText = "";
@@ -762,7 +761,7 @@ namespace MrTiendita.Vistas
             this.tb_Minima.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Minima.HoverState.Parent = this.tb_Minima;
             this.tb_Minima.Location = new System.Drawing.Point(127, 148);
-            this.tb_Minima.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_Minima.Margin = new System.Windows.Forms.Padding(6);
             this.tb_Minima.Name = "tb_Minima";
             this.tb_Minima.PasswordChar = '\0';
             this.tb_Minima.PlaceholderText = "";
@@ -797,20 +796,9 @@ namespace MrTiendita.Vistas
             this.cb_Categoria.FormattingEnabled = true;
             this.cb_Categoria.HoverState.Parent = this.cb_Categoria;
             this.cb_Categoria.ItemHeight = 20;
-            this.cb_Categoria.Items.AddRange(new object[] {
-            "Frutas y verduras",
-            "Panadería y tortillería",
-            "Carnicería",
-            "Lácteos",
-            "Abarrotes",
-            "Limpieza y hogar",
-            "Higiene personal y salud",
-            "Mascotas",
-            "Refrigerados",
-            "Sin categoria"});
             this.cb_Categoria.ItemsAppearance.Parent = this.cb_Categoria;
             this.cb_Categoria.Location = new System.Drawing.Point(482, 81);
-            this.cb_Categoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Categoria.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Categoria.Name = "cb_Categoria";
             this.cb_Categoria.ShadowDecoration.Parent = this.cb_Categoria;
             this.cb_Categoria.Size = new System.Drawing.Size(189, 26);
@@ -846,7 +834,7 @@ namespace MrTiendita.Vistas
             this.tb_Descripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_Descripcion.HoverState.Parent = this.tb_Descripcion;
             this.tb_Descripcion.Location = new System.Drawing.Point(184, 81);
-            this.tb_Descripcion.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_Descripcion.Margin = new System.Windows.Forms.Padding(6);
             this.tb_Descripcion.Name = "tb_Descripcion";
             this.tb_Descripcion.PasswordChar = '\0';
             this.tb_Descripcion.PlaceholderText = "";
@@ -897,8 +885,7 @@ namespace MrTiendita.Vistas
             this.tb_CodigoBarras.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_CodigoBarras.HoverState.Parent = this.tb_CodigoBarras;
             this.tb_CodigoBarras.Location = new System.Drawing.Point(19, 81);
-            this.tb_CodigoBarras.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tb_CodigoBarras.MaxLength = 13;
+            this.tb_CodigoBarras.Margin = new System.Windows.Forms.Padding(6);
             this.tb_CodigoBarras.Name = "tb_CodigoBarras";
             this.tb_CodigoBarras.PasswordChar = '\0';
             this.tb_CodigoBarras.PlaceholderText = "";
@@ -943,7 +930,7 @@ namespace MrTiendita.Vistas
             this.btn_ModificarProducto.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_ModificarProducto.HoverState.Parent = this.btn_ModificarProducto;
             this.btn_ModificarProducto.Location = new System.Drawing.Point(419, 6);
-            this.btn_ModificarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ModificarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ModificarProducto.Name = "btn_ModificarProducto";
             this.btn_ModificarProducto.PressedColor = System.Drawing.Color.White;
             this.btn_ModificarProducto.ShadowDecoration.Parent = this.btn_ModificarProducto;
@@ -962,7 +949,7 @@ namespace MrTiendita.Vistas
             this.btn_CrearProducto.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_CrearProducto.HoverState.Parent = this.btn_CrearProducto;
             this.btn_CrearProducto.Location = new System.Drawing.Point(214, 6);
-            this.btn_CrearProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_CrearProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CrearProducto.Name = "btn_CrearProducto";
             this.btn_CrearProducto.PressedColor = System.Drawing.Color.White;
             this.btn_CrearProducto.ShadowDecoration.Parent = this.btn_CrearProducto;
@@ -981,7 +968,7 @@ namespace MrTiendita.Vistas
             this.btn_NuevaEntrada.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.btn_NuevaEntrada.HoverState.Parent = this.btn_NuevaEntrada;
             this.btn_NuevaEntrada.Location = new System.Drawing.Point(10, 6);
-            this.btn_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_NuevaEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.btn_NuevaEntrada.Name = "btn_NuevaEntrada";
             this.btn_NuevaEntrada.PressedColor = System.Drawing.Color.White;
             this.btn_NuevaEntrada.ShadowDecoration.Parent = this.btn_NuevaEntrada;
@@ -1000,7 +987,7 @@ namespace MrTiendita.Vistas
             this.Separador.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.Separador.Location = new System.Drawing.Point(14, 22);
-            this.Separador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Separador.Margin = new System.Windows.Forms.Padding(2);
             this.Separador.Name = "Separador";
             this.Separador.PasswordChar = '\0';
             this.Separador.ReadOnly = true;
@@ -1089,7 +1076,7 @@ namespace MrTiendita.Vistas
             this.dgv_TablaProductos.EnableHeadersVisualStyles = false;
             this.dgv_TablaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaProductos.Location = new System.Drawing.Point(18, 140);
-            this.dgv_TablaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_TablaProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_TablaProductos.Name = "dgv_TablaProductos";
             this.dgv_TablaProductos.RowHeadersVisible = false;
             this.dgv_TablaProductos.RowHeadersWidth = 65;
@@ -1239,7 +1226,7 @@ namespace MrTiendita.Vistas
             this.tb_BuscarProducto.HoverState.Parent = this.tb_BuscarProducto;
             this.tb_BuscarProducto.IconLeft = ((System.Drawing.Image)(resources.GetObject("tb_BuscarProducto.IconLeft")));
             this.tb_BuscarProducto.Location = new System.Drawing.Point(18, 98);
-            this.tb_BuscarProducto.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tb_BuscarProducto.Margin = new System.Windows.Forms.Padding(6);
             this.tb_BuscarProducto.Name = "tb_BuscarProducto";
             this.tb_BuscarProducto.PasswordChar = '\0';
             this.tb_BuscarProducto.PlaceholderText = "";
@@ -1258,7 +1245,7 @@ namespace MrTiendita.Vistas
             this.tlp_Display.Controls.Add(this.pnl_Contenedor, 0, 0);
             this.tlp_Display.Controls.Add(this.pnl_MenuProductos, 0, 1);
             this.tlp_Display.Location = new System.Drawing.Point(9, 12);
-            this.tlp_Display.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlp_Display.Margin = new System.Windows.Forms.Padding(2);
             this.tlp_Display.Name = "tlp_Display";
             this.tlp_Display.RowCount = 2;
             this.tlp_Display.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1274,7 +1261,7 @@ namespace MrTiendita.Vistas
             this.ClientSize = new System.Drawing.Size(896, 609);
             this.Controls.Add(this.tlp_Display);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInventario";
             this.Text = "FrmInventario";
             this.pnl_MenuProductos.ResumeLayout(false);

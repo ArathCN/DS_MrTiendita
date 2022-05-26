@@ -11,6 +11,17 @@ using MrTiendita.Modelos.DAO;
 using MrTiendita.Modelos.DTO;
 using Guna.UI2.WinForms;
 using Guna.UI.WinForms;
+using iText.Kernel.Pdf;
+using System.IO;
+using iTextSharp.text.pdf;
+using iText.Layout;
+using iText.Kernel.Font;
+using iText.IO.Font.Constants;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Kernel.Utils;
+using System.Globalization;
+using iText.Layout.Borders;
 
 namespace MrTiendita.Controladores
 {
@@ -28,11 +39,25 @@ namespace MrTiendita.Controladores
         private EntradaAlmacenDAO entradaAlmacenDAO;
         private bool esActivado = false;
 
+        //reporte ventas
+        private Dictionary<string, string> reporteVenta;
+        private Dictionary<string, double> CategoriaNumero;
+        private Dictionary<string, double> CategoriaVentas;
+        private Dictionary<string, double> CategoriaGanancias;
+        private List<Venta> ventaPorProducto;
+
         public FrmReportesController(FrmReportes_ vista)
         {
             this.vista = vista;
             this.ventaDAO = new VentaDAO();
             this.entradaAlmacenDAO = new EntradaAlmacenDAO();
+
+            this.CategoriaNumero = new Dictionary<string, double>();
+            this.CategoriaVentas = new Dictionary<string, double>();
+            this.CategoriaGanancias = new Dictionary<string, double>();
+            this.ventaPorProducto = new List<Venta>();
+            this.reporteVenta = new Dictionary<string, string>();
+
             this.vista.Load += new EventHandler(Vista_Load);
             this.vista.btn_Ventas.Click += new EventHandler(Btn_Ventas_Click);
             this.vista.btn_Entradas.Click += new EventHandler(Btn_Entradas_Click);
@@ -55,6 +80,9 @@ namespace MrTiendita.Controladores
             this.vista.dp_HastaVentas.ValueChanged += new EventHandler(Dp_HastaVentas_onValueChanged);
             this.vista.dp_DesdeVentas.Click += new EventHandler(Dp_DesdeVentas_Click);
             this.vista.dp_HastaVentas.Click += new EventHandler(Dp_HastaVentas_Click);
+
+            //guardar
+            this.vista.btn_GuardarArchivo.Click += new EventHandler(btn_GuardarArchivo_Click);
         }
 
         private void Vista_Load(object sender, EventArgs e)
@@ -248,6 +276,7 @@ namespace MrTiendita.Controladores
 
         private void Dp_DesdeVentas_onValueChanged(object sender, EventArgs e)
         {
+            this.desde = this.vista.dp_DesdeVentas.Value;
             BlackOutDateTimePicker(sender, this.vista.dp_HastaVentas);
             DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
             DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
@@ -268,6 +297,7 @@ namespace MrTiendita.Controladores
 
         private void Dp_HastaVentas_onValueChanged(object sender, EventArgs e)
         {
+            this.hasta = this.vista.dp_HastaVentas.Value;
             DateTime fechaDesde = this.vista.dp_DesdeVentas.Value;
             DateTime fechaHasta = this.vista.dp_HastaVentas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -297,6 +327,91 @@ namespace MrTiendita.Controladores
             DatePickerFocus(this.vista.lbl_Desde, this.vista.lbl_Hasta);
         }
 
+        private void btn_GuardarArchivo_Click(object sender, EventArgs e)
+        {
+            this.CategoriaVentas.Clear();
+            this.CategoriaGanancias.Clear();
+            this.CategoriaNumero.Clear();
+            this.reporteVenta.Clear();
+            this.ventaPorProducto.Clear();
+
+            List<Categoria> categorias = Categorias.CATEGORIAS;
+            categorias.RemoveAt(0);
+
+            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
+            formato.CurrencyGroupSeparator = ",";
+            formato.NumberDecimalSeparator = ".";
+            formato.CurrencyDecimalDigits = 2;
+
+            double totalVentas = 0;
+            double totalVentasEfectivo = 0;
+            double totalVentasTarjeta = 0;
+            double totalGanancia = 0;
+
+            foreach (Categoria categoria in categorias)
+            {
+                this.CategoriaVentas.Add(categoria.Nombre, 0);
+                this.CategoriaGanancias.Add(categoria.Nombre, 0);
+                this.CategoriaNumero.Add(categoria.Nombre, 0);
+            }
+
+            List<Venta> ventasTotales = this.ventaDAO.ReadBetweenDatesCompleteInfo(this.desde, this.hasta);
+
+            //Juntar los registros de ventas que sean de un mismo producto.
+            foreach (Venta venta in ventasTotales)
+            {
+                bool encontrado = false;
+                for (int j = 0; j < this.ventaPorProducto.Count() && !encontrado; j++)
+                {
+                    if (venta.Codigo_barra == this.ventaPorProducto[j].Codigo_barra)
+                    {
+                        this.ventaPorProducto[j].Cantidad += venta.Cantidad;
+                        this.ventaPorProducto[j].Importe += venta.Importe;
+                        encontrado = true;
+                    }
+                }
+                if (!encontrado) this.ventaPorProducto.Add(venta);
+            }
+
+            foreach (Venta venta in ventasTotales)
+            {
+
+                //Sumar las ventas por cada tipo de pago
+                if (venta.Metodo_pago == TipoMovimiento.EFECTIVO)
+                {
+                    totalVentasEfectivo += venta.Importe;
+                }
+                else if (venta.Metodo_pago == TipoMovimiento.TARJETA)
+                {
+                    totalVentasTarjeta += venta.Importe;
+                }
+
+                //Sumar las ventas, ganancias y numero de productos a cada categoría
+                if (this.CategoriaVentas.ContainsKey(venta.Producto.Categoria))
+                {
+                    this.CategoriaVentas[venta.Producto.Categoria] += venta.Importe;
+                    this.CategoriaGanancias[venta.Producto.Categoria] += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
+                    this.CategoriaNumero[venta.Producto.Categoria] += venta.Cantidad;
+                }
+                else //no debería salir erro si cuando se dan de alta productos se usan las constantes de Categorias
+                {
+                    Form error = new FrmError("No se encontró -->" + venta.Producto.Categoria);
+                    error.ShowDialog();
+                }
+
+                totalGanancia += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
+                totalVentas += venta.Importe;
+            }
+
+            this.reporteVenta.Add("numVentas", ventasTotales.Count().ToString());
+            this.reporteVenta.Add("ventasTotales", totalVentas.ToString("C", formato));
+            this.reporteVenta.Add("gananciasTotales", totalGanancia.ToString("C", formato));
+            this.reporteVenta.Add("efectivoTotal", totalVentasEfectivo.ToString("C", formato));
+            this.reporteVenta.Add("tarjetaTotal", totalVentasTarjeta.ToString("C", formato));
+
+            this.GenerarReporteVentasTotales();
+        }
+
         //Métodos auxiliares
         private void ActivarBoton(object boton)
         {
@@ -320,9 +435,12 @@ namespace MrTiendita.Controladores
 
         public void ActualizarVentasTotales(DateTime desde, DateTime hasta, object sender)
         {
-            List<Venta> ventas = this.ventaDAO.ReadBetweenDatesWithDescription(desde, hasta);
+
+            //ReadBetweenDatesWithDescription
+            List<Venta> ventas = this.ventaDAO.ReadBetweenDatesCompleteInfo(desde, hasta);
             if (ventas.Count != 0)
             {
+                this.vista.btn_GuardarArchivo.Enabled = true;
                 this.vista.dgv_TablaTodasVentas.Rows.Clear();
                 foreach (Venta venta in ventas)
                 {
@@ -339,6 +457,7 @@ namespace MrTiendita.Controladores
             }
             else
             {
+                this.vista.btn_GuardarArchivo.Enabled = false;
                 MensajeError(sender);
                 this.vista.dgv_TablaTodasVentas.Rows.Clear();
             }
@@ -349,21 +468,18 @@ namespace MrTiendita.Controladores
             List<Venta> ventasTotales = this.ventaDAO.ReadBetweenDatesCompleteInfo(desde, hasta);
             if (ventasTotales.Count != 0)
             {
+                this.vista.btn_GuardarArchivo.Enabled = true;
                 Dictionary<string, double> totalVentasCategoria = new Dictionary<string, double>();
                 Dictionary<string, double> totalGananciaCategoria = new Dictionary<string, double>();
                 Dictionary<string, double> totalProductosCategoria = new Dictionary<string, double>();
-                foreach (Categoria categoria in Categorias.CATEGORIAS)
+
+                List<Categoria> categorias = Categorias.CATEGORIAS;
+                categorias.RemoveAt(0);
+
+                foreach (Categoria categoria in categorias)
                 {
                     totalVentasCategoria.Add(categoria.Nombre, 0);
-                }
-
-                foreach (Categoria categoria in Categorias.CATEGORIAS)
-                {
                     totalGananciaCategoria.Add(categoria.Nombre, 0);
-                }
-
-                foreach (Categoria categoria in Categorias.CATEGORIAS)
-                {
                     totalProductosCategoria.Add(categoria.Nombre, 0);
                 }
 
@@ -378,21 +494,20 @@ namespace MrTiendita.Controladores
                     }
                 }
                 this.vista.dgv_TablaVentasCategoria.Rows.Clear();
-                foreach (Categoria categoria in Categorias.CATEGORIAS)
+                foreach (Categoria categoria in categorias)
                 {
-                    if (categoria.Nombre != "Todos")
-                    {
-                        this.vista.dgv_TablaVentasCategoria.Rows.Add(
-                        categoria.Nombre,
-                        totalProductosCategoria[categoria.Nombre],
-                        "$"+totalVentasCategoria[categoria.Nombre],
-                        "$"+totalGananciaCategoria[categoria.Nombre]
-                        );
-                    }
+                    this.vista.dgv_TablaVentasCategoria.Rows.Add(
+                    categoria.Nombre,
+                    totalProductosCategoria[categoria.Nombre],
+                    "$"+totalVentasCategoria[categoria.Nombre],
+                    "$"+totalGananciaCategoria[categoria.Nombre]
+                    );
+                    
                 }
             }
             else
             {
+                this.vista.btn_GuardarArchivo.Enabled = false;
                 MensajeError(sender);
                 this.vista.dgv_TablaVentasCategoria.Rows.Clear();
             }
@@ -404,6 +519,7 @@ namespace MrTiendita.Controladores
             List<EntradaAlmacen> entradas = this.entradaAlmacenDAO.ReadBetweenDates(desde, hasta);
             if (entradas.Count != 0)
             {
+                this.vista.btn_GuardarArchivo.Enabled = true;
                 this.vista.dgv_TablaEntradas.Rows.Clear();
                 foreach (EntradaAlmacen entrada in entradas)
                 {
@@ -420,6 +536,7 @@ namespace MrTiendita.Controladores
             }
             else
             {
+                this.vista.btn_GuardarArchivo.Enabled = false;
                 MensajeError(sender);
                 this.vista.dgv_TablaEntradas.Rows.Clear();
             }
@@ -532,6 +649,152 @@ namespace MrTiendita.Controladores
                 this.tabla = (Guna2DataGridView)tabla;
                 this.tabla.Visible = true;
             }
+        }
+
+        private void GenerarReporteVentasTotales()
+        {
+            DateTime hoy = DateTime.Now;
+            String dia = hoy.ToString("dd");
+            String mes = hoy.ToString("MMMM", new CultureInfo("es-MX"));
+            String anio = hoy.ToString("yyyy");
+            long numeroR = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
+            formato.CurrencyGroupSeparator = ",";
+            formato.NumberDecimalSeparator = ".";
+            formato.CurrencyDecimalDigits = 2;
+
+            string reporteVentasTotales = Properties.Settings.Default.RutaTickets + @"\ReporteVentasTotales_" + this.desde.ToString("dd-MM-yyyy") + "_" + this.desde.ToString("dd-MM-yyyy") + ".pdf";
+
+            
+            ////////////////////////////
+            //Ahora se crea un archivo pdf con las entradas y salidas de dinerp
+            iText.Kernel.Pdf.PdfDocument pdfDoc = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(reporteVentasTotales));
+            Document document = new Document(pdfDoc, iText.Kernel.Geom.PageSize.LETTER);
+            document.SetMargins(20f, 15f, 20f, 15f);
+            iText.Kernel.Font.PdfFont fuente = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+
+            document.Add(new Paragraph("Reporte de ventas").SetFont(fuente).SetFontSize(16).SetBold().SetTextAlignment(TextAlignment.CENTER));
+            document.Add(new Paragraph(dia + " de " + mes + " de " + anio).SetFont(fuente).SetFontSize(12).SetTextAlignment(TextAlignment.CENTER));
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            Table fechas = new Table(UnitValue.CreatePercentArray(2));
+            fechas.SetWidth(UnitValue.CreatePercentValue(95));
+            fechas.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            fechas.AddCell(new Cell().SetTextAlignment(TextAlignment.LEFT).Add(
+                new Paragraph("Desde:   " + this.desde.ToString("dd/MM/yyyy")).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+            fechas.AddCell(new Cell().SetTextAlignment(TextAlignment.RIGHT).Add(
+                new Paragraph("Hasta:   " + this.hasta.ToString("dd/MM/yyyy")).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+
+            document.Add(fechas);
+
+            document.Add(new Paragraph(""));
+
+            document.Add(new Paragraph(this.reporteVenta["numVentas"] + "  ventas.").SetFont(fuente).SetFontSize(12).SetTextAlignment(TextAlignment.CENTER));
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            Table totales = new Table(UnitValue.CreatePercentArray(2));
+            totales.SetWidth(UnitValue.CreatePercentValue(90));
+            totales.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            totales.AddCell(new Cell().SetTextAlignment(TextAlignment.LEFT).Add(
+                new Paragraph("Ventas totales:   " + this.reporteVenta["ventasTotales"]).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+            totales.AddCell(new Cell().SetTextAlignment(TextAlignment.RIGHT).Add(
+                new Paragraph("Ganancias totales:   " + this.reporteVenta["gananciasTotales"]).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+
+            document.Add(totales);
+
+            document.Add(new Paragraph(""));
+
+            document.Add(new Paragraph("Efectivo:   " + this.reporteVenta["efectivoTotal"]).SetFont(fuente).SetFontSize(12).SetTextAlignment(TextAlignment.LEFT));
+            document.Add(new Paragraph("Tarjeta:   " + this.reporteVenta["tarjetaTotal"]).SetFont(fuente).SetFontSize(12).SetTextAlignment(TextAlignment.LEFT));
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            document.Add(new Paragraph("Ventas por categoría").SetFont(fuente).SetFontSize(13).SetBold().SetTextAlignment(TextAlignment.CENTER));
+            document.Add(new Paragraph(""));
+
+            Table categorias = new Table(UnitValue.CreatePercentArray(new float[] { 1.3f, 1, 1, 1}));
+            categorias.SetWidth(UnitValue.CreatePercentValue(60));
+            categorias.SetTextAlignment(TextAlignment.JUSTIFIED);
+            categorias.SetFont(fuente);
+            categorias.SetFontSize(12);
+            categorias.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Categoría").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Cantidad").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Total").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Ganancia").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+
+            foreach (var venta in this.CategoriaVentas)
+            {
+                categorias.AddCell(venta.Key);
+                categorias.AddCell(new Cell().Add(new Paragraph(this.CategoriaNumero[venta.Key].ToString(formato))).SetTextAlignment(TextAlignment.CENTER));
+                categorias.AddCell(new Cell().Add(new Paragraph(venta.Value.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+                categorias.AddCell(new Cell().Add(new Paragraph(this.CategoriaGanancias[venta.Key].ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+            }
+
+            document.Add(categorias);
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            document.Add(new Paragraph("Ventas por producto").SetFont(fuente).SetFontSize(13).SetBold().SetTextAlignment(TextAlignment.CENTER));
+            document.Add(new Paragraph(""));
+
+            Table ventas = new Table(UnitValue.CreatePercentArray(new float[] { 1.3f, 1, 1 }));
+            ventas.SetWidth(UnitValue.CreatePercentValue(60));
+            ventas.SetTextAlignment(TextAlignment.JUSTIFIED);
+            ventas.SetFont(fuente);
+            ventas.SetFontSize(12);
+            ventas.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            ventas.AddHeaderCell(new Cell().Add(new Paragraph("Producto").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            ventas.AddHeaderCell(new Cell().Add(new Paragraph("Cantidad").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            ventas.AddHeaderCell(new Cell().Add(new Paragraph("Total").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+
+            foreach (Venta venta in this.ventaPorProducto)
+            {
+                ventas.AddCell(venta.Producto.Descripcion);
+                ventas.AddCell(new Cell().Add(new Paragraph(venta.Cantidad.ToString(formato))).SetTextAlignment(TextAlignment.CENTER));
+                ventas.AddCell(new Cell().Add(new Paragraph(venta.Importe.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+            }
+
+            document.Add(ventas);
+
+            document.Close();
+
+
+
+            ////////////////////////////////
+            //Juntamos el documento con los datos generales y el documento con las tablas
+            //iText.Kernel.Pdf.PdfDocument CorteFinal = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(corteCajaFinal));
+            //string[] docsToMerge = new string[] { corteCajaPreeliminar, corteCajaEntradasSalidas };
+            //for (int a = 0; a < docsToMerge.Length; a++)
+            //{
+            //    iText.Kernel.Pdf.PdfDocument origPdf2 = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfReader(docsToMerge[a]));
+            //    PdfMerger merger = new PdfMerger(CorteFinal);
+            //    merger.Merge(origPdf2, 1, origPdf2.GetNumberOfPages());
+
+            //    origPdf2.Close();
+
+            //}
+            //CorteFinal.Close();
+
+            //File.Delete(corteCajaPreeliminar);
+            //File.Delete(corteCajaEntradasSalidas);
+
+            FrmExito exito = new FrmExito("Se ha realizado el corte");
+            exito.ShowDialog();
         }
     }
 }

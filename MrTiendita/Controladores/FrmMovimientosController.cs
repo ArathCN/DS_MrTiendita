@@ -373,10 +373,6 @@ namespace MrTiendita.Controladores
             foreach (Categoria categoria in Categorias.CATEGORIAS)
             {
                 this.ventas.Add(categoria.Nombre, 0);
-            }
-
-            foreach (Categoria categoria in Categorias.CATEGORIAS)
-            {
                 this.ganancias.Add(categoria.Nombre, 0);
             }
 
