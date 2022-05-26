@@ -74,6 +74,7 @@ namespace MrTiendita.Controladores
 
             //Vista de movimientos
             this.vista.cb_FiltroMovimientos.SelectedIndexChanged += new EventHandler(cb_FiltroMovimientos_SelectedIndexChanged);
+            this.vista.lbl_mostrarTodos.Click += new EventHandler(lbl_mostrarTodos_Click);
             this.vista.lbl_Hoy.Click += new EventHandler(lbl_Hoy_Click);
             this.vista.lbl_EsteMes.Click += new EventHandler(lbl_EsteMes_Click);
             this.vista.lbl_EstaSemana.Click += new EventHandler(lbl_EstaSemana_Click);
@@ -110,7 +111,7 @@ namespace MrTiendita.Controladores
                 this.vista.tlp_DisplayCorte.Visible = true;
                 this.vista.tlp_DisplayConsultar.Visible = false;
             }
-            ActivarPeriodo(this.vista.lbl_Hoy);
+            this.ActivarPeriodo(this.vista.lbl_mostrarTodos);
             
         }
 
@@ -187,6 +188,12 @@ namespace MrTiendita.Controladores
             this.MostrarMovimientos(tipo);
         }
 
+        private void lbl_mostrarTodos_Click(object sender, EventArgs e)
+        {
+            this.MostrarMovimientos(this.movimientoSeleccionado);
+            ActivarPeriodo(sender);
+        }
+
         private void lbl_Hoy_Click(object sender, EventArgs e)
         {
             DateTime inicio = DateTime.Today;
@@ -196,7 +203,7 @@ namespace MrTiendita.Controladores
             final = final.AddHours(23);
             final = final.AddMinutes(59);
             final = final.AddSeconds(59);
-            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
+            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final, sender);
             ActivarPeriodo(sender);
         }
 
@@ -207,7 +214,7 @@ namespace MrTiendita.Controladores
             DateTime final = new DateTime(hoy.Year, hoy.Month, DateTime.DaysInMonth(hoy.Year, hoy.Month), 23, 59, 59);
             ActivarPeriodo(sender);
 
-            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
+            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final, sender);
             Console.WriteLine(inicio.ToString("yyyy-MM-dd HH:mm:ss") + "  -->  " + final.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
@@ -222,7 +229,7 @@ namespace MrTiendita.Controladores
             DateTime inicio = hoy.AddDays(-diaSemana);
             DateTime final = hoy.AddDays(6 - diaSemana);
             ActivarPeriodo(sender);
-            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final);
+            this.MostrarMovimientos(this.movimientoSeleccionado, inicio, final, sender);
             Console.WriteLine(inicio.ToString("yyyy-MM-dd HH:mm:ss") + "  -->  " + final.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
@@ -333,7 +340,6 @@ namespace MrTiendita.Controladores
         private void PrepararVistaMovimientos()
         {
             this.vista.cb_FiltroMovimientos.SelectedIndex = 0;
-            //agregar lo de que aparezca el dinero de la caja...
         }
 
         private void PrepararVistaCorte()
@@ -467,14 +473,15 @@ namespace MrTiendita.Controladores
             this.vista.lbl_GananciaSinCategoria.Text = this.ganancias[Categorias.SIN_CATEGORIA.Nombre].ToString("C", formato);
         }
 
-        private void MostrarMovimientos(String filtro, DateTime inicio, DateTime fin)
+        private void MostrarMovimientos(String filtro, DateTime inicio, DateTime fin, object sender)
         {
             List<Movimiento> movimientos = this.movimientoDAO.Read(filtro, inicio, fin);
             this.vista.tablaMovimientos.Rows.Clear();
+            if (movimientos.Count == 0) MensajeError(sender);
             foreach (Movimiento movimiento in movimientos)
             {
                 this.vista.tablaMovimientos.Rows.Add(
-                    movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
+                    movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, "$" + movimiento.Importe);
             }
         }
 
@@ -485,7 +492,7 @@ namespace MrTiendita.Controladores
             foreach (Movimiento movimiento in movimientos)
             {
                 this.vista.tablaMovimientos.Rows.Add(
-                    movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, movimiento.Importe);
+                    movimiento.Tipo, movimiento.Concepto, movimiento.Fecha, "$" + movimiento.Importe);
             }
         }
 
@@ -498,6 +505,8 @@ namespace MrTiendita.Controladores
                 error.ShowDialog();
                 return;
             }
+            this.vista.lbl_EfetivoCaja.Text = "$" + this.valorCaja.Valor;
+            this.vista.lbl_EfetivoCajaCorte.Text = "$" + this.valorCaja.Valor;
         }
       
         private void GenerarCorteCaja()
@@ -677,5 +686,31 @@ namespace MrTiendita.Controladores
             if (this.periodo != null)
                 this.periodo.ForeColor = Color.FromArgb(70, 70, 74);
         }
+
+        public void MensajeError(object sender)
+        {
+            string mensaje = "no se mostrará ningún movimiento. Seleccione mostrar todos";
+            if (sender == this.vista.lbl_Hoy)
+            {
+                FrmError frmError = new FrmError($"Hoy no ha hecho movimientos, {mensaje} o agregue un movimiento.");
+                frmError.ShowDialog();
+            }
+            else if (sender == this.vista.lbl_EstaSemana)
+            {
+                FrmError frmError = new FrmError($"Esta semana no ha hecho movimientos, {mensaje} o agregue un movimiento.");
+                frmError.ShowDialog();
+            }
+            else if (sender == this.vista.lbl_EsteMes)
+            {
+                FrmError frmError = new FrmError($"Este mes no ha hecho movimientos, {mensaje} o agregue un movimiento.");
+                frmError.ShowDialog();
+            }
+            else if (sender == this.vista.lbl_mostrarTodos)
+            {
+                FrmError frmError = new FrmError($"No ha hecho movimientos, realice uno nuevo para comenzar un registro.");
+                frmError.ShowDialog();
+            }
+        }
+
     }
 }

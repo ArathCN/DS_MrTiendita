@@ -38,9 +38,10 @@ namespace MrTiendita.Vistas
             dgv_TablaProductos.Columns[5].Width = 35;//Cantidad a agregar
             dgv_TablaProductos.Columns[6].Width = 60;//Icono agregar al carrito
             col_CantidadAgregar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            col_Precio.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             col_AgregarCarrito.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv_TablaProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_TablaProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_TablaProductos.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             
         }
 

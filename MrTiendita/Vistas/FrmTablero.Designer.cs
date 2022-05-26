@@ -35,21 +35,36 @@ namespace MrTiendita.Vistas
             this.lbl_Notificaciones = new System.Windows.Forms.Label();
             this.lbl_DescNoti = new System.Windows.Forms.Label();
             this.pnl_Atajos = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_EfetivoCaja = new System.Windows.Forms.Label();
+            this.lbl_DescEfectivo = new System.Windows.Forms.Label();
             this.btn_AtajoCorte = new Guna.UI2.WinForms.Guna2Button();
+            this.lbl_Estadisticas = new System.Windows.Forms.Label();
             this.btn_AtajoSalida = new Guna.UI2.WinForms.Guna2Button();
             this.btn_AtajoEntrada = new Guna.UI2.WinForms.Guna2Button();
             this.btn_AtajoProductos = new Guna.UI2.WinForms.Guna2Button();
             this.btn_AtajoVenta = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_Atajos = new System.Windows.Forms.Label();
             this.lbl_DescAtajos = new System.Windows.Forms.Label();
-            this.lbl_Estadisticas = new System.Windows.Forms.Label();
             this.tlp_PanelSuperior = new System.Windows.Forms.TableLayoutPanel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.lbl_DescEfectivo = new System.Windows.Forms.Label();
-            this.lbl_EfetivoCaja = new System.Windows.Forms.Label();
+            this.pnl_MensajeNoHay = new System.Windows.Forms.Panel();
+            this.lbl_NoHayProductos = new System.Windows.Forms.Label();
+            this.pb_caritaFeliz = new System.Windows.Forms.PictureBox();
+            this.pnl_MensajeDesactivadas = new System.Windows.Forms.Panel();
+            this.lbl_Desactivadas = new System.Windows.Forms.Label();
+            this.pb_caritaConfundida = new System.Windows.Forms.PictureBox();
+            this.btn_Configuracion = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_Notificaciones.SuspendLayout();
             this.pnl_Atajos.SuspendLayout();
             this.tlp_PanelSuperior.SuspendLayout();
+            this.pnl_MensajeNoHay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_caritaFeliz)).BeginInit();
+            this.pnl_MensajeDesactivadas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_caritaConfundida)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_Notificaciones
@@ -58,6 +73,8 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Notificaciones.BorderRadius = 10;
+            this.pnl_Notificaciones.Controls.Add(this.pnl_MensajeDesactivadas);
+            this.pnl_Notificaciones.Controls.Add(this.pnl_MensajeNoHay);
             this.pnl_Notificaciones.Controls.Add(this.flp_ListaNotificaciones);
             this.pnl_Notificaciones.Controls.Add(this.lbl_Notificaciones);
             this.pnl_Notificaciones.Controls.Add(this.lbl_DescNoti);
@@ -72,7 +89,8 @@ namespace MrTiendita.Vistas
             // 
             // flp_ListaNotificaciones
             // 
-            this.flp_ListaNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flp_ListaNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flp_ListaNotificaciones.AutoScroll = true;
             this.flp_ListaNotificaciones.BackColor = System.Drawing.Color.White;
@@ -129,6 +147,29 @@ namespace MrTiendita.Vistas
             this.pnl_Atajos.Size = new System.Drawing.Size(354, 812);
             this.pnl_Atajos.TabIndex = 2;
             // 
+            // lbl_EfetivoCaja
+            // 
+            this.lbl_EfetivoCaja.AutoSize = true;
+            this.lbl_EfetivoCaja.BackColor = System.Drawing.Color.White;
+            this.lbl_EfetivoCaja.Font = new System.Drawing.Font("Leelawadee UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EfetivoCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_EfetivoCaja.Location = new System.Drawing.Point(39, 499);
+            this.lbl_EfetivoCaja.Name = "lbl_EfetivoCaja";
+            this.lbl_EfetivoCaja.Size = new System.Drawing.Size(161, 38);
+            this.lbl_EfetivoCaja.TabIndex = 7;
+            this.lbl_EfetivoCaja.Text = "$1,000,000";
+            // 
+            // lbl_DescEfectivo
+            // 
+            this.lbl_DescEfectivo.AutoSize = true;
+            this.lbl_DescEfectivo.BackColor = System.Drawing.Color.White;
+            this.lbl_DescEfectivo.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.lbl_DescEfectivo.Location = new System.Drawing.Point(21, 462);
+            this.lbl_DescEfectivo.Name = "lbl_DescEfectivo";
+            this.lbl_DescEfectivo.Size = new System.Drawing.Size(195, 23);
+            this.lbl_DescEfectivo.TabIndex = 6;
+            this.lbl_DescEfectivo.Text = "Total de efectivo en caja";
+            // 
             // btn_AtajoCorte
             // 
             this.btn_AtajoCorte.BackColor = System.Drawing.Color.White;
@@ -156,6 +197,18 @@ namespace MrTiendita.Vistas
             this.btn_AtajoCorte.Text = "Realizar corte de caja";
             this.btn_AtajoCorte.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_AtajoCorte.TextOffset = new System.Drawing.Point(16, 0);
+            // 
+            // lbl_Estadisticas
+            // 
+            this.lbl_Estadisticas.AutoSize = true;
+            this.lbl_Estadisticas.BackColor = System.Drawing.Color.White;
+            this.lbl_Estadisticas.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Estadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Estadisticas.Location = new System.Drawing.Point(19, 430);
+            this.lbl_Estadisticas.Name = "lbl_Estadisticas";
+            this.lbl_Estadisticas.Size = new System.Drawing.Size(106, 32);
+            this.lbl_Estadisticas.TabIndex = 4;
+            this.lbl_Estadisticas.Text = "Efectivo";
             // 
             // btn_AtajoSalida
             // 
@@ -291,18 +344,6 @@ namespace MrTiendita.Vistas
             this.lbl_DescAtajos.TabIndex = 3;
             this.lbl_DescAtajos.Text = "Accesos directos a las tareas.";
             // 
-            // lbl_Estadisticas
-            // 
-            this.lbl_Estadisticas.AutoSize = true;
-            this.lbl_Estadisticas.BackColor = System.Drawing.Color.White;
-            this.lbl_Estadisticas.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Estadisticas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_Estadisticas.Location = new System.Drawing.Point(19, 430);
-            this.lbl_Estadisticas.Name = "lbl_Estadisticas";
-            this.lbl_Estadisticas.Size = new System.Drawing.Size(106, 32);
-            this.lbl_Estadisticas.TabIndex = 4;
-            this.lbl_Estadisticas.Text = "Efectivo";
-            // 
             // tlp_PanelSuperior
             // 
             this.tlp_PanelSuperior.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -321,28 +362,120 @@ namespace MrTiendita.Vistas
             this.tlp_PanelSuperior.Size = new System.Drawing.Size(1171, 816);
             this.tlp_PanelSuperior.TabIndex = 3;
             // 
-            // lbl_DescEfectivo
+            // pnl_MensajeNoHay
             // 
-            this.lbl_DescEfectivo.AutoSize = true;
-            this.lbl_DescEfectivo.BackColor = System.Drawing.Color.White;
-            this.lbl_DescEfectivo.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.lbl_DescEfectivo.Location = new System.Drawing.Point(21, 462);
-            this.lbl_DescEfectivo.Name = "lbl_DescEfectivo";
-            this.lbl_DescEfectivo.Size = new System.Drawing.Size(195, 23);
-            this.lbl_DescEfectivo.TabIndex = 6;
-            this.lbl_DescEfectivo.Text = "Total de efectivo en caja";
+            this.pnl_MensajeNoHay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_MensajeNoHay.BackColor = System.Drawing.Color.White;
+            this.pnl_MensajeNoHay.Controls.Add(this.panel1);
+            this.pnl_MensajeNoHay.Location = new System.Drawing.Point(24, 108);
+            this.pnl_MensajeNoHay.Name = "pnl_MensajeNoHay";
+            this.pnl_MensajeNoHay.Size = new System.Drawing.Size(763, 688);
+            this.pnl_MensajeNoHay.TabIndex = 0;
+            this.pnl_MensajeNoHay.Visible = false;
             // 
-            // lbl_EfetivoCaja
+            // lbl_NoHayProductos
             // 
-            this.lbl_EfetivoCaja.AutoSize = true;
-            this.lbl_EfetivoCaja.BackColor = System.Drawing.Color.White;
-            this.lbl_EfetivoCaja.Font = new System.Drawing.Font("Leelawadee UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_EfetivoCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_EfetivoCaja.Location = new System.Drawing.Point(39, 499);
-            this.lbl_EfetivoCaja.Name = "lbl_EfetivoCaja";
-            this.lbl_EfetivoCaja.Size = new System.Drawing.Size(161, 38);
-            this.lbl_EfetivoCaja.TabIndex = 7;
-            this.lbl_EfetivoCaja.Text = "$1,000,000";
+            this.lbl_NoHayProductos.AutoSize = true;
+            this.lbl_NoHayProductos.BackColor = System.Drawing.Color.White;
+            this.lbl_NoHayProductos.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NoHayProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_NoHayProductos.Location = new System.Drawing.Point(158, 254);
+            this.lbl_NoHayProductos.Name = "lbl_NoHayProductos";
+            this.lbl_NoHayProductos.Size = new System.Drawing.Size(417, 28);
+            this.lbl_NoHayProductos.TabIndex = 7;
+            this.lbl_NoHayProductos.Text = "No hay productos por agotarse o agotados.";
+            // 
+            // pb_caritaFeliz
+            // 
+            this.pb_caritaFeliz.Image = ((System.Drawing.Image)(resources.GetObject("pb_caritaFeliz.Image")));
+            this.pb_caritaFeliz.Location = new System.Drawing.Point(311, 124);
+            this.pb_caritaFeliz.Name = "pb_caritaFeliz";
+            this.pb_caritaFeliz.Size = new System.Drawing.Size(110, 100);
+            this.pb_caritaFeliz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_caritaFeliz.TabIndex = 8;
+            this.pb_caritaFeliz.TabStop = false;
+            // 
+            // pnl_MensajeDesactivadas
+            // 
+            this.pnl_MensajeDesactivadas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_MensajeDesactivadas.BackColor = System.Drawing.Color.White;
+            this.pnl_MensajeDesactivadas.Controls.Add(this.panel2);
+            this.pnl_MensajeDesactivadas.Location = new System.Drawing.Point(24, 108);
+            this.pnl_MensajeDesactivadas.Name = "pnl_MensajeDesactivadas";
+            this.pnl_MensajeDesactivadas.Size = new System.Drawing.Size(763, 688);
+            this.pnl_MensajeDesactivadas.TabIndex = 11;
+            this.pnl_MensajeDesactivadas.Visible = false;
+            // 
+            // lbl_Desactivadas
+            // 
+            this.lbl_Desactivadas.AutoSize = true;
+            this.lbl_Desactivadas.BackColor = System.Drawing.Color.White;
+            this.lbl_Desactivadas.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Desactivadas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_Desactivadas.Location = new System.Drawing.Point(117, 256);
+            this.lbl_Desactivadas.Name = "lbl_Desactivadas";
+            this.lbl_Desactivadas.Size = new System.Drawing.Size(498, 84);
+            this.lbl_Desactivadas.TabIndex = 10;
+            this.lbl_Desactivadas.Text = "Tienes desactivadas las notificaciones.\r\nActívalas en la configuración para ver l" +
+    "os productos\r\nque estén por agotarse o agotados.";
+            this.lbl_Desactivadas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pb_caritaConfundida
+            // 
+            this.pb_caritaConfundida.Image = ((System.Drawing.Image)(resources.GetObject("pb_caritaConfundida.Image")));
+            this.pb_caritaConfundida.Location = new System.Drawing.Point(311, 124);
+            this.pb_caritaConfundida.Name = "pb_caritaConfundida";
+            this.pb_caritaConfundida.Size = new System.Drawing.Size(110, 100);
+            this.pb_caritaConfundida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_caritaConfundida.TabIndex = 9;
+            this.pb_caritaConfundida.TabStop = false;
+            // 
+            // btn_Configuracion
+            // 
+            this.btn_Configuracion.BackColor = System.Drawing.Color.White;
+            this.btn_Configuracion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
+            this.btn_Configuracion.BorderRadius = 5;
+            this.btn_Configuracion.BorderThickness = 1;
+            this.btn_Configuracion.CheckedState.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.CustomImages.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.FillColor = System.Drawing.Color.White;
+            this.btn_Configuracion.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Configuracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.btn_Configuracion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Configuracion.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.btn_Configuracion.HoverState.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Configuracion.ImageOffset = new System.Drawing.Point(9, 0);
+            this.btn_Configuracion.Location = new System.Drawing.Point(211, 407);
+            this.btn_Configuracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Configuracion.Name = "btn_Configuracion";
+            this.btn_Configuracion.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.btn_Configuracion.ShadowDecoration.Parent = this.btn_Configuracion;
+            this.btn_Configuracion.Size = new System.Drawing.Size(311, 39);
+            this.btn_Configuracion.TabIndex = 11;
+            this.btn_Configuracion.Text = "Ir a configuración";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pb_caritaFeliz);
+            this.panel1.Controls.Add(this.lbl_NoHayProductos);
+            this.panel1.Location = new System.Drawing.Point(19, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(724, 492);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_Configuracion);
+            this.panel2.Controls.Add(this.lbl_Desactivadas);
+            this.panel2.Controls.Add(this.pb_caritaConfundida);
+            this.panel2.Location = new System.Drawing.Point(19, 51);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(724, 492);
+            this.panel2.TabIndex = 0;
             // 
             // FrmTablero
             // 
@@ -360,6 +493,14 @@ namespace MrTiendita.Vistas
             this.pnl_Atajos.ResumeLayout(false);
             this.pnl_Atajos.PerformLayout();
             this.tlp_PanelSuperior.ResumeLayout(false);
+            this.pnl_MensajeNoHay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_caritaFeliz)).EndInit();
+            this.pnl_MensajeDesactivadas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_caritaConfundida)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,5 +524,14 @@ namespace MrTiendita.Vistas
         public Guna.UI2.WinForms.Guna2Button btn_AtajoVenta;
         private System.Windows.Forms.Label lbl_DescEfectivo;
         public System.Windows.Forms.Label lbl_EfetivoCaja;
+        private System.Windows.Forms.PictureBox pb_caritaFeliz;
+        private System.Windows.Forms.Label lbl_NoHayProductos;
+        private System.Windows.Forms.Label lbl_Desactivadas;
+        private System.Windows.Forms.PictureBox pb_caritaConfundida;
+        public Guna.UI2.WinForms.Guna2Button btn_Configuracion;
+        public System.Windows.Forms.Panel pnl_MensajeNoHay;
+        public System.Windows.Forms.Panel pnl_MensajeDesactivadas;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel panel2;
     }
 }
