@@ -48,6 +48,7 @@ namespace MrTiendita.Vistas
             this.tablero.btn_AtajoEntrada.Click += new EventHandler(Btn_AtajoEntrada_Click);
             this.tablero.btn_AtajoSalida.Click += new EventHandler(Btn_AtajoSalida_Click);
             this.tablero.btn_AtajoCorte.Click += new EventHandler(Btn_AtajoCorte_Click);
+            this.tablero.btn_Configuracion.Click += new EventHandler(Btn_ConfiguracionAtajo_Click);
         }
 
         private void Btn_AtajoCorte_Click(object sender, EventArgs e)
@@ -132,6 +133,8 @@ namespace MrTiendita.Vistas
             AbrirTablero(this.tablero);
             ActivarBoton(sender);
             esActivado = false;
+            Centrar(this.tablero.pnl_MensajeDesactivadas, this.tablero.panel2);
+            Centrar(this.tablero.pnl_MensajeNoHay, this.tablero.panel1);
         }
 
         private void btn_Ventas_Click(object sender, EventArgs e)
@@ -177,6 +180,13 @@ namespace MrTiendita.Vistas
             esActivado = false;
         }
 
+        private void Btn_ConfiguracionAtajo_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmConfiguraciones());
+            ActivarBoton(btn_Configuracion);
+            esActivado = true;
+        }
+
         private void btn_CerrarSesion_Click(object sender, EventArgs e)
         {
             ActivarBoton(btn_Tablero);
@@ -210,12 +220,18 @@ namespace MrTiendita.Vistas
         private void btn_Maximizar_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
+            {
                 this.WindowState = FormWindowState.Maximized;
+                Centrar(this.tablero.pnl_MensajeDesactivadas, this.tablero.panel2);
+                Centrar(this.tablero.pnl_MensajeNoHay, this.tablero.panel1);
+            }
             else
+            {
                 this.WindowState = FormWindowState.Normal;
-
-            if (esActivado)
-                ActivarBoton(btn_Configuracion);
+                Centrar(this.tablero.pnl_MensajeDesactivadas, this.tablero.panel2);
+                Centrar(this.tablero.pnl_MensajeNoHay, this.tablero.panel1);
+            }
+            if (esActivado) ActivarBoton(btn_Configuracion);
         }
 
         private void btn_Minimizar_Click(object sender, EventArgs e)
@@ -253,6 +269,17 @@ namespace MrTiendita.Vistas
         private void FrmPrincipal__Load(object sender, EventArgs e)
         {
             
+        }
+
+        public  void Centrar(Control padre, Control hijo)
+        {
+            int x = 0;
+
+            //un poco de matematicas, restando los anchos y dividiendo entre 2
+            x = (padre.Width / 2) - (hijo.Width / 2);
+
+            //asignamos la nueva ubicación
+            hijo.Location = new System.Drawing.Point(x, hijo.Location.Y);
         }
     }
 }

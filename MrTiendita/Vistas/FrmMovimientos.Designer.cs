@@ -29,17 +29,19 @@ namespace MrTiendita.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMovimientos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_ConsultarMovimientos = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_EfetivoCaja = new System.Windows.Forms.Label();
+            this.lbl_DescEfectivo = new System.Windows.Forms.Label();
             this.lbl_EsteMes = new System.Windows.Forms.Label();
             this.lbl_EstaSemana = new System.Windows.Forms.Label();
             this.lbl_Hoy = new System.Windows.Forms.Label();
@@ -177,6 +179,9 @@ namespace MrTiendita.Vistas
             this.lbl_DescVentasTarjeta = new System.Windows.Forms.Label();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.lbl_DescCorte = new System.Windows.Forms.Label();
+            this.lbl_EfetivoCajaCorte = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_mostrarTodos = new System.Windows.Forms.Label();
             this.pnl_ConsultarMovimientos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaMovimientos)).BeginInit();
             this.tlp_DisplayConsultar.SuspendLayout();
@@ -230,6 +235,9 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_ConsultarMovimientos.BorderRadius = 10;
+            this.pnl_ConsultarMovimientos.Controls.Add(this.lbl_mostrarTodos);
+            this.pnl_ConsultarMovimientos.Controls.Add(this.lbl_EfetivoCaja);
+            this.pnl_ConsultarMovimientos.Controls.Add(this.lbl_DescEfectivo);
             this.pnl_ConsultarMovimientos.Controls.Add(this.lbl_EsteMes);
             this.pnl_ConsultarMovimientos.Controls.Add(this.lbl_EstaSemana);
             this.pnl_ConsultarMovimientos.Controls.Add(this.lbl_Hoy);
@@ -246,6 +254,31 @@ namespace MrTiendita.Vistas
             this.pnl_ConsultarMovimientos.ShadowDecoration.Parent = this.pnl_ConsultarMovimientos;
             this.pnl_ConsultarMovimientos.Size = new System.Drawing.Size(1168, 375);
             this.pnl_ConsultarMovimientos.TabIndex = 35;
+            // 
+            // lbl_EfetivoCaja
+            // 
+            this.lbl_EfetivoCaja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_EfetivoCaja.AutoSize = true;
+            this.lbl_EfetivoCaja.BackColor = System.Drawing.Color.White;
+            this.lbl_EfetivoCaja.Font = new System.Drawing.Font("Leelawadee UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EfetivoCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_EfetivoCaja.Location = new System.Drawing.Point(1011, 33);
+            this.lbl_EfetivoCaja.Name = "lbl_EfetivoCaja";
+            this.lbl_EfetivoCaja.Size = new System.Drawing.Size(141, 32);
+            this.lbl_EfetivoCaja.TabIndex = 62;
+            this.lbl_EfetivoCaja.Text = "$1,000,000";
+            // 
+            // lbl_DescEfectivo
+            // 
+            this.lbl_DescEfectivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_DescEfectivo.AutoSize = true;
+            this.lbl_DescEfectivo.BackColor = System.Drawing.Color.White;
+            this.lbl_DescEfectivo.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.lbl_DescEfectivo.Location = new System.Drawing.Point(959, 65);
+            this.lbl_DescEfectivo.Name = "lbl_DescEfectivo";
+            this.lbl_DescEfectivo.Size = new System.Drawing.Size(195, 23);
+            this.lbl_DescEfectivo.TabIndex = 61;
+            this.lbl_DescEfectivo.Text = "Total de efectivo en caja";
             // 
             // lbl_EsteMes
             // 
@@ -357,8 +390,8 @@ namespace MrTiendita.Vistas
             this.tablaMovimientos.AllowUserToDeleteRows = false;
             this.tablaMovimientos.AllowUserToResizeColumns = false;
             this.tablaMovimientos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tablaMovimientos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.tablaMovimientos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.tablaMovimientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -367,14 +400,14 @@ namespace MrTiendita.Vistas
             this.tablaMovimientos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaMovimientos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tablaMovimientos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.tablaMovimientos.ColumnHeadersHeight = 35;
             this.tablaMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaMovimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -382,14 +415,14 @@ namespace MrTiendita.Vistas
             this.col_Descripcion,
             this.col_Fecha,
             this.col_Importe});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaMovimientos.DefaultCellStyle = dataGridViewCellStyle12;
             this.tablaMovimientos.EnableHeadersVisualStyles = false;
             this.tablaMovimientos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.tablaMovimientos.Location = new System.Drawing.Point(25, 158);
@@ -770,7 +803,7 @@ namespace MrTiendita.Vistas
             this.tlp_DisplayCorte.ColumnCount = 1;
             this.tlp_DisplayCorte.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_DisplayCorte.Controls.Add(this.pnl_CorteCaja, 0, 0);
-            this.tlp_DisplayCorte.Location = new System.Drawing.Point(1186, 97);
+            this.tlp_DisplayCorte.Location = new System.Drawing.Point(12, 94);
             this.tlp_DisplayCorte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tlp_DisplayCorte.Name = "tlp_DisplayCorte";
             this.tlp_DisplayCorte.RowCount = 1;
@@ -785,6 +818,8 @@ namespace MrTiendita.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_CorteCaja.BorderRadius = 10;
+            this.pnl_CorteCaja.Controls.Add(this.lbl_EfetivoCajaCorte);
+            this.pnl_CorteCaja.Controls.Add(this.label2);
             this.pnl_CorteCaja.Controls.Add(this.btn_GuardarArchivo);
             this.pnl_CorteCaja.Controls.Add(this.lbl_FechaCorte);
             this.pnl_CorteCaja.Controls.Add(this.lbl_CorteIniciado);
@@ -901,8 +936,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaSalidas.AllowUserToDeleteRows = false;
             this.dgv_TablaSalidas.AllowUserToResizeColumns = false;
             this.dgv_TablaSalidas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaSalidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaSalidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_TablaSalidas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -911,27 +946,27 @@ namespace MrTiendita.Vistas
             this.dgv_TablaSalidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaSalidas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaSalidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_TablaSalidas.ColumnHeadersHeight = 35;
             this.dgv_TablaSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaSalidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_DescripcionCorteSalida,
             this.col_ImporteCorteSalida});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaSalidas.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaSalidas.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_TablaSalidas.EnableHeadersVisualStyles = false;
             this.dgv_TablaSalidas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaSalidas.Location = new System.Drawing.Point(29, 111);
@@ -1048,8 +1083,8 @@ namespace MrTiendita.Vistas
             this.dgv_TablaEntradas.AllowUserToDeleteRows = false;
             this.dgv_TablaEntradas.AllowUserToResizeColumns = false;
             this.dgv_TablaEntradas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgv_TablaEntradas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dgv_TablaEntradas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_TablaEntradas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1058,27 +1093,27 @@ namespace MrTiendita.Vistas
             this.dgv_TablaEntradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_TablaEntradas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_TablaEntradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_TablaEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_TablaEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgv_TablaEntradas.ColumnHeadersHeight = 35;
             this.dgv_TablaEntradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_TablaEntradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_DescripcionCorteEntrada,
             this.col_ImporteCorteEntrada});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_TablaEntradas.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_TablaEntradas.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgv_TablaEntradas.EnableHeadersVisualStyles = false;
             this.dgv_TablaEntradas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(226)))), ((int)(((byte)(249)))));
             this.dgv_TablaEntradas.Location = new System.Drawing.Point(29, 111);
@@ -2245,6 +2280,45 @@ namespace MrTiendita.Vistas
             this.lbl_DescCorte.TabIndex = 7;
             this.lbl_DescCorte.Text = "Compara el dinero de la caja física con el total registrado.";
             // 
+            // lbl_EfetivoCajaCorte
+            // 
+            this.lbl_EfetivoCajaCorte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_EfetivoCajaCorte.AutoSize = true;
+            this.lbl_EfetivoCajaCorte.BackColor = System.Drawing.Color.White;
+            this.lbl_EfetivoCajaCorte.Font = new System.Drawing.Font("Leelawadee UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EfetivoCajaCorte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_EfetivoCajaCorte.Location = new System.Drawing.Point(1011, 33);
+            this.lbl_EfetivoCajaCorte.Name = "lbl_EfetivoCajaCorte";
+            this.lbl_EfetivoCajaCorte.Size = new System.Drawing.Size(141, 32);
+            this.lbl_EfetivoCajaCorte.TabIndex = 76;
+            this.lbl_EfetivoCajaCorte.Text = "$1,000,000";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.label2.Location = new System.Drawing.Point(959, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 23);
+            this.label2.TabIndex = 75;
+            this.label2.Text = "Total de efectivo en caja";
+            // 
+            // lbl_mostrarTodos
+            // 
+            this.lbl_mostrarTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_mostrarTodos.AutoSize = true;
+            this.lbl_mostrarTodos.BackColor = System.Drawing.Color.White;
+            this.lbl_mostrarTodos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_mostrarTodos.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_mostrarTodos.Location = new System.Drawing.Point(809, 124);
+            this.lbl_mostrarTodos.Name = "lbl_mostrarTodos";
+            this.lbl_mostrarTodos.Size = new System.Drawing.Size(102, 20);
+            this.lbl_mostrarTodos.TabIndex = 63;
+            this.lbl_mostrarTodos.Text = "Mostrar todos";
+            // 
             // FrmMovimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2456,5 +2530,10 @@ namespace MrTiendita.Vistas
         public System.Windows.Forms.Label lbl_SalidasTotales;
         public System.Windows.Forms.Label lbl_EntradasTotales;
         public Guna.UI2.WinForms.Guna2Button btn_GuardarArchivo;
+        public System.Windows.Forms.Label lbl_EfetivoCaja;
+        private System.Windows.Forms.Label lbl_DescEfectivo;
+        public System.Windows.Forms.Label lbl_EfetivoCajaCorte;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lbl_mostrarTodos;
     }
 }
