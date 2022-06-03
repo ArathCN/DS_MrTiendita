@@ -38,6 +38,7 @@ namespace MrTiendita.Controladores
         private VentaDAO ventaDAO;
         private EntradaAlmacenDAO entradaAlmacenDAO;
         private bool esActivado = false;
+        private bool reporte; //true ventas, false entradas
 
         //reporte ventas
         private Dictionary<string, string> reporteVenta;
@@ -103,6 +104,7 @@ namespace MrTiendita.Controladores
 
             //Ventas
             this.vista.cb_TipoReporte.SelectedIndex = 0;
+            this.reporte = true;
             CambiarReporte(this.vista.dgv_TablaTodasVentas);
             this.desde = DateTime.Today;
             this.hasta = DateTime.Today.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -113,6 +115,7 @@ namespace MrTiendita.Controladores
 
         private void Btn_Ventas_Click(object sender, EventArgs e)
         {
+            this.reporte = true;
             ActivarBoton(sender);
             this.vista.pnl_Ventas.Visible = true;
             this.vista.pnl_EntradasAlmacen.Visible = false;
@@ -126,6 +129,7 @@ namespace MrTiendita.Controladores
 
         private void Btn_Entradas_Click(object sender, EventArgs e)
         {
+            this.reporte = false;
             ActivarBoton(sender);
             this.vista.pnl_Ventas.Visible = false;
             this.vista.pnl_EntradasAlmacen.Visible = true;
@@ -163,6 +167,7 @@ namespace MrTiendita.Controladores
 
         private void Dp_DesdeEntradas_onValueChanged(object sender, EventArgs e)
         {
+            this.desde = this.vista.dp_DesdeEntradas.Value;
             BlackOutDateTimePicker(sender, this.vista.dp_HastaEntradas);
             DateTime fechaDesde = this.vista.dp_DesdeEntradas.Value;
             DateTime fechaHasta = this.vista.dp_HastaEntradas.Value;
@@ -173,6 +178,7 @@ namespace MrTiendita.Controladores
 
         private void Dp_HastaEntradas_onValueChanged(object sender, EventArgs e)
         {
+            this.hasta = this.vista.dp_HastaEntradas.Value;
             DateTime fechaDesde = this.vista.dp_DesdeEntradas.Value;
             DateTime fechaHasta = this.vista.dp_HastaEntradas.Value;
             fechaHasta = fechaHasta.AddHours(+23).AddMinutes(+59).AddSeconds(+59);
@@ -329,87 +335,9 @@ namespace MrTiendita.Controladores
 
         private void btn_GuardarArchivo_Click(object sender, EventArgs e)
         {
-            this.CategoriaVentas.Clear();
-            this.CategoriaGanancias.Clear();
-            this.CategoriaNumero.Clear();
-            this.reporteVenta.Clear();
-            this.ventaPorProducto.Clear();
 
-            List<Categoria> categorias = Categorias.CATEGORIAS;
-            categorias.RemoveAt(0);
-
-            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
-            formato.CurrencyGroupSeparator = ",";
-            formato.NumberDecimalSeparator = ".";
-            formato.CurrencyDecimalDigits = 2;
-
-            double totalVentas = 0;
-            double totalVentasEfectivo = 0;
-            double totalVentasTarjeta = 0;
-            double totalGanancia = 0;
-
-            foreach (Categoria categoria in categorias)
-            {
-                this.CategoriaVentas.Add(categoria.Nombre, 0);
-                this.CategoriaGanancias.Add(categoria.Nombre, 0);
-                this.CategoriaNumero.Add(categoria.Nombre, 0);
-            }
-
-            List<Venta> ventasTotales = this.ventaDAO.ReadBetweenDatesCompleteInfo(this.desde, this.hasta);
-
-            //Juntar los registros de ventas que sean de un mismo producto.
-            foreach (Venta venta in ventasTotales)
-            {
-                bool encontrado = false;
-                for (int j = 0; j < this.ventaPorProducto.Count() && !encontrado; j++)
-                {
-                    if (venta.Codigo_barra == this.ventaPorProducto[j].Codigo_barra)
-                    {
-                        this.ventaPorProducto[j].Cantidad += venta.Cantidad;
-                        this.ventaPorProducto[j].Importe += venta.Importe;
-                        encontrado = true;
-                    }
-                }
-                if (!encontrado) this.ventaPorProducto.Add(venta);
-            }
-
-            foreach (Venta venta in ventasTotales)
-            {
-
-                //Sumar las ventas por cada tipo de pago
-                if (venta.Metodo_pago == TipoMovimiento.EFECTIVO)
-                {
-                    totalVentasEfectivo += venta.Importe;
-                }
-                else if (venta.Metodo_pago == TipoMovimiento.TARJETA)
-                {
-                    totalVentasTarjeta += venta.Importe;
-                }
-
-                //Sumar las ventas, ganancias y numero de productos a cada categoría
-                if (this.CategoriaVentas.ContainsKey(venta.Producto.Categoria))
-                {
-                    this.CategoriaVentas[venta.Producto.Categoria] += venta.Importe;
-                    this.CategoriaGanancias[venta.Producto.Categoria] += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
-                    this.CategoriaNumero[venta.Producto.Categoria] += venta.Cantidad;
-                }
-                else //no debería salir erro si cuando se dan de alta productos se usan las constantes de Categorias
-                {
-                    Form error = new FrmError("No se encontró -->" + venta.Producto.Categoria);
-                    error.ShowDialog();
-                }
-
-                totalGanancia += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
-                totalVentas += venta.Importe;
-            }
-
-            this.reporteVenta.Add("numVentas", ventasTotales.Count().ToString());
-            this.reporteVenta.Add("ventasTotales", totalVentas.ToString("C", formato));
-            this.reporteVenta.Add("gananciasTotales", totalGanancia.ToString("C", formato));
-            this.reporteVenta.Add("efectivoTotal", totalVentasEfectivo.ToString("C", formato));
-            this.reporteVenta.Add("tarjetaTotal", totalVentasTarjeta.ToString("C", formato));
-
-            this.GenerarReporteVentasTotales();
+            if (this.reporte)this.GenerarReporteVentasTotales();
+            else this.GenerarReporteInventario();
         }
 
         //Métodos auxiliares
@@ -653,17 +581,95 @@ namespace MrTiendita.Controladores
 
         private void GenerarReporteVentasTotales()
         {
-            DateTime hoy = DateTime.Now;
-            String dia = hoy.ToString("dd");
-            String mes = hoy.ToString("MMMM", new CultureInfo("es-MX"));
-            String anio = hoy.ToString("yyyy");
-            long numeroR = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            this.CategoriaVentas.Clear();
+            this.CategoriaGanancias.Clear();
+            this.CategoriaNumero.Clear();
+            this.reporteVenta.Clear();
+            this.ventaPorProducto.Clear();
+
+            List<Categoria> categorias = Categorias.CATEGORIAS;
+            categorias.RemoveAt(0);
+
             NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
             formato.CurrencyGroupSeparator = ",";
             formato.NumberDecimalSeparator = ".";
             formato.CurrencyDecimalDigits = 2;
 
-            string reporteVentasTotales = Properties.Settings.Default.RutaTickets + @"\ReporteVentasTotales_" + this.desde.ToString("dd-MM-yyyy") + "_" + this.desde.ToString("dd-MM-yyyy") + ".pdf";
+            double totalVentas = 0;
+            double totalVentasEfectivo = 0;
+            double totalVentasTarjeta = 0;
+            double totalGanancia = 0;
+
+            foreach (Categoria categoria in categorias)
+            {
+                this.CategoriaVentas.Add(categoria.Nombre, 0);
+                this.CategoriaGanancias.Add(categoria.Nombre, 0);
+                this.CategoriaNumero.Add(categoria.Nombre, 0);
+            }
+
+            List<Venta> ventasTotales = this.ventaDAO.ReadBetweenDatesCompleteInfo(this.desde, this.hasta);
+
+            //Juntar los registros de ventas que sean de un mismo producto.
+            foreach (Venta venta in ventasTotales)
+            {
+                bool encontrado = false;
+                for (int j = 0; j < this.ventaPorProducto.Count() && !encontrado; j++)
+                {
+                    if (venta.Codigo_barra == this.ventaPorProducto[j].Codigo_barra)
+                    {
+                        this.ventaPorProducto[j].Cantidad += venta.Cantidad;
+                        this.ventaPorProducto[j].Importe += venta.Importe;
+                        encontrado = true;
+                    }
+                }
+                if (!encontrado) this.ventaPorProducto.Add(venta);
+            }
+
+            foreach (Venta venta in ventasTotales)
+            {
+
+                //Sumar las ventas por cada tipo de pago
+                if (venta.Metodo_pago == TipoMovimiento.EFECTIVO)
+                {
+                    totalVentasEfectivo += venta.Importe;
+                }
+                else if (venta.Metodo_pago == TipoMovimiento.TARJETA)
+                {
+                    totalVentasTarjeta += venta.Importe;
+                }
+
+                //Sumar las ventas, ganancias y numero de productos a cada categoría
+                if (this.CategoriaVentas.ContainsKey(venta.Producto.Categoria))
+                {
+                    this.CategoriaVentas[venta.Producto.Categoria] += venta.Importe;
+                    this.CategoriaGanancias[venta.Producto.Categoria] += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
+                    this.CategoriaNumero[venta.Producto.Categoria] += venta.Cantidad;
+                }
+                else //no debería salir erro si cuando se dan de alta productos se usan las constantes de Categorias
+                {
+                    Form error = new FrmError("No se encontró -->" + venta.Producto.Categoria);
+                    error.ShowDialog();
+                }
+
+                totalGanancia += venta.Importe - (venta.Producto.Precio_compra * venta.Cantidad);
+                totalVentas += venta.Importe;
+            }
+
+            this.reporteVenta.Add("numVentas", ventasTotales.Count().ToString());
+            this.reporteVenta.Add("ventasTotales", totalVentas.ToString("C", formato));
+            this.reporteVenta.Add("gananciasTotales", totalGanancia.ToString("C", formato));
+            this.reporteVenta.Add("efectivoTotal", totalVentasEfectivo.ToString("C", formato));
+            this.reporteVenta.Add("tarjetaTotal", totalVentasTarjeta.ToString("C", formato));
+
+            DateTime hoy = DateTime.Now;
+            String dia = hoy.ToString("dd");
+            String mes = hoy.ToString("MMMM", new CultureInfo("es-MX"));
+            String anio = hoy.ToString("yyyy");
+            long numeroR = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            //////////////////////////////
+            ///Creación del archivo....
+            string reporteVentasTotales = Properties.Settings.Default.RutaTickets + @"\ReporteVentasTotales_" + this.desde.ToString("dd-MM-yyyy") + "_" + this.hasta.ToString("dd-MM-yyyy") + ".pdf";
 
             
             ////////////////////////////
@@ -722,27 +728,27 @@ namespace MrTiendita.Controladores
             document.Add(new Paragraph("Ventas por categoría").SetFont(fuente).SetFontSize(13).SetBold().SetTextAlignment(TextAlignment.CENTER));
             document.Add(new Paragraph(""));
 
-            Table categorias = new Table(UnitValue.CreatePercentArray(new float[] { 1.3f, 1, 1, 1}));
-            categorias.SetWidth(UnitValue.CreatePercentValue(60));
-            categorias.SetTextAlignment(TextAlignment.JUSTIFIED);
-            categorias.SetFont(fuente);
-            categorias.SetFontSize(12);
-            categorias.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+            Table tablaCategorias = new Table(UnitValue.CreatePercentArray(new float[] { 1.3f, 1, 1, 1}));
+            tablaCategorias.SetWidth(UnitValue.CreatePercentValue(60));
+            tablaCategorias.SetTextAlignment(TextAlignment.JUSTIFIED);
+            tablaCategorias.SetFont(fuente);
+            tablaCategorias.SetFontSize(12);
+            tablaCategorias.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
 
-            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Categoría").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
-            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Cantidad").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
-            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Total").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
-            categorias.AddHeaderCell(new Cell().Add(new Paragraph("Ganancia").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Categoría").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Cantidad").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Total").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Ganancia").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
 
             foreach (var venta in this.CategoriaVentas)
             {
-                categorias.AddCell(venta.Key);
-                categorias.AddCell(new Cell().Add(new Paragraph(this.CategoriaNumero[venta.Key].ToString(formato))).SetTextAlignment(TextAlignment.CENTER));
-                categorias.AddCell(new Cell().Add(new Paragraph(venta.Value.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
-                categorias.AddCell(new Cell().Add(new Paragraph(this.CategoriaGanancias[venta.Key].ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(venta.Key);
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(this.CategoriaNumero[venta.Key].ToString(formato))).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(venta.Value.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(this.CategoriaGanancias[venta.Key].ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
             }
 
-            document.Add(categorias);
+            document.Add(tablaCategorias);
 
             document.Add(new Paragraph(""));
             document.Add(new Paragraph(""));
@@ -793,7 +799,141 @@ namespace MrTiendita.Controladores
             //File.Delete(corteCajaPreeliminar);
             //File.Delete(corteCajaEntradasSalidas);
 
-            FrmExito exito = new FrmExito("Se ha realizado el corte");
+            FrmExito exito = new FrmExito("Se ha generado el reporte con éxito.");
+            exito.ShowDialog();
+        }
+
+        private void GenerarReporteInventario()
+        {
+            double importeTotal = 0, valorTotal = 0, entradasTotales = 0;
+
+            DateTime hoy = DateTime.Now;
+            String dia = hoy.ToString("dd");
+            String mes = hoy.ToString("MMMM", new CultureInfo("es-MX"));
+            String anio = hoy.ToString("yyyy");
+            long numeroR = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
+            formato.CurrencyGroupSeparator = ",";
+            formato.NumberDecimalSeparator = ".";
+            formato.CurrencyDecimalDigits = 2;
+
+            List<EntradaAlmacen> entradas = this.entradaAlmacenDAO.ReadBetweenDates(this.desde, this.hasta);
+
+            foreach (EntradaAlmacen entrada in entradas)
+            {
+                entradasTotales += entrada.Cantidad;
+                importeTotal += entrada.Importe;
+                valorTotal += entrada.Producto.Precio_venta * entrada.Cantidad;
+            }
+            
+
+            //////////////////////////////
+            ///Creación del archivo....
+            string reporteEntradas = Properties.Settings.Default.RutaTickets + @"\ReporteEntradas_" + this.desde.ToString("dd-MM-yyyy") + "_" + this.hasta.ToString("dd-MM-yyyy") + ".pdf";
+
+
+            ////////////////////////////
+            //Ahora se crea un archivo pdf con las entradas y salidas de dinerp
+            iText.Kernel.Pdf.PdfDocument pdfDoc = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(reporteEntradas));
+            Document document = new Document(pdfDoc, iText.Kernel.Geom.PageSize.LETTER);
+            document.SetMargins(20f, 15f, 20f, 15f);
+            iText.Kernel.Font.PdfFont fuente = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+
+            document.Add(new Paragraph("Reporte de entradas al almacén").SetFont(fuente).SetFontSize(16).SetBold().SetTextAlignment(TextAlignment.CENTER));
+            document.Add(new Paragraph(dia + " de " + mes + " de " + anio).SetFont(fuente).SetFontSize(12).SetTextAlignment(TextAlignment.CENTER));
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            Table fechas = new Table(UnitValue.CreatePercentArray(2));
+            fechas.SetWidth(UnitValue.CreatePercentValue(95));
+            fechas.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            fechas.AddCell(new Cell().SetTextAlignment(TextAlignment.LEFT).Add(
+                new Paragraph("Desde:   " + this.desde.ToString("dd/MM/yyyy")).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+            fechas.AddCell(new Cell().SetTextAlignment(TextAlignment.RIGHT).Add(
+                new Paragraph("Hasta:   " + this.hasta.ToString("dd/MM/yyyy")).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+
+            document.Add(fechas);
+
+            document.Add(new Paragraph(""));
+
+            document.Add(new Paragraph(entradasTotales + "  entradas.").SetFont(fuente).SetFontSize(12).SetTextAlignment(TextAlignment.CENTER));
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            Table totales = new Table(UnitValue.CreatePercentArray(2));
+            totales.SetWidth(UnitValue.CreatePercentValue(90));
+            totales.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            totales.AddCell(new Cell().SetTextAlignment(TextAlignment.LEFT).Add(
+                new Paragraph("Importe total:   " + importeTotal.ToString("C", formato)).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+            totales.AddCell(new Cell().SetTextAlignment(TextAlignment.RIGHT).Add(
+                new Paragraph("Valor de venta total:   " + valorTotal.ToString("C", formato)).SetFont(fuente).SetFontSize(12)).SetBorder(Border.NO_BORDER));
+
+            document.Add(totales);
+
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph(""));
+
+            document.Add(new Paragraph("Entradas realizadas").SetFont(fuente).SetFontSize(13).SetBold().SetTextAlignment(TextAlignment.CENTER));
+            document.Add(new Paragraph(""));
+
+            Table tablaCategorias = new Table(UnitValue.CreatePercentArray(new float[] {1.5f, 1.5f, 1, 1, 1 }));
+            tablaCategorias.SetWidth(UnitValue.CreatePercentValue(70));
+            tablaCategorias.SetTextAlignment(TextAlignment.JUSTIFIED);
+            tablaCategorias.SetFont(fuente);
+            tablaCategorias.SetFontSize(12);
+            tablaCategorias.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Fecha").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Producto").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Cantidad").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Importe").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+            tablaCategorias.AddHeaderCell(new Cell().Add(new Paragraph("Valor de venta").SetBold().SetFontSize(14).SetTextAlignment(TextAlignment.CENTER)));
+
+            foreach (EntradaAlmacen entrada in entradas)
+            {
+                double valor = entrada.Cantidad * entrada.Producto.Precio_venta;
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(entrada.Fecha.ToString("dd/MM/yyyy HH:mm Hrs."))).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(entrada.Producto.Descripcion)).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(entrada.Cantidad.ToString(formato))).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(entrada.Importe.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+                tablaCategorias.AddCell(new Cell().Add(new Paragraph(valor.ToString("C", formato))).SetTextAlignment(TextAlignment.CENTER));
+            }
+
+            document.Add(tablaCategorias);
+
+            
+
+            document.Close();
+
+
+
+            ////////////////////////////////
+            //Juntamos el documento con los datos generales y el documento con las tablas
+            //iText.Kernel.Pdf.PdfDocument CorteFinal = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfWriter(corteCajaFinal));
+            //string[] docsToMerge = new string[] { corteCajaPreeliminar, corteCajaEntradasSalidas };
+            //for (int a = 0; a < docsToMerge.Length; a++)
+            //{
+            //    iText.Kernel.Pdf.PdfDocument origPdf2 = new iText.Kernel.Pdf.PdfDocument(new iText.Kernel.Pdf.PdfReader(docsToMerge[a]));
+            //    PdfMerger merger = new PdfMerger(CorteFinal);
+            //    merger.Merge(origPdf2, 1, origPdf2.GetNumberOfPages());
+
+            //    origPdf2.Close();
+
+            //}
+            //CorteFinal.Close();
+
+            //File.Delete(corteCajaPreeliminar);
+            //File.Delete(corteCajaEntradasSalidas);
+
+            FrmExito exito = new FrmExito("Se ha generado el reporte con éxito.");
             exito.ShowDialog();
         }
     }

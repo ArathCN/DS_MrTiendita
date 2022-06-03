@@ -162,6 +162,9 @@ namespace MrTiendita.Controladores
             this.bordeInferior.Visible = false;
             this.accion = AccionesCRUD.CREATE;
             this.id = -1;
+            this.vista.cb_Proveedor.SelectedIndex = -1;
+            this.vista.tb_CodigoBarra.Text = "";
+            this.vista.tb_Cantidad.Text = "";
             ActivarBoton(sender);
             AbrirPanel(this.vista.pnl_NuevaEntrada);
         }
@@ -380,12 +383,12 @@ namespace MrTiendita.Controladores
             productoParaEntrada = this.productoDAO.ReadById(codigoBarra);
             if (productoParaEntrada != null)
             {
-                this.vista.lbl_ErrorCodigo.Visible = false;
+                this.vista.lbl_ErrorCodigoBarras.Visible = false;
             }
             else
             {
-                this.vista.lbl_ErrorCodigo.Text = "El código de barras no existe";
-                this.vista.lbl_ErrorCodigo.Visible = true;
+                this.vista.lbl_ErrorCodigoBarras.Text = "El código de barras no existe";
+                this.vista.lbl_ErrorCodigoBarras.Visible = true;
                 productoParaEntrada = null;
             }
         }
@@ -397,11 +400,57 @@ namespace MrTiendita.Controladores
             double cantidad;
 
             //Combrobar que el codigo haya sido correcto y que la cantidad es numerica, no nula y mayor a 0
-            if (this.vista.cb_Proveedor.SelectedIndex == -1 ||
-                productoParaEntrada == null ||
-                !ValidacionFormulario.Validar(
-                    this.vista.lbl_ErrorCantidad, "", cantidadCadena, out cantidad, ValidacionDatosOpciones.CANTIDAD)
-                )
+            long codigo;
+            if (!ValidacionFormulario.Validar(
+                this.vista.lbl_ErrorCodigoBarras, "", this.vista.tb_CodigoBarra.Text, out codigo, ValidacionDatosOpciones.CODIGO_BARRA))
+            {
+                Form mensajeError = new FrmError("Asegurese de haber escrito correctamente el código de barra.");
+                mensajeError.ShowDialog();
+                return;
+            }
+
+            if (productoParaEntrada == null)
+            {
+                FrmAdvertencia adv = new FrmAdvertencia("El código no existe, ¿desea registrarlo?");
+                DialogResult resultado = adv.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    this.vista.tb_CodigoBarras.Text = this.vista.tb_CodigoBarra.Text;
+                    this.vista.btn_ModificarProducto.Visible = false;
+                    this.bordeInferior.Visible = false;
+                    this.accion = AccionesCRUD.CREATE;
+                    this.id = -1;
+                    this.vista.lbl_Titulo.Text = "Crear un nuevo producto";
+                    this.vista.btn_AgregarProducto.Text = "Crear producto";
+                    this.vista.lbl_Descripcion.Text = "Crea un producto nuevo para empezar a venderlo en la tienda.";
+                    this.vista.tb_Descripcion.Text = "";
+                    this.vista.tb_CantidadCrear.Text = "";
+                    this.vista.cb_TipoMedida.Checked = false;
+                    this.vista.cb_Categoria.SelectedIndex = -1;
+                    this.vista.tb_PrecioCompra.Text = "";
+                    this.vista.tb_PrecioVenta.Text = "";
+                    if (Properties.Settings.Default.siMinimoGlobal)
+                    {
+                        this.vista.tb_Minima.Text = Properties.Settings.Default.minimoGlobal.ToString(new CultureInfo("es-MX"));
+                        this.vista.tb_Minima.Enabled = false;
+                    }
+                    else this.vista.tb_Minima.Text = "";
+                    if (Properties.Settings.Default.siGanancia)
+                    {
+                        double opcion = (Properties.Settings.Default.ganancia / 5) - 2;
+                        this.vista.cb_GananciaPorcentaje.SelectedIndex = (Int32)opcion;
+                        this.vista.cb_GananciaPorcentaje.Enabled = false;
+                    }
+                    else this.vista.cb_GananciaPorcentaje.SelectedIndex = -1;
+
+                    OcultarErrores();
+                    ActivarBoton(this.vista.btn_CrearProducto);
+                    AbrirPanel(this.vista.pnl_CrearProducto);
+                }
+                return;
+            }
+            else if (this.vista.cb_Proveedor.SelectedIndex == -1 || !ValidacionFormulario.Validar(
+                this.vista.lbl_ErrorCantidad, "", cantidadCadena, out cantidad, ValidacionDatosOpciones.CANTIDAD))
             {
                 Form mensajeError = new FrmError("Asegurese de haber llenado todos los datos y que estén escritos correctamente.");
                 mensajeError.ShowDialog();
@@ -418,7 +467,6 @@ namespace MrTiendita.Controladores
                 mensajeError.ShowDialog();
                 return;
             }
-
             //Obtener el id del proveedor
             int idProveedor = this.listaProveedores[nombreProveedor];
 
