@@ -22,6 +22,7 @@ using iText.IO.Font.Constants;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.Kernel.Utils;
+using System.Resources;
 
 namespace MrTiendita.Controladores
 {
@@ -97,17 +98,17 @@ namespace MrTiendita.Controladores
 
         private void Vista_Load(object sender, EventArgs e)
         {
+            this.ObtenerValorCaja();
             if (this.vista.esAtajo == false)
             {
                 this.ActivarBoton(this.vista.btn_ConsultarMovimientos, new Point(this.vista.btn_ConsultarMovimientos.Location.X + 15, 40));
                 this.PrepararVistaMovimientos();
-                this.ObtenerValorCaja();
             }
             else
             {
                 this.ActivarBoton(this.vista.btn_CorteCaja, new Point(this.vista.btn_CorteCaja.Location.X + 18, 40));
                 this.PrepararVistaCorte();
-                this.ObtenerValorCaja();
+                
                 this.vista.tlp_DisplayCorte.Visible = true;
                 this.vista.tlp_DisplayConsultar.Visible = false;
             }
@@ -498,6 +499,11 @@ namespace MrTiendita.Controladores
 
         private void ObtenerValorCaja()
         {
+            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
+            formato.CurrencyGroupSeparator = ",";
+            formato.NumberDecimalSeparator = ".";
+            formato.CurrencyDecimalDigits = 2;
+
             this.valorCaja = this.cajaDAO.ReadByName("Total");
             if (this.valorCaja == null)
             {
@@ -505,8 +511,8 @@ namespace MrTiendita.Controladores
                 error.ShowDialog();
                 return;
             }
-            this.vista.lbl_EfetivoCaja.Text = "$" + this.valorCaja.Valor;
-            this.vista.lbl_EfetivoCajaCorte.Text = "$" + this.valorCaja.Valor;
+            this.vista.lbl_EfetivoCaja.Text = (Double.Parse(this.valorCaja.Valor)).ToString("C", formato);
+            this.vista.lbl_EfetivoCajaCorte.Text = (Double.Parse(this.valorCaja.Valor)).ToString("C", formato);
         }
       
         private void GenerarCorteCaja()
@@ -519,8 +525,17 @@ namespace MrTiendita.Controladores
             formato.NumberDecimalSeparator = ".";
             formato.CurrencyDecimalDigits = 2;
 
+            string plantillaCorteCaja = Path.Combine(Environment.CurrentDirectory, @"PlantillaCorteCaja.pdf");
+            //string plantillaCorteCaja = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Resources\PlantillaCorteCaja.pdf");
 
-            string plantillaCorteCaja = Properties.Settings.Default.RutaTickets + @"\plantillaCorteCaja.pdf";
+            bool resultt = File.Exists(plantillaCorteCaja);
+            if (!resultt)
+            {
+                FrmError noruta = new FrmError("No se encontró el archivo -> " + plantillaCorteCaja);
+                noruta.ShowDialog();
+                return;
+            }
+
             string corteCajaPreeliminar = Properties.Settings.Default.RutaTickets + @"\CorteCajaP" + numeroR + ".pdf";
             string corteCajaEntradasSalidas = Properties.Settings.Default.RutaTickets + @"\CorteCajaES" + numeroR + ".pdf";
             string corteCajaFinal = Properties.Settings.Default.RutaTickets + @"\CorteCaja_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm") + ".pdf";

@@ -39,7 +39,9 @@ namespace MrTiendita.Constantes
         /// <summary> Validación para el código de barra del producto. </summary>
         public static Dictionary<int, long> CODIGO_BARRA = new Dictionary<int, long>() {
             {ValidacionDatosOpciones.MAYOR_A, 0},
-            {ValidacionDatosOpciones.NUM_CARACTERES, 13}
+            {ValidacionDatosOpciones.NUM_MINIMO_CARACTERES, 6},
+            {ValidacionDatosOpciones.NUM_MAXIMO_CARACTERES, 13}
+            //{ValidacionDatosOpciones.NUM_CARACTERES, 13}
         };
         /// <summary> Validación para la cantidad de producto. </summary>
         public static Dictionary<int, double> CANTIDAD = new Dictionary<int, double>() {

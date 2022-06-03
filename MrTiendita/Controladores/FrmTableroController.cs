@@ -13,6 +13,7 @@ using MrTiendita.Patrones;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Globalization;
 
 namespace MrTiendita.Controladores
 {
@@ -45,6 +46,11 @@ namespace MrTiendita.Controladores
 
         public void ObtenerValorCaja()
         {
+            NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
+            formato.CurrencyGroupSeparator = ",";
+            formato.NumberDecimalSeparator = ".";
+            formato.CurrencyDecimalDigits = 2;
+
             this.valorCaja = this.cajaDAO.ReadByName("Total");
             if (this.valorCaja == null)
             {
@@ -52,7 +58,7 @@ namespace MrTiendita.Controladores
                 error.ShowDialog();
                 return;
             }
-            this.vista.lbl_EfetivoCaja.Text = "$"+this.valorCaja.Valor;
+            this.vista.lbl_EfetivoCaja.Text = (Double.Parse(this.valorCaja.Valor)).ToString("C", formato);
         }
 
         public void ModificarNotificacion(FlowLayoutPanel Contenedor)

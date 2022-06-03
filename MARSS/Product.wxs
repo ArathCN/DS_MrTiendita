@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util='http://schemas.microsoft.com/wix/UtilExtension'
+  xmlns:sql='http://schemas.microsoft.com/wix/SqlExtension'>
+    <Product Id="2B780B6A-05DF-41DE-ADFB-FEBE4F65CB2B" Name="MARSS" Language="1033" Version="1.0.0.0" Manufacturer="MARSS Team" UpgradeCode="48a34eba-13f9-4e23-a0c4-0de63b4101a9">
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+        <MajorUpgrade DowngradeErrorMessage="Una versión más reciente de MARSS ya está instalada." />
+        <MediaTemplate />
+        <Icon Id="MARSS.ICO" SourceFile="MARSS\favicon.ico" />
+        <Property Id="ARPPRODUCTICON" Value="MARSS.ICO" />
+        <Feature Id="ProductFeature" Title="MARSS" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+            <ComponentRef Id="BCRYPT.NET_NEXT.DLL" />
+            <ComponentRef Id="BOUNCYCASTLE.CRYPTO.DLL" />
+            <ComponentRef Id="BUNIFU_UI_V1.52.DLL" />
+            <ComponentRef Id="GUNA.UI.DLL" />
+            <ComponentRef Id="GUNA.UI2.DLL" />
+            <ComponentRef Id="ITEXT.BARCODES.DLL" />
+            <ComponentRef Id="ITEXT.COMMONS.DLL" />
+            <ComponentRef Id="ITEXT.FORMS.DLL" />
+            <ComponentRef Id="ITEXT.IO.DLL" />
+            <ComponentRef Id="ITEXT.KERNEL.DLL" />
+            <ComponentRef Id="ITEXT.LAYOUT.DLL" />
+            <ComponentRef Id="ITEXT.PDFA.DLL" />
+            <ComponentRef Id="ITEXT.SIGN.DLL" />
+            <ComponentRef Id="ITEXT.STYLEDXMLPARSER.DLL" />
+            <ComponentRef Id="ITEXT.SVG.DLL" />
+            <ComponentRef Id="ITEXTSHARP.DLL" />
+            <ComponentRef Id="MICROSOFT.BCL.ASYNCINTERFACES.DLL" />
+            <ComponentRef Id="MICROSOFT.EXTENSIONS.DEPENDENCYINJECTION.ABSTRACTIONS.DLL" />
+            <ComponentRef Id="MICROSOFT.EXTENSIONS.DEPENDENCYINJECTION.DLL" />
+            <ComponentRef Id="MICROSOFT.EXTENSIONS.LOGGING.ABSTRACTIONS.DLL" />
+            <ComponentRef Id="MICROSOFT.EXTENSIONS.LOGGING.DLL" />
+            <ComponentRef Id="MICROSOFT.EXTENSIONS.OPTIONS.DLL" />
+            <ComponentRef Id="MICROSOFT.EXTENSIONS.PRIMITIVES.DLL" />
+            <ComponentRef Id="MRTIENDITA.EXE" />
+            <ComponentRef Id="MRTIENDITA.EXE.CONFIG" />
+            <ComponentRef Id="SYSTEM.BUFFERS.DLL" />
+            <ComponentRef Id="SYSTEM.DIAGNOSTICS.DIAGNOSTICSOURCE.DLL" />
+            <ComponentRef Id="SYSTEM.MEMORY.DLL" />
+            <ComponentRef Id="SYSTEM.NUMERICS.VECTORS.DLL" />
+            <ComponentRef Id="SYSTEM.RUNTIME.COMPILERSERVICES.UNSAFE.DLL" />
+            <ComponentRef Id="SYSTEM.THREADING.TASKS.EXTENSIONS.DLL" />
+            <ComponentRef Id="SYSTEM.VALUETUPLE.DLL" />
+            <ComponentRef Id="MARSS.ICO" />
+            <ComponentRef Id="PLANTILLACORTECAJA" />
+            <ComponentRef Id="ProgramMenuDir" />
+        </Feature>
+
+        <Feature Id='SqlFeature' Title='SqlFeature' Level='1'>
+          <ComponentRef Id='SqlComponent' />
+        </Feature>
+        <UI />
+    </Product>
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="MARSS">
+
+                  <Component Id='SqlComponent' Guid='BE63F783-6293-4398-A2B8-75785A5AF9BD' KeyPath='yes'>
+                    <sql:SqlDatabase Id='SqlDatabase' Database='MARSS' Server='.' Instance="SQLEXPRESS"
+                      CreateOnInstall='yes' DropOnUninstall='yes' ContinueOnError='no'>
+                      <sql:SqlScript Id='CreateDBScript' BinaryKey='CREATEDB' ExecuteOnInstall='yes' />
+                    </sql:SqlDatabase>
+                  </Component>
+
+                  <Component Id="BCRYPT.NET_NEXT.DLL" DiskId="1" Guid="FDDCA9DB-4F67-4246-9666-CE6AAEC4E29E">
+                        <File Id="BCRYPT.NET_NEXT.DLL" Name="BCrypt.Net-Next.dll" Source="..\MrTiendita\bin\Release\BCrypt.Net-Next.dll" />
+                    </Component>
+                    <Component Id="BOUNCYCASTLE.CRYPTO.DLL" DiskId="1" Guid="2707E1C6-00B6-451D-A048-B178AE641F0B">
+                        <File Id="BOUNCYCASTLE.CRYPTO.DLL" Name="BouncyCastle.Crypto.dll" Source="..\MrTiendita\bin\Release\BouncyCastle.Crypto.dll" />
+                    </Component>
+                    <Component Id="BUNIFU_UI_V1.52.DLL" DiskId="1" Guid="DC28B5F3-A742-45F5-AB57-A41D8DC312EE">
+                        <File Id="BUNIFU_UI_V1.52.DLL" Name="Bunifu_UI_v1.52.dll" Source="..\MrTiendita\bin\Release\Bunifu_UI_v1.52.dll" />
+                    </Component>
+                    <Component Id="GUNA.UI.DLL" DiskId="1" Guid="A9BA5BBF-B9C3-43BF-BA57-C2A9D2F3ED19">
+                        <File Id="GUNA.UI.DLL" Name="Guna.UI.dll" Source="..\MrTiendita\bin\Release\Guna.UI.dll" />
+                    </Component>
+                    <Component Id="GUNA.UI2.DLL" DiskId="1" Guid="68B3D017-E61A-4466-990F-9B74BCB9E995">
+                        <File Id="GUNA.UI2.DLL" Name="Guna.UI2.dll" Source="..\MrTiendita\bin\Release\Guna.UI2.dll" />
+                    </Component>
+                    <Component Id="ITEXT.BARCODES.DLL" DiskId="1" Guid="D45D17F8-650A-4CAB-B396-B9081E8C986F">
+                        <File Id="ITEXT.BARCODES.DLL" Name="itext.barcodes.dll" Source="..\MrTiendita\bin\Release\itext.barcodes.dll" />
+                    </Component>
+                    <Component Id="ITEXT.COMMONS.DLL" DiskId="1" Guid="818E01D4-F786-4558-9EA2-CBCFA3908036">
+                        <File Id="ITEXT.COMMONS.DLL" Name="itext.commons.dll" Source="..\MrTiendita\bin\Release\itext.commons.dll" />
+                    </Component>
+                    <Component Id="ITEXT.FORMS.DLL" DiskId="1" Guid="49B0D3D9-C042-4175-86A2-8252C279D991">
+                        <File Id="ITEXT.FORMS.DLL" Name="itext.forms.dll" Source="..\MrTiendita\bin\Release\itext.forms.dll" />
+                    </Component>
+                    <Component Id="ITEXT.IO.DLL" DiskId="1" Guid="E16FD225-381E-44BC-8A1F-65CD0A7BE393">
+                        <File Id="ITEXT.IO.DLL" Name="itext.io.dll" Source="..\MrTiendita\bin\Release\itext.io.dll" />
+                    </Component>
+                    <Component Id="ITEXT.KERNEL.DLL" DiskId="1" Guid="538ED282-4333-470A-891B-5E88C83224D5">
+                        <File Id="ITEXT.KERNEL.DLL" Name="itext.kernel.dll" Source="..\MrTiendita\bin\Release\itext.kernel.dll" />
+                    </Component>
+                    <Component Id="ITEXT.LAYOUT.DLL" DiskId="1" Guid="5FDCAA6B-9795-4651-B0D2-B6ABD9CAB6CA">
+                        <File Id="ITEXT.LAYOUT.DLL" Name="itext.layout.dll" Source="..\MrTiendita\bin\Release\itext.layout.dll" />
+                    </Component>
+                    <Component Id="ITEXT.PDFA.DLL" DiskId="1" Guid="32B0662C-D5E9-42D2-905C-C1A2C93EB8DC">
+                        <File Id="ITEXT.PDFA.DLL" Name="itext.pdfa.dll" Source="..\MrTiendita\bin\Release\itext.pdfa.dll" />
+                    </Component>
+                    <Component Id="ITEXT.SIGN.DLL" DiskId="1" Guid="42D41B2B-1512-4D42-B81A-8CE86495841C">
+                        <File Id="ITEXT.SIGN.DLL" Name="itext.sign.dll" Source="..\MrTiendita\bin\Release\itext.sign.dll" />
+                    </Component>
+                    <Component Id="ITEXT.STYLEDXMLPARSER.DLL" DiskId="1" Guid="8EC44C10-C9EB-437D-ACDD-33E319B4FE74">
+                        <File Id="ITEXT.STYLEDXMLPARSER.DLL" Name="itext.styledxmlparser.dll" Source="..\MrTiendita\bin\Release\itext.styledxmlparser.dll" />
+                    </Component>
+                    <Component Id="ITEXT.SVG.DLL" DiskId="1" Guid="53E8FD13-122D-42A2-9316-FA66975F6715">
+                        <File Id="ITEXT.SVG.DLL" Name="itext.svg.dll" Source="..\MrTiendita\bin\Release\itext.svg.dll" />
+                    </Component>
+                    <Component Id="ITEXTSHARP.DLL" DiskId="1" Guid="C1247361-48BF-4E4C-9580-51A4670619DB">
+                        <File Id="ITEXTSHARP.DLL" Name="itextsharp.dll" Source="..\MrTiendita\bin\Release\itextsharp.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.BCL.ASYNCINTERFACES.DLL" DiskId="1" Guid="0E7CE69D-EBEA-4C53-ABDD-992CCD1CAB50">
+                        <File Id="MICROSOFT.BCL.ASYNCINTERFACES.DLL" Name="Microsoft.Bcl.AsyncInterfaces.dll" Source="..\MrTiendita\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.EXTENSIONS.DEPENDENCYINJECTION.ABSTRACTIONS.DLL" DiskId="1" Guid="8FBEA2E2-1547-4061-81B2-6AA6C893FAE0">
+                        <File Id="MICROSOFT.EXTENSIONS.DEPENDENCYINJECTION.ABSTRACTIONS.DLL" Name="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Source="..\MrTiendita\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.EXTENSIONS.DEPENDENCYINJECTION.DLL" DiskId="1" Guid="426237FD-3284-4FCF-BF2C-E2C80DF702AD">
+                        <File Id="MICROSOFT.EXTENSIONS.DEPENDENCYINJECTION.DLL" Name="Microsoft.Extensions.DependencyInjection.dll" Source="..\MrTiendita\bin\Release\Microsoft.Extensions.DependencyInjection.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.EXTENSIONS.LOGGING.ABSTRACTIONS.DLL" DiskId="1" Guid="B7AAA178-7F33-40D4-8B7D-D49135B91C16">
+                        <File Id="MICROSOFT.EXTENSIONS.LOGGING.ABSTRACTIONS.DLL" Name="Microsoft.Extensions.Logging.Abstractions.dll" Source="..\MrTiendita\bin\Release\Microsoft.Extensions.Logging.Abstractions.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.EXTENSIONS.LOGGING.DLL" DiskId="1" Guid="A147BA2D-B4CF-4CCD-8B94-2BC06ECA649C">
+                        <File Id="MICROSOFT.EXTENSIONS.LOGGING.DLL" Name="Microsoft.Extensions.Logging.dll" Source="..\MrTiendita\bin\Release\Microsoft.Extensions.Logging.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.EXTENSIONS.OPTIONS.DLL" DiskId="1" Guid="BBD7AE47-FC7A-41D7-B53F-2B384F02835E">
+                        <File Id="MICROSOFT.EXTENSIONS.OPTIONS.DLL" Name="Microsoft.Extensions.Options.dll" Source="..\MrTiendita\bin\Release\Microsoft.Extensions.Options.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.EXTENSIONS.PRIMITIVES.DLL" DiskId="1" Guid="EEE4B82B-11A0-4828-818C-5414C5774B13">
+                        <File Id="MICROSOFT.EXTENSIONS.PRIMITIVES.DLL" Name="Microsoft.Extensions.Primitives.dll" Source="..\MrTiendita\bin\Release\Microsoft.Extensions.Primitives.dll" />
+                    </Component>
+                    <Component Id="MRTIENDITA.EXE" DiskId="1" Guid="DA147B57-DBB9-4E5D-AE84-515DDD68726E">
+                        <File Id="MRTIENDITA.EXE" Name="MrTiendita.exe" Source="..\MrTiendita\bin\Release\MrTiendita.exe">
+                            <Shortcut Id="MARSS_SHORTCUT_MENU" Name="MARSS" Directory="ProgramMenuDir" WorkingDirectory="INSTALLFOLDER" Icon="MARSS.ICO" IconIndex="0" Advertise="yes" />
+                            <Shortcut Id="MARSS_SHORTCUT_DESKTOP" Name="MARSS" Advertise="yes" Directory="DesktopFolder" Icon="MARSS.ICO" WorkingDirectory="INSTALLFOLDER" IconIndex="0" />
+                        </File>
+                    </Component>
+                    <Component Id="MRTIENDITA.EXE.CONFIG" DiskId="1" Guid="342B5039-7AF2-4D55-8EE1-459608CBABB5">
+                        <File Id="MRTIENDITA.EXE.CONFIG" Name="MrTiendita.exe.config" Source="..\MrTiendita\bin\Release\MrTiendita.exe.config" />
+                    </Component>
+                    <Component Id="SYSTEM.BUFFERS.DLL" DiskId="1" Guid="A388BD7B-CB5C-4098-80F7-50F41D6FA2CA">
+                        <File Id="SYSTEM.BUFFERS.DLL" Name="System.Buffers.dll" Source="..\MrTiendita\bin\Release\System.Buffers.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.DIAGNOSTICS.DIAGNOSTICSOURCE.DLL" DiskId="1" Guid="6B860487-05E5-4DB0-B6E8-3FF3D13C7BA5">
+                        <File Id="SYSTEM.DIAGNOSTICS.DIAGNOSTICSOURCE.DLL" Name="System.Diagnostics.DiagnosticSource.dll" Source="..\MrTiendita\bin\Release\System.Diagnostics.DiagnosticSource.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.MEMORY.DLL" DiskId="1" Guid="BB1A8D74-A458-4A91-85AA-2120FD7D3FDF">
+                        <File Id="SYSTEM.MEMORY.DLL" Name="System.Memory.dll" Source="..\MrTiendita\bin\Release\System.Memory.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.NUMERICS.VECTORS.DLL" DiskId="1" Guid="CF16266B-7BB8-482A-822D-BB5FCA97D090">
+                        <File Id="SYSTEM.NUMERICS.VECTORS.DLL" Name="System.Numerics.Vectors.dll" Source="..\MrTiendita\bin\Release\System.Numerics.Vectors.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.RUNTIME.COMPILERSERVICES.UNSAFE.DLL" DiskId="1" Guid="7D628D8A-54ED-404C-932E-49CB9B7B5FEB">
+                        <File Id="SYSTEM.RUNTIME.COMPILERSERVICES.UNSAFE.DLL" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="..\MrTiendita\bin\Release\System.Runtime.CompilerServices.Unsafe.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.THREADING.TASKS.EXTENSIONS.DLL" DiskId="1" Guid="BD96DC06-3B3A-48D9-BE42-B0333EE7E360">
+                        <File Id="SYSTEM.THREADING.TASKS.EXTENSIONS.DLL" Name="System.Threading.Tasks.Extensions.dll" Source="..\MrTiendita\bin\Release\System.Threading.Tasks.Extensions.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.VALUETUPLE.DLL" DiskId="1" Guid="DA1B3C27-8F74-43DE-9A41-702AD1C3DAB3">
+                        <File Id="SYSTEM.VALUETUPLE.DLL" Name="System.ValueTuple.dll" Source="..\MrTiendita\bin\Release\System.ValueTuple.dll" />
+                    </Component>
+                    <Component Id="MARSS.ICO" Guid="D53EE08C-9F11-4395-9A05-FC116BD771CE" DiskId="1">
+                        <File Id="FAVICON.ICO" Name="favicon.ico" Source="MARSS\favicon.ico" />
+                    </Component>
+                    <Component Id="PLANTILLACORTECAJA" Guid="0EA5470B-8422-4D94-9B4E-844D46D0FA0E" DiskId="1">
+                        <File Id="PLANTILLACORTECAJA.PDF" Name="PlantillaCorteCaja.pdf" Source="MARSS\PlantillaCorteCaja.pdf" />
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="MARSS">
+                    <Component Id="ProgramMenuDir" Guid="C4F408DD-E69D-4EC7-B758-97C83A64FA63">
+                        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                        <RegistryValue Root="HKCU" Key="Software\MARSS Team\MARSS" Type="string" Value="" KeyPath="yes" />
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="DesktopFolder" Name="Desktop" />
+        </Directory>
+
+        <Binary Id='CREATEDB' SourceFile='MARSS_esquema.sql' />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+            <!-- <Component Id="ProductComponent"> -->
+            <!-- TODO: Insert files, registry keys, and other resources here. -->
+            <!-- </Component> -->
+        </ComponentGroup>
+    </Fragment>
+</Wix>
