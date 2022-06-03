@@ -1,2 +1,2 @@
 # DS_MrTiendita
-Este es un proyecto para la materia de Desarrollo de Software I por el equipo #6 Alfa Dinamita Escuadron Lobo Buena Marivilla.
+Este es un proyecto para las materias de la especialidad de Desarrollo de Software por el equipo MARSS.
