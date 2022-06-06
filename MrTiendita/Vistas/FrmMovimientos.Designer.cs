@@ -40,6 +40,7 @@ namespace MrTiendita.Vistas
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_ConsultarMovimientos = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_mostrarTodos = new System.Windows.Forms.Label();
             this.lbl_EfetivoCaja = new System.Windows.Forms.Label();
             this.lbl_DescEfectivo = new System.Windows.Forms.Label();
             this.lbl_EsteMes = new System.Windows.Forms.Label();
@@ -74,6 +75,8 @@ namespace MrTiendita.Vistas
             this.pnl_MenuSuperior = new Guna.UI2.WinForms.Guna2Panel();
             this.tlp_DisplayCorte = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_CorteCaja = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_EfetivoCajaCorte = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_GuardarArchivo = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_FechaCorte = new System.Windows.Forms.Label();
             this.lbl_CorteIniciado = new System.Windows.Forms.Label();
@@ -179,9 +182,6 @@ namespace MrTiendita.Vistas
             this.lbl_DescVentasTarjeta = new System.Windows.Forms.Label();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.lbl_DescCorte = new System.Windows.Forms.Label();
-            this.lbl_EfetivoCajaCorte = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl_mostrarTodos = new System.Windows.Forms.Label();
             this.pnl_ConsultarMovimientos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaMovimientos)).BeginInit();
             this.tlp_DisplayConsultar.SuspendLayout();
@@ -254,6 +254,20 @@ namespace MrTiendita.Vistas
             this.pnl_ConsultarMovimientos.ShadowDecoration.Parent = this.pnl_ConsultarMovimientos;
             this.pnl_ConsultarMovimientos.Size = new System.Drawing.Size(1168, 375);
             this.pnl_ConsultarMovimientos.TabIndex = 35;
+            // 
+            // lbl_mostrarTodos
+            // 
+            this.lbl_mostrarTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_mostrarTodos.AutoSize = true;
+            this.lbl_mostrarTodos.BackColor = System.Drawing.Color.White;
+            this.lbl_mostrarTodos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_mostrarTodos.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_mostrarTodos.Location = new System.Drawing.Point(809, 124);
+            this.lbl_mostrarTodos.Name = "lbl_mostrarTodos";
+            this.lbl_mostrarTodos.Size = new System.Drawing.Size(102, 20);
+            this.lbl_mostrarTodos.TabIndex = 63;
+            this.lbl_mostrarTodos.Text = "Mostrar todos";
             // 
             // lbl_EfetivoCaja
             // 
@@ -698,6 +712,7 @@ namespace MrTiendita.Vistas
             this.tb_Desc.HoverState.Parent = this.tb_Desc;
             this.tb_Desc.Location = new System.Drawing.Point(335, 119);
             this.tb_Desc.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tb_Desc.MaxLength = 50;
             this.tb_Desc.Multiline = true;
             this.tb_Desc.Name = "tb_Desc";
             this.tb_Desc.PasswordChar = '\0';
@@ -771,6 +786,7 @@ namespace MrTiendita.Vistas
             this.tb_Importe.HoverState.Parent = this.tb_Importe;
             this.tb_Importe.Location = new System.Drawing.Point(27, 194);
             this.tb_Importe.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tb_Importe.MaxLength = 7;
             this.tb_Importe.Name = "tb_Importe";
             this.tb_Importe.PasswordChar = '\0';
             this.tb_Importe.PlaceholderText = "";
@@ -835,6 +851,31 @@ namespace MrTiendita.Vistas
             this.pnl_CorteCaja.ShadowDecoration.Parent = this.pnl_CorteCaja;
             this.pnl_CorteCaja.Size = new System.Drawing.Size(1165, 638);
             this.pnl_CorteCaja.TabIndex = 79;
+            // 
+            // lbl_EfetivoCajaCorte
+            // 
+            this.lbl_EfetivoCajaCorte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_EfetivoCajaCorte.AutoSize = true;
+            this.lbl_EfetivoCajaCorte.BackColor = System.Drawing.Color.White;
+            this.lbl_EfetivoCajaCorte.Font = new System.Drawing.Font("Leelawadee UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EfetivoCajaCorte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
+            this.lbl_EfetivoCajaCorte.Location = new System.Drawing.Point(1011, 33);
+            this.lbl_EfetivoCajaCorte.Name = "lbl_EfetivoCajaCorte";
+            this.lbl_EfetivoCajaCorte.Size = new System.Drawing.Size(141, 32);
+            this.lbl_EfetivoCajaCorte.TabIndex = 76;
+            this.lbl_EfetivoCajaCorte.Text = "$1,000,000";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.label2.Location = new System.Drawing.Point(959, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 23);
+            this.label2.TabIndex = 75;
+            this.label2.Text = "Total de efectivo en caja";
             // 
             // btn_GuardarArchivo
             // 
@@ -2279,45 +2320,6 @@ namespace MrTiendita.Vistas
             this.lbl_DescCorte.Size = new System.Drawing.Size(448, 23);
             this.lbl_DescCorte.TabIndex = 7;
             this.lbl_DescCorte.Text = "Compara el dinero de la caja física con el total registrado.";
-            // 
-            // lbl_EfetivoCajaCorte
-            // 
-            this.lbl_EfetivoCajaCorte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_EfetivoCajaCorte.AutoSize = true;
-            this.lbl_EfetivoCajaCorte.BackColor = System.Drawing.Color.White;
-            this.lbl_EfetivoCajaCorte.Font = new System.Drawing.Font("Leelawadee UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_EfetivoCajaCorte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_EfetivoCajaCorte.Location = new System.Drawing.Point(1011, 33);
-            this.lbl_EfetivoCajaCorte.Name = "lbl_EfetivoCajaCorte";
-            this.lbl_EfetivoCajaCorte.Size = new System.Drawing.Size(141, 32);
-            this.lbl_EfetivoCajaCorte.TabIndex = 76;
-            this.lbl_EfetivoCajaCorte.Text = "$1,000,000";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.label2.Location = new System.Drawing.Point(959, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 23);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "Total de efectivo en caja";
-            // 
-            // lbl_mostrarTodos
-            // 
-            this.lbl_mostrarTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_mostrarTodos.AutoSize = true;
-            this.lbl_mostrarTodos.BackColor = System.Drawing.Color.White;
-            this.lbl_mostrarTodos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_mostrarTodos.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_mostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(74)))));
-            this.lbl_mostrarTodos.Location = new System.Drawing.Point(809, 124);
-            this.lbl_mostrarTodos.Name = "lbl_mostrarTodos";
-            this.lbl_mostrarTodos.Size = new System.Drawing.Size(102, 20);
-            this.lbl_mostrarTodos.TabIndex = 63;
-            this.lbl_mostrarTodos.Text = "Mostrar todos";
             // 
             // FrmMovimientos
             // 

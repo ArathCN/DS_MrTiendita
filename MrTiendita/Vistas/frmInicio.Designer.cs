@@ -147,6 +147,7 @@ namespace MrTiendita.Vistas
             this.tb_IDEmpleado.HoverState.Parent = this.tb_IDEmpleado;
             this.tb_IDEmpleado.Location = new System.Drawing.Point(429, 183);
             this.tb_IDEmpleado.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_IDEmpleado.MaxLength = 20;
             this.tb_IDEmpleado.Name = "tb_IDEmpleado";
             this.tb_IDEmpleado.PasswordChar = '\0';
             this.tb_IDEmpleado.PlaceholderText = "";
@@ -174,6 +175,7 @@ namespace MrTiendita.Vistas
             this.tb_claveEmpleado.HoverState.Parent = this.tb_claveEmpleado;
             this.tb_claveEmpleado.Location = new System.Drawing.Point(429, 289);
             this.tb_claveEmpleado.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_claveEmpleado.MaxLength = 20;
             this.tb_claveEmpleado.Name = "tb_claveEmpleado";
             this.tb_claveEmpleado.PasswordChar = '*';
             this.tb_claveEmpleado.PlaceholderText = "";

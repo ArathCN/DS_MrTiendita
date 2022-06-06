@@ -98,6 +98,7 @@ namespace MrTiendita.Patrones
                 vista.dgv_TablaProductos.Rows.Add(xProducto.Codigo_barra,
                                                   xProducto.Descripcion,
                                                   xProducto.Precio_compra,
+                                                  xProducto.Precio_venta,
                                                   xProducto.Ganancia,
                                                   xProducto.Categoria,
                                                   xProducto.Cantidad_actual,

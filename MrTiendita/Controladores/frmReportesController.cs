@@ -88,10 +88,10 @@ namespace MrTiendita.Controladores
 
         private void Vista_Load(object sender, EventArgs e)
         {
-            this.vista.dp_DesdeEntradas.Value = DateTime.Today;
-            this.vista.dp_HastaEntradas.Value = DateTime.Today.AddDays(+1); ;
-            this.vista.dp_DesdeVentas.Value = DateTime.Today;
-            this.vista.dp_HastaVentas.Value = DateTime.Today.AddDays(+1);
+            this.vista.dp_DesdeEntradas.Value = DateTime.Today.AddDays(-1);
+            this.vista.dp_HastaEntradas.Value = DateTime.Today;
+            this.vista.dp_DesdeVentas.Value = DateTime.Today.AddDays(-1);
+            this.vista.dp_HastaVentas.Value = DateTime.Today;
             BlackOutDateTimePicker(this.vista.dp_DesdeVentas, this.vista.dp_HastaVentas);
             BlackOutDateTimePicker(this.vista.dp_DesdeEntradas, this.vista.dp_HastaEntradas);
             bordeInferior = new Panel();
@@ -402,7 +402,8 @@ namespace MrTiendita.Controladores
                 Dictionary<string, double> totalProductosCategoria = new Dictionary<string, double>();
 
                 List<Categoria> categorias = Categorias.CATEGORIAS;
-                categorias.RemoveAt(0);
+                if (categorias.Contains(Categorias.TODOS))
+                    categorias.Remove(Categorias.TODOS);
 
                 foreach (Categoria categoria in categorias)
                 {
@@ -508,7 +509,8 @@ namespace MrTiendita.Controladores
             this.dateTimePickerSince = (GunaDateTimePicker)DatePickerSince;
             this.dateTimePickerUntil = (GunaDateTimePicker)DatePickerUntil;
             DateTime sinceDate = this.dateTimePickerSince.Value;
-            this.dateTimePickerUntil.MinDate = sinceDate.AddDays(+1);           
+            this.dateTimePickerUntil.MinDate = sinceDate.AddDays(+1);
+            this.dateTimePickerUntil.MaxDate = DateTime.Today;
         }
 
         public DateTime FiltroMes(DateTime hoy)
@@ -588,7 +590,8 @@ namespace MrTiendita.Controladores
             this.ventaPorProducto.Clear();
 
             List<Categoria> categorias = Categorias.CATEGORIAS;
-            categorias.RemoveAt(0);
+            if (categorias.Contains(Categorias.TODOS))
+                categorias.Remove(Categorias.TODOS);
 
             NumberFormatInfo formato = new CultureInfo("es-MX").NumberFormat;
             formato.CurrencyGroupSeparator = ",";

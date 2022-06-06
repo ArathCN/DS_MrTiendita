@@ -344,6 +344,7 @@ namespace MrTiendita.Vistas
             this.tb_CantidadMin.HoverState.Parent = this.tb_CantidadMin;
             this.tb_CantidadMin.Location = new System.Drawing.Point(61, 467);
             this.tb_CantidadMin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_CantidadMin.MaxLength = 3;
             this.tb_CantidadMin.Name = "tb_CantidadMin";
             this.tb_CantidadMin.PasswordChar = '\0';
             this.tb_CantidadMin.PlaceholderText = "";
@@ -411,6 +412,7 @@ namespace MrTiendita.Vistas
             this.tb_LadaTel.HoverState.Parent = this.tb_LadaTel;
             this.tb_LadaTel.Location = new System.Drawing.Point(467, 260);
             this.tb_LadaTel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_LadaTel.MaxLength = 4;
             this.tb_LadaTel.Name = "tb_LadaTel";
             this.tb_LadaTel.PasswordChar = '\0';
             this.tb_LadaTel.PlaceholderText = "";
@@ -448,6 +450,7 @@ namespace MrTiendita.Vistas
             this.tb_SueldoEncargados.HoverState.Parent = this.tb_SueldoEncargados;
             this.tb_SueldoEncargados.Location = new System.Drawing.Point(245, 260);
             this.tb_SueldoEncargados.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_SueldoEncargados.MaxLength = 6;
             this.tb_SueldoEncargados.Name = "tb_SueldoEncargados";
             this.tb_SueldoEncargados.PasswordChar = '\0';
             this.tb_SueldoEncargados.PlaceholderText = "";
@@ -485,6 +488,7 @@ namespace MrTiendita.Vistas
             this.tb_SueldoCajeros.HoverState.Parent = this.tb_SueldoCajeros;
             this.tb_SueldoCajeros.Location = new System.Drawing.Point(24, 260);
             this.tb_SueldoCajeros.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tb_SueldoCajeros.MaxLength = 6;
             this.tb_SueldoCajeros.Name = "tb_SueldoCajeros";
             this.tb_SueldoCajeros.PasswordChar = '\0';
             this.tb_SueldoCajeros.PlaceholderText = "";
@@ -544,6 +548,7 @@ namespace MrTiendita.Vistas
             this.tb_Ruta.Name = "tb_Ruta";
             this.tb_Ruta.PasswordChar = '\0';
             this.tb_Ruta.PlaceholderText = "";
+            this.tb_Ruta.ReadOnly = true;
             this.tb_Ruta.SelectedText = "";
             this.tb_Ruta.ShadowDecoration.Parent = this.tb_Ruta;
             this.tb_Ruta.Size = new System.Drawing.Size(657, 36);
